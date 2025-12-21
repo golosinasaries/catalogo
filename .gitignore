@@ -1,0 +1,12 @@
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+
+# Dependencias
+node_modules/
+
+# Variables de entorno
+.env
