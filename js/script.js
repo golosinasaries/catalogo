@@ -31,7 +31,7 @@ if (modal) {
     "Brochetas de ojos (30u)": ["img/brochetas2.jpg", "img/brochetas3.jpg",],
     "Camiseta pimball + pastillitas (30)": ["img/pimballremera.jpg","img/reversaremera.jpg","img/r1.jpg","img/r2.jpg"],
     "Celu + chicles(30u)": ["img/pimballip.jpg","img/reversaip.jpg"],
-    "Chupetin Calabaza conpolvo ácido (30u)": ["img/chupetinCalabaza.jpg","img/chupetincalabaza1.jpg","img/chupetincalabaza2.jpg"],
+    "Chupetin Calabaza conpolvo ácido (30u)": ["img/chupetincalabaza1.jpg","img/chupetincalabaza2.jpg"],
     "Chupetines con formas (30u) ": ["img/chupetinesconformas1.jpg","img/chupetinesconformas2.jpg"],
     "Halloween chupetines (30u)": ["img/halloween1.jpg","img/halloween2.jpg","img/halloween3.jpg","img/halloween4.jpg"],
     "Gelatinas con formas (30u)": ["img/gelatinaDiferentesSabores4.jpg","img/gelatinaDiferentesSabores3.jpg","img/gelatinaDiferentesSabores2.jpg","img/gelatinaDiferentesSabores5.jpg","img/gelatinaDiferentesSabores1.jpg"],
