@@ -235,6 +235,7 @@ function mostrarToast(mensaje, tipo = "success") {
     });
   }
 
+
 // ========================
 // ZOOM EN IMAGEN DEL MODAL
 // ========================
@@ -321,15 +322,6 @@ document.addEventListener("DOMContentLoaded", () => {
     msg += `\n- Teléfono:`;
     msg += `\n- Email:`;
 
-    msg += `\n\n💳 *Datos para abonar por Mercado Pago*`;
-    msg += `\nNombre: Ana Maria Montiel`;
-    msg += `\nAlias: *ana.maria.montiel*`;
-    msg += `\nCVU: 0000003100012664749584`;
-    msg += `\nCUIT/CUIL: 27-20845773-5`;
-
-    msg += `\n💰 *Total a pagar:* $${total.toLocaleString("es-AR")}`;
-    msg += `\n\n📸 Una vez realizado el pago, por favor envianos el comprobante para verificar y continuar con el envío 📦`;
-
 
     const numero = "542236010443";
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
@@ -360,7 +352,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <strong>- Total: $${total.toLocaleString("es-AR")}</strong>
     `;
 
-    actualizarAvisoEnvioGratis(total);
+    //actualizarAvisoEnvioGratis(total);
 
     let carritoTimer;
 
@@ -451,85 +443,73 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 document.getElementById("enviar-carrito")?.addEventListener("click", () => {
-  if (carrito.length === 0) { 
-    alert("Tu carrito está vacío 🛒"); 
-    return; 
+  if (carrito.length === 0) {
+    alert("Tu carrito está vacío 🛒");
+    return;
   }
 
   let msg = "🛍️ *Quiero comenzar este pedido:*\n\n";
   let total = 0;
   let totalProductos = 0;
+  let costoEnvio = 0;
 
+  // 🔹 Productos
   carrito.forEach(i => {
     const precioUnitario = parsePrecio(i.precio);
     const subtotal = precioUnitario * i.cantidad;
     total += subtotal;
     totalProductos += i.cantidad;
 
-    // 🔹 Sin numeración
     if (i.cantidad > 1) {
       msg += `• *${i.nombre}* — *${i.cantidad}* x ${i.precio} → *$${subtotal.toLocaleString("es-AR")}*\n`;
     } else {
       msg += `• *${i.nombre}* — ${i.precio}\n`;
     }
   });
-  
-  // 🔴 COMPRA MÍNIMA
-if (total < 50000) {
-  alert("⚠️ La compra mínima es de $50.000");
-  return;
-}
 
-// 🔹 Totales separados
-msg += `\n📦 *Total de productos:* ${totalProductos}`;
-msg += `\n💰 *Total a pagar:* $${total.toLocaleString("es-AR")}`;
+  // 🔴 Compra mínima
+  if (total < 50000) {
+    alert("⚠️ La compra mínima es de $50.000");
+    return;
+  }
 
-// 🔹 Envío
-if (total >= 80000) {
-  msg += `\n\n🚚 *Envío:* GRATIS`;
-  msg += `\n\n📩 *Datos necesarios para el Correo*`;
-  msg += `\nPor favor envíanos estos datos 👇`;
+  // 🚚 Envío (una sola vez)
+  if (total >= 300000) {
+    costoEnvio = 0;
+    msg += `\n🚚 *Envío:* GRATIS`;
+  } else {
+    costoEnvio = 10000;
+    msg += `\n🚚 *Envío:* $${costoEnvio.toLocaleString("es-AR")}`;
+  }
+
+  const totalFinal = total + costoEnvio;
+
+  // 🔹 Totales
+  msg += `\n📦 *Total de productos:* ${totalProductos}`;
+  msg += `\n\n💳 *Total a pagar (con envío incluido):* $${totalFinal.toLocaleString("es-AR")}`;
+
+  // 🔹 Datos de envío (tono amable)
+  msg += `\n\n📩 *Para coordinar el envío*`;
+  msg += `\nCuando puedas, nos compartís estos datos 😊`;
   msg += `\n\n- Nombre y apellido:`;
-  msg += `\n- Localidad:`;
   msg += `\n- Provincia:`;
+  msg += `\n- Localidad:`;
   msg += `\n- Dirección exacta:`;
   msg += `\n- Código postal:`;
-  msg += `\n- Teléfono:`;
   msg += `\n- Email:`;
-
-  // 👉 SOLO SI ES ENVÍO GRATIS → DATOS DE PAGO
-//  msg += `\n\n💳 *Datos para abonar por Mercado Pago*`;
- // msg += `\nNombre: Ana Maria Montiel`;
-  //msg += `\nAlias: *ana.maria.montiel*`;
- // msg += `\nCVU: 0000003100012664749584`;
- // msg += `\nCUIT/CUIL: 27-20845773-5`;
-
- //msg += `\n💰 *Total a pagar:* $${total.toLocaleString("es-AR")}`;
-  //msg += `\n\n📸 Una vez realizado el pago, por favor envianos el comprobante para verificar y continuar con el envío 📦`;
-} else {
-  // 👉 SI NO LLEGA A ENVÍO GRATIS
-  msg += `\n\n🚚 *Envío:* a completar`;
-  msg += `\n\n📩 *Datos necesarios para el Correo*`;
-  msg += `\nPor favor envíanos estos datos 👇`;
-  msg += `\n\n- Nombre y apellido:`;
-  msg += `\n- Localidad:`;
-  msg += `\n- Provincia:`;
-  msg += `\n- Dirección exacta:`;
-  msg += `\n- Código postal:`;
   msg += `\n- Teléfono:`;
-  msg += `\n- Email:`;
-}
+  msg += `\n- Alguna referencia del domicilio (opcional):`;
 
   const url = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
   window.open(url, "_blank");
-});
-
 
   actualizarCarrito();
 });
 
+});
+
 // ========================
-// AVISO ENVÍO GRATIS
+/* AVISO ENVÍO GRATIS
 // ========================
 function actualizarAvisoEnvioGratis(total) {
   const aviso = document.getElementById("aviso-envio-gratis");
@@ -559,6 +539,7 @@ function actualizarAvisoEnvioGratis(total) {
     envioGratisToastMostrado = false;
   }
 }
+*/
 
 const btn = document.getElementById("whatsapp-btn");
 
