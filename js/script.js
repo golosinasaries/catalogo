@@ -473,6 +473,11 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     return;
   }
 
+    // 🎁 REGALO POR COMPRA MÍNIMA
+  msg += `\n🎁 *Regalo incluido:* Alcancía a elección ($0)`;
+  totalProductos += 1;
+
+
   // 🚚 Envío (una sola vez)
   if (total >= 300000) {
     costoEnvio = 0;
@@ -489,8 +494,8 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
   msg += `\n\n💳 *Total a pagar (con envío incluido):* $${totalFinal.toLocaleString("es-AR")}`;
 
   // 🔹 Datos de envío (tono amable)
-  msg += `\n\n📩 *Para coordinar el envío*`;
-  msg += `\nCuando puedas, nos compartís estos datos 😊`;
+  msg += `\n\n📩 *Datos necesarios para el envío a través de Correo Argentino*`;
+  msg += `\n⏱️ Entrega estimada: 2 a 5 días hábiles`;
   msg += `\n\n- Nombre y apellido:`;
   msg += `\n- Provincia:`;
   msg += `\n- Localidad:`;
@@ -499,6 +504,9 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
   msg += `\n- Email:`;
   msg += `\n- Teléfono:`;
   msg += `\n- Alguna referencia del domicilio (opcional):`;
+
+  msg += `\n\n🎁 *Regalo:* ¿Qué alcancía elegís? 😊`;
+
 
   const url = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
   window.open(url, "_blank");
