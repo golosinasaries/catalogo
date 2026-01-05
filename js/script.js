@@ -1,3 +1,18 @@
+const ENVIO_MDP = 5000;
+const ENVIO_GENERAL = 10000;
+const ENVIO_GRATIS = 300000;
+
+function esEnvio5000PorCP(cp) {
+  if (!cp) return false;
+
+  const codigo = cp.trim();
+
+  return (
+    codigo.startsWith("7600") || // Mar del Plata
+    codigo.startsWith("7607")    // Miramar
+  );
+}
+
 // ========================
 // MODAL DE PRODUCTOS
 // ========================
@@ -477,15 +492,19 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
   msg += `\n🎁 *Regalo incluido:* Alcancía a elección ($0)`;
   totalProductos += 1;
 
+let codigoPostalCliente = prompt("📍 Ingresá tu código postal para calcular el envío:");
 
-  // 🚚 Envío (una sola vez)
-  if (total >= 300000) {
-    costoEnvio = 0;
-    msg += `\n🚚 *Envío:* GRATIS`;
-  } else {
-    costoEnvio = 10000;
-    msg += `\n🚚 *Envío:* $${costoEnvio.toLocaleString("es-AR")}`;
-  }
+if (total >= ENVIO_GRATIS) {
+  costoEnvio = 0;
+  msg += `\n🚚 *Envío:* GRATIS`;
+} else if (esEnvio5000PorCP(codigoPostalCliente)) {
+  costoEnvio = ENVIO_MDP;
+  msg += `\n🚚 *Envío:* $${costoEnvio.toLocaleString("es-AR")} (Mar del Plata)`;
+} else {
+  costoEnvio = ENVIO_GENERAL;
+  msg += `\n🚚 *Envío:* $${costoEnvio.toLocaleString("es-AR")}`;
+}
+
 
   const totalFinal = total + costoEnvio;
 
