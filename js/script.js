@@ -489,7 +489,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
   }
 
   // 🎁 Regalo por compra mínima
-  msg += `\n🎁 *Regalo incluido:* Alcancía a elección ($0)`;
+  msg += `\n🎁 *Regalo incluido:* Alcancía con 12 gelatinas ($0)`;
   totalProductos += 1;
 
   // 🔹 Abrir modal de código postal
@@ -508,7 +508,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
       msg += `\n🚚 *Envío:* GRATIS`;
     } else if (esEnvio5000PorCP(codigoPostalCliente)) {
       costoEnvio = ENVIO_MDP;
-      msg += `\n🚚 *Envío:* $${costoEnvio.toLocaleString("es-AR")} (Mar del Plata / Miramar)`;
+      msg += `\n🚚 *Envío:* $${costoEnvio.toLocaleString("es-AR")}`;
     } else {
       costoEnvio = ENVIO_GENERAL;
       msg += `\n🚚 *Envío:* $${costoEnvio.toLocaleString("es-AR")}`;
@@ -531,7 +531,6 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     msg += `\n- Email:`;
     msg += `\n- Teléfono:`;
     msg += `\n- Alguna referencia del domicilio (opcional):`;
-    msg += `\n\n🎁 *Regalo:* ¿Qué alcancía elegís? 😊`;
 
     // 🔹 Abrir WhatsApp
     const numero = "542236010443";
