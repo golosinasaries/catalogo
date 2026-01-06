@@ -482,89 +482,66 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     }
   });
 
-  // 🔴 Compra mínima
+  // 🔹 Compra mínima
   if (total < 50000) {
     alert("⚠️ La compra mínima es de $50.000");
     return;
   }
 
-    // 🎁 REGALO POR COMPRA MÍNIMA
+  // 🎁 Regalo por compra mínima
   msg += `\n🎁 *Regalo incluido:* Alcancía a elección ($0)`;
   totalProductos += 1;
 
-// Abrir modal de código postal
-const modalCP = document.getElementById("modal-cp");
-const inputCP = document.getElementById("cp-input");
-modalCP.style.display = "flex";
+  // 🔹 Abrir modal de código postal
+  const modalCP = document.getElementById("modal-cp");
+  const inputCP = document.getElementById("cp-input");
+  inputCP.value = "";
+  modalCP.style.display = "flex";
 
-// Esperar que el usuario haga click en "Aceptar"
-document.getElementById("cp-confirmar").onclick = () => {
-  const codigoPostalCliente = inputCP.value.trim();
+  // 🔹 Esperar confirmación del usuario
+  document.getElementById("cp-confirmar").onclick = () => {
+    const codigoPostalCliente = inputCP.value.trim();
 
-  // Calcular envío según código postal
-  if (total >= ENVIO_GRATIS) {
-    costoEnvio = 0;
-    msg += `\n🚚 *Envío:* GRATIS`;
-  } else if (esEnvio5000PorCP(codigoPostalCliente)) {
-    costoEnvio = ENVIO_MDP;
-    msg += `\n🚚 *Envío:* $${costoEnvio.toLocaleString("es-AR")} (Mar del Plata)`;
-  } else {
-    costoEnvio = ENVIO_GENERAL;
-    msg += `\n🚚 *Envío:* $${costoEnvio.toLocaleString("es-AR")}`;
-  }
+    // 🔹 Calcular envío
+    if (total >= ENVIO_GRATIS) {
+      costoEnvio = 0;
+      msg += `\n🚚 *Envío:* GRATIS`;
+    } else if (esEnvio5000PorCP(codigoPostalCliente)) {
+      costoEnvio = ENVIO_MDP;
+      msg += `\n🚚 *Envío:* $${costoEnvio.toLocaleString("es-AR")} (Mar del Plata / Miramar)`;
+    } else {
+      costoEnvio = ENVIO_GENERAL;
+      msg += `\n🚚 *Envío:* $${costoEnvio.toLocaleString("es-AR")}`;
+    }
 
-  // Totales finales
-  const totalFinal = total + costoEnvio;
-  msg += `\n\n💳 *Total a pagar (con envío incluido):* $${totalFinal.toLocaleString("es-AR")}`;
+    const totalFinal = total + costoEnvio;
 
-  // Abrir WhatsApp
-  const url = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
-  window.open(url, "_blank");
+    // 🔹 Totales finales
+    msg += `\n📦 *Total de productos:* ${totalProductos}`;
+    msg += `\n\n💳 *Total a pagar (con envío incluido):* $${totalFinal.toLocaleString("es-AR")}`;
 
-  // Cerrar modal
-  modalCP.style.display = "none";
-};
+    // 🔹 Datos de envío (Correo Argentino)
+    msg += `\n\n📩 *Datos necesarios para el envío a través de Correo Argentino*`;
+    msg += `\n⏱️ Entrega estimada: 2 a 5 días hábiles`;
+    msg += `\n\n- Nombre y apellido:`;
+    msg += `\n- Provincia:`;
+    msg += `\n- Localidad:`;
+    msg += `\n- Dirección exacta:`;
+    msg += `\n- Código postal: ${codigoPostalCliente}`;
+    msg += `\n- Email:`;
+    msg += `\n- Teléfono:`;
+    msg += `\n- Alguna referencia del domicilio (opcional):`;
+    msg += `\n\n🎁 *Regalo:* ¿Qué alcancía elegís? 😊`;
 
+    // 🔹 Abrir WhatsApp
+    const numero = "542236010443";
+    const url = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
+    window.open(url, "_blank");
 
-if (total >= ENVIO_GRATIS) {
-  costoEnvio = 0;
-  msg += `\n🚚 *Envío:* GRATIS`;
-} else if (esEnvio5000PorCP(codigoPostalCliente)) {
-  costoEnvio = ENVIO_MDP;
-  msg += `\n🚚 *Envío:* $${costoEnvio.toLocaleString("es-AR")} (Mar del Plata)`;
-} else {
-  costoEnvio = ENVIO_GENERAL;
-  msg += `\n🚚 *Envío:* $${costoEnvio.toLocaleString("es-AR")}`;
-}
-
-
-  const totalFinal = total + costoEnvio;
-
-  // 🔹 Totales
-  msg += `\n📦 *Total de productos:* ${totalProductos}`;
-  msg += `\n\n💳 *Total a pagar (con envío incluido):* $${totalFinal.toLocaleString("es-AR")}`;
-
-  // 🔹 Datos de envío (tono amable)
-  msg += `\n\n📩 *Datos necesarios para el envío a través de Correo Argentino*`;
-  msg += `\n⏱️ Entrega estimada: 2 a 5 días hábiles`;
-  msg += `\n\n- Nombre y apellido:`;
-  msg += `\n- Provincia:`;
-  msg += `\n- Localidad:`;
-  msg += `\n- Dirección exacta:`;
-  msg += `\n- Código postal:`;
-  msg += `\n- Email:`;
-  msg += `\n- Teléfono:`;
-  msg += `\n- Alguna referencia del domicilio (opcional):`;
-
-  msg += `\n\n🎁 *Regalo:* ¿Qué alcancía elegís? 😊`;
-
-
-  const url = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
-  window.open(url, "_blank");
-
-  actualizarCarrito();
+    // 🔹 Cerrar modal
+    modalCP.style.display = "none";
+  };
 });
-
 });
 
 // ========================
