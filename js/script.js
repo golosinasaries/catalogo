@@ -492,7 +492,39 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
   msg += `\n🎁 *Regalo incluido:* Alcancía a elección ($0)`;
   totalProductos += 1;
 
-let codigoPostalCliente = prompt("📍 Ingresá tu código postal para calcular el envío:");
+// Abrir modal de código postal
+const modalCP = document.getElementById("modal-cp");
+const inputCP = document.getElementById("cp-input");
+modalCP.style.display = "flex";
+
+// Esperar que el usuario haga click en "Aceptar"
+document.getElementById("cp-confirmar").onclick = () => {
+  const codigoPostalCliente = inputCP.value.trim();
+
+  // Calcular envío según código postal
+  if (total >= ENVIO_GRATIS) {
+    costoEnvio = 0;
+    msg += `\n🚚 *Envío:* GRATIS`;
+  } else if (esEnvio5000PorCP(codigoPostalCliente)) {
+    costoEnvio = ENVIO_MDP;
+    msg += `\n🚚 *Envío:* $${costoEnvio.toLocaleString("es-AR")} (Mar del Plata)`;
+  } else {
+    costoEnvio = ENVIO_GENERAL;
+    msg += `\n🚚 *Envío:* $${costoEnvio.toLocaleString("es-AR")}`;
+  }
+
+  // Totales finales
+  const totalFinal = total + costoEnvio;
+  msg += `\n\n💳 *Total a pagar (con envío incluido):* $${totalFinal.toLocaleString("es-AR")}`;
+
+  // Abrir WhatsApp
+  const url = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
+  window.open(url, "_blank");
+
+  // Cerrar modal
+  modalCP.style.display = "none";
+};
+
 
 if (total >= ENVIO_GRATIS) {
   costoEnvio = 0;
