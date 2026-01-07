@@ -60,10 +60,12 @@ if (modal) {
     "Chupetines Capibara (30 unidades)": ["img/chupetincapibara1.jpg","img/chupetincapibara2.jpg"],
     //"Chupetines con forma de conejo (30 unidades)": ["img/conejos1.jpg","img/conejos3.jpg"],
     "Chupetines con forma de Unicornio (30 unidades)":["img/unicornio2.jpg","img/unicornio1.jpg","img/unicornio3.jpg"],
+    "Chupetines con led Unicornio (30 unidades)":["img/unicornioled1.jpg","img/unicornioled2.jpg",],
     "Gomitas Super Mario (pote x 30 unidades)": ["img/supermario1.jpg","img/supermario2.jpg"],
     "Gomitas Saca lenguas (30 unidades)": ["img/sacalenguas1.jpg","img/sacalenguas2.jpg"],
     "Chupetines con led Mc Donalds (30 unidades)": ["img/mc.jpg","img/mc2.jpg",],
     "Chupetines con led Oreo (30 unidades)": ["img/oreo1.jpg","img/oreo2.jpg",],
+    "Chupetines led Monster (30 unidades)": ["img/monsterojo1.jpg","img/monsterojo.jpg",],
   };
 
   let currentImages = [];
