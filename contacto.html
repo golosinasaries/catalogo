@@ -68,24 +68,41 @@
     </div>
 
     <section class="facebook-embed">
-  <h2>🔥</h2>
-  <p class="fb-sub">
+<!-- Cargar SDK de Facebook -->
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous"
+  src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v17.0">
+</script>
+
+<section class="sorteo" style="max-width:600px; margin:40px auto; padding:20px; 
+  text-align:center; font-family:Arial, sans-serif; background-color:#fff; 
+  border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+
+  <!-- Logo / título -->
+  <h2 style="font-size:1.8em; margin-bottom:10px; color:#e63946;">Participá del sorteo! 🔥</h2>
+
+  <!-- Subtítulo -->
+  <p class="fb-sub" style="font-size:1em; color:#555; margin-bottom:20px;">
     Productos que se venden solos.
   </p>
 
-  <div class="fb-video">
-    <iframe
-      src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fbusiness.facebook.com%2F61578949001641%2Fvideos%2F1140279768051351%2F&show_text=false&width=267&t=0"
-      loading="lazy"
-      allowfullscreen="true"
-      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-    </iframe>
+  <!-- Publicación de Facebook incrustada -->
+  <div class="fb-video" style="margin-bottom:20px; width:100%;">
+    <div class="fb-post" 
+         data-href="https://www.facebook.com/61578949001641/posts/122142736160964966/"
+         data-width="100%"
+         data-show-text="true">
+    </div>
   </div>
 
-  <p class="fb-cta">
+  <!-- CTA destacado -->
+  <p class="fb-cta" style="font-size:1em; color:#fff; background-color:#f77f00; 
+      padding:12px 20px; border-radius:8px; display:inline-block; margin-top:10px;">
     📦 Envíos a todo el país · Pedidos mayoristas
   </p>
+
 </section>
+
 
   </aside>
 
