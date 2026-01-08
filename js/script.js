@@ -1,6 +1,6 @@
 const ENVIO_MDP = 5000;
 const ENVIO_GENERAL = 10000;
-const ENVIO_GRATIS = 300000;
+const ENVIO_GRATIS = 10000000;
 
 function esEnvio5000PorCP(cp) {
   if (!cp) return false;
@@ -525,14 +525,14 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     // 🔹 Datos de envío (Correo Argentino)
     msg += `\n\n📩 *Datos necesarios para el envío a través de Correo Argentino*`;
     msg += `\n⏱️ Entrega estimada: 2 a 5 días hábiles`;
-    msg += `\n\n- Nombre y apellido:`;
-    msg += `\n- Provincia:`;
-    msg += `\n- Localidad:`;
-    msg += `\n- Dirección exacta:`;
+    msg += `\n\n- Nombre y apellido: `;
+    msg += `\n- Provincia: `;
+    msg += `\n- Localidad: `;
+    msg += `\n- Dirección exacta: `;
     msg += `\n- Código postal: ${codigoPostalCliente}`;
-    msg += `\n- Email:`;
-    msg += `\n- Teléfono:`;
-    msg += `\n- Alguna referencia del domicilio (opcional):`;
+    msg += `\n- Email: `;
+    msg += `\n- Teléfono: `;
+    msg += `\n- Alguna referencia del domicilio (opcional): `;
 
     // 🔹 Abrir WhatsApp
     const numero = "542236010443";
