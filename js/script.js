@@ -583,6 +583,7 @@ const btn = document.getElementById("whatsapp-btn");
 
 if (btn) {
   btn.addEventListener("click", () => {
+  fbq('track', 'Contact');
   const numero = "542236010443";
   const mensaje = "Hola! Vengo del catálogo y tengo una consulta...";
   window.open(`https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`, "_blank");
