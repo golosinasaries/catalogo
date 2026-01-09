@@ -651,18 +651,24 @@ html { scroll-behavior: smooth; }
    Animaciones
    ============================== */
 
-/* Animación de pulso */
+/* Animación al agregar al carrito */
 @keyframes pulse {
   0% {
     transform: scale(1);
   }
   50% {
-    transform: scale(1.2);
+    transform: scale(1.25);
   }
   100% {
     transform: scale(1);
   }
 }
+
+/* Clase que dispara la animación */
+.animar-agregar {
+  animation: pulse 0.4s ease;
+}
+
 
 /* Clase que se aplica al botón */
 .btn-agregado {
@@ -1231,6 +1237,7 @@ html { scroll-behavior: smooth; }
   display: block;
   opacity: 1;
   transform: translateY(0);
+  background: linear-gradient(135deg, #6a1b9a, #47b8bc); /* degradado de fondo del header */
 }
 .toast.success {
   background: linear-gradient(135deg,rgba, rgba(0,184,148,0.6));
@@ -1322,59 +1329,7 @@ html { scroll-behavior: smooth; }
 .hidden {
   display: none;
 }
-/* =========================
-   COMO HACER TU PEDIDO
-   ========================= */
 
-.instrucciones-texto {
-  max-width: 700px;
-  margin: 40px auto; /* aire arriba y abajo equilibrado */
-  padding: 25px 30px;
-  background-color: #fdfdfd;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* sombra suave */
-  margin-top: 100px;
-
-  font-family: 'Quicksand', sans-serif, Arial, sans-serif;
-  color: #444;
-  line-height: 1.6;
-  transition: all 0.3s ease;
-}
-/* Título */
-.instrucciones-texto h2 {
-  margin-bottom: 11px;
-  margin-top: 40px;
-  font-size: 24px;
-  text-align: center;
-  color: #5c0180; /* rojo suave para destacar */
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-/* Párrafos */
-.instrucciones-texto p {
-  margin: 0 0 4px 0;
-  font-size: 15px;
-  color: #555;
-}
-/* Lista */
-.instrucciones-texto ul {
-  margin: 1px 0 0 0;
-  padding-left: 20px;
-}
-/* Puntos personalizados */
-.instrucciones-texto li::before {
-  content: '✔';
-  position: absolute;
-  left: 0;
-  top: 2px;
-  color: #8c3ce7;
-  font-weight: bold;
-  font-size: 14px;
-}
-/* Hover sutil en todo el contenedor */
-.instrucciones-texto:hover {
-  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-}
 /* Responsive Design */
 @media (max-width: 1200px) {
   .instrucciones-texto {

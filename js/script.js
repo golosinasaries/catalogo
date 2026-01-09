@@ -241,7 +241,7 @@ function mostrarToast(mensaje, tipo = "success") {
   setTimeout(() => {
     toast.classList.remove("show");
     setTimeout(() => toast.style.display = "none", 400);
-  }, 2000);
+  }, 3000);
 }
 
   function lanzarConfetti() {
@@ -252,6 +252,17 @@ function mostrarToast(mensaje, tipo = "success") {
     });
   }
 
+function animarAgregar(btn) {
+  if (!btn) return;
+
+  btn.classList.remove("animar-agregar");
+  void btn.offsetWidth; // fuerza reflow
+  btn.classList.add("animar-agregar");
+
+  setTimeout(() => {
+    btn.classList.remove("animar-agregar");
+  }, 400);
+}
 
 // ========================
 // ZOOM EN IMAGEN DEL MODAL
@@ -447,6 +458,7 @@ document.addEventListener("DOMContentLoaded", () => {
           if (ex) ex.cantidad++;
           else carrito.push({ nombre, precio, cantidad: 1 });
           actualizarCarrito();
+          animarAgregar(btn);
           mostrarToast("Producto agregado al carrito 🛒", "warning");
           if (typeof modal !== "undefined" && modal?.style?.display === "flex") modal.style.display = "none";
           //carritoDropdown.style.display = "block";
