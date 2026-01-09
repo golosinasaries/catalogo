@@ -650,6 +650,25 @@ html { scroll-behavior: smooth; }
 /* ==============================
    Animaciones
    ============================== */
+
+/* Animación de pulso */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Clase que se aplica al botón */
+.btn-agregado {
+  animation: pulse 0.3s ease;
+}
+
 @keyframes fiestaPop {
   0% {
     transform: scale(0.6);

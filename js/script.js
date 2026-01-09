@@ -503,7 +503,10 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
   // 🔹 Esperar confirmación del usuario
   document.getElementById("cp-confirmar").onclick = () => {
     const codigoPostalCliente = inputCP.value.trim();
-
+      if (!codigoPostalCliente) {
+    alert("⚠️ Por favor, ingresá tu código postal.");
+    return;
+  }
     // 🔹 Calcular envío
     if (total >= ENVIO_GRATIS) {
       costoEnvio = 0;
@@ -583,7 +586,7 @@ const btn = document.getElementById("whatsapp-btn");
 
 if (btn) {
   btn.addEventListener("click", () => {
-  fbq('track', 'Contact');
+  //fbq('track', 'Contact');
   const numero = "542236010443";
   const mensaje = "Hola! Vengo del catálogo y tengo una consulta...";
   window.open(`https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`, "_blank");
