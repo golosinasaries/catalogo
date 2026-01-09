@@ -503,8 +503,8 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
   }
 
   // 🎁 Regalo por compra mínima
-  msg += `\n🎁 *Regalo incluido:* Alcancía con 12 gelatinas ($0)`;
-  totalProductos += 1;
+ // msg += `\n🎁 *Regalo incluido:* Alcancía con 12 gelatinas ($0)`;
+  //totalProductos += 1;
 
   // 🔹 Abrir modal de código postal
   const modalCP = document.getElementById("modal-cp");
