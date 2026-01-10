@@ -363,7 +363,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ? "<p class='carrito-vacio'>🛍️ Tu carrito está vacío</p>"
       : carrito.map(i=>`
         <div class='carrito-item'>
-          <strong> ${i.nombre}</strong>  ${i.precio}<br>
+          <strong>${i.nombre}${i.precio==0 ? " (REGALO)" : ""}</strong>  ${i.precio || "$0"}<br>
           <button class='cantidad-btn restar' data-nombre='${i.nombre}'>-</button>
           ${i.cantidad}
           <button class='cantidad-btn sumar' data-nombre='${i.nombre}'>+</button>
@@ -502,9 +502,19 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     return;
   }
 
-  // 🎁 Regalo por compra mínima
- // msg += `\n🎁 *Regalo incluido:* Alcancía con 12 gelatinas ($0)`;
-  //totalProductos += 1;
+   /*🎁 Agregar regalo por compra mínima
+  const regalo = { nombre: "Espuma nieve", precio: "0", cantidad: 1};
+
+    // Verificar si ya existe
+  const existeRegalo = carrito.find(item => item.nombre === regalo.nombre);
+  if (!existeRegalo) {
+    mostrarToast(`🎁 ¡Regalo incluido! 1 ${regalo.nombre} agregado al carrito`, "success");
+  }
+
+  */
+  // Mostrar mensaje al usuario
+  //alert(`🎁 ¡Regalo incluido! 1 ${regalo.nombre} agregado al carrito`);
+
 
   // 🔹 Abrir modal de código postal
   const modalCP = document.getElementById("modal-cp");
@@ -513,7 +523,18 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
   modalCP.style.display = "flex";
 
   // 🔹 Esperar confirmación del usuario
-  document.getElementById("cp-confirmar").onclick = () => {
+  // Botón cancelar del modal de código postal
+    const cpCancelar = document.getElementById("cp-cancelar");
+    if (cpCancelar) {
+      cpCancelar.onclick = () => {
+        const modalCP = document.getElementById("modal-cp");
+        if (modalCP) {
+          modalCP.style.display = "none"; // cierra el modal
+          mostrarToast("", "error"); // opcional
+        }
+      };
+    }
+      document.getElementById("cp-confirmar").onclick = () => {
     const codigoPostalCliente = inputCP.value.trim();
       if (!codigoPostalCliente) {
     alert("⚠️ Por favor, ingresá tu código postal.");
@@ -534,6 +555,8 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     const totalFinal = total + costoEnvio;
 
     // 🔹 Totales finales
+    //msg += `\n *🎁 ¡Regalo incluido! 1* ${regalo.nombre} `;
+    //totalProductos += 1;
     msg += `\n📦 *Total de productos:* ${totalProductos}`;
     msg += `\n\n💳 *Total a pagar (con envío incluido):* $${totalFinal.toLocaleString("es-AR")}`;
 
@@ -567,13 +590,13 @@ function actualizarAvisoEnvioGratis(total) {
   const aviso = document.getElementById("aviso-envio-gratis");
   if (!aviso) return;
 
-  const envioGratisDesde = 80000;
+  const envioGratisDesde = 50000;
 
   if (total >= envioGratisDesde) {
-    aviso.innerHTML = "🎉 <strong>¡Tenés envío gratis!</strong>";
+    aviso.innerHTML = "🎉 <strong>¡Tenés regalito!</strong>";
     aviso.style.display = "block";
   if (!envioGratisToastMostrado) {
-    mostrarToast("🎉 Tenés ENVÍO GRATIS 🚚✨","fiesta",1500);
+    mostrarToast("🎉 Tenés regalito ✨","fiesta",1500);
 
     setTimeout(() => {
       lanzarConfetti();
