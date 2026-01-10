@@ -511,11 +511,6 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     mostrarToast(`🎁 ¡Regalo incluido! 1 ${regalo.nombre} agregado al carrito`, "success");
   }
 
-
-  // Mostrar mensaje al usuario
-  alert(`🎁 ¡Regalo incluido! 1 ${regalo.nombre} agregado al carrito`);
-
-
   // 🔹 Abrir modal de código postal
   const modalCP = document.getElementById("modal-cp");
   const inputCP = document.getElementById("cp-input");
@@ -540,6 +535,12 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     alert("⚠️ Por favor, ingresá tu código postal.");
     return;
   }
+    // ❗ Validación de código postal
+    if (!/^\d{4,8}$/.test(codigoPostalCliente)) {
+      alert("⚠️ Código postal inválido. Ingresá solo números (4 a 8 dígitos).");
+      return;
+    }
+
     // 🔹 Calcular envío
     //if (total >= ENVIO_GRATIS) {
       //costoEnvio = 0;
