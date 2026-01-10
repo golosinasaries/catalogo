@@ -380,7 +380,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <strong>- Total: $${total.toLocaleString("es-AR")}</strong>
     `;
 
-    //actualizarAvisoEnvioGratis(total);
+    actualizarAvisoEnvioGratis(total);
 
     let carritoTimer;
 
@@ -502,7 +502,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     return;
   }
 
-   /*🎁 Agregar regalo por compra mínima
+   //🎁 Agregar regalo por compra mínima
   const regalo = { nombre: "Espuma nieve", precio: "0", cantidad: 1};
 
     // Verificar si ya existe
@@ -511,9 +511,9 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     mostrarToast(`🎁 ¡Regalo incluido! 1 ${regalo.nombre} agregado al carrito`, "success");
   }
 
-  */
+
   // Mostrar mensaje al usuario
-  //alert(`🎁 ¡Regalo incluido! 1 ${regalo.nombre} agregado al carrito`);
+  alert(`🎁 ¡Regalo incluido! 1 ${regalo.nombre} agregado al carrito`);
 
 
   // 🔹 Abrir modal de código postal
@@ -541,10 +541,11 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     return;
   }
     // 🔹 Calcular envío
-    if (total >= ENVIO_GRATIS) {
-      costoEnvio = 0;
-      msg += `\n🚚 *Envío:* GRATIS`;
-    } else if (esEnvio5000PorCP(codigoPostalCliente)) {
+    //if (total >= ENVIO_GRATIS) {
+      //costoEnvio = 0;
+      //msg += `\n🚚 *Envío:* GRATIS`;
+    //}
+      if (esEnvio5000PorCP(codigoPostalCliente)) {
       costoEnvio = ENVIO_MDP;
       msg += `\n🚚 *Envío:* $${costoEnvio.toLocaleString("es-AR")}`;
     } else {
@@ -555,8 +556,8 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     const totalFinal = total + costoEnvio;
 
     // 🔹 Totales finales
-    //msg += `\n *🎁 ¡Regalo incluido! 1* ${regalo.nombre} `;
-    //totalProductos += 1;
+    msg += `\n *🎁 ¡Regalo incluido! 1* ${regalo.nombre} `;
+    totalProductos += 1;
     msg += `\n📦 *Total de productos:* ${totalProductos}`;
     msg += `\n\n💳 *Total a pagar (con envío incluido):* $${totalFinal.toLocaleString("es-AR")}`;
 
@@ -584,7 +585,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
 });
 
 // ========================
-/* AVISO ENVÍO GRATIS
+// AVISO ENVÍO GRATIS
 // ========================
 function actualizarAvisoEnvioGratis(total) {
   const aviso = document.getElementById("aviso-envio-gratis");
@@ -593,10 +594,10 @@ function actualizarAvisoEnvioGratis(total) {
   const envioGratisDesde = 50000;
 
   if (total >= envioGratisDesde) {
-    aviso.innerHTML = "🎉 <strong>¡Tenés regalito!</strong>";
+    aviso.innerHTML = "🎉 <strong>¡Tenés 1 Espuma nieve de regalo!</strong>";
     aviso.style.display = "block";
   if (!envioGratisToastMostrado) {
-    mostrarToast("🎉 Tenés regalito ✨","fiesta",1500);
+    mostrarToast("🎉 Tenés 1 Espuma nieve de regalo! ✨","fiesta",1500);
 
     setTimeout(() => {
       lanzarConfetti();
@@ -607,14 +608,14 @@ function actualizarAvisoEnvioGratis(total) {
     }
   } else {
     const falta = envioGratisDesde - total;
-    aviso.innerHTML = `🚚 Sumá <strong>$${falta.toLocaleString("es-AR")}</strong> y conseguí <b>envío gratis</b>`;
+    aviso.innerHTML = ` Sumá <strong>$${falta.toLocaleString("es-AR")}</strong> y conseguí <b>un regalito 🎁</b>`;
     aviso.style.display = "block";
 
     //  Si vuelve a bajar, permitimos que vuelva a disparar
     envioGratisToastMostrado = false;
   }
 }
-*/
+
 
 const btn = document.getElementById("whatsapp-btn");
 
