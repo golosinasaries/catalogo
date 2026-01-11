@@ -508,7 +508,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     // Verificar si ya existe
   const existeRegalo = carrito.find(item => item.nombre === regalo.nombre);
   if (!existeRegalo) {
-    mostrarToast(`🎁 ¡Regalo incluido! 1 ${regalo.nombre} agregado al carrito`, "success");
+   // mostrarToast(`🎁 ¡Regalo incluido! 1 ${regalo.nombre} agregado al carrito`, "success");
   }
 
   // 🔹 Abrir modal de código postal
@@ -557,8 +557,8 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     const totalFinal = total + costoEnvio;
 
     // 🔹 Totales finales
-    msg += `\n *🎁 ¡Regalo incluido! 1* ${regalo.nombre} `;
-    totalProductos += 1;
+    //msg += `\n *🎁 ¡Regalo incluido! 1* ${regalo.nombre} `;
+    //totalProductos += 1;
     msg += `\n📦 *Total de productos:* ${totalProductos}`;
     msg += `\n\n💳 *Total a pagar (con envío incluido):* $${totalFinal.toLocaleString("es-AR")}`;
 
@@ -592,7 +592,7 @@ function actualizarAvisoEnvioGratis(total) {
   const aviso = document.getElementById("aviso-envio-gratis");
   if (!aviso) return;
 
-  const envioGratisDesde = 50000;
+  const envioGratisDesde = 1000000000;
 
   if (total >= envioGratisDesde) {
     aviso.innerHTML = "🎉 <strong>¡Tenés 1 Espuma nieve de regalo!</strong>";
@@ -609,7 +609,7 @@ function actualizarAvisoEnvioGratis(total) {
     }
   } else {
     const falta = envioGratisDesde - total;
-    aviso.innerHTML = ` Sumá <strong>$${falta.toLocaleString("es-AR")}</strong> y conseguí <b>un regalito 🎁</b>`;
+    //aviso.innerHTML = ` Sumá <strong>$${falta.toLocaleString("es-AR")}</strong> y conseguí <b>un regalito 🎁</b>`;
     aviso.style.display = "block";
 
     //  Si vuelve a bajar, permitimos que vuelva a disparar
