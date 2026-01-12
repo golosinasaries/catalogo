@@ -503,12 +503,12 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
   }
 
    //🎁 Agregar regalo por compra mínima
-  const regalo = { nombre: "Espuma nieve", precio: "0", cantidad: 1};
+  const regalo = { nombre: "2 Burbujeros", precio: "0", cantidad: 1};
 
     // Verificar si ya existe
   const existeRegalo = carrito.find(item => item.nombre === regalo.nombre);
   if (!existeRegalo) {
-   // mostrarToast(`🎁 ¡Regalo incluido! 1 ${regalo.nombre} agregado al carrito`, "success");
+   // mostrarToast(`🎁 ¡Regalo incluido!  ${regalo.nombre} agregado al carrito`, "success");
   }
 
   // 🔹 Abrir modal de código postal
@@ -557,14 +557,14 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     const totalFinal = total + costoEnvio;
 
     // 🔹 Totales finales
-    //msg += `\n *🎁 ¡Regalo incluido! 1* ${regalo.nombre} `;
-    //totalProductos += 1;
+    msg += `\n *🎁 ¡Regalo incluido! * ${regalo.nombre} `;
+    totalProductos += 2;
     msg += `\n📦 *Total de productos:* ${totalProductos}`;
     msg += `\n\n💳 *Total a pagar (con envío incluido):* $${totalFinal.toLocaleString("es-AR")}`;
 
     // 🔹 Datos de envío (Correo Argentino)
     msg += `\n\n📩 *Datos necesarios para el envío a través de Correo Argentino*`;
-    msg += `\n⏱️ Entrega estimada: 2 a 5 días hábiles`;
+    msg += `\n⏱️ Entrega: 2 a 5 días hábiles`;
     msg += `\n\n- Nombre y apellido: `;
     msg += `\n- Provincia: `;
     msg += `\n- Localidad: `;
@@ -592,13 +592,13 @@ function actualizarAvisoEnvioGratis(total) {
   const aviso = document.getElementById("aviso-envio-gratis");
   if (!aviso) return;
 
-  const envioGratisDesde = 1000000000;
+  const envioGratisDesde = 50000;
 
   if (total >= envioGratisDesde) {
-    aviso.innerHTML = "🎉 <strong>¡Tenés 1 Espuma nieve de regalo!</strong>";
+    aviso.innerHTML = "🎉 <strong>¡Tenés 2 burbujeros de regalo!</strong>";
     aviso.style.display = "block";
   if (!envioGratisToastMostrado) {
-    mostrarToast("🎉 Tenés 1 Espuma nieve de regalo! ✨","fiesta",1500);
+    mostrarToast("🎉 Tenés 2 burbujeros de regalo! ✨","fiesta",1500);
 
     setTimeout(() => {
       lanzarConfetti();
@@ -609,14 +609,13 @@ function actualizarAvisoEnvioGratis(total) {
     }
   } else {
     const falta = envioGratisDesde - total;
-    //aviso.innerHTML = ` Sumá <strong>$${falta.toLocaleString("es-AR")}</strong> y conseguí <b>un regalito 🎁</b>`;
+    aviso.innerHTML = ` Sumá <strong>$${falta.toLocaleString("es-AR")}</strong> y conseguí <b>un regalito 🎁</b>`;
     aviso.style.display = "block";
 
     //  Si vuelve a bajar, permitimos que vuelva a disparar
     envioGratisToastMostrado = false;
   }
 }
-
 
 const btn = document.getElementById("whatsapp-btn");
 
