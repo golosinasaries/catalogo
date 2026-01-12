@@ -541,7 +541,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
       return;
     }
 
-    // 🔹 Calcular envío
+    // 🔹 Calcularr envío
     //if (total >= ENVIO_GRATIS) {
       //costoEnvio = 0;
       //msg += `\n🚚 *Envío:* GRATIS`;
