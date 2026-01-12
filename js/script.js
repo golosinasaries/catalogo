@@ -557,7 +557,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     const totalFinal = total + costoEnvio;
 
     // 🔹 Totales finales
-    msg += `\n *🎁 ¡Regalo incluido!* ${regalo.nombre} `;
+    msg += `\n 🎁 *¡Regalo incluido!* ${regalo.nombre} `;
     totalProductos += 2;
     msg += `\n📦 *Total de productos:* ${totalProductos}`;
     msg += `\n\n💳 *Total a pagar (con envío incluido):* $${totalFinal.toLocaleString("es-AR")}`;
