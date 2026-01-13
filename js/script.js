@@ -598,13 +598,13 @@ function actualizarAvisoEnvioGratis(total) {
   const aviso = document.getElementById("aviso-envio-gratis");
   if (!aviso) return;
 
-  const envioGratisDesde = 50000;
+  const envioGratisDesde = 80000;
 
   if (total >= envioGratisDesde) {
-    aviso.innerHTML = "🎉 <strong>¡Tenés 2 burbujeros de regalo!</strong>";
+    aviso.innerHTML = "🎉 <strong>¡Tenés envío gratis!</strong>";
     aviso.style.display = "block";
   if (!envioGratisToastMostrado) {
-    mostrarToast("🎉 Tenés 2 burbujeros de regalo! ✨","fiesta",1500);
+    mostrarToast("🎉 Tenés envío gratis! ✨","fiesta",1500);
 
     setTimeout(() => {
       lanzarConfetti();
@@ -615,7 +615,7 @@ function actualizarAvisoEnvioGratis(total) {
     }
   } else {
     const falta = envioGratisDesde - total;
-    aviso.innerHTML = ` Sumá <strong>$${falta.toLocaleString("es-AR")}</strong> y conseguí <b>un regalito 🎁</b>`;
+    aviso.innerHTML = ` Sumá <strong>$${falta.toLocaleString("es-AR")}</strong> y conseguí <b>envío gratis</b>`;
     aviso.style.display = "block";
 
     //  Si vuelve a bajar, permitimos que vuelva a disparar
