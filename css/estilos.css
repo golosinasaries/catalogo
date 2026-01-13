@@ -664,11 +664,18 @@ html { scroll-behavior: smooth; }
   }
 }
 
+@keyframes vibrar {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  50% { transform: translateX(2px); }
+  75% { transform: translateX(-2px); }
+  100% { transform: translateX(0); }
+}
+
 /* Clase que dispara la animación */
 .animar-agregar {
   animation: pulse 0.4s ease;
 }
-
 
 /* Clase que se aplica al botón */
 .btn-agregado {
@@ -1539,10 +1546,6 @@ html { scroll-behavior: smooth; }
   animation: vibrar 0.35s linear;
 }
 
-@keyframes vibrar {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-2px); }
-  50% { transform: translateX(2px); }
-  75% { transform: translateX(-2px); }
-  100% { transform: translateX(0); }
+.card {
+  -webkit-tap-highlight-color: transparent;
 }
