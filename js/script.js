@@ -8,8 +8,8 @@ function esEnvio5000PorCP(cp) {
   const codigo = cp.trim();
 
   return (
-    codigo.startsWith("7600") || // Mar del Plata
-    codigo.startsWith("7607")    // Miramar
+    codigo.startsWith("7600") || 
+    codigo.startsWith("7607")    
   );
 }
 
@@ -67,6 +67,23 @@ if (modal) {
     "Chupetines con led Oreo (30 unidades)": ["img/oreo1.jpg","img/oreo2.jpg",],
     "Chupetines led Monster (30 unidades)": ["img/monsterojo1.jpg","img/monsterojo.jpg",],
   };
+
+  function animarAgregar(btn) {
+  if (!btn) return;
+
+  // Vibración (si está disponible)
+  if (navigator.vibrate) {
+    navigator.vibrate(40);
+  }
+
+  btn.classList.remove("animar-agregar");
+  void btn.offsetWidth; // fuerza reflow
+  btn.classList.add("animar-agregar");
+
+  setTimeout(() => {
+    btn.classList.remove("animar-agregar");
+  }, 400);
+}
 
   let currentImages = [];
   let currentIndex = 0;
@@ -252,17 +269,6 @@ function mostrarToast(mensaje, tipo = "success") {
     });
   }
 
-function animarAgregar(btn) {
-  if (!btn) return;
-
-  btn.classList.remove("animar-agregar");
-  void btn.offsetWidth; // fuerza reflow
-  btn.classList.add("animar-agregar");
-
-  setTimeout(() => {
-    btn.classList.remove("animar-agregar");
-  }, 400);
-}
 
 // ========================
 // ZOOM EN IMAGEN DEL MODAL
@@ -404,7 +410,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Reiniciar temporizador cada vez que se abre el carrito
     carritoBtn?.addEventListener("click", iniciarTemporizadorCierre);
 
-
   }
 
   carritoBtn?.addEventListener("click",()=>{
@@ -541,7 +546,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
       return;
     }
 
-    // 🔹 Calcularr envío
+    // 🔹 Calcular envío
     //if (total >= ENVIO_GRATIS) {
       //costoEnvio = 0;
       //msg += `\n🚚 *Envío:* GRATIS`;
@@ -557,8 +562,8 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     const totalFinal = total + costoEnvio;
 
     // 🔹 Totales finales
-    msg += `\n 🎁 *¡Regalo incluido!* ${regalo.nombre} `;
-    totalProductos += 2;
+    //msg += `\n 🎁 *¡Regalo incluido!* ${regalo.nombre} `;
+    //totalProductos += 2;
     msg += `\n📦 *Total de productos:* ${totalProductos}`;
     msg += `\n\n💳 *Total a pagar (con envío incluido):* $${totalFinal.toLocaleString("es-AR")}`;
 
@@ -587,7 +592,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
 
 // ========================
 // AVISO ENVÍO GRATIS
-// ========================
+/* ========================
 function actualizarAvisoEnvioGratis(total) {
   const aviso = document.getElementById("aviso-envio-gratis");
   if (!aviso) return;
@@ -615,7 +620,7 @@ function actualizarAvisoEnvioGratis(total) {
     //  Si vuelve a bajar, permitimos que vuelva a disparar
     envioGratisToastMostrado = false;
   }
-}
+}*/
 
 const btn = document.getElementById("whatsapp-btn");
 

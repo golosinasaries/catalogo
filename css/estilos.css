@@ -1535,3 +1535,14 @@ html { scroll-behavior: smooth; }
 #cp-confirmar:hover {
   background: #0056b3;
 }
+.animar-agregar {
+  animation: vibrar 0.35s linear;
+}
+
+@keyframes vibrar {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  50% { transform: translateX(2px); }
+  75% { transform: translateX(-2px); }
+  100% { transform: translateX(0); }
+}
