@@ -69,6 +69,7 @@ if (modal) {
   };
 
   function animarAgregar(btn) {
+  console.log("Animado botón", btn);
   if (!btn) return;
 
   // Vibración (si está disponible)
@@ -386,7 +387,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <strong>- Total: $${total.toLocaleString("es-AR")}</strong>
     `;
 
-    actualizarAvisoEnvioGratis(total);
+    //actualizarAvisoEnvioGratis(total);
 
     let carritoTimer;
 
