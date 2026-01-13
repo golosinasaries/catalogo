@@ -1,17 +1,37 @@
+const ENVIO_MIRAMAR = 1000;
 const ENVIO_MDP = 5000;
 const ENVIO_GENERAL = 10000;
-const ENVIO_GRATIS = 10000000;
+const ENVIO_LEJANO = 13000;
 
-function esEnvio5000PorCP(cp) {
-  if (!cp) return false;
+
+function calcularCostoEnvio(cp) {
+  if (!cp) return ENVIO_GENERAL;
 
   const codigo = cp.trim();
 
-  return (
-    codigo.startsWith("7600") || 
-    codigo.startsWith("7607")    
-  );
+  // Miramar (7607)
+  if (codigo.startsWith("7607")) {
+    return ENVIO_MIRAMAR;
+  }
+
+  // Mar del Plata (7600)
+  if (codigo.startsWith("7600")) {
+    return ENVIO_MDP;
+  }
+
+  // Muy al sur o muy al norte
+  if (
+    codigo.startsWith("9") || // Patagonia
+    codigo.startsWith("4") || // NOA
+    codigo.startsWith("3")    // NEA
+  ) {
+    return ENVIO_LEJANO;
+  }
+
+  // Resto del país
+  return ENVIO_GENERAL;
 }
+
 
 // ========================
 // MODAL DE PRODUCTOS
@@ -552,13 +572,8 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
       //costoEnvio = 0;
       //msg += `\n🚚 *Envío:* GRATIS`;
     //}
-      if (esEnvio5000PorCP(codigoPostalCliente)) {
-      costoEnvio = ENVIO_MDP;
-      msg += `\n🚚 *Envío:* $${costoEnvio.toLocaleString("es-AR")}`;
-    } else {
-      costoEnvio = ENVIO_GENERAL;
-      msg += `\n🚚 *Envío:* $${costoEnvio.toLocaleString("es-AR")}`;
-    }
+    costoEnvio = calcularCostoEnvio(codigoPostalCliente);
+
 
     const totalFinal = total + costoEnvio;
 
@@ -566,6 +581,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     //msg += `\n 🎁 *¡Regalo incluido!* ${regalo.nombre} `;
     //totalProductos += 2;
     msg += `\n📦 *Total de productos:* ${totalProductos}`;
+    msg += `\n🚚 *Envío:* $${costoEnvio.toLocaleString("es-AR")}`;
     msg += `\n\n💳 *Total a pagar (con envío incluido):* $${totalFinal.toLocaleString("es-AR")}`;
 
     // 🔹 Datos de envío (Correo Argentino)
