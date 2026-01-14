@@ -6,7 +6,7 @@ const ENVIO_GRATIS = 0;
 const PROMO_ACTIVA = "envio"; 
 // "envio"  → envío gratis
 // "regalo" → regalo especial
-// "ninguna" → sin promo
+// "ninguna" → sin promoo
  
 
 
