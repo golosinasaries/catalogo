@@ -1,10 +1,17 @@
-const ENVIO_MIRAMAR = 1000;
+const ENVIO_MIRAMAR = 0;
 const ENVIO_MDP = 5000;
 const ENVIO_GENERAL = 10000;
 const ENVIO_LEJANO = 13000;
+const ENVIO_GRATIS = 0;
+const PROMO_ACTIVA = "ninguna"; 
+// "envio"  → envío gratis
+// "regalo" → regalo especial
+// "ninguna" → sin promo
+ 
 
 
 function calcularCostoEnvio(cp) {
+
   if (!cp) return ENVIO_GENERAL;
 
   const codigo = cp.trim();
@@ -306,9 +313,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
   const numero = "542236010443";
 
-  let envioGratisToastMostrado = false;
-
-
   const carritoBtn = document.getElementById("carrito-btn");
   const carritoDropdown = document.getElementById("carrito-dropdown");
   const carritoItemsContainer = document.getElementById("carrito-items");
@@ -364,6 +368,11 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
+    if (PROMO_ACTIVA === "regalo") {
+      msg += `\n🎁 *Regalo especial incluido:* 2 Burbujeros\n`;
+    }
+
+
     msg += `\n📦 *Total de productos:* ${totalProductos}`;
     msg += `\n💰 *Total a pagar:* $${total.toLocaleString("es-AR")}`;
     msg += `\n\n📩 *Datos necesarios para el Correo*`;
@@ -407,7 +416,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <strong>- Total: $${total.toLocaleString("es-AR")}</strong>
     `;
 
-    //actualizarAvisoEnvioGratis(total);
+    actualizarAvisoEnvioGratis(total);
 
     let carritoTimer;
 
@@ -544,42 +553,46 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
   modalCP.style.display = "flex";
 
   // 🔹 Esperar confirmación del usuario
+
   // Botón cancelar del modal de código postal
-    const cpCancelar = document.getElementById("cp-cancelar");
-    if (cpCancelar) {
-      cpCancelar.onclick = () => {
-        const modalCP = document.getElementById("modal-cp");
-        if (modalCP) {
-          modalCP.style.display = "none"; // cierra el modal
-          mostrarToast("", "error"); // opcional
-        }
-      };
-    }
-      document.getElementById("cp-confirmar").onclick = () => {
-    const codigoPostalCliente = inputCP.value.trim();
-      if (!codigoPostalCliente) {
-    alert("⚠️ Por favor, ingresá tu código postal.");
-    return;
+  const cpCancelar = document.getElementById("cp-cancelar");
+  if (cpCancelar) {
+    cpCancelar.onclick = () => {
+      const modalCP = document.getElementById("modal-cp");
+      if (modalCP) {
+        modalCP.style.display = "none"; // cierra el modal
+      }
+    };
   }
+
+  // Botón confirmar código postal
+  const cpConfirmar = document.getElementById("cp-confirmar");
+  cpConfirmar.onclick = () => {
+    const codigoPostalCliente = inputCP.value.trim();
+
+    if (!codigoPostalCliente) {
+      alert("⚠️ Por favor, ingresá tu código postal.");
+      return;
+    }
+
     // ❗ Validación de código postal
     if (!/^\d{4,8}$/.test(codigoPostalCliente)) {
       alert("⚠️ Código postal inválido. Ingresá solo números (4 a 8 dígitos).");
       return;
     }
 
-    // 🔹 Calcular envío
-    //if (total >= ENVIO_GRATIS) {
-      //costoEnvio = 0;
-      //msg += `\n🚚 *Envío:* GRATIS`;
-    //}
-    costoEnvio = calcularCostoEnvio(codigoPostalCliente);
+    // 🔹 Calcular envío con regla de envío gratis
+    let costoEnvio;
 
+    if (PROMO_ACTIVA === "envio" && total >= 80000) {
+      costoEnvio = 0;
+    } else {
+      costoEnvio = calcularCostoEnvio(codigoPostalCliente);
+    }
 
     const totalFinal = total + costoEnvio;
 
     // 🔹 Totales finales
-    //msg += `\n 🎁 *¡Regalo incluido!* ${regalo.nombre} `;
-    //totalProductos += 2;
     msg += `\n📦 *Total de productos:* ${totalProductos}`;
     msg += `\n🚚 *Envío:* $${costoEnvio.toLocaleString("es-AR")}`;
     msg += `\n\n💳 *Total a pagar (con envío incluido):* $${totalFinal.toLocaleString("es-AR")}`;
@@ -609,35 +622,52 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
 
 // ========================
 // AVISO ENVÍO GRATIS
-/* ========================
-function actualizarAvisoEnvioGratis(total) {
+// ========================
+const estadoEnvio = {
+  toastMostrado: false
+};
+
+function actualizarAvisoEnvioGratis(total, envioManualGratis = false) {
+
   const aviso = document.getElementById("aviso-envio-gratis");
   if (!aviso) return;
 
+  if (PROMO_ACTIVA === "regalo") {
+  aviso.innerHTML = "🎁 <strong>¡Hoy tu compra incluye un regalo especial!</strong>";
+  aviso.style.display = "block";
+  return;
+  }
+
+  if (PROMO_ACTIVA === "ninguna") {
+    aviso.style.display = "none";
+    return;
+  }
+
+
   const envioGratisDesde = 80000;
 
-  if (total >= envioGratisDesde) {
+  if (envioManualGratis || total >= envioGratisDesde) {
     aviso.innerHTML = "🎉 <strong>¡Tenés envío gratis!</strong>";
     aviso.style.display = "block";
-  if (!envioGratisToastMostrado) {
-    mostrarToast("🎉 Tenés envío gratis! ✨","fiesta",1500);
 
-    setTimeout(() => {
-      lanzarConfetti();
+    if (!estadoEnvio.toastMostrado) {
+      mostrarToast("🎉 Tenés envío gratis! ✨","fiesta",1500);
+
+      setTimeout(() => {
+        lanzarConfetti();
       }, 1500);
 
-    envioGratisToastMostrado = true;
-
+      estadoEnvio.toastMostrado = true;
     }
   } else {
     const falta = envioGratisDesde - total;
     aviso.innerHTML = ` Sumá <strong>$${falta.toLocaleString("es-AR")}</strong> y conseguí <b>envío gratis</b>`;
     aviso.style.display = "block";
 
-    //  Si vuelve a bajar, permitimos que vuelva a disparar
-    envioGratisToastMostrado = false;
+    estadoEnvio.toastMostrado = false;
   }
-}*/
+}
+
 
 const btn = document.getElementById("whatsapp-btn");
 
