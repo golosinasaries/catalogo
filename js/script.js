@@ -3,7 +3,7 @@ const ENVIO_MDP = 5000;
 const ENVIO_GENERAL = 10000;
 const ENVIO_LEJANO = 13000;
 const ENVIO_GRATIS = 0;
-const PROMO_ACTIVA = "ninguna"; 
+const PROMO_ACTIVA = "envio"; 
 // "envio"  → envío gratis
 // "regalo" → regalo especial
 // "ninguna" → sin promo
