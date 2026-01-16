@@ -1,5 +1,5 @@
 const ENVIO_MIRAMAR = 0;
-const ENVIO_MDP = 5000;
+const ENVIO_MDP = 5500;
 const ENVIO_GENERAL = 10000;
 const ENVIO_LEJANO = 13000;
 const ENVIO_GRATIS = 0;
@@ -378,7 +378,7 @@ document.addEventListener("DOMContentLoaded", () => {
     msg += `\n💰 *Total a pagar:* $${total.toLocaleString("es-AR")}`;
     msg += `\n\n📩 *Datos necesarios para el Correo*`;
     msg += `\nPor favor envianos estos datos 👇`;
-    msg += `\n\n- Nombre y apellido:`;
+    msg += `\n- Nombre y apellido:`;
     msg += `\n- CUIL/DNI:`;
     msg += `\n- Localidad:`;
     msg += `\n- Provincia:`;
