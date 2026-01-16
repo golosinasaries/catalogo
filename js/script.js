@@ -93,6 +93,7 @@ if (modal) {
     "Chupetines con led Mc Donalds (30 unidades)": ["img/mc.jpg","img/mc2.jpg",],
     "Chupetines con led Oreo (30 unidades)": ["img/oreo1.jpg","img/oreo2.jpg",],
     "Chupetines led Monster (30 unidades)": ["img/monsterojo1.jpg","img/monsterojo.jpg",],
+    //"Chupetines Corazón (30 unidades)": ["img/corazon.jpg","img/",],
   };
 
   function animarAgregar(btn) {
@@ -601,6 +602,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     msg += `\n\n📩 *Datos necesarios para el envío a través de Correo Argentino*`;
     msg += `\n⏱️ Entrega: 2 a 5 días hábiles`;
     msg += `\n\n- Nombre y apellido: `;
+    msg += `\n\n- CUIL/DNI: `;
     msg += `\n- Provincia: `;
     msg += `\n- Localidad: `;
     msg += `\n- Dirección exacta: `;
