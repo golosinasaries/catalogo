@@ -13,7 +13,15 @@ const PROMO_ACTIVA = "ninguna";
 // "regalo" → regalo 
 // "ninguna" → sin promoo
  
-
+const btn = document.getElementById("whatsapp-btn");
+if (btn) {
+  btn.addEventListener("click", () => {
+  //fbq('track', 'Contact');
+  const numero = "542236010443";
+  const mensaje = "Hola! Vengo del catálogo y tengo una consulta...";
+  window.open(`https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`, "_blank");
+  })
+};
 
 function calcularCostoEnvio(cp) {
 
@@ -689,8 +697,6 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
   }
 }
 
-
-
   const envioGratisDesde = 80000;
 
   if (envioManualGratis || total >= envioGratisDesde) {
@@ -713,18 +719,4 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
 
     estadoEnvio.toastMostrado = false;
   }
-
-
-
-const btn = document.getElementById("whatsapp-btn");
-
-
-if (btn) {
-  btn.addEventListener("click", () => {
-  //fbq('track', 'Contact');
-  const numero = "542236010443";
-  const mensaje = "Hola! Vengo del catálogo y tengo una consulta...";
-  window.open(`https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`, "_blank");
-  })
-};
 
