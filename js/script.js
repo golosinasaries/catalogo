@@ -1,3 +1,8 @@
+const minimoCompra = 50000;   // Compra mínima
+const minimoRegalo = 80000;   // Desde este total se activa el regalo
+const REGALO_NOMBRE = "Pote Gomitas de Ojos (30 unidades)";
+
+
 const ENVIO_MIRAMAR = 0;
 const ENVIO_MDP = 5500;
 const ENVIO_GENERAL = 10000;
@@ -5,7 +10,7 @@ const ENVIO_LEJANO = 13000;
 const ENVIO_GRATIS = 0;
 const PROMO_ACTIVA = "ninguna"; 
 // "envio"  → envío gratis
-// "regalo" → regalo especial
+// "regalo" → regalo 
 // "ninguna" → sin promoo
  
 
@@ -369,11 +374,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    if (PROMO_ACTIVA === "regalo") {
-      msg += `\n🎁 *Regalo especial incluido:* 2 Burbujeros\n`;
-    }
-
-
     msg += `\n📦 *Total de productos:* ${totalProductos}`;
     msg += `\n💰 *Total a pagar:* $${total.toLocaleString("es-AR")}`;
     msg += `\n\n📩 *Datos necesarios para el Correo*`;
@@ -533,19 +533,12 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
   });
 
   // 🔹 Compra mínima
-  if (total < 50000) {
-    alert("⚠️ La compra mínima es de $50.000");
+  if (total < minimoCompra) {
+    alert(`⚠️ La compra mínima es de $${minimoCompra.toLocaleString("es-AR")}`);
     return;
   }
 
-   //🎁 Agregar regalo por compra mínima
-  const regalo = { nombre: "2 Burbujeros", precio: "0", cantidad: 1};
 
-    // Verificar si ya existe
-  const existeRegalo = carrito.find(item => item.nombre === regalo.nombre);
-  if (!existeRegalo) {
-   // mostrarToast(`🎁 ¡Regalo incluido!  ${regalo.nombre} agregado al carrito`, "success");
-  }
 
   // 🔹 Abrir modal de código postal
   const modalCP = document.getElementById("modal-cp");
@@ -593,7 +586,19 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
 
     const totalFinal = total + costoEnvio;
 
+    let mensajeRegalo = "";
+
+    if (PROMO_ACTIVA === "regalo" && total >= minimoRegalo) {
+        mensajeRegalo = `\n🎁 ¡Tu compra incluye: ${REGALO_NOMBRE} de regalo!`;
+    } else {
+        mensajeRegalo = ""; // Nada si no llega al mínimo
+    }
+
+
+
     // 🔹 Totales finales
+    msg += mensajeRegalo;
+    totalProductos += (PROMO_ACTIVA === "regalo" && total >= minimoRegalo) ? 1 : 0;
     msg += `\n📦 *Total de productos:* ${totalProductos}`;
     msg += `\n🚚 *Envío:* $${costoEnvio.toLocaleString("es-AR")}`;
     msg += `\n\n💳 *Total a pagar (con envío incluido):* $${totalFinal.toLocaleString("es-AR")}`;
@@ -629,21 +634,61 @@ const estadoEnvio = {
   toastMostrado: false
 };
 
-function actualizarAvisoEnvioGratis(total, envioManualGratis = false) {
-
+function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
   const aviso = document.getElementById("aviso-envio-gratis");
-  if (!aviso) return;
+  if (!aviso) {
+    console.warn("No existe el elemento #aviso-envio-gratis");
+    return;
+  }
+
+  aviso.style.display = "none";
+
+  // Asegurarse de que estadoEnvio existe
+  if (typeof estadoEnvio === "undefined") window.estadoEnvio = { toastMostrado: false };
+
+  total = Number(total) || 0;
+
+  console.log("PROMO_ACTIVA:", PROMO_ACTIVA, "total:", total);
 
   if (PROMO_ACTIVA === "regalo") {
-  aviso.innerHTML = "🎁 <strong>¡Hoy tu compra incluye un regalo especial!</strong>";
-  aviso.style.display = "block";
-  return;
+    if (total >= minimoRegalo) {
+      aviso.innerHTML = `🎁 <strong>¡Tu compra incluye: ${REGALO_NOMBRE} de regalo!</strong>`;
+    } else {
+      const falta = minimoRegalo - total;
+      aviso.innerHTML = `🎁 Sumá <strong>$${falta.toLocaleString("es-AR")}</strong> y llevate un regalo!`;
+    }
+    aviso.style.display = "block";
+    return;
+  }
+
+  if (PROMO_ACTIVA === "envio") {
+    if (envioManualGratis || total >= 80000) {
+      aviso.innerHTML = "🎉 <strong>¡Tenés envío gratis!</strong>";
+      aviso.style.display = "block";
+
+      if (!estadoEnvio.toastMostrado) {
+        mostrarToast("🎉 Tenés envío gratis! ✨", "fiesta", 1500);
+        setTimeout(() => lanzarConfetti(), 1500);
+        estadoEnvio.toastMostrado = true;
+      }
+    } else {
+      const falta = 80000 - total;
+      aviso.innerHTML = `Sumá <strong>$${falta.toLocaleString("es-AR")}</strong> y conseguí <b>envío gratis</b>`;
+      aviso.style.display = "block";
+    }
+    return;
   }
 
   if (PROMO_ACTIVA === "ninguna") {
-    aviso.style.display = "none";
-    return;
+    if (total < minimoCompra) {
+      aviso.innerHTML = `🛍️ La compra mínima es de $${minimoCompra.toLocaleString("es-AR")}`;
+      aviso.style.display = "block";
+    } else {
+      aviso.style.display = "none";
+    }
   }
+}
+
 
 
   const envioGratisDesde = 80000;
@@ -668,7 +713,7 @@ function actualizarAvisoEnvioGratis(total, envioManualGratis = false) {
 
     estadoEnvio.toastMostrado = false;
   }
-}
+
 
 
 const btn = document.getElementById("whatsapp-btn");
