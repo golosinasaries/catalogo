@@ -51,17 +51,17 @@ if (modal) {
 
   const prevBtn = document.createElement('div');
   const nextBtn = document.createElement('div');
-  const contador = document.createElement('span');
+  //const contador = document.createElement('span');
 
   prevBtn.textContent = '<';
   nextBtn.textContent = '>';
   prevBtn.classList.add('prev');
   nextBtn.classList.add('next');
-  contador.classList.add('contador');
+  //contador.classList.add('contador');
 
   modalContent.appendChild(prevBtn);
   modalContent.appendChild(nextBtn);
-  modalContent.appendChild(contador);
+  //modalContent.appendChild(contador);
 
   // Productos
   const imagenesProducto = {
@@ -161,11 +161,11 @@ if (modal) {
     if (currentImages.length > 1) {
       prevBtn.style.display = 'flex';
       nextBtn.style.display = 'flex';
-      contador.textContent = `${currentIndex + 1} / ${currentImages.length}`;
+      //contador.textContent = `${currentIndex + 1} / ${currentImages.length}`;
     } else {
       prevBtn.style.display = 'none';
       nextBtn.style.display = 'none';
-      contador.textContent = '';
+      //contador.textContent = '';
     }
     modalImg.classList.remove('zoomed');
   }
