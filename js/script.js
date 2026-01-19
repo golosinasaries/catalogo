@@ -43,7 +43,8 @@ function calcularCostoEnvio(cp) {
   if (
     codigo.startsWith("9") || // Patagonia
     codigo.startsWith("4") || // NOA
-    codigo.startsWith("3")    // NEA
+    codigo.startsWith("3") ||
+    codigo.startsWith("8")    // NEA
   ) {
     return ENVIO_LEJANO;
   }
