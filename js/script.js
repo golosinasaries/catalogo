@@ -8,7 +8,7 @@ const ENVIO_MDP = 5500;
 const ENVIO_GENERAL = 10000;
 const ENVIO_LEJANO = 13000;
 const ENVIO_GRATIS = 0;
-const PROMO_ACTIVA = "ninguna"; 
+const PROMO_ACTIVA = "regalo"; 
 // "envio"  → envío gratis
 // "regalo" → regalo 
 // "ninguna" → sin promoo
@@ -78,6 +78,10 @@ if (modal) {
 
   // Productos
   const imagenesProducto = {
+    "Caramelo duro diferentes sabores Kuromy (30 unidades)": ["img/caramelokuromy.jpg","img/caramelokuromy2.jpg"],
+    "Gomita Blanda Helado (30 unidades)": ["img/helado.jpg","img/helado2.jpg",],
+    "Gomitas de Gelatinas Candy Loka (10 unidades)": ["img/gelatinaloka.jpg","img/gelatinaloka2.jpg"],
+    "Gomitas de Gelatinas Candy Loka (30 unidades)": ["img/gelatinaloka.jpg","img/gelatinaloka2.jpg"],
     "Alcancía pingüino negro (con 12 gelatinas en su interior)": ["img/pinguino2.jpg","img/pinguino5.jpg","img/pinguino3.jpg","img/pinguino4.jpg","img/pinguino6.jpg"],
     "Chupetines Merlina (30 unidades)": ["img/merlina1.jpg","img/merlina2.jpg","img/merlina3.jpg","img/merlina4.jpg"],
     "Chupetín con polvo ácido Brain (30 unidades)": ["img/braincaja.jpg","img/chupetinBrain.jpg"],
