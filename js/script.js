@@ -111,7 +111,9 @@ if (modal) {
     "Chupetines con led Mc Donalds (30 unidades)": ["img/mc.jpg","img/mc2.jpg",],
     "Chupetines con led Oreo (30 unidades)": ["img/oreo1.jpg","img/oreo2.jpg",],
     "Chupetines led Monster (30 unidades)": ["img/monsterojo1.jpg","img/monsterojo.jpg",],
-    //"Chupetines Corazón (30 unidades)": ["img/corazon.jpg","img/",],
+    "Gomitas Ojos (pote x 30 unidades)": ["img/ojos.jpg","img/ojos2.jpg",],
+    "Gomitas de Gelatinas Candy Loka (10 unidades)": ["img/gelatinaloka.jpg","img/trompo.jpg"],
+    "Gomitas de Gelatinas Candy Loka (30 unidades)": ["img/gelatinaloka.jpg","img/trompo.jpg"],
   };
 
   function animarAgregar(btn) {
