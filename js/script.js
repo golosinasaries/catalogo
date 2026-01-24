@@ -80,7 +80,7 @@ if (modal) {
   // Productos
   const imagenesProducto = {
     "Caramelo duro diferentes sabores Kuromy (30 unidades)": ["img/caramelokuromy.jpg","img/caramelokuromy2.jpg"],
-    "Gomita Blanda Helado (30 unidades)": ["img/helado.jpg","img/helado2.jpg",],
+    "Gomita Blanda Helado (30 unidades)": ["img/helado.jpg","img/helado2.jpg","img/helado3.jpg", "img/helado4.jpg"],
     "Gomitas de Gelatinas Candy Loka (10 unidades)": ["img/gelatinaloka.jpg","img/gelatinaloka2.jpg"],
     "Gomitas de Gelatinas Candy Loka (30 unidades)": ["img/gelatinaloka.jpg","img/gelatinaloka2.jpg"],
     "Alcancía pingüino negro (con 12 gelatinas en su interior)": ["img/pinguino2.jpg","img/pinguino5.jpg","img/pinguino3.jpg","img/pinguino4.jpg","img/pinguino6.jpg"],
