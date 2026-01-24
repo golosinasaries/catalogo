@@ -563,7 +563,8 @@ footer p {
   gap: 0.5rem;                                         /* separación entre botones */
   flex-wrap: wrap;                                     /* permite saltos en pantallas pequeñas */
   text-align: center;                                  /* centra el contenido textual */
-  margin-top: 0.1rem;                                  /* margen superior leve */
+  margin-top: -1rem;   
+  margin-bottom: 1rem;                               /* margen superior leve */
   padding: 0.6rem 1.2rem;                              /* padding (si usas un contenedor tipo tag) */
   color: var(--primary);                               /* color del texto (si aplica) */
   font-weight: bold;                                   /* negrita */
@@ -775,9 +776,11 @@ html { scroll-behavior: smooth; }
   }
 
   nav a {
-    font-size: 4rem; /* enlaces más pequeños */
+    font-size: 4rem; 
     font-family: 'Playfair Display', serif;
     padding-right: 120px; /* deja espacio para el botón */
+    margin-bottom: -2%;
+    margin-top: -8%;
   }
   .hero{
     margin-top: 1rem;
@@ -1407,7 +1410,8 @@ html { scroll-behavior: smooth; }
   .instrucciones-texto {
     margin: 25px 15px;
     padding: 20px 18px;
-    margin-top: 100px;
+    margin-top: 70px;
+    margin-bottom: -19%;
   }
 
   .instrucciones-texto h2 {
@@ -1454,7 +1458,7 @@ html { scroll-behavior: smooth; }
 }
   
 .facebook-embed {
-  margin-top: 2.5rem;
+  margin-top: -5rem;
   padding: 2rem 1rem;
   background: #162028;
   text-align: center;
