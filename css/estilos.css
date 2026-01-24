@@ -710,7 +710,7 @@ html { scroll-behavior: smooth; }
 .titulo-animado {
   display: inline-block;
   white-space: nowrap;
-  animation: slide-infinite 18s linear infinite, color-change 15s ease-in-out infinite;
+  animation: slide-infinite 28s linear infinite, color-change 15s ease-in-out infinite;
   font-size: 1.3rem;                                    /* tamaño controlado */
   font-weight: bold;                                   /* negrita */
   text-shadow: 2px 2px 6px rgba(0,0,0,0.4);            /* sombra para legibilidad */
@@ -1292,7 +1292,7 @@ html { scroll-behavior: smooth; }
   font-size: 14px;
   backdrop-filter: blur(6px);
   z-index: 1000;
-  margin-top: 1%;
+  margin-top: 10%;
 }
 #whatsapp-btn img {
   width: 20px;
