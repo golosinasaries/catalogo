@@ -773,11 +773,11 @@ html { scroll-behavior: smooth; }
   }
 
   nav a {
-    font-size: 4rem; 
+    font-size: 3rem; 
     font-family: 'Playfair Display', serif;
     padding-right: 120px; /* deja espacio para el botón */
     margin-bottom: -2%;
-    margin-top: -8%;
+    margin-top: -7%;
   }
   .hero{
     margin-top: 1rem;
@@ -949,7 +949,7 @@ html { scroll-behavior: smooth; }
   display: flex;
   flex-direction: column;
   gap: px;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 #carrito-contenedor {
   position: fixed;
@@ -1292,7 +1292,7 @@ html { scroll-behavior: smooth; }
   font-size: 14px;
   backdrop-filter: blur(6px);
   z-index: 1000;
-  margin-top: 6%;
+  margin-top: 0.8%;
 }
 #whatsapp-btn img {
   width: 20px;
@@ -1555,4 +1555,10 @@ html { scroll-behavior: smooth; }
 
 .card {
   -webkit-tap-highlight-color: transparent;
+}
+.carrito-confianza {
+  font-size: 12px;
+  color: #555;
+  text-align: center;
+  margin-top: 6px;
 }
