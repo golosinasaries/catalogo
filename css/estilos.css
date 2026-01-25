@@ -534,13 +534,11 @@ main {
   width: 100%;                                         /* ocupar ancho */
   min-height: 60vh;                                    /* altura mínima para buena presencia */
   font-size: 1rem;                                     /* tamaño base de fuente */
-  background: #030303;                                 /* fondo blanco para la zona principal */
-  border-radius: var(--border-radius);                 /* bordes redondeados */
+  background: #030303;                                 /* fondo blanco para la zona principal */                /* bordes redondeados */
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);             /* sombra sutil */
   overflow: visible;                                   /* overflow visible por defecto */
   padding-bottom: 0.1rem;                                /* espacio inferior */
   padding-top: 0.1rem;                                 /* espacio superior mínimo (el push principal lo hace .main arriba) */
-  border-radius: 0px 0px;
 }
 footer {
   background: linear-gradient(135deg, var(--primary), var(--accent));
@@ -731,8 +729,7 @@ html { scroll-behavior: smooth; }
 /* tarjeta de sección */
 .seccion {
   background: #a7a6a6;                                    /* fondo blanco */
-  border: 1px solid var(--accent);                     /* borde con acento */
-  border-radius: var(--border-radius);                 /* radio */
+  border: 1px solid var(--accent);                     /* borde con acento */               /* radio */
   padding: 0.3rem;                                     /* padding */
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);             /* sombra sutil */
   font-size: 1rem;                                     /* tamaño del contenido */
@@ -1295,7 +1292,7 @@ html { scroll-behavior: smooth; }
   font-size: 14px;
   backdrop-filter: blur(6px);
   z-index: 1000;
-  margin-top: 10%;
+  margin-top: 6%;
 }
 #whatsapp-btn img {
   width: 20px;
@@ -1339,6 +1336,12 @@ html { scroll-behavior: smooth; }
 .hidden {
   display: none;
 }
+
+.instrucciones-texto {
+    margin: 35px 25px;
+    padding: 24px 28px;
+    margin-top: 100px;
+  }
 
 /* Responsive Design */
 @media (max-width: 1200px) {
