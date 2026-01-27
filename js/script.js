@@ -79,10 +79,10 @@ if (modal) {
 
   // Productos
   const imagenesProducto = {
-    "Tractor dispenser + chicles (1 unidad)": ["img/tractor1.jpg","img/tractor2.jpg"],
-    "Camión dispenser + chicles rosa (1 unidad)": ["img/camionrosa1.jpg","img/camionrosa2.jpg"],
-    "Camión dispenser + chicles celeste (1 unidad)": ["img/camionceleste1.jpg","img/camionceleste2.jpg"],
-    "Tractor dispenser + chicles verde (1 unidad)": ["img/tractorverde1.jpg","img/tractorverde2.jpg"],
+    "Tractor dispenser + caramelos (1 unidad)": ["img/tractor1.jpg","img/tractor2.jpg"],
+    "Camión dispenser + caramelos rosa (1 unidad)": ["img/camionrosa1.jpg","img/camionrosa2.jpg"],
+    "Camión dispenser + caramelos celeste (1 unidad)": ["img/camionceleste1.jpg","img/camionceleste2.jpg"],
+    "Tractor dispenser + caramelos verde (1 unidad)": ["img/tractorverde1.jpg","img/tractorverde2.jpg"],
     "Caramelo duro diferentes sabores Kuromy (30 unidades)": ["img/caramelokuromy.jpg","img/caramelokuromy2.jpg"],
     "Gomita Blanda Helado (30 unidades)": ["img/helado.jpg","img/helado2.jpg","img/helado3.jpg", "img/helado4.jpg"],
     "Gomitas de Gelatinas Candy Loka (10 unidades)": ["img/gelatinaloka.jpg","img/gelatinaloka2.jpg"],
