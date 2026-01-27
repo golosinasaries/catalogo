@@ -635,7 +635,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     msg += `\n- Email: `;
     msg += `\n- Teléfono: `;
     msg += `\n- Alguna referencia del domicilio (opcional): `;
-    msg += `\n- Si ya completaste estos datos alguna vez, podés omitirlo, a menos que quieras cambiar de dirección 😊: `;
+    msg += `\n\n- Si ya completaste estos datos alguna vez, podés omitirlo, a menos que quieras cambiar de dirección 😊 `;
   }
 
     // 🔹 Abrir WhatsApp
