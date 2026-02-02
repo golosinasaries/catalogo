@@ -1,6 +1,6 @@
 const minimoCompra = 50000;   // Compra mínima
 const minimoRegalo = 50000;   // Desde este total se activa el regalo
-const REGALO_NOMBRE = "Gomitas de Gelatinas Candy Loka (10 unidades)";
+const REGALO_NOMBRE = "Combito Surtido";
 
 
 const ENVIO_MIRAMAR = 0;
@@ -8,7 +8,7 @@ const ENVIO_MDP = 5500;
 const ENVIO_GENERAL = 10000;
 const ENVIO_LEJANO = 13000;
 const ENVIO_GRATIS = 0;
-const PROMO_ACTIVA = "ninguna"; 
+const PROMO_ACTIVA = "regalo"; 
 // "envio"  → envío gratis
 // "regalo" → regalo 
 // "ninguna" → sin promoo
@@ -79,6 +79,7 @@ if (modal) {
 
   // Productos
   const imagenesProducto = {
+    "Combito Surtido de Regalo 🎁": ["img/combito1.jpg","img/combito4.jpg","img/combito3.jpg","img/combito5.jpg", "img/combito2.jpg"],
     "Tractor dispenser + caramelos (1 unidad)": ["img/tractor1.jpg","img/tractor2.jpg"],
     "Camión dispenser + caramelos rosa (1 unidad)": ["img/camionrosa1.jpg","img/camionrosa2.jpg"],
     "Camión dispenser + caramelos celeste (1 unidad)": ["img/camionceleste1.jpg","img/camionceleste2.jpg"],
@@ -143,41 +144,52 @@ if (modal) {
   let currentTitle = "";
 
   function abrirModal(card) {
-    const img = card.querySelector('img');
-    const title = card.querySelector('h3');
-    const price = card.querySelector('p');
+  const img = card.querySelector('img');
+  const title = card.querySelector('h3');
+  const price = card.querySelector('p');
 
-    currentTitle = title ? title.textContent : "Producto";
-    currentImages = imagenesProducto[currentTitle] || [img?.src || ''];
-    currentIndex = 0;
+  currentTitle = title ? title.textContent : "Producto";
+  currentImages = imagenesProducto[currentTitle] || [img?.src || ''];
+  currentIndex = 0;
 
-    modal.style.display = 'flex';
-    actualizarModal();
+  modal.style.display = 'flex';
+  actualizarModal();
 
-    modalTitle.textContent = currentTitle;
-    document.getElementById('modal-precio').textContent = price ? price.textContent : '';
+  modalTitle.textContent = currentTitle;
+  document.getElementById('modal-precio').textContent = price ? price.textContent : '';
 
-    const modalAgregarBtn = document.getElementById('modal-agregar');
-    const modalConsultaBtn = document.getElementById('modal-consulta');
-    if (modalAgregarBtn) {
-      modalAgregarBtn.dataset.producto = currentTitle;
-      modalAgregarBtn.dataset.precio = price ? price.textContent : '';
-    }
-    if (modalConsultaBtn) {
-      modalConsultaBtn.dataset.producto = currentTitle;
-      modalConsultaBtn.dataset.precio = price ? price.textContent : '';
-    }
+  const modalAgregarBtn = document.getElementById('modal-agregar');
 
-    if (modalAgregarBtn) {
-      const textoPrecio = price ? price.textContent.toLowerCase() : '';
-      if (textoPrecio.includes('sin stock')) {
-        modalAgregarBtn.style.display = 'none';
-      } else {
-        modalAgregarBtn.style.display = 'inline-block';
-      }
-    }
+  function abrirModal(card) {
+  const img = card.querySelector('img');
+  const title = card.querySelector('h3');
+  const price = card.querySelector('p');
+
+  currentTitle = title ? title.textContent : "Producto";
+  currentImages = imagenesProducto[currentTitle] || [img?.src || ''];
+  currentIndex = 0;
+
+  modal.style.display = 'flex';
+  actualizarModal();
+
+  modalTitle.textContent = currentTitle;
+  document.getElementById('modal-precio').textContent = price ? price.textContent : '';
+
+  const modalAgregarBtn = document.getElementById('modal-agregar');
+
+  // 🎁 SI ES PROMO → SOLO OCULTA EL BOTÓN Y AGRANDA EL MODAL
+  if (card.classList.contains('promo')) {
+    modalAgregarBtn.style.display = 'none';
+    modal.classList.add('fullscreen'); // ✨ clase para agrandar modal
+  } else {
+    modalAgregarBtn.style.display = 'inline-block';
+    modalAgregarBtn.dataset.producto = currentTitle;
+    modalAgregarBtn.dataset.precio = price ? price.textContent : '';
+    modal.classList.remove('fullscreen'); // asegura tamaño normal para otros
   }
+}
 
+}
   function actualizarModal() {
     modalImg.src = currentImages[currentIndex] || '';
     modalTitle.textContent = currentTitle;

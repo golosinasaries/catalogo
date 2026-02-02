@@ -87,11 +87,25 @@ Realizamos envíos a todo el país <span class="emoji"> 🚚 🇦🇷 </span>
   <section class="destacados">
        
     <div class="portfolio">
-    
+      
+      <div class="card promo">
+       <img src="img/combito1.jpg" onclick="abrirModal(this.closest('.card'))">
+        <h3>Combito Surtido de Regalo 🎁</h3>
+        <p>Con tu compra mínima</p>
+        <p>Hasta agotar stock🪄💥</p>
+      </div>
+
       <div class="card">
         <img src="img/latas1.jpg" alt="Latitas con chicles" onclick="abrirModal(this)">
         <h3>Latitas con chicles (pack x 30 latitas)</h3>
         <p>$14.500</p>
+        <button class="btn-carrito">Agregar al carrito</button>
+      </div>
+
+      <div class="card">
+        <img src="img/botellitas.jpg" alt="Botellitas con chicles" onclick="abrirModal(this)">
+        <h3>Botellitas con chicles (30 botellitas)</h3>
+        <p>$12.000</p>
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
 <!--
@@ -137,20 +151,6 @@ Realizamos envíos a todo el país <span class="emoji"> 🚚 🇦🇷 </span>
       </div>
 
       <div class="card">
-        <img src="img/gelatinaloka.jpg" alt="Gomitas" onclick="abrirModal(this)">
-        <h3>Gomitas de Gelatinas Candy Loka (10 unidades)</h3>
-        <p>$4.000</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card">
-        <img src="img/gelatinaloka.jpg" alt="Gomitas" onclick="abrirModal(this)">
-        <h3>Gomitas de Gelatinas Candy Loka (30 unidades)</h3>
-        <p>$11.000</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card">
         <img src="img/helado.jpg" alt="Sacalenguas" onclick="abrirModal(this)">
         <h3>Gomita Blanda Helado (30 unidades)</h3>
         <p>$7.500</p>
@@ -169,13 +169,6 @@ Realizamos envíos a todo el país <span class="emoji"> 🚚 🇦🇷 </span>
         <h3>Gomitas Monstruo (30 unidades)</h3>
         <p>$10.500</p>
         <button class="btn-carrito">Agregar al carrito</button>  
-      </div>
-
-      <div class="card">
-        <img src="img/botellitas.jpg" alt="Botellitas con chicles" onclick="abrirModal(this)">
-        <h3>Botellitas con chicles (30 botellitas)</h3>
-        <p>$12.000</p>
-        <button class="btn-carrito">Agregar al carrito</button>
       </div>
     
       <div class="card">
@@ -289,20 +282,19 @@ Realizamos envíos a todo el país <span class="emoji"> 🚚 🇦🇷 </span>
           <p>$16.000</p>
           <button class="btn-carrito">Agregar al carrito</button> 
         </div>
-      
+
+        <div class="card">
+          <img src="img/chupetincapibara1.jpg" alt="Chupetines Capibara" onclick="abrirModal(this)">
+          <h3>Chupetines Capibara (30 unidades)</h3>
+          <p>$9.900</p>
+          <button class="btn-carrito">Agregar al carrito</button>
+        </div>
 
         <div class="card">
           <img src="img/supermario1.jpg" alt="super mario" onclick="abrirModal(this)">
           <h3>Gomitas Super Mario (pote x 30 unidades)</h3>
           <p>$7.500</p>
           <button class="btn-carrito">Agregar al carrito</button>
-        </div>
-      
-        <div class="card">
-          <img src="img/gomitasblandas7.jpg" alt="Gomitas blandas kuromy" onclick="abrirModal(this)">
-          <h3>Gomitas blandas Kuromy (pote x 30 unidades)</h3>
-          <p>$7.500</p>
-          <button class="btn-carrito">Agregar al carrito</button>  
         </div>
 
         <div class="card">
@@ -437,14 +429,7 @@ Realizamos envíos a todo el país <span class="emoji"> 🚚 🇦🇷 </span>
           <p>$9.500</p>
           <button class="btn-carrito">Agregar al carrito</button>
         </div>
-<!--
-        <div class="card">
-          <img src="img/unicornioled1.jpg" alt="Donut" onclick="abrirModal(this)">
-          <h3>Chupetines con led Unicornio (30 unidades)</h3>
-          <p>$9.900</p>
-          <button class="btn-carrito">Agregar al carrito</button>
-        </div>
--->
+
         <div class="card">
           <img src="img/oreo1.jpg" alt="Donut" onclick="abrirModal(this)">
           <h3>Chupetines con led Oreo (30 unidades)</h3>
@@ -484,6 +469,13 @@ Realizamos envíos a todo el país <span class="emoji"> 🚚 🇦🇷 </span>
           <img src="img/caramelokuromy.jpg" alt="Mc Donalds" onclick="abrirModal(this)">
           <h3>Caramelo duro diferentes sabores Kuromy con led (30 unidades)</h3>
           <p>$9.900</p>
+          <button class="btn-carrito">Agregar al carrito</button>  
+        </div>
+
+        <div class="card">
+          <img src="img/gomitasblandas7.jpg" alt="Gomitas blandas kuromy" onclick="abrirModal(this)">
+          <h3>Gomitas blandas Kuromy (pote x 30 unidades)</h3>
+          <p>$7.500</p>
           <button class="btn-carrito">Agregar al carrito</button>  
         </div>
 
@@ -915,8 +907,8 @@ Realizamos envíos a todo el país <span class="emoji"> 🚚 🇦🇷 </span>
         </div>
 
         <div class="card">
-          <img src="img/chupetincapibara1.jpg" alt="Chupetines Capibara" onclick="abrirModal(this)">
-          <h3>Chupetines Capibara (30 unidades)</h3>
+          <img src="img/unicornioled1.jpg" alt="Donut" onclick="abrirModal(this)">
+          <h3>Chupetines con led Unicornio (30 unidades)</h3>
           <p>$9.900</p>
           <button class="btn-carrito">Agregar al carrito</button>
         </div>
@@ -927,10 +919,17 @@ Realizamos envíos a todo el país <span class="emoji"> 🚚 🇦🇷 </span>
           <p>$9.500</p>
           <button class="btn-carrito">Agregar al carrito</button>
         </div>
-
+<!--
         <div class="card">
           <img src="img/fieritasupertatoo.jpg" alt="fierita" onclick="abrirModal(this)">
-          <h3>Fierita supertatoo 600g</h3>
+          <h3>Fierita Super Tatoo 600g</h3>
+          <p>$9.500</p>
+          <button class="btn-carrito">Agregar al carrito</button>
+        </div>
+-->
+         <div class="card">
+          <img src="img/supertatoott.jpg" alt="fierita" onclick="abrirModal(this)">
+          <h3>Fierita Super Tatoo Tutti Frutti 600g</h3>
           <p>$9.500</p>
           <button class="btn-carrito">Agregar al carrito</button>
         </div>
@@ -969,6 +968,20 @@ Realizamos envíos a todo el país <span class="emoji"> 🚚 🇦🇷 </span>
           <p>$9.500</p>
           <button class="btn-carrito">Agregar al carrito</button>
         </div>
+
+      <div class="card">
+        <img src="img/gelatinaloka.jpg" alt="Gomitas" onclick="abrirModal(this)">
+        <h3>Gomitas de Gelatinas Candy Loka (10 unidades)</h3>
+        <p>$4.000</p>
+        <button class="btn-carrito">Agregar al carrito</button>
+      </div>
+
+      <div class="card">
+        <img src="img/gelatinaloka.jpg" alt="Gomitas" onclick="abrirModal(this)">
+        <h3>Gomitas de Gelatinas Candy Loka (30 unidades)</h3>
+        <p>$11.000</p>
+        <button class="btn-carrito">Agregar al carrito</button>
+      </div>
 
 </div>
 
@@ -1023,7 +1036,7 @@ Realizamos envíos a todo el país <span class="emoji"> 🚚 🇦🇷 </span>
       <button id="cp-cancelar">Cancelar</button>
       <button id="cp-confirmar">Aceptar</button>
     </div>
-  </div>
+</div>
 </div>
 
 </body>

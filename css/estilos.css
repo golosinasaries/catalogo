@@ -47,6 +47,7 @@ header {
   flex-wrap: wrap;                                     /* permite que el contenido salte a la siguiente línea */
   gap: 0.5rem;                                           /* separación entre elementos flex */
   min-height: var(--header-h);                         /* altura mínima definida por la variable */
+ 
 }
 /* contenedor del logo dentro del header */
 .logo-contenedor img {
@@ -337,8 +338,8 @@ nav a:hover {
 }
 /* Contenido interior */
 .modal-content {
-  max-width: 600px;       /* fijo máximo ancho */
-  width: 90%;
+  max-width: 900px;       /* fijo máximo ancho */
+  width: 100%;
   max-height: 90%;
   background: #9d00ff;
   color: #000000;
@@ -782,6 +783,10 @@ html { scroll-behavior: smooth; }
   .hero{
     margin-top: 1rem;
   }
+  #search {
+    width: 90%; /* input más ancho para tablets */
+  }
+  
 }
 /* Tablets pequeñas / pantallas horizontales */
 @media (max-width: 768px) {
@@ -822,6 +827,7 @@ html { scroll-behavior: smooth; }
 
   #search {
     width: 95%; /* input más ancho para pantallas pequeñas */
+    padding-bottom: 0.5rem;
   }
 }
 /* Móviles / pantallas pequeñas */
@@ -907,7 +913,7 @@ html { scroll-behavior: smooth; }
   #search {
     width: 95%; /* input ocupa casi todo el ancho */
     font-size: 1.2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.1rem;
   }
 
   .contenedor-secciones {
@@ -1273,8 +1279,11 @@ html { scroll-behavior: smooth; }
   border-radius:8px; 
   font-weight:bold; 
   text-align:center;
-  font-size: 25px;
+  font-size: 22px;
   padding-bottom: 0%;
+  margin-bottom: 0%;
+  margin-top: -1%;
+  padding-top: 1%;
 }
 /* Botón flotante */
 #whatsapp-btn {
