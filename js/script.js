@@ -143,22 +143,6 @@ if (modal) {
   let currentIndex = 0;
   let currentTitle = "";
 
-  function abrirModal(card) {
-  const img = card.querySelector('img');
-  const title = card.querySelector('h3');
-  const price = card.querySelector('p');
-
-  currentTitle = title ? title.textContent : "Producto";
-  currentImages = imagenesProducto[currentTitle] || [img?.src || ''];
-  currentIndex = 0;
-
-  modal.style.display = 'flex';
-  actualizarModal();
-
-  modalTitle.textContent = currentTitle;
-  document.getElementById('modal-precio').textContent = price ? price.textContent : '';
-
-  const modalAgregarBtn = document.getElementById('modal-agregar');
 
   function abrirModal(card) {
   const img = card.querySelector('img');
@@ -187,7 +171,7 @@ if (modal) {
     modalAgregarBtn.dataset.precio = price ? price.textContent : '';
     modal.classList.remove('fullscreen'); // asegura tamaño normal para otros
   }
-}
+
 
 }
   function actualizarModal() {
