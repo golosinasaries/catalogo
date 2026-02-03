@@ -3,10 +3,12 @@ const minimoRegalo = 50000;   // Desde este total se activa el regalo
 const REGALO_NOMBRE = "Combito Surtido";
 
 
+
 const ENVIO_MIRAMAR = 0;
 const ENVIO_MDP = 5500;
 const ENVIO_GENERAL = 10000;
 const ENVIO_LEJANO = 13000;
+const ENVIO_SANTACRUZ = 15000;
 const ENVIO_GRATIS = 0;
 const PROMO_ACTIVA = "regalo"; 
 // "envio"  → envío gratis
@@ -32,6 +34,10 @@ function calcularCostoEnvio(cp) {
   // Miramar (7607)
   if (codigo.startsWith("7607")) {
     return ENVIO_MIRAMAR;
+  }
+
+  if (codigo.startsWith("9303")) {
+    return ENVIO_SANTACRUZ;
   }
 
   // Mar del Plata (7600)
