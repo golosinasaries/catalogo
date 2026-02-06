@@ -125,6 +125,7 @@ if (modal) {
     "Gomitas Ojos (pote x 30 unidades)": ["img/ojos.jpg","img/ojos2.jpg",],
     "Gomitas de Gelatinas Candy Loka (10 unidades)": ["img/gelatinaloka.jpg","img/trompo.jpg"],
     "Gomitas de Gelatinas Candy Loka (30 unidades)": ["img/gelatinaloka.jpg","img/trompo.jpg"],
+    "Combo Emprendedor": ["img/boca.jpg", "img/river.jpg", "img/pelotas.jpg","img/lheritier.jpg","img/gelatinaloka.jpg","img/fieritacomefuego.jpg", "img/remerapimball.jpg","img/bombulla.jpg","img/comboemprendedor.jpg"]
   };
 
   function animarAgregar(btn) {
