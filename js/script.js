@@ -257,6 +257,8 @@ if (modal) {
 // BUSCADOR DE PRODUCTOS
 // ========================
 document.addEventListener("DOMContentLoaded", () => {
+  sincronizarCarritoConHTML();
+
   const searchInput = document.getElementById("search");
   const cards = document.querySelectorAll(".card");
   const noResults = document.getElementById("no-results");
@@ -713,5 +715,58 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
     } else {
       aviso.style.display = "none";
     }
+  }
+}
+// ========================
+// SINCRONIZAR CARRITO CON PRODUCTOS DEL HTML (SILENCIOSO)
+// ========================
+function sincronizarCarritoConHTML() {
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+  // ❌ No hacer nada si el carrito está vacío
+  if (carrito.length === 0) return;
+
+  // 🔹 Leer productos actuales del HTML
+  const productosHTML = {};
+  document.querySelectorAll(".card").forEach(card => {
+    const nombre = card.querySelector("h3")?.innerText.trim();
+    const precioTexto = card.querySelector("p")?.innerText.trim();
+
+    if (nombre && precioTexto) {
+      const precio = parseFloat(
+        precioTexto.replace(/[^\d,]/g, "").replace(/\./g, "").replace(",", ".")
+      );
+      productosHTML[nombre] = precio;
+    }
+  });
+
+  let cambios = false;
+
+  // 🔹 Validar carrito
+  carrito = carrito.filter(item => {
+    const precioActual = productosHTML[item.nombre];
+
+    // ❌ Producto eliminado → se quita del carrito
+    if (precioActual === undefined) {
+      cambios = true;
+      return false;
+    }
+
+    // 🔄 Precio cambiado → se actualiza en silencio
+    const precioCarrito = parseFloat(
+      item.precio.replace(/[^\d,]/g, "").replace(/\./g, "").replace(",", ".")
+    );
+
+    if (precioCarrito !== precioActual) {
+      item.precio = `$${precioActual.toLocaleString("es-AR")}`;
+      cambios = true;
+    }
+
+    return true;
+  });
+
+  // 💾 Guardar solo si hubo cambios
+  if (cambios) {
+    localStorage.setItem("carrito", JSON.stringify(carrito));
   }
 }
