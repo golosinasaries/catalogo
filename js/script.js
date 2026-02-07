@@ -717,6 +717,7 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
     }
   }
 }
+
 // ========================
 // SINCRONIZAR CARRITO CON PRODUCTOS DEL HTML (SILENCIOSO)
 // ========================
