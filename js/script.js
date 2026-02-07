@@ -1,6 +1,6 @@
 const minimoCompra = 50000;   // Compra mínima
-const minimoRegalo = 50000;   // Desde este total se activa el regalo
-const REGALO_NOMBRE = "Combito Surtido";
+const minimoRegalo = 70000;   // Desde este total se activa el regalo
+const REGALO_NOMBRE = "10 chupetines con forma de corazón ❤️";
 
 
 
@@ -10,7 +10,7 @@ const ENVIO_GENERAL = 10000;
 const ENVIO_LEJANO = 13000;
 const ENVIO_SANTACRUZ = 15000;
 const ENVIO_GRATIS = 0;
-const PROMO_ACTIVA = "ninguna"; 
+const PROMO_ACTIVA = "regalo"; 
 // "envio"  → envío gratis
 // "regalo" → regalo 
 // "ninguna" → sin promoo
