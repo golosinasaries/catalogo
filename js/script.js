@@ -10,7 +10,7 @@ const ENVIO_GENERAL = 10000;
 const ENVIO_LEJANO = 13000;
 const ENVIO_SANTACRUZ = 15000;
 const ENVIO_GRATIS = 0;
-const PROMO_ACTIVA = "envio"; 
+const PROMO_ACTIVA = "ninguna"; 
 // "envio"  → envío gratis
 // "regalo" → regalo 
 // "ninguna" → sin promoo
@@ -120,7 +120,7 @@ if (modal) {
     "Gomitas Super Mario (pote x 30 unidades)": ["img/supermario1.jpg","img/supermario2.jpg"],
     "Gomitas Saca lenguas (30 unidades)": ["img/sacalenguas1.jpg","img/sacalenguas2.jpg"],
     "Chupetines con led Mc Donalds (30 unidades)": ["img/mc.jpg","img/mc2.jpg",],
-    "Chupetines con led Oreo (30 unidades)": ["img/oreo1.jpg","img/oreo2.jpg",],
+    "Chupetines con led Oreo (30 unidades)": ["img/oreo1.jpg","img/oreoce.jpg",],
     "Chupetines led Monster (30 unidades)": ["img/monsterojo1.jpg","img/monsterojo.jpg",],
     "Gomitas Ojos (pote x 30 unidades)": ["img/ojos.jpg","img/ojos2.jpg",],
     "Gomitas de Gelatinas Candy Loka (10 unidades)": ["img/gelatinaloka.jpg","img/trompo.jpg"],
