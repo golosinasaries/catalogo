@@ -646,7 +646,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     
   }
 
-    // 🔹 Abrir WhatsApp
+    // 🔹 Abrir WhatsAppp
     const numero = "542236010443";
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
     window.open(url, "_blank");
