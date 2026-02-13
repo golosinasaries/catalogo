@@ -631,8 +631,6 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     msg += `\n\n📍 *Entrega en Terminal de Miramar*`;
     
   } else {
-    msg += `\n\n📩 *Datos necesarios para el envío a través de Correo Argentino*`;
-    msg += `\n⏱️ Entrega: 2 a 5 días hábiles`;
     msg += `\n\n- Alguna referencia del domicilio (opcional): `;
     msg += `\n- Teléfono: `;
     msg += `\n- Email: `;
@@ -643,6 +641,9 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     msg += `\n- CUIL/DNI: `;
     msg += `\n- Nombre y apellido: `;
     msg += `\n\n- Si ya completaste estos datos alguna vez, podés omitirlo, a menos que quieras cambiar de dirección 😊 `;
+    msg += `\n⏱️ Entrega: 2 a 5 días hábiles`;
+    msg += `\n\n📩 *Datos necesarios para el envío a través de Correo Argentino 👆🏻*`;
+    
   }
 
     // 🔹 Abrir WhatsApp
