@@ -85,7 +85,7 @@ if (modal) {
 
   // Productos
   const imagenesProducto = {
-    "Chicles WhatsApp con tatoo (10 unidades)": ["img/wp1.jpg","img/wp2.jpg" ],
+    "Chicles WhatsApp con tatoo capibara (36 paquetes de 5 chicles)": ["img/wp1.jpg","img/wp2.jpg" ],
     "Gomitas Capibaras (pote x 30 unidades)": ["img/capibara.jpg","img/capibara2.jpg",],
     "Combito Surtido de Regalo 🎁": ["img/combito1.jpg","img/combito4.jpg","img/combito3.jpg","img/combito5.jpg", "img/combito2.jpg"],
     "Tractor dispenser + caramelos (1 unidad)": ["img/tractor1.jpg","img/tractor2.jpg"],
