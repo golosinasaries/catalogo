@@ -85,6 +85,7 @@ if (modal) {
 
   // Productos
   const imagenesProducto = {
+    "Chupetines con polvo ácido Bob Esponja (30 unidades)": ["img/bob1.jpg","img/bob2.jpg"],
     "Chicles WhatsApp con tatoo capibara (36 paquetes de 5 chicles)": ["img/wp1.jpg","img/wp2.jpg" ],
     "Gomitas Capibaras (pote x 30 unidades)": ["img/capibara.jpg","img/capibara2.jpg",],
     "Combito Surtido de Regalo 🎁": ["img/combito1.jpg","img/combito4.jpg","img/combito3.jpg","img/combito5.jpg", "img/combito2.jpg"],
@@ -92,7 +93,7 @@ if (modal) {
     "Camión dispenser + caramelos rosa (1 unidad)": ["img/camionrosa1.jpg","img/camionrosa2.jpg"],
     "Camión dispenser + caramelos celeste (1 unidad)": ["img/camionceleste1.jpg","img/camionceleste2.jpg"],
     "Tractor dispenser + caramelos verde (1 unidad)": ["img/tractorverde1.jpg","img/tractorverde2.jpg"],
-    "Caramelo duro diferentes sabores Kuromy con led (30 unidades)": ["img/caramelokuromy.jpg","img/caramelokuromy2.jpg"],
+    "Chupetines Kuromy con led (30 unidades)": ["img/caramelokuromy.jpg","img/caramelokuromy2.jpg"],
     "Gomita Blanda Helado (30 unidades)": ["img/helado.jpg","img/helado2.jpg"],
     "Gomitas de Gelatinas Candy Loka (10 unidades)": ["img/gelatinaloka.jpg","img/gelatinaloka2.jpg"],
     "Gomitas de Gelatinas Candy Loka (30 unidades)": ["img/gelatinaloka.jpg","img/gelatinaloka2.jpg"],
