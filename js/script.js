@@ -5,10 +5,10 @@ const REGALO_NOMBRE = "10 chupetines con forma de corazón ❤️";
 
 
 const ENVIO_MIRAMAR = 0;
-const ENVIO_MDP = 5500;
-const ENVIO_GENERAL = 10000;
-const ENVIO_LEJANO = 13000;
-const ENVIO_SANTACRUZ = 15000;
+const ENVIO_MDP = 5900;
+const ENVIO_GENERAL = 10900;
+const ENVIO_LEJANO = 13900;
+const ENVIO_SANTACRUZ = 14900;
 const ENVIO_GRATIS = 0;
 const PROMO_ACTIVA = "ninguna"; 
 // "envio"  → envío gratis
