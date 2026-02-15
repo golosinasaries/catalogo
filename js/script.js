@@ -1,6 +1,6 @@
 const minimoCompra = 50000;   // Compra mínima
-const minimoRegalo = 70000;   // Desde este total se activa el regalo
-const REGALO_NOMBRE = "10 chupetines con forma de corazón ❤️";
+const minimoRegalo = 50000;   // Desde este total se activa el regalo
+const REGALO_NOMBRE = "2 Espumas Rey Momo"; // Nombre del regalo que se muestra al superar el mínimo
 
 
 
@@ -16,14 +16,16 @@ const PROMO_ACTIVA = "ninguna";
 // "ninguna" → sin promoo
  
 const btn = document.getElementById("whatsapp-btn");
+
 if (btn) {
   btn.addEventListener("click", () => {
-  //fbq('track', 'Contact');
-  const numero = "542236010443";
-  const mensaje = "Hola! Vengo del catálogo y tengo una consulta...";
-  window.open(`https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`, "_blank");
-  })
-};
+    // fbq('track', 'Contact');
+    
+    const linkGrupo = "https://chat.whatsapp.com/IOdckbjRmKR7iZJUoJpGEV?mode=gi_ts";
+    window.open(linkGrupo, "_blank");
+  });
+}
+
 
 function calcularCostoEnvio(cp) {
 
