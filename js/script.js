@@ -645,9 +645,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     msg += `\n- Provincia: `;
     msg += `\n- CUIL/DNI: `;
     msg += `\n- Nombre y apellido: `;
-    msg += `\n\n- Si ya completaste estos datos alguna vez, podés omitirlo, a menos que quieras cambiar de dirección 😊 `;
-    msg += `\n⏱️ Entrega: 2 a 5 días hábiles`;
-    msg += `\n\n📩 *Datos necesarios para el envío a través de Correo Argentino 👆🏻*`;
+    msg += `\n\n📩 *Datos necesarios para el envío a través de Correo Argentino (Si ya completaste alguna vez, podés omitirlo)👆🏻*`;
     
   }
 
