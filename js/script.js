@@ -10,7 +10,7 @@ const ENVIO_GENERAL = 10900;
 const ENVIO_LEJANO = 13900;
 const ENVIO_SANTACRUZ = 14900;
 const ENVIO_GRATIS = 0;
-const PROMO_ACTIVA = "regalo"; 
+const PROMO_ACTIVA = "ninguna"; 
 // "envio"  → envío gratis
 // "regalo" → regalo 
 // "ninguna" → sin promoo
