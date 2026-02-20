@@ -29,8 +29,6 @@ if (btn) {
 
 function calcularCostoEnvio(cp) {
 
-  if (!cp) return ENVIO_GENERAL;
-
   const codigo = cp.trim();
 
   // Miramar (7607)
@@ -38,8 +36,13 @@ function calcularCostoEnvio(cp) {
     return ENVIO_MIRAMAR;
   }
 
-  if (codigo.startsWith("9303")) {
-    return ENVIO_SANTACRUZ;
+  // Prefijos específicos 
+  const prefijos = ["9303", "4430"];
+
+  for (const p of prefijos) {
+    if (codigo.startsWith(p)) {
+      return ENVIO_SANTACRUZ;
+    }
   }
 
   // Mar del Plata (7600)
@@ -49,18 +52,17 @@ function calcularCostoEnvio(cp) {
 
   // Muy al sur o muy al norte
   if (
-    codigo.startsWith("9") || // Patagonia
-    codigo.startsWith("4") || // NOA
+    codigo.startsWith("9") ||
+    codigo.startsWith("4") ||
     codigo.startsWith("3") ||
-    codigo.startsWith("8")    // NEA
+    codigo.startsWith("6") ||
+    codigo.startsWith("8")
   ) {
     return ENVIO_LEJANO;
   }
 
-  // Resto del país
   return ENVIO_GENERAL;
 }
-
 
 // ========================
 // MODAL DE PRODUCTOS
@@ -121,7 +123,7 @@ if (modal) {
     "Chupetines Capibara (30 unidades)": ["img/chupetincapibara1.jpg","img/chupetincapibara2.jpg"],
     //"Chupetines con forma de conejo (30 unidades)": ["img/conejos1.jpg","img/conejos3.jpg"],
     "Chupetines con forma de Unicornio (30 unidades)":["img/unicornio2.jpg","img/unicornio1.jpg","img/unicornio3.jpg"],
-    "Chupetines con led Unicornio (30 unidades)":["img/unicornioled1.jpg","img/unicornioled2.jpg",],
+    "Chupetines con led Unicornio (30 unidades)":["img/unicornioled1.jpg","img/unicornioled2.jpg","img/leduni.jpg"],
     "Gomitas Super Mario (pote x 30 unidades)": ["img/supermario1.jpg","img/supermario2.jpg"],
     "Gomitas Saca lenguas (30 unidades)": ["img/sacalenguas1.jpg","img/sacalenguas2.jpg"],
     "Chupetines con led Mc Donalds (30 unidades)": ["img/mc.jpg","img/mc2.jpg",],
