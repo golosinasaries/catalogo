@@ -1,5 +1,5 @@
 const minimoCompra = 50000;   // Compra mínima
-const minimoRegalo = 50000;   // Desde este total se activa el regalo
+const minimoRegalo = 90000;   // Desde este total se activa el regalo
 const REGALO_NOMBRE = "2 Espumas Rey Momo"; // Nombre del regalo que se muestra al superar el mínimo
 
 
@@ -10,7 +10,7 @@ const ENVIO_GENERAL = 10900;
 const ENVIO_LEJANO = 13900;
 const ENVIO_SANTACRUZ = 14900;
 const ENVIO_GRATIS = 0;
-const PROMO_ACTIVA = "envio"; 
+const PROMO_ACTIVA = "ninguna"; 
 // "envio"  → envío gratis
 // "regalo" → regalo 
 // "ninguna" → sin promoo
@@ -611,7 +611,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     // 🔹 Calcular envío con regla de envío gratis
     let costoEnvio;
 
-    if (PROMO_ACTIVA === "envio" && total >= 50000) {
+    if (PROMO_ACTIVA === "envio" && total >= 90000) {
       costoEnvio = 0;
     } else {
       costoEnvio = calcularCostoEnvio(codigoPostalCliente);
@@ -697,7 +697,7 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
   }
 
   if (PROMO_ACTIVA === "envio") {
-    if (envioManualGratis || total >= 50000) {
+    if (envioManualGratis || total >= 90000) {
       aviso.innerHTML = "🎉 <strong>¡Tenés envío gratis!</strong>";
       aviso.style.display = "block";
 
@@ -707,7 +707,7 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
         estadoEnvio.toastMostrado = true;
       }
     } else {
-      const falta = 50000 - total;
+      const falta = 90000 - total;
       aviso.innerHTML = `Sumá <strong>$${falta.toLocaleString("es-AR")}</strong> y conseguí <b>envío gratis</b>`;
       aviso.style.display = "block";
     }
