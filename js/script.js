@@ -1,10 +1,6 @@
-const minimoCompra = 50000;   // Compra mínima
-const minimoRegalo = 90000;   // Desde este total se activa el regalo
-const REGALO_NOMBRE = "2 Espumas Rey Momo"; // Nombre del regalo que se muestra al superar el mínimo
-
-
-
-const ENVIO_MIRAMAR = 0;
+const minimoCompra = 50000;  
+const minimoRegalo = 50000;   
+const REGALO_NOMBRE = "1 Alcancía con 12 gelatinas en su interior ✨"; 
 const ENVIO_MDP = 5900;
 const ENVIO_GENERAL = 10900;
 const ENVIO_LEJANO = 13900;
