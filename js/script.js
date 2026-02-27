@@ -5,6 +5,7 @@ const ENVIO_MDP = 5900;
 const ENVIO_GENERAL = 10900;
 const ENVIO_LEJANO = 13900;
 const ENVIO_SANTACRUZ = 14900;
+const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 const PROMO_ACTIVA = "regalo"; 
 // "envio"  → envío gratis
