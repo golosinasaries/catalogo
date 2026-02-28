@@ -1,13 +1,16 @@
-const minimoCompra = 50000;  
-const minimoRegalo = 50000;   
-const REGALO_NOMBRE = "1 Alcancía con 12 gelatinas en su interior ✨"; 
+const minimoCompra = 50000; 
+
 const ENVIO_MDP = 5900;
 const ENVIO_GENERAL = 10900;
 const ENVIO_LEJANO = 13900;
 const ENVIO_SANTACRUZ = 14900;
 const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
-const PROMO_ACTIVA = "regalo"; 
+
+const minimoRegalo = 50000;   
+const REGALO_NOMBRE = "1 Alcancía con 12 gelatinas en su interior ✨"; 
+
+const PROMO_ACTIVA = "ninguna"; 
 // "envio"  → envío gratis
 // "regalo" → regalo 
 // "ninguna" → sin promoo
