@@ -96,7 +96,7 @@ if (modal) {
     "YO-YOs (X24 unidades)": ["img/yoyo2.jpg","img/yoyo3.jpg","img/yoyo4.jpg","img/yoyo1.jpg"],
     "Agenditas surtidas (X32 unidades)": ["img/agendita3.jpg","img/agendita2.jpg","img/agendita3.jpg","img/agendita4.jpg"],
     "Agenditas surtidas (X40 unidades)": ["img/agendita2.jpg","img/agendita1.jpg","img/agendita3.jpg","img/agendita4.jpg"],
-    "Agenditas surtidas (X20 unidades)": ["img/agendita1.jpg","img/agendita1.jpg","img/agendita3.jpg","img/agendita4.jpg"],
+    "Agenditas surtidas (X20 unidades)": ["img/agendita1.jpg","img/agendita3.jpg","img/agendita4.jpg"],
     "Gomitas blandas Lilo y Stitch (pote x 60 unidades)": ["img/stich1.jpg","img/stich2.jpg","img/stich3.jpg"],
     "Chupetines con forma de helado (x30)": ["img/chupetineshelado1.jpg","img/chupetineshelado2.jpg"],
     "Chupetines con polvo ácido Bob Esponja (30 unidades)": ["img/bob1.jpg","img/bob2.jpg"],
