@@ -85,7 +85,7 @@ if (modal) {
 
   modalContent.appendChild(prevBtn);
   modalContent.appendChild(nextBtn);
-  //modalContent.appendChild(contador);
+  //modalContent.appendChild(contador);a
 
   // Productos
   const imagenesProducto = {
