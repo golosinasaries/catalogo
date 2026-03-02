@@ -89,6 +89,7 @@ if (modal) {
 
   // Productos
   const imagenesProducto = {
+    "Gomitas blandas Lilo y Stitch (pote x 60 unidades)": ["img/stich1.jpg","img/stich2.jpg","img/stich3.jpg"],
     "Chupetines con forma de helado (x30)": ["img/chupetineshelado1.jpg","img/chupetineshelado2.jpg"],
     "Chupetines con polvo ácido Bob Esponja (30 unidades)": ["img/bob1.jpg","img/bob2.jpg"],
     "Chicles WhatsApp con tatoo capibara (36 paquetes de 5 chicles)": ["img/wp1.jpg","img/wp2.jpg" ],
