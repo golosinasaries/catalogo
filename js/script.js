@@ -89,6 +89,8 @@ if (modal) {
 
   // Productos
   const imagenesProducto = {
+    "Llaveros láser Capibara (x12 unidades)": ["img/laser1.jpg","img/laser2.jpg","img/laser3.jpg","img/laser4.jpg"],
+    "Ring Pop Barbie (30 unidades)": ["img/ringpopbarbie.jpg","img/ringpop.jpg"],
     "Pistolitas con luz (X30 unidades)": ["img/pistolita1.jpg","img/pistolita2.jpg","img/pistolita3.jpg","img/pistolita4.jpg"],
     "YO-YOs (X12 unidades)": ["img/yoyo1.jpg","img/yoyo1.jpg","img/yoyo3.jpg","img/yoyo4.jpg","img.yoyo2.jpg"],
     "YO-YOs (X24 unidades)": ["img/yoyo2.jpg","img/yoyo2.jpg","img/yoyo3.jpg","img/yoyo4.jpg","img.yoyo1.jpg"],
