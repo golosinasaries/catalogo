@@ -92,8 +92,8 @@ if (modal) {
     "Llaveros láser Capibara (x12 unidades)": ["img/laser1.jpg","img/laser2.jpg","img/laser3.jpg","img/laser4.jpg"],
     "Ring Pop Barbie (30 unidades)": ["img/ringpopbarbie.jpg","img/ringpop.jpg"],
     "Pistolitas con luz (X30 unidades)": ["img/pistolita1.jpg","img/pistolita2.jpg","img/pistolita3.jpg","img/pistolita4.jpg"],
-    "YO-YOs (X12 unidades)": ["img/yoyo1.jpg","img/yoyo3.jpg","img/yoyo4.jpg","img/yoyo2.jpg"],
-    "YO-YOs (X24 unidades)": ["img/yoyo2.jpg","img/yoyo3.jpg","img/yoyo4.jpg","img/yoyo1.jpg"],
+    "YO-YOs con luces (X12 unidades)": ["img/yoyo1.jpg","img/yoyo3.jpg","img/yoyo4.jpg","img/yoyo2.jpg"],
+    "YO-YOs con luces (X24 unidades)": ["img/yoyo2.jpg","img/yoyo3.jpg","img/yoyo4.jpg","img/yoyo1.jpg"],
     "Agenditas surtidas (X32 unidades)": ["img/agendita3.jpg","img/agendita2.jpg","img/agendita3.jpg","img/agendita4.jpg"],
     "Agenditas surtidas (X40 unidades)": ["img/agendita2.jpg","img/agendita1.jpg","img/agendita3.jpg","img/agendita4.jpg"],
     "Agenditas surtidas (X20 unidades)": ["img/agendita1.jpg","img/agendita3.jpg","img/agendita4.jpg"],
@@ -601,6 +601,33 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
   }
 
   // Botón confirmar código postal
+  const btnRetirarMiramar = document.getElementById("retirar-miramar");
+
+  btnRetirarMiramar?.addEventListener("click", () => {
+
+    const costoEnvio = 0; // Igual que Miramar
+    const totalFinal = total + costoEnvio;
+
+    let mensajeRegalo = "";
+
+    if (PROMO_ACTIVA === "regalo" && total >= minimoRegalo) {
+      mensajeRegalo = `\n🎁 ¡Tu compra incluye: ${REGALO_NOMBRE} de regalo!`;
+    }
+
+    msg += mensajeRegalo;
+    msg += `\n📦 *Total de productos:* ${totalProductos}`;
+    msg += `\n🚚 *Envío:* $0`;
+    msg += `\n\n💳 *Total a pagar:* $${totalFinal.toLocaleString("es-AR")}`;
+
+    msg += `\n\n📍 *Retiro en Terminal de Miramar*`;
+
+    const numero = "542236010443";
+    const url = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
+    window.open(url, "_blank");
+
+    modalCP.style.display = "none";
+  });
+
   const cpConfirmar = document.getElementById("cp-confirmar");
   cpConfirmar.onclick = () => {
     const codigoPostalCliente = inputCP.value.trim();
