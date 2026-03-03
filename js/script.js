@@ -89,6 +89,7 @@ if (modal) {
 
   // Productos
   const imagenesProducto = {
+    "Gomitas Spider-Man (pote x 60 unidades)": ["img/spiderman1.jpg","img/spiderman2.jpg","img/spiderman3.jpg","img/spiderman4.jpg","img/spiderman5.jpg"],
     "Llaveros láser Capibara (x12 unidades)": ["img/laser1.jpg","img/laser2.jpg","img/laser3.jpg","img/laser4.jpg"],
     "Ring Pop Barbie (30 unidades)": ["img/ringpopbarbie.jpg","img/ringpop.jpg"],
     "Pistolitas con luz (X30 unidades)": ["img/pistolita1.jpg","img/pistolita2.jpg","img/pistolita3.jpg","img/pistolita4.jpg"],
