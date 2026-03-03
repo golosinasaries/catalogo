@@ -619,7 +619,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     msg += `\n🚚 *Envío:* $0`;
     msg += `\n\n💳 *Total a pagar:* $${totalFinal.toLocaleString("es-AR")}`;
 
-    msg += `\n\n📍 *Retiro en Terminal de Miramar*`;
+    msg += `\n\n📍 *Retiro en Miramar*`;
 
     const numero = "542236010443";
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
@@ -672,7 +672,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     msg += `\n\n💳 *Total a pagar (con envío incluido):* $${totalFinal.toLocaleString("es-AR")}`;
 
     if (esMiramar) {
-    msg += `\n\n📍 *Entrega en Terminal de Miramar*`;
+    msg += `\n\n📍 *Entrega en Miramar*`;
     
   } else {
     msg += `\n\n- Alguna referencia del domicilio (opcional): `;
