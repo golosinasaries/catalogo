@@ -10,7 +10,7 @@ const ENVIO_GRATIS = 0;
 const minimoRegalo = 50000;   
 const REGALO_NOMBRE = "1 Alcancía con 12 gelatinas en su interior ✨"; 
 
-const PROMO_ACTIVA = "ninguna"; 
+const PROMO_ACTIVA = "envio"; 
 // "envio"  → envío gratis
 // "regalo" → regalo 
 // "ninguna" → sin promoo
@@ -421,7 +421,6 @@ document.addEventListener("DOMContentLoaded", () => {
     msg += `\n\n📩 *Datos necesarios para el Correo*`;
     msg += `\nPor favor envianos estos datos 👇`;
     msg += `\n- Nombre y apellido:`;
-    msg += `\n- CUIL/DNI:`;
     msg += `\n- Localidad:`;
     msg += `\n- Provincia:`;
     msg += `\n- Dirección exacta:`;
@@ -649,7 +648,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     // 🔹 Calcular envío con regla de envío gratis
     let costoEnvio;
 
-    if (PROMO_ACTIVA === "envio" && total >= 90000) {
+    if (PROMO_ACTIVA === "envio" && total >= 70000) {
       costoEnvio = 0;
     } else {
       costoEnvio = calcularCostoEnvio(codigoPostalCliente);
@@ -683,7 +682,6 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     msg += `\n- Dirección exacta: `;
     msg += `\n- Localidad: `;
     msg += `\n- Provincia: `;
-    msg += `\n- CUIL/DNI: `;
     msg += `\n- Nombre y apellido: `;
     msg += `\n\n📩 *Datos necesarios para el envío a través de Correo Argentino (Si ya completaste alguna vez, podés omitirlo)👆🏻*`;
     
@@ -735,7 +733,7 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
   }
 
   if (PROMO_ACTIVA === "envio") {
-    if (envioManualGratis || total >= 90000) {
+    if (envioManualGratis || total >= 70000) {
       aviso.innerHTML = "🎉 <strong>¡Tenés envío gratis!</strong>";
       aviso.style.display = "block";
 
@@ -745,7 +743,7 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
         estadoEnvio.toastMostrado = true;
       }
     } else {
-      const falta = 90000 - total;
+      const falta = 70000 - total;
       aviso.innerHTML = `Sumá <strong>$${falta.toLocaleString("es-AR")}</strong> y conseguí <b>envío gratis</b>`;
       aviso.style.display = "block";
     }
