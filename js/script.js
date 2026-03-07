@@ -10,7 +10,7 @@ const ENVIO_GRATIS = 0;
 const minimoRegalo = 50000;   
 const REGALO_NOMBRE = "1 Alcancía con 12 gelatinas en su interior ✨"; 
 
-const PROMO_ACTIVA = "envio"; 
+const PROMO_ACTIVA = "ninguna"; 
 // "envio"  → envío gratis
 // "regalo" → regalo 
 // "ninguna" → sin promoo
