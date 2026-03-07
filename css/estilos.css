@@ -1574,3 +1574,14 @@ html { scroll-behavior: smooth; }
   text-align: center;
   margin-top: 6px;
 }
+.ultimo-stock{
+  position:absolute;
+  top:8px;
+  left:8px;
+  background:#ff3b3b;
+  color:white;
+  font-size:12px;
+  padding:4px 6px;
+  border-radius:6px;
+  font-weight:bold;
+}

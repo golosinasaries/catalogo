@@ -14,8 +14,27 @@ const PROMO_ACTIVA = "regalo";
 // "envio"  → envío gratis
 // "regalo" → regalo 
 // "ninguna" → sin promoo
- 
+const STOCK_PRODUCTOS = {
+  "Llaveros láser Capibara (x12 unidades)": 1,
+  "YO-YOs con luces (X12 unidades)": 1
+};
+function validarStock(nombre, carrito) {
+  const stockMax = STOCK_PRODUCTOS[nombre];
+
+  if (stockMax !== undefined) {
+    const ex = carrito.find(p => p.nombre === nombre);
+    const cantidadActual = ex ? ex.cantidad : 0;
+
+    if (cantidadActual >= stockMax) {
+      mostrarToast("⚠️ Solo queda 1 unidad disponible", "error");
+      return false;
+    }
+  }
+
+  return true;
+}
 const btn = document.getElementById("whatsapp-btn");
+
 
 if (btn) {
   btn.addEventListener("click", () => {
@@ -256,6 +275,14 @@ if (modal) {
   const cards = document.querySelectorAll('.card');
   cards.forEach(card => {
     const titulo = card.querySelector('h3')?.textContent || '';
+    const stock = STOCK_PRODUCTOS[titulo];
+
+    if (stock === 1) {
+      const aviso = document.createElement('span');
+      aviso.className = 'ultimo-stock';
+      aviso.textContent = "🔥 Última unidad";
+      card.appendChild(aviso);
+    }
     const cantidadImgs = imagenesProducto[titulo]?.length || 1;
     if (cantidadImgs > 1) {
       const overlay = document.createElement('span');
@@ -505,10 +532,14 @@ document.addEventListener("DOMContentLoaded", () => {
   vaciarBtn?.addEventListener("click",()=>{carrito=[];actualizarCarrito();});
 
   document.addEventListener("click",e=>{
-    if(e.target.classList.contains("sumar")){
-      const item=carrito.find(p=>p.nombre===e.target.dataset.nombre);
-      if(item)item.cantidad++;
-    }
+    if (e.target.classList.contains("sumar")) {
+    const nombre = e.target.dataset.nombre;
+    const item = carrito.find(p => p.nombre === nombre);
+
+    if (!validarStock(nombre, carrito)) return;
+
+    if (item) item.cantidad++;
+  }
     if(e.target.classList.contains("restar")){
       const item=carrito.find(p=>p.nombre===e.target.dataset.nombre);
       if(item){
@@ -531,9 +562,21 @@ document.addEventListener("DOMContentLoaded", () => {
         const texto = btn.innerText.toLowerCase();
 
         if (texto.includes("agregar")) {
-          const ex = carrito.find(p => p.nombre === nombre);
-          if (ex) ex.cantidad++;
-          else carrito.push({ nombre, precio, cantidad: 1 });
+
+            const stockMax = STOCK_PRODUCTOS[nombre];
+            const ex = carrito.find(p => p.nombre === nombre);
+
+            if (stockMax !== undefined) {
+              const cantidadActual = ex ? ex.cantidad : 0;
+
+              if (cantidadActual >= stockMax) {
+                mostrarToast("⚠️ Solo queda 1 unidad disponible", "error");
+                return;
+              }
+            }
+
+            if (ex) ex.cantidad++;
+            else carrito.push({ nombre, precio, cantidad: 1 });
           actualizarCarrito();
           animarAgregar(btn);
           mostrarToast("Producto agregado al carrito 🛒", "warning");
