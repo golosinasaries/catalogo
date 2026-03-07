@@ -26,7 +26,7 @@ function validarStock(nombre, carrito) {
     const cantidadActual = ex ? ex.cantidad : 0;
 
     if (cantidadActual >= stockMax) {
-      mostrarToast("⚠️ Solo queda 1 unidad disponible", "error");
+      mostrarToast("⚠️ Solo queda 1 disponible", "error");
       return false;
     }
   }
@@ -570,7 +570,7 @@ document.addEventListener("DOMContentLoaded", () => {
               const cantidadActual = ex ? ex.cantidad : 0;
 
               if (cantidadActual >= stockMax) {
-                mostrarToast("⚠️ Solo queda 1 unidad disponible", "error");
+                mostrarToast("⚠️ Solo queda 1 disponible", "error");
                 return;
               }
             }
