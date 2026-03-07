@@ -280,7 +280,7 @@ if (modal) {
     if (stock === 1) {
       const aviso = document.createElement('span');
       aviso.className = 'ultimo-stock';
-      aviso.textContent = "🔥 Última unidad";
+      aviso.textContent = "🔥 Última";
       card.appendChild(aviso);
     }
     const cantidadImgs = imagenesProducto[titulo]?.length || 1;
