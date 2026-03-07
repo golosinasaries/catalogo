@@ -7,10 +7,10 @@ const ENVIO_SANTACRUZ = 14900;
 const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 
-const minimoRegalo = 50000;   
-const REGALO_NOMBRE = "1 Alcancía con 12 gelatinas en su interior ✨"; 
+const minimoRegalo = 60000;   
+const REGALO_NOMBRE = "Gomita Blanda Helado (30 unidades) ✨"; 
 
-const PROMO_ACTIVA = "ninguna"; 
+const PROMO_ACTIVA = "regalo"; 
 // "envio"  → envío gratis
 // "regalo" → regalo 
 // "ninguna" → sin promoo
@@ -615,6 +615,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     }
 
     msg += mensajeRegalo;
+    totalProductos += (PROMO_ACTIVA === "regalo" && total >= minimoRegalo) ? 1 : 0;
     msg += `\n📦 *Total de productos:* ${totalProductos}`;
     msg += `\n🚚 *Envío:* $0`;
     msg += `\n\n💳 *Total a pagar:* $${totalFinal.toLocaleString("es-AR")}`;
