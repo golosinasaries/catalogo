@@ -10,7 +10,7 @@ const ENVIO_GRATIS = 0;
 const minimoRegalo = 60000;   
 const REGALO_NOMBRE = "Gomita Blanda Helado (30 unidades) ✨"; 
 
-const PROMO_ACTIVA = "regalo"; 
+const PROMO_ACTIVA = "ninguna"; 
 // "envio"  → envío gratis
 // "regalo" → regalo 
 // "ninguna" → sin promoo
