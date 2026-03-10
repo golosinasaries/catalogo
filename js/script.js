@@ -16,7 +16,9 @@ const PROMO_ACTIVA = "ninguna";
 // "ninguna" → sin promoo
 const STOCK_PRODUCTOS = {
   "Llaveros láser Capibara (x12 unidades)": 1,
-  "YO-YOs con luces (X12 unidades)": 1
+  "YO-YOs con luces (X12 unidades)": 1,
+  "Gomitas Selección (pote x 30 unidades)": 1,
+  "Gomitas blandas Donas 🍩 (pote x 30 unidades)":3,
 };
 function validarStock(nombre, carrito) {
   const stockMax = STOCK_PRODUCTOS[nombre];
