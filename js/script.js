@@ -171,7 +171,7 @@ if (modal) {
   console.log("Animado botón", btn);
   if (!btn) return;
 
-  // Vibración (si está disponible)
+  // Vibración (si está disponible))
   if (navigator.vibrate) {
     navigator.vibrate(40);
   }
