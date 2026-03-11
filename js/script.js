@@ -8,17 +8,18 @@ const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 
 const minimoRegalo = 60000;   
-const REGALO_NOMBRE = "Gomita Blanda Helado (30 unidades) ✨"; 
+const REGALO_NOMBRE = "Gomita Blanda Helado (30 u) ✨"; 
 
 const PROMO_ACTIVA = "ninguna"; 
 // "envio"  → envío gratis
 // "regalo" → regalo 
 // "ninguna" → sin promoo
+
 const STOCK_PRODUCTOS = {
-  "Llaveros láser Capibara (x12 unidades)": 1,
-  "YO-YOs con luces (X12 unidades)": 1,
-  "Gomitas Selección (pote x 30 unidades)": 1,
-  "Gomitas blandas Donas 🍩 (pote x 30 unidades)":3,
+  "Llaveros láser Capibara (12 u)": 1,
+  "YO-YOs con luces (12 u)": 1,
+  "Gomitas Selección (30 u)": 1,
+  "Gomitas blandas Donas 🍩 (30 u)":3,
 };
 function validarStock(nombre, carrito) {
   const stockMax = STOCK_PRODUCTOS[nombre];
@@ -110,60 +111,60 @@ if (modal) {
 
   // Productos
   const imagenesProducto = {
-    "Gomitas Spider-Man (pote x 60 unidades)": ["img/spiderman1.jpg","img/spiderman2.jpg","img/spiderman3.jpg","img/spiderman4.jpg","img/spiderman5.jpg"],
-    "Llaveros láser Capibara (x12 unidades)": ["img/laser1.jpg","img/laser2.jpg","img/laser3.jpg","img/laser4.jpg"],
-    "Ring Pop Barbie (30 unidades)": ["img/ringpopbarbie.jpg","img/ringpop.jpg"],
-    "Pistolitas con luz (X30 unidades)": ["img/pistolita1.jpg","img/pistolita2.jpg","img/pistolita3.jpg","img/pistolita4.jpg"],
-    "YO-YOs con luces (X12 unidades)": ["img/yoyo1.jpg","img/yoyo3.jpg","img/yoyo4.jpg","img/yoyo2.jpg"],
-    "YO-YOs con luces (X24 unidades)": ["img/yoyo2.jpg","img/yoyo3.jpg","img/yoyo4.jpg","img/yoyo1.jpg"],
-    "Agenditas surtidas (X32 unidades)": ["img/agendita3.jpg","img/agendita2.jpg","img/agendita3.jpg","img/agendita4.jpg"],
-    "Agenditas surtidas (X40 unidades)": ["img/agendita2.jpg","img/agendita1.jpg","img/agendita3.jpg","img/agendita4.jpg"],
-    "Agenditas surtidas (X20 unidades)": ["img/agendita1.jpg","img/agendita3.jpg","img/agendita4.jpg"],
-    "Gomitas blandas Lilo y Stitch (pote x 60 unidades)": ["img/stich1.jpg","img/stich2.jpg","img/stich3.jpg"],
-    "Chupetines con forma de helado (x30)": ["img/chupetineshelado1.jpg","img/chupetineshelado2.jpg"],
-    "Chupetines con polvo ácido Bob Esponja (30 unidades)": ["img/bob1.jpg","img/bob2.jpg"],
+    "Gomitas Spider-Man (60 u)": ["img/spiderman1.jpg","img/spiderman2.jpg","img/spiderman3.jpg","img/spiderman4.jpg","img/spiderman5.jpg"],
+    "Llaveros láser Capibara (12 u)": ["img/laser1.jpg","img/laser2.jpg","img/laser3.jpg","img/laser4.jpg"],
+    "Ring Pop Barbie (30 u)": ["img/ringpopbarbie.jpg","img/ringpop.jpg"],
+    "Pistolitas con luz (30 u)": ["img/pistolita1.jpg","img/pistolita2.jpg","img/pistolita3.jpg","img/pistolita4.jpg"],
+    "YO-YOs con luces (12 u)": ["img/yoyo1.jpg","img/yoyo3.jpg","img/yoyo4.jpg","img/yoyo2.jpg"],
+    "YO-YOs con luces (24 u)": ["img/yoyo2.jpg","img/yoyo3.jpg","img/yoyo4.jpg","img/yoyo1.jpg"],
+    "Agenditas surtidas (32 u)": ["img/agendita3.jpg","img/agendita2.jpg","img/agendita3.jpg","img/agendita4.jpg"],
+    "Agenditas surtidas (40 u)": ["img/agendita2.jpg","img/agendita1.jpg","img/agendita3.jpg","img/agendita4.jpg"],
+    "Agenditas surtidas (20 u)": ["img/agendita1.jpg","img/agendita3.jpg","img/agendita4.jpg"],
+    "Gomitas blandas Lilo y Stitch (60 u)": ["img/stich1.jpg","img/stich2.jpg","img/stich3.jpg"],
+    "Chupetines con forma de helado (30 u)": ["img/chupetineshelado1.jpg","img/chupetineshelados2.jpg"],
+    "Chupetines con polvo ácido Bob Esponja (30 u)": ["img/bob1.jpg","img/bob2.jpg"],
     "Chicles WhatsApp con tatoo capibara (36 paquetes de 5 chicles)": ["img/wp1.jpg","img/wp2.jpg" ],
-    "Gomitas Capibaras (pote x 30 unidades)": ["img/capibara.jpg","img/capibara2.jpg",],
+    "Gomitas Capibaras (30 u)": ["img/capibara.jpg","img/capibara2.jpg",],
     "Combito Surtido de Regalo 🎁": ["img/combito1.jpg","img/combito4.jpg","img/combito3.jpg","img/combito5.jpg", "img/combito2.jpg"],
     "Tractor dispenser + caramelos (1 unidad)": ["img/tractor1.jpg","img/tractor2.jpg"],
     "Camión dispenser + caramelos rosa (1 unidad)": ["img/camionrosa1.jpg","img/camionrosa2.jpg"],
     "Camión dispenser + caramelos celeste (1 unidad)": ["img/camionceleste1.jpg","img/camionceleste2.jpg"],
     "Tractor dispenser + caramelos verde (1 unidad)": ["img/tractorverde1.jpg","img/tractorverde2.jpg"],
-    "Chupetines Kuromy con led (30 unidades)": ["img/caramelokuromy.jpg","img/caramelokuromy2.jpg"],
-    "Gomita Blanda Helado (30 unidades)": ["img/helado.jpg","img/helado2.jpg"],
-    "Gomitas de Gelatinas Candy Loka (10 unidades)": ["img/gelatinaloka.jpg","img/gelatinaloka2.jpg"],
-    "Gomitas de Gelatinas Candy Loka (30 unidades)": ["img/gelatinaloka.jpg","img/gelatinaloka2.jpg"],
+    "Chupetines Kuromy con led (30 u)": ["img/caramelokuromy.jpg","img/caramelokuromy2.jpg"],
+    "Gomita Blanda Helado (30 u)": ["img/helado.jpg","img/helado2.jpg"],
+    "Gomitas de Gelatinas Candy Loka (10 u)": ["img/gelatinaloka.jpg","img/gelatinaloka2.jpg"],
+    "Gomitas de Gelatinas Candy Loka (30 u)": ["img/gelatinaloka.jpg","img/gelatinaloka2.jpg"],
     "Alcancía pingüino negro (con 12 gelatinas en su interior)": ["img/pinguino2.jpg","img/pinguino5.jpg","img/pinguino3.jpg","img/pinguino4.jpg","img/pinguino6.jpg"],
-    "Chupetines Merlina (30 unidades)": ["img/merlina1.jpg","img/merlina2.jpg","img/merlina3.jpg","img/merlina4.jpg"],
-    "Chupetín con polvo ácido Brain (30 unidades)": ["img/braincaja.jpg","img/chupetinBrain.jpg"],
+    "Chupetines Merlina (30 u)": ["img/merlina1.jpg","img/merlina2.jpg","img/merlina3.jpg","img/merlina4.jpg"],
+    "Chupetín con polvo ácido Brain (30 u)": ["img/braincaja.jpg","img/chupetinBrain.jpg"],
     //"Chupetín con polvo acido skull (30u)": ["img/chupetinConAcido.jpg","img/cajaChupetinAcido.jpg"],
-    //"Brochetas de ojos (30 unidades)": ["img/brochetas2.jpg", "img/brochetas3.jpg",],
-    "Camiseta pimball con pastillitas (30 unidades)": ["img/pimballremera.jpg","img/reversaremera.jpg","img/r1.jpg","img/r2.jpg"],
-    "Chupetín Calabaza con polvo ácido (30 unidades)": ["img/chupetincalabaza1.jpg","img/chupetincalabaza2.jpg"],
-    "Gelatina de diferentes formas (30 unidades)": ["img/gelatinaDiferentesSabores4.jpg","img/gelatinaDiferentesSabores3.jpg","img/gelatinaDiferentesSabores2.jpg","img/gelatinaDiferentesSabores5.jpg","img/gelatinaDiferentesSabores1.jpg"],
-    "Chupetines con led Corona (30 unidades)": ["img/chupetinesconled1.jpg","img/corona2.jpg"],
-    "Gomitas Monstruo (30 unidades)": ["img/gomitablandaCara2.jpg","img/gomitablandaCara3.jpg"],
-    "Cool Mint sabores frutales (30 unidades)": ["img/coolmint.jpg","img/coolmint2.jpg"],
-    "Trompetas con chupetin y sonido (30 unidades)": ["img/trompeta1.jpg","img/trompetas.jpg"],
-    "Huevos Sorpresa Capibara (30 unidades)": ["img/sorpresacapibara1.jpg","img/sorpresacapibara2.jpg"],
-    "Huevos Sorpresa Plantas vs Zombies (30 unidades)": ["img/sorpresaplant2.jpg","img/sorpresaplant.jpg"],
-    "Gomitas blandas Fantasmita (pote x 30 unidades)": ["img/fantasmitas.jpg","img/fantasmitas2.jpg"],
-    "Gomitas blandas Batman (pote x 30 unidades)": ["img/batman1.jpg","img/batman2.jpg"],
-    "Monedas de chocolate (pote x 250 unidades)": ["img/monedas1.jpg","img/monedas2.jpg"],
-    "Gomitas ojo-boca-ojo (30 unidades)": ["img/gomitasoh1.jpg","img/gomitasoh.jpg"],
-    "Gomitas blandas Kuromy (pote x 30 unidades)": ["img/gomitasblandas7.jpg","img/gomitasblandas71.jpg"],
-    "Chupetines Capibara (30 unidades)": ["img/chupetincapibara1.jpg","img/chupetincapibara2.jpg"],
-    //"Chupetines con forma de conejo (30 unidades)": ["img/conejos1.jpg","img/conejos3.jpg"],
-    "Chupetines con forma de Unicornio (30 unidades)":["img/unicornio2.jpg","img/unicornio1.jpg","img/unicornio3.jpg"],
-    "Chupetines con led Unicornio (30 unidades)":["img/unicornioled1.jpg","img/unicornioled2.jpg","img/leduni.jpg"],
-    "Gomitas Super Mario (pote x 30 unidades)": ["img/supermario1.jpg","img/supermario2.jpg"],
-    "Gomitas Saca lenguas (30 unidades)": ["img/sacalenguas1.jpg","img/sacalenguas2.jpg"],
-    "Chupetines con led Mc Donalds (30 unidades)": ["img/mc.jpg","img/mc2.jpg",],
-    "Chupetines con led Oreo (30 unidades)": ["img/oreo1.jpg","img/oreoce.jpg",],
-    "Chupetines led Monster (30 unidades)": ["img/monsterojo1.jpg","img/monsterojo.jpg",],
-    "Gomitas Ojos (pote x 30 unidades)": ["img/ojos.jpg","img/ojos2.jpg",],
-    "Gomitas de Gelatinas Candy Loka (10 unidades)": ["img/gelatinaloka.jpg","img/trompo.jpg"],
-    "Gomitas de Gelatinas Candy Loka (30 unidades)": ["img/gelatinaloka.jpg","img/trompo.jpg"],
+    //"Brochetas de ojos (30 u)": ["img/brochetas2.jpg", "img/brochetas3.jpg",],
+    "Camiseta pimball con pastillitas (30 u)": ["img/pimballremera.jpg","img/reversaremera.jpg","img/r1.jpg","img/r2.jpg"],
+    "Chupetín Calabaza con polvo ácido (30 u)": ["img/chupetincalabaza1.jpg","img/chupetincalabaza2.jpg"],
+    "Gelatina de diferentes formas (30 u)": ["img/gelatinaDiferentesSabores4.jpg","img/gelatinaDiferentesSabores3.jpg","img/gelatinaDiferentesSabores2.jpg","img/gelatinaDiferentesSabores5.jpg","img/gelatinaDiferentesSabores1.jpg"],
+    "Chupetines con led Corona (30 u)": ["img/chupetinesconled1.jpg","img/corona2.jpg"],
+    "Gomitas Monstruo (30 u)": ["img/gomitablandaCara2.jpg","img/gomitablandaCara3.jpg"],
+    "Cool Mint sabores frutales (30 u)": ["img/coolmint.jpg","img/coolmint2.jpg"],
+    "Trompetas con chupetin y sonido (30 u)": ["img/trompeta1.jpg","img/trompetas.jpg"],
+    "Huevos Sorpresa Capibara (30 u)": ["img/sorpresacapibara1.jpg","img/sorpresacapibara2.jpg"],
+    "Huevos Sorpresa Plantas vs Zombies (30 u)": ["img/sorpresaplant2.jpg","img/sorpresaplant.jpg"],
+    "Gomitas blandas Fantasmita (30 u)": ["img/fantasmitas.jpg","img/fantasmitas2.jpg"],
+    "Gomitas blandas Batman (30 u)": ["img/batman1.jpg","img/batman2.jpg"],
+    "Monedas de chocolate (250 u)": ["img/monedas1.jpg","img/monedas2.jpg"],
+    "Gomitas ojo-boca-ojo (30 u)": ["img/gomitasoh1.jpg","img/gomitasoh.jpg"],
+    "Gomitas blandas Kuromy (30 u)": ["img/gomitasblandas7.jpg","img/gomitasblandas71.jpg"],
+    "Chupetines Capibara (30 u)": ["img/chupetincapibara1.jpg","img/chupetincapibara2.jpg"],
+    //"Chupetines con forma de conejo (30 u)": ["img/conejos1.jpg","img/conejos3.jpg"],
+    "Chupetines con forma de Unicornio (30 u)":["img/unicornio2.jpg","img/unicornio1.jpg","img/unicornio3.jpg"],
+    "Chupetines con led Unicornio (30 u)":["img/unicornioled1.jpg","img/unicornioled2.jpg","img/leduni.jpg"],
+    "Gomitas Super Mario (30 u)": ["img/supermario1.jpg","img/supermario2.jpg"],
+    "Gomitas Saca lenguas (30 u)": ["img/sacalenguas1.jpg","img/sacalenguas2.jpg"],
+    "Chupetines con led Mc Donalds (30 u)": ["img/mc.jpg","img/mc2.jpg",],
+    "Chupetines con led Oreo (30 u)": ["img/oreo1.jpg","img/oreoce.jpg",],
+    "Chupetines led Monster (30 u)": ["img/monsterojo1.jpg","img/monsterojo.jpg",],
+    "Gomitas Ojos (30 u)": ["img/ojos.jpg","img/ojos2.jpg",],
+    "Gomitas de Gelatinas Candy Loka (10 u)": ["img/gelatinaloka.jpg","img/trompo.jpg"],
+    "Gomitas de Gelatinas Candy Loka (30 u)": ["img/gelatinaloka.jpg","img/trompo.jpg"],
     "Combo Emprendedor": ["img/boca.jpg", "img/river.jpg", "img/pelotas.jpg","img/lheritier.jpg","img/gelatinaloka.jpg","img/fieritacomefuego.jpg", "img/remerapimball.jpg","img/bombulla.jpg","img/comboemprendedor.jpg"]
   };
 
@@ -447,15 +448,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     msg += `\n📦 *Total de productos:* ${totalProductos}`;
     msg += `\n💰 *Total a pagar:* $${total.toLocaleString("es-AR")}`;
-    msg += `\n\n📩 *Datos necesarios para el Correo*`;
-    msg += `\nPor favor envianos estos datos 👇`;
-    msg += `\n- Nombre y apellido:`;
-    msg += `\n- Localidad:`;
-    msg += `\n- Provincia:`;
-    msg += `\n- Dirección exacta:`;
-    msg += `\n- Código postal:`;
-    msg += `\n- Teléfono:`;
-    msg += `\n- Email:`;
+    msg += `\n\n- Código postal: ${codigoPostalCliente}`;
+    msg += `\n- Alguna referencia del domicilio (opcional): `;
+    msg += `\n- Teléfono: `;
+    msg += `\n- Email: `; 
+    msg += `\n- Dirección exacta: `;
+    msg += `\n- Provincia y Localidad: `;
+    msg += `\n- Nombre y apellido: `;
+    msg += `\n\n📩 *Datos necesarios para el envío (Si ya completaste alguna vez, podés omitirlo)👆🏻*`;
 
 
     const numero = "542236010443";
@@ -694,7 +694,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     // 🔹 Calcular envío con regla de envío gratis
     let costoEnvio;
 
-    if (PROMO_ACTIVA === "envio" && total >= 70000) {
+    if (PROMO_ACTIVA === "envio" && total >= 80000) {
       costoEnvio = 0;
     } else {
       costoEnvio = calcularCostoEnvio(codigoPostalCliente);
@@ -721,15 +721,14 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     msg += `\n\n📍 *Entrega en Miramar*`;
     
   } else {
-    msg += `\n\n- Alguna referencia del domicilio (opcional): `;
+    msg += `\n\n- Código postal: ${codigoPostalCliente}`;
+    msg += `\n- Alguna referencia del domicilio (opcional): `;
     msg += `\n- Teléfono: `;
-    msg += `\n- Email: `;
-    msg += `\n- Código postal: ${codigoPostalCliente}`;
+    msg += `\n- Email: `; 
     msg += `\n- Dirección exacta: `;
-    msg += `\n- Localidad: `;
-    msg += `\n- Provincia: `;
+    msg += `\n- Provincia y Localidad: `;
     msg += `\n- Nombre y apellido: `;
-    msg += `\n\n📩 *Datos necesarios para el envío a través de Correo Argentino (Si ya completaste alguna vez, podés omitirlo)👆🏻*`;
+    msg += `\n\n📩 *Datos necesarios para el envío (Si ya completaste alguna vez, podés omitirlo)👆🏻*`;
     
   }
 
@@ -779,7 +778,7 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
   }
 
   if (PROMO_ACTIVA === "envio") {
-    if (envioManualGratis || total >= 70000) {
+    if (envioManualGratis || total >= 80000) {
       aviso.innerHTML = "🎉 <strong>¡Tenés envío gratis!</strong>";
       aviso.style.display = "block";
 
@@ -789,7 +788,7 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
         estadoEnvio.toastMostrado = true;
       }
     } else {
-      const falta = 70000 - total;
+      const falta = 80000 - total;
       aviso.innerHTML = `Sumá <strong>$${falta.toLocaleString("es-AR")}</strong> y conseguí <b>envío gratis</b>`;
       aviso.style.display = "block";
     }
@@ -807,12 +806,12 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
 }
 
 // ========================
-// SINCRONIZAR CARRITO CON PRODUCTOS DEL HTML (SILENCIOSO)
+// SINCRONIZAR CARRITO CON PRODUCTOS DEL HTML 
 // ========================
 function sincronizarCarritoConHTML() {
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-  // ❌ No hacer nada si el carrito está vacío
+  // No hacer nada si el carrito está vacío
   if (carrito.length === 0) return;
 
   // 🔹 Leer productos actuales del HTML
@@ -831,17 +830,17 @@ function sincronizarCarritoConHTML() {
 
   let cambios = false;
 
-  // 🔹 Validar carrito
+  //  Validar carrito
   carrito = carrito.filter(item => {
     const precioActual = productosHTML[item.nombre];
 
-    // ❌ Producto eliminado → se quita del carrito
+    //  Producto eliminado → se quita del carrito
     if (precioActual === undefined) {
       cambios = true;
       return false;
     }
 
-    // 🔄 Precio cambiado → se actualiza en silencio
+    //  Precio cambiado → se actualiza
     const precioCarrito = parseFloat(
       item.precio.replace(/[^\d,]/g, "").replace(/\./g, "").replace(",", ".")
     );
@@ -854,7 +853,6 @@ function sincronizarCarritoConHTML() {
     return true;
   });
 
-  // 💾 Guardar solo si hubo cambios
   if (cambios) {
     localStorage.setItem("carrito", JSON.stringify(carrito));
   }
