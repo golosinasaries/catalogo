@@ -20,6 +20,7 @@ const STOCK_PRODUCTOS = {
   "YO-YOs con luces (12 u)": 1,
   "Gomitas Selección (30 u)": 1,
   "Gomitas blandas Donas 🍩 (30 u)":3,
+  "Botellitas con chicles (30 botellitas)": 1,
 };
 function validarStock(nombre, carrito) {
   const stockMax = STOCK_PRODUCTOS[nombre];
