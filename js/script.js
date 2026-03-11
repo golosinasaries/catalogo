@@ -17,10 +17,11 @@ const PROMO_ACTIVA = "ninguna";
 
 const STOCK_PRODUCTOS = {
   "Llaveros láser Capibara (12 u)": 1,
+  "Autito  + pastillitas (30 u)": 15,
   "YO-YOs con luces (12 u)": 1,
   "Gomitas Selección (30 u)": 1,
-  "Gomitas blandas Donas 🍩 (30 u)":3,
-  "Botellitas con chicles (30 botellitas)": 1,
+  "Gomitas blandas Donas 🍩 (30 u)": 3,
+  "Botellitas con chicles (30 botellitas)": 2,
 };
 function validarStock(nombre, carrito) {
   const stockMax = STOCK_PRODUCTOS[nombre];
@@ -30,7 +31,7 @@ function validarStock(nombre, carrito) {
     const cantidadActual = ex ? ex.cantidad : 0;
 
     if (cantidadActual >= stockMax) {
-      mostrarToast("⚠️ Solo queda 1 disponible", "error");
+      mostrarToast("⚠️ No hay más disponibles", "error");
       return false;
     }
   }
@@ -163,7 +164,7 @@ if (modal) {
     "Chupetines con led Mc Donalds (30 u)": ["img/mc.jpg","img/mc2.jpg",],
     "Chupetines con led Oreo (30 u)": ["img/oreo1.jpg","img/oreoce.jpg",],
     "Chupetines led Monster (30 u)": ["img/monsterojo1.jpg","img/monsterojo.jpg",],
-    "Gomitas Ojos (30 u)": ["img/ojos.jpg","img/ojos2.jpg",],
+    //"Gomitas Ojos (30 u)": ["img/ojos.jpg","img/ojos2.jpg",],
     "Gomitas de Gelatinas Candy Loka (10 u)": ["img/gelatinaloka.jpg","img/trompo.jpg"],
     "Gomitas de Gelatinas Candy Loka (30 u)": ["img/gelatinaloka.jpg","img/trompo.jpg"],
     "Combo Emprendedor": ["img/boca.jpg", "img/river.jpg", "img/pelotas.jpg","img/lheritier.jpg","img/gelatinaloka.jpg","img/fieritacomefuego.jpg", "img/remerapimball.jpg","img/bombulla.jpg","img/comboemprendedor.jpg"]
@@ -193,6 +194,10 @@ if (modal) {
 
 
   function abrirModal(card) {
+  const titulo = card.querySelector('h3')?.textContent.trim();
+  const stock = STOCK_PRODUCTOS[titulo];
+
+  if (stock === 0) return;
   const img = card.querySelector('img');
   const title = card.querySelector('h3');
   const price = card.querySelector('p');
@@ -278,15 +283,26 @@ if (modal) {
 
   const cards = document.querySelectorAll('.card');
   cards.forEach(card => {
-    const titulo = card.querySelector('h3')?.textContent || '';
-    const stock = STOCK_PRODUCTOS[titulo];
 
+    const titulo = card.querySelector('h3')?.textContent || '';
+    const stock = STOCK_PRODUCTOS[titulo] ?? null;
+    console.log("producto:", titulo, "stock:", stock);
+
+    // 🔴 Si el stock es 0 → ocultar producto
+    if (stock !== null && stock === 0) {
+      card.style.display = "none";
+      return;
+    }
+
+    // 🟡 Si queda 1 → mostrar aviso
     if (stock === 1) {
       const aviso = document.createElement('span');
       aviso.className = 'ultimo-stock';
       aviso.textContent = "🔥 Última";
       card.appendChild(aviso);
     }
+
+
     const cantidadImgs = imagenesProducto[titulo]?.length || 1;
     if (cantidadImgs > 1) {
       const overlay = document.createElement('span');
@@ -295,10 +311,18 @@ if (modal) {
       card.appendChild(overlay);
     }
     card.addEventListener('click', (ev) => {
-      if (card.classList.contains('promo')) return;
-      if (ev.target.closest('button')) return;
-      abrirModal(card);
-    });
+
+    const titulo = card.querySelector('h3')?.textContent.trim();
+    const stock = STOCK_PRODUCTOS[titulo];
+
+    // ❌ No abrir modal si no hay stock
+    if (stock === 0) return;
+
+    if (card.classList.contains('promo')) return;
+    if (ev.target.closest('button')) return;
+
+    abrirModal(card);
+  });
   });
 }
 
@@ -560,7 +584,7 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.addEventListener("click", e => {
         e.stopPropagation();
         const card = btn.closest(".card");
-        let nombre = card?.querySelector("h3")?.innerText || document.getElementById("modal-title")?.innerText;
+        let nombre = card?.querySelector("h3")?.textContent.trim() || document.getElementById("modal-title")?.textContent.trim();
         let precio = card?.querySelector("p")?.innerText || document.getElementById("modal-precio")?.innerText;
         const texto = btn.innerText.toLowerCase();
 
@@ -573,15 +597,40 @@ document.addEventListener("DOMContentLoaded", () => {
               const cantidadActual = ex ? ex.cantidad : 0;
 
               if (cantidadActual >= stockMax) {
-                mostrarToast("⚠️ Solo queda 1 disponible", "error");
+                mostrarToast("⚠️ No hay más disponibles", "error");
                 return;
               }
             }
 
-            if (ex) ex.cantidad++;
-            else carrito.push({ nombre, precio, cantidad: 1 });
+            if (ex) {
+              ex.cantidad++;
+            } else {
+              carrito.push({ nombre, precio, cantidad: 1 });
+            }
+
+           animarAgregar(btn);
           actualizarCarrito();
-          animarAgregar(btn);
+          stockMax = STOCK_PRODUCTOS[nombre];
+
+          if (stockMax) {
+
+            const productoEnCarrito = carrito.find(p => p.nombre === nombre);
+            const cantidadActual = productoEnCarrito ? productoEnCarrito.cantidad : 0;
+
+            if (cantidadActual >= stockMax) {
+
+              document.querySelectorAll(".card").forEach(card => {
+                const titulo = card.querySelector("h3")?.textContent.trim();
+                console.log("carrito:", nombre);
+                console.log("card:", titulo);
+                if (titulo === nombre) {
+                  card.style.display = "none";
+                }
+              });
+
+            }
+          }
+          
           mostrarToast("Producto agregado al carrito 🛒", "warning");
           if (typeof modal !== "undefined" && modal?.style?.display === "flex") modal.style.display = "none";
           //carritoDropdown.style.display = "block";
