@@ -20,8 +20,12 @@ const STOCK_PRODUCTOS = {
   "Autito  + pastillitas (30 u)": 15,
   "YO-YOs con luces (12 u)": 1,
   "Gomitas Selección (30 u)": 1,
-  "Gomitas blandas Donas 🍩 (30 u)": 3,
-  "Botellitas con chicles (30 botellitas)": 2,
+  "Gomitas blandas Donas 🍩 (30 u)": 1,
+  "Botellitas con chicles (30 botellitas)": 20,
+  "Gomitas blandas Fantasmita (30 u)": 1,
+  "Alcancía Lechuza Marrón(con 12 gelatinas en su interior)": 3,
+  "Alcancía Lechuza Rosa (con 12 gelatinas en su interior)": 3,
+  
 };
 function validarStock(nombre, carrito) {
   const stockMax = STOCK_PRODUCTOS[nombre];
