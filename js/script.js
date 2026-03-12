@@ -13,7 +13,7 @@ const REGALO_NOMBRE = "Gomita Blanda Helado (30 u) ✨";
 const PROMO_ACTIVA = "envio"; 
 // "envio"  → envío gratis
 // "regalo" → regalo 
-// "ninguna" → sin promoo
+// "ninguna" → sin promo
 
 const STOCK_PRODUCTOS = {
   "Llaveros láser Capibara (12 u)": 1,
