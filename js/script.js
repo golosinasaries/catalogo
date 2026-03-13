@@ -25,6 +25,8 @@ const STOCK_PRODUCTOS = {
   "Gomitas blandas Fantasmita (30 u)": 1,
   "Alcancía Lechuza Marrón(con 12 gelatinas en su interior)": 3,
   "Alcancía Lechuza Rosa (con 12 gelatinas en su interior)": 3,
+  "Chupetines Cremosito Fierita - Fritilla y Crema (50 u)": 2,
+  "Alfajor Guaymallén simple de Membrillo (10 u)": 1,
   
 };
 function validarStock(nombre, carrito) {
