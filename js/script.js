@@ -124,7 +124,7 @@ if (modal) {
     "YO-YOs con luces (12 u)": ["img/yoyo1.jpg","img/yoyo3.jpg","img/yoyo4.jpg","img/yoyo2.jpg"],
     "YO-YOs con luces (24 u)": ["img/yoyo2.jpg","img/yoyo3.jpg","img/yoyo4.jpg","img/yoyo1.jpg"],
     "Agenditas surtidas (32 u)": ["img/agendita3.jpg","img/agendita2.jpg","img/agendita3.jpg","img/agendita4.jpg"],
-    "Agenditas surtidas (40 u)": ["img/agendita2.jpg","img/agendita1.jpg","img/agendita3.jpg","img/agendita4.jpg"],
+    "Agenditas surtidas (10 u)": ["img/agendita2.jpg","img/agendita1.jpg","img/agendita3.jpg","img/agendita4.jpg"],
     "Agenditas surtidas (20 u)": ["img/agendita1.jpg","img/agendita3.jpg","img/agendita4.jpg"],
     "Gomitas blandas Lilo y Stitch (60 u)": ["img/stich1.jpg","img/stich2.jpg","img/stich3.jpg"],
     "Chupetines con forma de helado (30 u)": ["img/chupetineshelado1.jpg","img/chupetineshelados2.jpg"],
