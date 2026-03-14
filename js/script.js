@@ -31,6 +31,7 @@ const STOCK_PRODUCTOS = {
   "Lenguetazo (32 u)": 2,
   "Lenguetazo Pinta Lengua (32 u)": 2,
   "Lenguetazo Tropical Punch (32 u)": 1,
+  "Camión dispenser + caramelos rosa (1 unidad)": 1,
 
   
 };
