@@ -148,7 +148,7 @@ if (modal) {
     "Chupetines Kuromy con led (30 u)": ["img/caramelokuromy.jpg","img/caramelokuromy2.jpg"],
     "Gomita Blanda Helado (30 u)": ["img/helado.jpg","img/helado2.jpg"],
     "Gomitas de Gelatinas Candy Loka (10 u)": ["img/gelatinaloka.jpg","img/gelatinaloka2.jpg"],
-    "Gomitas de Gelatinas Candy Loka (30 u)": ["img/gelatinaloka.jpg","img/gelatinaloka2.jpg"],
+    "Gomitas de Gelatinas Candy Loka (30 u)": ["img/gelatinaloka2.jpg","img/gelatinaloka.jpg"],
     "Alcancía pingüino negro (con 12 gelatinas en su interior)": ["img/pinguino2.jpg","img/pinguino5.jpg","img/pinguino3.jpg","img/pinguino4.jpg","img/pinguino6.jpg"],
     "Chupetines Merlina (30 u)": ["img/merlina1.jpg","img/merlina2.jpg","img/merlina3.jpg","img/merlina4.jpg"],
     "Chupetín con polvo ácido Brain (30 u)": ["img/braincaja.jpg","img/chupetinBrain.jpg"],
@@ -227,7 +227,7 @@ if (modal) {
 
   const modalAgregarBtn = document.getElementById('modal-agregar');
 
-  // 🎁 SI ES PROMO → SOLO OCULTA EL BOTÓN Y AGRANDA EL MODAL
+  //  SI ES PROMO → SOLO OCULTA EL BOTÓN Y AGRANDA EL MODAL
   if (card.classList.contains('promo')) {
     modalAgregarBtn.style.display = 'none';
     modal.classList.add('fullscreen'); // ✨ clase para agrandar modal
@@ -301,13 +301,13 @@ if (modal) {
     const stock = STOCK_PRODUCTOS[titulo] ?? null;
     console.log("producto:", titulo, "stock:", stock);
 
-    // 🔴 Si el stock es 0 → ocultar producto
+    //  Si el stock es 0 → ocultar producto
     if (stock !== null && stock === 0) {
       card.style.display = "none";
       return;
     }
 
-    // 🟡 Si queda 1 → mostrar aviso
+    // Si queda 1 → mostrar aviso
     if (stock === 1) {
       const aviso = document.createElement('span');
       aviso.className = 'ultimo-stock';
@@ -328,7 +328,7 @@ if (modal) {
     const titulo = card.querySelector('h3')?.textContent.trim();
     const stock = STOCK_PRODUCTOS[titulo];
 
-    // ❌ No abrir modal si no hay stock
+    //  No abrir modal si no hay stock
     if (stock === 0) return;
 
     if (card.classList.contains('promo')) return;
@@ -393,7 +393,7 @@ function mostrarToast(mensaje, tipo = "success") {
   toast.style.display = "block";
   toast.classList.add("show");
 
-  // 👇 Cerrar al hacer click
+  // Cerrar al hacer click
   toast.onclick = () => {
     toast.classList.remove("show");
     setTimeout(() => toast.style.display = "none", 200);
@@ -681,7 +681,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     }
   });
 
-  // 🔹 Compra mínima
+  //  Compra mínima
   if (total < minimoCompra) {
     alert(`⚠️ La compra mínima es de $${minimoCompra.toLocaleString("es-AR")}`);
     return;
@@ -689,13 +689,13 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
 
 
 
-  // 🔹 Abrir modal de código postal
+  //  Abrir modal de código postal
   const modalCP = document.getElementById("modal-cp");
   const inputCP = document.getElementById("cp-input");
   inputCP.value = "";
   modalCP.style.display = "flex";
 
-  // 🔹 Esperar confirmación del usuario
+  //  Esperar confirmación del usuario
 
   // Botón cancelar del modal de código postal
   const cpCancelar = document.getElementById("cp-cancelar");
@@ -748,7 +748,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
       return;
     }
 
-    // ❗ Validación de código postal
+    //  Validación de código postal
     if (!/^\d{4,8}$/.test(codigoPostalCliente)) {
       alert("⚠️ Código postal inválido. Ingresá solo números (4 a 8 dígitos).");
       return;
