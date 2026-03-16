@@ -147,13 +147,9 @@ if (modal) {
     "Tractor dispenser + caramelos verde (1 unidad)": ["img/tractorverde1.jpg","img/tractorverde2.jpg"],
     "Chupetines Kuromy con led (30 u)": ["img/caramelokuromy.jpg","img/caramelokuromy2.jpg"],
     "Gomita Blanda Helado (30 u)": ["img/helado.jpg","img/helado2.jpg"],
-    "Gomitas de Gelatinas Candy Loka (10 u)": ["img/gelatinaloka.jpg","img/gelatinaloka2.jpg"],
-    "Gomitas de Gelatinas Candy Loka (30 u)": ["img/gelatinaloka2.jpg","img/gelatinaloka.jpg"],
     "Alcancía pingüino negro (con 12 gelatinas en su interior)": ["img/pinguino2.jpg","img/pinguino5.jpg","img/pinguino3.jpg","img/pinguino4.jpg","img/pinguino6.jpg"],
     "Chupetines Merlina (30 u)": ["img/merlina1.jpg","img/merlina2.jpg","img/merlina3.jpg","img/merlina4.jpg"],
     "Chupetín con polvo ácido Brain (30 u)": ["img/braincaja.jpg","img/chupetinBrain.jpg"],
-    //"Chupetín con polvo acido skull (30u)": ["img/chupetinConAcido.jpg","img/cajaChupetinAcido.jpg"],
-    //"Brochetas de ojos (30 u)": ["img/brochetas2.jpg", "img/brochetas3.jpg",],
     "Camiseta pimball con pastillitas (30 u)": ["img/pimballremera.jpg","img/reversaremera.jpg","img/r1.jpg","img/r2.jpg"],
     "Chupetín Calabaza con polvo ácido (30 u)": ["img/chupetincalabaza1.jpg","img/chupetincalabaza2.jpg"],
     "Gelatina de diferentes formas (30 u)": ["img/gelatinaDiferentesSabores4.jpg","img/gelatinaDiferentesSabores3.jpg","img/gelatinaDiferentesSabores2.jpg","img/gelatinaDiferentesSabores5.jpg","img/gelatinaDiferentesSabores1.jpg"],
@@ -177,9 +173,8 @@ if (modal) {
     "Chupetines con led Mc Donalds (30 u)": ["img/mc.jpg","img/mc2.jpg",],
     "Chupetines con led Oreo (30 u)": ["img/oreo1.jpg","img/oreoce.jpg",],
     "Chupetines led Monster (30 u)": ["img/monsterojo1.jpg","img/monsterojo.jpg",],
-    //"Gomitas Ojos (30 u)": ["img/ojos.jpg","img/ojos2.jpg",],
     "Gomitas de Gelatinas Candy Loka (10 u)": ["img/gelatinaloka.jpg","img/trompo.jpg"],
-    "Gomitas de Gelatinas Candy Loka (30 u)": ["img/gelatinaloka.jpg","img/trompo.jpg"],
+    "Gomitas de Gelatinas Candy Loka (30 u)": ["img/gelatinaloka2.jpg","img/trompo.jpg"],
     "Combo Emprendedor": ["img/boca.jpg", "img/river.jpg", "img/pelotas.jpg","img/lheritier.jpg","img/gelatinaloka.jpg","img/fieritacomefuego.jpg", "img/remerapimball.jpg","img/bombulla.jpg","img/comboemprendedor.jpg"]
   };
 
