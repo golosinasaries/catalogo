@@ -39,7 +39,7 @@ const STOCK_PRODUCTOS = {
   "Alcancía Pollito rojo (con 12 gelatinas en su interior)": 5,
   "Alcancía Pingüino Rosa (con 12 gelatinas en su interior)": 6,
   "Gomitas Super Mario (30 u)": 15,
-  "Chupetines con led Oreo (30 u)": 1,
+  "Chupetines con led Oreo (30 u)": 15,
   
 };
 function validarStock(nombre, carrito) {
