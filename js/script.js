@@ -30,7 +30,7 @@ const STOCK_PRODUCTOS = {
   "Alcancía Oso café (con 12 gelatinas en su interior)": 5,
   "Chupetines Cremosito Fierita - Fritilla y Crema (50 u)": 2,
   "Alfajor Guaymallén simple de Membrillo (10 u)": 1,
-  "Alfajor Guaymallén simple de Chocolate Blanco (10 u)": 3,
+  "Alfajor Guaymallén simple de Chocolate Blanco (10 u)": 2,
   "Lenguetazo (32 u)": 2,
   "Lenguetazo Pinta Lengua (32 u)": 2,
   "Lenguetazo Tropical Punch (32 u)": 1,
