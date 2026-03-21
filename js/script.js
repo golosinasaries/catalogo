@@ -24,8 +24,10 @@ const STOCK_PRODUCTOS = {
   "Gomitas blandas Donas 🍩 (30 u)": 1,
   "Botellitas con chicles (30 botellitas)": 20,
   "Gomitas blandas Fantasmita (30 u)": 1,
-  "Alcancía Lechuza Marrón(con 12 gelatinas en su interior)": 1,
-  "Alcancía Lechuza Rosa (con 12 gelatinas en su interior)": 4,
+  "Alcancía Lechuza Marrón(con 12 gelatinas en su interior)": 15,
+  "Alcancía Lechuza Rosa (con 12 gelatinas en su interior)": 15,
+  "Alcancía Oso Rosa (con 12 gelatinas en su interior)": 4,
+  "Alcancía Oso café (con 12 gelatinas en su interior)": 5,
   "Chupetines Cremosito Fierita - Fritilla y Crema (50 u)": 2,
   "Alfajor Guaymallén simple de Membrillo (10 u)": 1,
   "Alfajor Guaymallén simple de Chocolate Blanco (10 u)": 3,
@@ -181,6 +183,10 @@ if (modal) {
     "Chupetines led Monster (30 u)": ["img/monsterojo1.jpg","img/monsterojo.jpg",],
     "Gomitas de Gelatinas Candy Loka (10 u)": ["img/gelatinaloka.jpg","img/trompo.jpg"],
     "Gomitas de Gelatinas Candy Loka (30 u)": ["img/gelatinaloka2.jpg","img/trompo.jpg"],
+    "Chupetines Hongos (30 u)": ["img/hongo1.jpg","img/hongo2.jpg"],
+    "Chupetines Frutillas (30 u)": ["img/chupetinfrutilla1.jpg","img/chupetinfrutilla2.jpg"],
+    //"Gomitas blandas Pokemón (30 u)": ["img/poke3.jpg"],
+    "Gomitas blandas Astronauta (30 u)": ["img/astronauta2.jpg","img/astronauta1.jpg"],
     "Combo Emprendedor": ["img/boca.jpg", "img/river.jpg", "img/pelotas.jpg","img/lheritier.jpg","img/gelatinaloka.jpg","img/fieritacomefuego.jpg", "img/remerapimball.jpg","img/bombulla.jpg","img/comboemprendedor.jpg"]
   };
 
