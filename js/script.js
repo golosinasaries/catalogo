@@ -35,6 +35,7 @@ const STOCK_PRODUCTOS = {
   "Lenguetazo Pinta Lengua (32 u)": 2,
   "Lenguetazo Tropical Punch (32 u)": 1,
   "Lenguetazo (32 u)": 1,
+  "Pistolitas con luz (30 u)": 1,
   "Camión dispenser + caramelos rosa (1 unidad)": 1,
   "Pistola + caramelos rosa (1 unidad)": 1,
   "Alcancía Tigre Amarillo (con 12 gelatinas en su interior)": 15,
