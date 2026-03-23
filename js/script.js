@@ -10,7 +10,7 @@ const ENVIO_GRATIS = 0;
 const minimoRegalo = 60000;   
 const REGALO_NOMBRE = "1 caja de Chicles Fierita Recargado - Menta (50 u) ✨"; 
 
-const PROMO_ACTIVA = "envio"; 
+const PROMO_ACTIVA = "ninguna"; 
 // "envio"  → envío gratis
 // "regalo" → regalo 
 // "ninguna" → sin promo
@@ -44,6 +44,8 @@ const STOCK_PRODUCTOS = {
   "Alcancía Pingüino Rosa (con 12 gelatinas en su interior)": 6,
   "Gomitas Super Mario (30 u)": 15,
   "Chupetines con led Oreo (30 u)": 15,
+  "Nutello pequeños (60 u)": 2,
+  "Pistolitas con luz (30 u)": 1,
   
 };
 function validarStock(nombre, carrito) {
