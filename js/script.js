@@ -31,7 +31,6 @@ const STOCK_PRODUCTOS = {
   "Chupetines Cremosito Fierita - Fritilla y Crema (50 u)": 2,
   "Alfajor Guaymallén simple de Membrillo (10 u)": 1,
   "Alfajor Guaymallén simple de Chocolate Blanco (10 u)": 2,
-  "Lenguetazo (32 u)": 2,
   "Lenguetazo Pinta Lengua (32 u)": 2,
   "Lenguetazo Tropical Punch (32 u)": 1,
   "Lenguetazo (32 u)": 1,
@@ -45,7 +44,6 @@ const STOCK_PRODUCTOS = {
   "Gomitas Super Mario (30 u)": 15,
   "Chupetines con led Oreo (30 u)": 15,
   "Nutello pequeños (60 u)": 1,
-  "Pistolitas con luz (30 u)": 1,
   "Smack Bar (30 u)": 10,
   
 };
