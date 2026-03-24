@@ -26,7 +26,7 @@ const STOCK_PRODUCTOS = {
   "Gomitas blandas Fantasmita (30 u)": 1,
   "Alcancía Lechuza Marrón(con 12 gelatinas en su interior)": 15,
   "Alcancía Lechuza Rosa (con 12 gelatinas en su interior)": 15,
-  "Alcancía Oso Rosa (con 12 gelatinas en su interior)": 4,
+  "Alcancía Oso Rosa (con 12 gelatinas en su interior)": 3,
   "Alcancía Oso café (con 12 gelatinas en su interior)": 5,
   "Chupetines Cremosito Fierita - Fritilla y Crema (50 u)": 2,
   "Alfajor Guaymallén simple de Membrillo (10 u)": 1,
@@ -46,6 +46,7 @@ const STOCK_PRODUCTOS = {
   "Chupetines con led Oreo (30 u)": 15,
   "Nutello pequeños (60 u)": 1,
   "Pistolitas con luz (30 u)": 1,
+  "Smack Bar (30 u)": 10,
   
 };
 function validarStock(nombre, carrito) {
