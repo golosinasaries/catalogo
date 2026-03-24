@@ -44,7 +44,7 @@ const STOCK_PRODUCTOS = {
   "Alcancía Pingüino Rosa (con 12 gelatinas en su interior)": 6,
   "Gomitas Super Mario (30 u)": 15,
   "Chupetines con led Oreo (30 u)": 15,
-  "Nutello pequeños (60 u)": 2,
+  "Nutello pequeños (60 u)": 1,
   "Pistolitas con luz (30 u)": 1,
   
 };
