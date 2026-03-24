@@ -16,6 +16,7 @@ const PROMO_ACTIVA = "ninguna";
 // "ninguna" → sin promo
 
 const STOCK_PRODUCTOS = {
+  "Gomitas blandas Lilo y Stitch (60 u)": 1,
   "Llaveros láser Capibara (12 u)": 1,
   "Autito  + pastillitas (30 u)": 15,
   "YO-YOs con luces (12 u)": 1,
