@@ -632,8 +632,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
            animarAgregar(btn);
-          actualizarCarrito();
-          stockMax = STOCK_PRODUCTOS[nombre];
+           actualizarCarrito();
 
           if (stockMax) {
 
