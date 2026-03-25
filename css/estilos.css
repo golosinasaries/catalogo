@@ -27,6 +27,7 @@ html, body {
   background: var(--bg);                /* color de fondo global */
   color: var(--text);                   /* color de texto global */
   font-size: var(--base-font);          /* tamaño base de fuente */
+  margin-top: 4.2%;
 }
 header {
   background: linear-gradient(135deg, #6a1b9a, #ab47bc); /* degradado de fondo del header */
@@ -846,6 +847,9 @@ html { scroll-behavior: smooth; }
     gap: 0.5rem;
   }
   
+  body {
+     margin-top: 25%;
+  }
   .modal-precio,
   .modal-title,
   .h2,
@@ -921,7 +925,7 @@ html { scroll-behavior: smooth; }
   #search {
     width: 95%; /* input ocupa casi todo el ancho */
     font-size: 1.2rem;
-    margin-bottom: 0.1rem;
+    margin-bottom: 0.5rem;
   }
 
   .contenedor-secciones {
@@ -1006,7 +1010,7 @@ html { scroll-behavior: smooth; }
   width: 320px;
   height: 480px;
   max-width: 90%;
-  max-height: 90vh; /* Máximo alto del modal */
+  max-height: 99vh; /* Máximo alto del modal */
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
@@ -1677,3 +1681,6 @@ html { scroll-behavior: smooth; }
     margin-top: 0.1%;
     font-family: 'Bebas Neue', sans-serif;
   }
+#whatsapp-btn.oculto {
+  display: none;
+}

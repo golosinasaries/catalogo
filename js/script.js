@@ -1011,3 +1011,6 @@ document.addEventListener("mouseup", () => {
   isDragging = false;
   modalImg.style.cursor = "grab";
 });
+
+document.getElementById("whatsapp-btn").classList.add("oculto");
+document.getElementById("whatsapp-btn").classList.remove("oculto");
