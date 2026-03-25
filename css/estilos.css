@@ -1078,15 +1078,13 @@ html { scroll-behavior: smooth; }
 }
 /* Scroll personalizado para el carrito */
 #carrito-items::-webkit-scrollbar {
-  width: 20px; /* más ancho */
+  width: 10px; /* más ancho */
   border: 2px solid #09000a;
 }
 #carrito-items::-webkit-scrollbar-track {
-  background: linear-gradient(135deg, rgba(106,27,154,0.6), rgba(0,184,148,0.6));
   border-radius: 6px;
 }
 #carrito-items::-webkit-scrollbar-thumb {
-  background: black;
   border-radius: 6px;
 }
 #carrito-items::-webkit-scrollbar-thumb:hover {
@@ -1503,7 +1501,7 @@ html { scroll-behavior: smooth; }
   
 .facebook-embed {
   margin-top: 0.1rem;
-  padding: 2rem 1rem;
+  padding: 0.1rem 1rem;
   background: #162028;
   text-align: center;
   border-radius: 14px;

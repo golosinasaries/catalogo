@@ -585,7 +585,7 @@ document.addEventListener("DOMContentLoaded", () => {
         carritoTimer = setTimeout(() => {
           carritoDropdown.style.display = "none";
           fondoModal.style.display = "none";
-        }, 10000); // 10 segundos
+        }, 30000); // 10 segundos
       }
     }
 
