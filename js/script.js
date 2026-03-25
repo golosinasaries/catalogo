@@ -15,6 +15,9 @@ const PROMO_ACTIVA = "ninguna";
 // "regalo" → regalo 
 // "ninguna" → sin promo
 
+let productos = [];
+let productoIndex = 0;
+
 const STOCK_PRODUCTOS = {
   "Gomitas blandas Lilo y Stitch (60 u)": 1,
   "Llaveros láser Capibara (12 u)": 1,
@@ -124,16 +127,26 @@ if (modal) {
 
   const prevBtn = document.createElement('div');
   const nextBtn = document.createElement('div');
+
+  const prevProdBtn = document.createElement('div');
+  const nextProdBtn = document.createElement('div');
   //const contador = document.createElement('span');
 
-  prevBtn.textContent = '<';
-  nextBtn.textContent = '>';
+  prevBtn.textContent = '‹';
+  nextBtn.textContent = '›';
+  prevProdBtn.textContent = '←';
+  nextProdBtn.textContent = 'siguiente producto →';
+
+  prevProdBtn.classList.add('prev-producto');
+  nextProdBtn.classList.add('next-producto');
   prevBtn.classList.add('prev');
   nextBtn.classList.add('next');
   //contador.classList.add('contador');
 
   modalContent.appendChild(prevBtn);
   modalContent.appendChild(nextBtn);
+  modalContent.appendChild(prevProdBtn);
+  modalContent.appendChild(nextProdBtn);
   //modalContent.appendChild(contador);a
 
   // Productos
@@ -216,8 +229,13 @@ if (modal) {
   let currentIndex = 0;
   let currentTitle = "";
 
+  let productos = [];
+  let productoIndex = 0;
 
   function abrirModal(card) {
+
+  productoIndex = productos.indexOf(card);
+
   const titulo = card.querySelector('h3')?.textContent.trim();
   const stock = STOCK_PRODUCTOS[titulo];
 
@@ -281,6 +299,15 @@ if (modal) {
     }
   };
 
+  prevProdBtn.onclick = () => {
+  productoIndex = (productoIndex - 1 + productos.length) % productos.length;
+  abrirModal(productos[productoIndex]);
+  };
+
+  nextProdBtn.onclick = () => {
+    productoIndex = (productoIndex + 1) % productos.length;
+    abrirModal(productos[productoIndex]);
+  };
   modalImg.onclick = () => {
     if (currentImages.length > 1) {
       currentIndex = (currentIndex + 1) % currentImages.length;
@@ -288,6 +315,12 @@ if (modal) {
       return;
     }
     modalImg.classList.toggle('zoomed');
+    if (modalImg.classList.contains("zoomed")) {
+    currentX = 0;
+    currentY = 0;
+    modalImg.style.setProperty("--x", "0px");
+    modalImg.style.setProperty("--y", "0px");
+  }
   };
 
   const closeBtn = modal.querySelector('.close');
@@ -304,6 +337,9 @@ if (modal) {
       modalImg.classList.remove('zoomed');
     }
   });
+
+  productos = Array.from(document.querySelectorAll('.card'))
+  .filter(card => card.style.display !== "none");
 
   const cards = document.querySelectorAll('.card');
   cards.forEach(card => {
@@ -930,3 +966,48 @@ function sincronizarCarritoConHTML() {
     localStorage.setItem("carrito", JSON.stringify(carrito));
   }
 }
+
+// Arrastrar zoom
+let isDragging = false;
+let lastX = 0;
+let lastY = 0;
+let currentX = 0;
+let currentY = 0;
+
+const modalImg = document.querySelector(".modal-content img");
+
+modalImg.addEventListener("mousedown", (e) => {
+  if (!modalImg.classList.contains("zoomed")) return;
+
+  isDragging = true;
+  lastX = e.clientX;
+  lastY = e.clientY;
+
+  modalImg.style.cursor = "grabbing";
+});
+
+document.addEventListener("mousemove", (e) => {
+  if (!isDragging) return;
+
+  const dx = e.clientX - lastX;
+  const dy = e.clientY - lastY;
+
+  currentX += dx;
+  currentY += dy;
+
+  lastX = e.clientX;
+  lastY = e.clientY;
+
+  // límite (opcional, ajustá si querés)
+  const maxMove = 200;
+  currentX = Math.max(-maxMove, Math.min(maxMove, currentX));
+  currentY = Math.max(-maxMove, Math.min(maxMove, currentY));
+
+  modalImg.style.setProperty("--x", currentX + "px");
+  modalImg.style.setProperty("--y", currentY + "px");
+});
+
+document.addEventListener("mouseup", () => {
+  isDragging = false;
+  modalImg.style.cursor = "grab";
+});
