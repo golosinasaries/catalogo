@@ -105,14 +105,14 @@ nav a:hover {
   color: var(--accent);
 }
 .hero {
-  text-align: center;                                  /* centra el texto del hero */
-  padding-top: 11rem;                             /* espacio extra arriba (visual) */
-  max-width: 100vw;                                    /* no exceder ancho de ventana */
-  background-size: cover;                              /* si tiene imagen, que cubra */
-  background-position: center;                         /* centra la imagen de fondo */
-  color: #000;                                         /* color de texto del hero */
-  position: relative;                                  /* contenedor relativo para overlays */
-  z-index: 1;                                          /* sobre algunos elementos pero debajo del header */
+  text-align: center;          
+  padding-top: 11rem;                    
+  max-width: 100vw;                            
+  background-size: cover;                 
+  background-position: center;
+  color: #000;                                        
+  position: relative;                        
+  z-index: 1;  
 }
 .hero-title {
   position: absolute;
@@ -130,7 +130,7 @@ nav a:hover {
   position: absolute;                                  /* posición absoluta dentro del hero */
   width: 100%;                                         /* ocupa ancho completo */
   height: 80%;                                         /* altura del overlay */
-  margin-top: 3rem;                                    /* separación superior visual */
+  margin-top: 1rem;                                    /* separación superior visual */
   top: 0;                                              /* arriba del hero */
   left: 0;                                             /* a la izquierda */
   opacity: 1;                                          /* opacidad completa (puedes bajar para más transparencia) */
@@ -178,13 +178,13 @@ nav a:hover {
 }
 .destacados {
   text-align: center;                                  /* centra el texto */
-  padding: 0.8rem 1rem;                                /* padding interno cómodo */
+  padding: 0.1rem 0.5rem;                                /* padding interno cómodo */
   background: #0a0909;                                    /* fondo blanco */
   border-radius: 0px;                 /* bordes redondeados */
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);             /* sombra suave */
   font-size: 1rem;                                     /* tamaño de fuente */
   max-width: var(--content-max-w);                     /* ancho máximo del bloque */
-  margin: 1rem auto;                                   /* centrado y margen vertical */
+  margin: 0.1rem auto;                                   /* centrado y margen vertical */
   width: 100%;                                         /* ocupa 100% del contenedor */
   box-sizing: border-box;                              /* box-sizing */
 }
@@ -1292,7 +1292,7 @@ html { scroll-behavior: smooth; }
   padding-bottom: 0%;
   margin-bottom: 0%;
   margin-top: -1%;
-  padding-top: 1%;
+  padding-top: 0%;
 }
 /* Botón flotante */
 #whatsapp-btn {
