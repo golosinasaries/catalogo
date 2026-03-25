@@ -935,41 +935,75 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
 function sincronizarCarritoConHTML() {
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-  // Crear un objeto con los productos visibles
+  if (carrito.length === 0) return; // nada que sincronizar
+
+  // 🔹 Leer productos actuales del HTML
   const productosHTML = {};
-  document.querySelectorAll('.card').forEach(card => {
-    const titulo = card.querySelector('h3')?.textContent.trim();
-    if (titulo && card.style.display !== "none") {
-      productosHTML[titulo] = card;
+  const cards = document.querySelectorAll(".card");
+  if (cards.length === 0) return;
+
+  cards.forEach(card => {
+    const nombre = card.querySelector("h3")?.innerText.trim();
+    const precioTexto = card.querySelector("p")?.innerText.trim();
+
+    if (nombre && precioTexto) {
+      const precio = parseFloat(
+        precioTexto.replace(/[^\d,]/g, "").replace(/\./g, "").replace(",", ".")
+      );
+      productosHTML[nombre] = precio;
     }
   });
 
-  // ⚠️ Si no hay productos visibles, salimos sin tocar el carrito
-  if (Object.keys(productosHTML).length === 0) return;
+  let cambios = false;
 
-  // Actualizar cada producto que esté en el carrito y en la página
-  carrito.forEach(item => {
-    if (productosHTML[item.nombre]) {
-      const card = productosHTML[item.nombre];
-      // Aquí podés actualizar contadores o badges si querés
+  // Validar carrito
+  carrito = carrito.filter(item => {
+    const precioActual = productosHTML[item.nombre];
+
+    // Producto eliminado → se quita del carrito
+    if (precioActual === undefined) {
+      cambios = true;
+      return false;
     }
+
+    // Precio cambiado → se actualiza
+    const precioCarrito = parseFloat(
+      (item.precio || "").replace(/[^\d,]/g, "").replace(/\./g, "").replace(",", ".")
+    ) || 0;
+
+    if (precioCarrito !== precioActual) {
+      item.precio = `$${precioActual.toLocaleString("es-AR")}`;
+      cambios = true;
+    }
+
+    return true;
   });
 
-  // Actualizar contador y total
+  // Guardar carrito actualizado
+  if (cambios) localStorage.setItem("carrito", JSON.stringify(carrito));
+
+  // 🔹 Actualizar UI inmediatamente
   const carritoCount = document.getElementById("carrito-count");
   const carritoTotal = document.getElementById("carrito-total");
 
-  const totalProductos = carrito.reduce((a, i) => a + i.cantidad, 0);
-  const totalPrecio = carrito.reduce((a, i) => {
-    const precio = parseFloat(i.precio.replace(/[^\d,]/g,"").replace(/\./g,"").replace(",",".")) || 0;
-    return a + precio * i.cantidad;
-  }, 0);
+  if (carritoCount) {
+    const totalProductos = carrito.reduce((a, i) => a + i.cantidad, 0);
+    carritoCount.textContent = totalProductos;
+  }
 
-  if (carritoCount) carritoCount.textContent = totalProductos;
-  if (carritoTotal) carritoTotal.innerHTML = `
-    <strong>- Cantidad de productos: ${totalProductos}</strong><br>
-    <strong>- Total: $${totalPrecio.toLocaleString("es-AR")}</strong>
-  `;
+  if (carritoTotal) {
+    const total = carrito.reduce((a, i) => {
+      const precio = parseFloat(
+        (i.precio || "").replace(/[^\d,]/g, "").replace(/\./g, "").replace(",", ".")
+      ) || 0;
+      return a + precio * i.cantidad;
+    }, 0);
+
+    carritoTotal.innerHTML = `
+      <strong>- Cantidad de productos: ${carrito.reduce((a, i) => a + i.cantidad, 0)}</strong><br>
+      <strong>- Total: $${total.toLocaleString("es-AR")}</strong>
+    `;
+  }
 }
 
 // Arrastrar zoom

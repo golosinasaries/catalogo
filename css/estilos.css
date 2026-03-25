@@ -1081,7 +1081,7 @@ html { scroll-behavior: smooth; }
   width: 10px; /* más ancho */
   border: 2px solid #09000a;
   border-radius: 5%;
-  background-color: #1b1a1a;
+  background-color: linear-gradient(135deg, rgba(106,27,154,0.6), rgba(0,184,148,0.6));
 }
 #carrito-items::-webkit-scrollbar-track {
   border-radius: 6px;
