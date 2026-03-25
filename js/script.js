@@ -598,20 +598,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
   }
 
-  carritoBtn?.addEventListener("click",()=>{
-    const visible = carritoDropdown.style.display==="block";
-    carritoDropdown.style.display = visible?"none":"block";
-    fondoModal.style.display = visible?"none":"block";
+  carritoBtn?.addEventListener("click", () => {
+    const visible = window.getComputedStyle(carritoDropdown).display === "block";
+
+    carritoDropdown.style.display = visible ? "none" : "block";
+    fondoModal.style.display = visible ? "none" : "block";
+
+    const whatsappBtn = document.getElementById("whatsapp-btn");
+
+    if (visible) {
+      whatsappBtn.classList.remove("oculto");
+    } else {
+      whatsappBtn.classList.add("oculto");
+    }
   });
 
   fondoModal.addEventListener("click",()=>{
     carritoDropdown.style.display="none";
     fondoModal.style.display="none";
+
+    document.getElementById("whatsapp-btn").classList.remove("oculto");
   });
 
   function cerrarModal() {
     carritoDropdown.style.display = "none";
     fondoModal.style.display = "none";
+
+    document.getElementById("whatsapp-btn").classList.remove("oculto");
   }
 
   document.getElementById("salir-carrito")?.addEventListener("click", cerrarModal);
@@ -1012,5 +1025,5 @@ document.addEventListener("mouseup", () => {
   modalImg.style.cursor = "grab";
 });
 
-document.getElementById("whatsapp-btn").classList.add("oculto");
-document.getElementById("whatsapp-btn").classList.remove("oculto");
+//document.getElementById("whatsapp-btn").classList.add("oculto");
+//document.getElementById("whatsapp-btn").classList.remove("oculto");
