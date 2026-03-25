@@ -1078,7 +1078,7 @@ html { scroll-behavior: smooth; }
 }
 /* Scroll personalizado para el carrito */
 #carrito-items::-webkit-scrollbar {
-  width: 20px; /* más ancho */
+  width: 8px; /* más ancho */
 }
 #carrito-items::-webkit-scrollbar-track {
   border-radius: 6px;
