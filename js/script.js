@@ -135,7 +135,7 @@ if (modal) {
   prevBtn.textContent = '‹';
   nextBtn.textContent = '›';
   prevProdBtn.textContent = '←';
-  nextProdBtn.textContent = 'siguiente producto →';
+  nextProdBtn.textContent = 'Siguiente producto →';
 
   prevProdBtn.classList.add('prev-producto');
   nextProdBtn.classList.add('next-producto');
