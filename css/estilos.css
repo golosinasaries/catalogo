@@ -349,7 +349,7 @@ nav a:hover {
   overflow: hidden;
   background: #9d00ff;
   color: #000000;
-  padding: 1rem;
+  padding: 0.5rem;
   border-radius: 12px;
   text-align: center;
   position: relative;
@@ -450,7 +450,6 @@ nav a:hover {
   color: rgb(0, 0, 0);
   box-sizing: border-box;
   border-bottom: 2px solid #080808;
-
 }
 #modal-agregar {
   transition: opacity 0.3s ease;
@@ -1633,23 +1632,27 @@ html { scroll-behavior: smooth; }
 }
 
 .modal-botones {
-  padding: 10px;
+  padding: 5px;
   background: #9d00ff;
-  margin-top: 0;
   margin-bottom: 1.5rem;
+  margin-top: 0rem;
+  padding-top: 0%;
 }
 .modal-content {
   display: flex;
   flex-direction: column;
   max-height: 500px;
+  padding-top: 2%;
 }
 
 .modal-body {
-flex: 1;
+  flex: 1;
   overflow: auto; 
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  margin-bottom: 0rem;
+  margin-top: 0rem;
 }
 
 .modal-footer {
@@ -1662,3 +1665,15 @@ flex: 1;
   z-index: 10;
 }
 
+#modal-title {
+    font-size: 1.8rem;
+    margin-bottom: 0.1%;
+    margin-top: 0.1%;
+    font-family: 'Bebas Neue', sans-serif;
+  }
+#modal-precio {
+    font-size: 1.8rem;
+    margin-bottom: 0.1%;
+    margin-top: 0.1%;
+    font-family: 'Bebas Neue', sans-serif;
+  }

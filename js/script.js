@@ -186,7 +186,7 @@ if (modal) {
     "Huevos Sorpresa Plantas vs Zombies (30 u)": ["img/sorpresaplant2.jpg","img/sorpresaplant.jpg"],
     "Gomitas blandas Fantasmita (30 u)": ["img/fantasmitas.jpg","img/fantasmitas2.jpg"],
     "Gomitas blandas Batman (30 u)": ["img/batman1.jpg","img/batman2.jpg"],
-    "Monedas de chocolate (250 u)": ["img/monedas1.jpg","img/monedas2.jpg"],
+    "Monedas de chocolate (290 u)": ["img/monedas1.jpg","img/monedas2.jpg"],
     "Gomitas ojo-boca-ojo (30 u)": ["img/gomitasoh1.jpg","img/gomitasoh.jpg"],
     "Gomitas blandas Kuromy (30 u)": ["img/gomitasblandas7.jpg","img/gomitasblandas71.jpg"],
     "Chupetines Capibara (30 u)": ["img/chupetincapibara1.jpg","img/chupetincapibara2.jpg"],
