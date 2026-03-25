@@ -940,49 +940,45 @@ function sincronizarCarritoConHTML() {
   // 🔹 Leer productos actuales del HTML
   const productosHTML = {};
   const cards = document.querySelectorAll(".card");
-  if (cards.length === 0) return;
 
-  cards.forEach(card => {
-    const nombre = card.querySelector("h3")?.innerText.trim();
-    const precioTexto = card.querySelector("p")?.innerText.trim();
+  if (cards.length > 0) { // sincronizamos precios solo si hay productos
+    cards.forEach(card => {
+      const nombre = card.querySelector("h3")?.innerText.trim();
+      const precioTexto = card.querySelector("p")?.innerText.trim();
 
-    if (nombre && precioTexto) {
-      const precio = parseFloat(
-        precioTexto.replace(/[^\d,]/g, "").replace(/\./g, "").replace(",", ".")
-      );
-      productosHTML[nombre] = precio;
-    }
-  });
+      if (nombre && precioTexto) {
+        const precio = parseFloat(
+          precioTexto.replace(/[^\d,]/g, "").replace(/\./g, "").replace(",", ".")
+        );
+        productosHTML[nombre] = precio;
+      }
+    });
 
-  let cambios = false;
+    let cambios = false;
 
-  // Validar carrito
-  carrito = carrito.filter(item => {
-    const precioActual = productosHTML[item.nombre];
+    // Validar carrito y actualizar precios si cambian
+    carrito = carrito.map(item => {
+      const precioActual = productosHTML[item.nombre];
 
-    // Producto eliminado → se quita del carrito
-    if (precioActual === undefined) {
-      cambios = true;
-      return false;
-    }
+      if (precioActual !== undefined) {
+        const precioCarrito = parseFloat(
+          (item.precio || "").replace(/[^\d,]/g, "").replace(/\./g, "").replace(",", ".")
+        ) || 0;
 
-    // Precio cambiado → se actualiza
-    const precioCarrito = parseFloat(
-      (item.precio || "").replace(/[^\d,]/g, "").replace(/\./g, "").replace(",", ".")
-    ) || 0;
+        if (precioCarrito !== precioActual) {
+          item.precio = `$${precioActual.toLocaleString("es-AR")}`;
+          cambios = true;
+        }
+      }
 
-    if (precioCarrito !== precioActual) {
-      item.precio = `$${precioActual.toLocaleString("es-AR")}`;
-      cambios = true;
-    }
+      // Nunca eliminamos productos del carrito aunque no estén en la página
+      return item;
+    });
 
-    return true;
-  });
+    if (cambios) localStorage.setItem("carrito", JSON.stringify(carrito));
+  }
 
-  // Guardar carrito actualizado
-  if (cambios) localStorage.setItem("carrito", JSON.stringify(carrito));
-
-  // 🔹 Actualizar UI inmediatamente
+  // 🔹 Actualizar UI del carrito siempre, aunque no haya productos
   const carritoCount = document.getElementById("carrito-count");
   const carritoTotal = document.getElementById("carrito-total");
 
@@ -1005,7 +1001,6 @@ function sincronizarCarritoConHTML() {
     `;
   }
 }
-
 // Arrastrar zoom
 let isDragging = false;
 let lastX = 0;
