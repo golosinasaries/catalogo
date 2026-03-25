@@ -1078,16 +1078,14 @@ html { scroll-behavior: smooth; }
 }
 /* Scroll personalizado para el carrito */
 #carrito-items::-webkit-scrollbar {
-  width: 10px; /* más ancho */
-  border-radius: 5%;
-  
+  width: 20px; /* más ancho */
 }
 #carrito-items::-webkit-scrollbar-track {
   border-radius: 6px;
 }
 #carrito-items::-webkit-scrollbar-thumb {
+  background: black;
   border-radius: 6px;
-  background-color: linear-gradient(135deg, rgba(106,27,154,0.6), rgba(0,184,148,0.6));
 }
 #carrito-items::-webkit-scrollbar-thumb:hover {
   background: #7b1fa2;  
