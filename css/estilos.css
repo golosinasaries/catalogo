@@ -1080,6 +1080,8 @@ html { scroll-behavior: smooth; }
 #carrito-items::-webkit-scrollbar {
   width: 10px; /* más ancho */
   border: 2px solid #09000a;
+  border-radius: 5%;
+  background-color: #1b1a1a;
 }
 #carrito-items::-webkit-scrollbar-track {
   border-radius: 6px;
