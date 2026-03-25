@@ -573,7 +573,7 @@ footer p {
   flex-wrap: wrap;                                     /* permite saltos en pantallas pequeñas */
   text-align: center;                                  /* centra el contenido textual */
   margin-top: 0.1rem;   
-  margin-bottom: 3rem;                               /* margen superior leve */
+  margin-bottom: 0.1rem;                               /* margen superior leve */
   padding: 0.1rem;                              /* padding (si usas un contenedor tipo tag) */
   color: var(--primary);                               /* color del texto (si aplica) */
   font-weight: bold;                                   /* negrita */
@@ -1502,7 +1502,7 @@ html { scroll-behavior: smooth; }
 }
   
 .facebook-embed {
-  margin-top: -5rem;
+  margin-top: 0.1rem;
   padding: 2rem 1rem;
   background: #162028;
   text-align: center;
