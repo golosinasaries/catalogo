@@ -19,7 +19,9 @@ let productos = [];
 let productoIndex = 0;
 
 const STOCK_PRODUCTOS = {
-  "Gomitas blandas Lilo y Stitch (60 u)": 1,
+  "Billiken Tutti-frutti 800 g": 2,
+  "Billiken redonditas 800 g": 2,
+  "Gomitas blandas Lilo y Stitch (60 u)": 2,
   "Llaveros láser Capibara (12 u)": 1,
   "Autito  + pastillitas (30 u)": 15,
   "YO-YOs con luces (12 u)": 1,
@@ -851,7 +853,6 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     msg += `\n- Provincia y Localidad: `;
     msg += `\n- Nombre y apellido: `;
     msg += `\n\n📩 *Datos necesarios para el envío (Si ya completaste alguna vez, podés omitirlo)👆🏻*`;
-    
   }
 
     // 🔹 Abrir WhatsAppp
