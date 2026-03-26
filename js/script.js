@@ -256,7 +256,7 @@ if (modal) {
     "Chupetines Merlina (30 u)": ["img/merlina1.jpg","img/merlina2.jpg","img/merlina3.jpg","img/merlina4.jpg"],
     "Chupetín con polvo ácido Brain (30 u)": ["img/braincaja.jpg","img/chupetinBrain.jpg"],
     "Camiseta pimball con pastillitas (30 u)": ["img/pimballremera.jpg","img/reversaremera.jpg","img/r1.jpg","img/r2.jpg"],
-    "Chupetín Calabaza con polvo ácido y led (30 u)": ["img/cajacalabaza.jpg","img/chupetincalabaza1.jpg","img/chupetincalabaza2.jpg"],
+    "Chupetín Calabaza con polvo ácido y led (30 u)": ["img/cajaCalabaza.jpg","img/chupetincalabaza1.jpg","img/chupetincalabaza2.jpg"],
     "Gelatina de diferentes formas (30 u)": ["img/gelatinaDiferentesSabores4.jpg","img/gelatinaDiferentesSabores3.jpg","img/gelatinaDiferentesSabores2.jpg","img/gelatinaDiferentesSabores5.jpg","img/gelatinaDiferentesSabores1.jpg"],
     "Chupetines con led Corona (30 u)": ["img/chupetinesconled1.jpg","img/corona2.jpg"],
     "Gomitas Monstruo (30 u)": ["img/gomitablandaCara2.jpg","img/gomitablandaCara3.jpg"],
