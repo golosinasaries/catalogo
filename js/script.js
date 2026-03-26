@@ -63,16 +63,11 @@ const STOCK_PRODUCTOS = {
 
 const alcancias = [
   {
-    nombre: "Alcancía Pingüino (con 12 gelatinas en su interior)",
-    precio: "$6.500",
-    img: "img/pinguino2.jpg"
-  },
-
-  {
-    nombre: "Alcancía Pingüino Rosa",
+    nombre: "Alcancía Pingüino Rosa(con 12 gelatinas en su interior)",
     precio: "$6.500",
     img: "img/alcanciapinguinorosa.jpg"
   },
+  
   {
     nombre: "Alcancía Pollito Rojo",
     precio: "$6.500",
