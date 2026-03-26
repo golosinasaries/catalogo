@@ -161,7 +161,7 @@ Realizamos envíos a todo el país <span class="emoji"> 🚚 🇦🇷 </span>
         <p>$10.500</p>
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
-      
+
       <div class="card">
         <img src="img/caramelokuromy.jpg" alt="Kuromy" onclick="abrirModal(this)">
         <h3>Chupetines Kuromy con led (30 u)</h3>
@@ -492,6 +492,25 @@ Realizamos envíos a todo el país <span class="emoji"> 🚚 🇦🇷 </span>
         <p>$8.500</p>
         <button class="btn-carrito">Agregar al carrito</button>   
       </div>
+
+      <div class="card card-alcancia" id="card-alcancias">
+        <div class="img-container">
+          <span class="flecha izq" onclick="cambiarAlcancia(-1)">‹</span>
+
+          <img src="img/pinguino2.jpg" id="img-alcancia">
+
+          <span class="flecha der" onclick="cambiarAlcancia(1)">›</span>
+        </div>
+
+        <h3 id="titulo-alcancia">Alcancía Pingüino (con 12 gelatinas en su interior)</h3>
+        <p id="precio-alcancia">$6.500</p>
+
+       <button class="btn-carrito" id="btn-alcancia"
+        data-nombre="Alcancía Pingüino (con 12 gelatinas en su interior)"
+        data-precio="$6.500">
+        Agregar al carrito
+      </button>
+      </div>
 <!--
       <div class="card">
         <img src="img/pinguino2.jpg" alt="Alcancia con gelatinas" onclick="abrirModal(this)">
@@ -698,21 +717,21 @@ Realizamos envíos a todo el país <span class="emoji"> 🚚 🇦🇷 </span>
         <p>$1.800</p>
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
-  -->
+
       <div class="card">
         <img src="img/tigrerojo.png" alt="Alcancia con gelatinas" onclick="abrirModal(this)">
         <h3>Alcancía Tigre rojo (con 12 gelatinas en su interior)</h3>
         <p>$6.500</p>
         <button class="btn-carrito">Agregar al carrito</button> 
       </div>
- 
+       
         <div class="card">
           <img src="img/alcanciaojoamarillo.png" alt="Alcancia con gelatinas" onclick="abrirModal(this)">
           <h3>Alcancía Tigre Amarillo (con 12 gelatinas en su interior)</h3>
           <p>$6.500</p>
           <button class="btn-carrito">Agregar al carrito</button> 
         </div>
-      <!--
+      
         <div class="card">
           <img src="img/alcancias2.jpg" alt="Alcancia con gelatinas" onclick="abrirModal(this)">
           <h3>Alcancía Pollito amarillo (con 12 gelatinas en su interior)</h3>
@@ -726,7 +745,7 @@ Realizamos envíos a todo el país <span class="emoji"> 🚚 🇦🇷 </span>
           <p>$6.500</p>
           <button class="btn-carrito">Agregar al carrito</button>
         </div>
-  --> 
+  
         <div class="card">
           <img src="img/lechuzarosa.jpg.png" alt="Alcancía con gelatinas" onclick="abrirModal(this)">
           <h3>Alcancía Lechuza Rosa (con 12 gelatinas en su interior)</h3>
@@ -754,7 +773,7 @@ Realizamos envíos a todo el país <span class="emoji"> 🚚 🇦🇷 </span>
           <p>$6.500</p>
           <button class="btn-carrito">Agregar al carrito</button>
         </div>
-
+--> 
         <div class="card">
           <img src="img/babydollmonsters.jpg" alt="chupetines baby dolls" onclick="abrirModal(this)">
           <h3>Chupetines masticables Baby Dolls (40 u)</h3>

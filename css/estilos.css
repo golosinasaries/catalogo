@@ -1701,3 +1701,22 @@ html { scroll-behavior: smooth; }
 #whatsapp-btn.oculto {
   display: none;
 }
+.img-container {
+  position: relative;
+}
+
+.flecha {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 18px;
+  user-select: none;
+}
+
+.flecha.izq { left: 5px; }
+.flecha.der { right: 5px; }

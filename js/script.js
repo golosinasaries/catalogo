@@ -17,6 +17,7 @@ const PROMO_ACTIVA = "ninguna";
 
 let productos = [];
 let productoIndex = 0;
+let currentVariantes = null;
 
 const STOCK_PRODUCTOS = {
   "Chupetín Calabaza con polvo ácido y led (30 u)": 1,
@@ -58,6 +59,77 @@ const STOCK_PRODUCTOS = {
   "Smack Bar (30 u)": 10,
   
 };
+
+
+const alcancias = [
+  {
+    nombre: "Alcancía Pingüino (con 12 gelatinas en su interior)",
+    precio: "$6.500",
+    img: "img/pinguino2.jpg"
+  },
+
+  {
+    nombre: "Alcancía Pingüino Rosa",
+    precio: "$6.500",
+    img: "img/alcanciapinguinorosa.jpg"
+  },
+  {
+    nombre: "Alcancía Pollito Rojo",
+    precio: "$6.500",
+    img: "img/alcanciapinguinorojo.jpg"
+  },
+  {
+    nombre: "Alcancía Lechuza Marrón",
+    precio: "$6.500",
+    img: "img/lechuza.jpg"
+  },
+
+  {
+    nombre: "Alcancía Lechuza Rosa",
+    precio: "$6.500",
+    img: "img/lechuzarosa.jpg.png"
+  },
+  {
+    nombre: "Alcancía Oso Rosa",
+    precio: "$6.500",
+    img: "img/osorosa1.jpg"
+  },
+  {
+    nombre: "Alcancía Tigre Rojo",
+    precio: "$6.500",
+    img: "img/tigrerojo.png"
+  },
+  {
+    nombre: "Alcancía Tigre Amarillo",
+    precio: "$6.500",
+    img: "img/alcanciaojoamarillo.png"
+  },
+];
+
+const productosVariantes = {
+  "card-alcancia": alcancias
+};
+
+let indiceAlcancia = 0;
+
+function cambiarAlcancia(direccion) {
+  indiceAlcancia += direccion;
+
+  if (indiceAlcancia < 0) indiceAlcancia = alcancias.length - 1;
+  if (indiceAlcancia >= alcancias.length) indiceAlcancia = 0;
+
+  const a = alcancias[indiceAlcancia];
+
+  document.getElementById("img-alcancia").src = a.img;
+  document.getElementById("titulo-alcancia").textContent = a.nombre;
+  document.getElementById("precio-alcancia").textContent = a.precio;
+
+  // actualizar botón carrito
+  const btn = document.getElementById("btn-alcancia");
+  btn.dataset.nombre = a.nombre;
+  btn.dataset.precio = a.precio;
+}
+
 function validarStock(nombre, carrito) {
   const stockMax = STOCK_PRODUCTOS[nombre];
 
@@ -158,6 +230,7 @@ if (modal) {
 
   // Productos
   const imagenesProducto = {
+    "Alcancía": ["img/pinguino2.jpg","img/alcanciapinguinorojo.jpg","img/alcancialechuzarosa.jpg","img/tigrerojo.png" ],
     "Gomitas Spider-Man (60 u)": ["img/spiderman1.jpg","img/spiderman2.jpg","img/spiderman3.jpg","img/spiderman4.jpg","img/spiderman5.jpg"],
     "Llaveros láser Capibara (12 u)": ["img/laser1.jpg","img/laser2.jpg","img/laser3.jpg","img/laser4.jpg"],
     "Ring Pop Barbie (30 u)": ["img/ringpopbarbie.jpg","img/ringpop.jpg"],
@@ -251,8 +324,20 @@ if (modal) {
   const title = card.querySelector('h3');
   const price = card.querySelector('p');
 
-  currentTitle = title ? title.textContent : "Producto";
-  currentImages = imagenesProducto[currentTitle] || [img?.src || ''];
+ currentTitle = title ? title.textContent : "Producto";
+
+  const claseVariante = Object.keys(productosVariantes)
+  .find(c => card.classList.contains(c));
+
+  if (claseVariante) {
+    currentVariantes = productosVariantes[claseVariante];
+    currentImages = currentVariantes.map(v => v.img);
+    currentTitle = currentVariantes[0].nombre;
+  } else {
+    currentVariantes = null;
+    currentImages = imagenesProducto[currentTitle] || [img?.src || ''];
+  }
+
   currentIndex = 0;
 
   modal.style.display = 'flex';
@@ -276,21 +361,43 @@ if (modal) {
 
 
 }
-  function actualizarModal() {
-    modalImg.src = currentImages[currentIndex] || '';
+function actualizarModal() {
+  modalImg.src = currentImages[currentIndex] || '';
+
+  const modalAgregarBtn = document.getElementById('modal-agregar');
+
+  // 🔹 VARIANTES (alcancías u otros)
+  if (currentVariantes) {
+    const variante = currentVariantes[currentIndex];
+
+    modalTitle.textContent = variante.nombre;
+    document.getElementById('modal-precio').textContent = variante.precio;
+
+    modalAgregarBtn.dataset.producto = variante.nombre;
+    modalAgregarBtn.dataset.precio = variante.precio;
+
+  } else {
+    // 🔹 PRODUCTO NORMAL
     modalTitle.textContent = currentTitle;
 
-    if (currentImages.length > 1) {
-      prevBtn.style.display = 'flex';
-      nextBtn.style.display = 'flex';
-      //contador.textContent = `${currentIndex + 1} / ${currentImages.length}`;
-    } else {
-      prevBtn.style.display = 'none';
-      nextBtn.style.display = 'none';
-      //contador.textContent = '';
-    }
-    modalImg.classList.remove('zoomed');
+    modalAgregarBtn.dataset.producto = currentTitle;
+    modalAgregarBtn.dataset.precio = document.getElementById('modal-precio').textContent;
   }
+
+  // 🔹 Flechas (LO MISMO QUE TENÍAS)
+  if (currentImages.length > 1) {
+    prevBtn.style.display = 'flex';
+    nextBtn.style.display = 'flex';
+    // contador.textContent = `${currentIndex + 1} / ${currentImages.length}`;
+  } else {
+    prevBtn.style.display = 'none';
+    nextBtn.style.display = 'none';
+    // contador.textContent = '';
+  }
+
+  // 🔹 Reset zoom (LO MISMO QUE TENÍAS)
+  modalImg.classList.remove('zoomed');
+}
 
   prevBtn.onclick = () => {
     if (currentImages.length > 1) {
@@ -664,8 +771,19 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.addEventListener("click", e => {
         e.stopPropagation();
         const card = btn.closest(".card");
-        let nombre = card?.querySelector("h3")?.textContent.trim() || document.getElementById("modal-title")?.textContent.trim();
-        let precio = card?.querySelector("p")?.innerText || document.getElementById("modal-precio")?.innerText;
+        let nombre, precio;
+
+        // 🔹 Si el botón tiene data → usar eso (producto dinámico)
+        if (btn.dataset.nombre && btn.dataset.precio) {
+          nombre = btn.dataset.nombre;
+          precio = btn.dataset.precio;
+        } else {
+          nombre = card?.querySelector("h3")?.textContent.trim() 
+                || document.getElementById("modal-title")?.textContent.trim();
+
+          precio = card?.querySelector("p")?.innerText 
+                || document.getElementById("modal-precio")?.innerText;
+        }
         const texto = btn.innerText.toLowerCase();
 
         if (texto.includes("agregar")) {
