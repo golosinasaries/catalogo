@@ -437,7 +437,7 @@ nav a:hover {
   border-radius:10px;
 }
 .modal-botones button {
-  padding: 10px 15px;
+  padding: 10px 13px;
   border: black;
   border-radius: 6px;
   cursor: pointer;
@@ -451,6 +451,7 @@ nav a:hover {
   color: rgb(0, 0, 0);
   box-sizing: border-box;
   border-bottom: 2px solid #080808;
+  margin-top: 0.1px;
 }
 #modal-agregar {
   transition: opacity 0.3s ease;
@@ -1668,6 +1669,7 @@ html { scroll-behavior: smooth; }
   flex-direction: column;
   max-height: 500px;
   padding-top: 2%;
+  padding-bottom: 2%;
 }
 
 .modal-body {
@@ -1701,6 +1703,7 @@ html { scroll-behavior: smooth; }
     margin-bottom: 0.1%;
     margin-top: 0.1%;
     font-family: 'Bebas Neue', sans-serif;
+    
   }
 #whatsapp-btn.oculto {
   display: none;
@@ -1781,3 +1784,4 @@ h1, h2, h3 {
 #card-alcancias .flecha:hover {
   background: rgba(0,0,0,0.8);
 }
+
