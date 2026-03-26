@@ -30,7 +30,7 @@ const STOCK_PRODUCTOS = {
   "Autito  + pastillitas (30 u)": 15,
   "YO-YOs con luces (12 u)": 1,
   "Gomitas Selección (30 u)": 1,
-  "Gomitas blandas Among Us (30 u)": 1,
+  "Gomitas blandas Among Us (30 u)": 15,
   "Gomitas blandas Donas 🍩 (30 u)": 1,
   "Botellitas con chicles (30 botellitas)": 20,
   "Gomitas blandas Fantasmita (30 u)": 1,
