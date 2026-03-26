@@ -704,7 +704,7 @@ document.addEventListener("DOMContentLoaded", () => {
           }
           
           mostrarToast("Producto agregado al carrito 🛒", "warning");
-          if (typeof modal !== "undefined" && modal?.style?.display === "flex") modal.style.display = "none";
+          //if (typeof modal !== "undefined" && modal?.style?.display === "flex") modal.style.display = "none";
           //carritoDropdown.style.display = "block";
           //fondoModal.style.display = "block";
         }
