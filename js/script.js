@@ -82,7 +82,7 @@ const globos = [
 
 const alcancias = [
   {
-    nombre: "Alcancía Pingüino Rosa(con 12 gelatinas en su interior)",
+    nombre: "Alcancía Pingüino Rosa (con 12 gelatinas en su interior)",
     precio: "$6.500",
     img: "img/alcanciapinguinorosa.jpg"
   },
