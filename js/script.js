@@ -19,6 +19,10 @@ let productos = [];
 let productoIndex = 0;
 
 const STOCK_PRODUCTOS = {
+  "Chupetín Calabaza con polvo ácido y led (30 u)": 1,
+  "Billiken Congys 200 g": 3,
+  "Caramelos masticables Fierita Granjero (100 u)": 1,
+  "Gomitas Misky Fantasia 1kg": 1,
   "Billiken Tutti-frutti 800 g": 2,
   "Billiken redonditas 800 g": 2,
   "Gomitas blandas Lilo y Stitch (60 u)": 2,
@@ -40,6 +44,7 @@ const STOCK_PRODUCTOS = {
   "Lenguetazo Pinta Lengua (32 u)": 2,
   "Lenguetazo Tropical Punch (32 u)": 1,
   "Lenguetazo (32 u)": 1,
+  "Chupetines con led Corona (30 u)": 1,
   "Pistolitas con luz (30 u)": 1,
   "Camión dispenser + caramelos rosa (1 unidad)": 1,
   "Pistola + caramelos rosa (1 unidad)": 1,
@@ -178,7 +183,7 @@ if (modal) {
     "Chupetines Merlina (30 u)": ["img/merlina1.jpg","img/merlina2.jpg","img/merlina3.jpg","img/merlina4.jpg"],
     "Chupetín con polvo ácido Brain (30 u)": ["img/braincaja.jpg","img/chupetinBrain.jpg"],
     "Camiseta pimball con pastillitas (30 u)": ["img/pimballremera.jpg","img/reversaremera.jpg","img/r1.jpg","img/r2.jpg"],
-    "Chupetín Calabaza con polvo ácido (30 u)": ["img/chupetincalabaza1.jpg","img/chupetincalabaza2.jpg"],
+    "Chupetín Calabaza con polvo ácido y led (30 u)": ["img/cajacalabaza.jpg","img/chupetincalabaza1.jpg","img/chupetincalabaza2.jpg"],
     "Gelatina de diferentes formas (30 u)": ["img/gelatinaDiferentesSabores4.jpg","img/gelatinaDiferentesSabores3.jpg","img/gelatinaDiferentesSabores2.jpg","img/gelatinaDiferentesSabores5.jpg","img/gelatinaDiferentesSabores1.jpg"],
     "Chupetines con led Corona (30 u)": ["img/chupetinesconled1.jpg","img/corona2.jpg"],
     "Gomitas Monstruo (30 u)": ["img/gomitablandaCara2.jpg","img/gomitablandaCara3.jpg"],
