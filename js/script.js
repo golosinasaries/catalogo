@@ -1,15 +1,12 @@
 const minimoCompra = 50000; 
-
 const ENVIO_MDP = 5900;
 const ENVIO_GENERAL = 10900;
 const ENVIO_LEJANO = 13900;
 const ENVIO_SANTACRUZ = 14900;
 const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
-
 const minimoRegalo = 60000;   
 const REGALO_NOMBRE = "1 caja de Chicles Fierita Recargado - Menta (50 u) ✨"; 
-
 const PROMO_ACTIVA = "ninguna"; 
 // "envio"  → envío gratis
 // "regalo" → regalo 
@@ -20,6 +17,7 @@ let productoIndex = 0;
 let currentVariantes = null;
 
 const STOCK_PRODUCTOS = {
+  "Trompetas con chupetin y sonido (20 u)": 1,
   "Chupetín Calabaza con polvo ácido y led (30 u)": 1,
   "Billiken Congys 200 g": 3,
   "Caramelos masticables Fierita Granjero (100 u)": 1,
@@ -57,10 +55,7 @@ const STOCK_PRODUCTOS = {
   "Chupetines con led Oreo (30 u)": 15,
   "Nutello pequeños (60 u)": 1,
   "Smack Bar (30 u)": 10,
-  
 };
-
-//VARIANTES 1
 
 const globos = [
   {
@@ -189,8 +184,6 @@ const btn = document.getElementById("whatsapp-btn");
 
 if (btn) {
   btn.addEventListener("click", () => {
-    // fbq('track', 'Contact');
-    
     const linkGrupo = "https://chat.whatsapp.com/IOdckbjRmKR7iZJUoJpGEV?mode=gi_ts";
     window.open(linkGrupo, "_blank");
   });
@@ -201,12 +194,10 @@ function calcularCostoEnvio(cp) {
 
   const codigo = cp.trim();
 
-  // Miramar (7607)
   if (codigo.startsWith("7607")) {
     return ENVIO_MIRAMAR;
   }
 
-  // Prefijos específicos 
   const prefijos = ["9303", "4430"];
 
   for (const p of prefijos) {
@@ -215,12 +206,10 @@ function calcularCostoEnvio(cp) {
     }
   }
 
-  // Mar del Plata (7600)
   if (codigo.startsWith("7600")) {
     return ENVIO_MDP;
   }
 
-  // Muy al sur o muy al norte
   if (
     codigo.startsWith("9") ||
     codigo.startsWith("4") ||
@@ -248,7 +237,6 @@ if (modal) {
 
   const prevProdBtn = document.createElement('div');
   const nextProdBtn = document.createElement('div');
-  //const contador = document.createElement('span');
 
   prevBtn.textContent = '‹';
   nextBtn.textContent = '›';
@@ -259,13 +247,13 @@ if (modal) {
   nextProdBtn.classList.add('next-producto');
   prevBtn.classList.add('prev');
   nextBtn.classList.add('next');
-  //contador.classList.add('contador');
+ 
 
   modalContent.appendChild(prevBtn);
   modalContent.appendChild(nextBtn);
   modalContent.appendChild(prevProdBtn);
   modalContent.appendChild(nextProdBtn);
-  //modalContent.appendChild(contador);a
+
 
   // Productos
   const imagenesProducto = {
@@ -300,7 +288,7 @@ if (modal) {
     "Chupetines con led Corona (30 u)": ["img/chupetinesconled1.jpg","img/corona2.jpg"],
     "Gomitas Monstruo (30 u)": ["img/gomitablandaCara2.jpg","img/gomitablandaCara3.jpg"],
     "Cool Mint sabores frutales (30 u)": ["img/coolmint.jpg","img/coolmint2.jpg"],
-    "Trompetas con chupetin y sonido (30 u)": ["img/trompeta1.jpg","img/trompetas.jpg"],
+    "Trompetas con chupetin y sonido (20 u)": ["img/trompeta1.jpg","img/trompetas.jpg"],
     "Huevos Sorpresa Capibara (30 u)": ["img/sorpresacapibara1.jpg","img/sorpresacapibara2.jpg"],
     "Huevos Sorpresa Plantas vs Zombies (30 u)": ["img/sorpresaplant2.jpg","img/sorpresaplant.jpg"],
     "Gomitas blandas Fantasmita (30 u)": ["img/fantasmitas.jpg","img/fantasmitas2.jpg"],
@@ -309,7 +297,6 @@ if (modal) {
     "Gomitas ojo-boca-ojo (30 u)": ["img/gomitasoh1.jpg","img/gomitasoh.jpg"],
     "Gomitas blandas Kuromy (30 u)": ["img/gomitasblandas7.jpg","img/gomitasblandas71.jpg"],
     "Chupetines Capibara (30 u)": ["img/chupetincapibara1.jpg","img/chupetincapibara2.jpg"],
-    //"Chupetines con forma de conejo (30 u)": ["img/conejos1.jpg","img/conejos3.jpg"],
     "Chupetines con forma de Unicornio (30 u)":["img/unicornio2.jpg","img/unicornio1.jpg","img/unicornio3.jpg"],
     "Chupetines con led Unicornio (30 u)":["img/unicornioled1.jpg","img/unicornioled2.jpg","img/leduni.jpg"],
     "Gomitas Super Mario (30 u)": ["img/supermario1.jpg","img/supermario2.jpg"],
@@ -321,7 +308,6 @@ if (modal) {
     "Gomitas de Gelatinas Candy Loka (30 u)": ["img/gelatinaloka2.jpg","img/trompo.jpg"],
     "Chupetines Hongos (30 u)": ["img/hongo1.jpg","img/hongo2.jpg"],
     "Chupetines Frutillas (30 u)": ["img/chupetinfrutilla1.jpg","img/chupetinfrutilla2.jpg"],
-    //"Gomitas blandas Pokemón (30 u)": ["img/poke3.jpg"],
     "Gomitas blandas Astronauta (30 u)": ["img/astronauta2.jpg","img/astronauta1.jpg"],
     "Combo Emprendedor": ["img/boca.jpg", "img/river.jpg", "img/pelotas.jpg","img/lheritier.jpg","img/gelatinaloka.jpg","img/fieritacomefuego.jpg", "img/remerapimball.jpg","img/bombulla.jpg","img/comboemprendedor.jpg"]
   };
@@ -336,7 +322,7 @@ if (modal) {
   }
 
   btn.classList.remove("animar-agregar");
-  void btn.offsetWidth; // fuerza reflow
+  void btn.offsetWidth; 
   btn.classList.add("animar-agregar");
 
   setTimeout(() => {
@@ -398,14 +384,13 @@ if (modal) {
     modal.classList.remove('fullscreen'); // asegura tamaño normal para otros
   }
 
-
 }
 function actualizarModal() {
   modalImg.src = currentImages[currentIndex] || '';
 
   const modalAgregarBtn = document.getElementById('modal-agregar');
 
-  // 🔹 VARIANTES (alcancías u otros)
+  //  VARIANTES (alcancías u otros)
   if (currentVariantes) {
     const variante = currentVariantes[currentIndex];
 
@@ -416,14 +401,14 @@ function actualizarModal() {
     modalAgregarBtn.dataset.precio = variante.precio;
 
   } else {
-    // 🔹 PRODUCTO NORMAL
+    //  PRODUCTO NORMAL
     modalTitle.textContent = currentTitle;
 
     modalAgregarBtn.dataset.producto = currentTitle;
     modalAgregarBtn.dataset.precio = document.getElementById('modal-precio').textContent;
   }
 
-  // 🔹 Flechas (LO MISMO QUE TENÍAS)
+  //  Flechas (LO MISMO QUE TENÍAS)
   if (currentImages.length > 1) {
     prevBtn.style.display = 'flex';
     nextBtn.style.display = 'flex';
@@ -434,7 +419,7 @@ function actualizarModal() {
     // contador.textContent = '';
   }
 
-  // 🔹 Reset zoom (LO MISMO QUE TENÍAS)
+  // Reset zoom (LO MISMO QUE TENÍAS)
   modalImg.classList.remove('zoomed');
 }
 
@@ -613,7 +598,6 @@ function mostrarToast(mensaje, tipo = "success") {
     });
   }
 
-
 // ========================
 // ZOOM EN IMAGEN DEL MODAL
 // ========================
@@ -667,7 +651,6 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    let msg = "💳 *Pedido listo para abonar*\n\n";
     let total = 0;
     let totalProductos = 0;
 
@@ -701,8 +684,6 @@ document.addEventListener("DOMContentLoaded", () => {
     window.open(url, "_blank");
   });
 
-
-
   function actualizarCarrito() {
     carritoItemsContainer.innerHTML = carrito.length === 0
       ? "<p class='carrito-vacio'>🛍️ Tu carrito está vacío</p>"
@@ -730,23 +711,19 @@ document.addEventListener("DOMContentLoaded", () => {
     let carritoTimer;
 
     function iniciarTemporizadorCierre() {
-      // Limpiamos cualquier temporizador previo
       clearTimeout(carritoTimer);
 
-      // Solo si el carrito está abierto
       if (carritoDropdown.style.display === "block") {
         carritoTimer = setTimeout(() => {
           carritoDropdown.style.display = "none";
           fondoModal.style.display = "none";
-        }, 30000); // 10 segundos
+        }, 30000); 
       }
     }
 
-    // Reiniciar temporizador cuando el usuario interactúa con el carrito
     carritoDropdown.addEventListener("mouseenter", () => clearTimeout(carritoTimer));
     carritoDropdown.addEventListener("mouseleave", iniciarTemporizadorCierre);
 
-    // Reiniciar temporizador cada vez que se abre el carrito
     carritoBtn?.addEventListener("click", iniciarTemporizadorCierre);
 
   }
@@ -812,7 +789,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const card = btn.closest(".card");
         let nombre, precio;
 
-        // 🔹 Si el botón tiene data → usar eso (producto dinámico)
+        //  Si el botón tiene data → usar eso (producto dinámico)
         if (btn.dataset.nombre && btn.dataset.precio) {
           nombre = btn.dataset.nombre;
           precio = btn.dataset.precio;
@@ -863,14 +840,10 @@ document.addEventListener("DOMContentLoaded", () => {
                   card.style.display = "none";
                 }
               });
-
             }
           }
           
           mostrarToast("Producto agregado al carrito 🛒", "warning");
-          //if (typeof modal !== "undefined" && modal?.style?.display === "flex") modal.style.display = "none";
-          //carritoDropdown.style.display = "block";
-          //fondoModal.style.display = "block";
         }
         else if (texto.includes("promo")) {
           const msg = "💬 Hola, quiero consultar sobre *" + nombre + "*.";
@@ -890,7 +863,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
   let totalProductos = 0;
   let costoEnvio = 0;
 
-  // 🔹 Productos
+  // Productos
   carrito.forEach(i => {
     const precioUnitario = parsePrecio(i.precio);
     const subtotal = precioUnitario * i.cantidad;
@@ -909,8 +882,6 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     alert(`⚠️ La compra mínima es de $${minimoCompra.toLocaleString("es-AR")}`);
     return;
   }
-
-
 
   //  Abrir modal de código postal
   const modalCP = document.getElementById("modal-cp");
@@ -977,7 +948,6 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
       return;
     }
 
-    // 🔹 Calcular envío con regla de envío gratis
     let costoEnvio;
 
     if (PROMO_ACTIVA === "envio" && total >= 80000) {
@@ -993,10 +963,9 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     if (PROMO_ACTIVA === "regalo" && total >= minimoRegalo) {
         mensajeRegalo = `\n🎁 ¡Tu compra incluye: ${REGALO_NOMBRE} de regalo!`;
     } else {
-        mensajeRegalo = ""; // Nada si no llega al mínimo
+        mensajeRegalo = ""; 
     }
 
-    // 🔹 Totales finales
     msg += mensajeRegalo;
     totalProductos += (PROMO_ACTIVA === "regalo" && total >= minimoRegalo) ? 1 : 0;
     msg += `\n📦 *Total de productos:* ${totalProductos}`;

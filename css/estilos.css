@@ -217,29 +217,29 @@ nav a:hover {
   
 }
 .card {
-  background: #fff;                                    /* fondo blanco para la tarjeta */
-  border: 2px solid var(--accent);                     /* borde con color de acento */
-  border-radius: var(--border-radius);                 /* bordes redondeados */
-  padding: 1rem;                                       /* padding interno */
-  text-align: center;                                  /* centra el texto */
-  transition: transform 0.3s, box-shadow 0.3s;         /* transiciones suaves */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);             /* sombra sutil */
-  font-size: 0.95rem;                                  /* tamaño de fuente para el contenido */
-  cursor: pointer;                                     /* cursor en hover */
-  display: flex;                                       /* flex para layout interno */
-  flex-direction: column;                              /* columna vertical */
-  align-items: stretch;                                /* estira elementos interiores */
-  justify-content: flex-start;                         /* alineación inicial */
-  height: 100%;                                        /* que la tarjeta ocupe el alto del grid cell */
-  box-sizing: border-box;                              /* box-sizing */
-  min-height: 260px;                                   /* altura mínima para consistencia visual */
-  position: relative;                                  /* necesario para colocar el overlay */
+  background: #fff;                                    
+  border: 2px solid var(--accent);                    
+  border-radius: var(--border-radius);                 
+  padding: 1rem;                                     
+  text-align: center;                                 
+  transition: transform 0.3s, box-shadow 0.3s;        
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);            
+  font-size: 0.95rem;                                 
+  cursor: pointer;                                    
+  display: flex;                                       
+  flex-direction: column;                             
+  align-items: stretch;                               
+  justify-content: flex-start;                         
+  height: 100%;                                       
+  box-sizing: border-box;                             
+  min-height: 260px;                                   
+  position: relative; 
   border-radius: 10px;
 }
 .card .mas-fotos {
   position: absolute;
-  top: 8px;          /* arriba de la imagen */
-  right: 8px;        /* a la derecha */
+  top: 8px;        
+  right: 8px;   
   background: rgba(0,0,0,0.6);
   color: #fff;
   font-size: 0.9rem;

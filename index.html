@@ -5,56 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Catálogo Mayorista</title>
   <link rel="icon" href="img/logoAries.jpg" type="image/jpeg">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/estilos.css">
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Anton&family=Oswald:wght@700&family=Fredoka+One&display=swap" rel="stylesheet">
-  <!-- Meta Pixel Code 
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1563864468088663');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1563864468088663&ev=PageView&noscript=1"
-  /></noscript>
-   End Meta Pixel Code -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
 <header>
   <div class="titulo-contenedor">
     <h1 class="titulo-animado">
-  <span class="emoji"> 📍 </span> Somos de Miramar, Buenos Aires -
-Realizamos envíos a todo el país <span class="emoji"> 🚚 🇦🇷 </span>
-    </h1>
-    
-    
-    <!--
-   <div class="social-buttons" style="justify-content: flex-start;">
-      <a href="https://www.facebook.com/profile.php?id=61577104861271&locale=es_LA"
-        target="_blank"
-        class="social-btn facebook">
-        <i class="fab fa-facebook"></i> Facebook
-      </a>
-   </div>
-  -->
+  <span class="emoji"> 📍 </span> Somos de Miramar, Buenos Aires -Realizamos envíos a todo el país <span class="emoji"> 🚚 🇦🇷 </span></h1>
     <nav>
       <a href="contacto.html">Contacto</a>
       <input type="text" id="search" placeholder="🔍 Buscá un producto..." style="margin-left:0.1rem; padding:0.3rem; border-radius:5px; border:none;">
       <p id="no-results" style="display:none; text-align:center; color:#fff; margin-top:0.5rem;"></p>
-          <div id="aviso-envio-gratis" class="aviso"></div>
+      <div id="aviso-envio-gratis" class="aviso"></div>
     </nav>
   </div>
 
@@ -283,17 +249,24 @@ Realizamos envíos a todo el país <span class="emoji"> 🚚 🇦🇷 </span>
         <p>$11.000👻</p>
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
+
+      <div class="card">
+        <img src="img/trompeta1.jpg" alt="trompetas con chicles" onclick="abrirModal(this)">
+        <h3>Trompetas con chupetin y sonido (20 u)</h3>
+        <p>$6.500</p>
+        <button class="btn-carrito">Agregar al carrito</button> 
+      </div>
 <!--
       <div class="card">
         <img src="img/carrera.jpg" alt="Cars con chicles" onclick="abrirModal(this)">
-        <h3>Autos de carrera  + pastillitas (30 u)</h3>
+        <h3>Autos de carrera con pastillitas (30 u)</h3>
         <p>$11.000</p>
         <button class="btn-carrito">Agregar al carrito</button>   
       </div>
 
       <div class="card">
         <img src="img/trompetamaschicle.jpg" alt="trompetas con chicles" onclick="abrirModal(this)">
-        <h3>Trompeta + pastillitas (30 u)</h3>
+        <h3>Trompeta con pastillitas (30 u)</h3>
         <p>$11.000</p>
         <button class="btn-carrito">Agregar al carrito</button> 
       </div>
@@ -303,27 +276,6 @@ Realizamos envíos a todo el país <span class="emoji"> 🚚 🇦🇷 </span>
         <h3>Hombre araña con pastillitas (30 u)</h3>
         <p>$9.800</p>
         <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card">
-        <img src="img/hombrecitonegro.jpg" alt="Fantasmita" onclick="abrirModal(this)">
-        <h3>Hombre araña negro con pastillitas (30 u)</h3>
-        <p>$9.800</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card">
-        <img src="img/helicopter.jpg" alt="chicles" onclick="abrirModal(this)">
-        <h3>Helicoptero con pastillitas (30 u)</h3>
-        <p>$11.000</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card">
-        <img src="img/cars1.jpg" alt="Cars con chicles" onclick="abrirModal(this)">
-        <h3>Cars  + pastillitas (30 u)</h3>
-        <p>$11.000</p>
-        <button class="btn-carrito">Agregar al carrito</button>   
       </div>
 
       <div class="card">
@@ -432,19 +384,6 @@ Realizamos envíos a todo el país <span class="emoji"> 🚚 🇦🇷 </span>
         <button class="btn-carrito">Agregar al carrito</button> 
       </div>
 <!--
-      <div class="card">
-        <img src="img/agendita1.jpg" alt="Stich" onclick="abrirModal(this)">
-        <h3>Agenditas surtidas (20 u)</h3>
-        <p>25.000</p>
-        <button class="btn-carrito">Agregar al carrito</button> 
-      </div>
-
-      <div class="card">
-        <img src="img/agendita4.jpg" alt="Stich" onclick="abrirModal(this)">
-        <h3>Agenditas surtidas (40 u)</h3>
-        <p>48.000</p>
-        <button class="btn-carrito">Agregar al carrito</button> 
-      </div>
 
       <div class="card">
         <img src="img/yoyo2.jpg" alt="Stich" onclick="abrirModal(this)">
@@ -515,13 +454,6 @@ Realizamos envíos a todo el país <span class="emoji"> 🚚 🇦🇷 </span>
       </div>
 <!--
       <div class="card">
-        <img src="img/pinguino2.jpg" alt="Alcancia con gelatinas" onclick="abrirModal(this)">
-        <h3>Alcancía pingüino negro (con 12 gelatinas en su interior)</h3>
-        <p>$6.500</p>
-        <button class="btn-carrito">Agregar al carrito</button>  
-      </div>
-
-      <div class="card">
         <img src="img/fieritacomefuego.jpg" alt="Latitas con chicles" onclick="abrirModal(this)">
         <h3>Chicle ácido Fierita Come Fuego Sabor Tutti Frutti (50 u)</h3>
         <p>$6.500</p>
@@ -555,14 +487,7 @@ Realizamos envíos a todo el país <span class="emoji"> 🚚 🇦🇷 </span>
         <p>18.000</p>
         <button class="btn-carrito">Agregar al carrito</button> 
       </div>
- <!--
-      <div class="card">
-        <img src="img/yoyo1.jpg" alt="Stich" onclick="abrirModal(this)">
-        <h3>YO-YOs con luces (12 u)</h3>
-        <p>26.000</p>
-        <button class="btn-carrito">Agregar al carrito</button> 
-      </div>
-  -->  
+
       <div class="card">
         <img src="img/laser1.jpg" alt="Stich" onclick="abrirModal(this)">
         <h3>Llaveros láser Capibara (12 u)</h3>
@@ -636,14 +561,7 @@ Realizamos envíos a todo el país <span class="emoji"> 🚚 🇦🇷 </span>
         <p>$10.500</p>
         <button class="btn-carrito">Agregar al carrito</button>  
       </div>
-<!--
-      <div class="card">
-        <img src="img/pastillitas.jpg" alt="Cool Mint" onclick="abrirModal(this)">
-        <h3>Pastillitas sabores frutales (30 u)</h3>
-        <p>$10.500</p>
-        <button class="btn-carrito">Agregar al carrito</button>  
-      </div>
--->
+
       <div class="card">
         <img src="img/frutales.jpg" alt="Cool Mint" onclick="abrirModal(this)">
         <h3>Pastillitas sabores frutales Toty (30 u)</h3>
@@ -699,9 +617,7 @@ Realizamos envíos a todo el país <span class="emoji"> 🚚 🇦🇷 </span>
         <h3>Mechas mágicas Mario Bros (30 u)</h3>
         <p>$13.000</p>
         <button class="btn-carrito">Agregar al carrito</button> 
-      </div>
-      
-      
+      </div>       
 <!--
       <div class="card">
         <img src="img/smackbar30.jpg" alt="Smack bar." onclick="abrirModal(this)">
@@ -716,62 +632,6 @@ Realizamos envíos a todo el país <span class="emoji"> 🚚 🇦🇷 </span>
         <p>$1.800</p>
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
-
-      <div class="card">
-        <img src="img/tigrerojo.png" alt="Alcancia con gelatinas" onclick="abrirModal(this)">
-        <h3>Alcancía Tigre rojo (con 12 gelatinas en su interior)</h3>
-        <p>$6.500</p>
-        <button class="btn-carrito">Agregar al carrito</button> 
-      </div>
-       
-        <div class="card">
-          <img src="img/alcanciaojoamarillo.png" alt="Alcancia con gelatinas" onclick="abrirModal(this)">
-          <h3>Alcancía Tigre Amarillo (con 12 gelatinas en su interior)</h3>
-          <p>$6.500</p>
-          <button class="btn-carrito">Agregar al carrito</button> 
-        </div>
-      
-        <div class="card">
-          <img src="img/alcancias2.jpg" alt="Alcancia con gelatinas" onclick="abrirModal(this)">
-          <h3>Alcancía Pollito amarillo (con 12 gelatinas en su interior)</h3>
-          <p>$6.500</p>
-          <button class="btn-carrito">Agregar al carrito</button>  
-        </div>
-      
-        <div class="card">
-          <img src="img/lechuza.jpg" alt="Alcancía con gelatinas" onclick="abrirModal(this)">
-          <h3>Alcancía Lechuza Marrón(con 12 gelatinas en su interior)</h3>
-          <p>$6.500</p>
-          <button class="btn-carrito">Agregar al carrito</button>
-        </div>
-  
-        <div class="card">
-          <img src="img/lechuzarosa.jpg.png" alt="Alcancía con gelatinas" onclick="abrirModal(this)">
-          <h3>Alcancía Lechuza Rosa (con 12 gelatinas en su interior)</h3>
-          <p>$6.500</p>
-          <button class="btn-carrito">Agregar al carrito</button>
-        </div>
-
-        <div class="card">
-          <img src="img/osorosa1.jpg" alt="Alcancía con gelatinas" onclick="abrirModal(this)">
-          <h3>Alcancía Oso Rosa (con 12 gelatinas en su interior)</h3>
-          <p>$6.500</p>
-          <button class="btn-carrito">Agregar al carrito</button>
-        </div>
-
-        <div class="card">
-          <img src="img/alcanciapinguinorosa.jpg" alt="Alcancía con gelatinas" onclick="abrirModal(this)">
-          <h3>Alcancía Pingüino Rosa (con 12 gelatinas en su interior)</h3>
-          <p>$6.500</p>
-          <button class="btn-carrito">Agregar al carrito</button>
-        </div>
-      
-        <div class="card">
-          <img src="img/alcanciapinguinorojo.jpg" alt="Alcancía con gelatinas" onclick="abrirModal(this)">
-          <h3>Alcancía Pollito rojo (con 12 gelatinas en su interior)</h3>
-          <p>$6.500</p>
-          <button class="btn-carrito">Agregar al carrito</button>
-        </div>
 --> 
         <div class="card">
           <img src="img/babydollmonsters.jpg" alt="chupetines baby dolls" onclick="abrirModal(this)">
@@ -787,13 +647,6 @@ Realizamos envíos a todo el país <span class="emoji"> 🚚 🇦🇷 </span>
           <button class="btn-carrito">Agregar al carrito</button>  
         </div>
     <!--
-        <div class="card">
-          <img src="img/alcancias1.jpg" alt="Alcancía con gelatinas" onclick="abrirModal(this)">
-          <h3>Alcancía Oso café (con 12 gelatinas en su interior)</h3>
-          <p>$6.500</p> 
-          <button class="btn-carrito">Agregar al carrito</button>       
-        </div>
-
         <div class="card">
           <img src="img/burbujeros.jpg" alt="Burbujeros" onclick="abrirModal(this)">
           <h3>Burbujeros (30 u) de 50ml</h3>
@@ -961,29 +814,7 @@ Realizamos envíos a todo el país <span class="emoji"> 🚚 🇦🇷 </span>
           <p>$6.900</p>
           <button class="btn-carrito">Agregar al carrito</button> 
         </div>
-<!--
 
-        <div class="card">
-          <img src="img/yummy_dientes.jpg" alt="Yummy frutilla con crema" onclick="abrirModal(this)">
-          <h3>Gomitas Yummy Dientes 500 g</h3>
-          <p>$7.900</p>
-          <button class="btn-carrito">Agregar al carrito</button>
-        </div>
-  
-        <div class="card">
-          <img src="img/yummyacidas.jpg" alt="Yummy frutilla con crema" onclick="abrirModal(this)">
-          <h3>Gomitas Yummy ácidas 500 g</h3>
-          <p>$7.900</p>
-          <button class="btn-carrito">Agregar al carrito</button>
-        </div>
-
-        <div class="card">
-          <img src="img/fieritamanzana.jpg" alt="Fierita" onclick="abrirModal(this)">
-          <h3>Gomitas Fierita Gajos 500 g</h3>
-          <p>$6.500</p>
-          <button class="btn-carrito">Agregar al carrito</button>  
-        </div>
--->
         <div class="card">
           <img src="img/chupetineshelado1.jpg" alt="Chupetines helado" onclick="abrirModal(this)">
           <h3>Chupetines con forma de helado (30 u)</h3>
@@ -1025,21 +856,7 @@ Realizamos envíos a todo el país <span class="emoji"> 🚚 🇦🇷 </span>
           <p>$7.900</p>
           <button class="btn-carrito">Agregar al carrito</button> 
         </div>
-<!--
-        <div class="card">
-          <img src="img/conitosfrutales.jpg" alt="Billiken" onclick="abrirModal(this)">
-          <h3>Gomitas Misky conitos frutales 500 g</h3>
-          <p>$6.900</p>
-          <button class="btn-carrito">Agregar al carrito</button> 
-        </div>
 
-        <div class="card">
-          <img src="img/fieritafrutilla.jpg" alt="Fierita" onclick="abrirModal(this)">
-          <h3>Gomitas Fierita Multifruta 500 g</h3>
-          <p>$6.500</p>
-          <button class="btn-carrito">Agregar al carrito</button>
-        </div>
-      -->
         <div class="card">
           <img src="img/fieritagranjero.jpg" alt=" fierita caramelos masticables" onclick="abrirModal(this)">
           <h3>Caramelos masticables Fierita Granjero (100 u)</h3>
@@ -1123,21 +940,7 @@ Realizamos envíos a todo el país <span class="emoji"> 🚚 🇦🇷 </span>
           <p>$10.500</p>
           <button class="btn-carrito">Agregar al carrito</button>
         </div>
-    <!--    
-        <div class="card">
-          <img src="img/chupetinesconformas.jpg" alt="Chupetines con formas" onclick="abrirModal(this)">
-          <h3>Chupetines con diferentes formas (30 u)</h3>
-          <p>$9.900</p>
-          <button class="btn-carrito">Agregar al carrito</button>
-        </div>
-
-        <div class="card">
-          <img src="img/dinos.jpg" alt="Chupetines con formas" onclick="abrirModal(this)">
-          <h3>Chupetines Dinos (30 u)</h3>
-          <p>$9.900</p>
-          <button class="btn-carrito">Agregar al carrito</button>
-        </div>
--->
+   
         <div class="card">
           <img src="img/corazon.jpg" alt="Chupetines con formas" onclick="abrirModal(this)">
           <h3>Chupetines Corazón (30 u)</h3>
@@ -1215,14 +1018,12 @@ Realizamos envíos a todo el país <span class="emoji"> 🚚 🇦🇷 </span>
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
 
-     
-
-        <div class="card">
-          <img src="img/lenguetazopintalengua.jpg" alt="lenguetazo" onclick="abrirModal(this)">
-          <h3>Lenguetazo Pinta Lengua (32 u)</h3>
-          <p>$9.500</p>
-          <button class="btn-carrito">Agregar al carrito</button>
-        </div>
+      <div class="card">
+        <img src="img/lenguetazopintalengua.jpg" alt="lenguetazo" onclick="abrirModal(this)">
+        <h3>Lenguetazo Pinta Lengua (32 u)</h3>
+        <p>$9.500</p>
+        <button class="btn-carrito">Agregar al carrito</button>
+      </div>
 -->
       <div class="card">
         <img src="img/gelatinaloka.jpg" alt="Gomitas" onclick="abrirModal(this)">
