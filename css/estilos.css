@@ -778,7 +778,7 @@ html { scroll-behavior: smooth; }
     line-clamp: 3; /* mantener 3 líneas máximo */
   }
 
-     .card .btn-carrito {
+  .card .btn-carrito {
     display: block;
     width: 100%;
     margin-bottom: 5px; /* separa los botones */
@@ -858,7 +858,7 @@ html { scroll-behavior: smooth; }
   .img {
     font-size: 1.8rem;
     margin-bottom: 1rem;
-    margin-top: 0.5%;
+    margin-top: 0.9%;
     font-family: 'Bebas Neue', sans-serif;
   }
   .modal-botones{
@@ -1629,12 +1629,17 @@ html { scroll-behavior: smooth; }
   gap: 4px;
   cursor: pointer;
   transition: opacity 0.2s;
-  top: auto;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  
+  padding: 1px 15px;
+  border-radius: 50px;
 }
 
+/* hover */
 .prev-producto:hover,
 .next-producto:hover {
-  opacity: 1;
+  background: rgba(0, 0, 0, 0.85);
 }
 
 .prev-producto span,
@@ -1689,7 +1694,7 @@ html { scroll-behavior: smooth; }
 #modal-title {
     font-size: 1.8rem;
     margin-bottom: 0.1%;
-    margin-top: 0.1%;
+    margin-top: 0.9%;
     font-family: 'Bebas Neue', sans-serif;
   }
 #modal-precio {
@@ -1701,22 +1706,79 @@ html { scroll-behavior: smooth; }
 #whatsapp-btn.oculto {
   display: none;
 }
-.img-container {
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Fredoka', sans-serif;
+}
+.card h3 {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+}
+.card p {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+}
+#carrito-dropdown {
+  font-family: 'Poppins', sans-serif;
+}
+
+.carrito-item strong {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 500;
+}
+#modal {
+  font-family: 'Poppins', sans-serif;
+}
+
+#modal-title {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.4rem;
+}
+
+#modal-precio {
+  font-weight: bold;
+}
+
+/* CONTENEDOR */
+#card-alcancias .img-container {
   position: relative;
 }
 
-.flecha {
+/* FLECHAS */
+#card-alcancias .flecha {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+
   background: rgba(0,0,0,0.5);
   color: white;
-  padding: 5px 10px;
-  cursor: pointer;
+
+  font-size: 22px;
+  padding: 8px 12px;
   border-radius: 50%;
-  font-size: 18px;
-  user-select: none;
+
+  cursor: pointer;
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.flecha.izq { left: 5px; }
-.flecha.der { right: 5px; }
+/* IZQUIERDA */
+#card-alcancias .flecha.izq {
+  left: 10px;
+}
+
+/* DERECHA */
+#card-alcancias .flecha.der {
+  right: 10px;
+}
+
+/* HOVER */
+#card-alcancias .flecha:hover {
+  background: rgba(0,0,0,0.8);
+}

@@ -1179,3 +1179,16 @@ document.addEventListener("mouseup", () => {
   isDragging = false;
   modalImg.style.cursor = "grab";
 });
+
+
+document.querySelectorAll('#card-alcancias .flecha').forEach(flecha => {
+  flecha.addEventListener('click', (e) => {
+    e.stopPropagation(); // 🔥 evita que se abra el modal
+
+    if (flecha.classList.contains('der')) {
+      cambiarAlcancia(1);
+    } else {
+      cambiarAlcancia(-1);
+    }
+  });
+});
