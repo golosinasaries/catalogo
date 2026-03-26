@@ -497,11 +497,11 @@ Realizamos envíos a todo el país <span class="emoji"> 🚚 🇦🇷 </span>
 
       <div class="card card-alcancia" id="card-alcancias">
         <div class="img-container">
-          <span class="flecha izq" onclick="cambiarAlcancia(-1)">‹</span>
+          <span class="flecha izq" onclick="event.stopPropagation(); cambiarVariante(this, -1)">‹</span>
 
           <img src="img/alcanciapinguinorosa.jpg" id="img-alcancia">
 
-          <span class="flecha der" onclick="cambiarAlcancia(1)">›</span>
+          <span class="flecha der" onclick="event.stopPropagation(); cambiarVariante(this, 1)">›</span>
         </div>
 
         <h3 id="titulo-alcancia">Alcancía Pingüino Rosa (con 12 gelatinas en su interior)</h3>
@@ -570,16 +570,13 @@ Realizamos envíos a todo el país <span class="emoji"> 🚚 🇦🇷 </span>
         <button class="btn-carrito">Agregar al carrito</button> 
       </div>
         
-      <div class="card">
-        <img src="img/fieritarecargado.jpg" alt="Chicles" onclick="abrirModal(this)">
+     <div class="card card-recargado">
+        <div class="img-container">
+          <span class="flecha izq" onclick="event.stopPropagation(); cambiarVariante(this, -1)">‹</span>
+          <img src="img/fieritarecargado.jpg">
+          <span class="flecha der" onclick="event.stopPropagation(); cambiarVariante(this, 1)">›</span>
+        </div>
         <h3>Chicle Fierita Recargado - Tutti Frutti (50 u)</h3>
-        <p>$6.500</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card">
-        <img src="img/fieritarecargadomenta.jpg" alt="Chicles" onclick="abrirModal(this)">
-        <h3>Chicle Fierita Recargado - Menta (50 u)</h3>
         <p>$6.500</p>
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
@@ -612,25 +609,25 @@ Realizamos envíos a todo el país <span class="emoji"> 🚚 🇦🇷 </span>
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
 
-      <div class="card">
-        <img src="img/globobanana.jpg" alt="Chicles" onclick="abrirModal(this)">
+      <div class="card card-globos" data-index="0">
+        <div class="img-container">
+
+          <span class="flecha izq" onclick="event.stopPropagation(); cambiarVariante(this, -1)">‹</span>
+
+          <img src="img/globobanana.jpg" alt="Chicles">
+
+          <span class="flecha der" onclick="event.stopPropagation(); cambiarVariante(this, 1)">›</span>
+
+        </div>
+
         <h3>Chicle Fierita Globo sabor Banana (95 u)</h3>
         <p>$7.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
 
-      <div class="card">
-        <img src="img/gobofrutilla.jpg" alt="Chicles" onclick="abrirModal(this)">
-        <h3>Chicle Fierita Globo sabor Frutilla (95 u)</h3>
-        <p>$7.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card">
-        <img src="img/globomenta.jpg" alt="Chicles" onclick="abrirModal(this)">
-        <h3>Chicle Fierita Globo sabor Menta (95 u)</h3>
-        <p>$7.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>
+        <button class="btn-carrito"
+          data-nombre="Chicle Fierita Globo sabor Banana (95 u)"
+          data-precio="$7.900">
+          Agregar al carrito
+        </button>
       </div>
 
       <div class="card">

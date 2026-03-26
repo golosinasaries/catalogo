@@ -1745,12 +1745,12 @@ h1, h2, h3 {
 }
 
 /* CONTENEDOR */
-#card-alcancias .img-container {
+.card .img-container {
   position: relative;
 }
 
 /* FLECHAS */
-#card-alcancias .flecha {
+.card .flecha {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -1771,17 +1771,17 @@ h1, h2, h3 {
 }
 
 /* IZQUIERDA */
-#card-alcancias .flecha.izq {
+.card .flecha.izq {
   left: 10px;
 }
 
 /* DERECHA */
-#card-alcancias .flecha.der {
+.card .flecha.der {
   right: 10px;
 }
 
 /* HOVER */
-#card-alcancias .flecha:hover {
+.card .flecha:hover {
   background: rgba(0,0,0,0.8);
 }
 

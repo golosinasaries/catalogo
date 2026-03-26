@@ -60,6 +60,25 @@ const STOCK_PRODUCTOS = {
   
 };
 
+//VARIANTES 1
+
+const globos = [
+  {
+    nombre: "Chicle Fierita Globo sabor Banana (95 u)",
+    precio: "$7.900",
+    img: "img/globobanana.jpg"
+  },
+  {
+    nombre: "Chicle Fierita Globo sabor Frutilla (95 u)",
+    precio: "$7.900",
+    img: "img/gobofrutilla.jpg"
+  },
+  {
+    nombre: "Chicle Fierita Globo sabor Menta (95 u)",
+    precio: "$7.900",
+    img: "img/globomenta.jpg"
+  }
+];
 
 const alcancias = [
   {
@@ -67,7 +86,7 @@ const alcancias = [
     precio: "$6.500",
     img: "img/alcanciapinguinorosa.jpg"
   },
-  
+
   {
     nombre: "Alcancía Pollito Rojo",
     precio: "$6.500",
@@ -101,28 +120,53 @@ const alcancias = [
   },
 ];
 
+const recargados = [
+  {
+    nombre: "Chicle Fierita Recargado - Tutti Frutti (50 u)",
+    precio: "$6.500",
+    img: "img/fieritarecargado.jpg"
+  },
+  {
+    nombre: "Chicle Fierita Recargado - Menta (50 u)",
+    precio: "$6.500",
+    img: "img/fieritarecargadomenta.jpg"
+  }
+];
+
 const productosVariantes = {
-  "card-alcancia": alcancias
+  "card-alcancia": alcancias,
+  "card-globos": globos,
+  "card-recargado": recargados
 };
 
-let indiceAlcancia = 0;
+function cambiarVariante(el, direccion) {
+  const card = el.closest('.card');
 
-function cambiarAlcancia(direccion) {
-  indiceAlcancia += direccion;
+  const claseVariante = Object.keys(productosVariantes)
+    .find(c => card.classList.contains(c));
 
-  if (indiceAlcancia < 0) indiceAlcancia = alcancias.length - 1;
-  if (indiceAlcancia >= alcancias.length) indiceAlcancia = 0;
+  if (!claseVariante) return;
 
-  const a = alcancias[indiceAlcancia];
+  const variantes = productosVariantes[claseVariante];
 
-  document.getElementById("img-alcancia").src = a.img;
-  document.getElementById("titulo-alcancia").textContent = a.nombre;
-  document.getElementById("precio-alcancia").textContent = a.precio;
+  let index = parseInt(card.dataset.index || "0");
 
-  // actualizar botón carrito
-  const btn = document.getElementById("btn-alcancia");
-  btn.dataset.nombre = a.nombre;
-  btn.dataset.precio = a.precio;
+  index += direccion;
+
+  if (index < 0) index = variantes.length - 1;
+  if (index >= variantes.length) index = 0;
+
+  card.dataset.index = index;
+
+  const v = variantes[index];
+
+  card.querySelector("img").src = v.img;
+  card.querySelector("h3").textContent = v.nombre;
+  card.querySelector("p").textContent = v.precio;
+
+  const btn = card.querySelector(".btn-carrito");
+  btn.dataset.nombre = v.nombre;
+  btn.dataset.precio = v.precio;
 }
 
 function validarStock(nombre, carrito) {
@@ -1173,17 +1217,4 @@ document.addEventListener("mousemove", (e) => {
 document.addEventListener("mouseup", () => {
   isDragging = false;
   modalImg.style.cursor = "grab";
-});
-
-
-document.querySelectorAll('#card-alcancias .flecha').forEach(flecha => {
-  flecha.addEventListener('click', (e) => {
-    e.stopPropagation(); // 🔥 evita que se abra el modal
-
-    if (flecha.classList.contains('der')) {
-      cambiarAlcancia(1);
-    } else {
-      cambiarAlcancia(-1);
-    }
-  });
 });
