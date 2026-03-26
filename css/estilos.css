@@ -1198,6 +1198,7 @@ html { scroll-behavior: smooth; }
   margin-top: 8px;
   width: 100%;
   font-weight: bold;
+  margin-top: 0%;
 }
 .btn-vaciar:hover {
   background: #bbb;
