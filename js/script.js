@@ -55,8 +55,8 @@ const STOCK_PRODUCTOS = {
   "Chupetines con led Oreo (30 u)": 15,
   "Nutello pequeños (60 u)": 1,
   "Smack Bar (30 u)": 10,
-  "Camión dispenser + caramelos rosa (1 unidad)": 1,
-  "Dinosaurio (1 unidad)": 1,
+  "Camión dispenser + caramelos rosa (1 unidad)": 15,
+  "Dinosaurio (1 unidad)": 15,
 };
 
 const globos = [
