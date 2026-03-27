@@ -55,6 +55,8 @@ const STOCK_PRODUCTOS = {
   "Chupetines con led Oreo (30 u)": 15,
   "Nutello pequeños (60 u)": 1,
   "Smack Bar (30 u)": 10,
+  "Camión dispenser + caramelos rosa (1 unidad)": 1,
+  "Dinosaurio (1 unidad)": 1,
 };
 
 const globos = [
@@ -257,6 +259,10 @@ if (modal) {
 
   // Productos
   const imagenesProducto = {
+    "Dinosaurio (1 unidad)": [
+  "img/fotodinosaurio.jpg",
+  "img/videodinosaurio.mp4"
+],
     "Alcancía": ["img/pinguino2.jpg","img/alcanciapinguinorojo.jpg","img/alcancialechuzarosa.jpg","img/tigrerojo.png" ],
     "Gomitas Spider-Man (60 u)": ["img/spiderman1.jpg","img/spiderman2.jpg","img/spiderman3.jpg","img/spiderman4.jpg","img/spiderman5.jpg"],
     "Llaveros láser Capibara (12 u)": ["img/laser1.jpg","img/laser2.jpg","img/laser3.jpg","img/laser4.jpg"],
@@ -375,7 +381,7 @@ if (modal) {
 
   //  SI ES PROMO → SOLO OCULTA EL BOTÓN Y AGRANDA EL MODAL
   if (card.classList.contains('promo')) {
-    modalAgregarBtn.style.display = 'none';
+    modalAgregarBtn.style.display = 'inline-block'; // 👈 CAMBIO
     modal.classList.add('fullscreen'); // ✨ clase para agrandar modal
   } else {
     modalAgregarBtn.style.display = 'inline-block';
@@ -386,7 +392,39 @@ if (modal) {
 
 }
 function actualizarModal() {
-  modalImg.src = currentImages[currentIndex] || '';
+  const media = currentImages[currentIndex] || '';
+
+  if (media.endsWith(".mp4")) {
+    modalImg.style.display = "none";
+
+    let video = document.getElementById("modal-video");
+
+    if (!video) {
+      video = document.createElement("video");
+      video.id = "modal-video";
+      video.autoplay = true;
+      video.loop = true;
+      video.muted = true;
+      video.controls = true;
+      video.style.width = "100%";
+      video.style.borderRadius = "10px";
+
+      modalImg.parentElement.appendChild(video);
+    }
+
+    video.src = media;
+    video.style.display = "block";
+
+  } else {
+    modalImg.style.display = "block";
+    modalImg.src = media;
+
+    const video = document.getElementById("modal-video");
+    if (video) {
+      video.style.display = "none";
+      video.pause();
+    }
+  }
 
   const modalAgregarBtn = document.getElementById('modal-agregar');
 
@@ -487,9 +525,10 @@ function actualizarModal() {
     console.log("producto:", titulo, "stock:", stock);
 
     //  Si el stock es 0 → ocultar producto
-    if (stock !== null && stock === 0) {
+    if (stock === 0) {
       card.style.display = "none";
-      return;
+    } else {
+      card.style.display = "block";
     }
 
     // Si queda 1 → mostrar aviso
@@ -587,7 +626,7 @@ function mostrarToast(mensaje, tipo = "success") {
   setTimeout(() => {
     toast.classList.remove("show");
     setTimeout(() => toast.style.display = "none", 400);
-  }, 3000);
+  }, 500);
 }
 
   function lanzarConfetti() {
@@ -725,6 +764,20 @@ document.addEventListener("DOMContentLoaded", () => {
     carritoDropdown.addEventListener("mouseleave", iniciarTemporizadorCierre);
 
     carritoBtn?.addEventListener("click", iniciarTemporizadorCierre);
+    document.querySelectorAll(".card").forEach(card => {
+    const titulo = card.querySelector("h3")?.textContent.trim();
+    const stockMax = STOCK_PRODUCTOS[titulo];
+
+    const item = carrito.find(p => p.nombre === titulo);
+    const cantidad = item ? item.cantidad : 0;
+
+    if (stockMax !== undefined && cantidad >= stockMax) {
+      card.style.display = "none";
+    } else {
+      card.style.display = "block";
+    }
+  });
+  //cierre
 
   }
 
@@ -1186,4 +1239,16 @@ document.addEventListener("mousemove", (e) => {
 document.addEventListener("mouseup", () => {
   isDragging = false;
   modalImg.style.cursor = "grab";
+});
+document.querySelectorAll(".card-video").forEach(card => {
+  const video = card.querySelector("video");
+
+  card.addEventListener("mouseenter", () => {
+    video.play();
+  });
+
+  card.addEventListener("mouseleave", () => {
+    video.pause();
+    video.currentTime = 0;
+  });
 });
