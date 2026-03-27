@@ -259,10 +259,9 @@ if (modal) {
 
   // Productos
   const imagenesProducto = {
-    "Dinosaurio (1 unidad)": [
-  "img/fotodinosaurio.jpg",
-  "img/videodinosaurio.mp4"
-],
+    "Gomitas Ojos (30 u)": ["img/ojos.jpg","img/videoojos.mp4"],
+    "Dinosaurio (1 unidad)": ["img/fotodinosaurio.jpg","img/videodinosaurio.mp4"],
+    "Gomitas blandas de boca (30 u)": ["img/boca.jpg","img/videoboca.mp4"],
     "Alcancía": ["img/pinguino2.jpg","img/alcanciapinguinorojo.jpg","img/alcancialechuzarosa.jpg","img/tigrerojo.png" ],
     "Gomitas Spider-Man (60 u)": ["img/spiderman1.jpg","img/spiderman2.jpg","img/spiderman3.jpg","img/spiderman4.jpg","img/spiderman5.jpg"],
     "Llaveros láser Capibara (12 u)": ["img/laser1.jpg","img/laser2.jpg","img/laser3.jpg","img/laser4.jpg"],
@@ -413,6 +412,11 @@ function actualizarModal() {
     }
 
     video.src = media;
+    video.classList.remove("video-ojos");
+
+    if (media.includes("videoojos")) {
+      video.classList.add("video-ojos");
+    }
     video.style.display = "block";
 
   } else {

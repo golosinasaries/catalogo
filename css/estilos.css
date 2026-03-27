@@ -1818,3 +1818,13 @@ h1, h2, h3 {
   height: auto;
   display: block;
 }
+.video-ojos {
+  transform: rotate(90deg);
+  object-fit: contain;
+  background: black;
+}
+#modal-video.video-ojos {
+  transform: rotate(90deg);
+  object-fit: contain;
+  background: black;
+}
