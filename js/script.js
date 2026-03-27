@@ -17,6 +17,7 @@ let productoIndex = 0;
 let currentVariantes = null;
 
 const STOCK_PRODUCTOS = {
+  "Transformers varios (4 u)": 7,
   "Trompetas con chupetin y sonido (20 u)": 1,
   "Chupetín Calabaza con polvo ácido y led (30 u)": 1,
   "Billiken Congys 200 g": 3,
@@ -259,6 +260,7 @@ if (modal) {
 
   // Productos
   const imagenesProducto = {
+    "Transformers varios (4 u)":  ["img/tra1.jpeg","img/tra2.jpeg","img/tra3.jpeg"],
     "Gomitas Ojos (30 u)": ["img/ojos.jpg","img/videoojos.mp4"],
     "Dinosaurio (1 unidad)": ["img/fotodinosaurio.jpg","img/videodinosaurio.mp4"],
     "Gomitas blandas de boca (30 u)": ["img/boca.jpg","img/videoboca.mp4"],
