@@ -166,11 +166,12 @@ const variantesTransformer = [
     nombre: "Avión Naranja Transformer (1 u)",
     precio: "$4.500"
   },
- // {
- //   img: "img/autorojo.jpeg",
-   // nombre: "Auto Rojo Transformer (1 u)",
-   // precio: "$4.500"
-  //}
+ /* {
+   img: "img/autorojo.jpeg",
+    nombre: "Auto Rojo Transformer (1 u)",
+    precio: "$4.500"
+  }
+    */
 ];
 
 const productosVariantes = {
