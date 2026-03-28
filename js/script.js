@@ -59,7 +59,8 @@ const STOCK_PRODUCTOS = {
   "Nutello pequeños (60 u)": 1,
   "Smack Bar (30 u)": 10,
   "Camión dispenser + caramelos rosa (1 unidad)": 1,
-  "Dinosaurio (1 unidad)": 3,
+  "Dinosaurio (1 unidad)": 1,
+  "Avión Naranja Transformer (1 u)": 1,
 };
 
 const globos = [
@@ -154,11 +155,11 @@ const variantesTransformer = [
     nombre: "Avión Naranja Transformer (1 u)",
     precio: "$4.500"
   },
-  {
-    img: "img/autorojo.jpeg",
-    nombre: "Auto Rojo Transformer (1 u)",
-    precio: "$4.500"
-  }
+ // {
+ //   img: "img/autorojo.jpeg",
+   // nombre: "Auto Rojo Transformer (1 u)",
+   // precio: "$4.500"
+  //}
 ];
 
 const productosVariantes = {
