@@ -135,7 +135,7 @@ const recargados = [
 
 const variantesTransformer = [
   {
-    img: "img/camiontra1.jpeg",
+    img: "img/camiontra3.jpeg",
     nombre: "Camión Transformer (1 u)",
     precio: "$4.500"
   },
@@ -292,7 +292,7 @@ if (modal) {
 
   // Productos
   const imagenesProducto = {
-    "Camion Transformer (1 u)":[ "img/camiontra1.jpeg", "img/camiontra2.jpeg", "img/camiontra3.jpeg"],
+    "Camión Transformer (1 u)":[ "img/camiontra1.jpeg", "img/camiontra2.jpeg", "img/camiontra3.jpeg"],
     "Transformers varios (4 u)":  ["img/videotra1.mp4","img/tra1.jpeg","img/tra2.jpeg","img/tra3.jpeg", "img/videotra2.mp4" ],
     "Gomitas Ojos (30 u)": ["img/ojos.jpg","img/videoojos.mp4"],
     "Dinosaurio con caramelos y luces (1 unidad)": ["img/fotodinosaurio.jpg","img/videodinosaurio.mp4"],
