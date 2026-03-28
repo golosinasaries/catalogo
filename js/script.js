@@ -17,6 +17,7 @@ let productoIndex = 0;
 let currentVariantes = null;
 
 const STOCK_PRODUCTOS = {
+  "Auto Blanco y azul (1 u)": 1,
   "Auto Blanco (1 u)": 1,
   "Camión Transformer (1 u)": 2,
   "Camión Verde Transformer (1 u)": 3,
@@ -148,6 +149,12 @@ const variantesTransformer = [
   {
     img: "img/autoblancotra.jpeg",
     nombre: "Auto Blanco (1 u)",
+    precio: "$4.500"
+  },
+
+   {
+    img: "img/autoblancoyazul.jpeg",
+    nombre: "Auto Blanco y azul(1 u)",
     precio: "$4.500"
   },
 
