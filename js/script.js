@@ -133,10 +133,40 @@ const recargados = [
   }
 ];
 
+const variantesTransformer = [
+  {
+    img: "img/camiontra1.jpeg",
+    nombre: "Camión Transformer (1 u)",
+    precio: "$4.500"
+  },
+  {
+    img: "img/aviontra.jpeg",
+    nombre: "Avión Transformer (1 u)",
+    precio: "$4.500"
+  },
+  {
+    img: "img/camionverdetra.jpeg",
+    nombre: "Camión Verde Transformer (1 u)",
+    precio: "$4.500"
+  },
+  {
+    img: "img/avionnaranjatra.jpeg",
+    nombre: "Avión Naranja Transformer (1 u)",
+    precio: "$4.500"
+  },
+  {
+    img: "img/autorojo.jpeg",
+    nombre: "Auto Rojo Transformer (1 u)",
+    precio: "$4.500"
+  }
+];
+
 const productosVariantes = {
   "card-alcancia": alcancias,
   "card-globos": globos,
-  "card-recargado": recargados
+  "card-recargado": recargados,
+  "card-transformers": variantesTransformer,
+
 };
 
 function cambiarVariante(el, direccion) {
@@ -262,7 +292,8 @@ if (modal) {
 
   // Productos
   const imagenesProducto = {
-    "Transformers varios (4 u)":  ["img/tra1.jpeg","img/tra2.jpeg","img/tra3.jpeg",],// "img/tra4.jpeg","img/tra5.jpeg","img/tra6.jpeg", "img/tra7.jpeg", "img/tra8.jpeg", ],
+    "Camion Transformer (1 u)":[ "img/camiontra1.jpeg", "img/camiontra2.jpeg", "img/camiontra3.jpeg"],
+    "Transformers varios (4 u)":  ["img/videotra1.mp4","img/tra1.jpeg","img/tra2.jpeg","img/tra3.jpeg", "img/videotra2.mp4" ],
     "Gomitas Ojos (30 u)": ["img/ojos.jpg","img/videoojos.mp4"],
     "Dinosaurio con caramelos y luces (1 unidad)": ["img/fotodinosaurio.jpg","img/videodinosaurio.mp4"],
     "Gomitas blandas de boca (30 u)": ["img/boca.jpg","img/videoboca.mp4"],
@@ -408,7 +439,19 @@ function actualizarModal() {
       video.autoplay = true;
       video.loop = true;
       video.muted = true;
-      video.controls = true;
+      video.controls = false;
+      video.addEventListener("click", () => {
+        if (video.paused) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      });
+
+      video.playsInline = true;
+      video.setAttribute("playsinline", "");
+      video.setAttribute("webkit-playsinline", "");
+
       video.style.width = "100%";
       video.style.borderRadius = "10px";
 

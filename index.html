@@ -225,13 +225,39 @@
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
     -->
-       <div class="card">
-        <img src="img/tra1.jpeg" alt="Camioncito" onclick="abrirModal(this)">
+      <div class="card card-video">
+        <img src="img/transformer.jpg" alt="Transformer">
+
+        <video 
+          src="img/videotra1.mp4"
+          muted
+          loop
+          playsinline>
+        </video>
+
         <h3>Transformers varios (4 u)</h3>
         <p>$11.000</p>
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
-     
+
+     <div class="card card-transformers">
+        <div class="img-container">
+          <span class="flecha izq" onclick="event.stopPropagation(); cambiarVariante(this, -1)">‹</span>
+
+          <img src="img/camiontra1.jpeg">
+
+          <span class="flecha der" onclick="event.stopPropagation(); cambiarVariante(this, 1)">›</span>
+        </div>
+
+        <h3>Camión Transformer (1 u)</h3>
+        <p>$4.500</p>
+
+        <button class="btn-carrito"
+          data-nombre="Camión Transformer (1 u)"
+          data-precio="$4.500">
+          Agregar al carrito
+        </button>
+      </div>
 <!--
        <div class="card">
           <img src="img/camionceleste1.jpg" alt="Camioncito" onclick="abrirModal(this)">
