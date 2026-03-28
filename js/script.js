@@ -17,8 +17,9 @@ let productoIndex = 0;
 let currentVariantes = null;
 
 const STOCK_PRODUCTOS = {
+  "Auto Blanco (1 u)": 1,
   "Camión Transformer (1 u)": 2,
-  "Camión Verde Transformer (1 u)": 2,
+  "Camión Verde Transformer (1 u)": 3,
   "Chupetines con led Simpsons (30 u)": 6,
   "Chupetines con led Unicornio (30 u)": 3,
   "Transformers varios (4 u)": 7,
@@ -143,12 +144,13 @@ const variantesTransformer = [
     nombre: "Camión Transformer (1 u)",
     precio: "$4.500"
   },
+  */
   {
     img: "img/autoblancotra.jpeg",
     nombre: "Auto Blanco (1 u)",
     precio: "$4.500"
   },
-*/
+
   {
     img: "img/aviontra.jpeg",
     nombre: "Avión Transformer (1 u)",
