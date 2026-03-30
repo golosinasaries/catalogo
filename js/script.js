@@ -28,7 +28,6 @@ const STOCK_PRODUCTOS = {
   "Chupetín Calabaza con polvo ácido y led (30 u)": 1,
   "Billiken Congys 200 g": 3,
   "Caramelos masticables Fierita Granjero (100 u)": 1,
-  "Gomitas Misky Fantasia 1kg": 1,
   "Billiken Tutti-frutti 800 g": 2,
   "Billiken redonditas 800 g": 2,
   "Gomitas blandas Lilo y Stitch (60 u)": 2,
