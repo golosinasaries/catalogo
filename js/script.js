@@ -63,7 +63,7 @@ const STOCK_PRODUCTOS = {
   "Nutello pequeños (60 u)": 1,
   "Smack Bar (30 u)": 10,
   "Camión dispenser + caramelos rosa (1 unidad)": 1,
-  "Dinosaurio (1 unidad)": 1,
+  "Dinosaurio con caramelos y luces (1 unidad)": 1,
   "Avión Naranja Transformer (1 u)": 1,
 };
 
