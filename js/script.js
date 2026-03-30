@@ -42,10 +42,10 @@ const STOCK_PRODUCTOS = {
   "Gomitas blandas Donas 🍩 (30 u)": 1,
   "Botellitas con chicles (30 botellitas)": 20,
   "Gomitas blandas Fantasmita (30 u)": 1,
-  "Alcancía Lechuza Marrón(con 12 gelatinas en su interior)": 15,
-  "Alcancía Lechuza Rosa (con 12 gelatinas en su interior)": 15,
-  "Alcancía Oso Rosa (con 12 gelatinas en su interior)": 3,
-  "Alcancía Oso café (con 12 gelatinas en su interior)": 5,
+  "Alcancía Lechuza Marrón": 15,
+  "Alcancía Lechuza Rosa": 15,
+  "Alcancía Oso Rosa": 3,
+  "Alcancía Oso café": 5,
   "Chupetines Cremosito Fierita - Fritilla y Crema (50 u)": 2,
   "Alfajor Guaymallén simple de Membrillo (10 u)": 1,
   "Alfajor Guaymallén simple de Chocolate Blanco (10 u)": 2,
@@ -57,15 +57,14 @@ const STOCK_PRODUCTOS = {
   "Pistolitas con luz (30 u)": 1,
   "Camión dispenser + caramelos rosa (1 unidad)": 1,
   "Pistola + caramelos rosa (1 unidad)": 1,
-  "Alcancía Tigre Amarillo (con 12 gelatinas en su interior)": 15,
-  "Alcancía Tigre rojo (con 12 gelatinas en su interior)": 15,
-  "Alcancía Pollito rojo (con 12 gelatinas en su interior)": 5,
+  "Alcancía Tigre Amarillo": 15,
+  "Alcancía Tigre rojo": 15,
+  "Alcancía Pollito rojo": 5,
   "Alcancía Pingüino Rosa (con 12 gelatinas en su interior)": 6,
   "Gomitas Super Mario (30 u)": 15,
   "Chupetines con led Oreo (30 u)": 15,
   "Nutello pequeños (60 u)": 18,
   "Smack Bar (30 u)": 10,
-  "Camión dispenser + caramelos rosa (1 unidad)": 1,
   "Dinosaurio con caramelos y luces (1 unidad)": 1,
   "Avión Naranja Transformer (1 u)": 1,
 };
@@ -396,9 +395,6 @@ if (modal) {
   let currentImages = [];
   let currentIndex = 0;
   let currentTitle = "";
-
-  let productos = [];
-  let productoIndex = 0;
 
   function abrirModal(card) {
 
@@ -849,14 +845,26 @@ document.addEventListener("DOMContentLoaded", () => {
     const item = carrito.find(p => p.nombre === titulo);
     const cantidad = item ? item.cantidad : 0;
 
+    const btn = card.querySelector(".btn-carrito");
+    if (!btn) return;
+
+    // 🔴 SIN STOCK REAL
+    if (stockMax === 0) {
+      btn.disabled = true;
+      btn.textContent = "Sin stock ❌";
+      return;
+    }
+
+    // 🟡 AGOTADO POR CARRITO
     if (stockMax !== undefined && cantidad >= stockMax) {
-      card.style.display = "none";
+      btn.disabled = true;
+      btn.textContent = "Agotado 🛒";
     } else {
-      card.style.display = "block";
+      // 🔥 ESTE ES EL FIX IMPORTANTE
+      btn.disabled = false;
+      btn.textContent = "Agregar al carrito";
     }
   });
-  //cierre
-
   }
 
   carritoBtn?.addEventListener("click", () => {
@@ -956,22 +964,10 @@ document.addEventListener("DOMContentLoaded", () => {
            animarAgregar(btn);
            actualizarCarrito();
 
-          if (stockMax) {
+          if (stockMax !== undefined) {
 
             const productoEnCarrito = carrito.find(p => p.nombre === nombre);
             const cantidadActual = productoEnCarrito ? productoEnCarrito.cantidad : 0;
-
-            if (cantidadActual >= stockMax) {
-
-              document.querySelectorAll(".card").forEach(card => {
-                const titulo = card.querySelector("h3")?.textContent.trim();
-                console.log("carrito:", nombre);
-                console.log("card:", titulo);
-                if (titulo === nombre) {
-                  card.style.display = "none";
-                }
-              });
-            }
           }
           
           mostrarToast("Producto agregado al carrito 🛒", "warning");
@@ -1330,3 +1326,4 @@ document.querySelectorAll(".card-video").forEach(card => {
     video.currentTime = 0;
   });
 });
+
