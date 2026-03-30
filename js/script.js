@@ -44,6 +44,7 @@ const STOCK_PRODUCTOS = {
   "Gomitas blandas Fantasmita (30 u)": 1,
   "Alcancía Lechuza Marrón": 15,
   "Alcancía Lechuza Rosa": 15,
+  "Chupetines con forma de helado (30 u)": 1,
   "Alcancía Oso Rosa": 3,
   "Alcancía Oso café": 5,
   "Chupetines Cremosito Fierita - Fritilla y Crema (50 u)": 2,
