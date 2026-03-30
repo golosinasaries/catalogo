@@ -17,6 +17,9 @@ let productoIndex = 0;
 let currentVariantes = null;
 
 const STOCK_PRODUCTOS = {
+  "Hombre araña con pastillitas (30 u)": 0,
+  "Chicles WhatsApp con tatoo capibara (36 paquetes de 5 chicles)": 0,
+  "Camión dispenser + caramelos celeste (1 unidad)": 0,
   "Auto Blanco y azul (1 u)": 1,
   "Auto Blanco (1 u)": 1,
   "Camión Transformer (1 u)": 2,
@@ -27,7 +30,7 @@ const STOCK_PRODUCTOS = {
   "Trompetas con chupetin y sonido (20 u)": 1,
   "Chupetín Calabaza con polvo ácido y led (30 u)": 1,
   "Billiken Congys 200 g": 3,
-  "Caramelos masticables Fierita Granjero (100 u)": 1,
+  "Caramelos masticables Fierita Granjero (100 u)": 0,
   "Billiken Tutti-frutti 800 g": 2,
   "Billiken redonditas 800 g": 2,
   "Gomitas blandas Lilo y Stitch (60 u)": 2,
@@ -46,6 +49,7 @@ const STOCK_PRODUCTOS = {
   "Chupetines Cremosito Fierita - Fritilla y Crema (50 u)": 2,
   "Alfajor Guaymallén simple de Membrillo (10 u)": 1,
   "Alfajor Guaymallén simple de Chocolate Blanco (10 u)": 2,
+  "Alfajor Guaymallén simple de Dulce de Leche (10 u)": 0,
   "Lenguetazo Pinta Lengua (32 u)": 2,
   "Lenguetazo Tropical Punch (32 u)": 1,
   "Lenguetazo (32 u)": 1,
@@ -153,7 +157,7 @@ const variantesTransformer = [
 
    {
     img: "img/autoblancoyazul.jpeg",
-    nombre: "Auto Blanco y azul(1 u)",
+    nombre: "Auto Blanco y azul (1 u)",
     precio: "$4.500"
   },
 
@@ -403,7 +407,7 @@ if (modal) {
   const titulo = card.querySelector('h3')?.textContent.trim();
   const stock = STOCK_PRODUCTOS[titulo];
 
-  if (stock === 0) return;
+  
   const img = card.querySelector('img');
   const title = card.querySelector('h3');
   const price = card.querySelector('p');
@@ -596,11 +600,15 @@ function actualizarModal() {
 
     //  Si el stock es 0 → ocultar producto
     if (stock === 0) {
-      card.style.display = "none";
-    } else {
-      card.style.display = "block";
-    }
+      card.classList.add("sin-stock");
 
+      const aviso = document.createElement('span');
+      aviso.className = 'sin-stock-label';
+      aviso.textContent = "❌ Sin stock";
+
+      card.appendChild(aviso);
+    }
+      
     // Si queda 1 → mostrar aviso
     if (stock === 1) {
       const aviso = document.createElement('span');
@@ -622,8 +630,8 @@ function actualizarModal() {
     const titulo = card.querySelector('h3')?.textContent.trim();
     const stock = STOCK_PRODUCTOS[titulo];
 
-    //  No abrir modal si no hay stock
-    if (stock === 0) return;
+    //  
+    const sinStock = stock === 0;
 
     if (card.classList.contains('promo')) return;
     if (ev.target.closest('button')) return;
