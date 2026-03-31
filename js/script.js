@@ -659,6 +659,10 @@ function actualizarModal() {
 
 
     const cantidadImgs = imagenesProducto[titulo]?.length || 1;
+    //  indicador visual de que hay más
+    if (cantidadImgs > 1) {
+      card.classList.add("tiene-mas");
+    }
     if (cantidadImgs > 1) {
       const overlay = document.createElement('span');
       overlay.className = 'mas-fotos';
@@ -675,6 +679,7 @@ function actualizarModal() {
 
     if (card.classList.contains('promo')) return;
     if (ev.target.closest('button')) return;
+    if (ev.target.classList.contains("flecha")) return;
 
     abrirModal(card);
   });
@@ -1371,3 +1376,15 @@ document.querySelectorAll(".card-video").forEach(card => {
   });
 });
 
+document.querySelectorAll(".card").forEach(card => {
+  card.addEventListener("click", () => {
+
+    // mostrar flechas
+    card.classList.add("mostrar-flechas");
+
+    // ocultarlas después de 2 segundos
+    setTimeout(() => {
+      card.classList.remove("mostrar-flechas");
+    }, 2000);
+  });
+});

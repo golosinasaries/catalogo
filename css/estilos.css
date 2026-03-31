@@ -1844,3 +1844,32 @@ h1, h2, h3 {
   border-radius: 8px;
   z-index: 5;
 }
+
+/* FLECHAS MOBILE */
+@media (max-width: 768px) {
+  .card .flecha {
+    opacity: 1;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    font-size: 10px;   /* tamaño del icono */
+    padding: 8px 12px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.5);
+  }
+
+  .card.mostrar-flechas .flecha {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .card .flecha:hover {
+  background: rgba(0,0,0,0.8);
+}
+.card .flecha.izq {
+  left: 1px;
+}
+
+.card .flecha.der {
+  right: 1px;
+  
+}
+}
