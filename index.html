@@ -135,13 +135,6 @@
       </div>
 
       <div class="card">
-        <img src="img/hombrecitorojo.jpg" alt="Fantasmita"  >
-        <h3>Hombre araña con pastillitas (30 u)</h3>
-        <p>$12.000</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card">
         <img src="img/unicornio2.jpg" alt="Chupetines con formas"  >
         <h3>Chupetines con forma de Unicornio (30 u)</h3>
         <p>$9.900</p>
@@ -153,20 +146,6 @@
         <h3>Chupetines con led Unicornio (30 u)</h3>
         <p>$10.500</p>
         <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card">
-        <img src="img/donit1.jpg" alt="Donut"  >
-        <h3>Chupetines con led Simpsons (30 u)</h3>
-        <p>$10.500</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card">
-        <img src="img/cajaCalabaza.jpg" alt="Chupetin Calabaza"  >
-        <h3>Chupetín Calabaza con polvo ácido y led (30 u)</h3>
-        <p>$11.500</p>
-        <button class="btn-carrito">Agregar al carrito</button>     
       </div>
 
       <div class="card">
@@ -260,14 +239,6 @@
           Agregar al carrito
         </button>
       </div>
-
-      <div class="card">
-          <img src="img/camionceleste1.jpg" alt="Camioncito"  >
-          <h3>Camión dispenser + caramelos celeste (1 unidad)</h3>
-          <p>$8.500</p>
-          <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
 <!--
       <div class="card">
           <img src="img/camiontra1.jpeg" alt="Camioncito"  >
@@ -312,13 +283,6 @@
       </div>
 
 -->
-      <div class="card">
-        <img src="img/wp1.jpg" alt="Chicles"  >
-        <h3>Chicles WhatsApp con tatoo capibara (36 paquetes de 5 chicles)</h3>
-        <p>$12.000</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
       <div class="card">
         <img src="img/helado.jpg" alt="Sacalenguas"  >
         <h3>Gomita Blanda Helado (30 u)</h3>
@@ -502,24 +466,15 @@
         <button class="btn-carrito">Agregar al carrito</button>   
       </div>
 
-      <div class="card card-alcancia" id="card-alcancias">
+      <div class="card card-alcancia" data-index="0">
         <div class="img-container">
-          <span class="flecha izq" onclick="event.stopPropagation(); cambiarVariante(this, -1)">‹</span>
-
-          <img src="img/alcanciapinguinorosa.jpg" id="img-alcancia">
-
-          <span class="flecha der" onclick="event.stopPropagation(); cambiarVariante(this, 1)">›</span>
+          <span class="flecha izq" onclick="event.stopPropagation(); cambiarVariante(this, -1)">‹</span> <img src="img/alcanciapinguinorosa.jpg"> <span class="flecha der" onclick="event.stopPropagation(); cambiarVariante(this, 1)">›</span>
         </div>
-
-        <h3 id="titulo-alcancia">Alcancía Pingüino Rosa (con 12 gelatinas en su interior)</h3>
-        <p id="precio-alcancia">$6.500</p>
-
-       <button class="btn-carrito" id="btn-alcancia"
-        data-nombre="Alcancía Pingüino Rosa (con 12 gelatinas en su interior)"
-        data-precio="$6.500">
-        Agregar al carrito
-      </button>
+        <h3>Alcancía Pingüino Rosa (con 12 gelatinas en su interior)</h3>
+        <p>$6.500</p>
+        <button class="btn-carrito" data-nombre="Alcancía Pingüino Rosa (con 12 gelatinas en su interior)" data-precio="$6.500"> Agregar al carrito</button>
       </div>
+    
 <!--
       <div class="card">
         <img src="img/fieritacomefuego.jpg" alt="Latitas con chicles"  >
@@ -563,16 +518,14 @@
         <button class="btn-carrito">Agregar al carrito</button> 
       </div>
         
-     <div class="card card-recargado">
-        <div class="img-container">
-          <span class="flecha izq" onclick="event.stopPropagation(); cambiarVariante(this, -1)">‹</span>
-          <img src="img/fieritarecargado.jpg">
-          <span class="flecha der" onclick="event.stopPropagation(); cambiarVariante(this, 1)">›</span>
-        </div>
-        <h3>Chicle Fierita Recargado - Tutti Frutti (50 u)</h3>
-        <p>$6.500</p>
-        <button class="btn-carrito">Agregar al carrito</button>
+    <div class="card card-recargado" data-index="0">
+      <div class="img-container">
+        <span class="flecha izq" onclick="event.stopPropagation(); cambiarVariante(this, -1)">‹</span><img src="img/fieritarecargado.jpg"><span class="flecha der" onclick="event.stopPropagation(); cambiarVariante(this, 1)">›</span>
       </div>
+      <h3>Chicle Fierita Recargado - Tutti Frutti (50 u)</h3>
+      <p>$6.500</p>
+      <button class="btn-carrito" data-nombre="Chicle Fierita Recargado - Tutti Frutti (50 u)" data-precio="$6.500">Agregar al carrito</button>
+    </div>
 <!--
       <div class="card">
           <img src="img/pistolita1.jpg" alt="Stich"  >
@@ -604,25 +557,17 @@
 
       <div class="card card-globos" data-index="0">
         <div class="img-container">
-
           <span class="flecha izq" onclick="event.stopPropagation(); cambiarVariante(this, -1)">‹</span>
-
           <img src="img/globobanana.jpg" alt="Chicles">
-
           <span class="flecha der" onclick="event.stopPropagation(); cambiarVariante(this, 1)">›</span>
-
         </div>
-
         <h3>Chicle Fierita Globo sabor Banana (95 u)</h3>
         <p>$7.900</p>
-
-        <button class="btn-carrito"
-          data-nombre="Chicle Fierita Globo sabor Banana (95 u)"
-          data-precio="$7.900">
+        <button class="btn-carrito" data-nombre="Chicle Fierita Globo sabor Banana (95 u)" data-precio="$7.900">
           Agregar al carrito
         </button>
       </div>
-
+      
       <div class="card">
         <img src="img/coolmint.jpg" alt="Cool Mint"  >
         <h3>Cool Mint pastillitas frutales (30 u)</h3>
@@ -1119,6 +1064,42 @@
         <img src="img/bombulla.jpg" alt="Bombuchas"  >
         <h3>Bombuchas (100 u)</h3>
         <p>$1.500</p>
+        <button class="btn-carrito">Agregar al carrito</button>
+      </div>
+
+      <div class="card">
+        <img src="img/donit1.jpg" alt="Donut"  >
+        <h3>Chupetines con led Simpsons (30 u)</h3>
+        <p>$10.500</p>
+        <button class="btn-carrito">Agregar al carrito</button>
+      </div>
+
+      <div class="card">
+        <img src="img/cajaCalabaza.jpg" alt="Chupetin Calabaza"  >
+        <h3>Chupetín Calabaza con polvo ácido y led (30 u)</h3>
+        <p>$11.500</p>
+        <button class="btn-carrito">Agregar al carrito</button>     
+      </div>
+
+      <div class="card">
+        <img src="img/wp1.jpg" alt="Chicles"  >
+        <h3>Chicles WhatsApp con tatoo capibara (36 paquetes de 5 chicles)</h3>
+        <p>$12.000</p>
+        <button class="btn-carrito">Agregar al carrito</button>
+      </div>
+
+      <div class="card">
+        <img src="img/camionceleste1.jpg" alt="Camioncito"  >
+        <h3>Camión dispenser + caramelos celeste (1 unidad)</h3>
+        <p>$8.500</p>
+        <button class="btn-carrito">Agregar al carrito</button>
+      </div>
+
+
+      <div class="card">
+        <img src="img/hombrecitorojo.jpg" alt="Fantasmita"  >
+        <h3>Hombre araña con pastillitas (30 u)</h3>
+        <p>$12.000</p>
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
 

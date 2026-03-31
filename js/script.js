@@ -191,7 +191,6 @@ const productosVariantes = {
   "card-globos": globos,
   "card-recargado": recargados,
   "card-transformers": variantesTransformer,
-
 };
 
 function cambiarVariante(el, direccion) {
