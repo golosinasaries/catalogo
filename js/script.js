@@ -17,6 +17,7 @@ let productoIndex = 0;
 let currentVariantes = null;
 
 const STOCK_PRODUCTOS = {
+  "Gomitas blandas Kuromy (30 u)": 0,
   "Hombre araña con pastillitas (30 u)": 0,
   "Chicles WhatsApp con tatoo capibara (36 paquetes de 5 chicles)": 0,
   "Camión dispenser + caramelos celeste (1 unidad)": 0,
