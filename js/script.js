@@ -17,6 +17,7 @@ let productoIndex = 0;
 let currentVariantes = null;
 
 const STOCK_PRODUCTOS = {
+  "Oblita de Chocolate (48 u)": 0,
   "Gomitas blandas Kuromy (30 u)": 0,
   "Hombre araña con pastillitas (30 u)": 0,
   "Chicles WhatsApp con tatoo capibara (36 paquetes de 5 chicles)": 0,
@@ -184,13 +185,28 @@ const variantesTransformer = [
   }
     */
 ];
+const oblita = [
+  
+  {
+    img: "img/oblita_blanco.jpg",
+    nombre: "Oblita Chocolate Blanco (48 u)",
+    precio: "$5.800"
+  },
 
+   {
+    img: "img/oblita_chocolate.jpg",
+    nombre: "Oblita de Chocolate (48 u)",
+    precio: "$5.800"
+  },
+
+];
 
 const productosVariantes = {
   "card-alcancia": alcancias,
   "card-globos": globos,
   "card-recargado": recargados,
   "card-transformers": variantesTransformer,
+  "card-oblita": oblita,
 };
 
 function cambiarVariante(el, direccion) {
@@ -221,6 +237,32 @@ function cambiarVariante(el, direccion) {
   const btn = card.querySelector(".btn-carrito");
   btn.dataset.nombre = v.nombre;
   btn.dataset.precio = v.precio;
+  const stock = STOCK_PRODUCTOS[v.nombre];
+
+  // limpiar avisos viejos
+  card.querySelector(".sin-stock-label")?.remove();
+  card.querySelector(".ultimo-stock")?.remove();
+
+  if (stock === 0) {
+    const aviso = document.createElement("span");
+    aviso.className = "sin-stock-label";
+    aviso.textContent = "❌ Sin stock";
+    card.appendChild(aviso);
+
+    btn.disabled = true;
+    btn.textContent = "Sin stock ❌";
+  } else if (stock === 1) {
+    const aviso = document.createElement("span");
+    aviso.className = "ultimo-stock";
+    aviso.textContent = "🔥 Última";
+    card.appendChild(aviso);
+
+    btn.disabled = false;
+    btn.textContent = "Agregar al carrito";
+  } else {
+    btn.disabled = false;
+    btn.textContent = "Agregar al carrito";
+  }
 }
 
 function validarStock(nombre, carrito) {
