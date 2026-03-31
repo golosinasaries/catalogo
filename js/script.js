@@ -7,7 +7,7 @@ const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 const minimoRegalo = 60000;   
 const REGALO_NOMBRE = "1 caja de Chicles Fierita Recargado - Menta (50 u) ✨"; 
-const PROMO_ACTIVA = "envio"; 
+const PROMO_ACTIVA = "ninguna"; 
 // "envio"  → envío gratis
 // "regalo" → regalo 
 // "ninguna" → sin promo
@@ -184,6 +184,7 @@ const variantesTransformer = [
   }
     */
 ];
+
 
 const productosVariantes = {
   "card-alcancia": alcancias,
