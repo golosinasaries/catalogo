@@ -510,47 +510,49 @@ nav a:hover {
 }
 /* estado focus del input para accesibilidad */
 #search:focus {
-  border-color: var(--primary);                        /* cambia color de borde al enfocar */
-  box-shadow: 0 0 8px rgba(106,27,154,0.25);          /* halo de foco */
+  border-color: var(--primary);                      
+  box-shadow: 0 0 8px rgba(106,27,154,0.25);       
 }
-/* estilo del contenedor de "no results" (link dentro formateado) */
+
 #no-results {
-  color: #444;                                         /* color del texto */
-  font-size: 0.95rem;                                  /* tamaño legible */
-  text-align: center;                                  /* centrado */
-  margin-top: 0.75rem;                                 /* separación superior */
+  color: #444;            
+  font-size: 0.95rem;                                  
+  text-align: center;                                 
+  margin-top: 0.75rem;                                
   font-weight: bold;
 
 }
-/* estilo de enlace dentro de #no-results */
+
 #no-results a {
-  display: inline-block;                               /* inline-block para padding */
-  margin-top: 0.5rem;                                  /* separación */
-  padding: 0.5rem 0.8rem;                              /* padding para botón */
-  background: var(--accent);                           /* fondo acento */
-  color: #fff;                                         /* texto blanco */
-  border-radius: var(--border-radius);                 /* borde redondeado */
-  text-decoration: none;                               /* sin subrayado */
-  font-weight: bold;                                   /* negrita */
-  transition: background 0.2s, transform 0.15s;        /* transiciones */
+  display: inline-block;                              
+  margin-top: 0.5rem;                                  
+  padding: 0.5rem 0.8rem;                            
+  background: var(--accent);                          
+  color: #fff;                                        
+  border-radius: var(--border-radius);               
+  text-decoration: none;                               
+  font-weight: bold;                                  
+  transition: background 0.2s, transform 0.15s;       
 }
-/* hover del link de no-results */
+
 #no-results a:hover {
-  background: var(--primary);                          /* cambia a color primario */
-  transform: scale(1.03);                              /* ligero zoom */
+  background: var(--primary);                     
+  transform: scale(1.03);                              
 }
+
 main {
-  max-width: var(--content-max-w);                     /* ancho máximo del contenido */
-  margin: 0 auto;                                      /* centrar horizontalmente */
-  width: 100%;                                         /* ocupar ancho */
-  min-height: 60vh;                                    /* altura mínima para buena presencia */
-  font-size: 1rem;                                     /* tamaño base de fuente */
-  background: #030303;                                 /* fondo blanco para la zona principal */                /* bordes redondeados */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);             /* sombra sutil */
-  overflow: visible;                                   /* overflow visible por defecto */
-  padding-bottom: 0.1rem;                                /* espacio inferior */
-  padding-top: 0.1rem;                                 /* espacio superior mínimo (el push principal lo hace .main arriba) */
+  max-width: var(--content-max-w);                    
+  margin: 0 auto;                                      
+  width: 100%;                                         
+  min-height: 60vh;                                  
+  font-size: 1rem;                                     
+  background: #030303;                               
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);            
+  overflow: visible;                                   
+  padding-bottom: 0.1rem;                               
+  padding-top: 0.1rem;                                 
 }
+
 footer {
   background: linear-gradient(135deg, var(--primary), var(--accent));
   color: #fff;
@@ -565,35 +567,36 @@ footer p {
   margin: 0;
   line-height: 1.4;
 }
-/* estilos para botones sociales agrupados */
+
 .social-buttons {
-  display: flex;                                       /* flex horizontal */
-  align-items: center;                                 /* alinea verticalmente */
-  justify-content: center;                             /* centrado */
-  gap: 0.5rem;                                         /* separación entre botones */
-  flex-wrap: wrap;                                     /* permite saltos en pantallas pequeñas */
-  text-align: center;                                  /* centra el contenido textual */
+  display: flex;                                       
+  align-items: center;                            
+  justify-content: center;                           
+  gap: 0.5rem;                                    
+  flex-wrap: wrap;                                
+  text-align: center;                            
   margin-top: 0.1rem;   
-  margin-bottom: 0.1rem;                               /* margen superior leve */
-  padding: 0.1rem;                              /* padding (si usas un contenedor tipo tag) */
-  color: var(--primary);                               /* color del texto (si aplica) */
-  font-weight: bold;                                   /* negrita */
-  border-radius: var(--border-radius);                 /* radio */
-  transition: background 0.3s, transform 0.3s, color 0.3s; /* transiciones */
-  font-size: 1rem;                                     /* tamaño de texto */
-  background: transparent;                             /* fondo por defecto transparente */
+  margin-bottom: 0.1rem;                            
+  padding: 0.1rem;                         
+  color: var(--primary);                            
+  font-weight: bold;                                   
+  border-radius: var(--border-radius);                
+  transition: background 0.3s, transform 0.3s, color 0.3s;
+  font-size: 1rem;                                 
+  background: transparent;       
   padding-top: 1%;
 }
-/* wrapper para botones sociales con separación superior */
+
+
 .social-buttons-wrapper {
-  margin-top: 0.01rem;                                 /* pequeño empuje superior */
-  padding-top: 1rem;                                   /* padding superior */
-  border-top: 1px solid #ccc;                          /* línea divisoria */
-  display: inline-block;                               /* inline block para centrado */
-  text-align: center;                                  /* centrado */
-  width: 100%;                                         /* ocupar ancho disponible */
-  box-sizing: border-box;                              /* box-sizing */
-  font-size: 1rem;                                     /* tamaño de fuente */
+  margin-top: 0.01rem;                                 
+  padding-top: 1rem;                               
+  border-top: 1px solid #ccc;                        
+  display: inline-block;                            
+  text-align: center;                               
+  width: 100%;                                      
+  box-sizing: border-box;                       
+  font-size: 1rem;                           
 }
 /* botón social base */
 .social-btn {

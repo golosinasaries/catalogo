@@ -17,6 +17,7 @@ let productoIndex = 0;
 let currentVariantes = null;
 
 const STOCK_PRODUCTOS = {
+  "Turrón Billiken Sin T.A.C.C (10 u)": 1,
   "Oblita de Chocolate (48 u)": 0,
   "Gomitas blandas Kuromy (30 u)": 0,
   "Hombre araña con pastillitas (30 u)": 0,
@@ -51,7 +52,7 @@ const STOCK_PRODUCTOS = {
   "Alcancía Oso café": 5,
   "Chupetines Cremosito Fierita - Fritilla y Crema (50 u)": 2,
   "Alfajor Guaymallén simple de Membrillo (10 u)": 1,
-  "Alfajor Guaymallén simple de Chocolate Blanco (10 u)": 2,
+  "Alfajor Guaymallén simple de Chocolate Blanco (10 u)": 1,
   "Alfajor Guaymallén simple de Dulce de Leche (10 u)": 0,
   "Lenguetazo Pinta Lengua (32 u)": 2,
   "Lenguetazo Tropical Punch (32 u)": 1,
