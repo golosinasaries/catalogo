@@ -5,9 +5,9 @@ const ENVIO_LEJANO = 13900;
 const ENVIO_SANTACRUZ = 14900;
 const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
-const minimoRegalo = 60000;   
-const REGALO_NOMBRE = "1 caja de Chicles Fierita Recargado - Menta (50 u) ✨"; 
-const PROMO_ACTIVA = "ninguna"; 
+const minimoRegalo = 75000;   
+const REGALO_NOMBRE = "Transformers varios (4 u)✨"; 
+const PROMO_ACTIVA = "regalo"; 
 // "envio"  → envío gratis
 // "regalo" → regalo 
 // "ninguna" → sin promo
@@ -753,16 +753,38 @@ function mostrarToast(mensaje, tipo = "success") {
   setTimeout(() => {
     toast.classList.remove("show");
     setTimeout(() => toast.style.display = "none", 400);
-  }, 500);
+  }, 800);
 }
 
+
   function lanzarConfetti() {
-    confetti({
-      particleCount: 120,
-      spread: 80,
-      origin: { y: 0.6 }
-    });
-  }
+  const canvas = document.createElement("canvas");
+
+  canvas.style.position = "fixed";
+  canvas.style.top = "0";
+  canvas.style.left = "0";
+  canvas.style.width = "100%";
+  canvas.style.height = "100%";
+  canvas.style.pointerEvents = "none";
+  canvas.style.zIndex = "9999";
+
+  document.body.appendChild(canvas);
+
+  const myConfetti = confetti.create(canvas, {
+    resize: true,
+    useWorker: true
+  });
+
+  myConfetti({
+    particleCount: 1500,
+    spread: 190,
+    origin: { y: 0.6 }
+  });
+
+  setTimeout(() => {
+    canvas.remove();
+  }, 4500);
+}
 
 // ========================
 // ZOOM EN IMAGEN DEL MODAL
@@ -1201,15 +1223,27 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
   console.log("PROMO_ACTIVA:", PROMO_ACTIVA, "total:", total);
 
   if (PROMO_ACTIVA === "regalo") {
-    if (total >= minimoRegalo) {
-      aviso.innerHTML = `🎁 <strong>¡Tu compra incluye: ${REGALO_NOMBRE} de regalo!</strong>`;
-    } else {
-      const falta = minimoRegalo - total;
-      aviso.innerHTML = `🎁 Sumá <strong>$${falta.toLocaleString("es-AR")}</strong> y llevate un regalo!`;
+  if (total >= minimoRegalo) {
+    aviso.innerHTML = `🎁 <strong>¡Tu compra incluye: ${REGALO_NOMBRE} de regalo!</strong>`;
+
+    // 🎉 agregado (sin tocar texto)
+    if (!estadoEnvio.toastMostrado) {
+      mostrarToast("🎁 ¡Ganaste un regalo! ✨", "fiesta");
+      lanzarConfetti();
+      estadoEnvio.toastMostrado = true;
+        }
+
+      } else {
+        const falta = minimoRegalo - total;
+        aviso.innerHTML = `🎁 Sumá <strong>$${falta.toLocaleString("es-AR")}</strong> y llevate un regalo!`;
+
+        // 🔄 reset
+        estadoEnvio.toastMostrado = false;
+      }
+
+      aviso.style.display = "block";
+      return;
     }
-    aviso.style.display = "block";
-    return;
-  }
 
   if (PROMO_ACTIVA === "envio") {
     if (envioManualGratis || total >= 80000) {
