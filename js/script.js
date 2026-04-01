@@ -17,6 +17,9 @@ let productoIndex = 0;
 let currentVariantes = null;
 
 const STOCK_PRODUCTOS = {
+  "Gomitas Moritas Mogul 500 g": 1,
+  "Chupetines masticables Baby Dolls (40 u)": 1,
+  "Chupetines masticables Baby Dolls ácidos (40 u)": 2,
   "Turrón Billiken Sin T.A.C.C (10 u)": 1,
   "Oblita de Chocolate (48 u)": 0,
   "Gomitas blandas Kuromy (30 u)": 0,
