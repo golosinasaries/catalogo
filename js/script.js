@@ -17,6 +17,7 @@ let productoIndex = 0;
 let currentVariantes = null;
 
 const STOCK_PRODUCTOS = {
+  "Gomitas de Gelatinas Candy Loka (10 u)": 9,
   "Gomitas Moritas Mogul 500 g": 1,
   "Chupetines masticables Baby Dolls (40 u)": 1,
   "Chupetines masticables Baby Dolls ácidos (40 u)": 2,
@@ -369,7 +370,7 @@ if (modal) {
     "Gomitas blandas de boca (30 u)": ["img/boca.jpg","img/videoboca.mp4"],
     "Alcancía": ["img/pinguino2.jpg","img/alcanciapinguinorojo.jpg","img/alcancialechuzarosa.jpg","img/tigrerojo.png" ],
     "Gomitas Spider-Man (60 u)": ["img/spiderman1.jpg","img/spiderman2.jpg","img/spiderman3.jpg","img/spiderman4.jpg","img/spiderman5.jpg"],
-    "Llaveros láser Capibara (12 u)": ["img/laser1.jpg","img/laser2.jpg","img/laser3.jpg","img/laser4.jpg"],
+    "Llaveros láser Capibara (12 u)": ["img/laser1.jpg","img/laser2.jpg","img/laser3.jpg"],
     "Ring Pop Barbie (30 u)": ["img/ringpopbarbie.jpg","img/ringpop.jpg"],
     "Pistolitas con luz (30 u)": ["img/pistolita1.jpg","img/pistolita2.jpg","img/pistolita3.jpg","img/pistolita4.jpg"],
     "YO-YOs con luces (12 u)": ["img/yoyo1.jpg","img/yoyo3.jpg","img/yoyo4.jpg","img/yoyo2.jpg"],
@@ -414,8 +415,7 @@ if (modal) {
     "Chupetines con led Mc Donalds (30 u)": ["img/mc.jpg","img/mc2.jpg",],
     "Chupetines con led Oreo (30 u)": ["img/oreo1.jpg","img/oreo2.jpg",],
     "Chupetines led Monster (30 u)": ["img/monsterojo1.jpg","img/monsterojo.jpg",],
-    "Gomitas de Gelatinas Candy Loka (10 u)": ["img/gelatinaloka.jpg","img/trompo.jpg"],
-    "Gomitas de Gelatinas Candy Loka (30 u)": ["img/gelatinaloka2.jpg","img/trompo.jpg"],
+    "Gomitas de Gelatinas Candy Loka (10 u)": ["img/gelatinaloka2.jpg","img/gelatinaloka1.jpg","img/gelatinaloka3.jpg","img/trompo.jpg",],
     "Chupetines Hongos (30 u)": ["img/hongo1.jpg","img/hongo2.jpg"],
     "Chupetines Frutillas (30 u)": ["img/chupetinfrutilla1.jpg","img/chupetinfrutilla2.jpg", "img/chupetinnnrutilla2.jpg"],
     "Gomitas blandas Astronauta (30 u)": ["img/astronauta2.jpg","img/astronauta1.jpg"],
