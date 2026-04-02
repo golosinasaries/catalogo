@@ -7,7 +7,7 @@ const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 const minimoRegalo = 75000;   
 const REGALO_NOMBRE = "Transformers varios (4 u)✨"; 
-const PROMO_ACTIVA = "ninguna"; 
+const PROMO_ACTIVA = "envio"; 
 // "envio"  → envío gratis
 // "regalo" → regalo 
 // "ninguna" → sin promo
