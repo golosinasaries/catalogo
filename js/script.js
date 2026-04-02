@@ -7,7 +7,7 @@ const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 const minimoRegalo = 75000;   
 const REGALO_NOMBRE = "Transformers varios (4 u)✨"; 
-const PROMO_ACTIVA = "regalo"; 
+const PROMO_ACTIVA = "ninguna"; 
 // "envio"  → envío gratis
 // "regalo" → regalo 
 // "ninguna" → sin promo
@@ -482,7 +482,7 @@ if (modal) {
 
   //  SI ES PROMO → SOLO OCULTA EL BOTÓN Y AGRANDA EL MODAL
   if (card.classList.contains('promo')) {
-    modalAgregarBtn.style.display = 'inline-block'; // 👈 CAMBIO
+    modalAgregarBtn.style.display = 'inline-block'; 
     modal.classList.add('fullscreen'); // ✨ clase para agrandar modal
   } else {
     modalAgregarBtn.style.display = 'inline-block';
@@ -546,7 +546,7 @@ function actualizarModal() {
 
   const modalAgregarBtn = document.getElementById('modal-agregar');
 
-  //  VARIANTES (alcancías u otros)
+  //  VARIANTES 
   if (currentVariantes) {
     const variante = currentVariantes[currentIndex];
 
@@ -564,18 +564,17 @@ function actualizarModal() {
     modalAgregarBtn.dataset.precio = document.getElementById('modal-precio').textContent;
   }
 
-  //  Flechas (LO MISMO QUE TENÍAS)
+  //  Flechas 
   if (currentImages.length > 1) {
     prevBtn.style.display = 'flex';
     nextBtn.style.display = 'flex';
-    // contador.textContent = `${currentIndex + 1} / ${currentImages.length}`;
+    
   } else {
     prevBtn.style.display = 'none';
     nextBtn.style.display = 'none';
-    // contador.textContent = '';
   }
 
-  // Reset zoom (LO MISMO QUE TENÍAS)
+  // Reset zoom 
   modalImg.classList.remove('zoomed');
 }
 
@@ -1052,6 +1051,7 @@ document.addEventListener("DOMContentLoaded", () => {
           window.open(`https://wa.me/${numero}?text=${encodeURIComponent(msg)}`, "_blank");
         }
       });
+    actualizarAvisoEnvioGratis(0);
     });
 
 document.getElementById("enviar-carrito")?.addEventListener("click", () => {
@@ -1226,7 +1226,6 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
   if (total >= minimoRegalo) {
     aviso.innerHTML = `🎁 <strong>¡Tu compra incluye: ${REGALO_NOMBRE} de regalo!</strong>`;
 
-    // 🎉 agregado (sin tocar texto)
     if (!estadoEnvio.toastMostrado) {
       mostrarToast("🎁 ¡Ganaste un regalo! ✨", "fiesta");
       lanzarConfetti();
@@ -1237,7 +1236,7 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
         const falta = minimoRegalo - total;
         aviso.innerHTML = `🎁 Sumá <strong>$${falta.toLocaleString("es-AR")}</strong> y llevate un regalo!`;
 
-        // 🔄 reset
+        // reset
         estadoEnvio.toastMostrado = false;
       }
 
@@ -1251,15 +1250,18 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
       aviso.style.display = "block";
 
       if (!estadoEnvio.toastMostrado) {
-        mostrarToast("🎉 Tenés envío gratis! ✨", "fiesta", 1500);
-        setTimeout(() => lanzarConfetti(), 1500);
-        estadoEnvio.toastMostrado = true;
+        mostrarToast("🎉 Tenés envío gratis! ✨", "fiesta");
+        lanzarConfetti();
+        estadoEnvio.toastMostrado = true; 
       }
     } else {
       const falta = 80000 - total;
       aviso.innerHTML = `Sumá <strong>$${falta.toLocaleString("es-AR")}</strong> y conseguí <b>envío gratis</b>`;
       aviso.style.display = "block";
+      // reset
+      estadoEnvio.toastMostrado = false;
     }
+    aviso.style.display = "block";
     return;
   }
 
