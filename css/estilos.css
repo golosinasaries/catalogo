@@ -103,7 +103,7 @@ nav a {
 }
 /* color al pasar el mouse por encima */
 nav a:hover {
-  color: var(--accent);
+  color: white;
 }
 .hero {
   text-align: center;          
