@@ -22,7 +22,7 @@ const STOCK_PRODUCTOS = {
   "Chupetines masticables Baby Dolls (40 u)": 1,
   "Chupetines masticables Baby Dolls ácidos (40 u)": 2,
   "Turrón Billiken Sin T.A.C.C (10 u)": 1,
-  "Oblita de Chocolate (48 u)": 0,
+  "Oblita de Chocolate (48 u)": 10,
   "Gomitas blandas Kuromy (30 u)": 0,
   "Hombre araña con pastillitas (30 u)": 0,
   "Chicles WhatsApp con tatoo capibara (36 paquetes de 5 chicles)": 0,
