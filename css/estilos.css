@@ -1639,10 +1639,6 @@ html { scroll-behavior: smooth; }
   border-radius: 50px;
 }
 
-/* hover */
-.prev-producto:hover,
-.next-producto:hover {
-}
 
 .prev-producto span,
 .next-producto span {
@@ -1852,7 +1848,7 @@ h1, h2, h3 {
 @media (max-width: 768px) {
   .card .flecha {
     opacity: 1;
-    pointer-events: none;
+    pointer-events: auto;
     transition: opacity 0.3s ease;
     font-size: 10px;   /* tamaño del icono */
     padding: 8px 12px;
