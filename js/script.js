@@ -18,7 +18,7 @@ let currentVariantes = null;
 
 const STOCK_PRODUCTOS = {
   "Gomitas de Gelatinas Candy Loka (10 u)": 9,
-  "Gomitas Moritas Mogul 500 g": 1,
+  "Gomitas Moritas Mogul 500 g": 0,
   "Chupetines masticables Baby Dolls (40 u)": 1,
   "Chupetines masticables Baby Dolls ácidos (40 u)": 2,
   "Turrón Billiken Sin T.A.C.C (10 u)": 1,
