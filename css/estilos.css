@@ -134,18 +134,19 @@ nav a:hover {
   border-radius: 0px;
 }
 .catalogo {
-  display: grid;                                       /* grid también para catalogo */
-  grid-template-columns: inherit;                      /* hereda columnas (por simplicidad) */
-  gap: 1rem;                                           /* gap igual */
-  width: 100%;                                         /* ancho completo */
-  box-sizing: border-box;                              /* box-sizing */
+  display: grid;                                      
+  grid-template-columns: inherit;                      
+  gap: 1rem;                                          
+  width: 100%;                                      
+  box-sizing: border-box;                          
   
 }
+
 .card {
   background: #fff;                                    
   border: 2px solid var(--accent);                    
   border-radius: var(--border-radius);                 
-  padding: 1rem;                                     
+  padding: 0.2rem;                                     
   text-align: center;                                 
   transition: transform 0.3s, box-shadow 0.3s;        
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);            
@@ -179,17 +180,17 @@ nav a:hover {
   transform: translateY(-6px);                         /* sube ligeramente */
   box-shadow: 0 10px 20px rgba(0,0,0,0.12);            /* sombra más pronunciada */
 }
-/* imagen principal de la tarjeta */
+
 .card img {
-  width: 100%;                                         /* ocupa todo el ancho de la tarjeta */
-  border-radius: 8px;                                  /* bordes redondeados de la imagen */
+  width: 100%;                                        
+  border-radius: 8px;                                 
   margin-bottom: 0.5rem;                               /* separación hacia el contenido */
   height: 220px;                                       /* altura fija para consistencia */
   object-fit: cover;                                   /* cubre sin deformar (recorta si hace falta) */
   transition: transform 0.3s;                          /* transición para posibles efectos */
   border-radius: 10px;
 }
-/* título de producto dentro de la card */
+
 .card h3 {
   color: var(--primary);                               /* color del título */
   margin: 0.25rem 0;                                   /* margen vertical pequeño */
@@ -714,7 +715,6 @@ html { scroll-behavior: smooth; }
   #search {
     width: 90%; 
   }
-  
 }
 
 @media (max-width: 768px) {
@@ -740,30 +740,30 @@ html { scroll-behavior: smooth; }
   .card .btn-carrito {
     display: block;
     width: 100%;
-    margin-bottom: 5px; /* separa los botones */
+    margin-bottom: 5px; 
   }
 
   .titulo-contenedor h1 {
-    font-size: 1rem; /* título del header más pequeño */
+    font-size: 1rem; 
   }
 
   nav a {
     font-size: 4rem;
     font-family: 'Playfair Display', serif;
-    padding-right: 120px; /* deja espacio para el botón */
+    padding-right: 120px; 
   }
 
   #search {
-    width: 95%; /* input más ancho para pantallas pequeñas */
+    width: 95%; 
     padding-bottom: 0.5rem;
   }
 }
-/* Móviles / pantallas pequeñas */
+
 @media (max-width: 480px) {
   .portfolio,
   .catalogo {
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
-    gap: 0.5rem;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 0.3rem;
   }
   
   body {
@@ -789,7 +789,7 @@ html { scroll-behavior: smooth; }
   }
 
   .card h3 {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     text-align: left;
   }
 
@@ -841,7 +841,7 @@ html { scroll-behavior: smooth; }
   }
 
   .card button {
-    font-size: 0.85rem;
+    font-size: 0.80rem;
     padding: 0.4rem 0.6rem;
   }
   
