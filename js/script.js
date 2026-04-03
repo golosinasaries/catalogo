@@ -960,6 +960,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   carritoBtn?.addEventListener("click", () => {
+     const modal = document.getElementById("modal");
+      if (modal && modal.style.display === "flex") {
+        modal.style.display = "none";
+      }
     const visible = window.getComputedStyle(carritoDropdown).display === "block";
 
     carritoDropdown.style.display = visible ? "none" : "block";
