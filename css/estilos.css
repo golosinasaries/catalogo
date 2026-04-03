@@ -160,7 +160,7 @@ nav a:hover {
 .card h3 {
   color: var(--primary);                               
   margin: 0.25rem 0;                                  
-  font-size: 1.25rem;                                  
+  font-size: 1.9rem;                                  
   text-shadow: 1px 1px 3px rgba(0,0,0,0.1);           
   display: flex;                                      
   align-items: center;                                
@@ -657,7 +657,7 @@ html { scroll-behavior: smooth; }
   }
 
   .card h3 {
-    font-size: 1.1rem; 
+    font-size: 1.9rem; 
   }
 
   .card p {
@@ -696,7 +696,7 @@ html { scroll-behavior: smooth; }
   }
 
   .card h3 {
-    font-size: 1rem; 
+    font-size: 1.3rem; 
   }
 
   .card p {
@@ -711,19 +711,27 @@ html { scroll-behavior: smooth; }
   }
 
   .titulo-contenedor h1 {
-    font-size: 1rem; 
+    font-size: 1.4rem; 
+    font-family: 'Quicksand', sans-serif;
   }
-
+  
   nav a {
-    font-size: 4rem;
-    font-family: 'Playfair Display', serif;
-    padding-right: 120px; 
+    font-size: 3.2rem;
+    padding: 0.1rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-variant-caps: all-petite-caps;
+    font-weight: bold;           
+    text-decoration: underline;
+    padding-top: 0rem;
+    padding-right: 210px; 
   }
 
   #search {
     width: 95%; 
-    padding-bottom: 0.5rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
   }
+
 }
 
 @media (max-width: 480px) {
@@ -756,7 +764,7 @@ html { scroll-behavior: smooth; }
   }
 
   .card h3 {
-    font-size: 0.9rem;
+    font-size: 1.3rem;
     text-align: left;
   }
 
