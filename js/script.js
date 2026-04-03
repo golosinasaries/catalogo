@@ -636,9 +636,28 @@ function actualizarModal() {
 
   const closeBtn = modal.querySelector('.close');
 
+  let bloqueandoCierre = false;
+
   function cerrarModal() {
-    modal.style.display = 'none';
-    modalImg.classList.remove('zoomed');
+  bloqueandoCierre = true;
+
+  modal.style.display = 'none';
+  modalImg.classList.remove('zoomed');
+
+  const cardActual = productos[productoIndex];
+
+    if (cardActual) {
+      setTimeout(() => {
+        cardActual.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
+      }, 50);
+    }
+
+    setTimeout(() => {
+      bloqueandoCierre = false;
+    }, 300);
   }
 
   // Botón cerrar
@@ -648,6 +667,8 @@ function actualizarModal() {
 
   // Click afuera del contenido (en cualquier parte de la pantalla)
   document.addEventListener('click', e => {
+    if (bloqueandoCierre) return;
+
     if (modal.style.display === 'flex' && !modalContent.contains(e.target)) {
       cerrarModal();
     }
