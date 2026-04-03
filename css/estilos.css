@@ -174,7 +174,7 @@ nav a:hover {
   font-weight: bold;
   z-index: 2;
 }
-/* efecto hover en la tarjeta */
+
 .card:hover {
   transform: translateY(-6px);                         /* sube ligeramente */
   box-shadow: 0 10px 20px rgba(0,0,0,0.12);            /* sombra más pronunciada */
@@ -203,7 +203,7 @@ nav a:hover {
   flex-grow: 0;                                        /* no expandir */
   font-weight: bold;
 }
-/* descripción breve dentro de la tarjeta */
+
 .card p {
   margin: 0.25rem 0 0.5rem 0;
   font-size: 1.3rem;
@@ -215,32 +215,32 @@ nav a:hover {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
-/* botón compacto dentro de la card */
+
 .card button {
-  padding: 0.45rem 0.8rem;                             /* padding interior */
-  background: linear-gradient(45deg, var(--primary), var(--accent)); /* degradado */
-  color: #fff;                                         /* texto blanco */
-  border: none;                                        /* sin borde */
-  border-radius: var(--border-radius);                 /* radio del botón */
-  cursor: pointer;                                     /* cursor en hover */
-  transition: background 0.3s, transform 0.2s;         /* transiciones */
-  font-size: 0.9rem;                                   /* tamaño de texto del botón */
-  margin-top: auto;                                    /* empuja el botón hacia el final de la tarjeta */
-  width: 100%;                                         /* ocupa todo el ancho disponible */
-  box-sizing: border-box;                              /* box-sizing */
-  text-transform: uppercase;                           /* texto en mayúsculas */
-  font-weight: bold;                                   /* negrita */
-  letter-spacing: 0.04rem;                             /* ligero tracking */
+  padding: 0.45rem 0.8rem;                             
+  background: linear-gradient(45deg, var(--primary), var(--accent)); 
+  color: #fff;                                         
+  border: #000000;                                  
+  border-radius: var(--border-radius);                 
+  cursor: pointer;                                    
+  transition: background 0.3s, transform 0.2s;         
+  font-size: 1.3rem;                                 
+  margin-top: auto;                                   
+  width: 100%;                                        
+  box-sizing: border-box;                                                 
+  font-weight: bold;                                  
+  letter-spacing: 0.04rem;    
+  text-transform: uppercase;                        
 }
-/* hover del botón */
+
 .card button:hover {
-  background: linear-gradient(45deg, var(--accent), var(--primary));  /* invertir degradado */
-  transform: translateY(-2px);                         /* pequeño movimiento hacia arriba */
+  background: linear-gradient(45deg, var(--accent), var(--primary));  
+  transform: translateY(-2px);                        
 }
 .card .btn-carrito {
     display: block;
     width: 100%;
-    margin-bottom: 5px; /* separa los botones */
+    margin-bottom: 5px; 
   }
 .card .btn-carrito:only-of-type {
   margin-top: auto;
@@ -262,7 +262,7 @@ nav a:hover {
   overflow: auto;
   border-radius: 10px;  
 }
-/* Contenido interior */
+
 .modal-content {
   display: flex;
   flex-direction: column;
@@ -271,7 +271,6 @@ nav a:hover {
   max-width: 500px;
   width: 100%;
   max-height: 500px;                 
-  /*overflow-y: auto;     */
   overflow: hidden;
   background: #9d00ff;
   color: #000000;
@@ -288,7 +287,7 @@ nav a:hover {
   border-image: linear-gradient(45deg, var(--primary), var(--accent)) 1;
   font-style: normal;
 }
-/* Imagen del modal */
+
 .modal-content img {
   max-width: 500px;
   max-height: 500px;
@@ -301,7 +300,7 @@ nav a:hover {
   transform: translate(0px, 0px) scale(1);
   cursor: zoom-in;
 }
-/* Zoom */
+
 .modal-content img.zoomed {
   cursor: grab;
   transform: translate(var(--x, 0px), var(--y, 0px)) scale(1.8);
@@ -310,21 +309,20 @@ nav a:hover {
 .modal-content img.zoomed:active {
   cursor: grabbing;
 }
-  
-/* Cruz para cerrar */
+
 .close {
   position: absolute;
   top: 8px;
   right: 16px;
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: bold;
   cursor: pointer;
   z-index: 200;
   user-select: none;
-  color: black
+  color: red;
 }
-.close:hover { color: #08ffea; }
-/* Flechas */
+.close:hover { color: #080808; }
+
 .modal-content .prev,
 .modal-content .next {
   position: absolute;
@@ -356,17 +354,19 @@ nav a:hover {
   border-radius:10px;
 }
 .modal-botones button {
-  padding: 10px 13px;
+  padding: 8px 13px;
   border: black;
   border-radius: 6px;
   cursor: pointer;
   font-size: 1rem;
   transition: 0.3s;
-  flex: 1 1 auto;       /* que puedan crecer o reducirse */
-  min-width: 80px;      /* evita que queden demasiado pequeños */
+  flex: 1 1 auto;       
+  min-width: 80px;    
+  text-transform: uppercase;
+  font-weight: bold;
 }
 #modal-agregar {
-  background: linear-gradient(59deg, var(--accent), var(--primary));  /* invertir degradado */
+  background: linear-gradient(59deg, var(--accent), var(--primary));  
   color: rgb(0, 0, 0);
   box-sizing: border-box;
   border-bottom: 2px solid #080808;
@@ -378,7 +378,7 @@ nav a:hover {
 .modal-botones button:hover {
   opacity: 0.85;
 }
-/* Carrito: cantidad + y - */
+
 .cantidad-container {
   display: flex;
   align-items: center;
@@ -398,36 +398,36 @@ nav a:hover {
 .cantidad-btn:hover { background: #8e24aa; transform: scale(1.1); }
 .cantidad { min-width: 20px; display: inline-block; text-align: center; }
 .buscador {
-  text-align: center;                                  /* centra el buscador */
-  margin: 1rem 0;                                      /* margen arriba y abajo */
-  width: 100%;                                         /* ocupa el ancho disponible */
-  box-sizing: border-box;                              /* box-sizing */
-  max-width: 100vw;                                    /* no exceder ancho de pantalla */
-  padding: 0 1rem;                                     /* padding horizontal */
-  font-size: 1rem;                                     /* tamaño base */
-  display: flex;                                       /* flex para poder alinear iconos si se añaden */
-  justify-content: center;                             /* centrar horizontalmente */
-  align-items: center;                                 /* centrar verticalmente */
-  flex-direction: column;                              /* columna (input encima de botones) */
-  gap: 0.75rem;                                        /* separación entre elementos */
+  text-align: center;                                 
+  margin: 1rem 0;                                    
+  width: 100%;                                        
+  box-sizing: border-box;                              
+  max-width: 100vw;                                  
+  padding: 0 1rem;                                    
+  font-size: 1rem;                                   
+  display: flex;                                  
+  justify-content: center;                             
+  align-items: center;                                 
+  flex-direction: column;                            
+  gap: 0.75rem;                                        
   font-family: 'Quicksand', sans-serif;
 }
-/* input de búsqueda */
+
 #search {
-  width: 90%;                                          /* ancho relativo */
-  max-width: 900px;                                    /* ancho máximo razonable */
-  padding: 0.6rem 0.9rem;                              /* padding interno */
-  border: 2px solid var(--accent);                     /* borde con color acento */
-  border-radius: var(--border-radius);                 /* bordes redondeados */
-  font-size: 1.8rem;                                     /* tamaño del texto del input */
-  outline: none;                                       /* quita outline por defecto (mejorar focus abajo) */
-  transition: border 0.2s, box-shadow 0.2s;            /* transición suave */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);             /* sombra sutil */
-  box-sizing: border-box;                              /* box-sizing */
+  width: 90%;                                         
+  max-width: 900px;                                    
+  padding: 0.6rem 0.9rem;                              
+  border: 2px solid var(--accent);                    
+  border-radius: var(--border-radius);                
+  font-size: 1.8rem;                                    
+  outline: none;                                      
+  transition: border 0.2s, box-shadow 0.2s;            
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);             
+  box-sizing: border-box;                              
   font-weight: bold;
   font-family: 'Quicksand', sans-serif;
 }
-/* estado focus del input para accesibilidad */
+
 #search:focus {
   border-color: var(--primary);                      
   box-shadow: 0 0 8px rgba(106,27,154,0.25);       
@@ -517,32 +517,32 @@ footer p {
   box-sizing: border-box;                       
   font-size: 1rem;                           
 }
-/* botón social base */
+
 .social-btn {
-  display: inline-block;                               /* inline-block */
-  padding: 0.6rem 1.2rem;                              /* padding */
-  border-radius: var(--border-radius);                 /* borde redondeado */
-  color: #fff;                                         /* texto blanco */
-  font-weight: bold;                                   /* negrita */
-  text-decoration: none;                               /* sin subrayado */
-  transition: transform 0.3s, background 0.3s;         /* transiciones */
-  font-size: 1rem;                                     /* tamaño de texto */
-  text-align: center;                                  /* centrado */
-  box-sizing: border-box;                              /* box-sizing */
-  width: 120px;                                        /* ancho fijo para consistencia */
-  height: 40px;                                        /* alto fijo */
-  line-height: 40px;                                   /* centrado vertical del texto */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);              /* sombra */
-  display: flex;                                       /* flex para icon + texto */
-  align-items: center;                                 /* alinear verticalmente */
-  justify-content: center;                             /* centrar horizontalmente */
-  gap: 0.5rem;                                         /* espacio entre icono y texto */
+  display: inline-block;                             
+  padding: 0.6rem 1.2rem;                             
+  border-radius: var(--border-radius);                 
+  color: #fff;                                       
+  font-weight: bold;                                
+  text-decoration: none;                              
+  transition: transform 0.3s, background 0.3s;         
+  font-size: 1rem;                                    
+  text-align: center;                                  
+  box-sizing: border-box;                              
+  width: 120px;                                    
+  height: 40px;                                        
+  line-height: 40px;                                 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);              
+  display: flex;                                       
+  align-items: center;                                 
+  justify-content: center;                             
+  gap: 0.5rem;                                         
 }
-/* hover de botones sociales */
+
 .social-btn:hover {
-  transform: scale(1.1);                               /* zoom suave */
-  color: #fff;                                         /* asegurar texto blanco */
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15);             /* sombra mayor al hover */
+  transform: scale(1.1);                               
+  color: #fff;                                         
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);             
 }
 
 .social-btn.instagram { background: #E4405F; }
@@ -557,35 +557,33 @@ footer p {
 .social-btn.location:hover { background: #00a07f; }
 
 .back-to-top {
-  margin-top: 0.2rem;                                 /* margen pequeño */
-  padding: 0.7rem 1.2rem;                              /* padding */
-  background: rgba(3, 2, 3, 0.667);                                   /* fondo claro */
-  color: white;                               /* color del texto */
-  font-weight: bold;                                   /* negrita */
-  border-radius: var(--border-radius);                 /* radio */
-  text-decoration: none;                               /* sin subrayado */
-  transition: background 0.3s, transform 0.3s, color 0.3s; /* transiciones */
-  font-size: 1rem;                                     /* tamaño */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);              /* sombra */
-  box-sizing: border-box;                              /* box-sizing */
+  margin-top: 0.2rem;                             
+  padding: 0.7rem 1.2rem;                              
+  background: rgba(3, 2, 3, 0.667);                                
+  color: white;                              
+  font-weight: bold;                                   
+  border-radius: var(--border-radius);                 
+  text-decoration: none;                              
+  transition: background 0.3s, transform 0.3s, color 0.3s; 
+  font-size: 1rem;                                    
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);              
+  box-sizing: border-box;                              
   float: left;
   border-radius: 50px;
-  position: fixed;      /* se queda visible al hacer scroll */
-  bottom: 30px;         /* separación desde el borde inferior */
-  left: 30px;           /* separación desde el borde izquierdo */
+  position: fixed;     
+  bottom: 30px;        
+  left: 30px;         
   
 }
-/* hover del botón volver arriba */
+
 .back-to-top:hover { background: var(--accent); color: #fff; transform: scale(1.05); }
 
-/* Smooth scroll para anclas */
 html { scroll-behavior: smooth; }
 
 /* ==============================
    Animaciones
    ============================== */
 
-/* Animación al agregar al carrito */
 @keyframes pulse {
   0% {
     transform: scale(1);
@@ -606,12 +604,10 @@ html { scroll-behavior: smooth; }
   100% { transform: translateX(0); }
 }
 
-/* Clase que dispara la animación */
 .animar-agregar {
   animation: pulse 0.4s ease;
 }
 
-/* Clase que se aplica al botón */
 .btn-agregado {
   animation: pulse 0.3s ease;
 }
@@ -640,98 +636,96 @@ html { scroll-behavior: smooth; }
 .animar-carrito {
   animation: carrito-anim 0.3s ease;
 }
-/* clase para título animado */
+
 .titulo-animado {
   display: inline-block;
   white-space: nowrap;
   animation: slide-infinite 28s linear infinite, color-change 15s ease-in-out infinite;
-  font-size: 1.3rem;                                    /* tamaño controlado */
-  font-weight: bold;                                   /* negrita */
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.4);            /* sombra para legibilidad */
-  padding: 0 1rem;                                     /* padding lateral */
-  position: relative;                                  /* relativo para z-index */
-  z-index: 2;                                          /* por encima del fondo */
+  font-size: 1.3rem;                                    
+  font-weight: bold;                                
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.4);           
+  padding: 0 1rem;                                    
+  position: relative;                                 
+  z-index: 2;                                         
 }
 .contenedor-secciones {
-  display: flex;                                       /* flex para secciones laterales */
-  gap: 2rem;                                           /* separación entre secciones */
-  max-width: var(--content-max-w);                     /* ancho máximo */
-  margin: 0 auto;                                      /* centrar horizontal */
-  padding: 0 0.2rem;                                   /* padding horizontal */
-  width: 100%;                                         /* ancho completo */
-  box-sizing: border-box;                              /* box-sizing */
+  display: flex;                                   
+  gap: 2rem;                                          
+  max-width: var(--content-max-w);                  
+  margin: 0 auto;                                     
+  padding: 0 0.2rem;                                   
+  width: 100%;                                       
+  box-sizing: border-box;                             
 }
-/* tarjeta de sección */
+
 .seccion {
-  background: #a7a6a6;                                    /* fondo blanco */
-  border: 1px solid var(--accent);                     /* borde con acento */               /* radio */
-  padding: 0.3rem;                                     /* padding */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);             /* sombra sutil */
-  font-size: 1rem;                                     /* tamaño del contenido */
-  box-sizing: border-box;                              /* box-sizing */
+  background: #a7a6a6;                                  
+  border: 1px solid var(--accent);                    
+  padding: 0.3rem;                              
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);           
+  font-size: 1rem;                                     
+  box-sizing: border-box;                             
   margin-top: 9%;
 }
-/* titulo de sección */
+
 .seccion h2 {
-  color: var(--primary);                               /* color primario */
-  margin-bottom: 0.1rem;                               /* separación inferior */
-  margin-top: 0.1rem;                                /* separación superior */  
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.15);           /* sombra ligera */
-  font-size: 1.5rem;                                   /* tamaño para h2 */
-  text-align: center;                                  /* centrado */
+  color: var(--primary);                             
+  margin-bottom: 0.1rem;                             
+  margin-top: 0.1rem;                               
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.15);          
+  font-size: 1.5rem;                                  
+  text-align: center;                                  
 }
-/* Tablets medianas y grandes */
+
 @media (max-width: 1024px) {
   .portfolio,
   .catalogo {
-    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+    grid-template-columns: repeat(3, 1fr); 
     gap: 0.75rem;
   }
 
   .card img {
-    height: 200px; /* ajustar altura de imagen */
+    height: 200px; 
   }
 
   .card h3 {
-    font-size: 1.1rem; /* título más pequeño */
+    font-size: 1.1rem; 
   }
 
   .card p {
     font-size: 0.95rem;
-    line-clamp: 3; /* mantener 3 líneas máximo */
+    line-clamp: 3; 
   }
 
   .card .btn-carrito {
     display: block;
     width: 100%;
-    margin-bottom: 5px; /* separa los botones */
+    margin-bottom: 5px; 
   }
 
   nav a {
     font-size: 3rem; 
     font-family: 'Playfair Display', serif;
-    padding-right: 120px; /* deja espacio para el botón */
+    padding-right: 120px; 
     margin-bottom: -2%;
     margin-top: -7%;
   }
-  .hero{
-    margin-top: 1rem;
-  }
+ 
   #search {
-    width: 90%; /* input más ancho para tablets */
+    width: 90%; 
   }
   
 }
-/* Tablets pequeñas / pantallas horizontales */
+
 @media (max-width: 768px) {
   .portfolio,
   .catalogo {
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+    grid-template-columns: repeat(3, 1fr); 
     gap: 0.5rem;
   }
 
   .card img {
-    height: 180px; /* reducir altura de imagen */
+    height: 180px; 
   }
 
   .card h3 {
@@ -781,7 +775,6 @@ html { scroll-behavior: smooth; }
     font-size: 1.8rem;
     margin-bottom: 1rem;
     margin-top: 0.9%;
-    font-family: 'Bebas Neue', sans-serif;
   }
   .modal-botones{
     margin-bottom: 0.2%;
@@ -832,20 +825,6 @@ html { scroll-behavior: smooth; }
     padding-right: 210px; 
   }
 
-  .hero {
-    padding-top: 7rem; 
-  }
-
-  .hero h2,
-  .hero p {
-    font-size: 2.5rem;
-    margin: 1rem 0;
-    text-align: left;
-    font-family: 'Bebas Neue', sans-serif;
-    text-align: center;
-    margin-top: 1.5rem;
-  }
-
   #search {
     width: 95%; 
     font-size: 1.2rem;
@@ -859,11 +838,6 @@ html { scroll-behavior: smooth; }
 
   .seccion {
     margin-top: 2rem; 
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-    gap: 0.5rem;
   }
 
   .card button {
@@ -1591,11 +1565,13 @@ html { scroll-behavior: smooth; }
     margin-bottom: 0.1%;
     margin-top: 0.9%;
   }
+
 #modal-precio {
     font-size: 1.4rem;
     margin-bottom: 0.1%;
     margin-top: 0.1%;
   }
+
 #whatsapp-btn.oculto {
   display: none;
 }
