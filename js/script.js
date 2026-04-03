@@ -635,17 +635,28 @@ function actualizarModal() {
   };
 
   const closeBtn = modal.querySelector('.close');
-  if (closeBtn) {
-    closeBtn.onclick = () => {
-      modal.style.display = 'none';
-      modalImg.classList.remove('zoomed');
-    };
+
+  function cerrarModal() {
+    modal.style.display = 'none';
+    modalImg.classList.remove('zoomed');
   }
 
-  window.addEventListener('click', e => {
-    if (e.target === modal) {
-      modal.style.display = 'none';
-      modalImg.classList.remove('zoomed');
+  // Botón cerrar
+  if (closeBtn) {
+    closeBtn.onclick = cerrarModal;
+  }
+
+  // Click afuera del contenido (en cualquier parte de la pantalla)
+  document.addEventListener('click', e => {
+    if (modal.style.display === 'flex' && !modalContent.contains(e.target)) {
+      cerrarModal();
+    }
+  });
+
+  // Tecla ESC
+  document.addEventListener('keydown', e => {
+    if (e.key === "Escape") {
+      cerrarModal();
     }
   });
 
@@ -691,6 +702,7 @@ function actualizarModal() {
       card.appendChild(overlay);
     }
     card.addEventListener('click', (ev) => {
+       ev.stopPropagation();
 
     const titulo = card.querySelector('h3')?.textContent.trim();
     const stock = STOCK_PRODUCTOS[titulo];
