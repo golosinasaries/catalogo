@@ -1,4 +1,3 @@
-
 :root {
   --primary: #6a1b9a;
   --accent: #00b894;
@@ -28,32 +27,25 @@ html, body {
 
 header {
   background: linear-gradient(135deg, #6a1b9a, #ab47bc); 
-  padding: 0.00005rem;                                       /* espacio interno del header */
-  text-align: center;                                  /* centra el contenido textual */
-  position: fixed;                                     /* fija el header en la parte superior */
-  top: 0;                                              /* posicion arriba: 0 */
-  left: 0;                                             /* pegado a la izquierda */
-  right: 0;                                            /* pegado a la derecha */
-  z-index: 1000;                                       /* z-index alto para estar encima del contenido */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);               /* sombra sutil debajo */
+  padding: 0.00005rem;                                      
+  text-align: center;                                  
+  position: fixed;                                
+  top: 0;                                          
+  left: 0;                                            
+  right: 0;                                           
+  z-index: 1000;                                       
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);               
   width: 100%;                                         
   max-width: 100vw;                                   
   box-sizing: border-box;                              
   display: flex;                                       
-  justify-content: space-between;                      /* espacio entre logo y nav */
-  align-items: center;                                 /* centra verticalmente los elementos */
-  flex-wrap: wrap;                                     /* permite que el contenido salte a la siguiente línea */
-  gap: 0.5rem;                                           /* separación entre elementos flex */
-  min-height: var(--header-h);                         /* altura mínima definida por la variable */
- 
+  justify-content: space-between;                      
+  align-items: center;                              
+  flex-wrap: wrap;                                     
+  gap: 0.5rem;                                           
+  min-height: var(--header-h);                      
 }
 
-.logo-contenedor img {
-  max-width: 110px;                                    
-  height: auto;                                        
-  border-radius: 12px;                                 
-  filter: drop-shadow(0 2px 8px rgba(106,27,154,0.3)); 
-}
 .titulo-contenedor {
   flex: 1;                                             
   text-align: center;                                  
@@ -76,6 +68,7 @@ header {
   padding: 0 1rem;                                     
   font-family: 'Quicksand', sans-serif;
 }
+
 nav {
   display: flex;                                    
   justify-content: center;                            
@@ -102,26 +95,6 @@ nav a:hover {
   color: white;
 }
 
-.destacados {
-  text-align: center;                                
-  padding: 0.1rem 0.5rem;                               
-  background: #0a0909;                                    
-  border-radius: 0px;                 
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);           
-  font-size: 1rem;                                     
-  max-width: var(--content-max-w);                  
-  margin: 0.1rem auto;                                   
-  width: 100%;                                      
-  box-sizing: border-box;                             
-}
-
-.destacados h2 {
-  color: var(--primary);                              
-  margin-bottom: 0.75rem;                              
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.15);           
-  font-size: 2rem;                                     
-  text-align: center;                                
-}
 .portfolio {
   display: grid;                                       
   grid-template-columns: repeat(4, 1fr);               
@@ -132,14 +105,6 @@ nav a:hover {
   width: 100%;                                       
   box-sizing: border-box;                         
   border-radius: 0px;
-}
-.catalogo {
-  display: grid;                                      
-  grid-template-columns: inherit;                      
-  gap: 1rem;                                          
-  width: 100%;                                      
-  box-sizing: border-box;                          
-  
 }
 
 .card {
@@ -162,6 +127,7 @@ nav a:hover {
   position: relative; 
   border-radius: 10px;
 }
+
 .card .mas-fotos {
   position: absolute;
   top: 8px;        
@@ -171,37 +137,37 @@ nav a:hover {
   font-size: 0.9rem;
   padding: 2px 6px;
   border-radius: 6px;
-  pointer-events: none; /* para que no interfiera con el click en la card */
+  pointer-events: none; 
   font-weight: bold;
   z-index: 2;
 }
 
 .card:hover {
-  transform: translateY(-6px);                         /* sube ligeramente */
-  box-shadow: 0 10px 20px rgba(0,0,0,0.12);            /* sombra más pronunciada */
+  transform: translateY(-6px);                         
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);            
 }
 
 .card img {
   width: 100%;                                        
   border-radius: 8px;                                 
-  margin-bottom: 0.5rem;                               /* separación hacia el contenido */
-  height: 220px;                                       /* altura fija para consistencia */
-  object-fit: cover;                                   /* cubre sin deformar (recorta si hace falta) */
-  transition: transform 0.3s;                          /* transición para posibles efectos */
+  margin-bottom: 0.1rem;                               
+  height: 220px;                                       
+  object-fit: cover;                                 
+  transition: transform 0.3s;                         
   border-radius: 10px;
 }
 
 .card h3 {
-  color: var(--primary);                               /* color del título */
-  margin: 0.25rem 0;                                   /* margen vertical pequeño */
-  font-size: 1.25rem;                                  /* tamaño razonable para h3 */
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);            /* sombra muy suave */
-  display: flex;                                       /* flex para centrar verticalmente si hay iconos */
-  align-items: center;                                 /* alineación vertical */
-  justify-content: center;                             /* centrado horizontal */
-  text-align: center;                                  /* centrado */
-  padding: 0 0.5rem;                                   /* relleno horizontal */
-  flex-grow: 0;                                        /* no expandir */
+  color: var(--primary);                               
+  margin: 0.25rem 0;                                  
+  font-size: 1.25rem;                                  
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);           
+  display: flex;                                      
+  align-items: center;                                
+  justify-content: center;                             
+  text-align: center;                                 
+  padding: 0 0.5rem;                                  
+  flex-grow: 0;                                     
   font-weight: bold;
 }
 
@@ -860,13 +826,15 @@ html { scroll-behavior: smooth; }
 
 }
 
+/* Footer (total + botones) */
 #carrito-footer {
-  flex-shrink: 0; 
+  flex-shrink: 0;  /* nunca se achica */
   display: flex;
   flex-direction: column;
   gap: px;
   margin-top: 8px;
   flex-shrink: 0;
+  position: sticky;
 }
 #carrito-contenedor {
   position: fixed;
@@ -908,9 +876,9 @@ html { scroll-behavior: smooth; }
   transform: translateX(-50%);
   border: 2px solid #09000a;
   width: 320px;
-  height: auto;       
-  max-height: 90vh;
+  height: 480px;
   max-width: 90%;
+  max-height: 99vh; /* Máximo alto del modal */
   padding: 15px;
   padding-left: 1%;
   padding-right: 1%;
@@ -921,8 +889,8 @@ html { scroll-behavior: smooth; }
   text-align: center;
   flex-direction: column;
   animation: fadeIn 0.3s ease;
+  
 }
-
 #carrito-dropdown h4 {
   font-size: 1.8rem;
   color: #7b1fa2;
@@ -931,8 +899,10 @@ html { scroll-behavior: smooth; }
   justify-content: center;
   align-items: center;
   gap: 6px;
+  /*
+  background: linear-gradient(135deg, #f3e5f5, #ede7f6);
+  border: 2px solid #ba68c8;*/
 }
-
 #carrito-dropdown h3 {
   font-size: 2rem;
   margin-bottom: 13px;
@@ -956,23 +926,22 @@ html { scroll-behavior: smooth; }
 
 }
 #carrito-items {
-  max-height:none;
+  max-height:280px;
   overflow-y: auto;
   margin-bottom: 0px;
   position: relative;
-  z-index: 1001; 
-  pointer-events: auto; 
+  z-index: 1001; /* por encima de todo lo que pueda taparlo */
+  pointer-events: auto; /* permite usar el scroll normalmente */
   font-size: 1.5rem;
   padding-right: 10px;
   text-align: left;
   margin-left: 0px;
   padding-left: 0%;
   justify-self: flex-start;
-  flex: 1;
 }
-
+/* Scroll personalizado para el carrito */
 #carrito-items::-webkit-scrollbar {
-  width: 8px; 
+  width: 8px; /* más ancho */
 }
 #carrito-items::-webkit-scrollbar-track {
   border-radius: 6px;
@@ -1112,13 +1081,12 @@ html { scroll-behavior: smooth; }
   background: #1ebe5b;
 }
 #carrito-total {
-  margin: 0;
+  margin-top: 0px;
+  margin-bottom: 0px;
   font-weight: bold;
   color: #000000;
   font-size: 1.3rem;
   text-align: left;
-  line-height: 1.4;
-  padding: 4px 0;
 }
   .modal {
     width: 90%;
@@ -1340,35 +1308,7 @@ html { scroll-behavior: smooth; }
     font-size: 14px;
   }   
 }
-/* Mobile */
-@media (max-width: 768px) {
-  .instrucciones-texto {
-    margin: 25px 15px;
-    padding: 20px 18px;
-    margin-top: 70px;
-    margin-bottom: -19%;
-  }
 
-  .instrucciones-texto h2 {
-    font-size: 20px;
-  }
-
-  .instrucciones-texto p,
-  .instrucciones-texto li {
-    font-size: 14px;
-  }
-
-  .instrucciones-texto h2 {
-    margin-bottom: 9px;
-    margin-top: 0px;
-    font-size: 24px;
-    text-align: center;
-    color: #5c0180; /* rojo suave para destacar */
-    font-weight: 700;
-    letter-spacing: 1px;
-  }
-
-}
 #carrito-dropdown,
 #fondo-carrito {
   display: none;
@@ -1610,17 +1550,13 @@ h1, h2, h3 {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.8);
   color: white;
-
   font-size: 22px;
   padding: 8px 12px;
   border-radius: 50%;
-
   cursor: pointer;
   z-index: 10;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1635,7 +1571,7 @@ h1, h2, h3 {
 }
 
 .card .flecha:hover {
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.9);
 }
 
 .card-video {
@@ -1701,10 +1637,10 @@ h1, h2, h3 {
     opacity: 1;
     pointer-events: auto;
     transition: opacity 0.3s ease;
-    font-size: 10px;   /* tamaño del icono */
-    padding: 8px 12px;
+    font-size: 15px;   
+    padding: 8px 8px;
     border-radius: 50%;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.8);
   }
 
   .card.mostrar-flechas .flecha {
@@ -1712,7 +1648,7 @@ h1, h2, h3 {
     pointer-events: auto;
   }
   .card .flecha:hover {
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.9);
 }
 .card .flecha.izq {
   left: 1px;
