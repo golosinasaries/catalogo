@@ -157,19 +157,18 @@ nav a:hover {
   border-radius: 10px;
 }
 
-.card h3 {
-  color: var(--primary);                               
+.card h3 {                             
   margin: 0.25rem 0;                                  
-  font-size: 1.9rem;                                  
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);           
+  font-size: 1.9rem;                                             
   display: flex;                                      
   align-items: center;                                
   justify-content: center;                             
   text-align: center;                                 
   padding: 0 0.5rem;                                  
   flex-grow: 0;                                     
-  font-weight: bold;
   min-height: 3.5rem; 
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
 }
 
 .card p {
@@ -282,8 +281,7 @@ nav a:hover {
   position: absolute;
   top: 1px;
   right: 10px;
-  font-size: 4.2rem;   /* ⚠️ 5.9rem es exagerado */
-  font-weight: bold;
+  font-size: 4.2rem;  
   cursor: pointer;
   z-index: 10;
   user-select: none;
@@ -1532,10 +1530,7 @@ body {
 h1, h2, h3 {
   font-family: 'Poppins', sans-serif;
 }
-.card h3 {
-  font-family: 'Fredoka', sans-serif;
-  font-weight: 600;
-}
+
 .card p {
   font-family: 'Poppins', sans-serif;
   font-weight: 500;

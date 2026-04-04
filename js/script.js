@@ -23,7 +23,7 @@ const STOCK_PRODUCTOS = {
   "Chupetines masticables Baby Dolls ácidos (40 u)": 2,
   "Turrón Billiken Sin T.A.C.C (10 u)": 1,
   "Oblita de Chocolate (48 u)": 10,
-  "Gomitas Kuromy (30 u)": 0,
+  "Gomitas Kuromy (30 u)": 24,
   "Hombre araña con pastillitas (30 u)": 0,
   "Chicles WhatsApp con tatoo capibara (36 paquetes de 5 chicles)": 0,
   "Camión dispenser + caramelos celeste (1 unidad)": 0,
@@ -68,7 +68,7 @@ const STOCK_PRODUCTOS = {
   "Alcancía Tigre Amarillo": 15,
   "Alcancía Tigre rojo": 15,
   "Alcancía Pollito rojo": 5,
-  "Alcancía Pingüino Rosa (con 12 gelatinas en su interior)": 6,
+  "Alcancía Pingüino Rosa (con 12 gelatinas en su interior)": 15,
   "Gomitas Super Mario (30 u)": 15,
   "Chupetines con led Oreo (30 u)": 15,
   "Nutello pequeños (60 u)": 18,
@@ -100,6 +100,11 @@ const alcancias = [
     nombre: "Alcancía Pingüino Rosa (con 12 gelatinas en su interior)",
     precio: "$6.500",
     img: "img/alcanciapinguinorosa.jpg"
+  },
+    {
+    nombre: "Alcancía Pingüino negro",
+    precio: "$6.500",
+    img: "img/pinguino2.jpg"
   },
 
   {
@@ -408,7 +413,7 @@ if (modal) {
     "Tractor dispenser + caramelos verde (1 unidad)": ["img/tractorverde1.jpg","img/tractorverde2.jpg"],
     "Chupetines Kuromy con led (30 u)": ["img/caramelokuromy.jpg","img/caramelokuromy2.jpg"],
     "Gomita Helado (30 u)": ["img/helado.jpg","img/helado2.jpg"],
-    "Alcancía pingüino negro (con 12 gelatinas en su interior)": ["img/pinguino2.jpg","img/pinguino5.jpg","img/pinguino3.jpg","img/pinguino4.jpg","img/pinguino6.jpg"],
+    "Alcancía pingüino negro": ["img/pinguino2.jpg","img/pinguino5.jpg","img/pinguino3.jpg","img/pinguino4.jpg","img/pinguino6.jpg"],
     "Chupetines Merlina (30 u)": ["img/merlina1.jpg","img/merlina2.jpg","img/merlina3.jpg","img/merlina4.jpg"],
     "Chupetín con polvo ácido Brain (30 u)": ["img/braincaja.jpg","img/chupetinBrain.jpg"],
     "Camiseta pimball con pastillitas (30 u)": ["img/pimballremera.jpg","img/reversaremera.jpg","img/r1.jpg","img/r2.jpg"],
