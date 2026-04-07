@@ -33,7 +33,7 @@ const STOCK_PRODUCTOS = {
   "Camión Verde Transformer (1 u)": 3,
   "Chupetines con led Simpsons (30 u)": 0,
   "Chupetines con led Unicornio (30 u)": 1,
-  "Transformers varios (5 u)": 7,
+  "Transformers varios (4 u)": 7,
   "Trompetas con chupetin y sonido (20 u)": 1,
   "Chupetín Calabaza con polvo ácido y led (30 u)": 0,
   "Billiken Congys 200 g": 3,
@@ -386,7 +386,7 @@ if (modal) {
   // Productos
   const imagenesProducto = {
     "Camión Transformer (1 u)":[ "img/camiontra1.jpeg", "img/camiontra2.jpeg", "img/camiontra3.jpeg"],
-    "Transformers varios (5 u)":  ["img/videotra1.mp4","img/tra1.jpeg","img/tra2.jpeg","img/tra3.jpeg", "img/videotra2.mp4" ],
+    "Transformers varios (4 u)":  ["img/videotra1.mp4","img/tra1.jpeg","img/tra2.jpeg","img/tra3.jpeg", "img/videotra2.mp4" ],
     "Gomitas Ojos (30 u)": ["img/ojos.jpg","img/videoojos.mp4"],
     "Dinosaurio con caramelos y luces (1 unidad)": ["img/fotodinosaurio.jpg","img/videodinosaurio.mp4"],
     "Gomitas de boca (30 u)": ["img/boca.jpg","img/videoboca.mp4"],
