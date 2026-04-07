@@ -911,6 +911,7 @@ document.addEventListener("DOMContentLoaded", () => {
     msg += `\n📦 *Total de productos:* ${totalProductos}`;
     msg += `\n💰 *Total a pagar:* $${total.toLocaleString("es-AR")}`;
     msg += `\n\n- Código postal: ${codigoPostalCliente}`;
+    /*
     msg += `\n- Alguna referencia del domicilio (opcional): `;
     msg += `\n- Teléfono: `;
     msg += `\n- Email: `; 
@@ -918,7 +919,7 @@ document.addEventListener("DOMContentLoaded", () => {
     msg += `\n- Provincia y Localidad: `;
     msg += `\n- Nombre y apellido: `;
     msg += `\n\n📩 *Datos necesarios para el envío (Si ya completaste alguna vez, podés omitirlo)👆🏻*`;
-
+*/
 
     const numero = "542236010443";
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
@@ -1233,7 +1234,9 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     msg += `\n\n📍 *Entrega en Miramar*`;
     
   } else {
-    msg += `\n\n- Código postal: ${codigoPostalCliente}`;
+    msg += `\n\n✨ *¡Tu pedido ya está listo!*`;
+    msg += `\nSolo tocá *Enviar* y te respondemos enseguida para coordinar 💌`;
+        /*
     msg += `\n- Alguna referencia del domicilio (opcional): `;
     msg += `\n- Teléfono: `;
     msg += `\n- Email: `; 
@@ -1241,6 +1244,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     msg += `\n- Provincia y Localidad: `;
     msg += `\n- Nombre y apellido: `;
     msg += `\n\n📩 *Datos necesarios para el envío (Si ya completaste alguna vez, podés omitirlo)👆🏻*`;
+    */
   }
 
     // 🔹 Abrir WhatsAppp
