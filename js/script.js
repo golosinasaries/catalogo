@@ -44,7 +44,7 @@ const STOCK_PRODUCTOS = {
   "Llaveros láser Capibara (12 u)": 1,
   "Autito  + pastillitas (30 u)": 15,
   "YO-YOs con luces (12 u)": 1,
-  "Gomitas Selección (30 u)": 1,
+  "Gomitas Selección (30 u)": 48,
   "Gomitas Among Us (30 u)": 15,
   "Gomitas Donas 🍩 (30 u)": 1,
   "Botellitas con chicles (30 botellitas)": 20,
