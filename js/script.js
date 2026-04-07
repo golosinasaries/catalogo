@@ -977,19 +977,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const btn = card.querySelector(".btn-carrito");
     if (!btn) return;
 
-    // 🔴 SIN STOCK REAL
     if (stockMax === 0) {
       btn.disabled = true;
       btn.textContent = "Sin stock ❌";
       return;
     }
 
-    // 🟡 AGOTADO POR CARRITO
     if (stockMax !== undefined && cantidad >= stockMax) {
       btn.disabled = true;
       btn.textContent = "Agotado 🛒";
     } else {
-      // 🔥 ESTE ES EL FIX IMPORTANTE
+
       btn.disabled = false;
       btn.textContent = "Agregar al carrito";
     }
