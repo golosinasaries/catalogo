@@ -7,7 +7,7 @@ const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 const minimoRegalo = 70000;   
 const REGALO_NOMBRE = "Chicles Fierita Globo (95 u)✨"; 
-const PROMO_ACTIVA = "regalo"; 
+const PROMO_ACTIVA = "ninguna"; 
 // "envio"  → envío gratis
 // "regalo" → regalo 
 // "ninguna" → sin promo
@@ -21,7 +21,7 @@ const STOCK_PRODUCTOS = {
   "Gomitas Moritas Mogul 500 g": 0,
   "Chupetines masticables Baby Dolls (40 u)": 1,
   "Chupetines masticables Baby Dolls ácidos (40 u)": 2,
-  "Turrón Billiken Sin T.A.C.C (10 u)": 1,
+  "Turrón Billiken Sin T.A.C.C (10 u)": 10,
   "Oblita de Chocolate (48 u)": 10,
   "Gomitas Kuromy (30 u)": 24,
   "Hombre araña con pastillitas (30 u)": 0,
