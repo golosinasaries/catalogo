@@ -1,8 +1,8 @@
 const minimoCompra = 50000; 
-const ENVIO_MDP = 5900;
+const ENVIO_MDP = 6900;
 const ENVIO_GENERAL = 10900;
-const ENVIO_LEJANO = 13900;
-const ENVIO_SANTACRUZ = 14900;
+const ENVIO_LEJANO = 14900;
+const ENVIO_SANTACRUZ = 15900;
 const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 const minimoRegalo = 70000;   
@@ -328,7 +328,7 @@ function calcularCostoEnvio(cp) {
     return ENVIO_MIRAMAR;
   }
 
-  const prefijos = ["9303", "4430"];
+  const prefijos = ["9303", "4430",];
 
   for (const p of prefijos) {
     if (codigo.startsWith(p)) {
@@ -345,6 +345,7 @@ function calcularCostoEnvio(cp) {
     codigo.startsWith("4") ||
     codigo.startsWith("3") ||
     codigo.startsWith("6") ||
+    codigo.startsWith("2000") ||
     codigo.startsWith("8")
   ) {
     return ENVIO_LEJANO;
