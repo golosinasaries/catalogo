@@ -17,6 +17,8 @@ let productoIndex = 0;
 let currentVariantes = null;
 
 const STOCK_PRODUCTOS = {
+  "Chupetines Merlina (30 u)": 1,
+  "Gomitas Spider-Man (60 u)": 3,
   "Gomitas de Gelatinas Candy Loka (10 u)": 9,
   "Gomitas Moritas Mogul 500 g": 0,
   "Chupetines masticables Baby Dolls (40 u)": 1,
