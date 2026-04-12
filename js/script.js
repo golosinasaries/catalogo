@@ -393,6 +393,7 @@ if (modal) {
     "Camión Transformer (1 u)":[ "img/camiontra1.jpeg", "img/camiontra2.jpeg", "img/camiontra3.jpeg"],
     "Transformers varios (4 u)":  ["img/videotra1.mp4","img/tra1.jpeg","img/tra2.jpeg","img/tra3.jpeg", "img/videotra2.mp4" ],
     "Gomitas Ojos (30 u)": ["img/ojos.jpg","img/videoojos.mp4"],
+    "Gomitas Oreo (30 u)": ["img/gomitasoreo.jpg","img/videooreo.mp4"],
     "Dinosaurio con caramelos y luces (1 unidad)": ["img/fotodinosaurio.jpg","img/videodinosaurio.mp4"],
     "Gomitas de boca (30 u)": ["img/boca.jpg","img/videoboca.mp4"],
     "Gomitas Spider-Man (60 u)": ["img/spiderman1.jpg","img/spiderman2.jpg","img/spiderman3.jpg","img/spiderman4.jpg","img/spiderman5.jpg"],
