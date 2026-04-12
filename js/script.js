@@ -17,6 +17,7 @@ let productoIndex = 0;
 let currentVariantes = null;
 
 const STOCK_PRODUCTOS = {
+  "Chicle Fierita Recargado - Tutti Frutti (50 u)": 0,
   "Chupetines Merlina (30 u)": 1,
   "Gomitas Spider-Man (60 u)": 3,
   "Gomitas de Gelatinas Candy Loka (10 u)": 9,
@@ -142,16 +143,17 @@ const alcancias = [
 ];
 
 const recargados = [
-  {
+    {
+    nombre: "Chicle Fierita Recargado - Menta (50 u)",
+    precio: "$6.500",
+    img: "img/fieritarecargadomenta.jpg"
+  },
+ {
     nombre: "Chicle Fierita Recargado - Tutti Frutti (50 u)",
     precio: "$6.500",
     img: "img/fieritarecargado.jpg"
   },
-  {
-    nombre: "Chicle Fierita Recargado - Menta (50 u)",
-    precio: "$6.500",
-    img: "img/fieritarecargadomenta.jpg"
-  }
+
 ];
 
 const variantesTransformer = [
@@ -319,7 +321,6 @@ if (btn) {
   });
 }
 
-
 function calcularCostoEnvio(cp) {
 
   const codigo = cp.trim();
@@ -346,6 +347,7 @@ function calcularCostoEnvio(cp) {
     codigo.startsWith("3") ||
     codigo.startsWith("6") ||
     codigo.startsWith("2000") ||
+    codigo.startsWith("5965") ||
     codigo.startsWith("8")
   ) {
     return ENVIO_LEJANO;
