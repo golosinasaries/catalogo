@@ -17,6 +17,7 @@ let productoIndex = 0;
 let currentVariantes = null;
 
 const STOCK_PRODUCTOS = {
+  "Autito con pastillitas (30 u)": 1,
   "Chicle Fierita Recargado - Tutti Frutti (50 u)": 0,
   "Chupetines Merlina (30 u)": 1,
   "Gomitas Spider-Man (60 u)": 3,
