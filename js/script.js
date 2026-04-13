@@ -17,6 +17,8 @@ let productoIndex = 0;
 let currentVariantes = null;
 
 const STOCK_PRODUCTOS = {
+  "Huevos Sorpresa Plantas vs Zombies (30 u)": 1,
+  "Huevos Sorpresa de Dinosaurios (30 u)": 1,
   "Autito con pastillitas (30 u)": 1,
   "Chicle Fierita Recargado - Tutti Frutti (50 u)": 0,
   "Chupetines Merlina (30 u)": 1,
@@ -45,7 +47,7 @@ const STOCK_PRODUCTOS = {
   "Billiken Tutti-frutti 800 g": 2,
   "Billiken redonditas 800 g": 2,
   "Gomitas Lilo y Stitch (60 u)": 2,
-  "Llaveros láser Capibara (12 u)": 1,
+  "Llaveros láser Capibara (12 u)": 2,
   "Autito  + pastillitas (30 u)": 15,
   "YO-YOs con luces (12 u)": 1,
   "Gomitas Selección (30 u)": 48,
@@ -60,7 +62,7 @@ const STOCK_PRODUCTOS = {
   "Alcancía Oso café": 5,
   "Chupetines Cremosito Fierita - Fritilla y Crema (50 u)": 2,
   "Alfajor Guaymallén simple de Membrillo (10 u)": 1,
-  "Alfajor Guaymallén simple de Chocolate Blanco (10 u)": 1,
+  "Alfajor Guaymallén simple de Chocolate Blanco (10 u)": 2,
   "Alfajor Guaymallén simple de Dulce de Leche (10 u)": 0,
   "Lenguetazo Pinta Lengua (32 u)": 2,
   "Lenguetazo Tropical Punch (32 u)": 1,
@@ -76,7 +78,7 @@ const STOCK_PRODUCTOS = {
   "Chupetines con led Oreo (30 u)": 15,
   "Nutello pequeños (60 u)": 18,
   "Smack Bar (30 u)": 10,
-  "Dinosaurio con caramelos y luces (1 unidad)": 1,
+  "Dinosaurio con caramelos y luces (1 unidad)": 2,
   "Avión Naranja Transformer (1 u)": 1,
 };
 
