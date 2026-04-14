@@ -396,6 +396,7 @@ nav a:hover {
   box-sizing: border-box;                              
   font-weight: bold;
   font-family: 'Quicksand', sans-serif;
+  margin-bottom: 0.1rem;
 }
 
 #search:focus {
@@ -711,6 +712,7 @@ html { scroll-behavior: smooth; }
  
   #search {
     width: 90%; 
+    margin-bottom: 0.1rem;
   }
 }
 
@@ -2015,3 +2017,32 @@ h1, h2, h3 {
     margin-top: 14%;
   }
 }
+@media (max-width: 379px) {
+  .portfolio,
+  .catalogo {
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 0.3rem;
+    margin-top: 17%;
+  }
+  .aviso {
+    display:none; 
+    background: linear-gradient(135deg, rgba(106,27,154,0.6), rgba(0,184,148,0.6));; 
+    color:rgb(20, 3, 3); 
+    padding:3px; 
+    margin:2px 0; 
+    border-radius:8px; 
+    font-weight:bold; 
+    text-align:center;
+    font-size: 16px;
+    padding-bottom: 0%;
+    margin-bottom: 0.9%;
+    margin-top: 0.1%;
+    padding-top: 0%;
+   }
+   #search {
+    width: 95%; 
+    font-size: 1.2rem;
+    margin-bottom: 0.1rem;
+    margin-top: 0.1rem;
+  }
+   }
