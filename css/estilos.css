@@ -22,7 +22,7 @@ html, body {
   background: var(--bg);             
   color: var(--text);                
   font-size: var(--base-font);        
-  margin-top: 14.2%;
+  margin-top: 4.2%;
 }
 
 header {
@@ -657,6 +657,7 @@ html { scroll-behavior: smooth; }
   .fb-sub {
     margin-top: 30%;
   }
+  
 }
 @media (max-width: 1320px) {
   .portfolio,
@@ -668,6 +669,7 @@ html { scroll-behavior: smooth; }
   .fb-sub {
     margin-top: 30%;
   }
+  
 }
 
 @media (max-width: 1024px) {
@@ -677,6 +679,7 @@ html { scroll-behavior: smooth; }
     gap: 0.75rem;
     margin-top: 10%;
   }
+
   .fb-sub {
     margin-top: 30%;
   }
@@ -835,7 +838,7 @@ html { scroll-behavior: smooth; }
   }
   
   body {
-    margin-top: 20%;
+    margin-top: 29.2%;
   }
   main {
     margin-top: 5%;
@@ -1637,6 +1640,7 @@ html { scroll-behavior: smooth; }
 }
 body {
   font-family: 'Poppins', sans-serif;
+  margin-top: 7%;
 
 }
 .logo-mini {
@@ -1934,29 +1938,28 @@ h1, h2, h3 {
 .logo-mini:active {
   transform: scale(0.9) rotate(15deg);
 }
-@media (max-width: 524px) {
-  .portfolio,
-  .catalogo {
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 0.3rem;
-    margin-top: 10%;
-  }
-}
-
-@media (max-width: 409px) {
-  .portfolio,
-  .catalogo {
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 0.3rem;
-    margin-top: 14%;
-  }
-}
-@media (max-width: 379px) {
+@media (max-width: 1320px) {
   .portfolio,
   .catalogo {
     grid-template-columns: repeat(2, 1fr); 
     gap: 0.3rem;
     margin-top: 17%;
+  }
+  .logo-mini {
+    width: 60px;
+    margin-top: 20px;
+    top: 90px;       
+    left: 10px;
+    z-index: 1000;  
+  }
+}
+
+@media (max-width: 379px) {
+  .portfolio,
+  .catalogo {
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 0.3rem;
+    margin-top: 37%;
   }
 
   .aviso {
@@ -1986,6 +1989,7 @@ h1, h2, h3 {
     margin-top: 20px;
     top: 90px;       
     left: 10px;
-    z-index: 9999;  
+    z-index: 1000;  
   }
-   }
+}
+  
