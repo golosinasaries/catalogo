@@ -43,7 +43,7 @@ header {
   align-items: center;                              
   flex-wrap: wrap;                                     
   gap: 0.5rem;                                           
-  min-height: var(--header-h);                      
+  min-height: var(--header-h);                    
 }
 
 .titulo-contenedor {
@@ -1708,4 +1708,43 @@ h1, h2, h3 {
   text-align: center;
   padding: 10px;
   font-weight: 600;
+}
+
+/* CONTENEDOR */
+.header-bar {
+  position: relative;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  padding: 10px 0;
+}
+
+/* TEXTO CENTRADO */
+.titulo-catalogo {
+  font-size: 34px;
+  color: white;
+  margin: 0;
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-align: center;
+  text-decoration: none; 
+}
+
+/* LOGO VOLADOR */
+.logo-mini {
+  width: 65px;
+  position: absolute;
+  right: -10px; 
+
+  animation: volar 2.5s ease-in-out infinite;
+}
+
+/* ANIMACIÓN TIPO ESCOBA VOLADORA */
+@keyframes volar {
+  0%   { transform: translateY(0px) rotate(0deg); }
+  20%  { transform: translateY(-8px) rotate(-5deg); }
+  40%  { transform: translateY(-14px) rotate(4deg); }
+  60%  { transform: translateY(-10px) rotate(-3deg); }
+  80%  { transform: translateY(-6px) rotate(2deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
 }
