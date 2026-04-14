@@ -1730,21 +1730,45 @@ h1, h2, h3 {
   text-decoration: none; 
 }
 
-/* LOGO VOLADOR */
 .logo-mini {
   width: 65px;
   position: absolute;
-  right: -10px; 
+  right: 10px;
 
-  animation: volar 2.5s ease-in-out infinite;
+  /* animación constante suave */
+  animation: flotarSuave 3s ease-in-out infinite;
+
+  /* transiciones para interacción */
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-/* ANIMACIÓN TIPO ESCOBA VOLADORA */
-@keyframes volar {
-  0%   { transform: translateY(0px) rotate(0deg); }
-  20%  { transform: translateY(-8px) rotate(-5deg); }
-  40%  { transform: translateY(-14px) rotate(4deg); }
-  60%  { transform: translateY(-10px) rotate(-3deg); }
-  80%  { transform: translateY(-6px) rotate(2deg); }
-  100% { transform: translateY(0px) rotate(0deg); }
+/* ✨ FLOTACIÓN SUAVE (no exagerada) */
+@keyframes flotarSuave {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+/* 🔄 GIRO CADA 3 SEGUNDOS (aparte, sin romper todo) */
+.logo-mini {
+  animation:
+    flotarSuave 3s ease-in-out infinite,
+    girito 3s linear infinite;
+}
+
+@keyframes girito {
+  0%   { rotate: 0deg; }
+  90%  { rotate: 0deg; }
+  100% { rotate: 360deg; }
+}
+
+/* 🖱️ HOVER (efecto mágico) */
+.logo-mini:hover {
+  transform: translateY(-8px) scale(1.08);
+  filter: drop-shadow(0 0 10px violet);
+}
+
+/* 👆 CLICK (feedback + magia) */
+.logo-mini:active {
+  transform: scale(0.9) rotate(15deg);
 }
