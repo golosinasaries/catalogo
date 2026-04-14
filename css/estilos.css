@@ -646,14 +646,39 @@ html { scroll-behavior: smooth; }
   font-size: 1.5rem;                                  
   text-align: center;                                  
 }
+@media (max-width: 1400px) {
+  .portfolio,
+  .catalogo {
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 0.75rem;
+    margin-top: 10%;
+  }
+  .fb-sub {
+    margin-top: 30%;
+  }
+}
+@media (max-width: 1320px) {
+  .portfolio,
+  .catalogo {
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 0.75rem;
+    margin-top: 5%;
+  }
+  .fb-sub {
+    margin-top: 30%;
+  }
+}
 
 @media (max-width: 1024px) {
   .portfolio,
   .catalogo {
     grid-template-columns: repeat(3, 1fr); 
     gap: 0.75rem;
+    margin-top: 10%;
   }
-
+  .fb-sub {
+    margin-top: 30%;
+  }
   .card img {
     height: 200px; 
   }
@@ -674,11 +699,14 @@ html { scroll-behavior: smooth; }
   }
 
   nav a {
-    font-size: 3rem; 
-    font-family: 'Playfair Display', serif;
-    padding-right: 120px; 
-    margin-bottom: -2%;
-    margin-top: -7%;
+    font-size: 3rem;
+    padding: 0.1rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-variant-caps: all-petite-caps;
+    font-weight: bold;       
+    text-decoration: underline;
+    padding-top: 0rem;
+    padding-right: 210px; 
   }
  
   #search {
@@ -691,6 +719,7 @@ html { scroll-behavior: smooth; }
   .catalogo {
     grid-template-columns: repeat(3, 1fr); 
     gap: 0.5rem;
+    margin-top: 10%;
   }
 
   .card img {
@@ -735,16 +764,77 @@ html { scroll-behavior: smooth; }
   }
 
 }
+@media (max-width: 890px) {
+  .portfolio,
+  .catalogo {
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 0.5rem;
+    margin-top: 15%;
+  }
 
-@media (max-width: 480px) {
+  .card img {
+    height: 180px; 
+  }
+
+  .card h3 {
+    font-size: 1.3rem; 
+  }
+
+  .card p {
+    font-size: 0.9rem;
+    line-clamp: 3;
+  }
+
+  .card .btn-carrito {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px; 
+  }
+
+  .titulo-contenedor h1 {
+    font-size: 1.4rem; 
+    font-family: 'Quicksand', sans-serif;
+  }
+  
+  nav a {
+    font-size: 3.2rem;
+    padding: 0.1rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-variant-caps: all-petite-caps;
+    font-weight: bold;           
+    text-decoration: underline;
+    padding-top: 0rem;
+    padding-right: 210px; 
+  }
+
+  #search {
+    width: 95%; 
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+}
+@media (max-width: 580px) {
   .portfolio,
   .catalogo {
     grid-template-columns: repeat(2, 1fr); 
     gap: 0.3rem;
+    margin-top: 10%;
+  }
+}
+@media (max-width: 690px) {
+  .portfolio,
+  .catalogo {
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 0.3rem;
+    margin-top: 1%;
   }
   
   body {
-    margin-top: 35%;
+    margin-top: 25%;
+  }
+  main {
+    margin-top: 0%;
   }
   .modal-title,
   .h2,
@@ -823,9 +913,9 @@ html { scroll-behavior: smooth; }
   }
   
 }
-@media (max-with: 331px) {
+@media (max-with: 350px) {
   nav a {
-    font-size: 1srem;
+    font-size: 1rem;
     padding: 0.1rem;
     font-family: 'Bebas Neue', sans-serif;
     font-variant-caps: all-petite-caps;
@@ -834,8 +924,98 @@ html { scroll-behavior: smooth; }
     padding-top: 0rem;
     padding-right: 210px; 
   }
+  .portfolio,
+  .catalogo {
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 0.3rem;
+    margin-top: 10%;
+  }
+  
+  body {
+    margin-top: 25%;
+  }
+  main {
+    margin-top: 0%;
+  }
+  .modal-title,
+  .h2,
+  .img {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    margin-top: 0.9%;
+  }
+  .modal-botones{
+    margin-bottom: 0.2%;
+    margin-top: 5.2%;
+  }
+  
+  .card img {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 180px;
+  }
 
+  .card h3 {
+    font-size: 1.3rem;
+    text-align: left;
+  }
+
+  .card p {
+    font-size: 1.1rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    margin-bottom: 0.1rem;
+    text-align: center;
+  }
+
+  .card .btn-carrito {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px; 
+  }
+
+  .titulo-contenedor h1 {
+    font-size: 1.4rem; 
+    font-family: 'Quicksand', sans-serif;
+  }
+  
+  nav a {
+    font-size: 3.2rem;
+    padding: 0.1rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-variant-caps: all-petite-caps;
+    font-weight: bold;           
+    text-decoration: underline;
+    padding-top: 0rem;
+    padding-right: 210px; 
+  }
+
+  #search {
+    width: 95%; 
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .contenedor-secciones {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .seccion {
+    margin-top: 2rem; 
+  }
+
+  .card button {
+    font-size: 0.80rem;
+    padding: 0.4rem 0.6rem;
+  }
+  
 }
+
+
 
 /* Footer (total + botones) */
 #carrito-footer {
@@ -1184,7 +1364,7 @@ html { scroll-behavior: smooth; }
   font-size: 20px;
   padding-bottom: 0%;
   margin-bottom: 0.9%;
-  margin-top: -1%;
+  margin-top: 2%;
   padding-top: 0%;
 }
 /* Botón flotante */
@@ -1271,22 +1451,7 @@ html { scroll-behavior: smooth; }
     font-size: 15px;
   }
 }
-@media (max-width: 1024px) {
-  .instrucciones-texto {
-    margin: 30px 20px;
-    padding: 22px 25px;
-    margin-top: 100px;
-  }
 
-  .instrucciones-texto h2 {
-    font-size: 22px;
-  }
-
-  .instrucciones-texto p,
-  .instrucciones-texto li {
-    font-size: 15px;
-  }
-}
 @media (max-width: 900px) {
   .instrucciones-texto {
     margin: 28px 18px;
@@ -1338,11 +1503,25 @@ html { scroll-behavior: smooth; }
   margin-bottom: .5rem;
 }
 
-.fb-sub,
+.fb-sub {
+  font-size: 14px;
+  color: #ddd;
+  text-align: center;
+  margin-top: 10px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* pequeño glow elegante */
+.fb-sub::before {
+  content: "✨";
+  margin-right: 5px;
+}
 .fb-cta {
   color: #ccc;
   font-size: .95rem;
   margin-bottom: 1.2rem;
+  margin-top: 1.1rem;
 }
 
 .fb-video {
@@ -1666,48 +1845,96 @@ h1, h2, h3 {
   right: 1px;
 }
 }
+
 .phone {
   width: 320px;
-  margin: 30px auto;
-  padding: 10px;
-  border-radius: 30px;
-  background: linear-gradient(145deg, #1a1a1a, #000);
+  margin: 20px auto;
+  padding: 12px;
+  border-radius: 35px;
+  background: linear-gradient(145deg, #0f0f0f, #000);
   box-shadow: 
-    0 10px 30px rgba(0,0,0,0.5);
+    0 15px 40px rgba(0,0,0,0.7),
+    inset 0 0 10px rgba(255,255,255,0.05);
   position: relative;
-  transition: transform 0.3s ease;
+  transition: all 0.4s ease;
+  overflow: hidden;
 }
+
+/* brillo animado */
+.phone::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -50%;
+  width: 200%;
+  height: 300%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.15),
+    transparent
+  );
+  transform: rotate(25deg);
+  transition: 0.6s;
+}
+
+/* efecto hover */
 .phone:hover {
-  transform: scale(1.05) rotate(1deg);
-
+  transform: scale(1.06) rotate(1deg);
+  box-shadow: 
+    0 25px 60px rgba(0,0,0,0.9),
+    0 0 20px rgba(138,43,226,0.4); /* violeta mágico */
 }
 
+.phone:hover::before {
+  top: 100%;
+}
+
+/* pantalla */
 .screen {
   background: #000;
-  border-radius: 30px;
+  border-radius: 25px;
   overflow: hidden;
   height: 600px;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
-/* iframe ocupa toda la pantalla */
+/* borde glow sutil */
+.screen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 25px;
+  box-shadow: inset 0 0 20px rgba(138,43,226,0.15);
+  pointer-events: none;
+}
+
+/* iframe full */
 .screen iframe {
   width: 100%;
   height: 100%;
   border: none;
 }
 
-/* instagram fix */
-.screen .instagram-media {
-  width: 100% !important;
-  min-width: 100% !important;
+/* fallback botón más moderno */
+.fb-fallback a {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 20px;
+  background: #0F62CE; 
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
-.fb-fallback {
-  text-align: center;
-  padding: 10px;
-  font-weight: 600;
+
+/* hover botón */
+.fb-fallback a:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(255,255,255,0.4);
 }
 
 /* CONTENEDOR */
@@ -1771,4 +1998,20 @@ h1, h2, h3 {
 /* 👆 CLICK (feedback + magia) */
 .logo-mini:active {
   transform: scale(0.9) rotate(15deg);
+}
+@media (max-width: 524px) {
+  .portfolio,
+  .catalogo {
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 0.3rem;
+    margin-top: 10%;
+  }
+}
+@media (max-width: 409px) {
+  .portfolio,
+  .catalogo {
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 0.3rem;
+    margin-top: 14%;
+  }
 }
