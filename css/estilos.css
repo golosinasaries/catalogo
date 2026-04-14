@@ -79,16 +79,20 @@ nav {
 }
 
 nav a {
-  display: inline-block;                           
-  color: #070000;                                     
-  text-decoration: underline;                           
-  font-weight: bold;                                 
-  font-size: 4rem;                                
-  transition: color 0.3s;                             
-  margin: 0.25rem;                                     
+  display: inline-block;
   font-family: 'Bebas Neue', sans-serif;
-  padding-right: 120px; 
-  text-align: center;
+  font-size: 3.5rem;
+  letter-spacing: 2px;
+
+  color: #111;
+  text-decoration: none;
+
+  padding: 8px 20px;
+  margin: 0.25rem;
+
+  border-radius: 12px;
+
+  transition: all 0.3s ease;
 }
 
 nav a:hover {
