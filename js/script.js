@@ -18,7 +18,7 @@ let currentVariantes = null;
 
 const STOCK_PRODUCTOS = {
   "Chupetines Kuromy con led (30 u)": 1,
-  "Huevos Sorpresa Plantas vs Zombies (30 u)": 1,
+  "Huevos Sorpresa Plantas vs Zombies (30 u)": 0,
   "Huevos Sorpresa de Dinosaurios (30 u)": 1,
   "Autito con pastillitas (30 u)": 1,
   "Chicle Fierita Recargado - Tutti Frutti (50 u)": 0,
