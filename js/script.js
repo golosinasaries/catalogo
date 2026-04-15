@@ -1244,6 +1244,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     msg += `\n\n📍 *Entrega en Miramar*`;
     
   } else {
+    msg += `\n\n codigo postal: ${codigoPostalCliente}`;
     msg += `\n\n✨ *¡Tu pedido ya está listo!*`;
     msg += `\nSolo tocá *Enviar* y te respondemos enseguida para coordinar 💌`;
         /*
