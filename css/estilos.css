@@ -651,13 +651,20 @@ html { scroll-behavior: smooth; }
 @media (max-width: 1400px) {
   .portfolio,
   .catalogo {
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(4, 1fr); 
     gap: 0.75rem;
     margin-top: 10%;
   }
   .fb-sub {
     margin-top: 30%;
   } 
+    .logo-mini {
+    width: 90px;
+    margin-top: 20px;
+    top: 90px;       
+    left: 10px;
+    z-index: 1000;  
+  }
 }
 @media (max-width: 1320px) {
   .portfolio,
@@ -668,6 +675,32 @@ html { scroll-behavior: smooth; }
   }
   .fb-sub {
     margin-top: 30%;
+  }
+    .logo-mini {
+    width: 90px;
+    margin-top: 20px;
+    top: 90px;       
+    left: 10px;
+    z-index: 1000;  
+  }
+  
+}
+@media (max-width: 1245px) {
+  .portfolio,
+  .catalogo {
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 0.75rem;
+    margin-top: 8%;
+  }
+  .fb-sub {
+    margin-top: 30%;
+  }
+    .logo-mini {
+    width: 90px;
+    margin-top: 20px;
+    top: 90px;       
+    left: 10px;
+    z-index: 1000;  
   }
   
 }
@@ -915,6 +948,7 @@ html { scroll-behavior: smooth; }
   }
 
 }
+
 @media (max-with: 350px) {
   nav a {
     font-size: 1rem;
