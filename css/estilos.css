@@ -1,13 +1,16 @@
-
 :root {
-  --primary: #6a1b9a;
-  --accent: #00b894;
+  --primary: #D946EF;
+  --accent: #EC4899;
+  --rose-dark: #BE185D;
+  --lilac-light: #E9D5FF;
+  --lilac-bright: #D8B4FE;
   /* color de fondo general de la página */
- --bg: #1c2a33;
+  --bg: #1c2a33;
   /* color de texto por defecto */
   --text: #0b0c00;
   /* altura estimada del header (se usa para empujar contenido) */
-  --header-h: 80px;
+  --header-h: 140px;
+  --header-offset: calc(var(--header-h) + 28px);
   /* ancho máximo de contenido central */
   --content-max-w: 1200px;
   /* tamaño base de fuente (puedes ajustar si quieres escalar todo) */
@@ -19,136 +22,297 @@
   box-sizing: border-box;
 }
 html, body {
-  margin: 0;                            /* quita margen por defecto del navegador */
-  padding: 0;                           /* quita padding por defecto */
-  min-width: 100vw;                     /* evita que se reduzca el ancho de la página */
-  overflow-x: hidden;                   /* evita scroll horizontal inesperado */
+  margin: 0;
+  padding: 0;
+  min-width: 100vw;
+  overflow-x: hidden;
   font-family: 'Quicksand', sans-serif;
-  background: var(--bg);                /* color de fondo global */
-  color: var(--text);                   /* color de texto global */
-  font-size: var(--base-font);          /* tamaño base de fuente */
+  background: var(--bg);
+  color: var(--text);
+  font-size: var(--base-font);
+}
+
+main {
+  max-width: var(--content-max-w);
+  margin: 0 auto;
+  width: 100%;
+  min-height: 60vh;
+  font-size: 1rem;
+  background: #030303;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  overflow: visible;
+  padding-bottom: 0.1rem;
+  padding-top: calc(var(--header-offset) + 20px);
 }
 header {
-  background: linear-gradient(135deg, #6a1b9a, #ab47bc); /* degradado de fondo del header */
-  padding: 0.00005rem;                                       /* espacio interno del header */
-  text-align: center;                                  /* centra el contenido textual */
-  position: fixed;                                     /* fija el header en la parte superior */
-  top: 0;                                              /* posicion arriba: 0 */
-  left: 0;                                             /* pegado a la izquierda */
-  right: 0;                                            /* pegado a la derecha */
-  z-index: 1000;                                       /* z-index alto para estar encima del contenido */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);               /* sombra sutil debajo */
-  width: 100%;                                         /* que ocupe todo el ancho */
-  max-width: 100vw;                                    /* evitar overflow por ancho */
-  box-sizing: border-box;                              /* asegurar box-sizing dentro del header */
-  display: flex;                                       /* layout flex para alinear elementos */
-  justify-content: space-between;                      /* espacio entre logo y nav */
-  align-items: center;                                 /* centra verticalmente los elementos */
-  flex-wrap: wrap;                                     /* permite que el contenido salte a la siguiente línea */
-  gap: 0.5rem;                                           /* separación entre elementos flex */
-  min-height: var(--header-h);                         /* altura mínima definida por la variable */
- 
+  background: linear-gradient(135deg, #E91E63 0%, #D946EF 50%, #BA55D3 100%);
+  padding: 0.55rem 1.1rem;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(233, 30, 99, 0.3);
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.35rem 0.9rem;
+  min-height: auto;
 }
 /* contenedor del logo dentro del header */
+.logo-contenedor {
+  order: 1;
+  flex-shrink: 0;
+}
+
 .logo-contenedor img {
-  max-width: 110px;                                    /* ancho máximo del logo */
-  height: auto;                                        /* altura automática para mantener proporción */
-  border-radius: 12px;                                 /* bordes redondeados en la imagen */
-  filter: drop-shadow(0 2px 8px rgba(106,27,154,0.3)); /* sombra externa para destacar */
+  max-width: 138px;
+  height: auto;
+  border-radius: 15px;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
+  transition: transform 0.3s ease, filter 0.3s ease;
+  display: block;
+  transform-origin: center center;
+  animation: logo-showcase 8s ease-in-out infinite;
+  will-change: transform;
+}
+
+.logo-contenedor img:hover {
+  transform: scale(1.08) translateY(-3px);
+  filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 25px rgba(255, 255, 255, 0.5));
+}
+
+/* Botón Contacto entre logo y título */
+.btn-contacto-header {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, #FF006E, #FF1493);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  border: 2px solid #ffffff;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-family: 'Fredoka One', sans-serif;
+  box-shadow: 0 6px 16px rgba(255, 0, 110, 0.3);
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  order: 2;
+  white-space: nowrap;
+}
+
+.btn-contacto-header:hover {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 10px 24px rgba(255, 0, 110, 0.5);
+  border-color: #FFB6D9;
+  background: linear-gradient(135deg, #FF1493, #FF006E);
 }
 /* contenedor del título (centro del header) */
 .titulo-contenedor {
-  flex: 1;                                             /* ocupa espacio restante */
-  text-align: center;                                  /* centra su contenido */
-  overflow: hidden;                                    /* oculta contenido que se desborda */
-  box-sizing: border-box;                              /* asegurar box-sizing */
-  max-width: 100vw;                                    /* no exceder el ancho de la ventana */
-  padding: 0 1rem;                                     /* separación interna horizontal */
-  font-size: 1rem;                                     /* tamaño base para contenedor */
+  flex: 1 1 auto;
+  text-align: center;
+  overflow: visible;
+  box-sizing: border-box;
+  max-width: 100vw;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  order: 3;
+  min-width: 0;
 }
+
 /* estilo del h1 dentro del título */
 .titulo-contenedor h1 {
-  font-size: 1.5rem;                                  /* tamaño del título (ajustado para no ser gigante) */
-  margin: 0 0 0.5rem 0;                                /* margen inferior pequeño */
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.4);            /* ligera sombra de texto para legibilidad */
-  white-space: nowrap;                                 /* evita salto de línea en el título */
-  overflow: hidden;                                    /* oculta el texto que se desborda */
-  text-overflow: ellipsis;                             /* muestra "..." si corta el texto */
-  line-height: 1.2;                                    /* altura de línea */
-  font-weight: bold;                                   /* texto en negrita */
-  padding: 0 1rem;                                     /* padding horizontal */
-  font-family: 'Quicksand', sans-serif;
-}
-nav {
-  display: flex;                                       /* layout flex para los enlaces */
-  justify-content: center;                             /* centra la navegación */
-  align-items: center;                                 /* alinea verticalmente */
-  gap: 0.5rem;                                         /* separación entre enlaces */
-  flex-wrap: wrap;                                     /* permite que los enlaces salten línea si hace falta */
-  font-family: 'Bebas Neue', sans-serif;
-}
-/* estilo de cada enlace del nav */
-nav a {
-  display: inline-block;                               /* inline-block para padding y margin */
-  color: #070000;                                      /* color de texto de los enlaces */
-  text-decoration: underline;                               /* sin subrayado */
-  font-weight: bold;                                   /* negrita */
-  font-size: 4rem;                                  /* tamaño razonable para el nav */
-  transition: color 0.3s;                              /* transición suave al hover */
-  margin: 0.25rem;                                     /* pequeño margen alrededor */
-  font-family: 'Bebas Neue', sans-serif;
-  padding-right: 120px; /* deja espacio para el botón */
-  text-align: center;
-}
-/* color al pasar el mouse por encima */
-nav a:hover {
-  color: var(--accent);
-}
-.hero {
-  text-align: center;                                  /* centra el texto del hero */
-  padding-top: 11rem;                             /* espacio extra arriba (visual) */
-  max-width: 100vw;                                    /* no exceder ancho de ventana */
-  background-size: cover;                              /* si tiene imagen, que cubra */
-  background-position: center;                         /* centra la imagen de fondo */
-  color: #000;                                         /* color de texto del hero */
-  position: relative;                                  /* contenedor relativo para overlays */
-  z-index: 1;                                          /* sobre algunos elementos pero debajo del header */
-}
-.hero-title {
-  position: absolute;
-  bottom: 20px; /* o center si querés centrar */
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 2rem;
+  font-size: 2.5rem;
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+  font-weight: 800;
+  font-family: 'Fredoka One', sans-serif;
   color: #ffffff;
-  font-weight: 700;
-  text-shadow: 0 3px 10px rgba(0,0,0,0.6);
   letter-spacing: 1px;
 }
-/* overlay decorativo dentro del hero */
-.hero-overlay {
-  position: absolute;                                  /* posición absoluta dentro del hero */
-  width: 100%;                                         /* ocupa ancho completo */
-  height: 80%;                                         /* altura del overlay */
-  margin-top: 3rem;                                    /* separación superior visual */
-  top: 0;                                              /* arriba del hero */
-  left: 0;                                             /* a la izquierda */
-  opacity: 1;                                          /* opacidad completa (puedes bajar para más transparencia) */
-  background: linear-gradient(135deg, rgba(106,27,154,0.6), rgba(0,184,148,0.6)); /* degradado semitransparente */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);              /* sombra suave */
-  backdrop-filter: blur(2px);                          /* desenfoque del fondo (si el navegador lo soporta) */
-  z-index: 1;   
+
+.subtitulo-header {
+  font-size: 1.36rem;
+  color: #ffffff;
+  margin: 0;
+  font-weight: 500;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+  font-family: 'Quicksand', sans-serif;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  width: auto;
+  text-align: center;
+  overflow: visible;
 }
+
+.btn-whatsapp-header {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #25D366, #1DA851);
+  color: #ffffff;
+  border-radius: 50px;
+  font-size: 1.224rem;
+  text-decoration: none;
+  border: 2px solid #ffffff;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+  padding: 0.4rem 0.8rem;
+  gap: 0.4rem;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.btn-whatsapp-header:hover {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 6px 15px rgba(37, 211, 102, 0.5);
+  background: linear-gradient(135deg, #1DA851, #15843D);
+  position: relative;
+  z-index: 2;
+}
+nav.nav-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  order: 2;
+  width: auto;
+}
+
+.buscador-contacto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: nowrap;
+  order: 4;
+  width: 100%;
+  flex-basis: 100%;
+  padding: 0;
+}
+
+.search-input {
+  padding: 0.6rem 1rem;
+  border-radius: 25px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  color: #333;
+  font-family: 'Quicksand', sans-serif;
+  transition: all 0.3s ease;
+  min-width: 260px;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #ffffff;
+  background: #ffffff;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.btn-contacto {
+  display: inline-block;
+  padding: 0.9rem 1.8rem;
+  background: linear-gradient(135deg, #FF006E, #FF1493);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  border: 3px solid #ffffff;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-family: 'Fredoka One', sans-serif;
+  box-shadow: 0 8px 20px rgba(255, 0, 110, 0.4);
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-contacto:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #FFB6D9, #FF69B4);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.btn-contacto:hover {
+  transform: scale(1.1) translateY(-3px);
+  box-shadow: 0 12px 30px rgba(255, 0, 110, 0.6);
+  border-color: #FFB6D9;
+  background: linear-gradient(135deg, #FF1493, #FF006E);
+}
+.hero {
+  text-align: center;
+  padding-top: 0;
+  max-width: 100vw;
+  background: transparent;
+  background-size: cover;
+  background-position: center;
+  color: #000;
+  position: relative;
+  z-index: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 0;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.1;
+  background: linear-gradient(135deg, rgba(255, 20, 147, 0.3), rgba(218, 112, 214, 0.3));
+  box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.05);
+  z-index: -1;
+}
+
 /* títulos dentro del hero */
 .hero h2, .hero p {
-  position: relative;                                  /* posicionamiento relativo (frente al overlay) */
-  z-index: 1;                                          /* encima del overlay */
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.4);            /* sombra para legibilidad */
-  font-size: 5rem;                                  /* tamaño del texto en hero (ajustado) */
-  margin: 0;                                    /* margen vertical */
-  padding:0rem;                                     /* padding horizontal */
-  margin-top: 0px;
-  font-family: 'Bebas Neue', sans-serif;
+  position: relative;
+  z-index: 1;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+  font-size: 4.5rem;
+  margin: 0;
+  padding: 0rem;
+  font-family: 'Fredoka One', sans-serif;
+  color: #FFFFFF;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-align: center;
 }
 /* botones del hero */
 .hero-buttons {
@@ -177,16 +341,16 @@ nav a:hover {
   transform: scale(1.03);                              /* pequeño zoom */
 }
 .destacados {
-  text-align: center;                                  /* centra el texto */
-  padding: 0.8rem 1rem;                                /* padding interno cómodo */
-  background: #0a0909;                                    /* fondo blanco */
-  border-radius: 0px;                 /* bordes redondeados */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);             /* sombra suave */
-  font-size: 1rem;                                     /* tamaño de fuente */
-  max-width: var(--content-max-w);                     /* ancho máximo del bloque */
-  margin: 1rem auto;                                   /* centrado y margen vertical */
-  width: 100%;                                         /* ocupa 100% del contenedor */
-  box-sizing: border-box;                              /* box-sizing */
+  text-align: center;
+  padding: 0.8rem 1rem;
+  background: #0a0909;
+  border-radius: 0px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  font-size: 1rem;
+  max-width: var(--content-max-w);
+  margin: 10px auto 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 /* título dentro de destacados */
 .destacados h2 {
@@ -216,39 +380,36 @@ nav a:hover {
   
 }
 .card {
-  background: #fff;                                    /* fondo blanco para la tarjeta */
-  border: 2px solid var(--accent);                     /* borde con color de acento */
-  border-radius: var(--border-radius);                 /* bordes redondeados */
-  padding: 1rem;                                       /* padding interno */
-  text-align: center;                                  /* centra el texto */
-  transition: transform 0.3s, box-shadow 0.3s;         /* transiciones suaves */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);             /* sombra sutil */
-  font-size: 0.95rem;                                  /* tamaño de fuente para el contenido */
-  cursor: pointer;                                     /* cursor en hover */
-  display: flex;                                       /* flex para layout interno */
-  flex-direction: column;                              /* columna vertical */
-  align-items: stretch;                                /* estira elementos interiores */
-  justify-content: flex-start;                         /* alineación inicial */
-  height: 100%;                                        /* que la tarjeta ocupe el alto del grid cell */
-  box-sizing: border-box;                              /* box-sizing */
-  min-height: 260px;                                   /* altura mínima para consistencia visual */
-  position: relative;                                  /* necesario para colocar el overlay */
-  border-radius: 10px;
+  background: linear-gradient(135deg, #FFFFFF 0%, #F5E6FF 100%);
+  border: 3px solid #E91E63;
+  border-radius: 15px;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  box-shadow: 0 6px 18px rgba(233, 30, 99, 0.15);
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  height: 100%;
+  box-sizing: border-box;
+  min-height: 260px;
+  position: relative;
+  overflow: hidden;
 }
 
 .card::before {
   content: '';
   position: absolute;
-  top: 8px;          /* arriba de la imagen */
-  right: 8px;        /* a la derecha */
-  background: rgba(0,0,0,0.6);
-  color: #fff;
-  font-size: 0.9rem;
-  padding: 2px 6px;
-  border-radius: 6px;
-  pointer-events: none; /* para que no interfiera con el click en la card */
-  font-weight: bold;
-  z-index: 2;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 182, 217, 0.3), transparent);
+  transition: left 0.5s ease;
+  z-index: 0;
 }
 
 .card:hover::before {
@@ -260,6 +421,7 @@ nav a:hover {
   box-shadow: 0 15px 35px rgba(233, 30, 99, 0.25);
   border-color: #D946EF;
 }
+
 /* imagen principal de la tarjeta */
 .card img {
   width: 100%;
@@ -291,6 +453,7 @@ nav a:hover {
   flex-grow: 0;
   font-weight: bold;
 }
+
 /* descripción breve dentro de la tarjeta */
 .card p {
   margin: 0.25rem 0 0.5rem 0;
@@ -333,6 +496,7 @@ nav a:hover {
   position: relative;
   z-index: 1;
 }
+
 /* hover del botón */
 .card button:hover {
   background: linear-gradient(45deg, #BA55D3, #FF1744);
@@ -365,27 +529,25 @@ nav a:hover {
 }
 /* Contenido interior */
 .modal-content {
-  display: flex;
-  flex-direction: column;
-  height: auto;
-  justify-content: flex-start;
-  max-width: 500px;
+  max-width: 900px;       /* fijo máximo ancho */
   width: 100%;
   max-height: 90%;
   background: #9d00ff;
   color: #000000;
-  padding: 0.5rem;
+  padding: 1rem;
   border-radius: 12px;
   text-align: center;
+  overflow: hidden;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 0.3rem;
   animation: fadeIn 0.25s ease;
   border: 3px solid;
   border-image: linear-gradient(45deg, var(--primary), var(--accent)) 1;
-  font-style: normal;
+  font-style: italic;
 }
 /* Imagen del modal */
 .modal-content img {
@@ -400,8 +562,9 @@ nav a:hover {
 }
 /* Zoom */
 .modal-content img.zoomed {
-  cursor: grab;
-  transform: translate(var(--x, 0px), var(--y, 0px)) scale(1.8);
+  transform: scale(1.8);
+  cursor: zoom-out;
+  z-index: 10;
 }
 /* Cruz para cerrar */
 .close {
@@ -454,7 +617,7 @@ nav a:hover {
   border-radius:10px;
 }
 .modal-botones button {
-  padding: 10px 13px;
+  padding: 10px 15px;
   border: black;
   border-radius: 6px;
   cursor: pointer;
@@ -575,18 +738,7 @@ nav a:hover {
   background: var(--primary);                          /* cambia a color primario */
   transform: scale(1.03);                              /* ligero zoom */
 }
-main {
-  max-width: var(--content-max-w);                     /* ancho máximo del contenido */
-  margin: 0 auto;                                      /* centrar horizontalmente */
-  width: 100%;                                         /* ocupar ancho */
-  min-height: 60vh;                                    /* altura mínima para buena presencia */
-  font-size: 1rem;                                     /* tamaño base de fuente */
-  background: #030303;                                 /* fondo blanco para la zona principal */                /* bordes redondeados */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);             /* sombra sutil */
-  overflow: visible;                                   /* overflow visible por defecto */
-  padding-bottom: 0.1rem;                                /* espacio inferior */
-  padding-top: 0.1rem;                                 /* espacio superior mínimo (el push principal lo hace .main arriba) */
-}
+
 footer {
   background: linear-gradient(135deg, var(--primary), var(--accent));
   color: #fff;
@@ -992,64 +1144,6 @@ html { scroll-behavior: smooth; }
     flex-basis: 100%;
     gap: 0.5rem;
   }
-  
-  .modal-precio,
-  .modal-title,
-  .h2,
-  .img {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    margin-top: 0.5%;
-    font-family: 'Bebas Neue', sans-serif;
-  }
-  .modal-botones{
-    margin-bottom: 0.2%;
-    margin-top: 5.2%;
-  }
-  
-  .card img {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 180px;
-  }
-
-  .card h3 {
-    font-size: 1.1rem;
-    text-align: left;
-  }
-
-  .card p {
-    font-size: 1.1rem;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    margin-bottom: 0.1rem;
-    text-align: center;
-  }
-
-  .card .btn-carrito {
-    display: block;
-    width: 100%;
-    margin-bottom: 5px; /* separa los botones */
-  }
-
-  .titulo-contenedor h1 {
-    font-size: 1.4rem; /* título header más pequeño */
-    font-family: 'Quicksand', sans-serif;
-  }
-  
-  nav a {
-    font-size: 3.2rem;
-    padding: 0.1rem;
-    font-family: 'Bebas Neue', sans-serif;
-    font-variant-caps: all-petite-caps;
-    font-weight: bold;            /* 🔹 Negrita */
-    text-decoration: underline;
-    padding-top: 0rem;
-    padding-right: 210px; /* deja espacio para el botón */
-  }
 
   .hero {
     padding-top: 6rem;
@@ -1276,14 +1370,13 @@ html { scroll-behavior: smooth; }
   margin-bottom: 12px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   text-align: left;
-  gap: 5px;
+  
 }
 
 .carrito-item strong {
   display: block;
-  font-size: 1.3rem;
-  margin-bottom: 0px;
-  padding-bottom: 0%;
+  font-size: 1.5rem;
+  margin-bottom: 1px;
   font-weight: 700;
   color: #2d3436;
 }
@@ -1410,8 +1503,8 @@ html { scroll-behavior: smooth; }
     text-align: center;
     font-weight: bold;
     font-family: 'Bebas Neue', sans-serif;
-    margin-top: 1rem;
-    margin-bottom: 0.1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
 
   }
   .modal button,
@@ -1426,9 +1519,9 @@ html { scroll-behavior: smooth; }
   left: 20px;
   background: var(--primary);
   color: rgb(19, 1, 1);
-  padding: 9px 10px;
+  padding: 12px 18px;
   border-radius: var(--border-radius);
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: bold;
   z-index: 9999;
   opacity: 0;
@@ -1891,216 +1984,4 @@ html { scroll-behavior: smooth; }
     border-radius: 18px;
     padding: 1.75rem 1rem;
   }
-}
-
-
-/*siguiente proddddddd*/
-.prev-producto,
-.next-producto {
-  position: absolute;
-  bottom: 6px;
-  font-size: 14px;
-  color: white;
-  opacity: 0.7;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  cursor: pointer;
-  transition: opacity 0.2s;
-  color: white;
-  padding: 1px 15px;
-  border-radius: 50px;
-}
-
-/* hover */
-.prev-producto:hover,
-.next-producto:hover {
-}
-
-.prev-producto span,
-.next-producto span {
-  font-size: 11px;
-  opacity: 0.8;
-}
-
-/* posiciones */
-.prev-producto {
-  left: 15px;
-}
-
-.next-producto {
-  right: 15px;
-}
-
-.modal-botones {
-  padding: 5px;
-  background: #9d00ff;
-  margin-bottom: 1.5rem;
-  margin-top: 0rem;
-  padding-top: 0%;
-}
-.modal-content {
-  display: flex;
-  flex-direction: column;
-  max-height: 500px;
-  padding-top: 2%;
-  padding-bottom: 2%;
-}
-
-.modal-body {
-  flex: 1;
-  overflow: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  margin-bottom: 0rem;
-  margin-top: 0rem;
-}
-
-.modal-footer {
-  position: sticky;
-  bottom: 0;
-  background: #9d00ff;
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  z-index: 10;
-}
-
-#modal-title {
-    font-size: 1.8rem;
-    margin-bottom: 0.1%;
-    margin-top: 0.9%;
-    font-family: 'Bebas Neue', sans-serif;
-  }
-#modal-precio {
-    font-size: 1.8rem;
-    margin-bottom: 0.1%;
-    margin-top: 0.1%;
-    font-family: 'Bebas Neue', sans-serif;
-
-  }
-#whatsapp-btn.oculto {
-  display: none;
-}
-body {
-  font-family: 'Poppins', sans-serif;
-}
-
-h1, h2, h3 {
-  font-family: 'Fredoka', sans-serif;
-}
-.card h3 {
-  font-family: 'Fredoka', sans-serif;
-  font-weight: 600;
-}
-.card p {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 500;
-}
-#carrito-dropdown {
-  font-family: 'Poppins', sans-serif;
-}
-
-.carrito-item strong {
-  font-family: 'Fredoka', sans-serif;
-  font-weight: 500;
-}
-#modal {
-  font-family: 'Poppins', sans-serif;
-}
-
-#modal-title {
-  font-family: 'Fredoka', sans-serif;
-  font-size: 1.4rem;
-}
-
-#modal-precio {
-  font-weight: bold;
-}
-
-/* CONTENEDOR */
-.card .img-container {
-  position: relative;
-}
-
-/* FLECHAS */
-.card .flecha {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-
-  background: rgba(0,0,0,0.5);
-  color: white;
-
-  font-size: 22px;
-  padding: 8px 12px;
-  border-radius: 50%;
-
-  cursor: pointer;
-  z-index: 10;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* IZQUIERDA */
-.card .flecha.izq {
-  left: 10px;
-}
-
-/* DERECHA */
-.card .flecha.der {
-  right: 10px;
-}
-
-/* HOVER */
-.card .flecha:hover {
-  background: rgba(0,0,0,0.8);
-}
-
-.card-video {
-  position: relative;
-  overflow: hidden;
-}
-
-/* el video arriba de la imagen */
-.card-video video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-/* al pasar el mouse */
-.card-video:hover video {
-  opacity: 1;
-}
-
-/* opcional: ocultar imagen cuando aparece video */
-.card-video:hover img {
-  opacity: 0;
-}
-.modal-media video {
-  opacity: 1;
-  position: static;
-  width: 100%;
-  height: auto;
-  display: block;
-}
-.video-ojos {
-  transform: rotate(90deg);
-  object-fit: contain;
-  background: black;
-}
-#modal-video.video-ojos {
-  transform: rotate(90deg);
-  object-fit: contain;
-  background: black;
 }

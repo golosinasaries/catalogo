@@ -1,317 +1,46 @@
 const minimoCompra = 50000; 
-const ENVIO_MDP = 6900;
+
+const ENVIO_MDP = 5900;
 const ENVIO_GENERAL = 10900;
-const ENVIO_LEJANO = 14900;
-const ENVIO_SANTACRUZ = 15900;
+const ENVIO_LEJANO = 13900;
+const ENVIO_SANTACRUZ = 14900;
 const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
-const minimoRegalo = 70000;   
-const REGALO_NOMBRE = "Chicles Fierita Globo (95 u)✨"; 
+
+const minimoRegalo = 60000;   
+const REGALO_NOMBRE = "Gomita Blanda Helado (30 u) ✨"; 
+
 const PROMO_ACTIVA = "ninguna"; 
 // "envio"  → envío gratis
 // "regalo" → regalo 
 // "ninguna" → sin promo
 
-let productos = [];
-let productoIndex = 0;
-let currentVariantes = null;
-
 const STOCK_PRODUCTOS = {
-  "Agenditas surtidas (10 u)": 1,
-  "Piñata redonditas 700 g": 2,
-  "Chocolates Surtido Especial Arcor 223g": 3,
-  "Gomitas Mogul Frutilla con Crema 500 g": 2,
-  "Gomitas Yummy ácidas 500 g": 1,
-  "Gomitas Mogul Dientes 500 g": 1,
-  "Caramelos masticables Lheritier 300 g": 2,
-  "Chupetines Kuromy con led (30 u)": 1,
-  "Huevos Sorpresa Plantas vs Zombies (30 u)": 0,
-  "Huevos Sorpresa de Dinosaurios (30 u)": 1,
-  "Autito con pastillitas (30 u)": 15,
-  "Chicle Fierita Recargado - Tutti Frutti (50 u)": 0,
-  "Chupetines Merlina (30 u)": 21,
-  "Gomitas Spider-Man (60 u)": 3,
-  "Gomitas de Gelatinas Candy Loka (10 u)": 9,
-  "Gomitas Moritas Mogul 500 g": 2,
-  "Chupetines masticables Baby Dolls (40 u)": 1,
-  "Chupetines masticables Baby Dolls ácidos (40 u)": 2,
-  "Turrón Billiken Sin T.A.C.C (10 u)": 10,
-  "Oblita de Chocolate (48 u)": 10,
-  "Oblita Chocolate Blanco (48 u)": 2,
-  "Gomitas Kuromy (30 u)": 24,
-  "Hombre araña con pastillitas (30 u)": 0,
-  "Chicles WhatsApp con tatoo capibara (36 paquetes de 5 chicles)": 20,
-  "Camión dispenser + caramelos celeste (1 unidad)": 0,
-  "Auto Blanco y azul (1 u)": 1,
-  "Auto Blanco (1 u)": 1,
-  "Caramelo masticable relleno Tnt pinta lengua (60 u)": 3,
-  "Camión Transformer (1 u)": 2,
-  "Camión Verde Transformer (1 u)": 3,
-  "Chupetines con led Simpsons (30 u)": 0,
-  "Chupetines con led Unicornio (30 u)": 1,
-  "Transformers varios (4 u)": 7,
-  "Trompetas con chupetin y sonido (20 u)": 1,
-  "Chupetín Calabaza con polvo ácido y led (30 u)": 0,
-  "Billiken Congys 200 g": 3,
-  "Caramelos masticables Fierita Granjero (100 u)": 0,
-  "Billiken Tutti-frutti 800 g": 1,
-  //"Billiken redonditas 800 g": 0,
-  "Gomitas Lilo y Stitch (60 u)": 2,
-  "Llaveros láser Capibara (12 u)": 2,
+  "Llaveros láser Capibara (12 u)": 1,
   "Autito  + pastillitas (30 u)": 15,
   "YO-YOs con luces (12 u)": 1,
-  "Gomitas Selección (30 u)": 48,
-  "Gomitas Among Us (30 u)": 15,
-  "Gomitas Donas 🍩 (30 u)": 1,
-  "Bocaditos Bel (50 u)": 1,
-  "Fierita Super Tatoo Tutti Frutti 600g": 1,
+  "Gomitas Selección (30 u)": 1,
+  "Gomitas blandas Among Us (30 u)": 4,
+  "Gomitas blandas Donas 🍩 (30 u)": 1,
   "Botellitas con chicles (30 botellitas)": 20,
-  "Gomitas Fantasmita (30 u)": 1,
-  "Alcancía Lechuza Marrón": 15,
-  "Alcancía Lechuza Rosa": 0,
-  "Chupetines con forma de helado (30 u)": 1,
-  "Alcancía Oso Rosa": 0,
-  "Alcancía Oso café": 5,
-  "Misky Rico más 500 g": 2,
+  "Gomitas blandas Fantasmita (30 u)": 1,
+  "Alcancía Lechuza Marrón(con 12 gelatinas en su interior)": 1,
+  "Alcancía Lechuza Rosa (con 12 gelatinas en su interior)": 4,
   "Chupetines Cremosito Fierita - Fritilla y Crema (50 u)": 2,
   "Alfajor Guaymallén simple de Membrillo (10 u)": 1,
-  "Alfajor Guaymallén simple de Chocolate Blanco (10 u)": 5,
-  "Alfajor Guaymallén simple de Dulce de Leche (10 u)": 0,
+  "Alfajor Guaymallén simple de Chocolate Blanco (10 u)": 3,
+  "Lenguetazo (32 u)": 2,
   "Lenguetazo Pinta Lengua (32 u)": 2,
   "Lenguetazo Tropical Punch (32 u)": 1,
-  "Lenguetazo (32 u)": 1,
-  "Pistolitas con luz (30 u)": 1,
-  "Camión dispenser + caramelos rosa (1 unidad)": 0,
+  "Camión dispenser + caramelos rosa (1 unidad)": 1,
   "Pistola + caramelos rosa (1 unidad)": 1,
-  "Alcancía Tigre Amarillo": 15,
-  "Alcancía Tigre rojo": 15,
-  "Alcancía Pollito Rojo": 0,
-  "Alcancía Pingüino Rosa (con 12 gelatinas en su interior)": 15,
-  "Gomitas Super Mario (30 u)": 15,
-  "Chupetines con led Oreo (30 u)": 15,
-  "Nutello pequeños (60 u)": 18,
-  "Smack Bar (30 u)": 10,
-  "Dinosaurio con caramelos y luces (1 unidad)": 2,
-  "Avión Naranja Transformer (1 u)": 1,
-};
-
-const globos = [
-  {
-    nombre: "Chicle Fierita Globo sabor Banana (95 u)",
-    precio: "$7.900",
-    img: "img/globobanana.jpg"
-  },
-  {
-    nombre: "Chicle Fierita Globo sabor Frutilla (95 u)",
-    precio: "$7.900",
-    img: "img/gobofrutilla.jpg"
-  },
-  {
-    nombre: "Chicle Fierita Globo sabor Menta (95 u)",
-    precio: "$7.900",
-    img: "img/globomenta.jpg"
-  }
-];
-
-const alcancias = [
-  {
-    nombre: "Alcancía Pingüino Rosa (con 12 gelatinas en su interior)",
-    precio: "$6.500",
-    img: "img/alcanciapinguinorosa.jpg"
-  },
-    {
-    nombre: "Alcancía Pingüino negro",
-    precio: "$6.500",
-    img: "img/pinguino2.jpg"
-  },
-
-  {
-    nombre: "Alcancía Pollito Rojo",
-    precio: "$6.500",
-    img: "img/alcanciapinguinorojo.jpg"
-  },
-  {
-    nombre: "Alcancía Lechuza Marrón",
-    precio: "$6.500",
-    img: "img/lechuza.jpg"
-  },
-
-  {
-    nombre: "Alcancía Lechuza Rosa",
-    precio: "$6.500",
-    img: "img/lechuzarosa.jpg.png"
-  },
-  {
-    nombre: "Alcancía Oso Rosa",
-    precio: "$6.500",
-    img: "img/osorosa1.jpg"
-  },
-  {
-    nombre: "Alcancía Tigre Rojo",
-    precio: "$6.500",
-    img: "img/tigrerojo.png"
-  },
-  {
-    nombre: "Alcancía Tigre Amarillo",
-    precio: "$6.500",
-    img: "img/alcanciaojoamarillo.png"
-  },
-];
-
-const recargados = [
-    {
-    nombre: "Chicle Fierita Recargado - Menta (50 u)",
-    precio: "$6.500",
-    img: "img/fieritarecargadomenta.jpg"
-  },
- {
-    nombre: "Chicle Fierita Recargado - Tutti Frutti (50 u)",
-    precio: "$6.500",
-    img: "img/fieritarecargado.jpg"
-  },
-
-];
-
-const variantesTransformer = [
-
- /* {
-    img: "img/camiontra3.jpeg",
-    nombre: "Camión Transformer (1 u)",
-    precio: "$4.500"
-  },
-  */
-  {
-    img: "img/autoblancotra.jpeg",
-    nombre: "Auto Blanco (1 u)",
-    precio: "$4.500"
-  },
-
-   {
-    img: "img/autoblancoyazul.jpeg",
-    nombre: "Auto Blanco y azul (1 u)",
-    precio: "$4.500"
-  },
-
-  {
-    img: "img/aviontra.jpeg",
-    nombre: "Avión Transformer (1 u)",
-    precio: "$4.500"
-  },
-  {
-    img: "img/camionverdetra.jpeg",
-    nombre: "Camión Verde Transformer (1 u)",
-    precio: "$4.500"
-  },
-  {
-    img: "img/avionnaranjatra.jpeg",
-    nombre: "Avión Naranja Transformer (1 u)",
-    precio: "$4.500"
-  },
- /* {
-   img: "img/autorojo.jpeg",
-    nombre: "Auto Rojo Transformer (1 u)",
-    precio: "$4.500"
-  }
-    */
-];
-const oblita = [
+  "Alcancía Tigre Amarillo (con 12 gelatinas en su interior)": 2,
+  "Alcancía Tigre rojo (con 12 gelatinas en su interior)": 3,
+  "Alcancía Pollito rojo (con 12 gelatinas en su interior)": 5,
+  "Alcancía Pingüino Rosa (con 12 gelatinas en su interior)": 6,
+  "Gomitas Super Mario (30 u)": 1,
   
-  {
-    img: "img/oblita_blanco.jpg",
-    nombre: "Oblita Chocolate Blanco (48 u)",
-    precio: "$6.000"
-  },
-
-   {
-    img: "img/oblita_chocolate.jpg",
-    nombre: "Oblita de Chocolate (48 u)",
-    precio: "$6.000"
-  },
-
-  {
-    img: "img/oblita_marroc.jpg",
-    nombre: "Oblita de Marroc (48 u)",
-    precio: "$6.000"
-  },
-
-  {
-    img: "img/oblita_ddl.jpg",
-    nombre: "Oblita de DDL (48 u)",
-    precio: "$6.000"
-  },
-
-  {
-    img: "img/oblitafrutilla.jpg",
-    nombre: "Oblita de Frutilla (48 u)",
-    precio: "$6.000"
-  },
-
-];
-
-const productosVariantes = {
-  "card-alcancia": alcancias,
-  "card-globos": globos,
-  "card-recargado": recargados,
-  "card-transformers": variantesTransformer,
-  "card-oblita": oblita,
 };
-
-function cambiarVariante(el, direccion) {
-  const card = el.closest('.card');
-
-  const claseVariante = Object.keys(productosVariantes)
-    .find(c => card.classList.contains(c));
-
-  if (!claseVariante) return;
-
-  const variantes = productosVariantes[claseVariante];
-
-  let index = parseInt(card.dataset.index || "0");
-
-  index += direccion;
-
-  if (index < 0) index = variantes.length - 1;
-  if (index >= variantes.length) index = 0;
-
-  card.dataset.index = index;
-
-  const v = variantes[index];
-
-  card.querySelector("img").src = v.img;
-  card.querySelector("h3").textContent = v.nombre;
-  card.querySelector("p").textContent = v.precio;
-
-  const btn = card.querySelector(".btn-carrito");
-  btn.dataset.nombre = v.nombre;
-  btn.dataset.precio = v.precio;
-  const stock = STOCK_PRODUCTOS[v.nombre];
-
-  // limpiar avisos viejos
-  card.querySelector(".sin-stock-label")?.remove();
-  card.querySelector(".ultimo-stock")?.remove();
-
-  if (stock === 0) {
-    const aviso = document.createElement("span");
-    aviso.className = "sin-stock-label";
-    aviso.textContent = "❌ Sin stock";
-    card.appendChild(aviso);
-
-    btn.disabled = true;
-    btn.textContent = "Sin stock ❌";
-  } else if (stock === 1) {
-    const aviso = document.createElement("span");
-    aviso.className = "ultimo-stock";
-    aviso.textContent = "🔥 Última";
-    card.appendChild(aviso);
-
-    btn.disabled = false;
-    btn.textContent = "Agregar al carrito";
-  } else {
-    btn.disabled = false;
-    btn.textContent = "Agregar al carrito";
-  }
-}
-
 function validarStock(nombre, carrito) {
   const stockMax = STOCK_PRODUCTOS[nombre];
 
@@ -332,20 +61,25 @@ const btn = document.getElementById("whatsapp-btn");
 
 if (btn) {
   btn.addEventListener("click", () => {
-    const linkGrupo = "https://chat.whatsapp.com/KLSylBrQaCt40aRp8s5gPF?mode=gi_t";
+    // fbq('track', 'Contact');
+    
+    const linkGrupo = "https://chat.whatsapp.com/IOdckbjRmKR7iZJUoJpGEV?mode=gi_ts";
     window.open(linkGrupo, "_blank");
   });
 }
+
 
 function calcularCostoEnvio(cp) {
 
   const codigo = cp.trim();
 
+  // Miramar (7607)
   if (codigo.startsWith("7607")) {
     return ENVIO_MIRAMAR;
   }
 
-  const prefijos = ["9303", "4430",];
+  // Prefijos específicos 
+  const prefijos = ["9303", "4430"];
 
   for (const p of prefijos) {
     if (codigo.startsWith(p)) {
@@ -353,17 +87,17 @@ function calcularCostoEnvio(cp) {
     }
   }
 
+  // Mar del Plata (7600)
   if (codigo.startsWith("7600")) {
     return ENVIO_MDP;
   }
 
+  // Muy al sur o muy al norte
   if (
     codigo.startsWith("9") ||
     codigo.startsWith("4") ||
     codigo.startsWith("3") ||
     codigo.startsWith("6") ||
-    codigo.startsWith("2000") ||
-    codigo.startsWith("5965") ||
     codigo.startsWith("8")
   ) {
     return ENVIO_LEJANO;
@@ -383,43 +117,30 @@ if (modal) {
 
   const prevBtn = document.createElement('div');
   const nextBtn = document.createElement('div');
+  //const contador = document.createElement('span');
 
-  const prevProdBtn = document.createElement('div');
-  const nextProdBtn = document.createElement('div');
-
-  prevBtn.textContent = '‹';
-  nextBtn.textContent = '›';
-  prevProdBtn.textContent = '←';
-  nextProdBtn.textContent = 'Siguiente producto →';
-
-  prevProdBtn.classList.add('prev-producto');
-  nextProdBtn.classList.add('next-producto');
+  prevBtn.textContent = '<';
+  nextBtn.textContent = '>';
   prevBtn.classList.add('prev');
   nextBtn.classList.add('next');
- 
+  //contador.classList.add('contador');
 
   modalContent.appendChild(prevBtn);
   modalContent.appendChild(nextBtn);
-  modalContent.appendChild(prevProdBtn);
-  modalContent.appendChild(nextProdBtn);
-
+  //modalContent.appendChild(contador);a
 
   // Productos
   const imagenesProducto = {
-    "Camión Transformer (1 u)":[ "img/camiontra1.jpeg", "img/camiontra2.jpeg", "img/camiontra3.jpeg"],
-    "Transformers varios (4 u)":  ["img/videotra1.mp4","img/tra1.jpeg","img/tra2.jpeg","img/tra3.jpeg", "img/videotra2.mp4" ],
-    "Gomitas Ojos (30 u)": ["img/ojos.jpg","img/videoojos.mp4"],
-    "Gomitas Oreo (30 u)": ["img/gomitasoreo.jpg","img/videooreo.mp4"],
-    "Dinosaurio con caramelos y luces (1 unidad)": ["img/fotodinosaurio.jpg","img/videodinosaurio.mp4"],
-    "Gomitas de boca (30 u)": ["img/boca.jpg","img/videoboca.mp4"],
     "Gomitas Spider-Man (60 u)": ["img/spiderman1.jpg","img/spiderman2.jpg","img/spiderman3.jpg","img/spiderman4.jpg","img/spiderman5.jpg"],
-    "Llaveros láser Capibara (12 u)": ["img/laser1.jpg","img/laser2.jpg","img/laser3.jpg"],
+    "Llaveros láser Capibara (12 u)": ["img/laser1.jpg","img/laser2.jpg","img/laser3.jpg","img/laser4.jpg"],
     "Ring Pop Barbie (30 u)": ["img/ringpopbarbie.jpg","img/ringpop.jpg"],
     "Pistolitas con luz (30 u)": ["img/pistolita1.jpg","img/pistolita2.jpg","img/pistolita3.jpg","img/pistolita4.jpg"],
     "YO-YOs con luces (12 u)": ["img/yoyo1.jpg","img/yoyo3.jpg","img/yoyo4.jpg","img/yoyo2.jpg"],
     "YO-YOs con luces (24 u)": ["img/yoyo2.jpg","img/yoyo3.jpg","img/yoyo4.jpg","img/yoyo1.jpg"],
+    "Agenditas surtidas (32 u)": ["img/agendita3.jpg","img/agendita2.jpg","img/agendita3.jpg","img/agendita4.jpg"],
     "Agenditas surtidas (10 u)": ["img/agendita2.jpg","img/agendita1.jpg","img/agendita3.jpg","img/agendita4.jpg"],
-    "Gomitas Lilo y Stitch (60 u)": ["img/stich1.jpg","img/stich2.jpg","img/stich3.jpg"],
+    "Agenditas surtidas (20 u)": ["img/agendita1.jpg","img/agendita3.jpg","img/agendita4.jpg"],
+    "Gomitas blandas Lilo y Stitch (60 u)": ["img/stich1.jpg","img/stich2.jpg","img/stich3.jpg"],
     "Chupetines con forma de helado (30 u)": ["img/chupetineshelado1.jpg","img/chupetineshelados2.jpg"],
     "Chupetines con polvo ácido Bob Esponja (30 u)": ["img/bob1.jpg","img/bob2.jpg"],
     "Chicles WhatsApp con tatoo capibara (36 paquetes de 5 chicles)": ["img/wp1.jpg","img/wp2.jpg" ],
@@ -430,36 +151,35 @@ if (modal) {
     "Camión dispenser + caramelos celeste (1 unidad)": ["img/camionceleste1.jpg","img/camionceleste2.jpg"],
     "Tractor dispenser + caramelos verde (1 unidad)": ["img/tractorverde1.jpg","img/tractorverde2.jpg"],
     "Chupetines Kuromy con led (30 u)": ["img/caramelokuromy.jpg","img/caramelokuromy2.jpg"],
-    "Gomita Helado (30 u)": ["img/helado.jpg","img/helado2.jpg"],
-    "Alcancía pingüino negro": ["img/pinguino2.jpg","img/pinguino5.jpg","img/pinguino3.jpg","img/pinguino4.jpg","img/pinguino6.jpg"],
+    "Gomita Blanda Helado (30 u)": ["img/helado.jpg","img/helado2.jpg"],
+    "Alcancía pingüino negro (con 12 gelatinas en su interior)": ["img/pinguino2.jpg","img/pinguino5.jpg","img/pinguino3.jpg","img/pinguino4.jpg","img/pinguino6.jpg"],
     "Chupetines Merlina (30 u)": ["img/merlina1.jpg","img/merlina2.jpg","img/merlina3.jpg","img/merlina4.jpg"],
     "Chupetín con polvo ácido Brain (30 u)": ["img/braincaja.jpg","img/chupetinBrain.jpg"],
     "Camiseta pimball con pastillitas (30 u)": ["img/pimballremera.jpg","img/reversaremera.jpg","img/r1.jpg","img/r2.jpg"],
-    "Chupetín Calabaza con polvo ácido y led (30 u)": ["img/cajaCalabaza.jpg","img/chupetincalabaza1.jpg","img/chupetincalabaza2.jpg"],
+    "Chupetín Calabaza con polvo ácido (30 u)": ["img/chupetincalabaza1.jpg","img/chupetincalabaza2.jpg"],
     "Gelatina de diferentes formas (30 u)": ["img/gelatinaDiferentesSabores4.jpg","img/gelatinaDiferentesSabores3.jpg","img/gelatinaDiferentesSabores2.jpg","img/gelatinaDiferentesSabores5.jpg","img/gelatinaDiferentesSabores1.jpg"],
     "Chupetines con led Corona (30 u)": ["img/chupetinesconled1.jpg","img/corona2.jpg"],
     "Gomitas Monstruo (30 u)": ["img/gomitablandaCara2.jpg","img/gomitablandaCara3.jpg"],
     "Cool Mint sabores frutales (30 u)": ["img/coolmint.jpg","img/coolmint2.jpg"],
-    "Trompetas con chupetin y sonido (20 u)": ["img/trompeta1.jpg","img/trompetas.jpg"],
+    "Trompetas con chupetin y sonido (30 u)": ["img/trompeta1.jpg","img/trompetas.jpg"],
     "Huevos Sorpresa Capibara (30 u)": ["img/sorpresacapibara1.jpg","img/sorpresacapibara2.jpg"],
     "Huevos Sorpresa Plantas vs Zombies (30 u)": ["img/sorpresaplant2.jpg","img/sorpresaplant.jpg"],
-    "Gomitas Fantasmita (30 u)": ["img/fantasmitas.jpg","img/fantasmitas2.jpg"],
-    "Gomitas Batman (30 u)": ["img/batman1.jpg","img/batman2.jpg"],
-    "Monedas de chocolate (290 u)": ["img/monedas1.jpg","img/monedas2.jpg"],
+    "Gomitas blandas Fantasmita (30 u)": ["img/fantasmitas.jpg","img/fantasmitas2.jpg"],
+    "Gomitas blandas Batman (30 u)": ["img/batman1.jpg","img/batman2.jpg"],
+    "Monedas de chocolate (250 u)": ["img/monedas1.jpg","img/monedas2.jpg"],
     "Gomitas ojo-boca-ojo (30 u)": ["img/gomitasoh1.jpg","img/gomitasoh.jpg"],
-    "Gomitas Kuromy (30 u)": ["img/gomitasblandas7.jpg","img/gomitasblandas71.jpg"],
+    "Gomitas blandas Kuromy (30 u)": ["img/gomitasblandas7.jpg","img/gomitasblandas71.jpg"],
     "Chupetines Capibara (30 u)": ["img/chupetincapibara1.jpg","img/chupetincapibara2.jpg"],
+    //"Chupetines con forma de conejo (30 u)": ["img/conejos1.jpg","img/conejos3.jpg"],
     "Chupetines con forma de Unicornio (30 u)":["img/unicornio2.jpg","img/unicornio1.jpg","img/unicornio3.jpg"],
-    "Chupetines con led Unicornio (30 u)":["img/unicornioled1.jpg","img/chupetinnnuni2.jpg","img/leduni.jpg"],
+    "Chupetines con led Unicornio (30 u)":["img/unicornioled1.jpg","img/unicornioled2.jpg","img/leduni.jpg"],
     "Gomitas Super Mario (30 u)": ["img/supermario1.jpg","img/supermario2.jpg"],
-    "Saca lenguas (30 u)": ["img/sacalenguas1.jpg","img/sacalenguas2.jpg"],
+    "Gomitas Saca lenguas (30 u)": ["img/sacalenguas1.jpg","img/sacalenguas2.jpg"],
     "Chupetines con led Mc Donalds (30 u)": ["img/mc.jpg","img/mc2.jpg",],
-    "Chupetines con led Oreo (30 u)": ["img/oreo1.jpg","img/oreo2.jpg",],
+    "Chupetines con led Oreo (30 u)": ["img/oreo1.jpg","img/oreoce.jpg",],
     "Chupetines led Monster (30 u)": ["img/monsterojo1.jpg","img/monsterojo.jpg",],
-    "Gomitas de Gelatinas Candy Loka (10 u)": ["img/gelatinaloka2.jpg","img/gelatinaloka1.jpg","img/gelatinaloka3.jpg","img/trompo.jpg",],
-    "Chupetines Hongos (30 u)": ["img/hongo1.jpg","img/hongo2.jpg"],
-    "Chupetines Frutillas (30 u)": ["img/chupetinfrutilla1.jpg","img/chupetinfrutilla2.jpg", "img/chupetinnnrutilla2.jpg"],
-    "Gomitas Astronauta (30 u)": ["img/astronauta2.jpg","img/astronauta1.jpg"],
+    "Gomitas de Gelatinas Candy Loka (10 u)": ["img/gelatinaloka.jpg","img/trompo.jpg"],
+    "Gomitas de Gelatinas Candy Loka (30 u)": ["img/gelatinaloka2.jpg","img/trompo.jpg"],
     "Combo Emprendedor": ["img/boca.jpg", "img/river.jpg", "img/pelotas.jpg","img/lheritier.jpg","img/gelatinaloka.jpg","img/fieritacomefuego.jpg", "img/remerapimball.jpg","img/bombulla.jpg","img/comboemprendedor.jpg"]
   };
 
@@ -473,7 +193,7 @@ if (modal) {
   }
 
   btn.classList.remove("animar-agregar");
-  void btn.offsetWidth; 
+  void btn.offsetWidth; // fuerza reflow
   btn.classList.add("animar-agregar");
 
   setTimeout(() => {
@@ -485,32 +205,18 @@ if (modal) {
   let currentIndex = 0;
   let currentTitle = "";
 
+
   function abrirModal(card) {
-
-  productoIndex = productos.indexOf(card);
-
   const titulo = card.querySelector('h3')?.textContent.trim();
   const stock = STOCK_PRODUCTOS[titulo];
 
-  
+  if (stock === 0) return;
   const img = card.querySelector('img');
   const title = card.querySelector('h3');
   const price = card.querySelector('p');
 
- currentTitle = title ? title.textContent : "Producto";
-
-  const claseVariante = Object.keys(productosVariantes)
-  .find(c => card.classList.contains(c));
-
-  if (claseVariante) {
-    currentVariantes = productosVariantes[claseVariante];
-    currentImages = currentVariantes.map(v => v.img);
-    currentTitle = currentVariantes[0].nombre;
-  } else {
-    currentVariantes = null;
-    currentImages = imagenesProducto[currentTitle] || [img?.src || ''];
-  }
-
+  currentTitle = title ? title.textContent : "Producto";
+  currentImages = imagenesProducto[currentTitle] || [img?.src || ''];
   currentIndex = 0;
 
   modal.style.display = 'flex';
@@ -523,7 +229,7 @@ if (modal) {
 
   //  SI ES PROMO → SOLO OCULTA EL BOTÓN Y AGRANDA EL MODAL
   if (card.classList.contains('promo')) {
-    modalAgregarBtn.style.display = 'inline-block'; 
+    modalAgregarBtn.style.display = 'none';
     modal.classList.add('fullscreen'); // ✨ clase para agrandar modal
   } else {
     modalAgregarBtn.style.display = 'inline-block';
@@ -532,92 +238,23 @@ if (modal) {
     modal.classList.remove('fullscreen'); // asegura tamaño normal para otros
   }
 
+
 }
-function actualizarModal() {
-  const media = currentImages[currentIndex] || '';
-
-  if (media.endsWith(".mp4")) {
-    modalImg.style.display = "none";
-
-    let video = document.getElementById("modal-video");
-
-    if (!video) {
-      video = document.createElement("video");
-      video.id = "modal-video";
-      video.autoplay = true;
-      video.loop = true;
-      video.muted = true;
-      video.controls = false;
-      video.addEventListener("click", () => {
-        if (video.paused) {
-          video.play();
-        } else {
-          video.pause();
-        }
-      });
-
-      video.playsInline = true;
-      video.setAttribute("playsinline", "");
-      video.setAttribute("webkit-playsinline", "");
-
-      video.style.width = "100%";
-      video.style.borderRadius = "10px";
-
-      modalImg.parentElement.appendChild(video);
-    }
-
-    video.src = media;
-    video.classList.remove("video-ojos");
-
-    if (media.includes("videoojos")) {
-      video.classList.add("video-ojos");
-    }
-    video.style.display = "block";
-
-  } else {
-    modalImg.style.display = "block";
-    modalImg.src = media;
-
-    const video = document.getElementById("modal-video");
-    if (video) {
-      video.style.display = "none";
-      video.pause();
-    }
-  }
-
-  const modalAgregarBtn = document.getElementById('modal-agregar');
-
-  //  VARIANTES 
-  if (currentVariantes) {
-    const variante = currentVariantes[currentIndex];
-
-    modalTitle.textContent = variante.nombre;
-    document.getElementById('modal-precio').textContent = variante.precio;
-
-    modalAgregarBtn.dataset.producto = variante.nombre;
-    modalAgregarBtn.dataset.precio = variante.precio;
-
-  } else {
-    //  PRODUCTO NORMAL
+  function actualizarModal() {
+    modalImg.src = currentImages[currentIndex] || '';
     modalTitle.textContent = currentTitle;
 
-    modalAgregarBtn.dataset.producto = currentTitle;
-    modalAgregarBtn.dataset.precio = document.getElementById('modal-precio').textContent;
+    if (currentImages.length > 1) {
+      prevBtn.style.display = 'flex';
+      nextBtn.style.display = 'flex';
+      //contador.textContent = `${currentIndex + 1} / ${currentImages.length}`;
+    } else {
+      prevBtn.style.display = 'none';
+      nextBtn.style.display = 'none';
+      //contador.textContent = '';
+    }
+    modalImg.classList.remove('zoomed');
   }
-
-  //  Flechas 
-  if (currentImages.length > 1) {
-    prevBtn.style.display = 'flex';
-    nextBtn.style.display = 'flex';
-    
-  } else {
-    prevBtn.style.display = 'none';
-    nextBtn.style.display = 'none';
-  }
-
-  // Reset zoom 
-  modalImg.classList.remove('zoomed');
-}
 
   prevBtn.onclick = () => {
     if (currentImages.length > 1) {
@@ -633,15 +270,6 @@ function actualizarModal() {
     }
   };
 
-  prevProdBtn.onclick = () => {
-  productoIndex = (productoIndex - 1 + productos.length) % productos.length;
-  abrirModal(productos[productoIndex]);
-  };
-
-  nextProdBtn.onclick = () => {
-    productoIndex = (productoIndex + 1) % productos.length;
-    abrirModal(productos[productoIndex]);
-  };
   modalImg.onclick = () => {
     if (currentImages.length > 1) {
       currentIndex = (currentIndex + 1) % currentImages.length;
@@ -649,63 +277,22 @@ function actualizarModal() {
       return;
     }
     modalImg.classList.toggle('zoomed');
-    if (modalImg.classList.contains("zoomed")) {
-    currentX = 0;
-    currentY = 0;
-    modalImg.style.setProperty("--x", "0px");
-    modalImg.style.setProperty("--y", "0px");
-  }
   };
 
   const closeBtn = modal.querySelector('.close');
-
-  let bloqueandoCierre = false;
-
-  function cerrarModal() {
-  bloqueandoCierre = true;
-
-  modal.style.display = 'none';
-  modalImg.classList.remove('zoomed');
-
-  const cardActual = productos[productoIndex];
-
-    if (cardActual) {
-      setTimeout(() => {
-        cardActual.scrollIntoView({
-          behavior: "smooth",
-          block: "center"
-        });
-      }, 50);
-    }
-
-    setTimeout(() => {
-      bloqueandoCierre = false;
-    }, 300);
-  }
-
-  // Botón cerrar
   if (closeBtn) {
-    closeBtn.onclick = cerrarModal;
+    closeBtn.onclick = () => {
+      modal.style.display = 'none';
+      modalImg.classList.remove('zoomed');
+    };
   }
 
-  // Click afuera del contenido (en cualquier parte de la pantalla)
-  document.addEventListener('click', e => {
-    if (bloqueandoCierre) return;
-
-    if (modal.style.display === 'flex' && !modalContent.contains(e.target)) {
-      cerrarModal();
+  window.addEventListener('click', e => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+      modalImg.classList.remove('zoomed');
     }
   });
-
-  // Tecla ESC
-  document.addEventListener('keydown', e => {
-    if (e.key === "Escape") {
-      cerrarModal();
-    }
-  });
-
-  productos = Array.from(document.querySelectorAll('.card'))
-  .filter(card => card.style.display !== "none");
 
   const cards = document.querySelectorAll('.card');
   cards.forEach(card => {
@@ -715,16 +302,11 @@ function actualizarModal() {
     console.log("producto:", titulo, "stock:", stock);
 
     //  Si el stock es 0 → ocultar producto
-    if (stock === 0) {
-      card.classList.add("sin-stock");
-
-      const aviso = document.createElement('span');
-      aviso.className = 'sin-stock-label';
-      aviso.textContent = "❌ Sin stock";
-
-      card.appendChild(aviso);
+    if (stock !== null && stock === 0) {
+      card.style.display = "none";
+      return;
     }
-      
+
     // Si queda 1 → mostrar aviso
     if (stock === 1) {
       const aviso = document.createElement('span');
@@ -735,10 +317,6 @@ function actualizarModal() {
 
 
     const cantidadImgs = imagenesProducto[titulo]?.length || 1;
-    //  indicador visual de que hay más
-    if (cantidadImgs > 1) {
-      card.classList.add("tiene-mas");
-    }
     if (cantidadImgs > 1) {
       const overlay = document.createElement('span');
       overlay.className = 'mas-fotos';
@@ -746,17 +324,15 @@ function actualizarModal() {
       card.appendChild(overlay);
     }
     card.addEventListener('click', (ev) => {
-       ev.stopPropagation();
 
     const titulo = card.querySelector('h3')?.textContent.trim();
     const stock = STOCK_PRODUCTOS[titulo];
 
-    //  
-    const sinStock = stock === 0;
+    //  No abrir modal si no hay stock
+    if (stock === 0) return;
 
     if (card.classList.contains('promo')) return;
     if (ev.target.closest('button')) return;
-    if (ev.target.classList.contains("flecha")) return;
 
     abrirModal(card);
   });
@@ -826,38 +402,17 @@ function mostrarToast(mensaje, tipo = "success") {
   setTimeout(() => {
     toast.classList.remove("show");
     setTimeout(() => toast.style.display = "none", 400);
-  }, 800);
+  }, 3000);
 }
-
 
   function lanzarConfetti() {
-  const canvas = document.createElement("canvas");
+    confetti({
+      particleCount: 120,
+      spread: 80,
+      origin: { y: 0.6 }
+    });
+  }
 
-  canvas.style.position = "fixed";
-  canvas.style.top = "0";
-  canvas.style.left = "0";
-  canvas.style.width = "100%";
-  canvas.style.height = "100%";
-  canvas.style.pointerEvents = "none";
-  canvas.style.zIndex = "9999";
-
-  document.body.appendChild(canvas);
-
-  const myConfetti = confetti.create(canvas, {
-    resize: true,
-    useWorker: true
-  });
-
-  myConfetti({
-    particleCount: 1500,
-    spread: 190,
-    origin: { y: 0.6 }
-  });
-
-  setTimeout(() => {
-    canvas.remove();
-  }, 4500);
-}
 
 // ========================
 // ZOOM EN IMAGEN DEL MODAL
@@ -912,6 +467,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    let msg = "💳 *Pedido listo para abonar*\n\n";
     let total = 0;
     let totalProductos = 0;
 
@@ -931,7 +487,6 @@ document.addEventListener("DOMContentLoaded", () => {
     msg += `\n📦 *Total de productos:* ${totalProductos}`;
     msg += `\n💰 *Total a pagar:* $${total.toLocaleString("es-AR")}`;
     msg += `\n\n- Código postal: ${codigoPostalCliente}`;
-    /*
     msg += `\n- Alguna referencia del domicilio (opcional): `;
     msg += `\n- Teléfono: `;
     msg += `\n- Email: `; 
@@ -939,12 +494,14 @@ document.addEventListener("DOMContentLoaded", () => {
     msg += `\n- Provincia y Localidad: `;
     msg += `\n- Nombre y apellido: `;
     msg += `\n\n📩 *Datos necesarios para el envío (Si ya completaste alguna vez, podés omitirlo)👆🏻*`;
-*/
+
 
     const numero = "542236010443";
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
     window.open(url, "_blank");
   });
+
+
 
   function actualizarCarrito() {
     carritoItemsContainer.innerHTML = carrito.length === 0
@@ -973,77 +530,41 @@ document.addEventListener("DOMContentLoaded", () => {
     let carritoTimer;
 
     function iniciarTemporizadorCierre() {
+      // Limpiamos cualquier temporizador previo
       clearTimeout(carritoTimer);
 
+      // Solo si el carrito está abierto
       if (carritoDropdown.style.display === "block") {
         carritoTimer = setTimeout(() => {
           carritoDropdown.style.display = "none";
           fondoModal.style.display = "none";
-        }, 30000); 
+        }, 10000); // 10 segundos
       }
     }
 
+    // Reiniciar temporizador cuando el usuario interactúa con el carrito
     carritoDropdown.addEventListener("mouseenter", () => clearTimeout(carritoTimer));
     carritoDropdown.addEventListener("mouseleave", iniciarTemporizadorCierre);
 
+    // Reiniciar temporizador cada vez que se abre el carrito
     carritoBtn?.addEventListener("click", iniciarTemporizadorCierre);
-    document.querySelectorAll(".card").forEach(card => {
-    const titulo = card.querySelector("h3")?.textContent.trim();
-    const stockMax = STOCK_PRODUCTOS[titulo];
 
-    const item = carrito.find(p => p.nombre === titulo);
-    const cantidad = item ? item.cantidad : 0;
-
-    const btn = card.querySelector(".btn-carrito");
-    if (!btn) return;
-
-    if (stockMax === 0) {
-      btn.disabled = true;
-      btn.textContent = "Sin stock ❌";
-      return;
-    }
-
-    if (stockMax !== undefined && cantidad >= stockMax) {
-      btn.disabled = true;
-      btn.textContent = "Agotado 🛒";
-    } else {
-      btn.disabled = false;
-      btn.textContent = "Agregar al carrito";
-    }
-  });
   }
 
-  carritoBtn?.addEventListener("click", () => {
-     const modal = document.getElementById("modal");
-      if (modal && modal.style.display === "flex") {
-        modal.style.display = "none";
-      }
-    const visible = window.getComputedStyle(carritoDropdown).display === "block";
-
-    carritoDropdown.style.display = visible ? "none" : "block";
-    fondoModal.style.display = visible ? "none" : "block";
-
-    const whatsappBtn = document.getElementById("whatsapp-btn");
-
-    if (visible) {
-      whatsappBtn.classList.remove("oculto");
-    } else {
-      whatsappBtn.classList.add("oculto");
-    }
+  carritoBtn?.addEventListener("click",()=>{
+    const visible = carritoDropdown.style.display==="block";
+    carritoDropdown.style.display = visible?"none":"block";
+    fondoModal.style.display = visible?"none":"block";
   });
 
   fondoModal.addEventListener("click",()=>{
     carritoDropdown.style.display="none";
     fondoModal.style.display="none";
-
-    document.getElementById("whatsapp-btn").classList.remove("oculto");
   });
 
   function cerrarModal() {
     carritoDropdown.style.display = "none";
     fondoModal.style.display = "none";
-
-    document.getElementById("whatsapp-btn").classList.remove("oculto");
   }
 
   document.getElementById("salir-carrito")?.addEventListener("click", cerrarModal);
@@ -1076,19 +597,8 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.addEventListener("click", e => {
         e.stopPropagation();
         const card = btn.closest(".card");
-        let nombre, precio;
-
-        //  Si el botón tiene data → usar eso (producto dinámico)
-        if (btn.dataset.nombre && btn.dataset.precio) {
-          nombre = btn.dataset.nombre;
-          precio = btn.dataset.precio;
-        } else {
-          nombre = card?.querySelector("h3")?.textContent.trim() 
-                || document.getElementById("modal-title")?.textContent.trim();
-
-          precio = card?.querySelector("p")?.innerText 
-                || document.getElementById("modal-precio")?.innerText;
-        }
+        let nombre = card?.querySelector("h3")?.textContent.trim() || document.getElementById("modal-title")?.textContent.trim();
+        let precio = card?.querySelector("p")?.innerText || document.getElementById("modal-precio")?.innerText;
         const texto = btn.innerText.toLowerCase();
 
         if (texto.includes("agregar")) {
@@ -1112,22 +622,38 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
            animarAgregar(btn);
-           actualizarCarrito();
+          actualizarCarrito();
+          stockMax = STOCK_PRODUCTOS[nombre];
 
-          if (stockMax !== undefined) {
+          if (stockMax) {
 
             const productoEnCarrito = carrito.find(p => p.nombre === nombre);
             const cantidadActual = productoEnCarrito ? productoEnCarrito.cantidad : 0;
+
+            if (cantidadActual >= stockMax) {
+
+              document.querySelectorAll(".card").forEach(card => {
+                const titulo = card.querySelector("h3")?.textContent.trim();
+                console.log("carrito:", nombre);
+                console.log("card:", titulo);
+                if (titulo === nombre) {
+                  card.style.display = "none";
+                }
+              });
+
+            }
           }
           
           mostrarToast("Producto agregado al carrito 🛒", "warning");
+          if (typeof modal !== "undefined" && modal?.style?.display === "flex") modal.style.display = "none";
+          //carritoDropdown.style.display = "block";
+          //fondoModal.style.display = "block";
         }
         else if (texto.includes("promo")) {
           const msg = "💬 Hola, quiero consultar sobre *" + nombre + "*.";
           window.open(`https://wa.me/${numero}?text=${encodeURIComponent(msg)}`, "_blank");
         }
       });
-    actualizarAvisoEnvioGratis(0);
     });
 
 document.getElementById("enviar-carrito")?.addEventListener("click", () => {
@@ -1141,7 +667,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
   let totalProductos = 0;
   let costoEnvio = 0;
 
-  // Productos
+  // 🔹 Productos
   carrito.forEach(i => {
     const precioUnitario = parsePrecio(i.precio);
     const subtotal = precioUnitario * i.cantidad;
@@ -1160,6 +686,8 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     alert(`⚠️ La compra mínima es de $${minimoCompra.toLocaleString("es-AR")}`);
     return;
   }
+
+
 
   //  Abrir modal de código postal
   const modalCP = document.getElementById("modal-cp");
@@ -1226,6 +754,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
       return;
     }
 
+    // 🔹 Calcular envío con regla de envío gratis
     let costoEnvio;
 
     if (PROMO_ACTIVA === "envio" && total >= 80000) {
@@ -1241,9 +770,10 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     if (PROMO_ACTIVA === "regalo" && total >= minimoRegalo) {
         mensajeRegalo = `\n🎁 ¡Tu compra incluye: ${REGALO_NOMBRE} de regalo!`;
     } else {
-        mensajeRegalo = ""; 
+        mensajeRegalo = ""; // Nada si no llega al mínimo
     }
 
+    // 🔹 Totales finales
     msg += mensajeRegalo;
     totalProductos += (PROMO_ACTIVA === "regalo" && total >= minimoRegalo) ? 1 : 0;
     msg += `\n📦 *Total de productos:* ${totalProductos}`;
@@ -1254,10 +784,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     msg += `\n\n📍 *Entrega en Miramar*`;
     
   } else {
-    msg += `\n\n codigo postal: ${codigoPostalCliente}`;
-    msg += `\n\n✨ *¡Tu pedido ya está listo!*`;
-    msg += `\nSolo tocá *Enviar* y te respondemos enseguida para coordinar 💌`;
-        /*
+    msg += `\n\n- Código postal: ${codigoPostalCliente}`;
     msg += `\n- Alguna referencia del domicilio (opcional): `;
     msg += `\n- Teléfono: `;
     msg += `\n- Email: `; 
@@ -1265,7 +792,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     msg += `\n- Provincia y Localidad: `;
     msg += `\n- Nombre y apellido: `;
     msg += `\n\n📩 *Datos necesarios para el envío (Si ya completaste alguna vez, podés omitirlo)👆🏻*`;
-    */
+    
   }
 
     // 🔹 Abrir WhatsAppp
@@ -1303,26 +830,15 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
   console.log("PROMO_ACTIVA:", PROMO_ACTIVA, "total:", total);
 
   if (PROMO_ACTIVA === "regalo") {
-  if (total >= minimoRegalo) {
-    aviso.innerHTML = `🎁 <strong>¡Tu compra incluye: ${REGALO_NOMBRE} de regalo!</strong>`;
-
-    if (!estadoEnvio.toastMostrado) {
-      mostrarToast("🎁 ¡Ganaste un regalo! ✨", "fiesta");
-      lanzarConfetti();
-      estadoEnvio.toastMostrado = true;
-        }
-
-      } else {
-        const falta = minimoRegalo - total;
-        aviso.innerHTML = `🎁 Sumá <strong>$${falta.toLocaleString("es-AR")}</strong> y llevate un regalo!`;
-
-        // reset
-        estadoEnvio.toastMostrado = false;
-      }
-
-      aviso.style.display = "block";
-      return;
+    if (total >= minimoRegalo) {
+      aviso.innerHTML = `🎁 <strong>¡Tu compra incluye: ${REGALO_NOMBRE} de regalo!</strong>`;
+    } else {
+      const falta = minimoRegalo - total;
+      aviso.innerHTML = `🎁 Sumá <strong>$${falta.toLocaleString("es-AR")}</strong> y llevate un regalo!`;
     }
+    aviso.style.display = "block";
+    return;
+  }
 
   if (PROMO_ACTIVA === "envio") {
     if (envioManualGratis || total >= 80000) {
@@ -1330,18 +846,15 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
       aviso.style.display = "block";
 
       if (!estadoEnvio.toastMostrado) {
-        mostrarToast("🎉 Tenés envío gratis! ✨", "fiesta");
-        lanzarConfetti();
-        estadoEnvio.toastMostrado = true; 
+        mostrarToast("🎉 Tenés envío gratis! ✨", "fiesta", 1500);
+        setTimeout(() => lanzarConfetti(), 1500);
+        estadoEnvio.toastMostrado = true;
       }
     } else {
       const falta = 80000 - total;
       aviso.innerHTML = `Sumá <strong>$${falta.toLocaleString("es-AR")}</strong> y conseguí <b>envío gratis</b>`;
       aviso.style.display = "block";
-      // reset
-      estadoEnvio.toastMostrado = false;
     }
-    aviso.style.display = "block";
     return;
   }
 
@@ -1349,10 +862,8 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
     if (total < minimoCompra) {
       aviso.innerHTML = `🛍️ La compra mínima es de $${minimoCompra.toLocaleString("es-AR")}`;
       aviso.style.display = "block";
-    } 
-    else {
-      aviso.innerHTML = `🛍️ La compra mínima es de $${minimoCompra.toLocaleString("es-AR")}`;
-      aviso.style.display = "block";
+    } else {
+      aviso.style.display = "none";
     }
   }
 }
@@ -1363,47 +874,39 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
 function sincronizarCarritoConHTML() {
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-  if (carrito.length === 0) return; // nada que sincronizar
-
-  // 🔹 Función para normalizar nombres y evitar problemas de coincidencia
-  function normalizarNombre(nombre) {
-    return nombre.replace(/\s+/g, " ").trim().toLowerCase();
-  }
+  // No hacer nada si el carrito está vacío
+  if (carrito.length === 0) return;
 
   // 🔹 Leer productos actuales del HTML
   const productosHTML = {};
-  const cards = document.querySelectorAll(".card");
-  if (cards.length === 0) return; // si no hay productos, no toca el carrito
-
-  cards.forEach(card => {
-    const nombre = card.querySelector("h3")?.innerText || "";
-    const precioTexto = card.querySelector("p")?.innerText || "";
+  document.querySelectorAll(".card").forEach(card => {
+    const nombre = card.querySelector("h3")?.innerText.trim();
+    const precioTexto = card.querySelector("p")?.innerText.trim();
 
     if (nombre && precioTexto) {
       const precio = parseFloat(
         precioTexto.replace(/[^\d,]/g, "").replace(/\./g, "").replace(",", ".")
       );
-      productosHTML[normalizarNombre(nombre)] = precio;
+      productosHTML[nombre] = precio;
     }
   });
 
   let cambios = false;
 
-  // 🔹 Validar carrito
+  //  Validar carrito
   carrito = carrito.filter(item => {
-    const nombreItem = normalizarNombre(item.nombre);
-    const precioActual = productosHTML[nombreItem];
+    const precioActual = productosHTML[item.nombre];
 
-    // Producto eliminado → se quita del carrito
+    //  Producto eliminado → se quita del carrito
     if (precioActual === undefined) {
       cambios = true;
       return false;
     }
 
-    // Precio cambiado → se actualiza
+    //  Precio cambiado → se actualiza
     const precioCarrito = parseFloat(
-      (item.precio || "").replace(/[^\d,]/g, "").replace(/\./g, "").replace(",", ".")
-    ) || 0;
+      item.precio.replace(/[^\d,]/g, "").replace(/\./g, "").replace(",", ".")
+    );
 
     if (precioCarrito !== precioActual) {
       item.precio = `$${precioActual.toLocaleString("es-AR")}`;
@@ -1413,98 +916,7 @@ function sincronizarCarritoConHTML() {
     return true;
   });
 
-  // Guardar carrito actualizado
-  if (cambios) localStorage.setItem("carrito", JSON.stringify(carrito));
-
-  // 🔹 Actualizar UI inmediatamente
-  const carritoCount = document.getElementById("carrito-count");
-  const carritoTotal = document.getElementById("carrito-total");
-
-  if (carritoCount) {
-    const totalProductos = carrito.reduce((a, i) => a + i.cantidad, 0);
-    carritoCount.textContent = totalProductos;
-  }
-
-  if (carritoTotal) {
-    const total = carrito.reduce((a, i) => {
-      const precio = parseFloat(
-        (i.precio || "").replace(/[^\d,]/g, "").replace(/\./g, "").replace(",", ".")
-      ) || 0;
-      return a + precio * i.cantidad;
-    }, 0);
-
-    carritoTotal.innerHTML = `
-      <strong>- Cantidad de productos: ${carrito.reduce((a, i) => a + i.cantidad, 0)}</strong><br>
-      <strong>- Total: $${total.toLocaleString("es-AR")}</strong>
-    `;
+  if (cambios) {
+    localStorage.setItem("carrito", JSON.stringify(carrito));
   }
 }
-// Arrastrar zoom
-let isDragging = false;
-let lastX = 0;
-let lastY = 0;
-let currentX = 0;
-let currentY = 0;
-
-const modalImg = document.querySelector(".modal-content img");
-
-modalImg.addEventListener("mousedown", (e) => {
-  if (!modalImg.classList.contains("zoomed")) return;
-
-  isDragging = true;
-  lastX = e.clientX;
-  lastY = e.clientY;
-
-  modalImg.style.cursor = "grabbing";
-});
-
-document.addEventListener("mousemove", (e) => {
-  if (!isDragging) return;
-
-  const dx = e.clientX - lastX;
-  const dy = e.clientY - lastY;
-
-  currentX += dx;
-  currentY += dy;
-
-  lastX = e.clientX;
-  lastY = e.clientY;
-
-  // límite (opcional, ajustá si querés)
-  const maxMove = 200;
-  currentX = Math.max(-maxMove, Math.min(maxMove, currentX));
-  currentY = Math.max(-maxMove, Math.min(maxMove, currentY));
-
-  modalImg.style.setProperty("--x", currentX + "px");
-  modalImg.style.setProperty("--y", currentY + "px");
-});
-
-document.addEventListener("mouseup", () => {
-  isDragging = false;
-  modalImg.style.cursor = "grab";
-});
-document.querySelectorAll(".card-video").forEach(card => {
-  const video = card.querySelector("video");
-
-  card.addEventListener("mouseenter", () => {
-    video.play();
-  });
-
-  card.addEventListener("mouseleave", () => {
-    video.pause();
-    video.currentTime = 0;
-  });
-});
-
-document.querySelectorAll(".card").forEach(card => {
-  card.addEventListener("click", () => {
-
-    // mostrar flechas
-    card.classList.add("mostrar-flechas");
-
-    // ocultarlas después de 2 segundos
-    setTimeout(() => {
-      card.classList.remove("mostrar-flechas");
-    }, 2000);
-  });
-});
