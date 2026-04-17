@@ -54,7 +54,7 @@ const STOCK_PRODUCTOS = {
   "Billiken Congys 200 g": 3,
   "Caramelos masticables Fierita Granjero (100 u)": 0,
   "Billiken Tutti-frutti 800 g": 1,
-  "Billiken redonditas 800 g": 1,
+  //"Billiken redonditas 800 g": 0,
   "Gomitas Lilo y Stitch (60 u)": 2,
   "Llaveros láser Capibara (12 u)": 2,
   "Autito  + pastillitas (30 u)": 15,
