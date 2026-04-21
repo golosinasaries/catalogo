@@ -1115,7 +1115,7 @@ html { scroll-behavior: smooth; }
   text-align: center;
   flex-direction: column;
   animation: fadeIn 0.3s ease;
-  
+  overflow: hidden;
 }
 #carrito-dropdown h4 {
   font-size: 1.8rem;
@@ -1125,6 +1125,7 @@ html { scroll-behavior: smooth; }
   justify-content: center;
   align-items: center;
   gap: 6px;
+  z-index: 2000;
   /*
   background: linear-gradient(135deg, #f3e5f5, #ede7f6);
   border: 2px solid #ba68c8;*/
@@ -1136,6 +1137,8 @@ html { scroll-behavior: smooth; }
   padding: 0px;
   text-align: center;
   font-weight: bold;
+  z-index: 2000;
+
 }
 #cerrar-carrito {
   position: absolute;
@@ -1149,14 +1152,15 @@ html { scroll-behavior: smooth; }
 }
 #cerrar-carrito:hover {
   color: #c62828;
+  z-index: 2000;
 
 }
 #carrito-items {
-  max-height:280px;
+  max-height:265px;
   overflow-y: auto;
   margin-bottom: 0px;
   position: relative;
-  z-index: 1001; /* por encima de todo lo que pueda taparlo */
+  z-index: 1001; 
   pointer-events: auto; /* permite usar el scroll normalmente */
   font-size: 1.5rem;
   padding-right: 10px;
@@ -1164,10 +1168,13 @@ html { scroll-behavior: smooth; }
   margin-left: 0px;
   padding-left: 0%;
   justify-self: flex-start;
+  z-index: 2000;
+  flex: 1 1 auto; /* para que ocupe el espacio disponible */
 }
-/* Scroll personalizado para el carrito */
+
 #carrito-items::-webkit-scrollbar {
-  width: 8px; /* más ancho */
+  width: 8px; 
+  z-index: 2000;
 }
 #carrito-items::-webkit-scrollbar-track {
   border-radius: 6px;
@@ -1183,7 +1190,6 @@ html { scroll-behavior: smooth; }
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 12px;
   width: 100%;
   border-bottom: 3px solid #680263;
   flex-wrap: nowrap;   /* evitas que se vaya a otra línea */
@@ -1230,21 +1236,11 @@ html { scroll-behavior: smooth; }
   width: 280px;
   z-index: 5000; 
 }
-.carrito-items {
-  max-height: 300px;
-  overflow-y: auto;
-  margin-bottom: 120px;
-  z-index: 6000; 
-  position: relative;
-  text-align: left;
-}
+
 .carrito-sidebar * {
   pointer-events: auto;
 }
-.carrito-items {
-  width: 100%;
 
-}
 .carrito-item {
   display: flex;
   flex-wrap: wrap; /* evita que los elementos se salgan */
@@ -1287,6 +1283,7 @@ html { scroll-behavior: smooth; }
   width: 100%;
   font-weight: bold;
   margin-top: 0%;
+  font-size: 1.3rem;
 }
 .btn-vaciar:hover {
   background: #bbb;
@@ -1302,6 +1299,7 @@ html { scroll-behavior: smooth; }
   margin-top: 8px;
   width: 100%;
   font-weight: bold;
+  font-size: 1.3rem;
 }
 .btn-enviar:hover {
   background: #1ebe5b;
@@ -1987,4 +1985,5 @@ h1, h2, h3 {
     z-index: 1000;  
   }
 }
-  
+
+
