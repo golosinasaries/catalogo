@@ -331,7 +331,7 @@ const btn = document.getElementById("whatsapp-btn");
 
 if (btn) {
   btn.addEventListener("click", () => {
-    const linkGrupo = "https://chat.whatsapp.com/IOdckbjRmKR7iZJUoJpGEV?mode=gi_ts";
+    const linkGrupo = "https://chat.whatsapp.com/KLSylBrQaCt40aRp8s5gPF?mode=gi_t";
     window.open(linkGrupo, "_blank");
   });
 }
