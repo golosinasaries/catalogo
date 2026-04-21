@@ -1985,3 +1985,99 @@ html { scroll-behavior: smooth; }
     padding: 1.75rem 1rem;
   }
 }
+
+/* ========================
+   VIDEO EN CARDS Y MODAL
+   ======================== */
+.card-video {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-video video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-video:hover video {
+  opacity: 1;
+}
+
+.card-video:hover img {
+  opacity: 0;
+}
+
+.modal-media video {
+  opacity: 1;
+  position: static;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.video-ojos {
+  transform: rotate(90deg);
+  object-fit: contain;
+  background: black;
+}
+
+#modal-video.video-ojos {
+  transform: rotate(90deg);
+  object-fit: contain;
+  background: black;
+}
+
+/* ========================
+   NAVEGACIÓN ENTRE PRODUCTOS EN MODAL
+   ======================== */
+.prev-producto,
+.next-producto {
+  position: absolute;
+  bottom: 6px;
+  font-size: 14px;
+  color: white;
+  opacity: 0.7;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  padding: 1px 15px;
+  border-radius: 50px;
+}
+
+.prev-producto span,
+.next-producto span {
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+.prev-producto {
+  left: 15px;
+}
+
+.next-producto {
+  right: 15px;
+}
+
+/* ========================
+   MODAL BODY
+   ======================== */
+.modal-body {
+  flex: 1;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-bottom: 0rem;
+  margin-top: 0rem;
+}
+
+
