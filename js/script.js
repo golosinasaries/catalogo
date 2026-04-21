@@ -67,7 +67,7 @@ const STOCK_PRODUCTOS = {
   "Botellitas con chicles (30 botellitas)": 20,
   "Gomitas Fantasmita (30 u)": 1,
   "Alcancía Lechuza Marrón": 15,
-  "Alcancía Lechuza Rosa": 15,
+  "Alcancía Lechuza Rosa": 1,
   "Chupetines con forma de helado (30 u)": 1,
   "Alcancía Oso Rosa": 0,
   "Alcancía Oso café": 5,
