@@ -80,18 +80,13 @@ nav {
 
 nav a {
   display: inline-block;
-  font-family: 'Bebas Neue', sans-serif;
   font-size: 3.5rem;
   letter-spacing: 2px;
-
   color: #111;
   text-decoration: none;
-
   padding: 8px 20px;
   margin: 0.25rem;
-
   border-radius: 12px;
-
   transition: all 0.3s ease;
 }
 
@@ -738,7 +733,6 @@ html { scroll-behavior: smooth; }
   nav a {
     font-size: 3rem;
     padding: 0.1rem;
-    font-family: 'Bebas Neue', sans-serif;
     font-variant-caps: all-petite-caps;
     font-weight: bold;       
     text-decoration: underline;
@@ -789,10 +783,8 @@ html { scroll-behavior: smooth; }
   nav a {
     font-size: 3.2rem;
     padding: 0.1rem;
-    font-family: 'Bebas Neue', sans-serif;
     font-variant-caps: all-petite-caps;
     font-weight: bold;           
-    text-decoration: underline;
     padding-top: 0rem;
     padding-right: 210px; 
   }
@@ -839,10 +831,8 @@ html { scroll-behavior: smooth; }
   nav a {
     font-size: 3.2rem;
     padding: 0.1rem;
-    font-family: 'Bebas Neue', sans-serif;
     font-variant-caps: all-petite-caps;
     font-weight: bold;           
-    text-decoration: underline;
     padding-top: 0rem;
     padding-right: 210px; 
   }
@@ -919,10 +909,8 @@ html { scroll-behavior: smooth; }
   nav a {
     font-size: 2.2rem;
     padding: 0.1rem;
-    font-family: 'Bebas Neue', sans-serif;
     font-variant-caps: all-petite-caps;
     font-weight: bold;           
-    text-decoration: underline;
     padding-top: 0rem;
     padding-right: 210px; 
   }
@@ -953,10 +941,8 @@ html { scroll-behavior: smooth; }
   nav a {
     font-size: 1rem;
     padding: 0.1rem;
-    font-family: 'Bebas Neue', sans-serif;
     font-variant-caps: all-petite-caps;
     font-weight: bold;       
-    text-decoration: underline;
     padding-top: 0rem;
     padding-right: 210px; 
   }
@@ -1021,10 +1007,8 @@ html { scroll-behavior: smooth; }
   nav a {
     font-size: 3.2rem;
     padding: 0.1rem;
-    font-family: 'Bebas Neue', sans-serif;
     font-variant-caps: all-petite-caps;
     font-weight: bold;           
-    text-decoration: underline;
     padding-top: 0rem;
     padding-right: 210px; 
   }
@@ -1172,20 +1156,6 @@ html { scroll-behavior: smooth; }
   flex: 1 1 auto; /* para que ocupe el espacio disponible */
 }
 
-#carrito-items::-webkit-scrollbar {
-  width: 8px; 
-  z-index: 2000;
-}
-#carrito-items::-webkit-scrollbar-track {
-  border-radius: 6px;
-}
-#carrito-items::-webkit-scrollbar-thumb {
-  background: black;
-  border-radius: 6px;
-}
-#carrito-items::-webkit-scrollbar-thumb:hover {
-  background: #7b1fa2;  
-}
 .carrito-item {
   display: flex;
   align-items: center;
@@ -1224,21 +1194,6 @@ html { scroll-behavior: smooth; }
   flex-direction: row;
   align-items: left;
   gap: 10px;
-}
-.carrito-sidebar {
-  position: absolute;
-  right: 20px;
-  top: 80px;
-  background-color: linear-gradient(135deg, rgba(106,27,154,0.6), rgba(0,184,148,0.6));
-  color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  width: 280px;
-  z-index: 5000; 
-}
-
-.carrito-sidebar * {
-  pointer-events: auto;
 }
 
 .carrito-item {
@@ -1903,9 +1858,10 @@ h1, h2, h3 {
 }
 
 .logo-mini {
-  width: 95px;
+  width: 115px;
   position: absolute;
   right: -10px;
+  z-index: 1000;
 
   /* animación constante suave */
   animation: flotarSuave 3s ease-in-out infinite;
@@ -1978,11 +1934,11 @@ h1, h2, h3 {
   }
 
   .logo-mini {
-    width: 110px;
+    width: 60px;
     margin-top: 20px;
-    top: 90px;       
-    left: 10px;
-    z-index: 1000;  
+    top: 110px;       
+    left: 160px;
+    z-index: 999;  
   }
 }
 
