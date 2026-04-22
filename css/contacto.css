@@ -1,0 +1,129 @@
+html.pagina-contacto,
+body.pagina-contacto {
+  background: linear-gradient(180deg, #ffe8f3 0%, #f8e4ff 52%, #efe7ff 100%);
+  color: #20131d;
+}
+
+body.pagina-contacto main.main-contacto {
+  background: transparent;
+  box-shadow: none;
+  max-width: 1100px;
+  padding-top: calc(var(--header-offset) + 12px);
+  padding-bottom: 2rem;
+}
+
+body.pagina-contacto header {
+  overflow: visible;
+}
+
+body.pagina-contacto .titulo-contenedor,
+body.pagina-contacto .subtitulo-header,
+body.pagina-contacto .buscador-contacto {
+  overflow: visible;
+}
+
+body.pagina-contacto .subtitulo-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+body.pagina-contacto .ubicacion-header {
+  white-space: nowrap;
+}
+
+body.pagina-contacto .acciones-header {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: nowrap;
+}
+
+body.pagina-contacto .contacto-redes {
+  margin: 0 auto 1.25rem;
+  padding: 1.5rem 1.25rem 0.5rem;
+  background: transparent;
+  box-shadow: none;
+}
+
+body.pagina-contacto .social-buttons {
+  margin: 0;
+}
+
+body.pagina-contacto .contacto-info {
+  margin: 0 auto;
+  padding: 2.25rem 1.25rem 2rem;
+  background: linear-gradient(135deg, #ffc3df 0%, #f4dcff 55%, #ede4ff 100%);
+  border-radius: 26px;
+  box-shadow: 0 18px 44px rgba(190, 24, 93, 0.14);
+}
+
+body.pagina-contacto .contacto-destacado {
+  color: #000;
+  font-size: 1.54rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0 0 1.4rem;
+}
+
+body.pagina-contacto .fb-cta {
+  color: #4b3b49;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-top: 1.4rem;
+}
+
+body.pagina-contacto .fb-video iframe {
+  width: 300px;
+  max-width: 100%;
+  height: 450px;
+  border-radius: 18px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+  background: #fff;
+}
+
+body.pagina-contacto .facebook-embed-note {
+  text-align: center;
+  padding: 1rem 1rem 0;
+  color: #5a4356;
+}
+
+body.pagina-contacto .facebook-embed-note a {
+  color: #be185d;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+body.pagina-contacto .facebook-embed-note a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  body.pagina-contacto main.main-contacto {
+    padding-top: calc(var(--header-offset) + 9px);
+  }
+
+  body.pagina-contacto .contacto-destacado {
+    font-size: 1.19rem;
+  }
+
+  body.pagina-contacto .contacto-info {
+    padding: 1.75rem 1rem;
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  body.pagina-contacto .contacto-destacado {
+    font-size: 1.02rem;
+  }
+
+  body.pagina-contacto .fb-cta {
+    font-size: 1rem;
+  }
+}
