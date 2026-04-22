@@ -790,6 +790,7 @@ html { scroll-behavior: smooth; }
   }
 
 }
+
 @media (max-width: 890px) {
   .portfolio,
   .catalogo {
@@ -1598,6 +1599,7 @@ body {
 }
 .logo-mini {
   left: 20px;
+  top: 20px;
 }
 
 h1, h2, h3 {
@@ -1883,13 +1885,11 @@ h1, h2, h3 {
   100% { rotate: 360deg; }
 }
 
-/* 🖱️ HOVER (efecto mágico) */
 .logo-mini:hover {
   transform: translateY(-8px) scale(1.08);
   filter: drop-shadow(0 0 10px violet);
 }
 
-/* 👆 CLICK (feedback + magia) */
 .logo-mini:active {
   transform: scale(0.9) rotate(15deg);
 }
