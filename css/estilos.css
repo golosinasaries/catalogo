@@ -1,6 +1,9 @@
 :root {
-  --primary: #6a1b9a;
-  --accent: #00b894;
+ --primary: #D946EF;
+  --accent: #EC4899;
+  --rose-dark: #BE185D;
+  --lilac-light: #E9D5FF;
+  --lilac-bright: #D8B4FE;
  --bg: #1c2a33;
   --text: #0b0c00;
   --header-h: 80px;
@@ -329,12 +332,12 @@ nav a:hover {
 }
 
 #modal-agregar {
-  background: linear-gradient(59deg, var(--accent), var(--primary));  
+  background: linear-gradient(59deg, var(--accent), );  
   color: rgb(0, 0, 0);
   box-sizing: border-box;
-  border-bottom: 2px solid #080808;
   margin-top: 0.1px;
   transition: opacity 0.3s ease;
+  padding-bottom: 1%;
 }
 
 .modal-botones button:hover {
@@ -445,7 +448,6 @@ footer {
   box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
   margin-top: 1rem;
 }
-
 
 footer p {
   margin: 0;
@@ -612,34 +614,6 @@ html { scroll-behavior: smooth; }
   z-index: 2;  
   word-spacing: 2px; 
   letter-spacing: 2px;                                      
-}
-.contenedor-secciones {
-  display: flex;                                   
-  gap: 2rem;                                          
-  max-width: var(--content-max-w);                  
-  margin: 0 auto;                                     
-  padding: 0 0.2rem;                                   
-  width: 100%;                                       
-  box-sizing: border-box;                             
-}
-
-.seccion {
-  background: #a7a6a6;                                  
-  border: 1px solid var(--accent);                    
-  padding: 0.3rem;                              
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);           
-  font-size: 1rem;                                     
-  box-sizing: border-box;                             
-  margin-top: 9%;
-}
-
-.seccion h2 {
-  color: var(--primary);                             
-  margin-bottom: 0.1rem;                             
-  margin-top: 0.1rem;                               
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.15);          
-  font-size: 1.5rem;                                  
-  text-align: center;                                  
 }
 
 @media (max-width: 1400px) {
