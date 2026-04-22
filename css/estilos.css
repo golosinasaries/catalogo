@@ -537,7 +537,7 @@ footer p {
   
 }
 
-.back-to-top:hover { background: var(--accent); color: #fff; transform: scale(1.05); }
+.back-to-top:hover { background:  #ce00af; color: #fff; transform: scale(1.05); }
 
 html { scroll-behavior: smooth; }
 
