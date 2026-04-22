@@ -22,6 +22,28 @@ body.pagina-contacto .buscador-contacto {
   overflow: visible;
 }
 
+body.pagina-contacto .subtitulo-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+body.pagina-contacto .ubicacion-header {
+  white-space: nowrap;
+}
+
+body.pagina-contacto .acciones-header {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: nowrap;
+}
+
 body.pagina-contacto .contacto-redes {
   margin: 0 auto 1.25rem;
   padding: 1.5rem 1.25rem 0.5rem;
