@@ -26,7 +26,7 @@ html, body {
 }
 
 header {
-  background: linear-gradient(135deg, #6a1b9a, #ab47bc); 
+  background: linear-gradient(135deg, #EC4899,  #BE185D, #D946EF, #D946EF); 
   padding: 0.00005rem;                                      
   text-align: center;                                  
   position: fixed;                                
@@ -58,15 +58,12 @@ header {
 
 .titulo-contenedor h1 {
   font-size: 1.5rem;                                 
-  margin: 0 0 0.5rem 0;                               
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.4);         
+  margin: 0 0 0.5rem 0;                                      
   white-space: nowrap;                                
   overflow: hidden;                                 
   text-overflow: ellipsis;                            
-  line-height: 1.2;                                   
-  font-weight: bold;                                 
+  line-height: 1.2;                                                                  
   padding: 0 1rem;                                     
-  font-family: 'Quicksand', sans-serif;
 }
 
 nav {
@@ -88,6 +85,7 @@ nav a {
   margin: 0.25rem;
   border-radius: 12px;
   transition: all 0.3s ease;
+  letter-spacing: 3px;
 }
 
 nav a:hover {
@@ -107,10 +105,9 @@ nav a:hover {
 }
 
 .card {
-  background: #fff;                                    
-  border: 2px solid var(--accent);                    
+  background: #fff;                                                        
   border-radius: var(--border-radius);                 
-  padding: 0.2rem;                                     
+  padding: 0.5rem;                                     
   text-align: center;                                 
   transition: transform 0.3s, box-shadow 0.3s;        
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);            
@@ -237,7 +234,7 @@ nav a:hover {
   width: 100%;
   max-height: 500px;                 
   overflow: hidden;
-  background: #9d00ff;
+  background: linear-gradient(135deg, #EC4899,  #BE185D, #D946EF, #D946EF); 
   color: #000000;
   padding: 0.5rem;
   border-radius: 12px;
@@ -249,7 +246,6 @@ nav a:hover {
   gap: 0.3rem;
   animation: fadeIn 0.25s ease;
   border: 3px solid;
-  border-image: linear-gradient(45deg, var(--primary), var(--accent)) 1;
   font-style: normal;
 }
 
@@ -259,7 +255,6 @@ nav a:hover {
   object-fit: contain;
   border-radius: 8px;
   transition: transform 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   z-index: 1;
   transition: transform 0.3s ease;
   transform: translate(0px, 0px) scale(1);
@@ -446,8 +441,9 @@ footer {
   font-size: 0.9rem;
   box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
   margin-top: 1rem;
-
 }
+
+
 footer p {
   margin: 0;
   line-height: 1.4;
@@ -607,12 +603,12 @@ html { scroll-behavior: smooth; }
   display: inline-block;
   white-space: nowrap;
   animation: slide-infinite 28s linear infinite, color-change 15s ease-in-out infinite;
-  font-size: 1.3rem;                                    
-  font-weight: bold;                                
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.4);           
+  font-size: 1.3rem;                                                                               
   padding: 0 1rem;                                    
   position: relative;                                 
-  z-index: 2;                                         
+  z-index: 2;  
+  word-spacing: 2px; 
+  letter-spacing: 2px;                                      
 }
 .contenedor-secciones {
   display: flex;                                   
@@ -776,7 +772,6 @@ html { scroll-behavior: smooth; }
 
   .titulo-contenedor h1 {
     font-size: 1.4rem; 
-    font-family: 'Quicksand', sans-serif;
   }
   
   nav a {
@@ -824,7 +819,6 @@ html { scroll-behavior: smooth; }
 
   .titulo-contenedor h1 {
     font-size: 1.4rem; 
-    font-family: 'Quicksand', sans-serif;
   }
   
   nav a {
@@ -901,8 +895,7 @@ html { scroll-behavior: smooth; }
   }
 
   .titulo-contenedor h1 {
-    font-size: 1.4rem; 
-    font-family: 'Quicksand', sans-serif;
+    font-size: 1.2rem; 
   }
   
   nav a {
@@ -1000,7 +993,6 @@ html { scroll-behavior: smooth; }
 
   .titulo-contenedor h1 {
     font-size: 1.4rem; 
-    font-family: 'Quicksand', sans-serif;
   }
   
   nav a {
@@ -1052,7 +1044,7 @@ html { scroll-behavior: smooth; }
   z-index: 1000;
 }
 #carrito-btn {
-  background: #6a1b9a;
+  background: linear-gradient(135deg, #EC4899,  #BE185D, #D946EF, #D946EF);
   color: white;
   border: none;
   font-size: 22px;
@@ -1360,19 +1352,19 @@ html { scroll-behavior: smooth; }
   position: fixed;
   top: 20px;
   right: 20px;
-  background: linear-gradient(135deg, rgba(106,27,154,0.6), rgba(0,184,148,0.6));
-  padding: 5px 9px;
+  background: linear-gradient(135deg, #25D366, #1DA851);
+  color: #ffffff;
+  padding: 3px 5px;
   display: flex;
   align-items: center;
   gap: 8px;
   border-radius: 40px;
   cursor: pointer;
-  color: white;
   font-size: 14px;
   backdrop-filter: blur(6px);
   z-index: 1000;
   margin-top: 7.8%;
-  margin-top: 2%;
+  margin-top: 0.3%;
 }
 #whatsapp-btn img {
   width: 20px;
@@ -1552,7 +1544,7 @@ html { scroll-behavior: smooth; }
 .modal-botones {
   padding: 5px;
   background: #9d00ff;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.9rem;
   margin-top: 0rem;
   padding-top: 0%;
 }
@@ -1976,4 +1968,18 @@ h1, h2, h3 {
 
 .footer-credito a:hover::after {
   width: 100%;
+}
+
+.icono {
+  font-size: 0.8em;
+  margin-right: 2px; /* controla qué tan pegado queda */
+  
+ /* violeta (va con tu estética) */
+filter: hue-rotate(250deg) saturate(2);
+
+/* más brillo */
+filter: brightness(1.5);
+}
+a {
+  text-decoration: none;
 }
