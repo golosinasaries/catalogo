@@ -211,17 +211,20 @@ nav a:hover {
   display: none;
   position: fixed;
   z-index: 1300;
-  left: 0;
-  top: 0;
-  width: 100%;
   height: 100%;
   background-color: rgba(0,0,0,0.6);
   justify-content: center;
   align-items: center;
   padding: 1rem;
   box-sizing: border-box;
-  overflow: auto;
-  border-radius: 10px;  
+  overflow: auto; 
+  width: 90%;
+  max-width: 350px;
+  height: auto;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 12px;
 }
 
 .modal-content {
@@ -324,16 +327,16 @@ nav a:hover {
   text-transform: uppercase;
   font-weight: bold;
 }
+
 #modal-agregar {
   background: linear-gradient(59deg, var(--accent), var(--primary));  
   color: rgb(0, 0, 0);
   box-sizing: border-box;
   border-bottom: 2px solid #080808;
   margin-top: 0.1px;
-}
-#modal-agregar {
   transition: opacity 0.3s ease;
 }
+
 .modal-botones button:hover {
   opacity: 0.85;
 }
@@ -343,6 +346,7 @@ nav a:hover {
   align-items: center;
   gap: 0.3rem;
 }
+
 .cantidad-btn {
   padding: 0.2rem 0.5rem;
   background: var(--primary);
@@ -352,8 +356,8 @@ nav a:hover {
   cursor: pointer;
   font-weight: bold;
   transition: background 0.2s, transform 0.1s;
-  
 }
+
 .cantidad-btn:hover { background: #8e24aa; transform: scale(1.1); }
 .cantidad { min-width: 20px; display: inline-block; text-align: center; }
 .buscador {
@@ -1071,6 +1075,7 @@ html { scroll-behavior: smooth; }
   border-radius: 50%;
   padding: 3px 6px;
 }
+
 #carrito-dropdown {
   position: fixed;
   top: 10%;
@@ -1080,7 +1085,7 @@ html { scroll-behavior: smooth; }
   width: 320px;
   height: 480px;
   max-width: 90%;
-  max-height: 99vh; /* Máximo alto del modal */
+  max-height: 99vh; 
   padding: 15px;
   padding-left: 1%;
   padding-right: 1%;
@@ -1093,6 +1098,7 @@ html { scroll-behavior: smooth; }
   animation: fadeIn 0.3s ease;
   overflow: hidden;
 }
+
 #carrito-dropdown h4 {
   font-size: 1.8rem;
   color: #7b1fa2;
@@ -1102,10 +1108,8 @@ html { scroll-behavior: smooth; }
   align-items: center;
   gap: 6px;
   z-index: 2000;
-  /*
-  background: linear-gradient(135deg, #f3e5f5, #ede7f6);
-  border: 2px solid #ba68c8;*/
 }
+
 #carrito-dropdown h3 {
   font-size: 2rem;
   margin-bottom: 13px;
@@ -1259,37 +1263,28 @@ html { scroll-behavior: smooth; }
   font-size: 1.3rem;
   text-align: left;
 }
-  .modal {
-    width: 90%;
-    max-width: 350px;
-    height: auto;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    padding: 1rem;
-    border-radius: 12px;
-    overflow-y: auto;
 
-  }
-  .modal img {
-    width: 100%;
-    height: auto;
-  }
-  .modal h2,
-  .modal p {
-    font-size: 1.5rem;
-    text-align: center;
-    font-weight: bold;
-    margin-top: 1rem;
-    margin-bottom: 0.1rem;
-  }
-  .modal button,
-  .modal-botones {
-    width: 100%;
-    font-size: 1rem;
-    margin-top: 1rem;
-  }
-  
+.modal img {
+  width: 100%;
+  height: auto;
+}
+
+.modal h2,
+.modal p {
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 1rem;
+  margin-bottom: 0.1rem;
+}
+
+.modal button,
+.modal-botones {
+  width: 90%;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
 .toast {
   position: fixed;
   top: 20px;
@@ -1548,6 +1543,7 @@ html { scroll-behavior: smooth; }
   margin-top: 0rem;
   padding-top: 0%;
 }
+
 .modal-content {
   display: flex;
   flex-direction: column;
@@ -1684,11 +1680,13 @@ h1, h2, h3 {
   height: auto;
   display: block;
 }
+
 .video-ojos {
   transform: rotate(90deg);
   object-fit: contain;
   background: black;
 }
+
 #modal-video.video-ojos {
   transform: rotate(90deg);
   object-fit: contain;
