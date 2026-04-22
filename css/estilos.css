@@ -78,7 +78,6 @@ nav {
 nav a {
   display: inline-block;
   font-size: 3.5rem;
-  letter-spacing: 2px;
   color: #111;
   text-decoration: none;
   padding: 8px 20px;
@@ -1351,7 +1350,7 @@ html { scroll-behavior: smooth; }
 /* Botón flotante */
 #whatsapp-btn {
   position: fixed;
-  top: 20px;
+  top: 25px;
   right: 20px;
   background: linear-gradient(135deg, #25D366, #1DA851);
   color: #ffffff;
@@ -1982,4 +1981,20 @@ filter: brightness(1.5);
 }
 a {
   text-decoration: none;
+}
+.cta-whatsapp {
+  display: inline-block;
+  margin-top: 1px;
+  padding: 3px 3px;
+  color: #25D366;
+  font-weight: 100;
+  border-radius: 9px;
+  text-decoration: none;
+  transition: 0.2s ease;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.cta-whatsapp:hover {
+  transform: scale(1.05);
+  background: #1ebe5d;
 }
