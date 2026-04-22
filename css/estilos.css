@@ -1941,4 +1941,38 @@ h1, h2, h3 {
   }
 }
 
+/* Tecnoideas */
+.footer-credito {
+  margin-top: 20px;
+  font-size: 0.8rem;
+  color: #aaa;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
 
+.footer-credito a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.footer-credito a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 1px;
+  background: linear-gradient(90deg, #ff7a18, #ff3d3d);
+  transition: width 0.3s ease;
+}
+
+.footer-credito a:hover {
+  color: #ff7a18;
+}
+
+.footer-credito a:hover::after {
+  width: 100%;
+}
