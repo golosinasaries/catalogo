@@ -739,12 +739,7 @@ function actualizarModal() {
     if (cantidadImgs > 1) {
       card.classList.add("tiene-mas");
     }
-    if (cantidadImgs > 1) {
-      const overlay = document.createElement('span');
-      overlay.className = 'mas-fotos';
-      overlay.textContent = `+${cantidadImgs - 1} fotos`;
-      card.appendChild(overlay);
-    }
+    
     card.addEventListener('click', (ev) => {
        ev.stopPropagation();
 
