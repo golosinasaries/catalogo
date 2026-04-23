@@ -1376,7 +1376,7 @@ html { scroll-behavior: smooth; }
 /* Botón flotante */
 #whatsapp-btn {
   position: fixed;
-  top: 25px;
+  top: 19px;
   right: 20px;
   background: linear-gradient(135deg, #25D366, #1DA851);
   color: #ffffff;
