@@ -1156,7 +1156,15 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
   //  Abrir modal de código postal
   const modalCP = document.getElementById("modal-cp");
   const inputCP = document.getElementById("cp-input");
-  inputCP.value = "";
+
+  const cpGuardado = localStorage.getItem("codigoPostalCliente");
+
+  if (cpGuardado) {
+    inputCP.value = cpGuardado;
+  } else {
+    inputCP.value = "";
+  }
+
   modalCP.style.display = "flex";
 
   //  Esperar confirmación del usuario
@@ -1204,6 +1212,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
   const cpConfirmar = document.getElementById("cp-confirmar");
   cpConfirmar.onclick = () => {
     const codigoPostalCliente = inputCP.value.trim();
+    localStorage.setItem("codigoPostalCliente", codigoPostalCliente);
     const esMiramar = codigoPostalCliente.startsWith("7607");
 
 
