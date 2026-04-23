@@ -1484,18 +1484,7 @@ document.addEventListener("mouseup", () => {
   isDragging = false;
   modalImg.style.cursor = "grab";
 });
-document.querySelectorAll(".card-video").forEach(card => {
-  const video = card.querySelector("video");
 
-  card.addEventListener("mouseenter", () => {
-    video.play();
-  });
-
-  card.addEventListener("mouseleave", () => {
-    video.pause();
-    video.currentTime = 0;
-  });
-});
 
 document.querySelectorAll(".card").forEach(card => {
   card.addEventListener("click", () => {
@@ -1507,5 +1496,58 @@ document.querySelectorAll(".card").forEach(card => {
     setTimeout(() => {
       card.classList.remove("mostrar-flechas");
     }, 2000);
+  });
+});
+
+
+let videoActivo = null;
+
+document.querySelectorAll(".card-video").forEach(card => {
+  const video = card.querySelector("video");
+  const icon = card.querySelector(".sound-icon");
+
+  if (!video || !icon) return;
+
+  video.muted = true;
+  video.playsInline = true;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
+  }, { threshold: 0.6 });
+
+  observer.observe(video);
+
+  icon.addEventListener("click", (e) => {
+    e.stopPropagation();
+
+    // 🔴 apagar anterior
+    if (videoActivo && videoActivo !== video) {
+      videoActivo.muted = true;
+
+      const oldCard = videoActivo.closest(".card-video");
+      const oldIcon = oldCard.querySelector(".sound-icon");
+
+      oldCard.classList.remove("audio-activo");
+      oldIcon.textContent = "🔊";
+    }
+
+    // 🔁 toggle actual
+    if (video.muted) {
+      video.muted = false;
+      icon.textContent = "🔊";
+      card.classList.add("audio-activo");
+      videoActivo = video;
+    } else {
+      video.muted = true;
+      icon.textContent = "🔇";
+      card.classList.remove("audio-activo");
+      videoActivo = null;
+    }
   });
 });
