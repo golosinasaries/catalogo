@@ -187,11 +187,13 @@ nav a:hover {
   position: relative;
   z-index: 1;
 }
+
 .card .img-container {
   position: relative;
   width: 100%;
   height: 220px;
   overflow: hidden;
+  z-index: 1;
 }
 
 .card:hover img {
@@ -1660,19 +1662,21 @@ h1, h2, h3 {
   background: rgba(0,0,0,0.5);
   backdrop-filter: blur(4px);
 
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
 
   border-radius: 50%;
-  font-size: 14px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   cursor: pointer;
-  opacity: 0;
+  opacity: 1;
   transition: 0.25s;
+  z-index: 999;
+  pointer-events: auto;
+  color: white; 
 }
 
 .card:hover .flecha {
@@ -1688,7 +1692,6 @@ h1, h2, h3 {
   transform: translateY(-50%) scale(1.1);
   box-shadow: 0 6px 18px rgba(0,0,0,0.5);
 }
-
 
 .card .flecha:active {
   transform: translateY(-50%) scale(0.92);
