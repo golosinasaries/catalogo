@@ -80,32 +80,60 @@ nav {
 
 nav a {
   display: inline-block;
-  font-size: 3.5rem;
-  color: #111;
-  text-decoration: none;
-  padding: 8px 20px;
+  padding: 10px 22px;
   margin: 0.25rem;
-  border-radius: 12px;
-  transition: all 0.3s ease;
-  letter-spacing: 3px;
-  background: linear-gradient(135deg, #FF006E, #FF1493);
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 800;
-  font-size: 1.2rem;
   border-radius: 50px;
-  border: 2px solid #ffffff;
+  font-family: 'Fredoka One', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.5px;
   transition: all 0.3s ease;
   cursor: pointer;
-  font-family: 'Fredoka One', sans-serif;
-  box-shadow: 0 6px 16px rgba(255, 0, 110, 0.3);
-  letter-spacing: 0.5px;
+
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(6px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ✨ brillo que pasa */
+nav a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transform: skewX(-20deg);
+  animation: shine 7s infinite;
+}
+
+@keyframes shine {
+  0% {
+    left: -75%;
+  }
+  60% {
+    left: 125%;
+  }
+  100% {
+    left: 125%;
+  }
 }
 
 nav a:hover {
-  color: white;
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
 }
-
 .compra-minima {
   font-family: 'Fredoka One', sans-serif;
   font-weight: 800;
@@ -1894,14 +1922,124 @@ h1, h2, h3 {
 
 /* TEXTO CENTRADO */
 .titulo-catalogo {
-  font-size: 34px;
-  color: white;
+  display: inline-block;
+  font-size: 28px;
+  color: #ffffff;
   margin: 0;
-  font-weight: bold;
-  letter-spacing: 3px;
+  font-weight: 800;
+  letter-spacing: 1px;
   text-align: center;
-  text-decoration: none; 
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+
+  /* 👇 mismo lenguaje visual */
+  padding: 6px 14px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(6px);
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
 }
+
+/* ✨ mini shine (más sutil que botones) */
+.titulo-catalogo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+  transform: skewX(-20deg);
+  animation: shineTitle 9s infinite;
+}
+
+@keyframes shineTitle {
+  0% {
+    left: -80%;
+  }
+  50% {
+    left: 120%;
+  }
+  100% {
+    left: 120%;
+  }
+}
+
+.titulo-catalogo:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+.titulo-catalogo {
+  display: inline-block;
+  font-size: 26px;
+  color: #ffffff;
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+
+  /* 👇 ahora sí parece botón/caja */
+  padding: 8px 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
+
+  /* 👇 clave para que NO se escape el brillo */
+  overflow: hidden;
+}
+
+/* ✨ brillo CONTROLADO */
+.titulo-catalogo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+  transform: skewX(-20deg);
+  animation: shineTitle 10s infinite;
+  pointer-events: none;
+}
+
+/* 👇 animación más corta y contenida */
+@keyframes shineTitle {
+  0% {
+    left: -100%;
+  }
+  20% {
+    left: 120%;
+  }
+  100% {
+    left: 120%;
+  }
+}
+
+.titulo-catalogo:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-1px);
+}
+
 
 .logo-mini {
   width: 115px;
