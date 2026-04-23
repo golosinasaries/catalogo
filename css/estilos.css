@@ -1125,7 +1125,6 @@ html { scroll-behavior: smooth; }
 }
 #carrito-btn:hover {
   transform: scale(1.1);
-  background: #8e24aa;
 }
 #carrito-count {
   position: absolute;
