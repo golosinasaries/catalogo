@@ -1142,7 +1142,6 @@ html { scroll-behavior: smooth; }
   top: 10%;
   left: 50%;
   transform: translateX(-50%);
-  border: 2px solid #09000a;
   width: 320px;
   height: 480px;
   max-width: 90%;
@@ -1150,7 +1149,6 @@ html { scroll-behavior: smooth; }
   padding: 15px;
   padding-left: 1%;
   padding-right: 1%;
-  border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
   z-index: 2000;
   display: flex;
@@ -1158,6 +1156,9 @@ html { scroll-behavior: smooth; }
   flex-direction: column;
   animation: fadeIn 0.3s ease;
   overflow: hidden;
+  border: 1px solid rgba(217, 70, 239, 0.4);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
 }
 
 #carrito-dropdown h4 {
@@ -1221,7 +1222,8 @@ html { scroll-behavior: smooth; }
   border-bottom: 3px solid #680263;
   flex-wrap: nowrap;   /* evitas que se vaya a otra línea */
   overflow: visible;   /* para que la línea no se corte */
-  background: #ffffff;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(6px);
   padding: 1.5px;
   border-radius: 7px;
   margin-bottom: 12px;
@@ -1245,12 +1247,17 @@ html { scroll-behavior: smooth; }
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 .carrito-item-info {
   display: flex;
   flex-direction: row;
   align-items: left;
   gap: 10px;
+}
+.carrito-item span {
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 
 .carrito-item {
@@ -1271,23 +1278,39 @@ html { scroll-behavior: smooth; }
   align-items: center;
   gap: 6px;
 }
-/* botones carrito  de cantidad*/
+
 .cantidad-btn {
-  background: linear-gradient(135deg, rgba(106,27,154,0.6), rgba(0,184,148,0.6));;
+  background: linear-gradient(135deg, #D946EF, #EC4899);
   border: none;
   color: #fff;
-  padding: 4px 10px;
-  border-radius: 6px;
+
+  padding: 6px 12px;
+  border-radius: 10px;
+
   cursor: pointer;
-  font-size: 17px;
+  font-size: 16px;
+  font-weight: bold;
+
+  box-shadow: 0 4px 12px rgba(217,70,239,0.4);
+  transition: all 0.25s ease;
 }
+
+/* hover */
 .cantidad-btn:hover {
-  background: #7b1fa2;
+  transform: scale(1.1);
+  box-shadow: 0 6px 18px rgba(217,70,239,0.6);
 }
+
+/* click */
+.cantidad-btn:active {
+  transform: scale(0.95);
+}
+
 .btn-vaciar {
-  background: #ccc;
+  background: linear-gradient(135deg, #ff4d4d, #ff1744);
+  color: #fff;
   border: none;
-  color: #070000;
+  
   padding: 6px 15px;
   border-radius: 8px;
   cursor: pointer;
