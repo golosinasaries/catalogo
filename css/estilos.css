@@ -106,6 +106,20 @@ nav a:hover {
   color: white;
 }
 
+.compra-minima {
+  font-family: 'Fredoka One', sans-serif;
+  font-weight: 800;
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  color: #ffffff;
+  text-transform: uppercase;
+
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  transform: translateX(-50%);
+}
+
 .portfolio {
   display: grid;                                       
   grid-template-columns: repeat(4, 1fr);               
@@ -422,7 +436,7 @@ nav a:hover {
 }
 
 #search {
-  width: 90%;                                         
+  width: 30%;                                         
   max-width: 900px;                                    
   padding: 0.6rem 0.9rem;                              
   border: 2px solid var(--accent);                    
@@ -1366,7 +1380,7 @@ html { scroll-behavior: smooth; }
   right: 20px;
   background: linear-gradient(135deg, #25D366, #1DA851);
   color: #ffffff;
-  padding: 3px 5px;
+  padding: 3px 15px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -1375,7 +1389,8 @@ html { scroll-behavior: smooth; }
   font-size: 14px;
   backdrop-filter: blur(6px);
   z-index: 1000;
-  margin-top: 0.1%;
+  margin-top: 1.8%;
+  border: 2px solid #ffffff;
 }
 #whatsapp-btn img {
   width: 20px;
@@ -1935,7 +1950,7 @@ h1, h2, h3 {
   .catalogo {
     grid-template-columns: repeat(2, 1fr); 
     gap: 0.3rem;
-    margin-top: 37%;
+    margin-top: 36%;
   }
 
   .aviso {
@@ -1957,15 +1972,15 @@ h1, h2, h3 {
    #search {
     width: 95%; 
     font-size: 1.2rem;
-    margin-bottom: 0.1rem;
+    margin-bottom: 0.3rem;
     margin-top: 0.1rem;
   }
 
   .logo-mini {
     width: 60px;
-    margin-top: 26px;
+    margin-top: 15px;
     top: 110px;       
-    left: 150px;
+    left: 20px;
     z-index: auto;
   }
 }
