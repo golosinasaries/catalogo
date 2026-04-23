@@ -1516,6 +1516,7 @@ html { scroll-behavior: smooth; }
   padding:4px 6px;
   border-radius:6px;
   font-weight:bold;
+   z-index: 50;
 }
 
 /*siguiente proddddddd*/
