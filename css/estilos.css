@@ -21,7 +21,7 @@ html, body {
   padding: 0;                         
   min-width: 100vw;                   
   overflow-x: hidden;                
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Inter', sans-serif;
   background: var(--bg);             
   color: var(--text);                
   font-size: var(--base-font);        
@@ -318,13 +318,10 @@ nav a:hover {
 }
 /* Contenido interior */
 .modal-content {
-  max-width: 500px;       /* fijo máximo ancho */
+  max-width: 420px;   
   width: 100%;
-  max-height: 90%;
-  background: #9d00ff;
   color: #000000;
   padding: 1rem;
-  border-radius: 12px;
   text-align: center;
   position: relative;
   display: flex;
@@ -335,9 +332,16 @@ nav a:hover {
   animation: fadeIn 0.25s ease;
   border: 3px solid;
   border-image: linear-gradient(45deg, var(--primary), var(--accent)) 1;
-  overflow: auto;
-  font-style: italic;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #f3e8ff, #fdf2f8);
+  border-radius: 20px;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.35);
 }
+
 /* Imagen del modal */
 .modal-content img {
   max-width: 100%;
@@ -360,7 +364,7 @@ nav a:hover {
   position: absolute;
   top: 8px;
   right: 16px;
-  font-size: 3rem;
+  font-size: 4rem;
   font-weight: bold;
   cursor: pointer;
   z-index: 200;
@@ -398,13 +402,7 @@ nav a:hover {
   color: #080400;
   margin-top: 10px;
 }
-.modal-botones {
-  margin-top: 10px;
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  border-radius:10px;
-}
+
 .modal-botones button {
   padding: 10px 15px;
   border: black;
@@ -1339,13 +1337,18 @@ html { scroll-behavior: smooth; }
   font-weight: bold;
 }
 
-.modal button,
-.modal-botones {
+.modal button {
   width: 90%;
   font-size: 1rem;
   margin-top: 1rem;
 }
-
+.modal-botones {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  padding: 10px;
+  background: transparent;
+}
 .toast {
   position: fixed;
   top: 20px;
@@ -1570,14 +1573,13 @@ html { scroll-behavior: smooth; }
   position: absolute;
   bottom: 6px;
   font-size: 14px;
-  color: white;
+  color: rgb(23, 18, 18);
   opacity: 0.7;
   display: flex;
   align-items: center;
   gap: 4px;
   cursor: pointer;
   transition: opacity 0.2s;
-  color: white;
   padding: 1px 15px;
   border-radius: 50px;
 }
@@ -1598,21 +1600,6 @@ html { scroll-behavior: smooth; }
   right: 15px;
 }
 
-.modal-botones {
-  padding: 5px;
-  background: #9d00ff;
-  margin-bottom: 1.9rem;
-  margin-top: 0rem;
-  padding-top: 0%;
-}
-
-.modal-content {
-  max-height: 90vh;
-  overflow-y: auto;
-  overflow-x: hidden;
-  display: flex;
-  flex-direction: column;
-}
 
 .modal-body {
   flex: 1;
@@ -1662,7 +1649,7 @@ body {
 }
 
 h1, h2, h3 {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Fredoka', sans-serif; /* divertido, redondeado */
 }
 
 .card p {
