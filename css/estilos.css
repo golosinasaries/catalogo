@@ -26,6 +26,7 @@ html, body {
   color: var(--text);                
   font-size: var(--base-font);        
   margin-top: 4.2%;
+  background: linear-gradient(135deg, #FFFFFF 0%, #F5E6FF 100%);
 }
 
 header {
@@ -118,13 +119,14 @@ nav a:active {
   font-weight: 800;
   font-size: 1.2rem;
   letter-spacing: 3px;
-  color: #ffffff;
+  background: linear-gradient(185deg, #FFFFFF 0%, #F5E6FF 100%);
   text-transform: uppercase;
 
   position: absolute;
   left: 50%;
-  top: 20%;
+  top: 23.7%;
   transform: translateX(-50%);
+  border-radius: 10%;
 }
 
 .portfolio {
@@ -1470,7 +1472,7 @@ html { scroll-behavior: smooth; }
 
 .fb-sub {
   font-size: 14px;
-  color: #ddd;
+  color: #cb1fff;
   text-align: center;
   margin-top: 10px;
   line-height: 1.6;
