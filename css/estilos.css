@@ -140,7 +140,7 @@ nav a:active {
 }
 
 .card {
-  background: linear-gradient(135deg, #FFFFFF 0%, #F5E6FF 100%);
+  background: white;
   border: 3px solid #E91E63;
   border-radius: 15px;
   padding: 1rem;
@@ -424,7 +424,6 @@ nav a:active {
   transition: background 0.2s, transform 0.1s;
   
 }
-.cantidad-btn:hover { background: #8e24aa; transform: scale(1.1); }
 .cantidad { min-width: 20px; display: inline-block; text-align: center; }
 
 .buscador {
@@ -1281,9 +1280,9 @@ html { scroll-behavior: smooth; }
 }
 
 .cantidad-btn {
-  background: linear-gradient(135deg, #D946EF, #EC4899);
+  background: linear-gradient(1deg, #FFFFFF 0%, #F5E6FF 100%);
   border: none;
-  color: #fff;
+  color: #110b0b;
 
   padding: 6px 12px;
   border-radius: 10px;
@@ -1292,7 +1291,6 @@ html { scroll-behavior: smooth; }
   font-size: 16px;
   font-weight: bold;
 
-  box-shadow: 0 4px 12px rgba(217,70,239,0.4);
   transition: all 0.25s ease;
 }
 

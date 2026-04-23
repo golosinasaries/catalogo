@@ -886,7 +886,7 @@ document.addEventListener("DOMContentLoaded", () => {
     top: "50%", left: "50%",
     transform: "translate(-50%, -50%)",
     boxShadow: "0 0 15px rgba(0,0,0,0.4)",
-    borderRadius: "12px", background: "#f1ededff",
+    borderRadius: "12px", background: "white",
     display: "none", padding: "15px", width: "300px",
   });
 
