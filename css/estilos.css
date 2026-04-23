@@ -516,9 +516,7 @@ main {
   margin: 0 auto;                                      
   width: 100%;                                         
   min-height: 60vh;                                  
-  font-size: 1rem;                                     
-  background: #030303;                               
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);            
+  font-size: 1rem;                                               
   overflow: visible;                                   
   padding-bottom: 0.1rem;                               
   padding-top: -1rem;                                 
@@ -1720,8 +1718,8 @@ html { scroll-behavior: smooth; }
 body {
   font-family: 'Poppins', sans-serif;
   margin-top: 9%;
-
 }
+
 .logo-mini {
   left: 20px;
   top: 20px;
