@@ -1,5 +1,5 @@
 :root {
- --primary: #D946EF;
+  --primary: #D946EF;
   --accent: #EC4899;
   --rose-dark: #BE185D;
   --lilac-light: #E9D5FF;
@@ -7,7 +7,7 @@
  --bg: #1c2a33;
   --text: #0b0c00;
   --header-h: 80px;
-  --content-max-w: 1200px;
+  --content-max-w: 1310px;
   --base-font: 13px;
   --border-radius: 10px;
 }
@@ -581,7 +581,7 @@ footer p {
   border-radius: 50px;
   position: fixed;     
   bottom: 30px;        
-  left: 30px;   
+  left: 60px;   
   z-index: 1000;      
   
 }
@@ -1516,7 +1516,7 @@ html { scroll-behavior: smooth; }
   padding:4px 6px;
   border-radius:6px;
   font-weight:bold;
-   z-index: 50;
+  z-index: 50;
 }
 
 /*siguiente proddddddd*/
