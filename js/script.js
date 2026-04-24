@@ -1552,8 +1552,21 @@ document.querySelectorAll(".card-video").forEach(card => {
   });
 });
 
+
 const menuBtn = document.getElementById("menu-btn");
+const menuPanel = document.getElementById("menu-panel");
+const menuCatalogo = document.getElementById("menu-catalogo");
 
 menuBtn.addEventListener("click", () => {
-  console.log("click en menú");
+  menuPanel.classList.toggle("active");
+});
+
+menuCatalogo.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  if (window.location.pathname.includes("contacto.html")) {
+    window.location.href = "index.html";
+  } else {
+    window.location.href = "contacto.html";
+  }
 });

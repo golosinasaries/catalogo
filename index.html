@@ -12,11 +12,15 @@
 <body>
 
 <header>
-   <button id="menu-btn" class="menu-btn" aria-label="Abrir menú">
-      <span></span>
-      <span></span>
-      <span></span>
+  <button id="menu-btn" class="menu-btn" aria-label="Abrir menú">
+    <span></span>
+    <span></span>
+    <span></span>
   </button>
+
+  <div id="menu-panel" class="menu-panel">
+    <a href="#" id="menu-catalogo">   <span class="icono">📱</span> Redes </a>
+  </div>
 
   <div class="titulo-contenedor">
    <h1 class="titulo-animado">
@@ -36,7 +40,7 @@
     </button>
 
     <div id="carrito-dropdown">
-     <span id="salir-carrito" style="cursor:pointer; float:left; font-size:20px; font-weight:bold; margin:5px;">❌</span>
+     <span id="salir-carrito" style="cursor:pointer; float:left; font-size:20px; font-weight:bold; margin:5px;z-index: 9999; position: relative;">❌</span>
      <h3>🛍️ Tu pedido:</h3>
      <ul id="carrito-items"></ul>
      <div id="carrito-footer">
@@ -1030,7 +1034,7 @@
 
 <footer>
   <a href="contacto.html" style="display:inline-block; font-size:1.5rem; letter-spacing:3px; color:#111; padding:0.1px 0.1px; margin:0.1rem; border-radius:12px; transition:all 0.3s ease;">
-    <span class="icono">📞</span>Contacto
+    <span class="icono">📱</span> Redes
   </a>
   <div class="footer-credito">
     <span>¿Necesitás una web así?</span>

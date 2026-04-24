@@ -6,7 +6,7 @@
   --lilac-bright: #D8B4FE;
  --bg: #1c2a33;
   --text: #0b0c00;
-  --header-h: 80px;
+  --header-h: 125px;
   --content-max-w: 1310px;
   --base-font: 13px;
   --border-radius: 10px;
@@ -125,7 +125,7 @@ nav a:active {
 
   position: absolute;
   left: 50%;
-  top: 20%;
+  top: 22%;
   transform: translateX(-50%);
   border-radius: 10%;
   white-space: nowrap;
@@ -301,7 +301,7 @@ nav a:active {
 }
 /* Contenido interior */
 .modal-content {
-  max-width: 420px;   
+   max-width: 300px;   
   width: 100%;
   color: #000000;
   padding: 1rem;
@@ -355,7 +355,7 @@ nav a:active {
   user-select: none;
   color: black
 }
-.close:hover { color: #08ffea; }
+.close:hover { color: #EC4899; }
 /* Flechas */
 .modal-content .prev,
 .modal-content .next {
@@ -975,6 +975,13 @@ html { scroll-behavior: smooth; }
     margin-top: -1%;
   }
 
+  .titulo-catalogo  {
+
+  font-size: 10%;
+  width: 70%;
+  padding: 8px 8px;
+
+  }
   #search {
     width: 95%; 
     font-size: 1.2rem;
@@ -1181,6 +1188,7 @@ html { scroll-behavior: smooth; }
   padding: 0px;
   text-align: center;
   font-weight: bold;
+  position: relative;
   z-index: 2000;
 
 }
@@ -2125,7 +2133,7 @@ h1, h2, h3 {
   width: 115px;
   position: absolute;
   left: 130px;
-  z-index: 1000;
+  z-index: 500;
 
 
   /* animación constante suave */
@@ -2176,6 +2184,8 @@ h1, h2, h3 {
   .compra-minima {
     font-size: 1rem;
     text-transform: capitalize;
+    top: 25%;
+    
     }
 
   .aviso {
@@ -2336,25 +2346,42 @@ a {
   background: transparent;
   border: none;
   cursor: pointer;
-  position: absolute;   /* 👈 clave para que no se lo coma el layout */
-  left: 15px;           /* lo manda a la izquierda */
-  top: 20px;            /* lo baja un poco */
-  z-index: 9999;        /* 👈 siempre arriba de todo */
+  position: absolute;
+  left: 15px;
+  top: 20px;
+  z-index: 9999;
 }
 
+/* 👇 ESTO ES LO QUE TE FALTABA BIEN HECHO */
 .menu-btn span {
-  height: 3px;
+  display: block;
   width: 100%;
-  background: #fff; /* si tu fondo es oscuro */
+  height: 3px;
+  background: #fff; /* si tu header es oscuro */
   border-radius: 5px;
 }
+.menu-panel {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 140px;
+  height: 5vh;
+  background: linear-gradient(5deg, #FFFFFF 0%, #F5E6FF 100%);
+  backdrop-filter: blur(10px);
+  padding: 80px 20px;
+  transition: 0.3s ease;
+  z-index: 9998;
+  display: flex;
+  flex-direction: column;
+ 
+}
 
-@media (min-width: 1025px) {
-  header {
-    height: 120px;   /* lo hacés más alto en web */
-    padding: 20px 40px;
-  }
-  .compra-minima  {
-    margin-top: 2%;
-    }
+.menu-panel.active {
+  left: 0;
+}
+
+.menu-panel a {
+  color: rgb(14, 12, 12);
+  text-decoration: none;
+  font-size: 1.2rem;
 }
