@@ -1101,7 +1101,6 @@ html { scroll-behavior: smooth; }
   
 }
 
-
 /* Footer (total + botones) */
 #carrito-footer {
   flex-shrink: 0;  /* nunca se achica */
@@ -1112,38 +1111,83 @@ html { scroll-behavior: smooth; }
   flex-shrink: 0;
   position: sticky;
 }
+
 #carrito-contenedor {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  z-index: 1000;
+  z-index: 9999;
 }
+
 #carrito-btn {
-  background: linear-gradient(135deg, #EC4899,  #BE185D, #D946EF, #D946EF);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 52px;
+  height: 52px;
+
+  background: linear-gradient(135deg, #D946EF, #EC4899);
   color: white;
+
   border: none;
-  font-size: 22px;
-  cursor: pointer;
-  padding: 12px 14px;
   border-radius: 50%;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.25);
-  transition: transform 0.2s ease, background 0.3s;
-  border: 2px solid #09000a;
-  margin-bottom: 25%;
+
+  font-size: 20px;
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.25),
+    inset 0 1px 0 rgba(255,255,255,0.2);
+
+  position: relative;
+ overflow: visible;
+
+  transition: all 0.3s ease;
+  z-index: 1;
 }
-#carrito-btn:hover {
-  transform: scale(1.1);
-}
+
 #carrito-count {
   position: absolute;
-  top: -8px;
-  right: -8px;
-  background: #ff1744;
-  color: #fff;
-  font-size: 13px;
-  font-weight: bold;
+  top: -6px;
+  right: -6px;
+
+  min-width: 24px;
+  height: 24px;
+
+  padding: 0 6px;
+
+  background: #ff2d2d;
+
   border-radius: 50%;
-  padding: 3px 6px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+
+  z-index: 9999;
+
+  line-height: 1;
+}
+
+
+#carrito-btn::before {
+  display: none;
+}
+
+#carrito-btn:hover::before {
+  left: 120%;
+}
+
+#carrito-btn:active {
+  transform: scale(0.95);
+}
+#carrito-btn:hover {
+  transform: translateY(-3px) scale(1.05);
 }
 
 #carrito-dropdown {
@@ -1857,8 +1901,7 @@ h1, h2, h3 {
   background: black;
 }
 .card-video:hover h3,
-.card-video:hover p,
-.card-video:hover button {
+.card-video:hover p {
   opacity: 0;
   visibility: hidden;
   transition: 0.2s ease;
@@ -2010,26 +2053,69 @@ h1, h2, h3 {
 
 /* TEXTO CENTRADO */
 .titulo-catalogo {
-  display: inline-block;
-  font-size: 28px;
-  color: #ffffff;
-  margin: 0;
-  font-weight: 800;
-  letter-spacing: 1px;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  position: relative;
-  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 
-  /* 👇 mismo lenguaje visual */
-  padding: 6px 14px;
-  border-radius: 30px;
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(6px);
-  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+
+  color: #fff;
+  text-decoration: none;
+
+  padding: 10px 16px;
+  margin: 0.3rem;
+
+  border-radius: 999px;
+
+  background: linear-gradient(135deg, #D946EF, #EC4899);
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.2),
+    inset 0 1px 0 rgba(255,255,255,0.2);
+
+  position: relative;
+  overflow: hidden;
+
+  transition: all 0.3s ease;
 }
 
+/* ✨ brillo animado */
+.titulo-catalogo::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 60%;
+  height: 200%;
+  background: rgba(255,255,255,0.25);
+  transform: rotate(25deg);
+  transition: all 0.5s ease;
+}
+
+/* hover moderno */
+.titulo-catalogo:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow:
+    0 12px 28px rgba(0,0,0,0.25),
+    inset 0 1px 0 rgba(255,255,255,0.3);
+}
+
+.titulo-catalogo:hover::before {
+  left: 120%;
+}
+
+.titulo-catalogo:hover {
+  transform: translateY(-2px) scale(1.03);
+}
+
+.titulo-catalogo:active {
+  transform: scale(0.98);
+}
+
+.titulo-catalogo .icono {
+  font-size: 1.3rem;
+}
 /* ✨ mini shine (más sutil que botones) */
 .titulo-catalogo::before {
   content: "";
@@ -2064,30 +2150,6 @@ h1, h2, h3 {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.35);
   transform: translateY(-1px);
-}
-
-.titulo-catalogo {
-  display: inline-block;
-  font-size: 26px;
-  color: #ffffff;
-  margin: 0;
-  font-weight: 800;
-  letter-spacing: 1px;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  position: relative;
-  transition: all 0.3s ease;
-
-  /* 👇 ahora sí parece botón/caja */
-  padding: 8px 16px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1.5px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(6px);
-
-  /* 👇 clave para que NO se escape el brillo */
-  overflow: hidden;
 }
 
 /* ✨ brillo CONTROLADO */
@@ -2384,4 +2446,3 @@ a {
   text-decoration: none;
   font-size: 1.2rem;
 }
-
