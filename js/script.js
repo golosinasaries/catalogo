@@ -460,24 +460,6 @@ if (modal) {
     "Combo Emprendedor": ["img/boca.jpg", "img/river.jpg", "img/pelotas.jpg","img/lheritier.jpg","img/gelatinaloka.jpg","img/fieritacomefuego.jpg", "img/remerapimball.jpg","img/bombulla.jpg","img/comboemprendedor.jpg"]
   };
 
-  function animarAgregar(btn) {
-  console.log("Animado botón", btn);
-  if (!btn) return;
-
-  // Vibración (si está disponible))
-  if (navigator.vibrate) {
-    navigator.vibrate(40);
-  }
-
-  btn.classList.remove("animar-agregar");
-  void btn.offsetWidth; 
-  btn.classList.add("animar-agregar");
-
-  setTimeout(() => {
-    btn.classList.remove("animar-agregar");
-  }, 400);
-}
-
   let currentImages = [];
   let currentIndex = 0;
   let currentTitle = "";
@@ -1102,8 +1084,12 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
               carrito.push({ nombre, precio, cantidad: 1 });
             }
+         
+           animarCarrito();
 
-           animarAgregar(btn);
+           const img = card?.querySelector("img");
+           if (img) volarAlCarrito(img);
+
            actualizarCarrito();
 
           if (stockMax !== undefined) {
@@ -1570,3 +1556,45 @@ menuCatalogo.addEventListener("click", (e) => {
     window.location.href = "contacto.html";
   }
 });
+
+
+function animarCarrito() {
+  const btn = document.getElementById("carrito-btn");
+  const count = document.getElementById("carrito-count");
+
+  // animación botón
+  btn.classList.remove("anim-agregar");
+  void btn.offsetWidth; // reinicia animación
+  btn.classList.add("anim-agregar");
+
+  // animación contador
+  count.classList.remove("anim");
+  void count.offsetWidth;
+  count.classList.add("anim");
+}
+
+function volarAlCarrito(img) {
+  const carrito = document.getElementById("carrito-btn");
+  const clone = img.cloneNode(true);
+
+  const rect = img.getBoundingClientRect();
+  const carritoRect = carrito.getBoundingClientRect();
+
+  clone.style.position = "fixed";
+  clone.style.left = rect.left + "px";
+  clone.style.top = rect.top + "px";
+  clone.style.width = rect.width + "px";
+  clone.style.zIndex = 9999;
+  clone.style.transition = "all 0.6s ease";
+
+  document.body.appendChild(clone);
+
+  setTimeout(() => {
+    clone.style.left = carritoRect.left + "px";
+    clone.style.top = carritoRect.top + "px";
+    clone.style.width = "20px";
+    clone.style.opacity = "0.5";
+  }, 10);
+
+  setTimeout(() => clone.remove(), 600);
+}

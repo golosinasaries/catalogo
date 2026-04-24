@@ -659,10 +659,6 @@ html { scroll-behavior: smooth; }
   100% { transform: translateX(0); }
 }
 
-.animar-agregar {
-  animation: pulse 0.4s ease;
-}
-
 .btn-agregado {
   animation: pulse 0.3s ease;
 }
@@ -1684,12 +1680,6 @@ html { scroll-behavior: smooth; }
   box-shadow: 0 6px 18px rgba(217,70,239,0.6);
 }
 
-
-
-.animar-agregar {
-  animation: vibrar 0.35s linear;
-}
-
 .card {
   -webkit-tap-highlight-color: transparent;
 }
@@ -2445,4 +2435,23 @@ a {
   color: rgb(14, 12, 12);
   text-decoration: none;
   font-size: 1.2rem;
+}
+@keyframes agregarPop {
+  0% { transform: scale(1); }
+  40% { transform: scale(0.9); }
+  70% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.anim-agregar {
+  animation: agregarPop 0.3s ease;
+}
+@keyframes contadorPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.4); }
+  100% { transform: scale(1); }
+}
+
+#carrito-count.anim {
+  animation: contadorPop 0.3s ease;
 }
