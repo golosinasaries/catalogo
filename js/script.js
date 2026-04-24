@@ -859,7 +859,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const total = carrito.reduce((acc, item) => acc + item.cantidad, 0);
     carritoCount.textContent = total;
   }
-  
+
   const vaciarBtn = document.getElementById("vaciar-carrito");
   const carritoTotal = document.getElementById("carrito-total");
 
@@ -1080,7 +1080,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const cantidadActual = productoEnCarrito ? productoEnCarrito.cantidad : 0;
           }
           
-          mostrarToast("Producto agregado al carrito 🛒", "warning");
         }
       });
     actualizarAvisoEnvioGratis(calcularTotal());
