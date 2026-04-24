@@ -1087,8 +1087,16 @@ document.addEventListener("DOMContentLoaded", () => {
          
            animarCarrito();
 
-           const img = card?.querySelector("img");
-           if (img) volarAlCarrito(img);
+          // 🔁 detectar de dónde viene
+          let img;
+
+          if (card) {
+            img = card.querySelector("img");
+          } else {
+            img = document.getElementById("modal-img");
+          }
+
+          if (img) volarAlCarrito(img);
 
            actualizarCarrito();
 
