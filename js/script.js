@@ -846,12 +846,20 @@ if (modalImgZoom) {
 // ========================
 document.addEventListener("DOMContentLoaded", () => {
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  
+
   const numero = "542236010443";
 
   const carritoBtn = document.getElementById("carrito-btn");
   const carritoDropdown = document.getElementById("carrito-dropdown");
   const carritoItemsContainer = document.getElementById("carrito-items");
   const carritoCount = document.getElementById("carrito-count");
+  
+  if (carritoCount) {
+    const total = carrito.reduce((acc, item) => acc + item.cantidad, 0);
+    carritoCount.textContent = total;
+  }
+  
   const vaciarBtn = document.getElementById("vaciar-carrito");
   const carritoTotal = document.getElementById("carrito-total");
 
@@ -875,57 +883,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const parsePrecio = p => parseFloat(p.replace(/[^\d,]/g,"").replace(/\./g,"").replace(",","."))||0;
   const calcularTotal = () => carrito.reduce((a,i)=>a+parsePrecio(i.precio)*i.cantidad,0);
 
-  const btnPagarMP = document.getElementById("btn-pagar-mp");
-
-  btnPagarMP?.addEventListener("click", (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-
-    if (carrito.length === 0) {
-      alert("Tu carrito está vacío 🛒");
-      return;
-    }
-
-    let total = 0;
-    let totalProductos = 0;
-
-    carrito.forEach(i => {
-      const precioUnitario = parsePrecio(i.precio);
-      const subtotal = precioUnitario * i.cantidad;
-      total += subtotal;
-      totalProductos += i.cantidad;
-
-      if (i.cantidad > 1) {
-        msg += `• *${i.nombre}* — ${i.cantidad} x ${i.precio} → *$${subtotal.toLocaleString("es-AR")}*\n`;
-      } else {
-        msg += `• *${i.nombre}* — ${i.precio}\n`;
-      }
-    });
-
-    msg += `\n📦 *Total de productos:* ${totalProductos}`;
-    msg += `\n💰 *Total a pagar:* $${total.toLocaleString("es-AR")}`;
-    msg += `\n\n- Código postal: ${codigoPostalCliente}`;
-    /*
-    msg += `\n- Alguna referencia del domicilio (opcional): `;
-    msg += `\n- Teléfono: `;
-    msg += `\n- Email: `; 
-    msg += `\n- Dirección exacta: `;
-    msg += `\n- Provincia y Localidad: `;
-    msg += `\n- Nombre y apellido: `;
-    msg += `\n\n📩 *Datos necesarios para el envío (Si ya completaste alguna vez, podés omitirlo)👆🏻*`;
-*/
-
-    const numero = "542236010443";
-    const url = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
-    window.open(url, "_blank");
-  });
-
   function actualizarCarrito() {
     carritoItemsContainer.innerHTML = carrito.length === 0
       ? "<p class='carrito-vacio'>Tu carrito está vacío 🛒</p>"
       : carrito.map(i=>`
         <div class='carrito-item'>
-          <strong>${i.nombre}${i.precio==0 ? " (REGALO)" : ""}</strong>  ${i.precio || "$0"}<br>
+         <strong>${i.nombre}</strong> ${i.precio || "$0"}<br>
           <button class='cantidad-btn restar' data-nombre='${i.nombre}'>-</button>
           ${i.cantidad}
           <button class='cantidad-btn sumar' data-nombre='${i.nombre}'>+</button>
@@ -957,6 +920,17 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
+    // PRECIO
+    document.querySelectorAll(".card").forEach(card => {
+    const nombre = card.querySelector("h3")?.textContent.trim();
+    const precio = card.querySelector("p")?.textContent.trim();
+    const btn = card.querySelector(".btn-carrito");
+
+    if (btn) {
+      btn.dataset.nombre = nombre;
+      btn.dataset.precio = precio;
+    }
+  });
     carritoDropdown.addEventListener("mouseenter", () => clearTimeout(carritoTimer));
     carritoDropdown.addEventListener("mouseleave", iniciarTemporizadorCierre);
 
@@ -1045,7 +1019,7 @@ document.addEventListener("DOMContentLoaded", () => {
     actualizarCarrito();
   });
 
-  document.querySelectorAll(".btn-carrito, .btn-consulta, #modal-agregar, #modal-consulta")
+  document.querySelectorAll(".btn-carrito, #modal-agregar")
     .forEach(btn => {
       btn.addEventListener("click", e => {
         e.stopPropagation();
@@ -1108,12 +1082,8 @@ document.addEventListener("DOMContentLoaded", () => {
           
           mostrarToast("Producto agregado al carrito 🛒", "warning");
         }
-        else if (texto.includes("promo")) {
-          const msg = "💬 Hola, quiero consultar sobre *" + nombre + "*.";
-          window.open(`https://wa.me/${numero}?text=${encodeURIComponent(msg)}`, "_blank");
-        }
       });
-    actualizarAvisoEnvioGratis(0);
+    actualizarAvisoEnvioGratis(calcularTotal());
     });
 
 document.getElementById("enviar-carrito")?.addEventListener("click", () => {
@@ -1606,3 +1576,4 @@ function volarAlCarrito(img) {
 
   setTimeout(() => clone.remove(), 600);
 }
+
