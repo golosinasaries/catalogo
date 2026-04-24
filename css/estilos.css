@@ -2179,13 +2179,12 @@ h1, h2, h3 {
   .catalogo {
     grid-template-columns: repeat(2, 1fr); 
     gap: 0.3rem;
-    margin-top: 27%;
+    margin-top: 35%;
   }
   .compra-minima {
     font-size: 1rem;
     text-transform: capitalize;
     top: 25%;
-    
     }
 
   .aviso {
@@ -2216,7 +2215,7 @@ h1, h2, h3 {
   position: absolute;
   left: 40%;
   transform: translateX(-50%);
-  top: 0.8px;
+  top: 12px;
 }
 }
 
