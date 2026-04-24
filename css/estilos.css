@@ -67,7 +67,8 @@ header {
   overflow: hidden;                                 
   text-overflow: ellipsis;                            
   line-height: 1.2;                                                                  
-  padding: 0 1rem;                                     
+  padding: 0 1rem;   
+  color: white;                                  
 }
 
 nav {
@@ -694,7 +695,7 @@ html { scroll-behavior: smooth; }
 .titulo-animado {
   display: inline-block;
   white-space: nowrap;
-  animation: slide-infinite 28s linear infinite, color-change 15s ease-in-out infinite;
+  /*animation: slide-infinite 28s linear infinite, color-change 15s ease-in-out infinite;*/
   font-size: 1.3rem;                                                                               
   padding: 0 1rem;                                    
   position: relative;                                 
@@ -2123,9 +2124,9 @@ h1, h2, h3 {
 .logo-mini {
   width: 115px;
   position: absolute;
-  right: -10px;
+  left: 130px;
   z-index: 1000;
-  margin-top: 5%;
+
 
   /* animación constante suave */
   animation: flotarSuave 3s ease-in-out infinite;
@@ -2346,4 +2347,14 @@ a {
   width: 100%;
   background: #fff; /* si tu fondo es oscuro */
   border-radius: 5px;
+}
+
+@media (min-width: 1025px) {
+  header {
+    height: 120px;   /* lo hacés más alto en web */
+    padding: 20px 40px;
+  }
+  .compra-minima  {
+    margin-top: 2%;
+    }
 }

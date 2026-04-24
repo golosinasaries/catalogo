@@ -1551,3 +1551,9 @@ document.querySelectorAll(".card-video").forEach(card => {
     }
   });
 });
+
+const menuBtn = document.getElementById("menu-btn");
+
+menuBtn.addEventListener("click", () => {
+  console.log("click en menú");
+});
