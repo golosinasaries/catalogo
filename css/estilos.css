@@ -127,6 +127,7 @@ nav a:active {
   top: 20%;
   transform: translateX(-50%);
   border-radius: 10%;
+  white-space: nowrap;
 }
 
 .portfolio {
@@ -1429,27 +1430,40 @@ html { scroll-behavior: smooth; }
   padding-top: 0%;
 }
 /* Botón flotante */
+
+
 #whatsapp-btn {
   position: fixed;
   top: 19px;
-  right: 90px;
+  right: 20px;
+
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+
   background: linear-gradient(135deg, #25D366, #1DA851);
   color: #ffffff;
-  padding: 3px 15px;
+
   display: flex;
   align-items: center;
-  gap: 8px;
-  border-radius: 40px;
-  cursor: pointer;
+  justify-content: center;
+
   font-size: 14px;
+ 
   backdrop-filter: blur(6px);
+
   z-index: 1000;
-  margin-top: 3%;
-  border: 2px solid #ffffff;
+  cursor: pointer;
+
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
 }
 #whatsapp-btn img {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  display: block;
 }
 
 #carrito-dropdown,
@@ -1460,7 +1474,6 @@ html { scroll-behavior: smooth; }
 .facebook-embed {
   margin-top: 0.1rem;
   padding: 0.1rem 1rem;
-  background: #162028;
   text-align: center;
   border-radius: 14px;
 }
@@ -2157,8 +2170,12 @@ h1, h2, h3 {
   .catalogo {
     grid-template-columns: repeat(2, 1fr); 
     gap: 0.3rem;
-    margin-top: 36%;
+    margin-top: 27%;
   }
+  .compra-minima {
+    font-size: 1rem;
+    text-transform: capitalize;
+    }
 
   .aviso {
     display:none; 
@@ -2183,13 +2200,13 @@ h1, h2, h3 {
     margin-top: 3.3rem;
   }
 
-  .logo-mini {
-    width: 60px;
-    margin-top: 15px;
-    top: 110px;       
-    left: 20px;
-    z-index: auto;
-  }
+.logo-mini {
+  width: 60px;
+  position: absolute;
+  left: 40%;
+  transform: translateX(-50%);
+  top: 0.8px;
+}
 }
 
 /* Tecnoideas */
@@ -2306,4 +2323,27 @@ a {
 .card-video.audio-activo .sound-icon {
   background: rgba(116, 172, 223, 0.9);
   box-shadow: 0 0 10px rgba(116, 172, 223, 0.7);
+}
+
+/* Menu*/
+.menu-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 34px;
+  height: 26px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;   /* 👈 clave para que no se lo coma el layout */
+  left: 15px;           /* lo manda a la izquierda */
+  top: 20px;            /* lo baja un poco */
+  z-index: 9999;        /* 👈 siempre arriba de todo */
+}
+
+.menu-btn span {
+  height: 3px;
+  width: 100%;
+  background: #fff; /* si tu fondo es oscuro */
+  border-radius: 5px;
 }
