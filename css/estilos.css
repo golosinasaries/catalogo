@@ -697,7 +697,7 @@ html { scroll-behavior: smooth; }
   position: relative;                                 
   z-index: 2;  
   word-spacing: 2px; 
-  letter-spacing: 2px;                                      
+  letter-spacing: 2px;                                    
 }
 
 @media (max-width: 1400px) {
@@ -710,7 +710,8 @@ html { scroll-behavior: smooth; }
   .fb-sub {
     margin-top: 30%;
   } 
-    .logo-mini {
+  
+  .logo-mini {
     width: 90px;
     margin-top: 20px;
     top: 90px;       
@@ -799,9 +800,10 @@ html { scroll-behavior: smooth; }
   }
  
   #search {
-    width: 90%; 
+    width: 30%; 
     margin-bottom: 0.1rem;
   }
+  
 }
 
 @media (max-width: 768px) {
@@ -845,7 +847,7 @@ html { scroll-behavior: smooth; }
   }
 
   #search {
-    width: 95%; 
+    width: 35%; 
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
   }
@@ -1483,7 +1485,7 @@ html { scroll-behavior: smooth; }
 
 #whatsapp-btn {
   position: fixed;
-  top: 19px;
+  top: 32px;
   right: 20px;
 
   width: 40px;
@@ -1955,7 +1957,6 @@ h1, h2, h3 {
   overflow: hidden;
 }
 
-/* brillo animado */
 .phone::before {
   content: "";
   position: absolute;
@@ -2070,7 +2071,6 @@ h1, h2, h3 {
   transition: all 0.3s ease;
 }
 
-/* ✨ brillo animado */
 .titulo-catalogo::before {
   content: "";
   position: absolute;
@@ -2182,11 +2182,11 @@ h1, h2, h3 {
 
 
 .logo-mini {
-  width: 115px;
+  width: 235px;
   position: absolute;
   left: 130px;
   z-index: 500;
-
+  top: auto;
 
   /* animación constante suave */
   animation: flotarSuave 3s ease-in-out infinite;
@@ -2201,7 +2201,6 @@ h1, h2, h3 {
   50%  { transform: translateY(-6px); }
   100% { transform: translateY(0px); }
 }
-
 
 /* 🔄 GIRO CADA 3 SEGUNDOS (aparte, sin romper todo) */
 .logo-mini {
@@ -2239,6 +2238,9 @@ h1, h2, h3 {
     top: 23%;
     }
 
+  .titulo-animado {
+   left: 7%;                                  
+  }
   .aviso {
     display:none; 
     background: linear-gradient(135deg, rgba(106,27,154,0.6), rgba(0,184,148,0.6));; 
@@ -2263,12 +2265,13 @@ h1, h2, h3 {
   }
 
 .logo-mini {
-  width: 60px;
+  width: 95px;
   position: absolute;
-  left: 40%;
+  left: 30%;
   transform: translateX(-50%);
-  top: 12px;
+  top: 8px;
 }
+
 }
 
 /* Tecnoideas */
@@ -2455,3 +2458,4 @@ a {
 #carrito-count.anim {
   animation: contadorPop 0.3s ease;
 }
+
