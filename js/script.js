@@ -521,7 +521,7 @@ if (modal) {
     currentImages = imagenesProducto[currentTitle] || [img?.src || ''];
   }
 
-  currentIndex = 0;
+  currentIndex = parseInt(card.dataset.index || "0");
 
   modal.style.display = 'flex';
   actualizarModal();
@@ -1076,8 +1076,8 @@ document.addEventListener("DOMContentLoaded", () => {
           nombre = card?.querySelector("h3")?.textContent.trim() 
                 || document.getElementById("modal-title")?.textContent.trim();
 
-          precio = card?.querySelector("p")?.innerText 
-                || document.getElementById("modal-precio")?.innerText;
+          precio = card.querySelector("p")?.textContent.trim(); 
+                if (!precio || !precio.includes("$")) return;
         }
         const texto = btn.innerText.toLowerCase();
 
@@ -1400,11 +1400,27 @@ function sincronizarCarritoConHTML() {
   carrito = carrito.filter(item => {
     const nombreItem = normalizarNombre(item.nombre);
     const precioActual = productosHTML[nombreItem];
+    
 
     // Producto eliminado → se quita del carrito
     if (precioActual === undefined) {
       cambios = true;
       return false;
+    }
+
+    // 🔥 NUEVO: validar stock real
+    const stock = STOCK_PRODUCTOS[item.nombre];
+
+    // ❌ si no hay stock → eliminar del carrito
+    if (stock === 0) {
+      cambios = true;
+      return false;
+    }
+
+    // ❌ si supera stock → ajustar cantidad
+    if (stock !== undefined && item.cantidad > stock) {
+      item.cantidad = stock;
+      cambios = true;
     }
 
     // Precio cambiado → se actualiza
