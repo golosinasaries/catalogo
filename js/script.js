@@ -31,7 +31,7 @@ const STOCK_PRODUCTOS = {
   "Autito con pastillitas (30 u)": 15,
   "Chicle Fierita Recargado - Tutti Frutti (50 u)": 11,
   "Chupetines Merlina (30 u)": 21,
-  "Gomitas Spider-Man (60 u)": 3,
+  "Gomitas Spider-Man (60 u)": 1,
   "Gomitas de Gelatinas Candy Loka (10 u)": 9,
   "Gomitas Moritas Mogul 500 g": 2,
   "Chupetines masticables Baby Dolls (40 u)": 1,
