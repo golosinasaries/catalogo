@@ -2184,7 +2184,8 @@ h1, h2, h3 {
 .logo-mini {
   width: 235px;
   position: absolute;
-  left: 130px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 500;
   top: auto;
 
@@ -2267,7 +2268,7 @@ h1, h2, h3 {
 .logo-mini {
   width: 95px;
   position: absolute;
-  left: 30%;
+  left: 37%;
   transform: translateX(-50%);
   top: 8px;
 }
