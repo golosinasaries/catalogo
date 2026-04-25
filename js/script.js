@@ -24,6 +24,7 @@ const STOCK_PRODUCTOS = {
   "Gomitas Mogul Frutilla con Crema 500 g": 2,
   "Gomitas Yummy ácidas 500 g": 1,
   "Gomitas Mogul Dientes 500 g": 1,
+  "Chicle por metro Barbie con Tatoo (30 u)": 1,
   "Caramelos masticables Lheritier 300 g": 2,
   "Chupetines Kuromy con led (30 u)": 1,
   "Huevos Sorpresa Plantas vs Zombies (30 u)": 0,
