@@ -213,6 +213,33 @@ const variantesTransformer = [
   }
     */
 ];
+
+const cartera = 
+[ 
+  {
+    img: "img/carterastitch.jpeg",
+    nombre: "Cartera Stitch",
+    precio: "$4.500"
+  },
+
+  {
+    img: "img/carteraKuromy.jpeg",
+    nombre: "Cartera Kuromy",
+    precio: "$4.500"
+  },
+  {
+    img: "img/carterakitty.jpeg",
+    nombre: "Cartera Hello Kitty",
+    precio: "$4.500"
+  },
+  
+  {
+    img: "img/carteralabubu.jpeg",
+    nombre: "Cartera Labubu",
+    precio: "$4.500"
+  },
+];
+
 const oblita = [
   
   {
@@ -253,6 +280,7 @@ const productosVariantes = {
   "card-recargado": recargados,
   "card-transformers": variantesTransformer,
   "card-oblita": oblita,
+  "card-cartera": cartera,
 };
 
 function cambiarVariante(el, direccion) {
