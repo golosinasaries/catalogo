@@ -223,7 +223,7 @@ const cartera =
   },
 
   {
-    img: "img/carteraKuromy.jpeg",
+    img: "img/carterakuromy.jpeg",
     nombre: "Cartera Kuromy",
     precio: "$4.500"
   },
