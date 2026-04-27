@@ -1231,7 +1231,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     let mensajeRegalo = "";
 
     if (PROMO_ACTIVA === "regalo" && total >= minimoRegalo) {
-      mensajeRegalo = `\n🎁 ¡Tu compra incluye: ${REGALO_NOMBRE} de regalo!`;
+      mensajeRegalo = `\n🎁 ¡Tenés ${REGALO_NOMBRE} de regalo!`;
     }
 
     msg += mensajeRegalo;
@@ -1280,7 +1280,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
     let mensajeRegalo = "";
 
     if (PROMO_ACTIVA === "regalo" && total >= minimoRegalo) {
-        mensajeRegalo = `\n🎁 ¡Tu compra incluye: ${REGALO_NOMBRE} de regalo!`;
+        mensajeRegalo = `\n🎁 ¡Tenés ${REGALO_NOMBRE} de regalo!`;
     } else {
         mensajeRegalo = ""; 
     }
