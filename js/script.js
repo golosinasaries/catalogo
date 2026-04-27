@@ -21,7 +21,7 @@ const STOCK_PRODUCTOS = {
   "Burbujero Selección 🇦🇷": 0,
   "Agenditas surtidas (10 u)": 1,
   "Piñata redonditas 700 g": 2,
-  "Chocolates Surtido Especial Arcor 223g": 3,
+  "Chocolates Surtido Especial Arcor 223g": 0,
   "Gomitas Mogul Frutilla con Crema 500 g": 2,
   "Gomitas Yummy ácidas 500 g": 1,
   "Gomitas Mogul Dientes 500 g": 1,
