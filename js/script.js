@@ -18,6 +18,7 @@ let currentVariantes = null;
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const STOCK_PRODUCTOS = {
+  "Burbujero Selección 🇦🇷": 0,
   "Agenditas surtidas (10 u)": 1,
   "Piñata redonditas 700 g": 2,
   "Chocolates Surtido Especial Arcor 223g": 3,
@@ -246,12 +247,37 @@ const oblita = [
 
 ];
 
+const cartera = [
+    {
+    nombre: "Cartera Stitch",
+    precio: "$4.500",
+    img: "img/carterastitch.jpeg"
+  },
+ {
+    nombre: "Cartera Kuromy",
+    precio: "$4.500",
+    img: "img/carterakuromy.jpeg"
+  },
+      {
+    nombre: "Cartera Hello Kitty",
+    precio: "$4.500",
+    img: "img/carterakitty.jpeg"
+  },
+ {
+    nombre: "Cartera Labubu",
+    precio: "$4.500",
+    img: "img/carteralabubu.jpeg"
+  },
+
+];
+
 const productosVariantes = {
   "card-alcancia": alcancias,
   "card-globos": globos,
   "card-recargado": recargados,
   "card-transformers": variantesTransformer,
   "card-oblita": oblita,
+  "card-cartera": cartera,
 };
 
 function cambiarVariante(el, direccion) {
@@ -491,7 +517,7 @@ if (modal) {
     currentImages = imagenesProducto[currentTitle] || [img?.src || ''];
   }
 
-  currentIndex = 0;
+   currentIndex = parseInt(card.dataset.index || "0");
 
   modal.style.display = 'flex';
   actualizarModal();
