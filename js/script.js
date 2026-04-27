@@ -18,14 +18,12 @@ let currentVariantes = null;
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const STOCK_PRODUCTOS = {
-  "Burbujero Selección 🇦🇷": 0,
   "Agenditas surtidas (10 u)": 1,
   "Piñata redonditas 700 g": 2,
   "Chocolates Surtido Especial Arcor 223g": 3,
   "Gomitas Mogul Frutilla con Crema 500 g": 2,
   "Gomitas Yummy ácidas 500 g": 1,
   "Gomitas Mogul Dientes 500 g": 1,
-  "Chicle por metro Barbie con Tatoo (30 u)": 0,
   "Caramelos masticables Lheritier 300 g": 2,
   "Chupetines Kuromy con led (30 u)": 1,
   "Huevos Sorpresa Plantas vs Zombies (30 u)": 0,
@@ -33,7 +31,7 @@ const STOCK_PRODUCTOS = {
   "Autito con pastillitas (30 u)": 15,
   "Chicle Fierita Recargado - Tutti Frutti (50 u)": 11,
   "Chupetines Merlina (30 u)": 21,
-  "Gomitas Spider-Man (60 u)": 0,
+  "Gomitas Spider-Man (60 u)": 3,
   "Gomitas de Gelatinas Candy Loka (10 u)": 9,
   "Gomitas Moritas Mogul 500 g": 2,
   "Chupetines masticables Baby Dolls (40 u)": 1,
@@ -90,7 +88,7 @@ const STOCK_PRODUCTOS = {
   "Alcancía Pingüino Rosa (con 12 gelatinas en su interior)": 15,
   "Gomitas Super Mario (30 u)": 15,
   "Chupetines con led Oreo (30 u)": 15,
-  "Nutello (60 u)": 18,
+  "Nutello pequeños (60 u)": 18,
   "Dinosaurio con caramelos y luces (1 unidad)": 2,
   "Avión Naranja Transformer (1 u)": 1,
 };
@@ -214,33 +212,6 @@ const variantesTransformer = [
   }
     */
 ];
-
-const cartera = 
-[ 
-  {
-    img: "img/carterastitch.jpeg",
-    nombre: "Cartera Stitch",
-    precio: "$4.500"
-  },
-
-  {
-    img: "img/carterakuromy.jpeg",
-    nombre: "Cartera Kuromy",
-    precio: "$4.500"
-  },
-  {
-    img: "img/carterakitty.jpeg",
-    nombre: "Cartera Hello Kitty",
-    precio: "$4.500"
-  },
-  
-  {
-    img: "img/carteralabubu.jpeg",
-    nombre: "Cartera Labubu",
-    precio: "$4.500"
-  },
-];
-
 const oblita = [
   
   {
@@ -281,7 +252,6 @@ const productosVariantes = {
   "card-recargado": recargados,
   "card-transformers": variantesTransformer,
   "card-oblita": oblita,
-  "card-cartera": cartera,
 };
 
 function cambiarVariante(el, direccion) {
@@ -439,7 +409,7 @@ if (modal) {
     "Gomitas Ojos (30 u)": ["img/ojos.jpg","img/videoojos.mp4"],
     "Gomitas Oreo (30 u)": ["img/gomitasoreo.jpg","img/videooreo.mp4"],
     "Dinosaurio con caramelos y luces (1 unidad)": ["img/fotodinosaurio.jpg","img/videodinosaurio.mp4"],
-    "Gomitas de Boca (30 u)": ["img/boca.jpg","img/videoboca.mp4"],
+    "Gomitas de boca (30 u)": ["img/boca.jpg","img/videoboca.mp4"],
     "Gomitas Spider-Man (60 u)": ["img/spiderman1.jpg","img/spiderman2.jpg","img/spiderman3.jpg","img/spiderman4.jpg","img/spiderman5.jpg"],
     "Llaveros láser Capibara (12 u)": ["img/laser1.jpg","img/laser2.jpg","img/laser3.jpg"],
     "Ring Pop Barbie (30 u)": ["img/ringpopbarbie.jpg","img/ringpop.jpg"],
@@ -521,7 +491,7 @@ if (modal) {
     currentImages = imagenesProducto[currentTitle] || [img?.src || ''];
   }
 
-  currentIndex = parseInt(card.dataset.index || "0");
+  currentIndex = 0;
 
   modal.style.display = 'flex';
   actualizarModal();
@@ -1076,8 +1046,8 @@ document.addEventListener("DOMContentLoaded", () => {
           nombre = card?.querySelector("h3")?.textContent.trim() 
                 || document.getElementById("modal-title")?.textContent.trim();
 
-          precio = card.querySelector("p")?.textContent.trim(); 
-                if (!precio || !precio.includes("$")) return;
+          precio = card?.querySelector("p")?.innerText 
+                || document.getElementById("modal-precio")?.innerText;
         }
         const texto = btn.innerText.toLowerCase();
 
@@ -1400,27 +1370,11 @@ function sincronizarCarritoConHTML() {
   carrito = carrito.filter(item => {
     const nombreItem = normalizarNombre(item.nombre);
     const precioActual = productosHTML[nombreItem];
-    
 
     // Producto eliminado → se quita del carrito
     if (precioActual === undefined) {
       cambios = true;
       return false;
-    }
-
-    // 🔥 NUEVO: validar stock real
-    const stock = STOCK_PRODUCTOS[item.nombre];
-
-    // ❌ si no hay stock → eliminar del carrito
-    if (stock === 0) {
-      cambios = true;
-      return false;
-    }
-
-    // ❌ si supera stock → ajustar cantidad
-    if (stock !== undefined && item.cantidad > stock) {
-      item.cantidad = stock;
-      cambios = true;
     }
 
     // Precio cambiado → se actualiza
@@ -1645,28 +1599,3 @@ function renderCarritoUI() {
     carritoCount.textContent = totalProductos;
   }
 }
-
-// Selecciona todos los links dentro de .footer-credito
-document.querySelectorAll('.footer-credito a').forEach(el => {
-
-  // Escucha el click en cada link
-  el.addEventListener('click', function(e) {
-
-    // Detecta si el dispositivo es táctil (sin hover, típico de móviles)
-    if (window.matchMedia("(hover: none)").matches) {
-    
-      // 🔽 Cierra cualquier tooltip que esté abierto
-      document.querySelectorAll('.footer-credito a')
-        .forEach(a => a.classList.remove('active'));
-
-      // 🔼 Activa el tooltip del elemento tocado
-      this.classList.add('active');
-
-      // ⏱️ Después de 2 segundos, lo cierra automáticamente
-      setTimeout(() => {
-        this.classList.remove('active');
-      }, 2000);
-    }
-  });
-});
-
