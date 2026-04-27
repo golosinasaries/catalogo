@@ -18,6 +18,7 @@ let currentVariantes = null;
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const STOCK_PRODUCTOS = {
+  "Latitas con chicles (30 latitas)": 30,
   "Chupetines Selección (50 u)":30,
   "Gomitas de Boca (30 u)":0,
   "Burbujero Selección 🇦🇷": 0,
