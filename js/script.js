@@ -93,6 +93,7 @@ const STOCK_PRODUCTOS = {
   "Nutello pequeños (60 u)": 18,
   "Dinosaurio con caramelos y luces (1 unidad)": 2,
   "Avión Naranja Transformer (1 u)": 1,
+  "Mechas mágicas Mario Bros (30 u)": 1,
 };
 
 const globos = [
