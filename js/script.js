@@ -18,6 +18,11 @@ let currentVariantes = null;
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const STOCK_PRODUCTOS = {
+  "Muñeca": 5,
+  "Cartera Stitch": 2,
+  "Cartera Kuromy": 2,
+  "Cartera Hello Kitty": 2,
+  "Cartera Labubu": 2,
   "Chupetines Capibara (30 u)": 4,
   "Monedas de chocolate (290 u)": 4,
   "Latitas con chicles (30 latitas)": 30,
