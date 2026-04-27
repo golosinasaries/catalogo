@@ -19,7 +19,7 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const STOCK_PRODUCTOS = {
   "Latitas con chicles (30 latitas)": 30,
-  "Chupetines Selección (50 u)":30,
+  "Chupetines Selección (50 u)":10,
   "Gomitas de Boca (30 u)":0,
   "Burbujero Selección 🇦🇷": 0,
   "Agenditas surtidas (10 u)": 1,
@@ -64,7 +64,7 @@ const STOCK_PRODUCTOS = {
   "Llaveros láser Capibara (12 u)": 2,
   "Autito  + pastillitas (30 u)": 15,
   "YO-YOs con luces (12 u)": 1,
-  "Gomitas Selección (30 u)": 48,
+  "Gomitas Selección (30 u)": 1,
   "Gomitas Among Us (30 u)": 15,
   "Gomitas Donas 🍩 (30 u)": 1,
   "Bocaditos Bel (50 u)": 1,
