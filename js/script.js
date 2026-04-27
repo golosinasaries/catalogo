@@ -1645,3 +1645,28 @@ function renderCarritoUI() {
     carritoCount.textContent = totalProductos;
   }
 }
+
+// Selecciona todos los links dentro de .footer-credito
+document.querySelectorAll('.footer-credito a').forEach(el => {
+
+  // Escucha el click en cada link
+  el.addEventListener('click', function(e) {
+
+    // Detecta si el dispositivo es táctil (sin hover, típico de móviles)
+    if (window.matchMedia("(hover: none)").matches) {
+    
+      // 🔽 Cierra cualquier tooltip que esté abierto
+      document.querySelectorAll('.footer-credito a')
+        .forEach(a => a.classList.remove('active'));
+
+      // 🔼 Activa el tooltip del elemento tocado
+      this.classList.add('active');
+
+      // ⏱️ Después de 2 segundos, lo cierra automáticamente
+      setTimeout(() => {
+        this.classList.remove('active');
+      }, 2000);
+    }
+  });
+});
+
