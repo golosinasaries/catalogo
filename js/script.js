@@ -18,8 +18,9 @@ let currentVariantes = null;
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const STOCK_PRODUCTOS = {
+  "Monedas de chocolate (290 u)": 4,
   "Latitas con chicles (30 latitas)": 30,
-  "Chupetines Selección (50 u)":10,
+  "Chupetines Selección (50 u)":12,
   "Gomitas de Boca (30 u)":0,
   "Burbujero Selección 🇦🇷": 0,
   "Agenditas surtidas (10 u)": 1,
@@ -50,12 +51,12 @@ const STOCK_PRODUCTOS = {
   "Camión dispenser + caramelos celeste (1 unidad)": 0,
   "Auto Blanco y azul (1 u)": 1,
   "Auto Blanco (1 u)": 1,
-  "Caramelo masticable relleno Tnt pinta lengua (60 u)": 3,
+  "Caramelo masticable relleno Tnt pinta lengua (60 u)": 1,
   "Camión Transformer (1 u)": 2,
   "Camión Verde Transformer (1 u)": 3,
   "Chupetines con led Simpsons (30 u)": 0,
   "Chupetines con led Unicornio (30 u)": 1,
-  "Transformers varios (4 u)": 7,
+  "Transformers varios (4 u)": 2,
   "Trompetas con chupetin y sonido (20 u)": 1,
   "Chupetín Calabaza con polvo ácido y led (30 u)": 0,
   "Billiken Congys 200 g": 3,
@@ -97,6 +98,10 @@ const STOCK_PRODUCTOS = {
   "Dinosaurio con caramelos y luces (1 unidad)": 2,
   "Avión Naranja Transformer (1 u)": 1,
   "Mechas mágicas Mario Bros (30 u)": 1,
+  "Chicle Fierita Recargado - Menta (50 u)": 3,
+  "Chicle Fierita Recargado - Tutti Frutti (50 u)": 3,
+  "Chicle Fierita Globo sabor Banana (95 u)": 2,
+  "Chicle Fierita Globo sabor Menta (95 u)": 2,
 };
 
 const globos = [
