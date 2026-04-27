@@ -2229,7 +2229,7 @@ h1, h2, h3 {
   .catalogo {
     grid-template-columns: repeat(2, 1fr); 
     gap: 0.3rem;
-    margin-top: 35%;
+    margin-top: 45%;
   }
   .compra-minima {
     font-size: 1rem;
