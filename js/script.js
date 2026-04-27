@@ -18,6 +18,7 @@ let currentVariantes = null;
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const STOCK_PRODUCTOS = {
+  "Chupetines Selección (50 u)":30,
   "Gomitas de Boca (30 u)":0,
   "Burbujero Selección 🇦🇷": 0,
   "Agenditas surtidas (10 u)": 1,
@@ -1399,8 +1400,9 @@ function sincronizarCarritoConHTML() {
     const nombreItem = normalizarNombre(item.nombre);
     const precioActual = productosHTML[nombreItem];
 
-    // Producto eliminado → se quita del carrito
-    if (precioActual === undefined) {
+    const stock = STOCK_PRODUCTOS[item.nombre];
+
+    if (precioActual === undefined || stock === 0) {
       cambios = true;
       return false;
     }
