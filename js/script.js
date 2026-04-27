@@ -596,6 +596,8 @@ function actualizarModal() {
   }
 
   const modalAgregarBtn = document.getElementById('modal-agregar');
+  const titulo = modalTitle.textContent.trim();
+  const stock = STOCK_PRODUCTOS[titulo];
 
   //  VARIANTES 
   if (currentVariantes) {
@@ -606,6 +608,15 @@ function actualizarModal() {
 
     modalAgregarBtn.dataset.producto = variante.nombre;
     modalAgregarBtn.dataset.precio = variante.precio;
+    const stockVariante = STOCK_PRODUCTOS[variante.nombre];
+
+    if (stockVariante === 0) {
+      modalAgregarBtn.textContent = "Sin stock ❌";
+      modalAgregarBtn.disabled = true;
+    } else {
+      modalAgregarBtn.textContent = "Agregar al carrito";
+      modalAgregarBtn.disabled = false;
+    }
 
   } else {
     //  PRODUCTO NORMAL
@@ -613,6 +624,15 @@ function actualizarModal() {
 
     modalAgregarBtn.dataset.producto = currentTitle;
     modalAgregarBtn.dataset.precio = document.getElementById('modal-precio').textContent;
+    const stock = STOCK_PRODUCTOS[currentTitle];
+
+    if (stock === 0) {
+      modalAgregarBtn.textContent = "Sin stock ❌";
+      modalAgregarBtn.disabled = true;
+    } else {
+      modalAgregarBtn.textContent = "Agregar al carrito";
+      modalAgregarBtn.disabled = false;
+    }
   }
 
   //  Flechas 
