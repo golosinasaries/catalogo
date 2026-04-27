@@ -18,6 +18,7 @@ let currentVariantes = null;
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const STOCK_PRODUCTOS = {
+  "Gomitas de Boca (30 u)":0,
   "Burbujero Selección 🇦🇷": 0,
   "Agenditas surtidas (10 u)": 1,
   "Piñata redonditas 700 g": 2,
