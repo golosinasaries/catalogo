@@ -355,15 +355,13 @@ function cambiarVariante(el, direccion) {
 
 function validarStock(nombre, carrito) {
   const stockMax = STOCK_PRODUCTOS[nombre];
+  const item = carrito.find(p => p.nombre === nombre);
+  const cantidad = item ? item.cantidad : 0;
 
-  if (stockMax !== undefined) {
-    const ex = carrito.find(p => p.nombre === nombre);
-    const cantidadActual = ex ? ex.cantidad : 0;
-
-    if (cantidadActual >= stockMax) {
-      mostrarToast("⚠️ No hay más disponibles", "error");
-      return false;
-    }
+  if (stockMax !== undefined && cantidad >= stockMax) {
+    if (item) item.cantidad = stockMax;
+    mostrarToast("⚠️ Stock máximo disponible alcanzado", "error");
+    return false;
   }
 
   return true;
@@ -946,6 +944,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const calcularTotal = () => carrito.reduce((a,i)=>a+parsePrecio(i.precio)*i.cantidad,0);
 
   function actualizarCarrito() {
+    carrito = carrito.map(item => {
+      const stock = STOCK_PRODUCTOS[item.nombre];
+      if (stock !== undefined && item.cantidad > stock) {
+        item.cantidad = stock;
+      }
+      return item;
+    }).filter(i => i.cantidad > 0);
     carritoItemsContainer.innerHTML = carrito.length === 0
       ? "<p class='carrito-vacio'>Tu carrito está vacío 🛒</p>"
       : carrito.map(i=>`
@@ -1013,12 +1018,21 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    if (stockMax !== undefined && cantidad >= stockMax) {
-      btn.disabled = true;
-      btn.textContent = "Agotado 🛒";
-    } else {
-      btn.disabled = false;
-      btn.textContent = "Agregar al carrito";
+    if (stockMax !== undefined) {
+      const item = carrito.find(p => p.nombre === titulo);
+      const cantidadActual = item ? item.cantidad : 0;
+
+      if (cantidadActual > stockMax) {
+        item.cantidad = stockMax;
+      }
+
+      if (cantidadActual >= stockMax) {
+        btn.disabled = true;
+        btn.textContent = "Agotado 🛒";
+      } else {
+        btn.disabled = false;
+        btn.textContent = "Agregar al carrito";
+      }
     }
 
   });
@@ -1418,6 +1432,18 @@ function sincronizarCarritoConHTML() {
   if (cards.length === 0) return; // si no hay productos, no toca el carrito
 
   cards.forEach(card => {
+
+    carrito = carrito.map(item => {
+      const stock = STOCK_PRODUCTOS[item.nombre];
+
+      if (stock !== undefined && item.cantidad > stock) {
+        item.cantidad = stock;
+      }
+
+      return item;
+    }).filter(item => item.cantidad > 0);
+
+    localStorage.setItem("carrito", JSON.stringify(carrito));
     const nombre = card.querySelector("h3")?.innerText || "";
     const precioTexto = card.querySelector("p")?.innerText || "";
 
