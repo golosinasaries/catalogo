@@ -5,9 +5,9 @@ const ENVIO_LEJANO = 14900;
 const ENVIO_SANTACRUZ = 15900;
 const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
-const minimoRegalo = 70000;   
-const REGALO_NOMBRE = "Turrón Misky (10 u)✨"; 
-const PROMO_ACTIVA = "ninguna"; 
+const minimoRegalo = 80000;   
+const REGALO_NOMBRE = "Gomitas de Ojos (30 u) 👀"; 
+const PROMO_ACTIVA = "regalo"; 
 // "envio"  → envío gratis
 // "regalo" → regalo 
 // "ninguna" → sin promo
