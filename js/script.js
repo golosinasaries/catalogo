@@ -1020,6 +1020,7 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.disabled = false;
       btn.textContent = "Agregar al carrito";
     }
+
   });
   }
 
@@ -1162,7 +1163,9 @@ document.addEventListener("DOMContentLoaded", () => {
     actualizarAvisoEnvioGratis(calcularTotal());
     });
 
-document.getElementById("enviar-carrito")?.addEventListener("click", () => {
+document.getElementById("enviar-carrito")?.addEventListener("click", (e) => {
+  e.preventDefault();
+  e.stopPropagation();
   if (carrito.length === 0) {
     alert("Tu carrito está vacío 🛒");
     return;
@@ -1212,12 +1215,9 @@ document.getElementById("enviar-carrito")?.addEventListener("click", () => {
   // Botón cancelar del modal de código postal
   const cpCancelar = document.getElementById("cp-cancelar");
   if (cpCancelar) {
-    cpCancelar.onclick = () => {
-      const modalCP = document.getElementById("modal-cp");
-      if (modalCP) {
-        modalCP.style.display = "none"; // cierra el modal
-      }
-    };
+   cpCancelar.onclick = () => {
+    document.getElementById("modal-cp").style.display = "none";
+   };
   }
 
   // Botón confirmar código postal
@@ -1665,3 +1665,16 @@ function renderCarritoUI() {
     carritoCount.textContent = totalProductos;
   }
 }
+
+    document.querySelectorAll("#menu-envio").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+
+        const cp = prompt("Ingresá tu código postal para calcular el envío:");
+        if (!cp) return;
+
+        const costo = calcularCostoEnvio(cp);
+
+        alert("🚚 El costo de envío es: $" + costo.toLocaleString("es-AR"));
+      });
+    });
