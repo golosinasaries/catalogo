@@ -2538,3 +2538,26 @@ a {
 }
 
 
+#envio-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.envio-box {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 15px;
+  text-align: center;
+  font-weight: bold;
+  animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}

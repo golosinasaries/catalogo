@@ -1666,15 +1666,41 @@ function renderCarritoUI() {
   }
 }
 
+function mostrarEnvioModal(costo) {
+  let modal = document.getElementById("envio-modal");
+
+  if (!modal) {
+    modal = document.createElement("div");
+    modal.id = "envio-modal";
+
+    modal.innerHTML = `
+      <div class="envio-box">
+        <p>🚚 Envío</p>
+        <h2>$${costo.toLocaleString("es-AR")}</h2>
+      </div>
+    `;
+
+    document.body.appendChild(modal);
+  }
+
+  modal.style.display = "flex";
+
+  setTimeout(() => {
+    modal.style.display = "none";
+  }, 2000);
+}
+
     document.querySelectorAll("#menu-envio").forEach(btn => {
       btn.addEventListener("click", (e) => {
         e.stopPropagation();
 
-        const cp = prompt("Ingresá tu código postal para calcular el envío:");
+        let cpGuardado = localStorage.getItem("codigoPostalCliente") || "";
+        let cp = prompt("Ingresá tu código postal para calcular el envío:", cpGuardado);
         if (!cp) return;
+        localStorage.setItem("codigoPostalCliente", cp);
 
         const costo = calcularCostoEnvio(cp);
 
-        alert("🚚 El costo de envío es: $" + costo.toLocaleString("es-AR"));
+       mostrarEnvioModal(costo);
       });
     });
