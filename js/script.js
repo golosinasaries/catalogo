@@ -7,7 +7,7 @@ const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 const minimoRegalo = 70000;   
 const REGALO_NOMBRE = "Turrón Misky (10 u)✨"; 
-const PROMO_ACTIVA = "regalo"; 
+const PROMO_ACTIVA = "ninguna"; 
 // "envio"  → envío gratis
 // "regalo" → regalo 
 // "ninguna" → sin promo
@@ -382,7 +382,7 @@ function calcularCostoEnvio(cp) {
 
   const codigo = cp.trim();
 
-  if (codigo.startsWith("7607")) {
+  if (codigo === "7607") {
     return ENVIO_MIRAMAR;
   }
 
@@ -1672,16 +1672,16 @@ function mostrarEnvioModal(costo) {
   if (!modal) {
     modal = document.createElement("div");
     modal.id = "envio-modal";
-
-    modal.innerHTML = `
-      <div class="envio-box">
-        <p>🚚 Envío</p>
-        <h2>$${costo.toLocaleString("es-AR")}</h2>
-      </div>
-    `;
-
     document.body.appendChild(modal);
   }
+
+  // SIEMPRE actualizar contenido
+  modal.innerHTML = `
+    <div class="envio-box">
+      <p>🚚 Envío</p>
+      <h2>$${costo.toLocaleString("es-AR")}</h2>
+    </div>
+  `;
 
   modal.style.display = "flex";
 
@@ -1690,17 +1690,23 @@ function mostrarEnvioModal(costo) {
   }, 2000);
 }
 
-    document.querySelectorAll("#menu-envio").forEach(btn => {
-      btn.addEventListener("click", (e) => {
-        e.stopPropagation();
+document.getElementById("menu-envio").addEventListener("click", (e) => {
+  e.stopPropagation();
 
-        let cpGuardado = localStorage.getItem("codigoPostalCliente") || "";
-        let cp = prompt("Ingresá tu código postal para calcular el envío:", cpGuardado);
-        if (!cp) return;
-        localStorage.setItem("codigoPostalCliente", cp);
+  let cpGuardado = (localStorage.getItem("codigoPostalCliente") || "").trim();
 
-        const costo = calcularCostoEnvio(cp);
+  let cp = prompt(
+    "Ingresá tu código postal para calcular el envío:",
+    cpGuardado
+  );
 
-       mostrarEnvioModal(costo);
-      });
-    });
+  if (cp === null) return;
+
+  cp = cp.trim();
+  if (!cp) return;
+
+  localStorage.setItem("codigoPostalCliente", cp);
+
+  const costo = calcularCostoEnvio(cp);
+  mostrarEnvioModal(costo);
+});
