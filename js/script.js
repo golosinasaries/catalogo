@@ -23,7 +23,7 @@ const STOCK_PRODUCTOS = {
   "Cartera Kuromy": 2,
   "Cartera Hello Kitty": 2,
   "Cartera Labubu": 2,
-  "Chupetines Capibara (30 u)": 2,
+  "Chupetines Capibara (30 u)": 1,
   "Monedas de chocolate (290 u)": 4,
   "Latitas con chicles (30 latitas)": 30,
   "Chupetines Selección (50 u)":10,
