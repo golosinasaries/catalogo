@@ -408,7 +408,11 @@ function calcularCostoEnvio(cp) {
     codigo.startsWith("6") ||
     codigo.startsWith("2000") ||
     codigo.startsWith("5965") ||
+    codigo.startsWith("2445") ||
+    //codigo.startsWith("2445") ||
+    //codigo.startsWith("2445") ||
     codigo.startsWith("8")
+    
   ) {
     return ENVIO_LEJANO;
   }
