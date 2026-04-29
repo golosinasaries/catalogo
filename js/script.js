@@ -569,11 +569,19 @@ function actualizarModal() {
       video = document.createElement("video");
       video.id = "modal-video";
       video.autoplay = true;
+      video.playsInline = true;
+      video.controls = true;
       video.loop = true;
-      video.muted = true;
-      video.controls = false;
-      video.addEventListener("click", () => {
+      video.muted = false;
+      video.setAttribute("muted", "");
+      video.setAttribute("autoplay", "");
+      video.setAttribute("playsinline", "");
+      video.controls = true;
+      video.addEventListener("pointerdown", (e) => {
+        e.preventDefault();
+
         if (video.paused) {
+          video.muted = false;
           video.play();
         } else {
           video.pause();
@@ -686,6 +694,11 @@ function actualizarModal() {
     productoIndex = (productoIndex + 1) % productos.length;
     abrirModal(productos[productoIndex]);
   };
+
+  modalImg.addEventListener("pointerup", (e) => {
+    e.stopPropagation();
+  });
+
   modalImg.onclick = () => {
     if (currentImages.length > 1) {
       currentIndex = (currentIndex + 1) % currentImages.length;
@@ -1159,12 +1172,18 @@ document.addEventListener("DOMContentLoaded", () => {
            animarCarrito();
 
           // 🔁 detectar de dónde viene
-          let img;
+         let img;
 
           if (card) {
             img = card.querySelector("img");
           } else {
-            img = document.getElementById("modal-img");
+            const video = document.getElementById("modal-video");
+
+            if (video && video.style.display !== "none") {
+              img = video;
+            } else {
+              img = document.getElementById("modal-img");
+            }
           }
 
           if (img) volarAlCarrito(img);
