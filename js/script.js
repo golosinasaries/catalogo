@@ -7,7 +7,7 @@ const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 const minimoRegalo = 80000;   
 const REGALO_NOMBRE = "Gomitas de Ojos (30 u) 👀"; 
-const PROMO_ACTIVA = "regalo"; 
+const PROMO_ACTIVA = "ninguna"; 
 // "envio"  → envío gratis
 // "regalo" → regalo 
 // "ninguna" → sin promo
@@ -18,6 +18,9 @@ let currentVariantes = null;
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const STOCK_PRODUCTOS = {
+  "Galletitas Oreo 118 g": 15,
+  "Galletitas Chocolinas 170 g": 15,
+  "Galletitas Pepitos 119 g": 15,
   "Muñeca": 5,
   "Cartera Stitch": 2,
   "Cartera Kuromy": 2,
@@ -572,7 +575,7 @@ function actualizarModal() {
       video.playsInline = true;
       video.controls = true;
       video.loop = true;
-      video.muted = false;
+      video.muted = true;
       video.setAttribute("muted", "");
       video.setAttribute("autoplay", "");
       video.setAttribute("playsinline", "");
@@ -599,6 +602,13 @@ function actualizarModal() {
     }
 
     video.src = media;
+    const esSiempreMute = media.includes("videotra1");
+    video.onvolumechange = null;
+
+    if (esSiempreMute) {
+      video.muted = true;
+      video.onvolumechange = () => video.muted = true;
+    }
     video.classList.remove("video-ojos");
 
     if (media.includes("videoojos")) {
@@ -1758,3 +1768,4 @@ document.getElementById("menu-envio").addEventListener("click", (e) => {
   const costo = calcularCostoEnvio(cp);
   mostrarEnvioModal(costo);
 });
+
