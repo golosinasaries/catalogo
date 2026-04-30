@@ -27,7 +27,7 @@ const STOCK_PRODUCTOS = {
   "Cartera Hello Kitty": 2,
   "Cartera Labubu": 2,
   "Chupetines Capibara (30 u)": 1,
-  "Monedas de chocolate (290 u)": 4,
+  "Monedas de chocolate (290 u)": 0,
   "Latitas con chicles (30 latitas)": 30,
   "Chupetines Selección (50 u)":9,
   "Gomitas de Boca (30 u)":0,
