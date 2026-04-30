@@ -30,8 +30,6 @@ const STOCK_PRODUCTOS = {
   "Monedas de chocolate (290 u)": 0,
   "Latitas con chicles (30 latitas)": 30,
   "Chupetines Selección (50 u)":9,
-  "Gomitas de Boca (30 u)":0,
-  "Agenditas surtidas (10 u)": 1,
   "Chicle por metro Barbie con Tatoo (30 u)": 0,
   "Piñata redonditas 700 g": 1,
   "Chocolates Surtido Especial Arcor 223g": 0,
