@@ -73,7 +73,7 @@ const STOCK_PRODUCTOS = {
   "Bocaditos Bel (50 u)": 3,
   "Fierita Super Tatoo Tutti Frutti 600g": 3,
   "Botellitas con chicles (30 botellitas)": 20,
-  "Misky Rico más 500 g": 1,
+  "Misky Rico más 500 g": 10,
   "Fierita Super Tatoo Frutilla 600g": 2,
   "Chupetines Cremosito Fierita - Fritilla y Crema (50 u)": 3,
   "Alfajor Guaymallén simple de Membrillo (10 u)": 1,
