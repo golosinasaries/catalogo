@@ -28,7 +28,6 @@ const STOCK_PRODUCTOS = {
   "Cartera Labubu": 2,
   "Chupetines Capibara (30 u)": 0,
   "Latitas con chicles (30 latitas)": 30,
-  
   "Chicle por metro Barbie con Tatoo (30 u)": 20,
   "Piñata redonditas 700 g": 1,
   "Chocolates Surtido Especial Arcor 223g": 10,
@@ -79,9 +78,7 @@ const STOCK_PRODUCTOS = {
   "Alcancía Oso café": 5,
   "Alcancía Tigre Amarillo": 3,
   "Alcancía Tigre Rojo": 7,
-  "Alcancía Pollito Rojo": 0,
-  "Alcancía Pingüino Rosa (con 12 gelatinas en su interior)": 1,
-  "Alcancía Pingüino Negro": 5,
+  "Alcancía Pingüino Negro (con 12 gelatinas en su interior)": 5,
   "Alcancía Lechuza Marrón": 1,
   "Alcancía Lechuza Rosa": 1,
   "Gomitas Super Mario (30 u)": 15,
@@ -113,21 +110,17 @@ const globos = [
 
 const alcancias = [
   {
-    nombre: "Alcancía Pingüino Rosa (con 12 gelatinas en su interior)",
-    precio: "$6.500",
-    img: "img/alcanciapinguinorosa.jpg"
-  },
-    {
-    nombre: "Alcancía Pingüino Negro",
+    nombre: "Alcancía Pingüino Negro (con 12 gelatinas en su interior)",
     precio: "$6.500",
     img: "img/pinguino2.jpg"
   },
-
+/*
   {
     nombre: "Alcancía Pollito Rojo",
     precio: "$6.500",
     img: "img/alcanciapinguinorojo.jpg"
   },
+  */
   {
     nombre: "Alcancía Lechuza Marrón",
     precio: "$6.500",
