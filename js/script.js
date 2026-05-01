@@ -28,7 +28,7 @@ const STOCK_PRODUCTOS = {
   "Cartera Labubu": 2,
   "Chupetines Capibara (30 u)": 0,
   "Latitas con chicles (30 latitas)": 30,
-  "Chupetines Selección (50 u)":5,
+  
   "Chicle por metro Barbie con Tatoo (30 u)": 20,
   "Piñata redonditas 700 g": 1,
   "Chocolates Surtido Especial Arcor 223g": 10,
