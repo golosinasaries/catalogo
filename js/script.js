@@ -18,9 +18,9 @@ let currentVariantes = null;
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const STOCK_PRODUCTOS = {
-  "Galletitas Oreo 118 g": 15,
-  "Galletitas Chocolinas 170 g": 15,
-  "Galletitas Pepitos 119 g": 15,
+  "Galletitas Oreo 118 g": 45,
+  "Galletitas Chocolinas 170 g": 45,
+  "Galletitas Pepitos 119 g": 45,
   "Muñeca": 5,
   "Cartera Stitch": 2,
   "Cartera Kuromy": 2,
@@ -78,6 +78,7 @@ const STOCK_PRODUCTOS = {
   "Alcancía Oso café": 5,
   "Alcancía Tigre Amarillo": 3,
   "Alcancía Tigre Rojo": 7,
+  "Alcancía Pingüino Rosa": 1,
   "Alcancía Pingüino Negro (con 12 gelatinas en su interior)": 5,
   "Alcancía Lechuza Marrón": 1,
   "Alcancía Lechuza Rosa": 1,
@@ -127,6 +128,11 @@ const alcancias = [
     img: "img/lechuza.jpg"
   },
 
+    {
+    nombre: "Alcancía Pingüino Rosa",
+    precio: "$6.500",
+    img: "img/alcanciapinguinorosa.jpg"
+  },
   {
     nombre: "Alcancía Lechuza Rosa",
     precio: "$6.500",
