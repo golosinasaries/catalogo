@@ -7,7 +7,7 @@ const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 const minimoRegalo = 80000;   
 const REGALO_NOMBRE = "Gomitas de Ojos (30 u) 👀"; 
-const PROMO_ACTIVA = "ninguna"; 
+const PROMO_ACTIVA = "envio"; 
 // "envio"  → envío gratis
 // "regalo" → regalo 
 // "ninguna" → sin promo
@@ -230,6 +230,7 @@ const variantesTransformer = [
   }
     */
 ];
+
 const oblita = [
   
   {
@@ -352,6 +353,7 @@ function cambiarVariante(el, direccion) {
     btn.textContent = "Agregar al carrito";
   }
 }
+
 
 function validarStock(nombre, carrito) {
   const stockMax = STOCK_PRODUCTOS[nombre];
