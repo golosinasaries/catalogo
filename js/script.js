@@ -29,7 +29,7 @@ const STOCK_PRODUCTOS = {
   "Chupetines Capibara (30 u)": 1,
   "Monedas de chocolate (290 u)": 0,
   "Latitas con chicles (30 latitas)": 30,
-  "Chupetines Selección (50 u)":9,
+  "Chupetines Selección (50 u)":8,
   "Chicle por metro Barbie con Tatoo (30 u)": 0,
   "Piñata redonditas 700 g": 1,
   "Chocolates Surtido Especial Arcor 223g": 0,
@@ -109,7 +109,7 @@ const STOCK_PRODUCTOS = {
   "Chicle Fierita Recargado - Tutti Frutti (50 u)": 3,
   "Chicle Fierita Globo sabor Banana (95 u)": 2,
   "Chicle Fierita Globo sabor Menta (95 u)": 2,
-  "Chupetines con polvo ácido Bob Esponja (30 u)": 2,
+  "Chupetines con polvo ácido Bob Esponja (30 u)": 1,
 };
 
 const globos = [
