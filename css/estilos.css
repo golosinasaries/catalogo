@@ -884,7 +884,7 @@ html { scroll-behavior: smooth; }
 
 }
 
-@media (max-with: 350px) {
+@media (max-width: 350px) {
   nav a {
     font-size: 1rem;
     padding: 0.1rem;
@@ -1611,11 +1611,11 @@ html { scroll-behavior: smooth; }
   padding: 1rem;
   box-sizing: border-box;
   overflow: auto;
-  border-radius: 10px;  
 }
+
 /* Contenido interior */
 .modal-content {
-   max-width: 300px;   
+  max-width: 700px;   
   width: 100%;
   color: #000000;
   padding: 1rem;
@@ -1625,8 +1625,7 @@ html { scroll-behavior: smooth; }
   justify-content: center;
   gap: 0.3rem;
   animation: fadeIn 0.25s ease;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   background: linear-gradient(135deg, #FFFFFF 0%, #F5E6FF 100%);
@@ -1641,17 +1640,19 @@ html { scroll-behavior: smooth; }
   max-height: 60vh;   /* ajusta la altura según pantalla */
   object-fit: contain;
   border-radius: 8px;
-  cursor: zoom-in;
+  cursor: grab;
   transition: transform 0.3s ease;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   z-index: 1;
 }
+
 /* Zoom */
 .modal-content img.zoomed {
-  transform: scale(1.8);
-  cursor: zoom-out;
+  transform: scale(2.2) translate(var(--x,0px), var(--y,0px));
+  cursor: grabbing;
   z-index: 10;
 }
+
 /* Cruz para cerrar */
 .close {
   position: absolute;
@@ -1664,6 +1665,7 @@ html { scroll-behavior: smooth; }
   user-select: none;
   color: black
 }
+
 .close:hover { color: #EC4899; }
 /* Flechas */
 .modal-content .prev,
@@ -1685,6 +1687,7 @@ html { scroll-behavior: smooth; }
   z-index: 101;
   transition: background 0.2s;
 }
+
 .modal-content .prev { left: 12px; }
 .modal-content .next { right: 12px; }
 .modal-content .prev:hover,
@@ -1706,24 +1709,18 @@ html { scroll-behavior: smooth; }
   flex: 1 1 auto;       /* que puedan crecer o reducirse */
   min-width: 80px;      /* evita que queden demasiado pequeños */
 }
+
 #modal-agregar {
   background: linear-gradient(59deg, var(--accent), var(--primary));  /* invertir degradado */
   color: rgb(0, 0, 0);
   margin-top:-20px;
   box-sizing: border-box;
   border-bottom: 2px solid #080808;
-
-}
-#modal-agregar {
   transition: opacity 0.3s ease;
 }
+
 .modal-botones button:hover {
   opacity: 0.85;
-}
-
-.modal img {
-  width: 100%;
-  height: auto;
 }
 
 .modal h2,
@@ -2401,16 +2398,6 @@ a {
   text-decoration: none;
   transition: 0.2s ease;
   box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-}
-
-/* video base */
-.card-video video {
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.card-video:hover video {
-  opacity: 1;
 }
 
 .card-video:hover img {
