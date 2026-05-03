@@ -27,7 +27,7 @@ const STOCK_PRODUCTOS = {
   "Cartera Hello Kitty": 2,
   "Cartera Labubu": 2,
   "Chupetines Capibara (30 u)": 0,
-  "Latitas con chicles (30 latitas)": 30,
+  "Latitas con chicles (30 latitas)": 1,
   "Chicle por metro Barbie con Tatoo (30 u)": 20,
   "Piñata redonditas 700 g": 1,
   "Chocolates Surtido Especial Arcor 223g": 10,
@@ -1610,7 +1610,7 @@ document.querySelectorAll(".card-video").forEach(card => {
   icon.addEventListener("click", (e) => {
     e.stopPropagation();
 
-    // 🔴 apagar anterior
+    // apagar anterior
     if (videoActivo && videoActivo !== video) {
       videoActivo.muted = true;
 
@@ -1621,7 +1621,7 @@ document.querySelectorAll(".card-video").forEach(card => {
       oldIcon.textContent = "🔊";
     }
 
-    // 🔁 toggle actual
+    // toggle actual
     if (video.muted) {
       video.muted = false;
       icon.textContent = "🔊";
@@ -1633,6 +1633,19 @@ document.querySelectorAll(".card-video").forEach(card => {
       card.classList.remove("audio-activo");
       videoActivo = null;
     }
+  });
+});
+
+document.querySelectorAll(".card-video").forEach(card => {
+  const video = card.querySelector("video");
+
+  card.addEventListener("mouseenter", () => {
+    video.play();
+  });
+
+  card.addEventListener("mouseleave", () => {
+    video.pause();
+    video.currentTime = 0;
   });
 });
 
@@ -1752,15 +1765,3 @@ document.getElementById("menu-envio").addEventListener("click", (e) => {
   mostrarEnvioModal(costo);
 });
 
-document.querySelectorAll(".card-video").forEach(card => {
-  const video = card.querySelector("video");
-
-  card.addEventListener("mouseenter", () => {
-    video.play();
-  });
-
-  card.addEventListener("mouseleave", () => {
-    video.pause();
-    video.currentTime = 0;
-  });
-});
