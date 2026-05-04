@@ -168,11 +168,6 @@ const recargados = [
     img: "img/fieritarecargado.jpg"
   },
   {
-    nombre: "Chicle Fierita Recargado - Mundial (50 u)",
-    precio: "$6.500",
-    img: "img/recargadomundial.jpeg"
-  },
-  {
     nombre: "Chicle Fierita Recargado - Frutilla (50 u)",
     precio: "$6.500",
     img: "img/fieritarecargadofrutilla.png"
