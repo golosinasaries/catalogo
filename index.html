@@ -37,6 +37,7 @@
     <a href="#" onclick="filtrar('chicles')">🫧 Chicles</a>
     <a href="#" onclick="filtrar('alcancias')">🐷 Alcancías</a>
     <a href="#" onclick="filtrar('alfajores')">🍫 Alfajores</a>
+    <a href="#" onclick="filtrar('chocolates')">🍫 Chocolates</a>
     <a href="#" onclick="filtrar('gomitasblandas')">🧸 Gomitas blandas</a>
     <a href="#" onclick="filtrar('gomitas500')">🍡 Gomitas 500g</a>
     <a href="#" onclick="filtrar('gomitas700')">🍡 Gomitas 700g</a>
@@ -466,7 +467,7 @@
         <button class="btn-carrito">Agregar al carrito</button>   
       </div>
 
-      <div class="card card-oblita" data-index="0">
+      <div class="card card-oblita" data-index="0" data-cat="galletitas">
         <div class="img-container">
           <span class="flecha izq" onclick="event.stopPropagation(); cambiarVariante(this, -1)">‹</span> <img src="img/oblita_blanco.jpg"> <span class="flecha der" onclick="event.stopPropagation(); cambiarVariante(this, 1)">›</span>
         </div>
@@ -562,7 +563,7 @@
         </button>
       </div>
 
-      <div class="card">
+      <div class="card" data-cat="chocolates">
         <img src="img/monedas1.jpg" alt="Monedas de chocolate"  >
         <h3>Monedas de chocolate (290 u)</h3>
         <p>$17.000</p>
@@ -583,14 +584,14 @@
         <button class="btn-carrito">Agregar al carrito</button>  
       </div>
 
-      <div class="card">
+      <div class="card" data-cat="chocolates">
         <img src="img/nutello1.jpg" alt="Nutello"  >
         <h3>Nutello (30 u)</h3>
         <p>$11.000</p>
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
 
-      <div class="card">
+      <div class="card" data-cat="chocolates">
         <img src="img/nutello60.jpg" alt="Nutello"  >
         <h3>Nutello (60 u)</h3>
         <p>$11.000</p>
@@ -719,14 +720,14 @@
           <button class="btn-carrito">Agregar al carrito</button> 
         </div>
   -->
-        <div class="card">
+        <div class="card" data-cat="chocolates">
           <img src="img/surtidoespecial.jpg" alt="Smack bar."  >
           <h3>Chocolates Surtido Especial Arcor 223g</h3>
           <p>$6.900</p>
           <button class="btn-carrito">Agregar al carrito</button> 
         </div>
 
-        <div class="card">
+        <div class="card" data-cat="chocolates">
           <img src="img/bombones_surtidos.jpg" alt="Bombones Surtidos"  >
           <h3>Bocaditos Bel (50 u)</h3>
           <p>$7.900</p>
