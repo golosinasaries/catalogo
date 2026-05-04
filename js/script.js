@@ -21,11 +21,11 @@ const STOCK_PRODUCTOS = {
   "Galletitas Oreo 118 g": 45,
   "Galletitas Chocolinas 170 g": 45,
   "Galletitas Pepitos 119 g": 45,
-  "Muñeca": 5,
-  "Cartera Stitch": 2,
-  "Cartera Kuromy": 2,
-  "Cartera Hello Kitty": 2,
-  "Cartera Labubu": 2,
+  "🎀 Muñecas": 5,
+  "🛍️ Carteritas Stitch": 2,
+  "🛍️ Carteritas Kuromy": 2,
+  "🛍️ Carteritas Hello Kitty": 2,
+  "🛍️ Carteritas Labubu": 2,
   "Chupetines Capibara (30 u)": 0,
   "Latitas con chicles (30 latitas)": 2,
   "Chicle por metro Barbie con Tatoo (30 u)": 20,
@@ -250,22 +250,22 @@ const oblita = [
 
 const cartera = [
     {
-    nombre: "Cartera Stitch",
+    nombre: "🛍️ Carteritas Stitch",
     precio: "$4.500",
     img: "img/carterastitch.jpeg"
   },
  {
-    nombre: "Cartera Kuromy",
+    nombre: "🛍️ Carteritas Kuromy",
     precio: "$4.500",
     img: "img/carterakuromy.jpeg"
   },
       {
-    nombre: "Cartera Hello Kitty",
+    nombre: "🛍️ Carteritas Hello Kitty",
     precio: "$4.500",
     img: "img/carterakitty.jpeg"
   },
  {
-    nombre: "Cartera Labubu",
+    nombre: "🛍️ Carteritas Labubu",
     precio: "$4.500",
     img: "img/carteralabubu.jpeg"
   },
