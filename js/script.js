@@ -34,7 +34,7 @@ const STOCK_PRODUCTOS = {
   "Gomitas Mogul Frutilla con Crema 500 g": 10,
   "Gomitas Yummy ácidas 500 g": 10,
   "Gomitas Mogul Dientes 500 g": 11,
-  "Caramelos masticables Lheritier 300 g": 2,
+  "Caramelos masticables Lheritier 300 g": 20,
   "Chupetines Kuromy con led (30 u)": 11,
   "Autito con pastillitas (30 u)": 15,
   "Chupetines Merlina (30 u)": 21,
@@ -43,11 +43,11 @@ const STOCK_PRODUCTOS = {
   "Chupetines masticables Baby Dolls (40 u)": 12,
   "Chupetines masticables Baby Dolls ácidos (40 u)": 12,
   "Turrón Billiken Sin T.A.C.C (10 u)": 10,
-  "Oblita de Chocolate (48 u)": 3,
-  "Oblita de DDL (48 u)": 4,
-  "Oblita de Frutilla (48 u)": 3,
-  "Oblita Chocolate Blanco (48 u)": 2,
-  "Oblita de Marroc (48 u)": 3,
+  "Oblita de Chocolate (48 u)": 10,
+  "Oblita de DDL (48 u)": 10,
+  "Oblita de Frutilla (48 u)": 10,
+  "Oblita Chocolate Blanco (48 u)": 10,
+  "Oblita de Marroc (48 u)": 10,
   "Gomitas Kuromy (30 u)": 24,
   "Chicles WhatsApp con tatoo capibara (36 paquetes de 5 chicles)": 20,
   "Auto Blanco y azul (1 u)": 1,
@@ -57,7 +57,6 @@ const STOCK_PRODUCTOS = {
   "Camión Verde Transformer (1 u)": 3,
   "Chupetines con led Unicornio (30 u)": 12,
   "Transformers varios (4 u)": 2,
-  "Trompetas con chupetin y sonido (20 u)": 1,
   "Billiken Congys 200 g": 2,
   "Billiken Tutti-frutti 800 g": 1,
   "Gomitas Lilo y Stitch (60 u)": 2,
@@ -68,8 +67,8 @@ const STOCK_PRODUCTOS = {
   "Botellitas con chicles (30 botellitas)": 20,
   "Fierita Super Tatoo Frutilla 600g": 2,
   "Chupetines Cremosito Fierita - Frutilla y Crema (50 u)": 3,
-  "Alfajor Guaymallén simple de Membrillo (10 u)": 1,
-  "Alfajor Guaymallén simple de Chocolate Blanco (10 u)": 5,
+  "Alfajor Guaymallén simple de Membrillo (10 u)": 10,
+  "Alfajor Guaymallén simple de Chocolate Blanco (10 u)": 50,
   "Lenguetazo Pinta Lengua (32 u)": 2,
   "Lenguetazo Tropical Punch (32 u)": 1,
   "Lenguetazo (32 u)": 1,
@@ -85,10 +84,10 @@ const STOCK_PRODUCTOS = {
   "Gomitas Super Mario (30 u)": 15,
   "Chupetines con led Oreo (30 u)": 1,
   "Avión Naranja Transformer (1 u)": 1,
-  "Chicle Fierita Recargado - Menta (50 u)": 3,
-  "Chicle Fierita Recargado - Tutti Frutti (50 u)": 3,
-  "Chicle Fierita Globo sabor Banana (95 u)": 2,
-  "Chicle Fierita Globo sabor Menta (95 u)": 2,
+  "Chicle Fierita Recargado - Menta (50 u)": 30,
+  "Chicle Fierita Recargado - Tutti Frutti (50 u)": 30,
+  "Chicle Fierita Globo sabor Banana (95 u)": 20,
+  "Chicle Fierita Globo sabor Menta (95 u)": 20,
 };
 
 const globos = [
@@ -172,6 +171,11 @@ const recargados = [
     nombre: "Chicle Fierita Recargado - Mundial (50 u)",
     precio: "$6.500",
     img: "img/recargadomundial.jpeg"
+  },
+  {
+    nombre: "Chicle Fierita Recargado - Frutilla (50 u)",
+    precio: "$6.500",
+    img: "img/fieritarecargadofrutilla.png"
   },
 
 ];
