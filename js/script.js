@@ -63,7 +63,7 @@ const STOCK_PRODUCTOS = {
   "Gomitas Lilo y Stitch (60 u)": 2,
   "Llaveros láser Capibara (12 u)": 2,
   "Caramelos Osi Osi (50 u)": 4,
-  "Bocaditos Bel (50 u)": 3,
+  "Bocaditos Bel (50 u)": 10,
   "Fierita Super Tatoo Tutti Frutti 600g": 3,
   "Botellitas con chicles (30 botellitas)": 20,
   "Fierita Super Tatoo Frutilla 600g": 2,
@@ -167,6 +167,11 @@ const recargados = [
     nombre: "Chicle Fierita Recargado - Tutti Frutti (50 u)",
     precio: "$6.500",
     img: "img/fieritarecargado.jpg"
+  },
+  {
+    nombre: "Chicle Fierita Recargado - Mundial (50 u)",
+    precio: "$6.500",
+    img: "img/recargadomundial.jpeg"
   },
 
 ];
@@ -1770,15 +1775,18 @@ function filtrar(cat) {
   const cards = document.querySelectorAll('.card');
 
   cards.forEach(card => {
-    if (cat === 'todos' || card.dataset.cat === cat) {
+    const cats = (card.dataset.cat || '').split(' ').filter(Boolean);
+
+    if (cat === 'todos' || cats.includes(cat)) {
       card.style.display = 'block';
     } else {
       card.style.display = 'none';
     }
-
   });
+
   document.getElementById('menu-panel').classList.remove('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
+
   const visibles = [...document.querySelectorAll('.card')]
     .filter(c => c.style.display !== 'none');
 
