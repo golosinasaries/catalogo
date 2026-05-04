@@ -67,7 +67,7 @@ const STOCK_PRODUCTOS = {
   "Fierita Super Tatoo Tutti Frutti 600g": 3,
   "Botellitas con chicles (30 botellitas)": 20,
   "Fierita Super Tatoo Frutilla 600g": 2,
-  "Chupetines Cremosito Fierita - Fritilla y Crema (50 u)": 3,
+  "Chupetines Cremosito Fierita - Frutilla y Crema (50 u)": 3,
   "Alfajor Guaymallén simple de Membrillo (10 u)": 1,
   "Alfajor Guaymallén simple de Chocolate Blanco (10 u)": 5,
   "Lenguetazo Pinta Lengua (32 u)": 2,
@@ -1765,3 +1765,32 @@ document.getElementById("menu-envio").addEventListener("click", (e) => {
   mostrarEnvioModal(costo);
 });
 
+
+function filtrar(cat) {
+  const cards = document.querySelectorAll('.card');
+
+  cards.forEach(card => {
+    if (cat === 'todos' || card.dataset.cat === cat) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+
+  });
+  document.getElementById('menu-panel').classList.remove('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  const visibles = [...document.querySelectorAll('.card')]
+    .filter(c => c.style.display !== 'none');
+
+  document.getElementById('sin-resultados').style.display =
+    visibles.length ? 'none' : 'block';
+}
+
+const links = document.querySelectorAll('#menu-panel a');
+
+links.forEach(link => {
+  link.addEventListener('click', function() {
+    links.forEach(l => l.classList.remove('activo'));
+    this.classList.add('activo');
+  });
+});

@@ -84,22 +84,16 @@ nav a {
   display: inline-block;
   padding: 10px 18px;
   margin: 0.25rem;
-
   font-family: 'Helvetica Neue', Arial, sans-serif;
   font-size: 0.95rem;
   font-weight: 400;
   letter-spacing: 1.2px;
   text-transform: uppercase;
-
   text-decoration: none;
-
   color: #111;
   background: transparent;
-
   cursor: pointer;
-
   position: relative;
-
   transition: opacity 0.2s ease, transform 0.2s ease;
   text-decoration: underline;
 }
@@ -122,7 +116,6 @@ nav a:active {
   letter-spacing: 3px;
   background: linear-gradient(185deg, #FFFFFF 0%, #F5E6FF 100%);
   text-transform: uppercase;
-
   position: absolute;
   left: 50%;
   top: 22%;
@@ -196,7 +189,6 @@ nav a:active {
   border-color: #D946EF;
 }
 
-/* imagen principal de la tarjeta */
 .card img {
   width: 100%;
   border-radius: 12px;
@@ -221,7 +213,6 @@ nav a:active {
   transform: scale(1.05);
 }
 
-/* título de producto dentro de la card */
 .card h3 {
   color: #5D00A6;
   margin: 0.25rem 0;
@@ -236,7 +227,6 @@ nav a:active {
   font-weight: bold;
 }
 
-/* descripción breve dentro de la tarjeta */
 .card p {
   margin: 0.25rem 0 0.5rem 0;
   font-size: 1.404rem;
@@ -251,7 +241,6 @@ nav a:active {
   z-index: 1;
 }
 
-/* precio (primer p en la tarjeta) */
 .card p:first-of-type {
   font-size: 2.106rem;
   margin: 0.5rem 0 0.8rem 0;
@@ -259,7 +248,6 @@ nav a:active {
   -webkit-line-clamp: unset;
 }
 
-/* botón compacto dentro de la card */
 .card button {
   padding: 0.6rem 1rem;
   background: linear-gradient(45deg, #FF1744, #BA55D3);
@@ -279,7 +267,6 @@ nav a:active {
   z-index: 1;
 }
 
-/* hover del botón */
 .card button:hover {
   background: linear-gradient(45deg, #BA55D3, #FF1744);
   transform: translateY(-2px);
@@ -287,14 +274,13 @@ nav a:active {
 .card .btn-carrito {
     display: block;
     width: 100%;
-    margin-bottom: 5px; /* separa los botones */
+    margin-bottom: 5px; 
   }
 .card .btn-carrito:only-of-type {
   margin-top: auto;
   flex-wrap: wrap;
 }
 
-/* Carrito: cantidad + y - */
 .cantidad-container {
   display: flex;
   align-items: center;
@@ -332,35 +318,25 @@ nav a:active {
 #search {
   width: 30%;
   max-width: 900px;
-
   padding: 0.7rem 1rem;
-
   border: 1.5px solid rgba(0, 0, 0, 0.2);
   border-radius: 12px;
-
   font-size: 1.1rem;
   font-weight: 500;
-
   outline: none;
-
   background: #fff;
   color: #111;
-
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-
   transition: all 0.25s ease;
-
   box-sizing: border-box;
   
 }
 
-/* focus más limpio y moderno */
 #search:focus {
   border-color: var(--primary);
   box-shadow: 0 0 0 4px rgba(217, 70, 239, 0.15);
 }
 
-/* NO RESULTS */
 #no-results {
   color: #666;
   font-size: 0.95rem;
@@ -370,7 +346,6 @@ nav a:active {
   line-height: 1.4;
 }
 
-/* botón dentro de no-results */
 #no-results a {
   display: inline-block;
   margin-top: 0.6rem;
@@ -391,7 +366,6 @@ nav a:active {
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
 }
 
-/* hover elegante */
 #no-results a:hover {
   transform: translateY(-1px);
   background: var(--accent);
@@ -517,9 +491,6 @@ footer p {
 
 html { scroll-behavior: smooth; }
 
-/* ==============================
-   Animaciones
-   ============================== */
 
 @keyframes pulse {
   0% {
@@ -981,9 +952,8 @@ html { scroll-behavior: smooth; }
   
 }
 
-/* Footer (total + botones) */
 #carrito-footer {
-  flex-shrink: 0;  /* nunca se achica */
+  flex-shrink: 0;  
   display: flex;
   flex-direction: column;
   gap: px;
@@ -1003,26 +973,20 @@ html { scroll-behavior: smooth; }
   display: flex;
   align-items: center;
   justify-content: center;
-
   width: 52px;
   height: 52px;
-
   background: linear-gradient(135deg, #D946EF, #EC4899);
   color: white;
-
   border: none;
   border-radius: 50%;
 
   font-size: 20px;
   cursor: pointer;
-
   box-shadow:
     0 8px 20px rgba(0,0,0,0.25),
     inset 0 1px 0 rgba(255,255,255,0.2);
-
   position: relative;
- overflow: visible;
-
+  overflow: visible;
   transition: all 0.3s ease;
   z-index: 1;
 }
@@ -1031,26 +995,18 @@ html { scroll-behavior: smooth; }
   position: absolute;
   top: -6px;
   right: -6px;
-
   min-width: 24px;
   height: 24px;
-
   padding: 0 6px;
-
   background: #ff2d2d;
-
   border-radius: 50%;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   font-size: 12px;
   font-weight: 700;
   color: #fff;
-
   z-index: 9999;
-
   line-height: 1;
 }
 
@@ -1137,7 +1093,7 @@ html { scroll-behavior: smooth; }
   margin-bottom: 0px;
   position: relative;
   z-index: 1001; 
-  pointer-events: auto; /* permite usar el scroll normalmente */
+  pointer-events: auto; 
   font-size: 1.5rem;
   padding-right: 10px;
   text-align: left;
@@ -1145,7 +1101,7 @@ html { scroll-behavior: smooth; }
   padding-left: 0%;
   justify-self: flex-start;
   z-index: 2000;
-  flex: 1 1 auto; /* para que ocupe el espacio disponible */
+  flex: 1 1 auto; 
 }
 
 .carrito-item {
@@ -1154,8 +1110,8 @@ html { scroll-behavior: smooth; }
   justify-content: flex-start;
   width: 100%;
   border-bottom: 3px solid #680263;
-  flex-wrap: nowrap;   /* evitas que se vaya a otra línea */
-  overflow: visible;   /* para que la línea no se corte */
+  flex-wrap: nowrap; 
+  overflow: visible;   
   background: rgba(255,255,255,0.06);
   backdrop-filter: blur(6px);
   padding: 1.5px;
@@ -1196,7 +1152,7 @@ html { scroll-behavior: smooth; }
 
 .carrito-item {
   display: flex;
-  flex-wrap: wrap; /* evita que los elementos se salgan */
+  flex-wrap: wrap; 
   width: 100%;
   overflow: hidden;
   text-align: left;
@@ -1217,24 +1173,19 @@ html { scroll-behavior: smooth; }
   background: linear-gradient(1deg, #FFFFFF 0%, #F5E6FF 100%);
   border: none;
   color: #110b0b;
-
   padding: 6px 12px;
   border-radius: 10px;
-
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
-
   transition: all 0.25s ease;
 }
 
-/* hover */
 .cantidad-btn:hover {
   transform: scale(1.1);
   box-shadow: 0 6px 18px rgba(217,70,239,0.6);
 }
 
-/* click */
 .cantidad-btn:active {
   transform: scale(0.95);
 }
@@ -1243,7 +1194,6 @@ html { scroll-behavior: smooth; }
   background: linear-gradient(135deg, #ff4d4d, #ff1744);
   color: #fff;
   border: none;
-  
   padding: 6px 15px;
   border-radius: 8px;
   cursor: pointer;
@@ -1280,8 +1230,6 @@ html { scroll-behavior: smooth; }
   font-size: 1.3rem;
   text-align: left;
 }
-
-
 
 .toast {
   position: fixed;
@@ -1340,32 +1288,23 @@ html { scroll-behavior: smooth; }
   margin-top: 4%;
   padding-top: 0%;
 }
-/* Botón flotante */
-
 
 #whatsapp-btn {
   position: fixed;
   top: 32px;
   right: 20px;
-
   width: 40px;
   height: 40px;
   border-radius: 50%;
-
   background: linear-gradient(135deg, #25D366, #1DA851);
   color: #ffffff;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   font-size: 14px;
- 
   backdrop-filter: blur(6px);
-
   z-index: 1000;
   cursor: pointer;
-
   padding: 0;
   margin: 0;
   text-decoration: none;
@@ -1403,7 +1342,6 @@ html { scroll-behavior: smooth; }
   opacity: 0.9;
 }
 
-/* pequeño glow elegante */
 .fb-sub::before {
   content: "✨";
   margin-right: 5px;
@@ -1432,58 +1370,41 @@ html { scroll-behavior: smooth; }
   width: 320px;
   height: 480px;
 }
-/* CP */
+
 .modal-cp {
   position: fixed;
   inset: 0;
-
   background: rgba(0,0,0,0.65);
   backdrop-filter: blur(6px);
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   z-index: 2000;
-
-  /* asegura interacción correcta */
   pointer-events: auto;
 }
 
-/* CAJA */
 .modal-cp-content {
   background: linear-gradient(135deg, #1a1a2e, #16213e);
   color: #fff;
-
   padding: 20px;
   border-radius: 18px;
-
   max-width: 340px;
   width: 90%;
-
   text-align: center;
-
   border: 1px solid rgba(255,255,255,0.08);
   box-shadow: 0 25px 60px rgba(0,0,0,0.6);
-
   animation: fadeIn 0.25s ease;
 }
 
-/* INPUT */
 .modal-cp-content input {
   width: 100%;
   padding: 10px 12px;
-
   margin: 15px 0;
-
   font-size: 16px;
-
   border-radius: 10px;
   border: 1px solid rgba(255,255,255,0.15);
-
   background: rgba(255,255,255,0.05);
   color: #fff;
-
   outline: none;
   transition: 0.2s;
 }
@@ -1497,7 +1418,6 @@ html { scroll-behavior: smooth; }
   box-shadow: 0 0 8px rgba(217,70,239,0.4);
 }
 
-/* BOTONES */
 .modal-cp-buttons {
   display: flex;
   justify-content: center;
@@ -1508,19 +1428,14 @@ html { scroll-behavior: smooth; }
 .modal-cp-buttons button {
   flex: 1;
   max-width: 140px;
-
   padding: 10px 12px;
-
   font-size: 14px;
   font-weight: 700;
-
   border-radius: 10px;
   cursor: pointer;
-
   transition: all 0.2s ease;
 }
 
-/* cancelar */
 #cp-cancelar {
   background: #2a2a40;
   color: #ccc;
@@ -1530,7 +1445,6 @@ html { scroll-behavior: smooth; }
   background: #3a3a55;
 }
 
-/* aceptar (principal) */
 #cp-confirmar {
   background: linear-gradient(135deg, #D946EF, #EC4899);
   color: #fff;
@@ -1564,7 +1478,6 @@ html { scroll-behavior: smooth; }
   z-index: 50;
 }
 
-/*siguiente proddddddd*/
 .prev-producto,
 .next-producto {
   position: absolute;
@@ -1588,7 +1501,6 @@ html { scroll-behavior: smooth; }
   opacity: 0.8;
 }
 
-/* posiciones */
 .prev-producto {
   left: 15px;
 }
@@ -1613,7 +1525,6 @@ html { scroll-behavior: smooth; }
   overflow: auto;
 }
 
-/* Contenido interior */
 .modal-content {
   max-width: 700px;   
   width: 100%;
@@ -1634,10 +1545,9 @@ html { scroll-behavior: smooth; }
   box-shadow: 0 25px 60px rgba(0,0,0,0.35);
 }
 
-/* Imagen del modal */
 .modal-content img {
   max-width: 100%;
-  max-height: 60vh;   /* ajusta la altura según pantalla */
+  max-height: 60vh;  
   object-fit: contain;
   border-radius: 8px;
   cursor: grab;
@@ -1646,14 +1556,12 @@ html { scroll-behavior: smooth; }
   z-index: 1;
 }
 
-/* Zoom */
 .modal-content img.zoomed {
   transform: scale(2.2) translate(var(--x,0px), var(--y,0px));
   cursor: grabbing;
   z-index: 10;
 }
 
-/* Cruz para cerrar */
 .close {
   position: absolute;
   top: 8px;
@@ -1667,7 +1575,7 @@ html { scroll-behavior: smooth; }
 }
 
 .close:hover { color: #EC4899; }
-/* Flechas */
+
 .modal-content .prev,
 .modal-content .next {
   position: absolute;
@@ -1706,12 +1614,12 @@ html { scroll-behavior: smooth; }
   cursor: pointer;
   font-size: 1rem;
   transition: 0.3s;
-  flex: 1 1 auto;       /* que puedan crecer o reducirse */
-  min-width: 80px;      /* evita que queden demasiado pequeños */
+  flex: 1 1 auto;      
+  min-width: 80px;     
 }
 
 #modal-agregar {
-  background: linear-gradient(59deg, var(--accent), var(--primary));  /* invertir degradado */
+  background: linear-gradient(59deg, var(--accent), var(--primary));  
   color: rgb(0, 0, 0);
   margin-top:-20px;
   box-sizing: border-box;
@@ -1790,7 +1698,7 @@ body {
 }
 
 h1, h2, h3 {
-  font-family: 'Fredoka', sans-serif; /* divertido, redondeado */
+  font-family: 'Fredoka', sans-serif; 
 }
 
 .card p {
@@ -1808,25 +1716,18 @@ h1, h2, h3 {
   font-size: 1.4rem;
 }
 
-
-/* FLECHAS */
 .card .flecha {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-
   background: rgba(0,0,0,0.5);
   backdrop-filter: blur(4px);
-
   width: 30px;
   height: 30px;
-
   border-radius: 50%;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   cursor: pointer;
   opacity: 1;
   transition: 0.25s;
@@ -1978,7 +1879,6 @@ h1, h2, h3 {
   transition: 0.6s;
 }
 
-/* efecto hover */
 .phone:hover {
   transform: scale(1.06) rotate(1deg);
   box-shadow: 
@@ -1990,7 +1890,6 @@ h1, h2, h3 {
   top: 100%;
 }
 
-/* pantalla */
 .screen {
   background: #000;
   border-radius: 25px;
@@ -2002,7 +1901,6 @@ h1, h2, h3 {
   position: relative;
 }
 
-/* borde glow sutil */
 .screen::after {
   content: "";
   position: absolute;
@@ -2012,14 +1910,12 @@ h1, h2, h3 {
   pointer-events: none;
 }
 
-/* iframe full */
 .screen iframe {
   width: 100%;
   height: 100%;
   border: none;
 }
 
-/* fallback botón más moderno */
 .fb-fallback a {
   display: inline-block;
   padding: 10px 18px;
@@ -2031,13 +1927,11 @@ h1, h2, h3 {
   transition: all 0.3s ease;
 }
 
-/* hover botón */
 .fb-fallback a:hover {
   transform: scale(1.1);
   box-shadow: 0 0 15px rgba(255,255,255,0.4);
 }
 
-/* CONTENEDOR */
 .header-bar {
   position: relative;
   display: flex;
@@ -2046,7 +1940,6 @@ h1, h2, h3 {
   padding: 10px 0;
 }
 
-/* TEXTO CENTRADO */
 .titulo-catalogo {
   display: inline-flex;
   align-items: center;
@@ -2087,7 +1980,6 @@ h1, h2, h3 {
   transition: all 0.5s ease;
 }
 
-/* hover moderno */
 .titulo-catalogo:hover {
   transform: translateY(-3px) scale(1.04);
   box-shadow:
@@ -2461,12 +2353,11 @@ a {
   z-index: 9999;
 }
 
-/* 👇 ESTO ES LO QUE TE FALTABA BIEN HECHO */
 .menu-btn span {
   display: block;
   width: 100%;
   height: 3px;
-  background: #fff; /* si tu header es oscuro */
+  background: #fff; 
   border-radius: 5px;
 }
 .menu-panel {
@@ -2474,15 +2365,15 @@ a {
   top: 0;
   left: -260px;
   width: 150px;
-  height: 5vh;
   background: linear-gradient(5deg, #FFFFFF 0%, #F5E6FF 100%);
   backdrop-filter: blur(10px);
-  padding: 90px 20px;
+  padding: 60px 15px;
   transition: 0.3s ease;
   z-index: 9998;
   display: flex;
   flex-direction: column;
- 
+  overflow-y: auto;
+  max-height: 100vh;
 }
 
 .menu-panel.active {
@@ -2493,13 +2384,18 @@ a {
   color: rgb(14, 12, 12);
   text-decoration: none;
   font-size: 1.2rem;
-}
-.menu-panel a {
   display: block;
-  margin-bottom: 10px;
-  padding: 8px 10px;
+  margin-bottom: 9px;
+  padding: 6px 0.1px;
   border-radius: 8px;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+.menu-panel a:last-child {
+  border-bottom: none;
+}
 
+.menu-panel a.activo {
+  background: rgba(0,0,0,0.08);
 }
 
 @keyframes agregarPop {
@@ -2521,7 +2417,6 @@ a {
 #carrito-count.anim {
   animation: contadorPop 0.3s ease;
 }
-
 
 #envio-modal {
   position: fixed;
@@ -2546,3 +2441,4 @@ a {
   from { transform: scale(0.8); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
 }
+

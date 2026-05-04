@@ -19,13 +19,29 @@
   </button>
 
   <div id="menu-panel" class="menu-panel">
-    <a href="#" id="menu-catalogo">
-      <span class="icono">📱</span> Redes
+    <a href="#" id="menu-catalogo" style="color:#2b6cff; font-weight:500;">
+    <span class="icono">📱</span> Redes
     </a>
 
-    <a href="#" id="menu-envio">
-  <span class="icono">📦</span> Costo de envío
-</a>
+    <a href="#" id="menu-envio" style="color:#ff7a2b; font-weight:500;">
+      <span class="icono">📦</span> Costo de envío
+    </a>
+    <a href="#" onclick="filtrar('todos')" style="font-weight: bold;">
+      🛒 Todos los productos
+    </a>
+    <a href="#" onclick="filtrar('galletitas')">🍪 Galletitas</a>
+    <a href="#" onclick="filtrar('chupetines')">🍭 Chupetines</a>
+    <a href="#" onclick="filtrar('caramelos')">🍬 Caramelos</a>
+     <a href="#" onclick="filtrar('huevos')">🥚 Huevos sorpresa</a>
+    <a href="#" onclick="filtrar('chicles')">🫧 Chicles</a>
+    <a href="#" onclick="filtrar('alcancias')">🐷 Alcancías</a>
+    <a href="#" onclick="filtrar('alfajores')">🍫 Alfajores</a>
+    <a href="#" onclick="filtrar('gomitasblandas')">🧸 Gomitas blandas</a>
+    <a href="#" onclick="filtrar('gomitas500')">🍡 Gomitas 500g</a>
+    <a href="#" onclick="filtrar('gomitas700')">🍡 Gomitas 700g</a>
+    <a href="#" onclick="filtrar('gomitas800')">🍡 Gomitas 800g</a>
+   
+
   </div>
 
   <div class="titulo-contenedor">
@@ -67,8 +83,12 @@
 
 <main>
     <div class="portfolio">
+
+      <div id="sin-resultados" style="display:none; padding:20px; font-size: 34px;">
+        😕 No hay productos en esta categoría por el momento
+      </div>
       
-      <div class="card card-video">
+      <div class="card card-video" data-cat="chicles">
         <img src="img/latas1.jpg" alt="Latitas con chicles">
             <video class="video-hover"
               src="img/videolatita.mp4"
@@ -97,7 +117,7 @@
         <button class="btn-carrito">Agregar al carrito</button>    
       </div>
 
-      <div class="card card-video">
+      <div class="card card-video" data-cat="gomitasblandas">
         <img src="img/seleccionaries.png" alt="Gomitas Selección">
         <video class="video-hover"
               src="img/videoseleccion.mp4"
@@ -110,21 +130,21 @@
         <button class="btn-carrito">Agregar al carrito</button>     
       </div>
 
-      <div class="card">
+      <div class="card" data-cat="chupetines">
         <img src="img/tricampeones.jpg" alt="Chupetines selección"  >
         <h3>Chupetines Selección (50 u)</h3>
         <p>$4.900</p>
         <button class="btn-carrito">Agregar al carrito</button>     
       </div>
 
-      <div class="card">
+      <div class="card" data-cat="gomitasblandas">
         <img src="img/river.jpg" alt="Gomitas de river"  >
         <h3>Gomitas de River (30 u)</h3>
         <p>$7.900</p>
         <button class="btn-carrito">Agregar al carrito</button>     
       </div>
 
-      <div class="card card-video">
+      <div class="card card-video" data-cat="gomitasblandas">
         <img src="img/ojos.jpg" alt="Gomitas Ojos">
         <video class="video-hover video-ojos"
               src="img/videoojos.mp4"
@@ -137,7 +157,7 @@
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
 
-      <div class="card card-video">
+      <div class="card card-video" data-cat="gomitasblandas">
         <img src="img/gomitasoreo.jpg" alt="Gomitas Oreo">
         <video class="video-hover video-ojos"
               src="img/videooreo.mp4"
@@ -150,35 +170,35 @@
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
 
-      <div class="card">
+      <div class="card" data-cat="chicles">
         <img src="img/botellitas.jpg" alt="Botellitas con chicles"  >
         <h3>Botellitas con chicles (30 botellitas)</h3>
         <p>$12.500</p>
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
 
-        <div class="card">
+        <div class="card" data-cat="galletitas">
         <img src="img/oreogalletita1.jpg" alt="Galletitas"  >
         <h3>Galletitas Oreo 118 g</h3>
         <p>$1950</p>
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
       
-      <div class="card">
+      <div class="card" data-cat="galletitas">
         <img src="img/pepitos1.jpg" alt="Galletitas"  >
         <h3>Galletitas Pepitos 119 g</h3>
         <p>$1.890</p>
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
       
-       <div class="card">
+       <div class="card" data-cat="galletitas">
         <img src="img/chocolinas.jpg" alt="Galletitas"  >
         <h3>Galletitas Chocolinas 170 g</h3>
         <p>$1.890</p>
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
 
-      <div class="card">
+      <div class="card" data-cat="chicles">
         <img src="img/wp1.jpg" alt="Chicles"  >
         <h3>Chicles WhatsApp con tatoo capibara (36 paquetes de 5 chicles)</h3>
         <p>$13.000</p>
@@ -186,34 +206,34 @@
       </div>
 
       <div class="card">
-        <img src="img/auto.jpg" alt="Cars con chicles"  >
+        <img src="img/auto.jpg" alt="Cars"  >
         <h3>Autito con pastillitas (30 u)</h3>
         <p>$12.000</p>
         <button class="btn-carrito">Agregar al carrito</button>   
       </div>
 
-    <div class="card">
+    <div class="card" data-cat="chupetines">
       <img src="img/unicornio2.jpg" alt="Chupetines con formas"  >
       <h3>Chupetines con forma de Unicornio (30 u)</h3>
       <p>$9.900</p>
       <button class="btn-carrito">Agregar al carrito</button>
     </div>
 <!--
-    <div class="card">
+    <div class="card" data-cat="chupetines">
      <img src="img/caramelokuromy.jpg" alt="Kuromy"  >
       <h3>Chupetines Kuromy con led (30 u)</h3>
       <p>$10.900</p>
       <button class="btn-carrito">Agregar al carrito</button>  
     </div>
 
-    <div class="card">
+    <div class="card" data-cat="chupetines">
       <img src="img/bob1.jpg" alt="Bob Esponja"  >
       <h3>Chupetines con polvo ácido Bob Esponja (30 u)</h3>
       <p>$11.500</p>
       <button class="btn-carrito">Agregar al carrito</button>  
     </div>
 
-    <div class="card">
+    <div class="card" data-cat="chupetines">
       <img src="img/oreo1.jpg" alt="Donut"  >
       <h3>Chupetines con led Oreo (30 u)</h3>
       <p>$10.900</p>
@@ -227,7 +247,7 @@
       <button class="btn-carrito">Agregar al carrito</button>   
     </div>
 
-    <div class="card card-alcancia" data-index="0">
+    <div class="card card-alcancia" data-index="0" data-cat="alcancias">
         <div class="img-container">
           <span class="flecha izq" onclick="event.stopPropagation(); cambiarVariante(this, -1)">‹</span> <img src="img/pinguino2.jpg" alt="Alcancía pingüino Negro"> <span class="flecha der" onclick="event.stopPropagation(); cambiarVariante(this, 1)">›</span>
         </div>
@@ -464,22 +484,22 @@
       </div>
     
 <!--
-      <div class="card">
-        <img src="img/fieritacomefuego.jpg" alt="Latitas con chicles"  >
+      <div class="card" data-cat="chicles">
+        <img src="img/fieritacomefuego.jpg" alt="Chicles"  >
         <h3>Chicle ácido Fierita Come Fuego Sabor Tutti Frutti (50 u)</h3>
         <p>$6.500</p>
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
 
       <div class="card">
-        <img src="img/tnt.jpg" alt="Latitas con chicles"  >
+        <img src="img/tnt.jpg" alt="Caramelo"  >
         <h3>Caramelo Tnt Súper Ácido Variado (60 u) 270g</h3>
         <p>$7.900</p>
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
 
       <div class="card">
-        <img src="img/tnt40.jpg" alt="Latitas con chicles"  >
+        <img src="img/tnt40.jpg" alt="Caramelo"  >
         <h3>Caramelo Tnt Súper Ácido Variado (40 u) 180g</h3>
         <p>$6.000</p>
         <button class="btn-carrito">Agregar al carrito</button>
@@ -501,7 +521,7 @@
         <button class="btn-carrito">Agregar al carrito</button> 
       </div>
         
-    <div class="card card-recargado" data-index="0">
+    <div class="card card-recargado" data-index="0" data-cat="chicles">
       <div class="img-container">
         <span class="flecha izq" onclick="event.stopPropagation(); cambiarVariante(this, -1)">‹</span><img src="img/fieritarecargadomenta.jpg"><span class="flecha der" onclick="event.stopPropagation(); cambiarVariante(this, 1)">›</span>
       </div>
@@ -517,7 +537,7 @@
           <button class="btn-carrito">Agregar al carrito</button> 
       </div>
 
-      <div class="card">
+      <div class="card" data-cat="chicles">
         <img src="img/fieritarecargadobanana.jpg" alt="Chicles"  >
         <h3>Chicle Fierita Recargado - Banana (50 u)</h3>
         <p>$6.500</p>
@@ -525,20 +545,13 @@
       </div>
 
       <div class="card">
-        <img src="img/globo.jpg" alt="Chicles"  >
-        <h3>Chicle Fierita Globo sabor Tutti Frutti (95 u)</h3>
-        <p>$7.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card">
-        <img src="img/tntpintalengua.jpg" alt="Latitas con chicles"  >
+        <img src="img/tntpintalengua.jpg" alt="Caramelo"  >
         <h3>Caramelo masticable relleno Tnt pinta lengua (60 u)</h3>
         <p>$7.900</p>
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
 -->
-      <div class="card card-globos" data-index="0">
+      <div class="card card-globos" data-index="0" data-cat="chicles">
         <div class="img-container">
           <span class="flecha izq" onclick="event.stopPropagation(); cambiarVariante(this, -1)">‹</span>
           <img src="img/globobanana.jpg" alt="Chicles">
@@ -587,7 +600,7 @@
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
 
-      <div class="card">
+      <div class="card" data-cat="chupetines">
         <img src="img/mc.jpg" alt="Mc Donalds"  >
         <h3>Chupetines con led Mc Donalds (30 u)</h3>
         <p>$10.900</p>
@@ -601,7 +614,7 @@
         <button class="btn-carrito">Agregar al carrito</button> 
       </div>
 
-      <div class="card">
+      <div class="card" data-cat="chupetines">
         <img src="img/monsterojo1.jpg" alt="Mc Donalds"  >
         <h3>Chupetines led Monster (30 u)</h3>
         <p>$10.900</p>
@@ -622,14 +635,14 @@
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
 
-        <div class="card">
+        <div class="card" data-cat="chupetines">
           <img src="img/babydollmonsters.jpg" alt="chupetines baby dolls"  >
           <h3>Chupetines masticables Baby Dolls (40 u)</h3>
           <p>$7.800</p>
           <button class="btn-carrito">Agregar al carrito</button>  
         </div>
 
-        <div class="card">
+        <div class="card" data-cat="chupetines">
           <img src="img/babydoll_acido.jpg" alt="chupetines baby dolls"  >
           <h3>Chupetines masticables Baby Dolls ácidos (40 u)</h3>
           <p>$7.800</p>
@@ -659,42 +672,42 @@
 
 -->
       
-        <div class="card">
+        <div class="card" data-cat="alfajores">
           <img src="img/guaysimpleblanco.jpg" alt="Alfajor"  >
           <h3>Alfajor Guaymallén simple de Chocolate Blanco (10 u)</h3>
           <p>$4.900</p>
           <button class="btn-carrito">Agregar al carrito</button>  
         </div>
    <!--
-        <div class="card">
+        <div class="card" data-cat="gomitas500">
           <img src="img/yummyacidas.jpg" alt="Yummy"  >
           <h3>Gomitas Yummy ácidas 500 g</h3>
           <p>$7.900</p>
           <button class="btn-carrito">Agregar al carrito</button>    
         </div>
      
-        <div class="card">
+        <div class="card" data-cat="alfajores">
           <img src="img/guaysimplenegro.jpg" alt="Alfajor"  >
           <h3>Alfajor Guaymallén simple de Dulce de Leche (10 u)</h3>
           <p>$4.500</p>
           <button class="btn-carrito">Agregar al carrito</button>  
         </div>
 
-        <div class="card">
+        <div class="card" data-cat="gomitas500">
           <img src="img/yummy_moritas.jpg" alt="Yummy"  >
           <h3>Gomitas Yummy Moritas 500 g</h3>
           <p>$7.900</p>
           <button class="btn-carrito">Agregar al carrito</button>    
         </div>
 
-        <div class="card">
+        <div class="card" data-cat="alfajores">
           <img src="img/guaysimplemembrillo.jpg" alt="Alfajor"  >
           <h3>Alfajor Guaymallén simple de Membrillo (10 u)</h3>
           <p>$4.500</p>
           <button class="btn-carrito">Agregar al carrito</button>  
         </div>
       
-        <div class="card">
+        <div class="card" data-cat="gomitas500">
           <img src="img/miskyacidos.jpg" alt="Misky"  >
           <h3>Misky ácido 500 g</h3>
           <p>$6.900</p>
@@ -715,28 +728,28 @@
           <button class="btn-carrito">Agregar al carrito</button>  
         </div>
 <!--
-        <div class="card">
+        <div class="card" data-cat="gomitas500">
           <img src="img/bulldog2.jpg" alt="Bull dog frutilla"  >
           <h3>Gomitas Bull dog Frutilla 500 g</h3>
           <p>$6.900</p>
           <button class="btn-carrito">Agregar al carrito</button>
         </div>
 
-        <div class="card">
+        <div class="card" data-cat="gomitas800">
           <img src="img/billikenredonditas1.jpg" alt="Billiken"  >
           <h3>Billiken redonditas 800 g</h3>
           <p>$7.500</p>
           <button class="btn-carrito">Agregar al carrito</button> 
         </div>
 
-        <div class="card">
+        <div class="card" data-cat="gomitas500">
           <img src="img/bulldogacido.jpg" alt="Bull dog"  >
           <h3>Gomitas Bull dog ácidas 500 g</h3>
           <p>$6.900</p>
           <button class="btn-carrito">Agregar al carrito</button>
         </div>
 
-        <div class="card">
+        <div class="card" data-cat="gomitas500">
           <img src="img/mogulfrutillaconcrema.jpg" alt="Mogul frutilla con crema"  >
           <h3>Gomitas Mogul Frutilla con Crema 500 g</h3>
           <p>$7.900</p>
@@ -750,21 +763,21 @@
           <button class="btn-carrito">Agregar al carrito</button>   
         </div>
 
-         <div class="card">
+         <div class="card" data-cat="gomitas500">
           <img src="img/moguldientes.jpg" alt="Mogul Dientes"  >
           <h3>Gomitas Mogul Dientes 500 g</h3>
           <p>$7.900</p>
           <button class="btn-carrito">Agregar al carrito</button>
         </div>
 
-        <div class="card">
+        <div class="card" data-cat="gomitas500">
           <img src="img/ricomas.jpg" alt="Misky"  >
           <h3>Misky Rico más 500 g</h3>
           <p>$6.900</p>
           <button class="btn-carrito">Agregar al carrito</button> 
         </div>
 -->
-        <div class="card">
+        <div class="card" data-cat="gomitas700">
           <img src="img/piñataredonditas.jpg" alt="Piñata"  >
           <h3>Piñata redonditas 700 g</h3>
           <p>$6.900</p>
@@ -778,49 +791,49 @@
           <button class="btn-carrito">Agregar al carrito</button> 
         </div>
       
-        <div class="card">
+        <div class="card" data-cat="gomitas800">
           <img src="img/billikentt.jpg" alt="Billiken"  >
           <h3>Billiken Tutti-frutti 800 g</h3>
           <p>$7.500</p>
           <button class="btn-carrito">Agregar al carrito</button> 
         </div>
 
-        <div class="card">
-          <img src="img/lheritier.jpg" alt="caramelos masticables"  >
+        <div class="card" data-cat="caramelos">
+          <img src="img/lheritier.jpg" alt="Caramelos masticables"  >
           <h3>Caramelos masticables Lheritier 300 g</h3>
           <p>$3.800</p>
           <button class="btn-carrito">Agregar al carrito</button>  
         </div>
 
-        <div class="card">
-          <img src="img/osiosi.jpg" alt="chupetines"  >
+        <div class="card" data-cat="caramelos">
+          <img src="img/osiosi.jpg" alt="Caramelos"  >
           <h3>Caramelos Osi Osi (50 u)</h3>
           <p>$4.500</p>
           <button class="btn-carrito">Agregar al carrito</button>
         </div>
  <!-- -
-        <div class="card">
+        <div class="card" data-cat="caramelos">
           <img src="img/fieritagranjero.jpg" alt=" fierita caramelos masticables"  >
           <h3>Caramelos masticables Fierita Granjero (100 u)</h3>
           <p>$4.500</p>
           <button class="btn-carrito">Agregar al carrito</button>
         </div>
 
-        <div class="card">
+        <div class="card" data-cat="caramelos">
           <img src="img/yumyum.jpg" alt=" fierita caramelos masticables"  >
           <h3>Caramelos Masticables Yum - Yum Surtidos Frutales 300g</h3>
           <p>$4.000</p>
           <button class="btn-carrito">Agregar al carrito</button>
         </div>
 
-        <div class="card">
+        <div class="card" data-cat="chupetines">
           <img src="img/cosmos.jpg" alt="chupetines"  >
           <h3>Chupetines Cosmos (40 u)</h3>
           <p>$6.500</p>
           <button class="btn-carrito">Agregar al carrito</button>
         </div>
     
-        <div class="card">
+        <div class="card" data-cat="chupetines">
           <img src="img/braincaja.jpg" alt="Chupetín Brain"  >
           <h3>Chupetín con polvo ácido Brain (30 u)</h3>
           <p>$9.900</p>
@@ -828,21 +841,21 @@
         </div>
 
         <div class="card">
-          <img src="img/popping.jpg" alt="Chupetín Brain"  >
+          <img src="img/popping.jpg" alt="Candy"  >
           <h3>Popping Candy (Caramelo explosivo) 💥🤯 (30 u)</h3>
           <p>$11.000</p>
           <button class="btn-carrito">Agregar al carrito</button>
         </div>
     
   
-        <div class="card">
+        <div class="card" data-cat="huevos">
           <img src="img/sorpresa2.jpg" alt="Sorpresa"  >
           <h3>Huevos Sorpresa de Dinosaurios (30 u)</h3>
           <p>$13.000</p>
           <button class="btn-carrito">Agregar al carrito</button>  
         </div> 
 
-        <div class="card">
+        <div class="card" data-cat="chupetines">
           <img src="img/chupetincapibara1.jpg" alt="Chupetines Capibara"  >
           <h3>Chupetines Capibara (30 u)</h3>
           <p>$9.900</p>
@@ -850,21 +863,21 @@
         </div>
   
 
-        <div class="card">
+        <div class="card" data-cat="huevos">
           <img src="img/sorpresaplant.jpg" alt="Sorpresa"  >
           <h3>Huevos Sorpresa Plantas vs Zombies (30 u)</h3>
           <p>$13.000</p>
           <button class="btn-carrito">Agregar al carrito</button>  
         </div>
     -->
-         <div class="card">
+         <div class="card" data-cat="huevos">
           <img src="img/sorpresacapibara1.jpg" alt="Sorpresa"  >
           <h3>Huevos Sorpresa Capibara (30 u)</h3>
           <p>$13.000</p>
           <button class="btn-carrito">Agregar al carrito</button> 
         </div>
 
-        <div class="card">
+        <div class="card" data-cat="huevos">
           <img src="img/sorpresalyl.jpg" alt="Sorpresa"  >
           <h3>Huevos Sorpresa de Lyl (30 u)</h3>
           <p>$13.000</p>
@@ -872,14 +885,14 @@
         </div>
 
 
-        <div class="card">
+        <div class="card" data-cat="Chupetines">
           <img src="img/merlina1.jpg" alt="Eyeball caramelo duro Merlina"  >
           <h3>Chupetines Merlina (30 u)</h3>
           <p>$11.500</p>
           <button class="btn-carrito">Agregar al carrito</button>
         </div>
    
-        <div class="card">
+        <div class="card" data-cat="chupetines">
           <img src="img/corazon.jpg" alt="Chupetines con formas"  >
           <h3>Chupetines Corazón (30 u)</h3>
           <p>$9.900</p>
@@ -893,65 +906,63 @@
           <button class="btn-carrito">Agregar al carrito</button>
         </div>
 
-        <div class="card">
+        <div class="card" data-cat="chupetines">
           <img src="img/chupetinfrutilla1.jpg" alt="Chupetines con formas"  >
           <h3>Chupetines Frutillas (30 u)</h3>
           <p>$9.900</p>
           <button class="btn-carrito">Agregar al carrito</button>
         </div>
 
-        <div class="card">
+        <div class="card" data-cat="chupetines">
           <img src="img/ChupetinDeporte.jpeg" alt="Chupetin Deportes"  >
           <h3>Chupetines Deportes (24 u)</h3>
           <p>$10.000</p>
           <button class="btn-carrito">Agregar al carrito</button>  
         </div>
 
-        <div class="card">
+        <div class="card" data-cat="chupetines">
           <img src="img/ChupetinPanda.jpeg" alt="Chupetin Panda"  >
           <h3>Chupetines Panda (24 u)</h3>
           <p>$11.000</p>
           <button class="btn-carrito">Agregar al carrito</button>  
         </div>
 
-        <div class="card">
+        <div class="card" data-cat="chupetines">
           <img src="img/fieritacremosito.jpg" alt="fierita"  >
-          <h3>Chupetines Cremosito Fierita - Fritilla y Crema (50 u)</h3>
+          <h3>Chupetines Cremosito Fierita - Frutilla y Crema (50 u)</h3>
           <p>$9.500</p>
           <button class="btn-carrito">Agregar al carrito</button>
         </div>
 
-        <div class="card">
+        <div class="card" data-cat="chupetines">
           <img src="img/tatoofrutilla.jpg" alt="fierita"  >
           <h3>Fierita Super Tatoo Frutilla 600g</h3>
           <p>$9.500</p>
           <button class="btn-carrito">Agregar al carrito</button>
         </div>
 
-        <div class="card">
+        <div class="card" data-cat="chupetines">
           <img src="img/tatootutti.jpg" alt="fierita"  >
           <h3>Fierita Super Tatoo Tutti Frutti 600g</h3>
           <p>$9.500</p>
           <button class="btn-carrito">Agregar al carrito</button>
         </div>
-
-       
 <!--
-         <div class="card">
+         <div class="card" data-cat="chupetines">
           <img src="img/fieritanitro.jpg" alt="fierita"  >
           <h3>Chupetines Fierita Nitro 600 g</h3>
           <p>$9.500</p>
           <button class="btn-carrito">Agregar al carrito</button>
         </div>
 
-        <div class="card">
+        <div class="card" data-cat="chupetines">
           <img src="img/lenguaazul.jpg" alt="fierita"  >
           <h3>Chupetines Fierita Lengua Azul (50 u)</h3>
           <p>$9.500</p>
           <button class="btn-carrito">Agregar al carrito</button>
         </div>
 
-      <div class="card">
+      <div class="card" data-cat="chupetines">
         <img src="img/unicornioled1.jpg" alt="Donut"  >
         <h3>Chupetines con led Unicornio (30 u)</h3>
         <p>$10.900</p>
@@ -1018,14 +1029,14 @@
 
       
      <!-- 
-        <div class="card">
+        <div class="card" data-cat="chupetines">
           <img src="img/chupetineshelado1.jpg" alt="Chupetines helado"  >
           <h3>Chupetines con forma de helado (30 u)</h3>
           <p>$8.900</p>
           <button class="btn-carrito">Agregar al carrito</button> 
         </div>
 
-      <div class="card">
+      <div class="card" data-cat="chupetines">
         <img src="img/donit1.jpg" alt="Donut"  >
         <h3>Chupetines con led Simpsons (30 u)</h3>
         <p>$10.900</p>
@@ -1045,7 +1056,9 @@
         <p>$8.500</p>
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
-
+   
+      <div class="card" data-cat="caramelos">
+      <div class="card" data-cat="gomitasblandas">
    -->
 </div>
 
