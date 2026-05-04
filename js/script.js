@@ -82,7 +82,7 @@ const STOCK_PRODUCTOS = {
   "Alcancía Lechuza Marrón": 1,
   "Alcancía Lechuza Rosa": 1,
   "Gomitas Super Mario (30 u)": 15,
-  "Chupetines con led Oreo (30 u)": 1,
+  "Chupetines Hongos (30 u)": 1,
   "Avión Naranja Transformer (1 u)": 1,
   "Chicle Fierita Recargado - Menta (50 u)": 30,
   "Chicle Fierita Recargado - Tutti Frutti (50 u)": 30,
