@@ -581,18 +581,60 @@
 
       <div class="card" data-cat="chocolates">
         <img src="img/monedas1.jpg" alt="Monedas de chocolate"  >
-        <h3>Monedas de chocolate (290 u)</h3>
+        <h3>Monedas de Chocolate (290 u)</h3>
         <p>$17.000</p>
         <button class="btn-carrito">Agregar al carrito</button> 
       </div>
 
       <div class="card" data-cat="pastillas">
         <img src="img/coolmint.jpg" alt="Cool Mint"  >
-        <h3>Cool Mint pastillitas frutales (30 u)</h3>
+        <h3>Cool Mint pastillitas Frutales (30 u)</h3>
         <p>$11.500</p>
         <button class="btn-carrito">Agregar al carrito</button>  
       </div>
-<!--
+
+      <div class="card card-drf" data-index="0" data-cat="pastilla">
+        <div class="img-container">
+          <span class="flecha izq" onclick="event.stopPropagation(); cambiarVariante(this, -1)">‹</span> <img src="img/drfanis.jpeg" alt="Pastillas D.R.F Sabor Anis (caja x 12 u)"> <span class="flecha der" onclick="event.stopPropagation(); cambiarVariante(this, 1)">›</span>
+        </div>
+        <h3>Pastillas D.R.F Sabor Anis (caja x 12 u)</h3>
+        <p>$6.200</p>
+        <button class="btn-carrito" data-nombre="Pastillas D.R.F Sabor Anis (caja x 12 u)" data-precio="$6.200"> Agregar al carrito</button>
+      </div>
+
+       <div class="card" data-cat="pastillas">
+        <img src="img/hallscherry.jpeg" alt="Pastillas Halls sabor Cherry (caja x 12 u)"  >
+        <h3>Pastillas Halls sabor Cherry (caja x 12 u)</h3>
+        <p>$9.500</p>
+        <button class="btn-carrito">Agregar al carrito</button>  
+      </div>
+
+      <div class="card" data-cat="pastillas">
+        <img src="img/alkacherry.jpeg" alt="Pastillas Alka sabor Cherry Mentol (caja x 12 u)"  >
+        <h3>Pastillas Alka sabor Cherry Mentol (caja x 12 u)</h3>
+        <p>$6.500</p>
+        <button class="btn-carrito">Agregar al carrito</button>  
+      </div>
+
+      <!--
+      <div class="card card-halls" data-index="0" data-cat="pastilla">
+        <div class="img-container">
+          <span class="flecha izq" onclick="event.stopPropagation(); cambiarVariante(this, -1)">‹</span> <img src="img/hallscherry.jpeg" alt="Pastillas Halls sabor Cherry (caja x 12 u)"> <span class="flecha der" onclick="event.stopPropagation(); cambiarVariante(this, 1)">›</span>
+        </div>
+        <h3>Pastillas Halls sabor Cherry (caja x 12 u)</h3>
+        <p>$9.500</p>
+        <button class="btn-carrito" data-nombre="Pastillas Halls sabor Cherry (caja x 12 u)" data-precio="$9.500"> Agregar al carrito</button>
+      </div>
+
+      <div class="card card-alka" data-index="0" data-cat="pastilla">
+        <div class="img-container">
+          <span class="flecha izq" onclick="event.stopPropagation(); cambiarVariante(this, -1)">‹</span> <img src="img/alkacherry.jpeg" alt="Pastillas Alka sabor Cherry Mentol (caja x 12 u)"> <span class="flecha der" onclick="event.stopPropagation(); cambiarVariante(this, 1)">›</span>
+        </div>
+        <h3>Pastillas Alka sabor Cherry Mentol (caja x 12 u)</h3>
+        <p>$6.500</p>
+        <button class="btn-carrito" data-nombre="Pastillas Alka sabor Cherry Mentol (caja x 12 u)" data-precio="$6.500"> Agregar al carrito</button>
+      </div>
+    
        <div class="card" data-cat="pastillas">
         <img src="img/frutales.jpg" alt="Cool Mint"  >
         <h3>Pastillitas sabores frutales Toty (30 u)</h3>

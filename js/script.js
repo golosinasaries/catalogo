@@ -276,6 +276,21 @@ const cartera = [
 
 ];
 
+const drf   = [
+    {
+    nombre: "Pastillas D.R.F Sabor Anis (caja x 12 u)",
+    precio: "$6.200",
+    img: "img/drfanis.jpeg"
+  },
+ {
+    nombre: "Pastillas D.R.F Sabor Menta (caja x 12 u)",
+    precio: "$6.200",
+    img: "img/drfmenta.jpeg"
+  },
+
+];
+
+
 const productosVariantes = {
   "card-alcancia": alcancias,
   "card-globos": globos,
@@ -283,6 +298,7 @@ const productosVariantes = {
   "card-transformers": variantesTransformer,
   "card-oblita": oblita,
   "card-cartera": cartera,
+  "card-drf": drf,
 };
 
 function cambiarVariante(el, direccion) {
@@ -471,13 +487,13 @@ if (modal) {
     "Gelatina de diferentes formas (30 u)": ["img/gelatinaDiferentesSabores4.jpg","img/gelatinaDiferentesSabores3.jpg","img/gelatinaDiferentesSabores2.jpg","img/gelatinaDiferentesSabores5.jpg","img/gelatinaDiferentesSabores1.jpg"],
     "Chupetines con led Corona (30 u)": ["img/chupetinesconled1.jpg","img/corona2.jpg"],
     "Gomitas Monstruo (30 u)": ["img/gomitablandaCara2.jpg","img/gomitablandaCara3.jpg"],
-    "Cool Mint sabores frutales (30 u)": ["img/coolmint.jpg","img/coolmint2.jpg"],
+    "Cool Mint sabores Frutales (30 u)": ["img/coolmint.jpg","img/coolmint2.jpg"],
     "Trompetas con chupetin y sonido (20 u)": ["img/trompeta1.jpg","img/trompetas.jpg"],
     "Huevos Sorpresa Capibara (30 u)": ["img/sorpresacapibara1.jpg","img/sorpresacapibara2.jpg"],
     "Huevos Sorpresa Plantas vs Zombies (30 u)": ["img/sorpresaplant2.jpg","img/sorpresaplant.jpg"],
     "Gomitas Fantasmita (30 u)": ["img/fantasmitas.jpg","img/fantasmitas2.jpg"],
     "Gomitas Batman (30 u)": ["img/batman1.jpg","img/batman2.jpg"],
-    "Monedas de chocolate (290 u)": ["img/monedas1.jpg","img/monedas2.jpg"],
+    "Monedas de Chocolate (290 u)": ["img/monedas1.jpg","img/monedas2.jpg"],
     "Gomitas ojo-boca-ojo (30 u)": ["img/gomitasoh1.jpg","img/gomitasoh.jpg"],
     "Gomitas Kuromy (30 u)": ["img/gomitasblandas7.jpg","img/gomitasblandas71.jpg"],
     "Chupetines Capibara (30 u)": ["img/chupetincapibara1.jpg","img/chupetincapibara2.jpg"],
