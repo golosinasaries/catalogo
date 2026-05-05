@@ -18,6 +18,7 @@ let currentVariantes = null;
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const STOCK_PRODUCTOS = {
+  "Gomitas Pokemón (30 u)": 1,
   "Galletitas Oreo 118 g": 45,
   "Galletitas Chocolinas 170 g": 45,
   "Galletitas Pepitos 119 g": 45,
