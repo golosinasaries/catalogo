@@ -74,12 +74,8 @@ const STOCK_PRODUCTOS = {
   "Lenguetazo Tropical Punch (32 u)": 1,
   "Lenguetazo (32 u)": 1,
   "Camión dispenser + caramelos rosa (1 unidad)": 0,
-  "Alcancía Oso Rosa": 0,
-  "Alcancía Oso café": 5,
   "Alcancía Tigre Amarillo": 3,
-  "Alcancía Tigre Rojo": 7,
-  "Alcancía Pingüino Rosa": 1,
-  "Alcancía Pingüino Negro (con 12 gelatinas en su interior)": 5,
+  "Alcancía Tigre Rojo (con 12 gelatinas en su interior)": 7,
   "Alcancía Lechuza Marrón": 1,
   "Alcancía Lechuza Rosa": 1,
   "Gomitas Super Mario (30 u)": 15,
@@ -123,12 +119,18 @@ const globos = [
 ];
 
 const alcancias = [
+ {
+    nombre: "Alcancía Tigre Rojo (con 12 gelatinas en su interior)",
+    precio: "$6.500",
+    img: "img/tigrerojo.png"
+  },
+/*
   {
     nombre: "Alcancía Pingüino Negro (con 12 gelatinas en su interior)",
     precio: "$6.500",
     img: "img/pinguino2.jpg"
   },
-/*
+
   {
     nombre: "Alcancía Pollito Rojo",
     precio: "$6.500",
@@ -141,11 +143,7 @@ const alcancias = [
     img: "img/lechuza.jpg"
   },
 
-    {
-    nombre: "Alcancía Pingüino Rosa",
-    precio: "$6.500",
-    img: "img/alcanciapinguinorosa.jpg"
-  },
+
   {
     nombre: "Alcancía Lechuza Rosa",
     precio: "$6.500",
@@ -157,12 +155,14 @@ const alcancias = [
     precio: "$6.500",
     img: "img/osorosa1.jpg"
   },
-  */
-  {
-    nombre: "Alcancía Tigre Rojo",
+
+      {
+    nombre: "Alcancía Pingüino Rosa",
     precio: "$6.500",
-    img: "img/tigrerojo.png"
+    img: "img/alcanciapinguinorosa.jpg"
   },
+  */
+
   {
     nombre: "Alcancía Tigre Amarillo",
     precio: "$6.500",
@@ -549,14 +549,13 @@ if (modal) {
 
   if (claseVariante) {
     currentVariantes = productosVariantes[claseVariante];
+    currentIndex = parseInt(card.dataset.index || "0");
     currentImages = currentVariantes.map(v => v.img);
-    currentTitle = currentVariantes[0].nombre;
+    currentTitle = currentVariantes[currentIndex].nombre;
   } else {
     currentVariantes = null;
     currentImages = imagenesProducto[currentTitle] || [img?.src || ''];
   }
-
-   currentIndex = parseInt(card.dataset.index || "0");
 
   modal.style.display = 'flex';
   actualizarModal();
