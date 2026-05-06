@@ -5,7 +5,7 @@ const ENVIO_LEJANO = 14900;
 const ENVIO_SANTACRUZ = 15900;
 const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
-const minimoRegalo = 70000;   
+const minimoRegalo = 60000;   
 const REGALO_NOMBRE = "Chupetines Selección (50 u) 🇦🇷";
 const PROMO_ACTIVA = "regalo"; 
 // "envio"  → envío gratis
