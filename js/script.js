@@ -423,8 +423,9 @@ function calcularCostoEnvio(cp) {
     codigo.startsWith("2000") ||
     codigo.startsWith("5965") ||
     codigo.startsWith("2445") ||
+    codigo.startsWith("5350") ||
     //codigo.startsWith("2445") ||
-    //codigo.startsWith("2445") ||
+    //codigo.startsWith("5350") ||
     codigo.startsWith("8")
     
   ) {
@@ -493,7 +494,7 @@ if (modal) {
     "Tractor dispenser + caramelos verde (1 unidad)": ["img/tractorverde1.jpg","img/tractorverde2.jpg"],
     "Chupetines Kuromy con led (30 u)": ["img/caramelokuromy.jpg","img/caramelokuromy2.jpg"],
     "Gomita Helado (30 u)": ["img/helado.jpg","img/helado2.jpg"],
-    "Alcancía pingüino negro": ["img/pinguino2.jpg","img/pinguino5.jpg","img/pinguino3.jpg","img/pinguino4.jpg","img/pinguino6.jpg"],
+    //"Alcancía pingüino negro": ["img/pinguino2.jpg","img/pinguino5.jpg","img/pinguino3.jpg","img/pinguino4.jpg","img/pinguino6.jpg"],
     "Chupetines Merlina (30 u)": ["img/merlina1.jpg","img/merlina2.jpg","img/merlina3.jpg","img/merlina4.jpg"],
     "Chupetín con polvo ácido Brain (30 u)": ["img/braincaja.jpg","img/chupetinBrain.jpg"],
     "Camiseta pimball con pastillitas (30 u)": ["img/pimballremera.jpg","img/reversaremera.jpg","img/r1.jpg","img/r2.jpg"],
