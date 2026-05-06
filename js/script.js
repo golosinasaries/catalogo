@@ -27,10 +27,8 @@ const STOCK_PRODUCTOS = {
   "🛍️ Carteritas Kuromy": 2,
   "🛍️ Carteritas Hello Kitty": 2,
   "🛍️ Carteritas Labubu": 2,
-  "Chupetines Capibara (30 u)": 0,
-  "Latitas con chicles (30 latitas)": 21,
+  "Latitas con chicles (30 latitas)": 1,
   "Chicle por metro Barbie con Tatoo (30 u)": 20,
-  "Piñata redonditas 700 g": 1,
   "Chocolates Surtido Especial Arcor 223g": 10,
   "Gomitas Mogul Frutilla con Crema 500 g": 10,
   "Gomitas Yummy ácidas 500 g": 10,
@@ -51,14 +49,13 @@ const STOCK_PRODUCTOS = {
   "Oblita de Marroc (48 u)": 10,
   "Gomitas Kuromy (30 u)": 24,
   "Chicles WhatsApp con tatoo capibara (36 paquetes de 5 chicles)": 20,
-  "Auto Blanco y azul (1 u)": 1,
-  "Auto Blanco (1 u)": 1,
+  "Auto Blanco y azul Transformer (1 u)": 1,
+  "Auto Blanco Transformer (1 u)": 1,
   "Caramelo masticable relleno Tnt pinta lengua (60 u)": 10,
   "Camión Transformer (1 u)": 2,
   "Camión Verde Transformer (1 u)": 3,
   "Chupetines con led Unicornio (30 u)": 12,
   "Transformers varios (4 u)": 2,
-  "Billiken Congys 200 g": 2,
   "Billiken Tutti-frutti 800 g": 1,
   "Gomitas Lilo y Stitch (60 u)": 2,
   "Llaveros láser Capibara (12 u)": 2,
@@ -197,22 +194,22 @@ const variantesTransformer = [
   },
   */
   {
+    img: "img/aviontra.jpeg",
+    nombre: "Avión Transformer (1 u)",
+    precio: "$4.500"
+  },
+  {
     img: "img/autoblancotra.jpeg",
-    nombre: "Auto Blanco (1 u)",
+    nombre: "Auto Blanco Transformer (1 u)",
     precio: "$4.500"
   },
 
    {
     img: "img/autoblancoyazul.jpeg",
-    nombre: "Auto Blanco y azul (1 u)",
+    nombre: "Auto Blanco y azul Transformer (1 u)",
     precio: "$4.500"
   },
 
-  {
-    img: "img/aviontra.jpeg",
-    nombre: "Avión Transformer (1 u)",
-    precio: "$4.500"
-  },
   {
     img: "img/camionverdetra.jpeg",
     nombre: "Camión Verde Transformer (1 u)",
@@ -523,7 +520,6 @@ if (modal) {
     "Chupetines Hongos (30 u)": ["img/hongo1.jpg","img/hongo2.jpg"],
     "Chupetines Frutillas (30 u)": ["img/chupetinfrutilla1.jpg","img/chupetinfrutilla2.jpg", "img/chupetinnnrutilla2.jpg"],
     "Gomitas Astronauta (30 u)": ["img/astronauta2.jpg","img/astronauta1.jpg"],
-    "Combo Emprendedor": ["img/boca.jpg", "img/river.jpg", "img/pelotas.jpg","img/lheritier.jpg","img/gelatinaloka.jpg","img/fieritacomefuego.jpg", "img/remerapimball.jpg","img/bombulla.jpg","img/comboemprendedor.jpg"]
   };
 
   let currentImages = [];
