@@ -91,6 +91,19 @@ const STOCK_PRODUCTOS = {
   "Chicle Fierita Globo sabor Menta (95 u)": 20,
 };
 
+const alka = [
+  {
+    nombre: "Pastillas Alka sabor Cherry Mentol (caja x 12 u)",
+    precio: "$6.500",
+    img: "img/alkacherry.jpeg"
+  },
+  {
+    nombre: "Pastillas Alka sabor Menta (caja x 12 u)",
+    precio: "$.500",
+    img: "img/alkamenta.jpeg"
+  },
+];
+
 const globos = [
   {
     nombre: "Chicle Fierita Globo sabor Banana (95 u)",
@@ -300,6 +313,7 @@ const productosVariantes = {
   "card-oblita": oblita,
   "card-cartera": cartera,
   "card-drf": drf,
+  "card-alka": alka,
 };
 
 function cambiarVariante(el, direccion) {

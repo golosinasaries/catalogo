@@ -628,11 +628,14 @@
         <button class="btn-carrito">Agregar al carrito</button>  
       </div>
 
-      <div class="card" data-cat="pastillas">
-        <img src="img/alkacherry.jpeg" alt="Pastillas Alka sabor Cherry Mentol (caja x 12 u)"  >
+    
+      <div class="card card-alka" data-index="0" data-cat="pastilla">
+        <div class="img-container">
+          <span class="flecha izq" onclick="event.stopPropagation(); cambiarVariante(this, -1)">‹</span> <img src="img/alkacherry.jpeg" alt="Pastillas Alka sabor Cherry Mentol (caja x 12 u)"> <span class="flecha der" onclick="event.stopPropagation(); cambiarVariante(this, 1)">›</span>
+        </div>
         <h3>Pastillas Alka sabor Cherry Mentol (caja x 12 u)</h3>
         <p>$6.500</p>
-        <button class="btn-carrito">Agregar al carrito</button>  
+        <button class="btn-carrito" data-nombre="Pastillas Alka sabor Cherry Mentol (caja x 12 u)" data-precio="$6.500"> Agregar al carrito</button>
       </div>
 
       <!--
@@ -643,15 +646,6 @@
         <h3>Pastillas Halls sabor Cherry (caja x 12 u)</h3>
         <p>$9.500</p>
         <button class="btn-carrito" data-nombre="Pastillas Halls sabor Cherry (caja x 12 u)" data-precio="$9.500"> Agregar al carrito</button>
-      </div>
-
-      <div class="card card-alka" data-index="0" data-cat="pastilla">
-        <div class="img-container">
-          <span class="flecha izq" onclick="event.stopPropagation(); cambiarVariante(this, -1)">‹</span> <img src="img/alkacherry.jpeg" alt="Pastillas Alka sabor Cherry Mentol (caja x 12 u)"> <span class="flecha der" onclick="event.stopPropagation(); cambiarVariante(this, 1)">›</span>
-        </div>
-        <h3>Pastillas Alka sabor Cherry Mentol (caja x 12 u)</h3>
-        <p>$6.500</p>
-        <button class="btn-carrito" data-nombre="Pastillas Alka sabor Cherry Mentol (caja x 12 u)" data-precio="$6.500"> Agregar al carrito</button>
       </div>
     
        <div class="card" data-cat="pastillas">
