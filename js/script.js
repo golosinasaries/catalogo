@@ -94,7 +94,7 @@ const alka = [
   },
   {
     nombre: "Pastillas Alka sabor Menta (caja x 12 u)",
-    precio: "$.500",
+    precio: "$6.500",
     img: "img/alkamenta.jpeg"
   },
 ];
