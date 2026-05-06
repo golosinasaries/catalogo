@@ -76,7 +76,6 @@ const STOCK_PRODUCTOS = {
   "Camión dispenser + caramelos rosa (1 unidad)": 0,
   "Alcancía Tigre Amarillo": 3,
   "Alcancía Tigre Rojo (con 12 gelatinas en su interior)": 7,
-  "Alcancía Lechuza Marrón": 1,
   "Alcancía Lechuza Rosa": 1,
   "Gomitas Super Mario (30 u)": 15,
   "Chupetines Hongos (30 u)": 1,
@@ -136,13 +135,13 @@ const alcancias = [
     precio: "$6.500",
     img: "img/alcanciapinguinorojo.jpg"
   },
-  */
+ 
   {
     nombre: "Alcancía Lechuza Marrón",
     precio: "$6.500",
     img: "img/lechuza.jpg"
   },
-
+ */
 
   {
     nombre: "Alcancía Lechuza Rosa",
@@ -536,6 +535,8 @@ if (modal) {
 
   const titulo = card.querySelector('h3')?.textContent.trim();
   const stock = STOCK_PRODUCTOS[titulo];
+  const item = carrito.find(p => p.nombre === titulo);
+  const cantidad = item ? item.cantidad : 0;
 
   
   const img = card.querySelector('img');
@@ -577,6 +578,7 @@ if (modal) {
   }
 
 }
+
 function actualizarModal() {
   const media = currentImages[currentIndex] || '';
 
@@ -1217,9 +1219,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
           if (stockMax !== undefined) {
 
-            const productoEnCarrito = carrito.find(p => p.nombre === nombre);
-            const cantidadActual = productoEnCarrito ? productoEnCarrito.cantidad : 0;
+          const productoEnCarrito = carrito.find(p => p.nombre === nombre);
+          const cantidadActual = productoEnCarrito ? productoEnCarrito.cantidad : 0;
+
+          const modalBtn = document.getElementById("modal-agregar");
+
+          if (cantidadActual >= stockMax) {
+            modalBtn.disabled = true;
+            modalBtn.textContent = "Agotado 🛒";
           }
+        }
           actualizarCarrito();
         }
       });
