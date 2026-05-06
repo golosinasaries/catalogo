@@ -28,7 +28,7 @@ const STOCK_PRODUCTOS = {
   "🛍️ Carteritas Hello Kitty": 2,
   "🛍️ Carteritas Labubu": 2,
   "Chupetines Capibara (30 u)": 0,
-  "Latitas con chicles (30 latitas)": 1,
+  "Latitas con chicles (30 latitas)": 21,
   "Chicle por metro Barbie con Tatoo (30 u)": 20,
   "Piñata redonditas 700 g": 1,
   "Chocolates Surtido Especial Arcor 223g": 10,
