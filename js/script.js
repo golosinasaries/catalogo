@@ -62,7 +62,7 @@ const STOCK_PRODUCTOS = {
   "Caramelos Osi Osi (50 u)": 10,
   "Bocaditos Bel (50 u)": 10,
   "Fierita Super Tatoo Tutti Frutti 600g": 3,
-  "Botellitas con chicles (30 botellitas)": 20,
+  "Botellitas con chicles (30 botellitas)": 60,
   "Fierita Super Tatoo Frutilla 600g": 2,
   "Chupetines Cremosito Fierita - Frutilla y Crema (50 u)": 10,
   "Alfajor Guaymallén simple de Membrillo (10 u)": 10,
