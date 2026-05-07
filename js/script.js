@@ -27,7 +27,7 @@ const STOCK_PRODUCTOS = {
   "🛍️ Carteritas Kuromy": 2,
   "🛍️ Carteritas Hello Kitty": 2,
   "🛍️ Carteritas Labubu": 2,
-  "Latitas con chicles (30 latitas)": 1,
+  "Latitas con chicles (30 latitas)": 14,
   "Chicle por metro Barbie con Tatoo (30 u)": 20,
   "Chocolates Surtido Especial Arcor 223g": 10,
   "Gomitas Mogul Frutilla con Crema 500 g": 10,
