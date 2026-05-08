@@ -471,6 +471,7 @@ if (modal) {
 
   // Productos
   const imagenesProducto = {
+    "Gomitas Macarron (30 u)": ["img/macarron2.jpeg","img/macarron1.jpeg"],
     "Camión Transformer (1 u)":[ "img/camiontra1.jpeg", "img/camiontra2.jpeg", "img/camiontra3.jpeg"],
     "Transformers varios (4 u)":  ["img/videotra1.mp4","img/tra1.jpeg","img/tra2.jpeg","img/tra3.jpeg", "img/videotra2.mp4" ],
     "Gomitas Ojos (30 u)": ["img/ojos.jpg","img/videoojos.mp4"],
