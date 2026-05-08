@@ -27,7 +27,7 @@ const STOCK_PRODUCTOS = {
   "🛍️ Carteritas Kuromy": 2,
   "🛍️ Carteritas Hello Kitty": 2,
   "🛍️ Carteritas Labubu": 2,
-  "Latitas con chicles (30 latitas)": 14,
+  "Latitas con chicles (30 latitas)": 48,
   "Chicle por metro Barbie con Tatoo (30 u)": 20,
   "Chocolates Surtido Especial Arcor 223g": 10,
   "Gomitas Mogul Frutilla con Crema 500 g": 10,
@@ -52,7 +52,7 @@ const STOCK_PRODUCTOS = {
   "Caramelo masticable relleno Tnt pinta lengua (60 u)": 10,
   "Camión Transformer (1 u)": 2,
   "Camión Verde Transformer (1 u)": 3,
-  "Chupetines con led Unicornio (30 u)": 12,
+  "Chupetines con led Unicornio (30 u)": 48,
   "Transformers varios (4 u)": 2,
   "Auto Blanco y azul Transformer (1 u)": 1,
   "Auto Blanco Transformer (1 u)": 1,
@@ -71,8 +71,8 @@ const STOCK_PRODUCTOS = {
   "Lenguetazo Tropical Punch (32 u)": 1,
   "Lenguetazo (32 u)": 1,
   "Camión dispenser + caramelos rosa (1 unidad)": 0,
-  "Alcancía Tigre Amarillo": 3,
-  "Alcancía Tigre Rojo (con 12 gelatinas en su interior)": 7,
+  "Alcancía Tigre Amarillo": 12,
+  "Alcancía Tigre Rojo (con 12 gelatinas en su interior)": 12,
   "Alcancía Lechuza Rosa": 1,
   "Gomitas Super Mario (30 u)": 15,
   "Chupetines Hongos (30 u)": 1,
@@ -139,11 +139,16 @@ const alcancias = [
     img: "img/lechuza.jpg"
   },
  */
-
   {
     nombre: "Alcancía Lechuza Rosa",
     precio: "$6.500",
     img: "img/lechuzarosa.jpg.png"
+  },
+
+    {
+    nombre: "Alcancía Oso Café",
+    precio: "$6.500",
+    img: "img/alcancias1.jpg"
   },
 /*
   {
