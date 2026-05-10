@@ -1,8 +1,8 @@
 const minimoCompra = 50000; 
-const ENVIO_MDP = 8600;
-const ENVIO_GENERAL = 10900;
-const ENVIO_LEJANO = 14900;
-const ENVIO_SANTACRUZ = 15900;
+const ENVIO_MDP = 8800;
+const ENVIO_GENERAL = 12900;
+const ENVIO_LEJANO = 15900;
+const ENVIO_SANTACRUZ = 16900;
 const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 const minimoRegalo = 60000;   
@@ -138,12 +138,13 @@ const alcancias = [
     precio: "$6.500",
     img: "img/lechuza.jpg"
   },
- */
+ 
   {
     nombre: "Alcancía Lechuza Rosa",
     precio: "$6.500",
     img: "img/lechuzarosa.jpg.png"
   },
+  */
 
     {
     nombre: "Alcancía Oso Café",
@@ -405,7 +406,7 @@ function calcularCostoEnvio(cp) {
     return ENVIO_MIRAMAR;
   }
 
-  const prefijos = ["9303", "4430",];
+  const prefijos = ["9303", "4430", "8371"];
 
   for (const p of prefijos) {
     if (codigo.startsWith(p)) {
@@ -427,7 +428,7 @@ function calcularCostoEnvio(cp) {
     codigo.startsWith("2445") ||
     codigo.startsWith("5350") ||
     //codigo.startsWith("2445") ||
-    //codigo.startsWith("5350") ||
+    //codigo.startsWith("8371") ||
     codigo.startsWith("8")
     
   ) {
