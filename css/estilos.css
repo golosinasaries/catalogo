@@ -1299,7 +1299,72 @@ html { scroll-behavior: smooth; }
   padding-top: 0%;
 }
 
+/*   BOTÓN DE WHATSAPP FLOTANTE (GRUPO)   */
 #whatsapp-btn {
+  position: fixed;
+  top: 32px;
+  right: 80px;
+  background: linear-gradient(135deg, #25D366, #1DA851);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+  transition: transform 0.2s ease;
+}
+
+#whatsapp-btn:hover {
+  transform: scale(1.05);
+}
+
+#whatsapp-btn img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  display: block;
+}
+
+#whatsapp-btn span {
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+
+  #whatsapp-btn {
+    top: auto;
+    bottom: 20px;
+    right: 50%;
+transform: translateX(50%);
+
+    padding: 10px 12px;
+    font-size: 13px;
+    gap: 6px;
+
+    max-width: 220px;
+  }
+
+  #whatsapp-btn img {
+    width: 22px;
+    height: 22px;
+  }
+
+  #whatsapp-btn span {
+    font-size: 13px;
+  }
+
+}
+
+/* BOTÓN CONSULTAS */
+
+#whatsapp-consulta {
   position: fixed;
   top: 32px;
   right: 20px;
@@ -1319,11 +1384,44 @@ html { scroll-behavior: smooth; }
   margin: 0;
   text-decoration: none;
 }
-#whatsapp-btn img {
+
+#whatsapp-consulta img {
   width: 30px;
   height: 30px;
   object-fit: contain;
   display: block;
+}
+
+#whatsapp-consulta::after {
+  content: "Hacer una consulta";
+
+  position: absolute;
+  top: 50px;
+  right: -10px;
+
+  background: #ffffff;
+  color: #25D366;
+
+  padding: 8px 12px;
+
+  border-radius: 999px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  white-space: nowrap;
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: all 0.2s ease;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+#whatsapp-consulta:hover::after {
+  opacity: 1;
+  top: 56px;
 }
 
 #carrito-dropdown,
