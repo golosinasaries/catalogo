@@ -1374,8 +1374,8 @@ document.getElementById("enviar-carrito")?.addEventListener("click", (e) => {
     
   } else {
     msg += `\n\n codigo postal: ${codigoPostalCliente}`;
-    msg += `\n\n✨ *¡Tu pedido ya está listo!*`;
-    msg += `\nSolo tocá *Enviar* y te respondemos enseguida para coordinar 💌`;
+    msg += `\n\n✨ *¡Pedido listo!*`;
+    msg += `\nTocá *Enviar* y te respondemos enseguida para coordinar 💌`;
         /*
     msg += `\n- Alguna referencia del domicilio (opcional): `;
     msg += `\n- Teléfono: `;
