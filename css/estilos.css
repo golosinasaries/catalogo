@@ -108,7 +108,6 @@ nav a:active {
   opacity: 0.4;
 }
 
-
 .compra-minima {
   font-family: 'Inter', system-ui, sans-serif;
   font-weight: 800;
@@ -117,20 +116,15 @@ nav a:active {
   background: linear-gradient(185deg, #FFFFFF 0%, #F5E6FF 100%);
   text-transform: uppercase;
   position: absolute;
-
   top: 22%;
   left: 50%;
   transform: translateX(-50%);
-
   width: 90%;
   max-width: 600px;
-
   text-align: center;
   line-height: 1.2;
-
   white-space: normal;        
   overflow-wrap: break-word;  
-
   border-radius: 10%;
 }
 
@@ -305,8 +299,8 @@ nav a:active {
   cursor: pointer;
   font-weight: bold;
   transition: background 0.2s, transform 0.1s;
-  
 }
+
 .cantidad { min-width: 20px; display: inline-block; text-align: center; }
 
 .buscador {
@@ -339,7 +333,6 @@ nav a:active {
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
   transition: all 0.25s ease;
   box-sizing: border-box;
-  
 }
 
 #search:focus {
@@ -359,20 +352,14 @@ nav a:active {
 #no-results a {
   display: inline-block;
   margin-top: 0.6rem;
-
   padding: 0.6rem 1rem;
-
   background: var(--primary);
   color: #fff;
-
   border-radius: 10px;
   text-decoration: none;
-
   font-weight: 600;
   font-size: 0.9rem;
-
   transition: all 0.2s ease;
-
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
 }
 
@@ -381,6 +368,7 @@ nav a:active {
   background: var(--accent);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
 }
+
 main {
   max-width: var(--content-max-w);                    
   margin: 0 auto;                                      
@@ -425,7 +413,6 @@ footer p {
   background: transparent;       
   padding-top: 1%;
 }
-
 
 .social-buttons-wrapper {
   margin-top: 0.01rem;                                 
@@ -494,7 +481,6 @@ footer p {
   bottom: 30px;        
   left: 60px;   
   z-index: 1000;      
-  
 }
 
 .back-to-top:hover { background:  #ce00af; color: #fff; transform: scale(1.05); }
@@ -574,7 +560,6 @@ html { scroll-behavior: smooth; }
   .fb-sub {
     margin-top: 30%;
   } 
-  
   .logo-mini {
     width: 90px;
     margin-top: 20px;
@@ -619,7 +604,6 @@ html { scroll-behavior: smooth; }
     left: 10px;
     z-index: 1000;  
   }
-  
 }
 
 @media (max-width: 1024px) {
@@ -667,7 +651,6 @@ html { scroll-behavior: smooth; }
     width: 30%; 
     margin-bottom: 0.1rem;
   }
-  
 }
 
 @media (max-width: 768px) {
@@ -989,12 +972,9 @@ html { scroll-behavior: smooth; }
   color: white;
   border: none;
   border-radius: 50%;
-
   font-size: 20px;
   cursor: pointer;
-  box-shadow:
-    0 8px 20px rgba(0,0,0,0.25),
-    inset 0 1px 0 rgba(255,255,255,0.2);
+  box-shadow:0 8px 20px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.2);
   position: relative;
   overflow: visible;
   transition: all 0.3s ease;
@@ -1019,7 +999,6 @@ html { scroll-behavior: smooth; }
   z-index: 9999;
   line-height: 1;
 }
-
 
 #carrito-btn::before {
   display: none;
@@ -1337,33 +1316,26 @@ html { scroll-behavior: smooth; }
 }
 
 @media (max-width: 768px) {
-
   #whatsapp-btn {
     top: auto;
     bottom: 20px;
     right: 50%;
-transform: translateX(50%);
-
+    transform: translateX(50%);
     padding: 10px 12px;
     font-size: 13px;
     gap: 6px;
-
     max-width: 220px;
   }
-
   #whatsapp-btn img {
     width: 22px;
     height: 22px;
   }
-
   #whatsapp-btn span {
     font-size: 13px;
   }
-
 }
 
 /* BOTÓN CONSULTAS */
-
 #whatsapp-consulta {
   position: fixed;
   top: 32px;
@@ -1394,28 +1366,19 @@ transform: translateX(50%);
 
 #whatsapp-consulta::after {
   content: "Hacer una consulta";
-
   position: absolute;
   top: 50px;
   right: -10px;
-
   background: #ffffff;
   color: #25D366;
-
   padding: 8px 12px;
-
   border-radius: 999px;
-
   font-size: 13px;
   font-weight: 600;
-
   white-space: nowrap;
-
   opacity: 0;
   pointer-events: none;
-
   transition: all 0.2s ease;
-
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
@@ -1601,7 +1564,6 @@ transform: translateX(50%);
   padding: 1px 15px;
   border-radius: 50px;
 }
-
 
 .prev-producto span,
 .next-producto span {
@@ -1953,7 +1915,6 @@ h1, h2, h3 {
 .card .flecha.der {
   right: 1px;
 }
-
 }
 
 .phone {
@@ -1962,9 +1923,7 @@ h1, h2, h3 {
   padding: 12px;
   border-radius: 35px;
   background: linear-gradient(145deg, #0f0f0f, #000);
-  box-shadow: 
-    0 15px 40px rgba(0,0,0,0.7),
-    inset 0 0 10px rgba(255,255,255,0.05);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.7),inset 0 0 10px rgba(255,255,255,0.05);
   position: relative;
   transition: all 0.4s ease;
   overflow: hidden;
@@ -1977,21 +1936,14 @@ h1, h2, h3 {
   left: -50%;
   width: 200%;
   height: 300%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,0.15),
-    transparent
-  );
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.15), transparent);
   transform: rotate(25deg);
   transition: 0.6s;
 }
 
 .phone:hover {
   transform: scale(1.06) rotate(1deg);
-  box-shadow: 
-    0 25px 60px rgba(0,0,0,0.9),
-    0 0 20px rgba(138,43,226,0.4); /* violeta mágico */
+  box-shadow: 0 25px 60px rgba(0,0,0,0.9),0 0 20px rgba(138,43,226,0.4); 
 }
 
 .phone:hover::before {
@@ -2053,26 +2005,17 @@ h1, h2, h3 {
   align-items: center;
   justify-content: center;
   gap: 8px;
-
   font-size: 1.3rem;
   letter-spacing: 2px;
-
   color: #fff;
   text-decoration: none;
-
   padding: 10px 16px;
   margin: 0.3rem;
-
   border-radius: 999px;
-
   background: linear-gradient(135deg, #D946EF, #EC4899);
-  box-shadow:
-    0 8px 20px rgba(0,0,0,0.2),
-    inset 0 1px 0 rgba(255,255,255,0.2);
-
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.2);
   position: relative;
   overflow: hidden;
-
   transition: all 0.3s ease;
 }
 
@@ -2090,9 +2033,7 @@ h1, h2, h3 {
 
 .titulo-catalogo:hover {
   transform: translateY(-3px) scale(1.04);
-  box-shadow:
-    0 12px 28px rgba(0,0,0,0.25),
-    inset 0 1px 0 rgba(255,255,255,0.3);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.3);
 }
 
 .titulo-catalogo:hover::before {
@@ -2110,7 +2051,7 @@ h1, h2, h3 {
 .titulo-catalogo .icono {
   font-size: 1.3rem;
 }
-/* ✨ mini shine (más sutil que botones) */
+
 .titulo-catalogo::before {
   content: "";
   position: absolute;
@@ -2118,12 +2059,7 @@ h1, h2, h3 {
   left: -80%;
   width: 40%;
   height: 100%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255, 255, 255, 0.25),
-    transparent
-  );
+  background: linear-gradient(120deg,transparent,rgba(255, 255, 255, 0.25),transparent );
   transform: skewX(-20deg);
   animation: shineTitle 9s infinite;
 }
@@ -2146,7 +2082,6 @@ h1, h2, h3 {
   transform: translateY(-1px);
 }
 
-/* ✨ brillo CONTROLADO */
 .titulo-catalogo::before {
   content: "";
   position: absolute;
@@ -2154,18 +2089,12 @@ h1, h2, h3 {
   left: -100%;
   width: 60%;
   height: 100%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255, 255, 255, 0.25),
-    transparent
-  );
+  background: linear-gradient( 120deg,transparent, rgba(255, 255, 255, 0.25),transparent);
   transform: skewX(-20deg);
   animation: shineTitle 10s infinite;
   pointer-events: none;
 }
 
-/* 👇 animación más corta y contenida */
 @keyframes shineTitle {
   0% {
     left: -100%;
@@ -2184,29 +2113,22 @@ h1, h2, h3 {
   transform: translateY(-1px);
 }
 
-
 .logo-mini {
   width: 235px;
   position: absolute;
   left: 130px;
   z-index: 500;
   top: auto;
-
-  /* animación constante suave */
   animation: flotarSuave 3s ease-in-out infinite;
-
-  /* transiciones para interacción */
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-/* ✨ FLOTACIÓN SUAVE (no exagerada) */
 @keyframes flotarSuave {
   0%   { transform: translateY(0px); }
   50%  { transform: translateY(-6px); }
   100% { transform: translateY(0px); }
 }
 
-/* 🔄 GIRO CADA 3 SEGUNDOS (aparte, sin romper todo) */
 .logo-mini {
   animation:
     flotarSuave 3s ease-in-out infinite,
@@ -2227,7 +2149,6 @@ h1, h2, h3 {
 .logo-mini:active {
   transform: scale(0.9) rotate(15deg);
 }
-
 
 @media (max-width: 550px) {
   .portfolio,
@@ -2310,29 +2231,21 @@ h1, h2, h3 {
   bottom: 140%;
   left: 5%;
   transform: translateX(-50%) scale(0.9);
-
   padding: 5px 6px;
   border-radius: 6px;
-
   font-size: 11px;
   white-space: nowrap;
-
   opacity: 0;
   pointer-events: none;
-
   transition: all 0.25s ease;
   padding-left: 22px; 
-
   background: #fff;           
   color: #0D1B2A;                
-
   background-image: url("https://golosinasaries.github.io/catalogo/img/TI.png");
   background-repeat: no-repeat;  
   background-position: 4px center;
   background-size: 14px;
-  
   pointer-events: none;
-  
 }
 
 .footer-credito a:hover::before {
@@ -2372,12 +2285,8 @@ h1, h2, h3 {
 .icono {
   font-size: 0.8em;
   margin-right: 2px; 
-  
- /* violeta (va con tu estética) */
-filter: linear-gradient(135deg, var(--primary), var(--accent));
-
-/* más brillo */
-filter: brightness(1.5);
+  filter: linear-gradient(135deg, var(--primary), var(--accent));
+  filter: brightness(1.5);
 }
 a {
   text-decoration: none;
@@ -2399,28 +2308,21 @@ a {
   opacity: 0;
 }
 
-/* ICONO */
 .sound-icon {
   position: absolute;
   top: 10px;
   right: 10px;
   z-index: 5;
-
   width: 34px;
   height: 34px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   font-size: 18px;
-
   background: rgba(0, 0, 0, 0.55);
   color: #fff;
-
   border-radius: 50%;
   cursor: pointer;
-
   transition: 0.2s ease;
   backdrop-filter: blur(6px);
 }
@@ -2429,7 +2331,6 @@ a {
   transform: scale(1.1);
 }
 
-/* 🔥 ESTADO ACTIVO (cuando hay sonido) */
 .card-video.audio-activo {
   box-shadow: 0 0 20px rgba(116, 172, 223, 0.6);
   transform: scale(1.01);
@@ -2440,7 +2341,6 @@ a {
   box-shadow: 0 0 10px rgba(116, 172, 223, 0.7);
 }
 
-/* Menu*/
 .menu-btn {
   display: flex;
   flex-direction: column;
@@ -2545,3 +2445,85 @@ a {
   to { transform: scale(1); opacity: 1; }
 }
 
+.modal-pago {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-pago-content {
+  background: white;
+  width: 90%;
+  max-width: 420px;
+
+  border-radius: 18px;
+  padding: 25px;
+
+  position: relative;
+
+  animation: aparecer .2s ease;
+}
+
+.modal-pago-content h2 {
+  margin-top: 0;
+  font-size: 24px;
+}
+
+.datos-pago {
+  background: #f7f7f7;
+  padding: 15px;
+  border-radius: 12px;
+  margin-top: 15px;
+}
+
+.aviso-pago {
+  margin-top: 18px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.cerrar-pago {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+@keyframes aparecer {
+  from {
+    transform: scale(.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.btn-copiar {
+  margin-left: 10px;
+  padding: 4px 10px;
+  border: none;
+  background: #000;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.btn-copiar:hover {
+  opacity: 0.8;
+}
+
+.copiado-msg {
+  margin-left: 8px;
+  font-size: 12px;
+  color: green;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}

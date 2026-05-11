@@ -7,7 +7,7 @@ const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 const minimoRegalo = 60000;   
 const REGALO_NOMBRE = "Chupetines Selección (50 u) 🇦🇷";
-const PROMO_ACTIVA = "ninguna"; 
+const PROMO_ACTIVA = "envio"; 
 // "envio"  → envío gratis
 // "regalo" → regalo 
 // "ninguna" → sin promo
@@ -1707,6 +1707,19 @@ menuBtn.addEventListener("click", () => {
   menuPanel.classList.toggle("active");
 });
 
+  const menuPago = document.getElementById("menu-pago");
+
+  menuPago.addEventListener("click", (e) => {
+    e.preventDefault();
+    const modalPago = document.getElementById("modal-pago");
+    const cerrarPago = document.querySelector(".cerrar-pago");
+
+      cerrarPago.addEventListener("click", () => {
+        modalPago.style.display = "none";
+      });
+    modalPago.style.display = "flex";
+    });
+
 menuCatalogo.addEventListener("click", (e) => {
   e.preventDefault();
 
@@ -1717,6 +1730,16 @@ menuCatalogo.addEventListener("click", (e) => {
   }
 });
 
+function copiarAlias() {
+  navigator.clipboard.writeText("ana.maria.montiel");
+
+  const msg = document.getElementById("copiado-msg");
+  msg.style.opacity = "1";
+
+  setTimeout(() => {
+    msg.style.opacity = "0";
+  }, 1500);
+}
 
 function animarCarrito() {
   const btn = document.getElementById("carrito-btn");
