@@ -63,9 +63,9 @@ const STOCK_PRODUCTOS = {
   "Llaveros láser Capibara (12 u)": 2,
   "Caramelos Osi Osi (50 u)": 10,
   "Bocaditos Bel (50 u)": 0,
-  "Fierita Super Tatoo Tutti Frutti 600g": 3,
+  "Fierita Super Tatoo Tutti Frutti 600g": 13,
   "Botellitas con chicles (30 botellitas)": 60,
-  "Fierita Super Tatoo Frutilla 600g": 2,
+  "Fierita Super Tatoo Frutilla 600g": 12,
   "Chupetines Cremosito Fierita - Frutilla y Crema (50 u)": 10,
   "Alfajor Guaymallén simple de Membrillo (10 u)": 10,
   "Alfajor Guaymallén simple de Chocolate Blanco (10 u)": 50,
@@ -408,7 +408,7 @@ function calcularCostoEnvio(cp) {
     return ENVIO_MIRAMAR;
   }
 
-  const prefijos = ["9303", "4430", "8371"];
+  const prefijos = ["9303", "4430", "8371", "3304"];
 
   for (const p of prefijos) {
     if (codigo.startsWith(p)) {
@@ -510,7 +510,7 @@ if (modal) {
     "Gomitas Monstruo (30 u)": ["img/gomitablandaCara2.jpg","img/gomitacara3.png"],
     "Cool Mint sabores Frutales (30 u)": ["img/coolmint.jpg","img/coolmint2.jpg"],
     "Trompetas con chupetin y sonido (20 u)": ["img/trompeta1.jpg","img/trompetas.jpg"],
-    "Huevos Sorpresa Capibara (30 u)": ["img/sorpresacapibara1.jpg","img/sorpresacapibara2.jpg"],
+    "Huevos Sorpresa Capibara (30 u)": ["img/sorpresacapibara1.jpg","img/sorpresacapibara2.jpg", "img/sorpresacapi3.png"],
     "Huevos Sorpresa Plantas vs Zombies (30 u)": ["img/sorpresaplant2.jpg","img/sorpresaplant.jpg"],
     "Gomitas Fantasmita (30 u)": ["img/fantasmitas.jpg","img/fantasmitas2.jpg"],
     "Gomitas Batman (30 u)": ["img/batman1.jpg","img/batman2.jpg"],
