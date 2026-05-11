@@ -62,7 +62,7 @@ const STOCK_PRODUCTOS = {
   "Gomitas Lilo y Stitch (60 u)": 2,
   "Llaveros láser Capibara (12 u)": 2,
   "Caramelos Osi Osi (50 u)": 10,
-  "Bocaditos Bel (50 u)": 0,
+  "Bocaditos Bel (50 u)": 6,
   "Fierita Super Tatoo Tutti Frutti 600g": 13,
   "Botellitas con chicles (30 botellitas)": 60,
   "Fierita Super Tatoo Frutilla 600g": 12,
