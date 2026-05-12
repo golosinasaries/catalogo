@@ -114,7 +114,6 @@ nav a:active {
   font-size: 1.2rem;
   letter-spacing: 3px;
   background: linear-gradient(185deg, #FFFFFF 0%, #F5E6FF 100%);
-  text-transform: uppercase;
   position: absolute;
   top: 22%;
   left: 50%;
@@ -950,7 +949,7 @@ html { scroll-behavior: smooth; }
   display: flex;
   flex-direction: column;
   gap: px;
-  margin-top: 8px;
+  margin-top: auto;
   flex-shrink: 0;
   position: sticky;
 }
@@ -1021,9 +1020,7 @@ html { scroll-behavior: smooth; }
   left: 50%;
   transform: translateX(-50%);
   width: 320px;
-  height: 480px;
-  max-width: 90%;
-  max-height: 99vh; 
+  max-width: 90%; 
   padding: 15px;
   padding-left: 1%;
   padding-right: 1%;
@@ -1037,6 +1034,10 @@ html { scroll-behavior: smooth; }
   border: 1px solid rgba(217, 70, 239, 0.4);
   backdrop-filter: blur(12px);
   border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  max-height: 80vh;
+  height: auto;
 }
 
 #carrito-dropdown h4 {
@@ -1090,7 +1091,10 @@ html { scroll-behavior: smooth; }
   padding-left: 0%;
   justify-self: flex-start;
   z-index: 2000;
-  flex: 1 1 auto; 
+  
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
 }
 
 .carrito-item {
