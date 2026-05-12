@@ -1018,9 +1018,14 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("carrito", JSON.stringify(carrito));
 
     const totalProductos = carrito.reduce((a,i)=>a+i.cantidad,0);
+    const envio = localStorage.getItem("codigoPostalCliente")
+      ? calcularCostoEnvio(localStorage.getItem("codigoPostalCliente"))
+      : 0;
     carritoTotal.innerHTML = `
       <strong>- Cantidad de productos: ${totalProductos}</strong><br>
       <strong>- Total: $${total.toLocaleString("es-AR")}</strong>
+      <br>
+      <strong>- Envío: $${envio.toLocaleString("es-AR")}</strong>
     `;
 
     actualizarAvisoEnvioGratis(total);
