@@ -34,7 +34,7 @@ const STOCK_PRODUCTOS = {
   "Chocolates Surtido Especial Arcor 223g": 50,
   "Gomitas Mogul Frutilla con Crema 500 g": 50,
   "Gomitas Yummy ácidas 500 g": 50,
-  "Gomitas Mogul Dientes 500 g": 51,
+  "Gomitas Mogul Dientes 500 g": 0,
   "Caramelos masticables Lheritier 300 g": 20,
   "Chupetines Kuromy con led (30 u)": 11,
   "Autito con pastillitas (30 u)": 15,
