@@ -2527,3 +2527,20 @@ a {
   opacity: 0;
   transition: opacity 0.3s ease;
 }
+#calcular-envio-btn {
+  margin-left: 12px;
+  padding: 4px 10px;
+  margin-bottom: 1%;
+  border: none;
+  border-radius: 999px;
+  background: #111;
+  color: white;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#calcular-envio-btn:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}

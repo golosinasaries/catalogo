@@ -1020,14 +1020,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const totalProductos = carrito.reduce((a,i)=>a+i.cantidad,0);
     const envio = localStorage.getItem("codigoPostalCliente")
       ? calcularCostoEnvio(localStorage.getItem("codigoPostalCliente"))
-      : 0;
+      : null;
+
     carritoTotal.innerHTML = `
       <strong>- Cantidad de productos: ${totalProductos}</strong><br>
-      <strong>- Total: $${total.toLocaleString("es-AR")}</strong>
-      <br>
-      <strong>- Envío: $${envio.toLocaleString("es-AR")}</strong>
-    `;
+      <strong>- Total: $${total.toLocaleString("es-AR")}</strong><br>
 
+      ${
+        envio !== null
+          ? `<strong>- Envío: $${envio.toLocaleString("es-AR")}</strong>
+           <button id="calcular-envio-btn">Calcular 📍</button>`
+          : `<button id="calcular-envio-btn">Calcular envío 📍</button>`
+      }
+    `;
+    document.getElementById("calcular-envio-btn")?.addEventListener("click", () => {
+    document.getElementById("menu-envio").click();
+     });
     actualizarAvisoEnvioGratis(total);
 
     let carritoTimer;
