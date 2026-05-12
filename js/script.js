@@ -34,7 +34,7 @@ const STOCK_PRODUCTOS = {
   "Chocolates Surtido Especial Arcor 223g": 50,
   "Gomitas Mogul Frutilla con Crema 500 g": 50,
   "Gomitas Yummy ácidas 500 g": 50,
-  "Gomitas Mogul Dientes 500 g": 0,
+  "Gomitas Mogul Dientes 500 g": 3,
   "Caramelos masticables Lheritier 300 g": 20,
   "Chupetines Kuromy con led (30 u)": 11,
   "Autito con pastillitas (30 u)": 15,
@@ -1013,23 +1013,30 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       `).join("");
 
+    const totalProductos = carrito.reduce((a,i)=>a+i.cantidad,0);
     const total = calcularTotal();
-    carritoCount.textContent = carrito.reduce((a,i)=>a+i.cantidad,0) || 0;
+
+    carritoCount.textContent = totalProductos;
     localStorage.setItem("carrito", JSON.stringify(carrito));
 
-    const totalProductos = carrito.reduce((a,i)=>a+i.cantidad,0);
     const envio = localStorage.getItem("codigoPostalCliente")
-      ? calcularCostoEnvio(localStorage.getItem("codigoPostalCliente"))
+      ? (total >= 300000
+          ? 0
+          : calcularCostoEnvio(localStorage.getItem("codigoPostalCliente")))
       : null;
 
     carritoTotal.innerHTML = `
       <strong>- Cantidad de productos: ${totalProductos}</strong><br>
       <strong>- Total: $${total.toLocaleString("es-AR")}</strong><br>
 
-      ${
+     ${
         envio !== null
-          ? `<strong>- Envío: $${envio.toLocaleString("es-AR")}</strong>
-           <button id="calcular-envio-btn">Calcular 📍</button>`
+          ? `<strong>- ${
+              envio === 0
+                ? "🚚 Envío: GRATIS"
+                : `Envío: $${envio.toLocaleString("es-AR")}`
+            }</strong>
+            <button id="calcular-envio-btn">Calcular 📍</button>`
           : `<button id="calcular-envio-btn">Calcular envío 📍</button>`
       }
     `;
@@ -1316,7 +1323,10 @@ document.getElementById("enviar-carrito")?.addEventListener("click", (e) => {
 
   btnRetirarMiramar?.addEventListener("click", () => {
 
-    const costoEnvio = 0; // Igual que Miramar
+    let costoEnvio = 0;// Igual que Miramar
+    if (total >= 300000) {
+      costoEnvio = 0;
+    }
     const totalFinal = total + costoEnvio;
 
     let mensajeRegalo = "";
@@ -1366,6 +1376,9 @@ document.getElementById("enviar-carrito")?.addEventListener("click", (e) => {
       costoEnvio = calcularCostoEnvio(codigoPostalCliente);
     }
 
+    if (total >= 300000) {
+      costoEnvio = 0;
+    }
     const totalFinal = total + costoEnvio;
 
     let mensajeRegalo = "";
@@ -1480,15 +1493,25 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
   }
 
   if (PROMO_ACTIVA === "ninguna") {
-    if (total < minimoCompra) {
-      aviso.innerHTML = `🛍️ Compra mínima $${minimoCompra.toLocaleString("es-AR")}✨`;
-      aviso.style.display = "block";
-    } 
-    else {
-      aviso.innerHTML = `🛍️ Compra mínima $${minimoCompra.toLocaleString("es-AR")}✨`;
-      aviso.style.display = "block";
-    }
+
+  if (total >= 300000) {
+
+    aviso.innerHTML = `
+      🎉 <strong>¡Tenés envío gratis!</strong><br>
+    `;
+
+  } else {
+
+    const falta = 300000 - total;
+
+    aviso.innerHTML = `
+    🛍️ Compra mínima $${minimoCompra.toLocaleString("es-AR")}✨
+    🚚 Sumá <strong>$${falta.toLocaleString("es-AR")}</strong> para envío gratis<br>
+    `;
   }
+
+  aviso.style.display = "block";
+}
 }
 
 // ========================
@@ -1846,7 +1869,12 @@ document.getElementById("menu-envio").addEventListener("click", (e) => {
 
   localStorage.setItem("codigoPostalCliente", cp);
 
-  const costo = calcularCostoEnvio(cp);
+  const total = calcularTotal();
+
+  const costo =
+    total >= 300000
+      ? 0
+      : calcularCostoEnvio(cp);
   mostrarEnvioModal(costo);
 });
 
