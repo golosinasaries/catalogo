@@ -1091,7 +1091,6 @@ html { scroll-behavior: smooth; }
   padding-left: 0%;
   justify-self: flex-start;
   z-index: 2000;
-  
   flex: 1;
   min-height: 0;
   overflow-y: auto;
@@ -1743,7 +1742,7 @@ html { scroll-behavior: smooth; }
   display: flex;
   justify-content: space-between;
   padding: 10px;
-  z-index: 10;
+  z-index: 20;
 }
 
 #modal-title {
