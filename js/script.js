@@ -1507,16 +1507,18 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
 
     aviso.innerHTML = `
     🛍️ Compra mínima $${minimoCompra.toLocaleString("es-AR")}✨
-    🚚 Sumá <strong>$${falta.toLocaleString("es-AR")}</strong> para envío gratis<br>
+    <br>
     `;
   }
-
+  // ========================
+//  🚚 Sumá <strong>$${falta.toLocaleString("es-AR")}</strong> para envío gratis<br>
+// ========================
   aviso.style.display = "block";
 }
 }
 
 // ========================
-// SINCRONIZAR CARRITO CON PRODUCTOS DEL HTML 
+// SINCRONIZAR CARRITO CON PRODUCTOS DEL HTML  🚚 Sumá <strong>$${falta.toLocaleString("es-AR")}</strong> para envío gratis<br>
 // ========================
 function sincronizarCarritoConHTML() {
 
