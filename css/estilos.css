@@ -2547,3 +2547,60 @@ a {
   transform: scale(1.05);
   opacity: 0.9;
 }
+
+#envio-modal{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  padding: 20px;
+}
+
+.envio-box{
+  background: white;
+  border-radius: 18px;
+  padding: 22px;
+  width: 100%;
+  max-width: 340px;
+  text-align: center;
+}
+
+.envio-box h2{
+  margin-bottom: 10px;
+}
+
+.envio-precio{
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.envio-info{
+  font-size: 14px;
+  opacity: .8;
+  margin-bottom: 10px;
+}
+
+.envio-gratis{
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 18px;
+}
+
+.envio-actions{
+  display: flex;
+  gap: 10px;
+}
+
+.envio-actions button,
+.envio-actions a{
+  flex: 1;
+  border: none;
+  padding: 12px;
+  border-radius: 12px;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: bold;
+}

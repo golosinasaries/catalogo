@@ -1,8 +1,8 @@
 const minimoCompra = 50000; 
-const ENVIO_MDP = 8800;
-const ENVIO_GENERAL = 12900;
-const ENVIO_LEJANO = 15900;
-const ENVIO_SANTACRUZ = 16900;
+const ENVIO_MDP = 9900;
+const ENVIO_GENERAL = 14900;
+const ENVIO_LEJANO = 17900;
+const ENVIO_SANTACRUZ = 18900;
 const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 const minimoRegalo = 60000;   
@@ -404,6 +404,11 @@ function calcularCostoEnvio(cp) {
 
   const codigo = cp.trim();
 
+  const totalProductos = carrito.reduce((acc, item) => acc + item.cantidad, 0);
+
+  const extraBloques = Math.floor(totalProductos / 10);
+  const extraEnvio = extraBloques * 2000;
+
   if (codigo === "7607") {
     return ENVIO_MIRAMAR;
   }
@@ -412,12 +417,12 @@ function calcularCostoEnvio(cp) {
 
   for (const p of prefijos) {
     if (codigo.startsWith(p)) {
-      return ENVIO_SANTACRUZ;
+      return ENVIO_SANTACRUZ + extraEnvio;
     }
   }
 
   if (codigo.startsWith("7600")) {
-    return ENVIO_MDP;
+    return ENVIO_MDP + extraEnvio;
   }
 
   if (
@@ -435,10 +440,10 @@ function calcularCostoEnvio(cp) {
     codigo.startsWith("8")
     
   ) {
-    return ENVIO_LEJANO;
+    return ENVIO_LEJANO + extraEnvio;
   }
 
-  return ENVIO_GENERAL;
+  return ENVIO_GENERAL + extraEnvio;
 }
 
 // ========================
@@ -958,6 +963,20 @@ if (modalImgZoom) {
 // ========================
 // FUNCIONES DE CARRITO
 // ========================
+
+function calcularTotal() {
+  return carrito.reduce((a, i) => {
+    const precio = parseFloat(
+      (i.precio || "")
+        .replace(/[^\d,]/g, "")
+        .replace(/\./g, "")
+        .replace(",", ".")
+    ) || 0;
+
+    return a + precio * i.cantidad;
+  }, 0);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
 
   const numero = "542236010443";
@@ -993,7 +1012,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const parsePrecio = p => parseFloat(p.replace(/[^\d,]/g,"").replace(/\./g,"").replace(",","."))||0;
-  const calcularTotal = () => carrito.reduce((a,i)=>a+parsePrecio(i.precio)*i.cantidad,0);
+
 
   function actualizarCarrito() {
     carrito = carrito.map(item => {
@@ -1340,7 +1359,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", (e) => {
     totalProductos += (PROMO_ACTIVA === "regalo" && total >= minimoRegalo) ? 1 : 0;
     msg += `\n📦 *Total de productos:* ${totalProductos}`;
     msg += `\n🚚 *Envío:* $0`;
-    msg += `\n\n💳 *Total a pagar:* $${totalFinal.toLocaleString("es-AR")}`;
+    msg += `\n💳 *Total a pagar:* $${totalFinal.toLocaleString("es-AR")}`;
 
     msg += `\n\n📍 *Retiro en Miramar*`;
 
@@ -1394,7 +1413,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", (e) => {
     totalProductos += (PROMO_ACTIVA === "regalo" && total >= minimoRegalo) ? 1 : 0;
     msg += `\n📦 *Total de productos:* ${totalProductos}`;
     msg += `\n🚚 *Envío:* $${costoEnvio.toLocaleString("es-AR")}`;
-    msg += `\n\n💳 *Total a pagar (con envío incluido):* $${totalFinal.toLocaleString("es-AR")}`;
+    msg += `\n💳 *Total a pagar (con envío incluido):* $${totalFinal.toLocaleString("es-AR")}`;
 
     if (esMiramar) {
     msg += `\n\n📍 *Entrega en Miramar*`;
@@ -1832,27 +1851,62 @@ function renderCarritoUI() {
 }
 
 function mostrarEnvioModal(costo) {
+
   let modal = document.getElementById("envio-modal");
 
   if (!modal) {
     modal = document.createElement("div");
     modal.id = "envio-modal";
+
+    modal.innerHTML = `
+      <div class="envio-box">
+        <h2>🚚 Envío</h2>
+
+        <p class="envio-precio"></p>
+
+        <p class="envio-info">
+           📦
+        </p>
+
+        <p class="envio-gratis">
+          💖 Superando los $300.000 el envío es GRATIS
+        </p>
+
+        <div class="envio-actions">
+          <button id="cerrar-envio">Cerrar</button>
+
+          <a 
+            href="https://wa.me/542236010443" 
+            target="_blank"
+            id="hablar-envio"
+          >
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    `;
+
     document.body.appendChild(modal);
+
+    modal.addEventListener("click", (e) => {
+      if (e.target.id === "envio-modal") {
+        modal.style.display = "none";
+      }
+    });
+
+    document.addEventListener("click", (e) => {
+      if (e.target.id === "cerrar-envio") {
+        modal.style.display = "none";
+      }
+    });
   }
 
-  // SIEMPRE actualizar contenido
-  modal.innerHTML = `
-    <div class="envio-box">
-      <p>🚚 Envío</p>
-      <h2>$${costo.toLocaleString("es-AR")}</h2>
-    </div>
-  `;
+  modal.querySelector(".envio-precio").innerHTML =
+    costo === 0
+      ? "🎉 <strong>Envío GRATIS</strong>"
+      : `Costo actual: <strong>$${costo.toLocaleString("es-AR")}</strong>`;
 
   modal.style.display = "flex";
-
-  setTimeout(() => {
-    modal.style.display = "none";
-  }, 2000);
 }
 
 document.getElementById("menu-envio").addEventListener("click", (e) => {
