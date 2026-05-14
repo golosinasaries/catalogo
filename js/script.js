@@ -1915,7 +1915,7 @@ document.getElementById("menu-envio").addEventListener("click", (e) => {
   let cpGuardado = (localStorage.getItem("codigoPostalCliente") || "").trim();
 
   let cp = prompt(
-    "Ingresá tu código postal para calcular el envío:",
+    "Ingresá el código postal de tu localidad para calcular el envío 👇🏻",
     cpGuardado
   );
 
