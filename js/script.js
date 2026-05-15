@@ -18,6 +18,7 @@ let currentVariantes = null;
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const STOCK_PRODUCTOS = {
+  "Chupetines con led Oreo (30 u)": 2,
   "Gomitas Selección (30 u)": 24,
   "Gomitas Bob Esponja (60 u)": 61,
   "Gomitas Pokemón (30 u)": 12,
@@ -34,7 +35,7 @@ const STOCK_PRODUCTOS = {
   "Chocolates Surtido Especial Arcor 223g": 50,
   "Gomitas Mogul Frutilla con Crema 500 g": 0,
   "Gomitas Yummy ácidas 500 g": 50,
-  "Gomitas Mogul Dientes 500 g": 1,
+  "Gomitas Mogul Dientes 500 g": 2,
   "Caramelos masticables Lheritier 300 g": 20,
   "Chupetines Kuromy con led (30 u)": 11,
   "Autito con pastillitas (30 u)": 15,
