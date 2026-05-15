@@ -18,7 +18,7 @@ let currentVariantes = null;
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const STOCK_PRODUCTOS = {
-  "Gomitas Selección (30 u)": 1,
+  "Gomitas Selección (30 u)": 30,
   "Gomitas Bob Esponja (60 u)": 61,
   "Gomitas Pokemón (30 u)": 0,
   "Galletitas Oreo 118 g": 45,
@@ -34,13 +34,13 @@ const STOCK_PRODUCTOS = {
   "Chocolates Surtido Especial Arcor 223g": 50,
   "Gomitas Mogul Frutilla con Crema 500 g": 0,
   "Gomitas Yummy ácidas 500 g": 50,
-  "Gomitas Mogul Dientes 500 g": 0,
+  "Gomitas Mogul Dientes 500 g": 1,
   "Caramelos masticables Lheritier 300 g": 20,
   "Chupetines Kuromy con led (30 u)": 11,
   "Autito con pastillitas (30 u)": 15,
   "Chupetines Merlina (30 u)": 21,
   "Gomitas de Gelatinas Candy Loka (10 u)": 4,
-  "Gomitas Mogul Moritas 500 g": 52,
+  "Gomitas Mogul Moritas 500 g": 0,
   "Chupetines masticables Baby Dolls (40 u)": 52,
   "Chupetines masticables Baby Dolls ácidos (40 u)": 52,
   "Turrón Billiken Sin T.A.C.C (10 u)": 50,
