@@ -18,7 +18,7 @@ let currentVariantes = null;
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const STOCK_PRODUCTOS = {
-  "Gomitas Selección (30 u)": 30,
+  "Gomitas Selección (30 u)": 24,
   "Gomitas Bob Esponja (60 u)": 61,
   "Gomitas Pokemón (30 u)": 0,
   "Galletitas Oreo 118 g": 45,
