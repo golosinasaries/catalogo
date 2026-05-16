@@ -18,6 +18,8 @@ let currentVariantes = null;
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const STOCK_PRODUCTOS = {
+  "Chicle Fierita Recargado - Mundial (50 u)": 0,
+  "Gomitas Bob Esponja (60 u)": 1,
   "Chupetines con led Oreo (30 u)": 2,
   "Gomitas Selección (30 u)": 24,
   "Gomitas Bob Esponja (60 u)": 61,
