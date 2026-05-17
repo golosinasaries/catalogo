@@ -18,11 +18,10 @@ let currentVariantes = null;
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const STOCK_PRODUCTOS = {
+  "Mechas mágicas Mario Bros (30 u)" : 10,
   "Chicle Fierita Recargado - Mundial (50 u)": 0,
-  "Gomitas Bob Esponja (60 u)": 0,
   "Chupetines con led Oreo (30 u)": 2,
   "Gomitas Selección (30 u)": 24,
-  "Gomitas Bob Esponja (60 u)": 61,
   "Gomitas Pokemón (30 u)": 12,
   "Galletitas Oreo 118 g": 45,
   "Galletitas Chocolinas 170 g": 45,
@@ -79,7 +78,7 @@ const STOCK_PRODUCTOS = {
   "Alcancía Tigre Amarillo": 12,
   "Alcancía Tigre Rojo (con 12 gelatinas en su interior)": 12,
   "Alcancía Lechuza Rosa": 1,
-  "Gomitas Super Mario (30 u)": 15,
+  "Gomitas Super Mario (30 u)": 3,
   "Chupetines Hongos (30 u)": 1,
   "Avión Naranja Transformer (1 u)": 1,
   "Chicle Fierita Recargado - Menta (50 u)": 30,
