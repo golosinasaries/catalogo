@@ -410,7 +410,7 @@ function calcularCostoEnvio(cp) {
   const totalProductos = carrito.reduce((acc, item) => acc + item.cantidad, 0);
 
   const extraBloques = Math.floor(totalProductos / 20);
-  const extraEnvio = extraBloques * 2000;
+  const extraEnvio = extraBloques * 1500;
 
   if (codigo === "7607") {
     return ENVIO_MIRAMAR;
