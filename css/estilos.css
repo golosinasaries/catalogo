@@ -1793,7 +1793,7 @@ h1, h2, h3 {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
+  background: rgb(255, 255, 255);
   backdrop-filter: blur(4px);
   width: 30px;
   height: 30px;
@@ -1806,7 +1806,9 @@ h1, h2, h3 {
   transition: 0.25s;
   z-index: 999;
   pointer-events: auto;
-  color: white; 
+  color: rgb(0, 0, 0); 
+  font-size: large;
+  border: 2px solid black;
 }
 
 .card:hover .flecha {
@@ -1818,7 +1820,7 @@ h1, h2, h3 {
 
 
 .card .flecha:hover {
-  background: rgba(0,0,0,0.9);
+  background: linear-gradient(135deg, #EC4899,  #BE185D, #D946EF, #D946EF);
   transform: translateY(-50%) scale(1.1);
   box-shadow: 0 6px 18px rgba(0,0,0,0.5);
 }
@@ -1894,31 +1896,32 @@ h1, h2, h3 {
 }
 
 @media (max-width: 768px) {
-  .card .flecha {
+   .card .flecha {
     opacity: 1;
     pointer-events: auto;
-    transition: opacity 0.3s ease;
-    font-size: 15px;   
-    padding: 8px 8px;
+    font-size: 15px;
+    padding: 8px;
     border-radius: 50%;
-    background: rgba(0,0,0,0.8);
+    background: rgb(255, 255, 255);
+    transition: all 0.3s ease;
+    top: 41%;
+    
   }
 
-  .card.mostrar-flechas .flecha {
-    opacity: 1;
-    pointer-events: auto;
-  }
-  .card .flecha:hover {
-  background: rgba(0,0,0,0.9);
-}
-.card .flecha.izq {
-  left: 1px;
-}
+  .card .flecha:active {
+    background: linear-gradient(
+      135deg,#EC4899,#BE185D,#D946EF);
+    }
 
-.card .flecha.der {
-  right: 1px;
-}
-}
+    .card .flecha.izq {
+      left: 1px;
+    }
+
+    .card .flecha.der {
+      right: 1px;
+    }
+
+  }
 
 .phone {
   width: 320px;

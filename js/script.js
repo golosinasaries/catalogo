@@ -246,7 +246,13 @@ const oblita = [
     precio: "$6.000"
   },
 
-   {
+  {
+    img: "img/oblita_nougat.jpeg",
+    nombre: "Oblita Nougat (48 u)",
+    precio: "$6.000"
+  },
+
+  {
     img: "img/oblita_chocolate.jpg",
     nombre: "Oblita de Chocolate (48 u)",
     precio: "$6.000"
