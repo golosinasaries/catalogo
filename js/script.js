@@ -6,8 +6,8 @@ const ENVIO_SANTACRUZ = 18900;
 const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 const minimoRegalo = 60000;   
-const REGALO_NOMBRE = "Pote de Gomitas Macarron (30 u)";
-const PROMO_ACTIVA = "ninguna"; 
+const REGALO_NOMBRE = "Oblita Nougat (48 u)";
+const PROMO_ACTIVA = "regalo"; 
 // "envio"  → envío gratis
 // "regalo" → regalo 
 // "ninguna" → sin promo
@@ -243,37 +243,37 @@ const oblita = [
   {
     img: "img/oblita_blanco.jpg",
     nombre: "Oblita Chocolate Blanco (48 u)",
-    precio: "$6.000"
+    precio: "$6.500"
   },
 
   {
     img: "img/oblita_nougat.jpeg",
     nombre: "Oblita Nougat (48 u)",
-    precio: "$6.000"
+    precio: "$6.500"
   },
 
   {
     img: "img/oblita_chocolate.jpg",
     nombre: "Oblita de Chocolate (48 u)",
-    precio: "$6.000"
+    precio: "$6.500"
   },
 
   {
     img: "img/oblita_marroc.jpg",
     nombre: "Oblita de Marroc (48 u)",
-    precio: "$6.000"
+    precio: "$6.500"
   },
 
   {
     img: "img/oblita_ddl.jpg",
     nombre: "Oblita de DDL (48 u)",
-    precio: "$6.000"
+    precio: "$6.500"
   },
 
   {
     img: "img/oblitafrutilla.jpg",
     nombre: "Oblita de Frutilla (48 u)",
-    precio: "$6.000"
+    precio: "$6.500"
   },
 
 ];
