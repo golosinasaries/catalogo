@@ -1317,7 +1317,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", (e) => {
   });
 
   if (PROMO_ACTIVA === "regalo" && total >= minimoRegalo) {
-    msg += `• * 🎁${REGALO_NOMBRE}* — 🎁 GRATIS\n`;
+    msg += `• 🎁 *${REGALO_NOMBRE}* — 🎁 GRATIS\n`;
     totalProductos += 1;
   }
 
