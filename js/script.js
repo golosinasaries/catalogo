@@ -414,8 +414,8 @@ function calcularCostoEnvio(cp) {
 
   const totalProductos = carrito.reduce((acc, item) => acc + item.cantidad, 0);
 
-  const extraBloques = Math.floor(totalProductos / 20);
-  const extraEnvio = extraBloques * 1500;
+  const extraBloques = Math.floor(totalProductos / 10);
+  const extraEnvio = extraBloques * 1900;
 
   if (codigo === "7607") {
     return ENVIO_MIRAMAR;
@@ -1360,7 +1360,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", (e) => {
     let mensajeRegalo = "";
 
     if (PROMO_ACTIVA === "regalo" && total >= minimoRegalo) {
-      mensajeRegalo = `\n🎁 ¡Tenés ${REGALO_NOMBRE} de regalo!`;
+      mensajeRegalo = `🎁 ¡Tenés ${REGALO_NOMBRE} de regalo!`;
     }
 
     msg += mensajeRegalo;
