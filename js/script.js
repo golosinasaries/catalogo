@@ -1316,6 +1316,11 @@ document.getElementById("enviar-carrito")?.addEventListener("click", (e) => {
     }
   });
 
+  if (PROMO_ACTIVA === "regalo" && total >= minimoRegalo) {
+    msg += `• *${REGALO_NOMBRE}* — 🎁 GRATIS\n`;
+    totalProductos += 1;
+  }
+
   //  Compra mínima
   if (total < minimoCompra) {
     alert(`⚠️ La compra mínima es de $${minimoCompra.toLocaleString("es-AR")}`);
@@ -1363,8 +1368,6 @@ document.getElementById("enviar-carrito")?.addEventListener("click", (e) => {
       mensajeRegalo = `🎁 ¡Tenés ${REGALO_NOMBRE} de regalo!`;
     }
 
-    msg += mensajeRegalo;
-    totalProductos += (PROMO_ACTIVA === "regalo" && total >= minimoRegalo) ? 1 : 0;
     msg += `\n📦 *Total de productos:* ${totalProductos}`;
     msg += `\n🚚 *Envío:* $0`;
     msg += `\n💳 *Total a pagar:* $${totalFinal.toLocaleString("es-AR")}`;
@@ -1417,8 +1420,6 @@ document.getElementById("enviar-carrito")?.addEventListener("click", (e) => {
         mensajeRegalo = ""; 
     }
 
-    msg += mensajeRegalo;
-    totalProductos += (PROMO_ACTIVA === "regalo" && total >= minimoRegalo) ? 1 : 0;
     msg += `\n📦 *Total de productos:* ${totalProductos}`;
     msg += `\n🚚 *Envío:* $${costoEnvio.toLocaleString("es-AR")}`;
     msg += `\n💳 *Total a pagar (con envío incluido):* $${totalFinal.toLocaleString("es-AR")}`;
