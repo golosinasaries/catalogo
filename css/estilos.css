@@ -1804,7 +1804,7 @@ h1, h2, h3 {
   cursor: pointer;
   opacity: 1;
   transition: 0.25s;
-  z-index: 999;
+  z-index: 9999;
   pointer-events: auto;
   color: rgb(0, 0, 0); 
   font-size: large;

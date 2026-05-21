@@ -42,7 +42,7 @@ const STOCK_PRODUCTOS = {
   "Chupetines Kuromy con led (30 u)": 11,
   "Autito con pastillitas (30 u)": 15,
   "Chupetines Merlina (30 u)": 21,
-  "Gomitas de Gelatinas Candy Loka (10 u)": 4,
+  "Gomitas de Gelatinas Candy Loka (10 u)": 1,
   "Gomitas Mogul Moritas 500 g": 0,
   "Chupetines masticables Baby Dolls (40 u)": 52,
   "Chupetines masticables Baby Dolls ácidos (40 u)": 52,
@@ -489,7 +489,7 @@ if (modal) {
 
   // Productos
   const imagenesProducto = {
-    "Chupetines 2 in 1 (60 u)": ["img/dosenuno1.jpeg","img/dosenuno2.jpeg","img/dosenuno3.jpeg","img/dosenuno4.jpeg"],
+    "Chupetines 2 in 1 (60 u)": ["img/dosenuno6.jpeg","img/dosenuno2.jpeg","img/dosenuno3.jpeg","img/dosenuno4.jpeg","img/dosenuno5.jpeg","img/dosenuno6.jpeg"],
     "Gomitas Macarron (30 u)": ["img/macarron2.jpeg","img/macarron1.jpeg"],
     "Camión Transformer (1 u)":[ "img/camiontra1.jpeg", "img/camiontra2.jpeg", "img/camiontra3.jpeg"],
     "Transformers varios (4 u)":  ["img/videotra1.mp4","img/tra1.jpeg","img/tra2.jpeg","img/tra3.jpeg", "img/videotra2.mp4" ],
