@@ -18,6 +18,7 @@ let currentVariantes = null;
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const STOCK_PRODUCTOS = {
+  "Monedas de Chocolate (290 u)": 2,
   "Mechas mágicas Mario Bros (30 u)" : 10,
   "Chicle Fierita Recargado - Mundial (50 u)": 0,
   "Chupetines con led Oreo (30 u)": 2,
@@ -52,7 +53,7 @@ const STOCK_PRODUCTOS = {
   "Oblita Chocolate Blanco (48 u)": 30,
   "Oblita de Marroc (48 u)": 30,
   "Gomitas Kuromy (30 u)": 24,
-  "Chicles WhatsApp con tatoo capibara (36 paquetes de 5 chicles)": 20,
+  "Chicles WhatsApp con tatoo capibara (36 paquetes de 5 chicles)": 1,
   "Caramelo masticable relleno Tnt pinta lengua (60 u)": 10,
   "Camión Transformer (1 u)": 2,
   "Camión Verde Transformer (1 u)": 3,
@@ -488,6 +489,7 @@ if (modal) {
 
   // Productos
   const imagenesProducto = {
+    "Chupetines 2 in 1 (60 u)": ["img/dosenuno1.jpeg","img/dosenuno2.jpeg","img/dosenuno3.jpeg","img/dosenuno4.jpeg"],
     "Gomitas Macarron (30 u)": ["img/macarron2.jpeg","img/macarron1.jpeg"],
     "Camión Transformer (1 u)":[ "img/camiontra1.jpeg", "img/camiontra2.jpeg", "img/camiontra3.jpeg"],
     "Transformers varios (4 u)":  ["img/videotra1.mp4","img/tra1.jpeg","img/tra2.jpeg","img/tra3.jpeg", "img/videotra2.mp4" ],
