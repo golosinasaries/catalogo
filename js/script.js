@@ -56,7 +56,7 @@ const STOCK_PRODUCTOS = {
   "Oblita Chocolate Blanco (48 u)": 30,
   "Oblita de Marroc (48 u)": 30,
   "Gomitas Kuromy (30 u)": 24,
-  "Chicles WhatsApp con tatoo capibara (36 paquetes de 5 chicles)": 1,
+  "Chicles WhatsApp con tatoo capibara (36 paquetes de 5 chicles)": 0,
   "Caramelo masticable relleno Tnt pinta lengua (60 u)": 10,
   "Camión Transformer (1 u)": 2,
   "Camión Verde Transformer (1 u)": 3,
