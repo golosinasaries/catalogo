@@ -19,7 +19,7 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const STOCK_PRODUCTOS = {
   "Chupetines con polvo ácido Bob Esponja (30 u)": 1,
-  "Monedas de Chocolate (290 u)": 2,
+  "Monedas de Chocolate (290 u)": 1,
   "Mechas mágicas Mario Bros (30 u)" : 10,
   "Chicle Fierita Recargado - Mundial (50 u)": 0,
   "Chupetines con led Oreo (30 u)": 2,
