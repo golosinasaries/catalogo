@@ -7,7 +7,7 @@ const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 const minimoRegalo = 60000;   
 const REGALO_NOMBRE = "Chupetines 2 in 1 (60 u)";
-const PROMO_ACTIVA = "regalo"; 
+const PROMO_ACTIVA = "envio"; 
 // "envio"  → envío gratis
 // "regalo" → regalo 
 // "ninguna" → sin promo
