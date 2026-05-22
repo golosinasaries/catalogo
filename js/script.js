@@ -18,6 +18,8 @@ let currentVariantes = null;
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const STOCK_PRODUCTOS = {
+  "Pastillas Alka sabor Cherry Mentol (caja x 12 u)": 1,
+  "Pastillas Alka sabor Menta (caja x 12 u)": 7,
   "Chupetines con polvo ácido Bob Esponja (30 u)": 1,
   "Monedas de Chocolate (290 u)": 1,
   "Mechas mágicas Mario Bros (30 u)" : 10,
@@ -44,7 +46,7 @@ const STOCK_PRODUCTOS = {
   "Autito con pastillitas (30 u)": 15,
   "Chupetines Merlina (30 u)": 21,
   "Gomitas de Gelatinas Candy Loka (10 u)": 1,
-  "Gomitas Mogul Moritas 500 g": 0,
+  "Gomitas Mogul Moritas 500 g": 10,
   "Chupetines masticables Baby Dolls (40 u)": 52,
   "Chupetines masticables Baby Dolls ácidos (40 u)": 52,
   "Turrón Billiken Sin T.A.C.C (10 u)": 50,
