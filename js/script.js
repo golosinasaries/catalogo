@@ -30,11 +30,6 @@ const STOCK_PRODUCTOS = {
   "Galletitas Oreo 118 g": 45,
   "Galletitas Chocolinas 170 g": 45,
   "Galletitas Pepitos 119 g": 45,
-  "🎀 Muñecas": 5,
-  "🛍️ Carteritas Stitch": 2,
-  "🛍️ Carteritas Kuromy": 2,
-  "🛍️ Carteritas Hello Kitty": 2,
-  "🛍️ Carteritas Labubu": 2,
   "Latitas con chicles (30 latitas)": 98,
   "Chicle por metro Barbie con Tatoo (30 u)": 20,
   "Chocolates Surtido Especial Arcor 223g": 50,
@@ -45,7 +40,7 @@ const STOCK_PRODUCTOS = {
   "Chupetines Kuromy con led (30 u)": 11,
   "Autito con pastillitas (30 u)": 15,
   "Chupetines Merlina (30 u)": 21,
-  "Gomitas de Gelatinas Candy Loka (10 u)": 1,
+  "Gomitas de Gelatinas Candy Loka (10 u)": 3,
   "Gomitas Mogul Moritas 500 g": 10,
   "Chupetines masticables Baby Dolls (40 u)": 52,
   "Chupetines masticables Baby Dolls ácidos (40 u)": 52,
@@ -74,9 +69,9 @@ const STOCK_PRODUCTOS = {
   "Lenguetazo Tropical Punch (32 u)": 1,
   "Lenguetazo (32 u)": 1,
   "Camión dispenser + caramelos rosa (1 unidad)": 0,
-  "Alcancía Tigre Amarillo": 12,
+  "Alcancía Tigre Amarillo (con 12 gelatinas en su interior)": 12,
   "Alcancía Tigre Rojo (con 12 gelatinas en su interior)": 12,
-  "Alcancía Lechuza Rosa": 1,
+  "Alcancía Lechuza Rosa (con 12 gelatinas en su interior)": 1,
   "Gomitas Super Mario (30 u)": 3,
   "Chupetines Hongos (30 u)": 1,
   "Chicle Fierita Recargado - Menta (50 u)": 30,
@@ -130,45 +125,45 @@ const alcancias = [
   },
 
   {
-    nombre: "Alcancía Pollito Rojo",
+    nombre: "Alcancía Pollito Rojo (con 12 gelatinas en su interior)",
     precio: "$6.500",
     img: "img/alcanciapinguinorojo.jpg"
   },
  
   {
-    nombre: "Alcancía Lechuza Marrón",
+    nombre: "Alcancía Lechuza Marrón (con 12 gelatinas en su interior)",
     precio: "$6.500",
     img: "img/lechuza.jpg"
   },
  
   {
-    nombre: "Alcancía Lechuza Rosa",
+    nombre: "Alcancía Lechuza Rosa (con 12 gelatinas en su interior)",
     precio: "$6.500",
     img: "img/lechuzarosa.jpg.png"
   },
   */
 
     {
-    nombre: "Alcancía Oso Café",
+    nombre: "Alcancía Oso Café (con 12 gelatinas en su interior)",
     precio: "$6.500",
-    img: "img/alcancias1.jpg"
+    img: "img/osocafe.png"
   },
 
   {
-    nombre: "Alcancía Oso Rosa",
+    nombre: "Alcancía Oso Rosa (con 12 gelatinas en su interior)",
     precio: "$6.500",
-    img: "img/osorosa1.jpg"
+    img: "img/osorosa2.png"
   },
 /*
       {
-    nombre: "Alcancía Pingüino Rosa",
+    nombre: "Alcancía Pingüino Rosa (con 12 gelatinas en su interior)",
     precio: "$6.500",
     img: "img/alcanciapinguinorosa.jpg"
   },
   */
 
   {
-    nombre: "Alcancía Tigre Amarillo",
+    nombre: "Alcancía Tigre Amarillo (con 12 gelatinas en su interior)",
     precio: "$6.500",
     img: "img/alcanciaojoamarillo.png"
   },
@@ -442,6 +437,7 @@ if (modal) {
 
   // Productos
   const imagenesProducto = {
+    "Chupetines K-pop (30 u)": ["img/kpp1.jpeg","img/kpp2.jpeg","img/kpop.jpeg"],
     "Chupetines 2 in 1 (60 u)": ["img/dosenuno6.jpeg","img/dosenuno2.jpeg","img/dosenuno3.jpeg","img/dosenuno4.jpeg","img/dosenuno5.jpeg","img/dosenuno6.jpeg"],
     "Gomitas Macarron (30 u)": ["img/macarron2.jpeg","img/macarron1.jpeg"],
     "Gomitas Ojos (30 u)": ["img/ojos.jpg","img/videoojos.mp4"],
