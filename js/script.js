@@ -58,12 +58,7 @@ const STOCK_PRODUCTOS = {
   "Gomitas Kuromy (30 u)": 24,
   "Chicles WhatsApp con tatoo capibara (36 paquetes de 5 chicles)": 0,
   "Caramelo masticable relleno Tnt pinta lengua (60 u)": 10,
-  "Camión Transformer (1 u)": 2,
-  "Camión Verde Transformer (1 u)": 3,
   "Chupetines con led Unicornio (30 u)": 48,
-  "Transformers varios (4 u)": 2,
-  "Auto Blanco y azul Transformer (1 u)": 1,
-  "Auto Blanco Transformer (1 u)": 1,
   "Billiken Tutti-frutti 800 g": 1,
   "Gomitas Lilo y Stitch (60 u)": 2,
   "Llaveros láser Capibara (12 u)": 2,
@@ -84,7 +79,6 @@ const STOCK_PRODUCTOS = {
   "Alcancía Lechuza Rosa": 1,
   "Gomitas Super Mario (30 u)": 3,
   "Chupetines Hongos (30 u)": 1,
-  "Avión Naranja Transformer (1 u)": 1,
   "Chicle Fierita Recargado - Menta (50 u)": 30,
   "Chicle Fierita Recargado - Tutti Frutti (50 u)": 30,
   "Chicle Fierita Globo sabor Banana (95 u)": 20,
@@ -159,13 +153,13 @@ const alcancias = [
     precio: "$6.500",
     img: "img/alcancias1.jpg"
   },
-/*
+
   {
     nombre: "Alcancía Oso Rosa",
     precio: "$6.500",
     img: "img/osorosa1.jpg"
   },
-
+/*
       {
     nombre: "Alcancía Pingüino Rosa",
     precio: "$6.500",
@@ -197,49 +191,6 @@ const recargados = [
     img: "img/fieritarecargadofrutilla.png"
   },
 
-];
-
-const variantesTransformer = [
-
- /* {
-    img: "img/camiontra3.jpeg",
-    nombre: "Camión Transformer (1 u)",
-    precio: "$4.500"
-  },
-  */
-  {
-    img: "img/aviontra.jpeg",
-    nombre: "Avión Transformer (1 u)",
-    precio: "$4.500"
-  },
-  {
-    img: "img/autoblancotra.jpeg",
-    nombre: "Auto Blanco Transformer (1 u)",
-    precio: "$4.500"
-  },
-
-   {
-    img: "img/autoblancoyazul.jpeg",
-    nombre: "Auto Blanco y azul Transformer (1 u)",
-    precio: "$4.500"
-  },
-
-  {
-    img: "img/camionverdetra.jpeg",
-    nombre: "Camión Verde Transformer (1 u)",
-    precio: "$4.500"
-  },
-  {
-    img: "img/avionnaranjatra.jpeg",
-    nombre: "Avión Naranja Transformer (1 u)",
-    precio: "$4.500"
-  },
- /* {
-   img: "img/autorojo.jpeg",
-    nombre: "Auto Rojo Transformer (1 u)",
-    precio: "$4.500"
-  }
-    */
 ];
 
 const oblita = [
@@ -325,7 +276,6 @@ const productosVariantes = {
   "card-alcancia": alcancias,
   "card-globos": globos,
   "card-recargado": recargados,
-  "card-transformers": variantesTransformer,
   "card-oblita": oblita,
   "card-cartera": cartera,
   "card-drf": drf,
@@ -494,8 +444,6 @@ if (modal) {
   const imagenesProducto = {
     "Chupetines 2 in 1 (60 u)": ["img/dosenuno6.jpeg","img/dosenuno2.jpeg","img/dosenuno3.jpeg","img/dosenuno4.jpeg","img/dosenuno5.jpeg","img/dosenuno6.jpeg"],
     "Gomitas Macarron (30 u)": ["img/macarron2.jpeg","img/macarron1.jpeg"],
-    "Camión Transformer (1 u)":[ "img/camiontra1.jpeg", "img/camiontra2.jpeg", "img/camiontra3.jpeg"],
-    "Transformers varios (4 u)":  ["img/videotra1.mp4","img/tra1.jpeg","img/tra2.jpeg","img/tra3.jpeg", "img/videotra2.mp4" ],
     "Gomitas Ojos (30 u)": ["img/ojos.jpg","img/videoojos.mp4"],
     "Gomitas Oreo (30 u)": ["img/gomitasoreo.jpg","img/videooreo.mp4"],
     "Dinosaurio con caramelos y luces (1 unidad)": ["img/fotodinosaurio.jpg","img/videodinosaurio.mp4"],
@@ -1053,7 +1001,7 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("carrito", JSON.stringify(carrito));
 
     const envio = localStorage.getItem("codigoPostalCliente")
-      ? (total >= 300000
+      ? ((PROMO_ACTIVA === "envio" && total >= 80000) || total >= 300000
           ? 0
           : calcularCostoEnvio(localStorage.getItem("codigoPostalCliente")))
       : null;
@@ -1362,7 +1310,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", (e) => {
   btnRetirarMiramar?.addEventListener("click", () => {
 
     let costoEnvio = 0;// Igual que Miramar
-    if (total >= 300000) {
+    if ((PROMO_ACTIVA === "envio" && total >= 80000) || total >= 300000) {
       costoEnvio = 0;
     }
     const totalFinal = total + costoEnvio;
@@ -1943,7 +1891,7 @@ document.getElementById("menu-envio").addEventListener("click", (e) => {
   const total = calcularTotal();
 
   const costo =
-    total >= 300000
+    (PROMO_ACTIVA === "envio" && total >= 80000) || total >= 300000
       ? 0
       : calcularCostoEnvio(cp);
   mostrarEnvioModal(costo);
