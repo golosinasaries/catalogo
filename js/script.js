@@ -18,7 +18,7 @@ let currentVariantes = null;
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const STOCK_PRODUCTOS = {
-  "Pastillas Alka sabor Cherry Mentol (caja x 12 u)": 0,
+  "Pastillas Alka sabor Cherry Mentol (caja x 12 u)": 1,
   "Pastillas Alka sabor Menta (caja x 12 u)": 7,
   "Chupetines con polvo ácido Bob Esponja (30 u)": 1,
   "Monedas de Chocolate (290 u)": 0,
