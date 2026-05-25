@@ -619,6 +619,8 @@ function actualizarModal() {
   }
 
   const modalAgregarBtn = document.getElementById('modal-agregar');
+  const modalAvisoViejo = document.querySelector(".modal-ultimo-stock");
+  if (modalAvisoViejo) modalAvisoViejo.remove();
   const titulo = modalTitle.textContent.trim();
   const stock = STOCK_PRODUCTOS[titulo];
 
@@ -632,7 +634,13 @@ function actualizarModal() {
     modalAgregarBtn.dataset.producto = variante.nombre;
     modalAgregarBtn.dataset.precio = variante.precio;
     const stockVariante = STOCK_PRODUCTOS[variante.nombre];
+    if (stockVariante === 1) {
+      const aviso = document.createElement("span");
+      aviso.className = "modal-ultimo-stock";
+      aviso.textContent = "🔥 Última";
 
+      modalAgregarBtn.parentElement.appendChild(aviso);
+    }
     if (stockVariante === 0) {
       modalAgregarBtn.textContent = "Sin stock ❌";
       modalAgregarBtn.disabled = true;
@@ -648,6 +656,14 @@ function actualizarModal() {
     modalAgregarBtn.dataset.producto = currentTitle;
     modalAgregarBtn.dataset.precio = document.getElementById('modal-precio').textContent;
     const stock = STOCK_PRODUCTOS[currentTitle];
+
+    if (stock === 1) {
+      const aviso = document.createElement("span");
+      aviso.className = "modal-ultimo-stock";
+      aviso.textContent = "🔥 Última";
+
+      modalAgregarBtn.parentElement.appendChild(aviso);
+    }
 
     if (stock === 0) {
       modalAgregarBtn.textContent = "Sin stock ❌";
@@ -1233,6 +1249,7 @@ document.addEventListener("DOMContentLoaded", () => {
           if (cantidadActual >= stockMax) {
             modalBtn.disabled = true;
             modalBtn.textContent = "Agotado 🛒";
+            document.querySelector(".modal-ultimo-stock")?.remove();
           }
         }
           actualizarCarrito();
