@@ -18,6 +18,7 @@ let currentVariantes = null;
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const STOCK_PRODUCTOS = {
+  "Chupetines Selección 168g (50 u)": 3,
   "Pastillas Alka sabor Cherry Mentol (caja x 12 u)": 1,
   "Pastillas Alka sabor Menta (caja x 12 u)": 7,
   "Chupetines con polvo ácido Bob Esponja (30 u)": 1,
@@ -1203,7 +1204,7 @@ document.addEventListener("DOMContentLoaded", () => {
          
            animarCarrito();
 
-          // 🔁 detectar de dónde viene
+          // detectar de dónde viene
          let img;
 
           if (card) {
@@ -1380,15 +1381,6 @@ document.getElementById("enviar-carrito")?.addEventListener("click", (e) => {
     msg += `\n\n codigo postal: ${codigoPostalCliente}`;
     msg += `\n\n✨ *¡Pedido listo!*`;
     msg += `\nTocá *Enviar* y te respondemos enseguida para coordinar 💌`;
-        /*
-    msg += `\n- Alguna referencia del domicilio (opcional): `;
-    msg += `\n- Teléfono: `;
-    msg += `\n- Email: `; 
-    msg += `\n- Dirección exacta: `;
-    msg += `\n- Provincia y Localidad: `;
-    msg += `\n- Nombre y apellido: `;
-    msg += `\n\n📩 *Datos necesarios para el envío (Si ya completaste alguna vez, podés omitirlo)👆🏻*`;
-    */
   }
 
     // 🔹 Abrir WhatsAppp
