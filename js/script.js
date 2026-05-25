@@ -71,8 +71,9 @@ const STOCK_PRODUCTOS = {
   "Lenguetazo (32 u)": 1,
   "Camión dispenser + caramelos rosa (1 unidad)": 0,
   "Alcancía Tigre Amarillo (con 12 gelatinas en su interior)": 12,
-  "Alcancía Tigre Rojo (con 12 gelatinas en su interior)": 12,
+  "Alcancía Tigre Rojo (con 12 gelatinas en su interior)": 1,
   "Alcancía Lechuza Rosa (con 12 gelatinas en su interior)": 1,
+  "Alcancía Pollito Rojo (con 12 gelatinas en su interior)": 1,
   "Gomitas Super Mario (30 u)": 3,
   "Chupetines Hongos (30 u)": 1,
   "Chicle Fierita Recargado - Menta (50 u)": 30,
@@ -113,22 +114,29 @@ const globos = [
 ];
 
 const alcancias = [
+
+  {
+    nombre: "Alcancía Oso Café (con 12 gelatinas en su interior)",
+    precio: "$6.500",
+    img: "img/osocafe.png"
+  },
+
  {
     nombre: "Alcancía Tigre Rojo (con 12 gelatinas en su interior)",
     precio: "$6.500",
     img: "img/tigrerojo.png"
-  },
-/*
-  {
-    nombre: "Alcancía Pingüino Negro (con 12 gelatinas en su interior)",
-    precio: "$6.500",
-    img: "img/pinguino2.jpg"
   },
 
   {
     nombre: "Alcancía Pollito Rojo (con 12 gelatinas en su interior)",
     precio: "$6.500",
     img: "img/alcanciapinguinorojo.jpg"
+  },
+/*
+  {
+    nombre: "Alcancía Pingüino Negro (con 12 gelatinas en su interior)",
+    precio: "$6.500",
+    img: "img/pinguino2.jpg"
   },
  
   {
@@ -143,12 +151,6 @@ const alcancias = [
     img: "img/lechuzarosa.jpg.png"
   },
   */
-
-    {
-    nombre: "Alcancía Oso Café (con 12 gelatinas en su interior)",
-    precio: "$6.500",
-    img: "img/osocafe.png"
-  },
 
   {
     nombre: "Alcancía Oso Rosa (con 12 gelatinas en su interior)",
