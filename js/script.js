@@ -18,7 +18,7 @@ let currentVariantes = null;
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const STOCK_PRODUCTOS = {
-  "Chupetines Selección 168g (50 u)": 3,
+  "Chupetines Selección 168 g (50 u)": 3,
   "Pastillas Alka sabor Cherry Mentol (caja x 12 u)": 1,
   "Pastillas Alka sabor Menta (caja x 12 u)": 7,
   "Chupetines con polvo ácido Bob Esponja (30 u)": 1,
@@ -34,7 +34,7 @@ const STOCK_PRODUCTOS = {
   "Latitas con chicles (30 latitas)": 98,
   "Chicle por metro Barbie con Tatoo (30 u)": 20,
   "Chocolates Surtido Especial Arcor 223g": 50,
-  "Gomitas Mogul Frutilla con Crema 500 g": 0,
+  "Gomitas Mogul Frutilla con Crema 500 g": 2,
   "Gomitas Yummy ácidas 500 g": 50,
   "Gomitas Mogul Dientes 500 g": 2,
   "Caramelos masticables Lheritier 300 g": 20,
