@@ -363,17 +363,30 @@ if (btn) {
 
 function calcularCostoEnvio(cp) {
 
+  // Validar código postal
+  if (!cp || !/^\d{4}$/.test(cp.trim())) {
+    return {
+      error: true,
+      mensaje: "Código postal inválido"
+    };
+  }
+
   const codigo = cp.trim();
 
-  const totalProductos = carrito.reduce((acc, item) => acc + item.cantidad, 0);
+  const totalProductos = carrito.reduce(
+    (acc, item) => acc + item.cantidad,
+    0
+  );
 
   const extraBloques = Math.floor(totalProductos / 10);
   const extraEnvio = extraBloques * 1900;
 
+  // Miramar
   if (codigo === "7607") {
     return ENVIO_MIRAMAR;
   }
 
+  // Santa Cruz
   const prefijos = ["9303", "4430", "8371", "3304"];
 
   for (const p of prefijos) {
@@ -382,10 +395,12 @@ function calcularCostoEnvio(cp) {
     }
   }
 
+  // Mar del Plata
   if (codigo.startsWith("7600")) {
     return ENVIO_MDP + extraEnvio;
   }
 
+  // Zonas lejanas
   if (
     codigo.startsWith("9") ||
     codigo.startsWith("4") ||
@@ -396,14 +411,12 @@ function calcularCostoEnvio(cp) {
     codigo.startsWith("2445") ||
     codigo.startsWith("5350") ||
     codigo.startsWith("5613") ||
-    //codigo.startsWith("2445") ||
-    //codigo.startsWith("5613") ||
     codigo.startsWith("8")
-    
   ) {
     return ENVIO_LEJANO + extraEnvio;
   }
 
+  // General
   return ENVIO_GENERAL + extraEnvio;
 }
 
@@ -1264,7 +1277,12 @@ document.getElementById("enviar-carrito")?.addEventListener("click", (e) => {
   e.preventDefault();
   e.stopPropagation();
   if (carrito.length === 0) {
-    alert("Tu carrito está vacío 🛒");
+    Swal.fire({
+    icon: "info",
+    title: "Carrito vacío",
+    text: "La compra mínima es de $50.000 ",
+    confirmButtonColor: "#000"
+  });
     return;
   }
 
@@ -1294,7 +1312,12 @@ document.getElementById("enviar-carrito")?.addEventListener("click", (e) => {
 
   //  Compra mínima
   if (total < minimoCompra) {
-    alert(`⚠️ La compra mínima es de $${minimoCompra.toLocaleString("es-AR")}`);
+    Swal.fire({
+    icon: "warning",
+    title: "Compra mínima",
+    text: `La compra mínima es de $${minimoCompra.toLocaleString("es-AR")}`,
+    confirmButtonColor: "#000"
+  });
     return;
   }
 
@@ -1352,24 +1375,34 @@ document.getElementById("enviar-carrito")?.addEventListener("click", (e) => {
     modalCP.style.display = "none";
   });
 
-  const cpConfirmar = document.getElementById("cp-confirmar");
-  cpConfirmar.onclick = () => {
-    const codigoPostalCliente = inputCP.value.trim();
-    localStorage.setItem("codigoPostalCliente", codigoPostalCliente);
-    const esMiramar = codigoPostalCliente.startsWith("7607");
+ const cpConfirmar = document.getElementById("cp-confirmar");
+ console.log("botón cp:", cpConfirmar);
 
+cpConfirmar.onclick = () => {
+  const codigoPostalCliente = inputCP.value.trim();
+if (codigoPostalCliente.length === 0) {
+    Swal.fire({
+      icon: "warning",
+      title: "Falta el código postal",
+      text: "Por favor ingresalo",
+      confirmButtonColor: "#000"
+    });
+    return;
+  }
 
-    if (!codigoPostalCliente) {
-      alert("⚠️ Por favor, ingresá tu código postal.");
-      return;
-    }
+  if (!/^\d{4,8}$/.test(codigoPostalCliente)) {
+    Swal.fire({
+      icon: "error",
+      title: "Código postal inválido",
+      text: "Ingresá solo números (4 a 8 dígitos)",
+      confirmButtonColor: "#000"
+    });
+    return;
+  }
 
-    //  Validación de código postal
-    if (!/^\d{4,8}$/.test(codigoPostalCliente)) {
-      alert("⚠️ Código postal inválido. Ingresá solo números (4 a 8 dígitos).");
-      return;
-    }
+  localStorage.setItem("codigoPostalCliente", codigoPostalCliente);
 
+  const esMiramar = codigoPostalCliente.startsWith("7607");
     let costoEnvio;
 
     if (PROMO_ACTIVA === "envio" && total >= 80000) {
@@ -1880,19 +1913,20 @@ function mostrarEnvioModal(costo) {
   modal.style.display = "flex";
 }
 
-document.getElementById("menu-envio").addEventListener("click", (e) => {
+document.getElementById("menu-envio").addEventListener("click", async (e) => {
   e.stopPropagation();
 
   let cpGuardado = (localStorage.getItem("codigoPostalCliente") || "").trim();
 
-  let cp = prompt(
-    "Ingresá el código postal de tu localidad para calcular el envío 👇🏻",
-    cpGuardado
-  );
+    let cp = (await Swal.fire({
+      title: "Ingresá el código postal de tu localidad para calcular el envío 👇🏻",
+      input: "text",
+      inputValue: cpGuardado,
+      showCancelButton: false,
+      confirmButtonText: "OK",
+      confirmButtonColor: "#000"
+    })).value;
 
-  if (cp === null) return;
-
-  cp = cp.trim();
   if (!cp) return;
 
   localStorage.setItem("codigoPostalCliente", cp);
@@ -1903,8 +1937,20 @@ document.getElementById("menu-envio").addEventListener("click", (e) => {
     (PROMO_ACTIVA === "envio" && total >= 80000) || total >= 300000
       ? 0
       : calcularCostoEnvio(cp);
-  mostrarEnvioModal(costo);
-});
+
+  // Validar error
+
+    if (costo?.error) {
+      Swal.fire({
+        icon: "error",
+        title: "Código postal inválido",
+        text: costo.mensaje || "Ingresá un código postal válido",
+        confirmButtonColor: "#000"
+      });
+      return;
+    }
+      mostrarEnvioModal(costo);
+    });
 
 
 function filtrar(cat) {
