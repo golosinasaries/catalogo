@@ -362,16 +362,11 @@ if (btn) {
 }
 
 function calcularCostoEnvio(cp) {
+  const codigo = (cp || "").trim();
 
-  // Validar código postal
-  if (!cp || !/^\d{4}$/.test(cp.trim())) {
-    return {
-      error: true,
-      mensaje: "Código postal inválido"
-    };
+  if (!/^\d{4,8}$/.test(codigo)) {
+    return { error: true, mensaje: "Código postal inválido" };
   }
-
-  const codigo = cp.trim();
 
   const totalProductos = carrito.reduce(
     (acc, item) => acc + item.cantidad,
@@ -1927,7 +1922,15 @@ document.getElementById("menu-envio").addEventListener("click", async (e) => {
       confirmButtonColor: "#000"
     })).value;
 
-  if (!cp) return;
+  if (!cp) {
+    Swal.fire({
+      icon: "warning",
+      title: "Falta el código postal",
+      text: "Por favor ingresalo",
+      confirmButtonColor: "#000"
+    });
+    return;
+  }
 
   localStorage.setItem("codigoPostalCliente", cp);
 
@@ -1939,12 +1942,11 @@ document.getElementById("menu-envio").addEventListener("click", async (e) => {
       : calcularCostoEnvio(cp);
 
   // Validar error
-
     if (costo?.error) {
       Swal.fire({
         icon: "error",
-        title: "Código postal inválido",
-        text: costo.mensaje || "Ingresá un código postal válido",
+        title: "Error",
+        text: costo.mensaje,
         confirmButtonColor: "#000"
       });
       return;
