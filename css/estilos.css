@@ -1807,7 +1807,6 @@ h1, h2, h3 {
   top: 50%;
   transform: translateY(-50%);
   background: rgb(255, 255, 255);
-  backdrop-filter: blur(4px);
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -1819,29 +1818,36 @@ h1, h2, h3 {
   transition: 0.25s;
   z-index: 9999;
   pointer-events: auto;
-  color: rgb(0, 0, 0); 
-  font-size: large;
   border: 2px solid black;
-}
-
-.card:hover .flecha {
-  opacity: 1;
+  font-size: 18px;
+  color: black;
+  animation: pulseSize 2.5s infinite;
 }
 
 .card .flecha.izq { left: 6px; }
 .card .flecha.der { right: 6px; }
 
+@keyframes pulseSize {
+  0%, 100% {
+    transform: translateY(-50%) scale(1);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: translateY(-50%) scale(1.2);
+    opacity: 1;
+  }
+}
 
 .card .flecha:hover {
-  background: linear-gradient(135deg, #EC4899,  #BE185D, #D946EF, #D946EF);
-  transform: translateY(-50%) scale(1.1);
+  background: linear-gradient(135deg, #EC4899, #BE185D, #D946EF);
   box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+  transform: translateY(-50%) scale(1.1);
 }
 
 .card .flecha:active {
   transform: translateY(-50%) scale(0.92);
 }
-
 .card-video {
   position: relative;
   overflow: hidden;
@@ -2619,4 +2625,13 @@ a {
   text-decoration: none;
   cursor: pointer;
   font-weight: bold;
+}
+
+.selector-talle{
+  width: 90%;
+  margin: 10px auto;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  display: block;
 }
