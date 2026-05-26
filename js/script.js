@@ -83,15 +83,16 @@ const STOCK_PRODUCTOS = {
 };
 
 const alka = [
-  {
-    nombre: "Pastillas Alka sabor Cherry Mentol (caja x 12 u)",
-    precio: "$6.500",
-    img: "img/alkacherry.jpeg"
-  },
+
   {
     nombre: "Pastillas Alka sabor Menta (caja x 12 u)",
     precio: "$6.500",
     img: "img/alkamenta.jpeg"
+  },
+    {
+    nombre: "Pastillas Alka sabor Cherry Mentol (caja x 12 u)",
+    precio: "$6.500",
+    img: "img/alkacherry.jpeg"
   },
 ];
 
