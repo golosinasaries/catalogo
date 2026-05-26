@@ -34,7 +34,7 @@ const STOCK_PRODUCTOS = {
   "Latitas con chicles (30 latitas)": 98,
   "Chicle por metro Barbie con Tatoo (30 u)": 20,
   "Chocolates Surtido Especial Arcor 223g": 50,
-  "Gomitas Mogul Frutilla con Crema 500 g": 2,
+  "Gomitas Mogul Frutilla con Crema 500 g": 4,
   "Gomitas Yummy ácidas 500 g": 50,
   "Gomitas Mogul Dientes 500 g": 2,
   "Caramelos masticables Lheritier 300 g": 20,
@@ -629,8 +629,7 @@ function actualizarModal() {
   }
 
   const modalAgregarBtn = document.getElementById('modal-agregar');
-  const modalAvisoViejo = document.querySelector(".modal-ultimo-stock");
-  if (modalAvisoViejo) modalAvisoViejo.remove();
+  document.querySelectorAll(".modal-ultimo-stock").forEach(e => e.remove());
   const titulo = modalTitle.textContent.trim();
   const stock = STOCK_PRODUCTOS[titulo];
 
@@ -643,20 +642,25 @@ function actualizarModal() {
 
     modalAgregarBtn.dataset.producto = variante.nombre;
     modalAgregarBtn.dataset.precio = variante.precio;
-    const stockVariante = STOCK_PRODUCTOS[variante.nombre];
-    if (stockVariante === 1) {
+
+    // RESET SIEMPRE (CLAVE)
+    modalAgregarBtn.textContent = "Agregar al carrito";
+    modalAgregarBtn.disabled = false;
+
+    const itemCarrito = carrito.find(p => p.nombre === variante.nombre);
+    const stockReal = STOCK_PRODUCTOS[variante.nombre] - (itemCarrito?.cantidad || 0);
+
+    if (stockReal === 1) {
       const aviso = document.createElement("span");
       aviso.className = "modal-ultimo-stock";
       aviso.textContent = "🔥 Última";
 
       modalAgregarBtn.parentElement.appendChild(aviso);
     }
-    if (stockVariante === 0) {
+
+    if (stockReal === 0) {
       modalAgregarBtn.textContent = "Sin stock ❌";
       modalAgregarBtn.disabled = true;
-    } else {
-      modalAgregarBtn.textContent = "Agregar al carrito";
-      modalAgregarBtn.disabled = false;
     }
 
   } else {
@@ -1079,6 +1083,8 @@ document.addEventListener("DOMContentLoaded", () => {
     carritoDropdown.addEventListener("mouseleave", iniciarTemporizadorCierre);
 
     carritoBtn?.addEventListener("click", iniciarTemporizadorCierre);
+
+    
     document.querySelectorAll(".card").forEach(card => {
     const titulo = card.querySelector("h3")?.textContent.trim();
     const stockMax = STOCK_PRODUCTOS[titulo];
@@ -1087,6 +1093,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const cantidad = item ? item.cantidad : 0;
 
     const btn = card.querySelector(".btn-carrito");
+    
     if (!btn) return;
 
     if (stockMax === 0) {
