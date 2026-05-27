@@ -1321,7 +1321,7 @@ html { scroll-behavior: smooth; }
 @media (max-width: 768px) {
   #whatsapp-btn {
     top: auto;
-    bottom: 20px;
+    bottom: 45px;
     right: 50%;
     transform: translateX(50%);
     padding: 10px 12px;
