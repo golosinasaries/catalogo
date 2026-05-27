@@ -6,8 +6,8 @@ const ENVIO_SANTACRUZ = 16900;
 const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 const minimoRegalo = 60000;   
-const REGALO_NOMBRE = "Chupetines 2 in 1 (60 u)";
-const PROMO_ACTIVA = "ninguna"; 
+const REGALO_NOMBRE = "Chupetines con led Mc Donalds (30 u)🍟🎉";
+const PROMO_ACTIVA = "regalo"; 
 // "envio"  → envío gratis
 // "regalo" → regalo 
 // "ninguna" → sin promo
@@ -18,7 +18,6 @@ let currentVariantes = null;
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const STOCK_PRODUCTOS = {
-  "Chupetines Selección 168 g (50 u)": 3,
   "Pastillas Alka sabor Cherry Mentol (caja x 12 u)": 0,
   "Pastillas Alka sabor Menta (caja x 12 u)": 7,
   "Chupetines con polvo ácido Bob Esponja (30 u)": 1,
