@@ -18,6 +18,7 @@ let currentVariantes = null;
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const STOCK_PRODUCTOS = {
+  "Saca lenguas (30 u)": 1,
   "Sapito Mundial 252 g (24 u)": 4,
   "Pastillas Alka sabor Cherry Mentol (caja x 12 u)": 0,
   "Pastillas Alka sabor Menta (caja x 12 u)": 7,
