@@ -75,7 +75,7 @@ const STOCK_PRODUCTOS = {
   "Alcancía Tigre Rojo (con 12 gelatinas en su interior)": 1,
   "Alcancía Lechuza Rosa (con 12 gelatinas en su interior)": 1,
   "Alcancía Pollito Rojo (con 12 gelatinas en su interior)": 1,
-  "Gomitas Super Mario (30 u)": 3,
+  "Gomitas Super Mario (30 u)": 23,
   "Chupetines Hongos (30 u)": 1,
   "Chicle Fierita Recargado - Menta (50 u)": 30,
   "Chicle Fierita Recargado - Tutti Frutti (50 u)": 30,
