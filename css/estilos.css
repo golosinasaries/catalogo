@@ -2271,6 +2271,7 @@ h1, h2, h3 {
   background-position: 4px center;
   background-size: 14px;
   pointer-events: none;
+  z-index: 10001;
 }
 
 .footer-credito a:hover::before {
