@@ -1040,11 +1040,21 @@ document.addEventListener("DOMContentLoaded", () => {
     carritoItemsContainer.innerHTML = carrito.length === 0
       ? "<p class='carrito-vacio'>Tu carrito está vacío 🛒</p>"
       : carrito.map(i=>`
-        <div class='carrito-item'>
-         <strong>${i.nombre}</strong> ${i.precio || "$0"}<br>
-          <button class='cantidad-btn restar' data-nombre='${i.nombre}'>-</button>
+          <div class='carrito-item'>
+          <strong>${i.nombre}</strong>
+          ${i.talle ? `<br><small>Talle: ${i.talle}</small>` : ""} 
+          <br>
+          <strong>
+            $${(
+              parsePrecio(i.precio) * i.cantidad
+            ).toLocaleString("es-AR")}
+          </strong>
+          <br>
+          <button class='cantidad-btn restar' data-nombre='${i.nombre}' data-talle='${i.talle || ""}'>-</button>
+
           ${i.cantidad}
-          <button class='cantidad-btn sumar' data-nombre='${i.nombre}'>+</button>
+
+          <button class='cantidad-btn sumar' data-nombre='${i.nombre}' data-talle='${i.talle || ""}'>+</button>
         </div>
       `).join("");
 
@@ -1191,7 +1201,11 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("click",e=>{
     if (e.target.classList.contains("sumar")) {
     const nombre = e.target.dataset.nombre;
-    const item = carrito.find(p => p.nombre === nombre);
+    const talle = e.target.dataset.talle;
+
+    const item = carrito.find(p =>
+      p.nombre === nombre && p.talle === talle
+    );
 
     if (!validarStock(nombre, carrito)) return;
 
@@ -1201,7 +1215,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if(e.target.classList.contains("restar")){
 
-      const item=carrito.find(p=>p.nombre===e.target.dataset.nombre);
+      const nombre = e.target.dataset.nombre;
+      const talle = e.target.dataset.talle;
+
+      const item = carrito.find(p =>
+        p.nombre === nombre && p.talle === talle
+      );
       if (item) {
         item.cantidad > 1
           ? item.cantidad--
@@ -1226,7 +1245,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const card = btn.closest(".card");
         let nombre, precio;
         const talleSelect = card?.querySelector(".talle-select");
-        const talle = talleSelect ? talleSelect.value : null;
+        const talle = talleSelect?.value?.trim() || "";
 
         //  Si el botón tiene data → usar eso (producto dinámico)
         if (btn.dataset.nombre && btn.dataset.precio) {
@@ -1244,7 +1263,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (texto.includes("agregar")) {
 
             const stockMax = STOCK_PRODUCTOS[nombre];
-            const ex = carrito.find(p => p.nombre === nombre);
+            const ex = carrito.find(p => p.nombre === nombre && p.talle === talle);
 
             if (stockMax !== undefined) {
               const cantidadActual = ex ? ex.cantidad : 0;
@@ -1255,10 +1274,16 @@ document.addEventListener("DOMContentLoaded", () => {
               }
             }
 
-          if (ex) {
+         if (ex) {
             ex.cantidad++;
+            ex.talle = talle || ex.talle;
           } else {
-            carrito.push({ nombre, precio, cantidad: 1 });
+            carrito.push({ 
+              nombre, 
+              precio, 
+              cantidad: 1,
+              talle: talle || ""
+            });
           }
 
           carritoCount.textContent = carrito.reduce((acc, item) => acc + item.cantidad, 0);
