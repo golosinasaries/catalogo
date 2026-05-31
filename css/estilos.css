@@ -2628,12 +2628,26 @@ a {
   font-weight: bold;
 }
 
-.selector-talle{
-  width: 90%;
-  margin: 10px auto;
-  padding: 8px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  display: block;
+.talle-select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 16px; /* clave en mobile */
+  background: white;
+}
+.talle-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.talle-select {
+  background: #f5f5f5;
+  border: none;
+  text-align: center;
+  font-weight: 600;
 }
 
+.talle-select option[value=""] {
+  color: #888;
+}

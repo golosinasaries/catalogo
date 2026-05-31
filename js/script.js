@@ -1222,8 +1222,11 @@ document.addEventListener("DOMContentLoaded", () => {
     .forEach(btn => {
       btn.addEventListener("click", e => {
         e.stopPropagation();
+
         const card = btn.closest(".card");
         let nombre, precio;
+        const talleSelect = card?.querySelector(".talle-select");
+        const talle = talleSelect ? talleSelect.value : null;
 
         //  Si el botón tiene data → usar eso (producto dinámico)
         if (btn.dataset.nombre && btn.dataset.precio) {
@@ -2016,5 +2019,15 @@ links.forEach(link => {
   link.addEventListener('click', function() {
     links.forEach(l => l.classList.remove('activo'));
     this.classList.add('activo');
+  });
+});
+
+let talleSeleccionado = null;
+
+document.querySelectorAll(".talle-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".talle-btn").forEach(b => b.classList.remove("activo"));
+    btn.classList.add("activo");
+    talleSeleccionado = btn.dataset.talle;
   });
 });
