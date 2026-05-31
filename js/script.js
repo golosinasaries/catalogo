@@ -7,7 +7,7 @@ const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 const minimoRegalo = 60000;   
 const REGALO_NOMBRE = "Gomitas Monstruo (30 u)👾";
-const PROMO_ACTIVA = "envio"; 
+const PROMO_ACTIVA = "ninguna"; 
 // "envio"  → envío gratis
 // "regalo" → regalo 
 // "ninguna" → sin promo
@@ -360,7 +360,7 @@ const btn = document.getElementById("whatsapp-btn");
 
 if (btn) {
   btn.addEventListener("click", () => {
-    const linkGrupo = "https://chat.whatsapp.com/CU7K3YOMLaO2rmkWHK84kp";
+    const linkGrupo = "https://chat.whatsapp.com/KLSylBrQaCt40aRp8s5gPF";
     window.open(linkGrupo, "_blank");
   });
 }
