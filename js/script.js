@@ -473,7 +473,8 @@ if (modal) {
 
   // Productos
   const imagenesProducto = {
-    "Camisetas Selección 2 curvas (10 Camisetas)": ["img/camiseta1","img/videocamisetaniño.mp4","img/camiseta1.jpeg","img/camiseta2.jpeg","img/camiseta3.jpeg"],
+    "Camisetas Niños👕(10 Camisetas)": ["img/camisetasniños.jpeg","img/videocamisetasniño.mp4","img/camisetaniños2.jpeg"],
+    "Camisetas ⚽🔥 (10 Camisetas)": ["img/camiseta1.jpeg","img/videocamisetaniño.mp4","img/adultos2.mp4","img/camiseta2.jpeg","img/camiseta3.jpeg","img/camiseta4.jpeg"],
     "Chupetines K-pop (30 u)": ["img/kpp1.jpeg","img/kpp2.jpeg","img/kpop.jpeg"],
     "Chupetines 2 in 1 (60 u)": ["img/dosenuno6.jpeg","img/dosenuno2.jpeg","img/dosenuno3.jpeg","img/dosenuno4.jpeg","img/dosenuno5.jpeg","img/dosenuno6.jpeg"],
     "Gomitas Macarron (30 u)": ["img/macarron2.jpeg","img/macarron1.jpeg"],
