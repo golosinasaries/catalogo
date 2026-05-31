@@ -275,14 +275,19 @@ const drf   = [
 
 const globosgrandes   = [
     {
-    nombre: "(1 unidad)",
+    nombre: "Globo Unicornio 24 pulgdas (1 unidad)(1 unidad)",
     precio: 2500,
     img: "img/globosgrandes1.jpeg"
   },
  {
-    nombre: "(1 unidad)",
+    nombre: "Globo Unicornio Rosa 24 pulgdas (1 unidad)",
     precio: 2500,
     img: "img/globosgrandes2.jpeg"
+  },
+ {
+    nombre: "Globo Estrella Explosiva Azul 22 pulgdas (1 unidad)",
+    precio: 2500,
+    img: "img/globosgrandes3.jpeg"
   },
 
 ];
