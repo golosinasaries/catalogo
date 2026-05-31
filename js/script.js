@@ -19,7 +19,7 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const STOCK_PRODUCTOS = {
   "Mogul Extreme Twist Max Mundial 600g (24 u)": 1,
-  "Gomita Helado (30 u)": 1,
+  "Gomita Helado (30 u)": 0,
   "Ring Pop Barbie (30 u)": 1,
   "Saca lenguas (30 u)": 1,
   "Sapito Mundial 252 g (24 u)": 4,
@@ -197,7 +197,6 @@ const recargados = [
 ];
 
 const oblita = [
-  
   {
     img: "img/oblita_blanco.jpg",
     nombre: "Oblita Chocolate Blanco (48 u)",
