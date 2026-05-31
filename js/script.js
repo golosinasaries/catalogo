@@ -1261,6 +1261,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const texto = btn.innerText.toLowerCase();
 
         if (texto.includes("agregar")) {
+          if (card?.querySelector(".talle-select") && !talle) {
+          mostrarToast("⚠️ Tenés que seleccionar un talle", "error");
+          return;
+        }
 
             const stockMax = STOCK_PRODUCTOS[nombre];
             const ex = carrito.find(p => p.nombre === nombre && p.talle === talle);
