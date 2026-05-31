@@ -90,12 +90,12 @@ const alka = [
 
   {
     nombre: "Pastillas Alka sabor Menta (caja x 12 u)",
-    precio: "$6.500",
+    precio: 6900,
     img: "img/alkamenta.jpeg"
   },
     {
     nombre: "Pastillas Alka sabor Cherry Mentol (caja x 12 u)",
-    precio: "$6.500",
+    precio: 6900,
     img: "img/alkacherry.jpeg"
   },
 ];
@@ -103,17 +103,17 @@ const alka = [
 const globos = [
   {
     nombre: "Chicle Fierita Globo sabor Banana (95 u)",
-    precio: "$7.900",
+    precio: 7900,
     img: "img/globobanana.jpg"
   },
   {
     nombre: "Chicle Fierita Globo sabor Frutilla (95 u)",
-    precio: "$7.900",
+    precio: 7900,
     img: "img/gobofrutilla.jpg"
   },
   {
     nombre: "Chicle Fierita Globo sabor Menta (95 u)",
-    precio: "$7.900",
+    precio: 7900,
     img: "img/globomenta.jpg"
   }
 ];
@@ -122,57 +122,57 @@ const alcancias = [
 
   {
     nombre: "Alcancía Oso Café (con 12 gelatinas en su interior)",
-    precio: "$6.500",
+    precio: 6900,
     img: "img/osocafe.png"
   },
 
  {
     nombre: "Alcancía Tigre Rojo (con 12 gelatinas en su interior)",
-    precio: "$6.500",
+    precio: 6900,
     img: "img/tigrerojo.png"
   },
 
   {
     nombre: "Alcancía Pollito Rojo (con 12 gelatinas en su interior)",
-    precio: "$6.500",
+    precio: 6900,
     img: "img/alcanciapinguinorojo.jpg"
   },
 /*
   {
     nombre: "Alcancía Pingüino Negro (con 12 gelatinas en su interior)",
-    precio: "$6.500",
+    precio: 6900,
     img: "img/pinguino2.jpg"
   },
  
   {
     nombre: "Alcancía Lechuza Marrón (con 12 gelatinas en su interior)",
-    precio: "$6.500",
+    precio: 6900,
     img: "img/lechuza.jpg"
   },
  
   {
     nombre: "Alcancía Lechuza Rosa (con 12 gelatinas en su interior)",
-    precio: "$6.500",
+    precio: 6900,
     img: "img/lechuzarosa.jpg.png"
   },
   */
 
   {
     nombre: "Alcancía Oso Rosa (con 12 gelatinas en su interior)",
-    precio: "$6.500",
+    precio: 6900,
     img: "img/osorosa2.png"
   },
 /*
       {
     nombre: "Alcancía Pingüino Rosa (con 12 gelatinas en su interior)",
-    precio: "$6.500",
+    precio: 6900,
     img: "img/alcanciapinguinorosa.jpg"
   },
   */
 
   {
     nombre: "Alcancía Tigre Amarillo (con 12 gelatinas en su interior)",
-    precio: "$6.500",
+    precio: 6900,
     img: "img/alcanciaojoamarillo.png"
   },
 ];
@@ -180,17 +180,17 @@ const alcancias = [
 const recargados = [
     {
     nombre: "Chicle Fierita Recargado - Menta (50 u)",
-    precio: "$6.500",
+    precio: 6900,
     img: "img/fieritarecargadomenta.jpg"
   },
  {
     nombre: "Chicle Fierita Recargado - Tutti Frutti (50 u)",
-    precio: "$6.500",
+    precio: 6900,
     img: "img/fieritarecargado.jpg"
   },
   {
     nombre: "Chicle Fierita Recargado - Frutilla (50 u)",
-    precio: "$6.500",
+    precio: 6900,
     img: "img/fieritarecargadofrutilla.png"
   },
 
@@ -200,37 +200,37 @@ const oblita = [
   {
     img: "img/oblita_blanco.jpg",
     nombre: "Oblita Chocolate Blanco (48 u)",
-    precio: "$6.500"
+    precio: 6500
   },
 
   {
     img: "img/oblita_nougat.jpeg",
     nombre: "Oblita Nougat (48 u)",
-    precio: "$6.500"
+    precio: 6500
   },
 
   {
     img: "img/oblita_chocolate.jpg",
     nombre: "Oblita de Chocolate (48 u)",
-    precio: "$6.500"
+    precio: 6500
   },
 
   {
     img: "img/oblita_marroc.jpg",
     nombre: "Oblita de Marroc (48 u)",
-    precio: "$6.500"
+    precio: 6500
   },
 
   {
     img: "img/oblita_ddl.jpg",
     nombre: "Oblita de DDL (48 u)",
-    precio: "$6.500"
+    precio: 6500
   },
 
   {
     img: "img/oblitafrutilla.jpg",
     nombre: "Oblita de Frutilla (48 u)",
-    precio: "$6.500"
+    precio: 6500
   },
 
 ];
@@ -238,22 +238,22 @@ const oblita = [
 const cartera = [
     {
     nombre: "🛍️ Carteritas Stitch",
-    precio: "$4.500",
+    precio: 4500,
     img: "img/carterastitch.jpeg"
   },
  {
     nombre: "🛍️ Carteritas Kuromy",
-    precio: "$4.500",
+    precio: 4500,
     img: "img/carterakuromy.jpeg"
   },
       {
     nombre: "🛍️ Carteritas Hello Kitty",
-    precio: "$4.500",
+    precio: 4500,
     img: "img/carterakitty.jpeg"
   },
  {
     nombre: "🛍️ Carteritas Labubu",
-    precio: "$4.500",
+    precio: 4500,
     img: "img/carteralabubu.jpeg"
   },
 
@@ -262,13 +262,27 @@ const cartera = [
 const drf   = [
     {
     nombre: "Pastillas D.R.F Sabor Anis (caja x 12 u)",
-    precio: "$6.200",
+    precio: 6200,
     img: "img/drfanis.jpeg"
   },
  {
     nombre: "Pastillas D.R.F Sabor Menta (caja x 12 u)",
-    precio: "$6.200",
+    precio: 6200,
     img: "img/drfmenta.jpeg"
+  },
+
+];
+
+const globosgrandes   = [
+    {
+    nombre: "(1 unidad)",
+    precio: 2500,
+    img: "img/globosgrandes1.jpeg"
+  },
+ {
+    nombre: "(1 unidad)",
+    precio: 2500,
+    img: "img/globosgrandes2.jpeg"
   },
 
 ];
@@ -282,6 +296,7 @@ const productosVariantes = {
   "card-cartera": cartera,
   "card-drf": drf,
   "card-alka": alka,
+  "card-globosgrandes": globosgrandes,
 };
 
 function cambiarVariante(el, direccion) {
@@ -307,7 +322,8 @@ function cambiarVariante(el, direccion) {
 
   card.querySelector("img").src = v.img;
   card.querySelector("h3").textContent = v.nombre;
-  card.querySelector("p").textContent = v.precio;
+  card.querySelector("p").textContent =
+  `$${v.precio.toLocaleString("es-AR")}`;
 
   const btn = card.querySelector(".btn-carrito");
   btn.dataset.nombre = v.nombre;
@@ -641,7 +657,8 @@ function actualizarModal() {
     const variante = currentVariantes[currentIndex];
 
     modalTitle.textContent = variante.nombre;
-    document.getElementById('modal-precio').textContent = variante.precio;
+    document.getElementById('modal-precio').textContent =
+    `$${variante.precio.toLocaleString("es-AR")}`;
 
     modalAgregarBtn.dataset.producto = variante.nombre;
     modalAgregarBtn.dataset.precio = variante.precio;
