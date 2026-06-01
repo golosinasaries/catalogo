@@ -1,5 +1,5 @@
 const minimoCompra = 50000; 
-const ENVIO_MDP = 8900;
+const ENVIO_MDP = 9700;
 const ENVIO_GENERAL = 14900;
 const ENVIO_LEJANO = 15900;
 const ENVIO_SANTACRUZ = 16900;
@@ -18,7 +18,7 @@ let currentVariantes = null;
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const STOCK_PRODUCTOS = {
-  "Mogul Extreme Twist Max Mundial 600g (24 u)": 1,
+  "Mogul Extreme Twist Max Mundial 600g (24 u)": 0,
   "Gomita Helado (30 u)": 0,
   "Ring Pop Barbie (30 u)": 1,
   "Saca lenguas (30 u)": 1,
