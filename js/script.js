@@ -22,7 +22,7 @@ const STOCK_PRODUCTOS = {
   "Gomita Helado (30 u)": 0,
   "Ring Pop Barbie (30 u)": 1,
   "Saca lenguas (30 u)": 1,
-  "Sapito Mundial 252 g (24 u)": 4,
+  "Sapito Mundial 252 g (24 u)": 1,
   "Pastillas Alka sabor Cherry Mentol (caja x 12 u)": 0,
   "Pastillas Alka sabor Menta (caja x 12 u)": 7,
   "Chupetines con polvo ácido Bob Esponja (30 u)": 1,
