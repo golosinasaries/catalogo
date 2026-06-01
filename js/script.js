@@ -1038,6 +1038,20 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       return item;
     }).filter(i => i.cantidad > 0);
+    const total = calcularTotal();
+
+    const regaloHTML =
+      PROMO_ACTIVA === "regalo" && total >= minimoRegalo
+        ? `
+          <div class='carrito-item regalo-item'>
+            <strong>🎁 ${REGALO_NOMBRE}</strong>
+            <br>
+            <span style="color:green;font-weight:bold;">
+              GRATIS
+            </span>
+          </div>
+        `
+        : "";
     carritoItemsContainer.innerHTML = carrito.length === 0
       ? "<p class='carrito-vacio'>Tu carrito está vacío 🛒</p>"
       : carrito.map(i=>`
@@ -1057,10 +1071,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
           <button class='cantidad-btn sumar' data-nombre='${i.nombre}' data-talle='${i.talle || ""}'>+</button>
         </div>
-      `).join("");
+      `).join("") + regaloHTML;
 
     const totalProductos = carrito.reduce((a,i)=>a+i.cantidad,0);
-    const total = calcularTotal();
 
     carritoCount.textContent = totalProductos;
     localStorage.setItem("carrito", JSON.stringify(carrito));
@@ -1222,15 +1235,22 @@ document.addEventListener("DOMContentLoaded", () => {
       const item = carrito.find(p =>
         p.nombre === nombre && p.talle === talle
       );
-      if (item) {
-        item.cantidad > 1
-          ? item.cantidad--
-          : carrito = carrito.filter(p => p.nombre !== item.nombre);
-
-        localStorage.setItem("carrito", JSON.stringify(carrito));
-        actualizarCarrito();
-        carritoCount.textContent = carrito.reduce((acc, item) => acc + item.cantidad, 0);
+    if (item) {
+      if (item.cantidad > 1) {
+        item.cantidad--;
+      } else {
+        carrito = carrito.filter(p =>
+          !(p.nombre === nombre && p.talle === talle)
+        );
       }
+
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      actualizarCarrito();
+      carritoCount.textContent = carrito.reduce(
+        (acc, item) => acc + item.cantidad,
+        0
+      );
+    }
     }
     if(e.target.classList.contains("carrito-eliminar")){
       carrito=carrito.filter(p=>p.nombre!==e.target.dataset.nombre);
