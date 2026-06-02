@@ -72,7 +72,7 @@ const STOCK_PRODUCTOS = {
   "Alfajor Guaymallén simple de Chocolate Blanco (10 u)": 50,
   "Lenguetazo Pinta Lengua (32 u)": 2,
   "Lenguetazo Tropical Punch (32 u)": 1,
-  "Lenguetazo (32 u)": 1,
+  "Lenguetazo (32 u)": 10,
   "Camión dispenser + caramelos rosa (1 unidad)": 0,
   "Alcancía Tigre Amarillo (con 12 gelatinas en su interior)": 12,
   "Alcancía Tigre Rojo (con 12 gelatinas en su interior)": 0,
