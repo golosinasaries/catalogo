@@ -131,13 +131,13 @@ const alcancias = [
     precio: 6900,
     img: "img/tigrerojo.png"
   },
-
+/*
   {
     nombre: "Alcancía Pollito Rojo (con 12 gelatinas en su interior)",
     precio: 6900,
     img: "img/alcanciapinguinorojo.jpg"
   },
-/*
+
   {
     nombre: "Alcancía Pingüino Negro (con 12 gelatinas en su interior)",
     precio: 6900,
