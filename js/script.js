@@ -7,7 +7,7 @@ const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 const minimoRegalo = 70000;   
 const REGALO_NOMBRE = "Chupetines Frutillas (30 u)🍓";
-const PROMO_ACTIVA = "envio"; 
+const PROMO_ACTIVA = "ninguna"; 
 // envio: envío gratis a partir de cierto monto
 // regalo: regalo a partir de cierto monto
 //ninguna: sin promociones
@@ -26,7 +26,7 @@ const STOCK_PRODUCTOS = {
   "Pastillas Alka sabor Cherry Mentol (caja x 12 u)": 0,
   "Pastillas Alka sabor Menta (caja x 12 u)": 7,
   "Chupetines con polvo ácido Bob Esponja (30 u)": 1,
-  "Monedas de Chocolate (290 u)": 24,
+  "Monedas de Chocolate (290 u)": 2,
   "Mechas mágicas Mario Bros (30 u)" : 1,
   "Chicle Fierita Recargado - Mundial (50 u)": 0,
   "Chupetines con led Oreo (30 u)": 2,
