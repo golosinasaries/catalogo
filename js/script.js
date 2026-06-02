@@ -19,10 +19,10 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const STOCK_PRODUCTOS = {
   "Mogul Extreme Twist Max Mundial 600g (24 u)": 0,
-  "Gomita Helado (30 u)": 0,
+  "Gomita Helado (30 u)": 24,
   "Ring Pop Barbie (30 u)": 1,
   "Saca lenguas (30 u)": 1,
-  "Sapito Mundial 252 g (24 u)": 1,
+  "Sapito Mundial 252 g (24 u)": 0,
   "Pastillas Alka sabor Cherry Mentol (caja x 12 u)": 0,
   "Pastillas Alka sabor Menta (caja x 12 u)": 7,
   "Chupetines con polvo ácido Bob Esponja (30 u)": 1,
@@ -78,6 +78,7 @@ const STOCK_PRODUCTOS = {
   "Alcancía Tigre Rojo (con 12 gelatinas en su interior)": 0,
   "Alcancía Lechuza Rosa (con 12 gelatinas en su interior)": 1,
   "Alcancía Pollito Rojo (con 12 gelatinas en su interior)": 1,
+  "Alcancía Oso Café (con 12 gelatinas en su interior)": 2,
   "Gomitas Super Mario (30 u)": 23,
   "Chupetines Hongos (30 u)": 1,
   "Chicle Fierita Recargado - Menta (50 u)": 30,
@@ -125,13 +126,13 @@ const alcancias = [
     precio: 6900,
     img: "img/osocafe.png"
   },
-
+/*
  {
     nombre: "Alcancía Tigre Rojo (con 12 gelatinas en su interior)",
     precio: 6900,
     img: "img/tigrerojo.png"
   },
-/*
+
   {
     nombre: "Alcancía Pollito Rojo (con 12 gelatinas en su interior)",
     precio: 6900,
