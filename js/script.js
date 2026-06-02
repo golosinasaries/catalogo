@@ -8,9 +8,7 @@ const ENVIO_GRATIS = 0;
 const minimoRegalo = 70000;   
 const REGALO_NOMBRE = "Chupetines Frutillas (30 u)🍓";
 const PROMO_ACTIVA = "ninguna"; 
-// "envio"  → envío gratis
-// "regalo" → regalo 
-// "ninguna" → sin promo
+
 
 let productos = [];
 let productoIndex = 0;
@@ -26,7 +24,7 @@ const STOCK_PRODUCTOS = {
   "Pastillas Alka sabor Cherry Mentol (caja x 12 u)": 0,
   "Pastillas Alka sabor Menta (caja x 12 u)": 7,
   "Chupetines con polvo ácido Bob Esponja (30 u)": 1,
-  "Monedas de Chocolate (290 u)": 0,
+  "Monedas de Chocolate (290 u)": 24,
   "Mechas mágicas Mario Bros (30 u)" : 1,
   "Chicle Fierita Recargado - Mundial (50 u)": 0,
   "Chupetines con led Oreo (30 u)": 2,
@@ -235,30 +233,6 @@ const oblita = [
 
 ];
 
-const cartera = [
-    {
-    nombre: "🛍️ Carteritas Stitch",
-    precio: 4500,
-    img: "img/carterastitch.jpeg"
-  },
- {
-    nombre: "🛍️ Carteritas Kuromy",
-    precio: 4500,
-    img: "img/carterakuromy.jpeg"
-  },
-      {
-    nombre: "🛍️ Carteritas Hello Kitty",
-    precio: 4500,
-    img: "img/carterakitty.jpeg"
-  },
- {
-    nombre: "🛍️ Carteritas Labubu",
-    precio: 4500,
-    img: "img/carteralabubu.jpeg"
-  },
-
-];
-
 const drf   = [
     {
     nombre: "Pastillas D.R.F Sabor Anis (caja x 12 u)",
@@ -298,7 +272,6 @@ const productosVariantes = {
   "card-globos": globos,
   "card-recargado": recargados,
   "card-oblita": oblita,
-  "card-cartera": cartera,
   "card-drf": drf,
   "card-alka": alka,
   "card-globosgrandes": globosgrandes,
@@ -501,7 +474,6 @@ if (modal) {
     "Tractor dispenser + caramelos verde (1 unidad)": ["img/tractorverde1.jpg","img/tractorverde2.jpg"],
     "Chupetines Kuromy con led (30 u)": ["img/caramelokuromy.jpg","img/caramelokuromy2.jpg", "img/mc3.jpeg"],
     "Gomita Helado (30 u)": ["img/helado.jpg","img/helado2.jpg"],
-    //"Alcancía pingüino negro": ["img/pinguino2.jpg","img/pinguino5.jpg","img/pinguino3.jpg","img/pinguino4.jpg","img/pinguino6.jpg"],
     "Chupetines Merlina (30 u)": ["img/merlina1.jpg","img/merlina2.jpg","img/merlina3.jpg","img/merlina4.jpg"],
     "Chupetín con polvo ácido Brain (30 u)": ["img/braincaja.jpg","img/chupetinBrain.jpg"],
     "Camiseta pimball con pastillitas (30 u)": ["img/pimballremera.jpg","img/reversaremera.jpg","img/r1.jpg","img/r2.jpg"],
@@ -667,7 +639,7 @@ function actualizarModal() {
     `$${variante.precio.toLocaleString("es-AR")}`;
 
     modalAgregarBtn.dataset.producto = variante.nombre;
-    modalAgregarBtn.dataset.precio = variante.precio;
+    modalAgregarBtn.dataset.precio = `$${variante.precio.toLocaleString("es-AR")}`;
 
     // RESET SIEMPRE (CLAVE)
     modalAgregarBtn.textContent = "Agregar al carrito";
@@ -1170,6 +1142,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   });
   }
+  
 
   carritoBtn?.addEventListener("click", () => {
      const modal = document.getElementById("modal");
@@ -1253,7 +1226,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     }
     if(e.target.classList.contains("carrito-eliminar")){
-      carrito=carrito.filter(p=>p.nombre!==e.target.dataset.nombre);
+      carrito = carrito.filter(p =>
+        !(p.nombre === e.target.dataset.nombre &&
+          p.talle === (e.target.dataset.talle || ""))
+      );
     }
     actualizarCarrito();
   });
@@ -1336,7 +1312,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
           if (stockMax !== undefined) {
 
-          const productoEnCarrito = carrito.find(p => p.nombre === nombre);
+         const productoEnCarrito = carrito.find(
+          p => p.nombre === nombre && p.talle === talle
+             );
           const cantidadActual = productoEnCarrito ? productoEnCarrito.cantidad : 0;
 
           const modalBtn = document.getElementById("modal-agregar");
@@ -1380,8 +1358,8 @@ document.getElementById("enviar-carrito")?.addEventListener("click", (e) => {
 
     if (i.cantidad > 1) {
       msg += `• *${i.nombre}* — *${i.cantidad}* x ${i.precio} → *$${subtotal.toLocaleString("es-AR")}*\n`;
-    } else {
-      msg += `• *${i.nombre}* — ${i.precio}\n`;
+   } else {
+      msg += `• *${i.nombre}* — *$${precioUnitario.toLocaleString("es-AR")}*\n`;
     }
   });
 
@@ -1428,9 +1406,9 @@ document.getElementById("enviar-carrito")?.addEventListener("click", (e) => {
   // Botón confirmar código postal
   const btnRetirarMiramar = document.getElementById("retirar-miramar");
 
-  btnRetirarMiramar?.addEventListener("click", () => {
+  btnRetirarMiramar.onclick = () => {
 
-    let costoEnvio = 0;// Igual que Miramar
+    let costoEnvio = 0;
     if ((PROMO_ACTIVA === "envio" && total >= 80000) || total >= 300000) {
       costoEnvio = 0;
     }
@@ -1449,16 +1427,19 @@ document.getElementById("enviar-carrito")?.addEventListener("click", (e) => {
     msg += `\n\n📍 *Retiro en Miramar*`;
 
     const numero = "542236010443";
-    const url = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
+
+    const url = `https://wa.me/${numero}?text=${encodeURIComponent(msg.normalize("NFC"))}`;
+
     window.open(url, "_blank");
 
     modalCP.style.display = "none";
-  });
+  };
 
  const cpConfirmar = document.getElementById("cp-confirmar");
  console.log("botón cp:", cpConfirmar);
 
 cpConfirmar.onclick = () => {
+  console.log("ENTRO CLICK");
   const codigoPostalCliente = inputCP.value.trim();
 if (codigoPostalCliente.length === 0) {
     Swal.fire({
@@ -1519,7 +1500,7 @@ if (codigoPostalCliente.length === 0) {
 
     // 🔹 Abrir WhatsAppp
     const numero = "542236010443";
-    const url = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
+    const url = `https://wa.me/${numero}?text=${encodeURIComponent(msg.normalize("NFC"))}`;
     window.open(url, "_blank");
 
     // 🔹 Cerrar modal
@@ -1627,27 +1608,29 @@ function sincronizarCarritoConHTML() {
 
   if (carrito.length === 0) return; // nada que sincronizar
 
-  // 🔹 Función para normalizar nombres y evitar problemas de coincidencia
+  //  Función para normalizar nombres y evitar problemas de coincidencia
   function normalizarNombre(nombre) {
     return nombre.replace(/\s+/g, " ").trim().toLowerCase();
   }
 
-  // 🔹 Leer productos actuales del HTML
+  //  Leer productos actuales del HTML
   const productosHTML = {};
   const cards = document.querySelectorAll(".card");
   if (cards.length === 0) return; // si no hay productos, no toca el carrito
 
   cards.forEach(card => {
 
-    carrito = carrito.map(item => {
+   carrito = carrito
+    .map(item => {
       const stock = STOCK_PRODUCTOS[item.nombre];
 
-      if (stock !== undefined && item.cantidad > stock) {
-        item.cantidad = stock;
+      if (stock !== undefined && stock === 0) {
+        item._eliminar = true;
       }
 
       return item;
-    }).filter(item => item.cantidad > 0);
+    })
+    .filter(item => !item._eliminar);
 
     localStorage.setItem("carrito", JSON.stringify(carrito));
     const nombre = card.querySelector("h3")?.innerText || "";
@@ -1666,15 +1649,26 @@ function sincronizarCarritoConHTML() {
   // 🔹 Validar carrito
   carrito = carrito.filter(item => {
     const nombreItem = normalizarNombre(item.nombre);
-    const precioActual = productosHTML[nombreItem];
+    let precioActual;
 
-    const stock = STOCK_PRODUCTOS[item.nombre];
-
-    if (precioActual === undefined || stock === 0) {
-      cambios = true;
-      return false;
+    for (const lista of Object.values(productosVariantes)) {
+      const producto = lista.find(p => normalizarNombre(p.nombre) === nombreItem);
+      if (producto) {
+        precioActual = producto.precio;
+        break;
+      }
+    }
+    // 2) fallback: productos normales (HTML)
+    if (precioActual === undefined) {
+      precioActual = productosHTML[nombreItem];
     }
 
+    const stock = STOCK_PRODUCTOS[nombreItem];
+
+   if (precioActual === undefined || stock === 0) {
+    cambios = true;
+    return false;
+  }
     // Precio cambiado → se actualiza
     const precioCarrito = parseFloat(
       (item.precio || "").replace(/[^\d,]/g, "").replace(/\./g, "").replace(",", ".")
@@ -1724,15 +1718,16 @@ let currentY = 0;
 
 const modalImg = document.querySelector(".modal-content img");
 
-modalImg.addEventListener("mousedown", (e) => {
-  if (!modalImg.classList.contains("zoomed")) return;
+if (modalImg) {
+  modalImg.addEventListener("mousedown", (e) => {
+    if (!modalImg.classList.contains("zoomed")) return;
 
-  isDragging = true;
-  lastX = e.clientX;
-  lastY = e.clientY;
+    isDragging = true;
+    lastX = e.clientX;
+    lastY = e.clientY;
 
-  modalImg.style.cursor = "grabbing";
-});
+    modalImg.style.cursor = "grabbing";
+  });
 
 document.addEventListener("mousemove", (e) => {
   if (!isDragging) return;
@@ -1760,6 +1755,7 @@ document.addEventListener("mouseup", () => {
   modalImg.style.cursor = "grab";
 });
 
+}
 
 document.querySelectorAll(".card").forEach(card => {
   card.addEventListener("click", () => {
@@ -1961,6 +1957,7 @@ function mostrarEnvioModal(costo) {
 
           <a 
             href="https://wa.me/542236010443" 
+            msg = encodeURIComponent(msg);
             target="_blank"
             id="hablar-envio"
           >
