@@ -76,7 +76,7 @@ const STOCK_PRODUCTOS = {
   "Lenguetazo (32 u)": 2,
   "Camión dispenser + caramelos rosa (1 unidad)": 0,
   "Alcancía Tigre Amarillo (con 12 gelatinas en su interior)": 12,
-  "Alcancía Tigre Rojo (con 12 gelatinas en su interior)": 0,
+  "Alcancía Tigre Rojo (con 12 gelatinas en su interior)": 10,
   "Alcancía Lechuza Rosa (con 12 gelatinas en su interior)": 1,
   "Alcancía Pollito Rojo (con 12 gelatinas en su interior)": 1,
   "Alcancía Oso Café (con 12 gelatinas en su interior)": 2,
@@ -127,13 +127,13 @@ const alcancias = [
     precio: 6900,
     img: "img/osocafe.png"
   },
-/*
+
  {
     nombre: "Alcancía Tigre Rojo (con 12 gelatinas en su interior)",
     precio: 6900,
     img: "img/tigrerojo.png"
   },
-
+/*
   {
     nombre: "Alcancía Pollito Rojo (con 12 gelatinas en su interior)",
     precio: 6900,
