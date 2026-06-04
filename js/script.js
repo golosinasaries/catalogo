@@ -18,6 +18,7 @@ let currentVariantes = null;
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const STOCK_PRODUCTOS = {
+  "Chupetines K-pop (30 u)": 0,
   "Mogul Extreme Twist Max Mundial 600g (24 u)": 0,
   "Gomita Helado (30 u)": 24,
   "Ring Pop Barbie (30 u)": 1,
