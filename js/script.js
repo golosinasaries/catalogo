@@ -506,6 +506,7 @@ if (modal) {
     "Chupetines Hongos (30 u)": ["img/hongo1.jpg","img/hongo2.jpg"],
     "Chupetines Frutillas (30 u)": ["img/chupetinfrutilla1.jpg","img/chupetinfrutilla2.jpg", "img/chupetinnnrutilla2.jpg"],
     "Gomitas Astronauta (30 u)": ["img/astronauta2.jpg","img/astronauta1.jpg"],
+    "Chupetes Capibara (30 u)": ["img/chupete1.jpeg","img/chupete2.jpeg"],
   };
 
   let currentImages = [];
