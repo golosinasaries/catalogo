@@ -5,9 +5,9 @@ const ENVIO_LEJANO = 15900;
 const ENVIO_SANTACRUZ = 16900;
 const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
-const minimoRegalo = 70000;   
-const REGALO_NOMBRE = "Chupetines Frutillas (30 u)🍓";
-const PROMO_ACTIVA = "ninguna"; 
+const minimoRegalo = 60000;   
+const REGALO_NOMBRE = " Macarrones (30 u) 💙💚🧡";
+const PROMO_ACTIVA = "regalo"; 
 // envio: envío gratis a partir de cierto monto
 // regalo: regalo a partir de cierto monto
 //ninguna: sin promociones
