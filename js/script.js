@@ -1295,7 +1295,9 @@ document.getElementById("enviar-carrito")?.addEventListener("click", async (e) =
     total += subtotal;
     totalProductos += i.cantidad;
 
-    msg += `• *${i.nombre}* — ${i.cantidad} x ${i.precio} → $${subtotal.toLocaleString("es-AR")}\n`;
+    msg += i.cantidad > 1
+  ? `• *${i.nombre}* — ${i.cantidad} x ${i.precio} → $${subtotal.toLocaleString("es-AR")}\n`
+  : `• *${i.nombre}* → $${subtotal.toLocaleString("es-AR")}\n`;
   });
 
   if (total < minimoCompra) {
@@ -1338,8 +1340,9 @@ document.getElementById("enviar-carrito")?.addEventListener("click", async (e) =
       : calcularCostoEnvio(cp);
 
   msg += `\n📦 Total productos: ${totalProductos}`;
-  msg += `\n🚚 Envío: $${envio}`;
+  msg += `\n🚚 Envío: $${envio.toLocaleString("es-AR")}`;
   msg += `\n💳 Total: $${(total + envio).toLocaleString("es-AR")}`;
+  msg += `\n📍 Código Postal: ${cp}`;
 
   const numero = "542236010443";
   const url = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
