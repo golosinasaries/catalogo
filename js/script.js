@@ -1269,117 +1269,88 @@ document.addEventListener("DOMContentLoaded", () => {
     actualizarAvisoEnvioGratis(calcularTotal());
     });
 
-document.getElementById("enviar-carrito")?.addEventListener("click", (e) => {
+document.getElementById("enviar-carrito")?.addEventListener("click", async (e) => {
   e.preventDefault();
   e.stopPropagation();
+
   if (carrito.length === 0) {
     Swal.fire({
-    icon: "info",
-    title: "Carrito vacío",
-    text: "La compra mínima es de $50.000 ",
-    confirmButtonColor: "#000"
-  });
+      icon: "info",
+      title: "Carrito vacío",
+      text: "La compra mínima es de $50.000",
+      confirmButtonColor: "#000"
+    });
     return;
   }
 
-  let msg = "🛍️ *Quiero comenzar este pedido:*\n\n";
+  // calcular total
   let total = 0;
   let totalProductos = 0;
-  let costoEnvio = 0;
+  let msg = "🛍️ *Quiero comenzar este pedido:*\n\n";
 
-  // Productos
   carrito.forEach(i => {
     const precioUnitario = parsePrecio(i.precio);
     const subtotal = precioUnitario * i.cantidad;
+
     total += subtotal;
     totalProductos += i.cantidad;
 
-    if (i.cantidad > 1) {
-      msg += `• *${i.nombre}* — *${i.cantidad}* x ${i.precio} → *$${subtotal.toLocaleString("es-AR")}*\n`;
-   } else {
-      msg += `• *${i.nombre}* — *$${precioUnitario.toLocaleString("es-AR")}*\n`;
-    }
+    msg += `• *${i.nombre}* — ${i.cantidad} x ${i.precio} → $${subtotal.toLocaleString("es-AR")}\n`;
   });
 
-  if (PROMO_ACTIVA === "regalo" && total >= minimoRegalo) {
-    msg += `• 🎁 *${REGALO_NOMBRE}* — 🎁 GRATIS\n`;
-    totalProductos += 1;
-  }
-
-  //  Compra mínima
   if (total < minimoCompra) {
     Swal.fire({
-    icon: "warning",
-    title: "Compra mínima",
-    text: `La compra mínima es de $${minimoCompra.toLocaleString("es-AR")}`,
-    confirmButtonColor: "#000"
-  });
+      icon: "warning",
+      title: "Compra mínima",
+      text: `La compra mínima es de $${minimoCompra.toLocaleString("es-AR")}`,
+      confirmButtonColor: "#000"
+    });
     return;
   }
 
-  //  Abrir modal de código postal
-  const modalCP = document.getElementById("modal-cp");
-  const inputCP = document.getElementById("cp-input");
+  // obtener CP 
+  let cp = localStorage.getItem("codigoPostalCliente");
 
-  const cpGuardado = localStorage.getItem("codigoPostalCliente");
+  if (!cp) {
+    const { value } = await Swal.fire({
+      title: "Ingresá tu código postal",
+      input: "text",
+      confirmButtonText: "Continuar",
+      confirmButtonColor: "#000"
+    });
 
-  if (cpGuardado) {
-    inputCP.value = cpGuardado;
-  } else {
-    inputCP.value = "";
-  }
-
-  modalCP.style.display = "flex";
-
-  //  Esperar confirmación del usuario
-
-  // Botón cancelar del modal de código postal
-  const cpCancelar = document.getElementById("cp-cancelar");
-  if (cpCancelar) {
-   cpCancelar.onclick = () => {
-    document.getElementById("modal-cp").style.display = "none";
-   };
-  }
-
-  // Botón confirmar código postal
-  const btnRetirarMiramar = document.getElementById("retirar-miramar");
-
-  btnRetirarMiramar.onclick = () => {
-
-    let costoEnvio = 0;
-    if ((PROMO_ACTIVA === "envio" && total >= 80000) || total >= 300000) {
-      costoEnvio = 0;
-    }
-    const totalFinal = total + costoEnvio;
-
-    let mensajeRegalo = "";
-
-    if (PROMO_ACTIVA === "regalo" && total >= minimoRegalo) {
-      mensajeRegalo = `🎁 ¡Tenés ${REGALO_NOMBRE} de regalo!`;
+    if (!value || !/^\d{4,8}$/.test(value)) {
+      Swal.fire({
+        icon: "error",
+        title: "Código inválido"
+      });
+      return;
     }
 
-    msg += `\n📦 *Total de productos:* ${totalProductos}`;
-    msg += `\n🚚 *Envío:* $0`;
-    msg += `\n💳 *Total a pagar:* $${totalFinal.toLocaleString("es-AR")}`;
+    cp = value;
+    localStorage.setItem("codigoPostalCliente", cp);
+  }
 
-    msg += `\n\n📍 *Retiro en Miramar*`;
+  // envío
+  const envio =
+    (PROMO_ACTIVA === "envio" && total >= 80000) || total >= 300000
+      ? 0
+      : calcularCostoEnvio(cp);
 
-    const numero = "542236010443";
+  msg += `\n📦 Total productos: ${totalProductos}`;
+  msg += `\n🚚 Envío: $${envio}`;
+  msg += `\n💳 Total: $${(total + envio).toLocaleString("es-AR")}`;
 
-    const url = `https://wa.me/${numero}?text=${encodeURIComponent(msg.normalize("NFC"))}`;
+  const numero = "542236010443";
+  const url = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
 
-    window.open(url, "_blank");
-
-    modalCP.style.display = "none";
-  };
+  window.open(url, "_blank");
 
  const cpConfirmar = document.getElementById("cp-confirmar");
- console.log("botón cp:", cpConfirmar);
-
-cpConfirmar.onclick = () => {
-  console.log("ENTRO CLICK");
+ cpConfirmar.onclick = () => {
   const codigoPostalCliente = inputCP.value.trim();
-if (codigoPostalCliente.length === 0) {
+
+  if (codigoPostalCliente.length === 0) {
     Swal.fire({
       icon: "warning",
       title: "Falta el código postal",
@@ -1401,49 +1372,8 @@ if (codigoPostalCliente.length === 0) {
 
   localStorage.setItem("codigoPostalCliente", codigoPostalCliente);
 
-  const esMiramar = codigoPostalCliente.startsWith("7607");
-    let costoEnvio;
-
-    if (PROMO_ACTIVA === "envio" && total >= 80000) {
-      costoEnvio = 0;
-    } else {
-      costoEnvio = calcularCostoEnvio(codigoPostalCliente);
-    }
-
-    if (total >= 300000) {
-      costoEnvio = 0;
-    }
-    const totalFinal = total + costoEnvio;
-
-    let mensajeRegalo = "";
-
-    if (PROMO_ACTIVA === "regalo" && total >= minimoRegalo) {
-        mensajeRegalo = `\n🎁 ¡Tenés ${REGALO_NOMBRE} de regalo!`;
-    } else {
-        mensajeRegalo = ""; 
-    }
-
-    msg += `\n📦 *Total de productos:* ${totalProductos}`;
-    msg += `\n🚚 *Envío:* $${costoEnvio.toLocaleString("es-AR")}`;
-    msg += `\n💳 *Total a pagar (con envío incluido):* $${totalFinal.toLocaleString("es-AR")}`;
-
-    if (esMiramar) {
-    msg += `\n\n📍 *Entrega en Miramar*`;
-    
-  } else {
-    msg += `\n\n codigo postal: ${codigoPostalCliente}`;
-    msg += `\n\n✨ *¡Pedido listo!*`;
-    msg += `\nTocá *Enviar* y te respondemos enseguida para coordinar 💌`;
-  }
-
-    // 🔹 Abrir WhatsAppp
-    const numero = "542236010443";
-    const url = `https://wa.me/${numero}?text=${encodeURIComponent(msg.normalize("NFC"))}`;
-    window.open(url, "_blank");
-
-    // 🔹 Cerrar modal
-    modalCP.style.display = "none";
-  };
+  modalCP.style.display = "none";
+};
 });
 });
 
