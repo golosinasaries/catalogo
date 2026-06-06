@@ -65,11 +65,7 @@ const globos = [
 
 const alcancias = [
 
-  {
-    nombre: "Alcancía Oso Café (con 12 gelatinas en su interior)",
-    precio: 6900,
-    img: "img/osocafe.png"
-  },
+ 
 
  {
     nombre: "Alcancía Tigre Rojo (con 12 gelatinas en su interior)",
@@ -82,7 +78,11 @@ const alcancias = [
     precio: 6900,
     img: "img/alcanciapinguinorojo.jpg"
   },
-
+ {
+    nombre: "Alcancía Oso Café (con 12 gelatinas en su interior)",
+    precio: 6900,
+    img: "img/osocafe.png"
+  },
   {
     nombre: "Alcancía Pingüino Negro (con 12 gelatinas en su interior)",
     precio: 6900,
