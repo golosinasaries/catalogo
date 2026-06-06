@@ -16,11 +16,25 @@
 <body>
 
 <header>
+    <button id="menu-btn" class="menu-btn" aria-label="Abrir menú">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div id="menu-panel" class="menu-panel">
+    <a href="#" id="menu-pago" style="color:#1e9b5a; font-weight:500;">
+      <span class="icono">💳</span> Cómo pagar
+    </a>
+    <a href="#" id="menu-catalogo" style="color:#2b6cff; font-weight:500;">
+    <span class="icono">📱</span> Catálogo
+    </a>
+  </div>
+
 
   <div class="titulo-contenedor">
     <h1 class="titulo-animado">
-      <span class="emoji"> 📍 </span> Somos de Miramar, Buenos Aires - Realizamos envíos a todo el país 
-      <span class="emoji"> 🚚 🇦🇷 </span>
+      <span class="emoji"> 📍 </span> Somos de Miramar, Bs As 
     </h1>
 
     <div class="header-bar">
@@ -50,8 +64,7 @@
 </header>
 
 
- <p class="fb-sub">
-    💳 Abonás por transferencia (ana.maria.montiel) 🚚 Envíos con seguimiento
+ <p class="fb-sub">🚚 Envíos a todo el país  🇦🇷
   </p>
 <main>
  
@@ -78,14 +91,8 @@
       <div class="screen">
 
         <!-- Facebook -->
-     <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fbusiness.facebook.com%2F61578949001641%2Fvideos%2F2945904695607220%2F&show_text=true&width=267&t=0" width="267" height="591" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+     <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2F61578949001641%2Fvideos%2F1338619768166282%2F&show_text=true&width=267&t=0" width="267" height="591" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
       </div>
-    </div>
-
-    <div class="fb-fallback">
-      <a href="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fbusiness.facebook.com%2F61578949001641%2Fvideos%2F2945904695607220%2F&show_text=true&width=267&t=0"  target="_blank" width="267" height="591" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true">
-        👉 Ver publicación en Facebook
-      </a>
     </div>
 
     <div class="phone">
@@ -117,9 +124,42 @@
 </a>
 </div>
 </footer>
-
+<a id="whatsapp-consulta"
+   href="https://chat.whatsapp.com/KLSylBrQaCt40aRp8s5gPF"
+   target="_blank"
+   rel="noopener noreferrer">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="">
+</a>
 <script src="js/script.js"></script>
+<div id="modal-pago" class="modal-pago">
+  <div class="modal-pago-content">
+    <span class="cerrar-pago">&times;</span>
+    <h2>💳 Cómo pagar</h2>
+    <p>Transferencia bancaria 👇</p>
+    <div class="datos-pago">
+      <p><strong>👤 Titular:</strong> Ana Maria Montiel</p>
+      <p>
+        <strong>🏷️ Alias:</strong> ana.maria.montiel
+        <button onclick="copiarAlias()" class="btn-copiar">Copiar</button>
+        <span id="copiado-msg" class="copiado-msg">Copiado ✔</span>
+      </p>
+      <p><strong>🏦 CVU:</strong> 0000003100012664749584</p>
+      <p><strong>🪪 CUIT/CUIL:</strong> 27-20845773-5</p>
+    </div>
+    <div class="aviso-pago">
+      ⚠️ Este es el único alias para pagos. No realizamos cobros por otros alias ni cuentas. 😊
+    </div>
+    <a href="https://wa.me/542236010443?text=Hola%20tengo%20una%20consulta%20sobre%20el%20pago%20de%20mi%20pedido"
+        target="_blank"
+        rel="noopener noreferrer"
+        style="display:flex;align-items:center;gap:8px;margin-top:10px;">
+        
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png"
+            style="width:40px;height:40px;">
 
+        <span>Consulta sobre el pago</span>
+      </a>
+       </div>
 <div id="modal-cp" class="modal-cp" style="display:none;">
   <div class="modal-cp-content">
     <h3>📍 Ingresá tu código postal:</h3>

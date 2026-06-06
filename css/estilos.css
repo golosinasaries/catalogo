@@ -557,7 +557,7 @@ html { scroll-behavior: smooth; }
     padding: 2%;
   }
   .fb-sub {
-    margin-top: 30%;
+    margin-top: 130%;
   } 
   .logo-mini {
     width: 90px;
@@ -575,7 +575,7 @@ html { scroll-behavior: smooth; }
     margin-top: 15%;
   }
   .fb-sub {
-    margin-top: 30%;
+    margin-top: 130%;
   }
     .logo-mini {
     width: 90px;
@@ -594,7 +594,7 @@ html { scroll-behavior: smooth; }
     margin-top: 8%;
   }
   .fb-sub {
-    margin-top: 30%;
+    margin-top: 130%;
   }
     .logo-mini {
     width: 90px;
@@ -614,7 +614,7 @@ html { scroll-behavior: smooth; }
   }
 
   .fb-sub {
-    margin-top: 30%;
+    margin-top: 130%;
   }
   .card img {
     height: 200px; 
@@ -1411,7 +1411,7 @@ html { scroll-behavior: smooth; }
   font-size: 14px;
   color: #cb1fff;
   text-align: center;
-  margin-top: 122px;
+  margin-top: 2px;
   line-height: 1.6;
   opacity: 0.9;
 }
@@ -1612,7 +1612,7 @@ html { scroll-behavior: smooth; }
 }
 
 .modal-content {
-  max-width: 700px;   
+  max-width: 350px;   
   width: 100%;
   color: #000000;
   padding: 1rem;
@@ -1926,7 +1926,14 @@ h1, h2, h3 {
     top: 41%;
     
   }
-
+  .fb-sub {
+  font-size: 14px;
+  color: #cb1fff;
+  text-align: center;
+  margin-top: 82px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
   .card .flecha:active {
     background: linear-gradient(
       135deg,#EC4899,#BE185D,#D946EF);

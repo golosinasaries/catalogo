@@ -393,7 +393,7 @@ if (modal) {
   // Productos
   const imagenesProducto = {
     "Camisetas Niños👕(10 Camisetas)": ["img/camisetasniños.jpeg","img/videocamisetasniño.mp4","img/camisetaniños2.jpeg"],
-    "Camisetas ⚽🔥 (10 Camisetas)": ["img/camiseta1.jpeg","img/videocamisetaniño.mp4","img/adultos2.mp4","img/camiseta2.jpeg","img/camiseta3.jpeg","img/camiseta4.jpeg"],
+    "Camisetas Adultos ⚽🔥 (10 Camisetas)": ["img/camiseta1.jpeg","img/videocamisetaniño.mp4","img/adultos2.mp4","img/camiseta2.jpeg","img/camiseta3.jpeg","img/camiseta4.jpeg"],
     "Chupetines K-pop (30 u)": ["img/kpp1.jpeg","img/kpp2.jpeg","img/kpop.jpeg"],
     "Chupetines 2 in 1 (60 u)": ["img/dosenuno6.jpeg","img/dosenuno2.jpeg","img/dosenuno3.jpeg","img/dosenuno4.jpeg","img/dosenuno5.jpeg","img/dosenuno6.jpeg"],
     "Gomitas Macarron (30 u)": ["img/macarron2.jpeg","img/macarron1.jpeg"],
@@ -1089,7 +1089,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   }
   
-
   carritoBtn?.addEventListener("click", () => {
      const modal = document.getElementById("modal");
       if (modal && modal.style.display === "flex") {
@@ -1100,13 +1099,6 @@ document.addEventListener("DOMContentLoaded", () => {
     carritoDropdown.style.display = visible ? "none" : "block";
     fondoModal.style.display = visible ? "none" : "block";
 
-    const whatsappBtn = document.getElementById("whatsapp-btn");
-
-    if (visible) {
-      whatsappBtn.classList.remove("oculto");
-    } else {
-      whatsappBtn.classList.add("oculto");
-    }
   });
 
   fondoModal.addEventListener("click",()=>{
@@ -1934,7 +1926,10 @@ function mostrarEnvioModal(costo) {
   modal.style.display = "flex";
 }
 
-document.getElementById("menu-envio").addEventListener("click", async (e) => {
+const menuEnvio = document.getElementById("menu-envio");
+
+if (menuEnvio) {
+  menuEnvio.addEventListener("click", async (e) => {
   e.stopPropagation();
 
   let cpGuardado = (localStorage.getItem("codigoPostalCliente") || "").trim();
@@ -1979,7 +1974,7 @@ document.getElementById("menu-envio").addEventListener("click", async (e) => {
     }
       mostrarEnvioModal(costo);
     });
-
+}
 
 function filtrar(cat) {
   const cards = document.querySelectorAll('.card');
