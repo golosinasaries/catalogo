@@ -7,10 +7,7 @@ const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 const minimoRegalo = 60000;   
 const REGALO_NOMBRE = " Macarrones (30 u) 💙💚🧡";
-const PROMO_ACTIVA = "regalo"; 
-// envio: envío gratis a partir de cierto monto
-// regalo: regalo a partir de cierto monto
-//ninguna: sin promociones
+const PROMO_ACTIVA = "ninguna"; // opciones: "envio", "regalo", "ninguna"
 
 let productos = [];
 let productoIndex = 0;
@@ -18,74 +15,20 @@ let currentVariantes = null;
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const STOCK_PRODUCTOS = {
-  "Chupetines K-pop (30 u)": 15,
   "Mogul Extreme Twist Max Mundial 600g (24 u)": 0,
-  "Gomita Helado (30 u)": 24,
-  "Ring Pop Barbie (30 u)": 1,
-  "Saca lenguas (30 u)": 1,
   "Sapito Mundial 252 g (24 u)": 0,
-  "Pastillas Alka sabor Cherry Mentol (caja x 12 u)": 0,
-  "Pastillas Alka sabor Menta (caja x 12 u)": 7,
-  "Chupetines con polvo ácido Bob Esponja (30 u)": 1,
-  "Monedas de Chocolate (290 u)": 12,
-  "Mechas mágicas Mario Bros (30 u)" : 12,
-  "Chicle Fierita Recargado - Mundial (50 u)": 0,
-  "Chupetines con led Oreo (30 u)": 2,
-  "Gomitas Selección (30 u)": 24,
-  "Gomitas Pokemón (30 u)": 12,
-  "Galletitas Oreo 118 g": 45,
-  "Galletitas Chocolinas 170 g": 45,
-  "Galletitas Pepitos 119 g": 45,
-  "Latitas con chicles (30 latitas)": 98,
-  "Chicle por metro Barbie con Tatoo (30 u)": 20,
-  "Chocolates Surtido Especial Arcor 223g": 50,
-  "Gomitas Mogul Frutilla con Crema 500 g": 4,
-  "Gomitas Yummy ácidas 500 g": 50,
-  "Gomitas Mogul Dientes 500 g": 2,
-  "Caramelos masticables Lheritier 300 g": 20,
-  "Chupetines Kuromy con led (30 u)": 11,
-  "Autito con pastillitas (30 u)": 15,
-  "Chupetines Merlina (30 u)": 21,
-  "Gomitas de Gelatinas Candy Loka (10 u)": 3,
-  "Gomitas Mogul Moritas 500 g": 10,
-  "Chupetines masticables Baby Dolls (40 u)": 52,
-  "Chupetines masticables Baby Dolls ácidos (40 u)": 52,
-  "Turrón Billiken Sin T.A.C.C (10 u)": 50,
-  "Oblita de Chocolate (48 u)": 30,
-  "Oblita de DDL (48 u)": 30,
-  "Oblita de Frutilla (48 u)": 30,
-  "Oblita Chocolate Blanco (48 u)": 30,
-  "Oblita de Marroc (48 u)": 30,
-  "Gomitas Kuromy (30 u)": 24,
-  "Chicles WhatsApp con tatoo capibara (36 paquetes de 5 chicles)": 0,
-  "Caramelo masticable relleno Tnt pinta lengua (60 u)": 10,
+  "Pastillas Alka sabor Cherry Mentol (caja x 12 u)": 1,
   "Chupetines con led Unicornio (30 u)": 48,
-  "Billiken Tutti-frutti 800 g": 1,
   "Gomitas Lilo y Stitch (60 u)": 2,
-  "Llaveros láser Capibara (12 u)": 2,
-  "Caramelos Osi Osi (50 u)": 50,
-  "Bocaditos Bel (50 u)": 56,
-  "Fierita Super Tatoo Tutti Frutti 600g": 53,
-  "Botellitas con chicles (30 botellitas)": 60,
-  "Fierita Super Tatoo Frutilla 600g": 12,
-  "Chupetines Cremosito Fierita - Frutilla y Crema (50 u)": 50,
-  "Alfajor Guaymallén simple de Membrillo (10 u)": 10,
-  "Alfajor Guaymallén simple de Chocolate Blanco (10 u)": 50,
+  "Llaveros láser Capibara (12 u)": 1,
   "Lenguetazo Pinta Lengua (32 u)": 1,
   "Lenguetazo Tropical Punch (32 u)": 1,
   "Lenguetazo (32 u)": 2,
-  "Camión dispenser + caramelos rosa (1 unidad)": 0,
   "Alcancía Tigre Amarillo (con 12 gelatinas en su interior)": 12,
   "Alcancía Tigre Rojo (con 12 gelatinas en su interior)": 10,
   "Alcancía Lechuza Rosa (con 12 gelatinas en su interior)": 1,
   "Alcancía Pollito Rojo (con 12 gelatinas en su interior)": 1,
   "Alcancía Oso Café (con 12 gelatinas en su interior)": 2,
-  "Gomitas Super Mario (30 u)": 23,
-  "Chupetines Hongos (30 u)": 1,
-  "Chicle Fierita Recargado - Menta (50 u)": 30,
-  "Chicle Fierita Recargado - Tutti Frutti (50 u)": 30,
-  "Chicle Fierita Globo sabor Banana (95 u)": 20,
-  "Chicle Fierita Globo sabor Menta (95 u)": 20,
 };
 
 const alka = [
@@ -338,7 +281,6 @@ function cambiarVariante(el, direccion) {
   }
 }
 
-
 function validarStock(nombre, carrito) {
   const stockMax = STOCK_PRODUCTOS[nombre];
   const item = carrito.find(p => p.nombre === nombre);
@@ -485,7 +427,7 @@ if (modal) {
     "Gelatina de diferentes formas (30 u)": ["img/gelatinaDiferentesSabores4.jpg","img/gelatinaDiferentesSabores3.jpg","img/gelatinaDiferentesSabores2.jpg","img/gelatinaDiferentesSabores5.jpg","img/gelatinaDiferentesSabores1.jpg"],
     "Chupetines con led Corona (30 u)": ["img/chupetinesconled1.jpg","img/corona2.jpg"],
     "Gomitas Monstruo (30 u)": ["img/gomitablandaCara2.jpg","img/gomitacara3.png"],
-    "Cool Mint sabores Frutales (30 u)": ["img/coolmint.jpg","img/coolmint2.jpg"],
+    "Cool Mint pastillitas Frutales (30 u)": ["img/coolmint.jpg","img/coolmint2.jpg"],
     "Trompetas con chupetin y sonido (20 u)": ["img/trompeta1.jpg","img/trompetas.jpg"],
     "Huevos Sorpresa Capibara (30 u)": ["img/sorpresacapibara1.jpg","img/sorpresacapibara2.jpg", "img/sorpresacapi3.png"],
     "Huevos Sorpresa Plantas vs Zombies (30 u)": ["img/sorpresaplant2.jpg","img/sorpresaplant.jpg"],
@@ -914,7 +856,6 @@ function mostrarToast(mensaje, tipo = "success") {
     setTimeout(() => toast.style.display = "none", 400);
   }, 800);
 }
-
 
   function lanzarConfetti() {
   const canvas = document.createElement("canvas");
@@ -1607,8 +1548,7 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
 }
 
 // ========================
-// SINCRONIZAR CARRITO CON PRODUCTOS DEL HTML  🚚 Sumá <strong>$${falta.toLocaleString("es-AR")}</strong> para envío gratis<br>
-// ========================
+// SINCRONIZAR CARRITO CON PRODUCTOS DEL HTML (para detectar cambios de stock o precio sin importar el orden de carga de scripts)
 function sincronizarCarritoConHTML() {
 
   if (carrito.length === 0) return; // nada que sincronizar
@@ -1651,7 +1591,7 @@ function sincronizarCarritoConHTML() {
 
   let cambios = false;
 
-  // 🔹 Validar carrito
+  // Validar carrito
   carrito = carrito.filter(item => {
     const nombreItem = normalizarNombre(item.nombre);
     let precioActual;
@@ -1663,7 +1603,7 @@ function sincronizarCarritoConHTML() {
         break;
       }
     }
-    // 2) fallback: productos normales (HTML)
+    // fallback: productos normales (HTML)
     if (precioActual === undefined) {
       precioActual = productosHTML[nombreItem];
     }
@@ -1691,7 +1631,7 @@ function sincronizarCarritoConHTML() {
   if (cambios) localStorage.setItem("carrito", JSON.stringify(carrito));
   
 
-  // 🔹 Actualizar UI inmediatamente
+  //  Actualizar UI inmediatamente
   const carritoCount = document.getElementById("carrito-count");
   const carritoTotal = document.getElementById("carrito-total");
 
@@ -1774,7 +1714,6 @@ document.querySelectorAll(".card").forEach(card => {
     }, 2000);
   });
 });
-
 
 let videoActivo = null;
 
