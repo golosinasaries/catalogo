@@ -15,20 +15,14 @@ let currentVariantes = null;
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const STOCK_PRODUCTOS = {
-  "Mogul Extreme Twist Max Mundial 600g (24 u)": 0,
-  "Sapito Mundial 252 g (24 u)": 0,
-  "Pastillas Alka sabor Cherry Mentol (caja x 12 u)": 1,
-  "Chupetines con led Unicornio (30 u)": 48,
-  "Gomitas Lilo y Stitch (60 u)": 2,
+  "Pastillas Alka sabor Cherry Mentol (caja x 12 u)": 0,
   "Llaveros láser Capibara (12 u)": 1,
-  "Lenguetazo Pinta Lengua (32 u)": 1,
-  "Lenguetazo Tropical Punch (32 u)": 1,
+  "Lenguetazo Pinta Lengua (32 u)": 2,
+  "Lenguetazo Tropical Punch (32 u)": 2,
   "Lenguetazo (32 u)": 2,
   "Alcancía Tigre Amarillo (con 12 gelatinas en su interior)": 12,
   "Alcancía Tigre Rojo (con 12 gelatinas en su interior)": 10,
-  "Alcancía Lechuza Rosa (con 12 gelatinas en su interior)": 1,
   "Alcancía Pollito Rojo (con 12 gelatinas en su interior)": 1,
-  "Alcancía Oso Café (con 12 gelatinas en su interior)": 2,
 };
 
 const alka = [
@@ -196,7 +190,7 @@ const drf   = [
 
 const globosgrandes   = [
     {
-    nombre: "Globo Unicornio 24 pulgdas (1 unidad)(1 unidad)",
+    nombre: "Globo Unicornio 24 pulgdas (1 unidad)",
     precio: 2500,
     img: "img/globosgrandes1.jpeg"
   },
