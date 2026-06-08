@@ -991,7 +991,7 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("carrito", JSON.stringify(carrito));
 
     const envio = localStorage.getItem("codigoPostalCliente")
-      ? ((PROMO_ACTIVA === "envio" && total >= 80000) || total >= 300000
+      ? ((PROMO_ACTIVA === "envio" && total >= 80000) || total >= 290000
           ? 0
           : calcularCostoEnvio(localStorage.getItem("codigoPostalCliente")))
       : null;
@@ -1329,7 +1329,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", async (e) =
 
   // envío
   const envio =
-    (PROMO_ACTIVA === "envio" && total >= 80000) || total >= 300000
+    (PROMO_ACTIVA === "envio" && total >= 80000) || total >= 290000
       ? 0
       : calcularCostoEnvio(cp);
 
@@ -1444,7 +1444,7 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
 
   if (PROMO_ACTIVA === "ninguna") {
 
-  if (total >= 300000) {
+  if (total >= 290000) {
 
     aviso.innerHTML = `
       🎉 <strong>¡Tenés envío gratis!</strong><br>
@@ -1452,7 +1452,7 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
 
   } else {
 
-    const falta = 300000 - total;
+    const falta = 290000 - total;
 
     aviso.innerHTML = `
     🛍️ Compra mínima $${minimoCompra.toLocaleString("es-AR")}✨
@@ -1800,55 +1800,54 @@ function mostrarEnvioModal(costo) {
   if (!modal) {
     modal = document.createElement("div");
     modal.id = "envio-modal";
+    const precioEnvio = calcularCostoEnvio(localStorage.getItem("codigoPostalCliente"));
+     const msg = encodeURIComponent(
+    `Hola, mi envío saldría aproximadamente $${precioEnvio}. ¿Por dónde se envía?`
+  );
 
     modal.innerHTML = `
       <div class="envio-box">
-        <h2>🚚 Envío</h2>
-
-        <p class="envio-precio"></p>
-
-        <p class="envio-info">
-           📦
-        </p>
+    
+       <p class="envio-precio">🚚 Envío: $${precioEnvio}</p>
 
         <p class="envio-gratis">
-          💖 Superando los $300.000 el envío es GRATIS
+          💖 Superando los $290.000 el envío es GRATIS
         </p>
 
         <div class="envio-actions">
-          <button id="cerrar-envio">Cerrar</button>
+          <button id="cerrar-envio">OK</button>
 
-          <a 
-            href="https://wa.me/542236010443" 
-            msg = encodeURIComponent(msg);
-            target="_blank"
-            id="hablar-envio"
-          >
-            WhatsApp
-          </a>
+           <a 
+          href="https://wa.me/542236010443?text=${msg}" 
+          target="_blank"
+          id="hablar-envio"
+        >
+          Hablar por WhatsApp
+        </a>
         </div>
       </div>
     `;
 
     document.body.appendChild(modal);
 
-    modal.addEventListener("click", (e) => {
-      if (e.target.id === "envio-modal") {
-        modal.style.display = "none";
-      }
-    });
+      // cerrar con botón OK
+      modal.querySelector("#cerrar-envio").addEventListener("click", () => {
+        modal.remove();
+      });
 
-    document.addEventListener("click", (e) => {
-      if (e.target.id === "cerrar-envio") {
-        modal.style.display = "none";
-      }
-    });
+      // cerrar clic afuera
+      modal.addEventListener("click", (e) => {
+        if (e.target.id === "envio-modal") {
+          modal.remove();
+        }
+      });
   }
+
 
   modal.querySelector(".envio-precio").innerHTML =
     costo === 0
       ? "🎉 <strong>Envío GRATIS</strong>"
-      : `Costo actual: <strong>$${costo.toLocaleString("es-AR")}</strong>`;
+      : `🚚 Costo actual de envío: <strong>$${costo.toLocaleString("es-AR")}</strong>`;
 
   modal.style.display = "flex";
 }
@@ -1885,7 +1884,7 @@ if (menuEnvio) {
   const total = calcularTotal();
 
   const costo =
-    (PROMO_ACTIVA === "envio" && total >= 80000) || total >= 300000
+    (PROMO_ACTIVA === "envio" && total >= 80000) || total >= 290000
       ? 0
       : calcularCostoEnvio(cp);
 
