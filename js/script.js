@@ -1290,8 +1290,8 @@ document.getElementById("enviar-carrito")?.addEventListener("click", async (e) =
   totalProductos += i.cantidad;
 
   msg += i.cantidad > 1
-    ? `• *${i.cantidad} x ${i.nombre}* — $${precioUnitario.toLocaleString("es-AR")} → $${subtotal.toLocaleString("es-AR")}\n`
-    : `• *${i.nombre}* → $${subtotal.toLocaleString("es-AR")}\n`;
+    ? `${i.cantidad} x ${i.nombre} — $${precioUnitario.toLocaleString("es-AR")} = $${subtotal.toLocaleString("es-AR")}\n`
+    : `${i.nombre} — $${subtotal.toLocaleString("es-AR")}\n`;
 });
 
   if (total < minimoCompra) {
