@@ -1328,6 +1328,9 @@ document.getElementById("enviar-carrito")?.addEventListener("click", async (e) =
       : calcularCostoEnvio(cp);
   msg += `\n📦 Total productos: ${totalProductos}`;
   msg += `\n🚚 Envío: $${envio.toLocaleString("es-AR")}`;
+  if (PROMO_ACTIVA === "regalo" && total >= minimoRegalo) {
+  msg += `\n🎁 REGALO: ${REGALO_NOMBRE}\n`;
+}
   msg += `\n`;
   msg += `💳 *TOTAL FINAL: $${(total + envio).toLocaleString("es-AR")}*\n`;
   msg += `📍 Código Postal: ${cp}`;
