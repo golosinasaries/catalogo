@@ -7,7 +7,7 @@ const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 const minimoRegalo = 60000;   
 const REGALO_NOMBRE = " Macarrones (30 u) 💙💚🧡";
-const PROMO_ACTIVA = "envio"; // opciones: "envio", "regalo", "ninguna"
+const PROMO_ACTIVA = "ninguna"; // opciones: "envio", "regalo", "ninguna"
 
 let productos = [];
 let productoIndex = 0;
