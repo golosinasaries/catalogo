@@ -1283,16 +1283,16 @@ document.getElementById("enviar-carrito")?.addEventListener("click", async (e) =
   let msg = "🛍️ *Quiero comenzar este pedido:*\n\n";
 
   carrito.forEach(i => {
-    const precioUnitario = parsePrecio(i.precio);
-    const subtotal = precioUnitario * i.cantidad;
+  const precioUnitario = parsePrecio(i.precio);
+  const subtotal = precioUnitario * i.cantidad;
 
-    total += subtotal;
-    totalProductos += i.cantidad;
+  total += subtotal;
+  totalProductos += i.cantidad;
 
-    msg += i.cantidad > 1
-    ? `• *${i.nombre}* — *${i.cantidad}* x $${i.precio} → $${subtotal.toLocaleString("es-AR")}\n`
+  msg += i.cantidad > 1
+    ? `• *${i.nombre}*\n  × ${i.cantidad} — $${precioUnitario.toLocaleString("es-AR")}\n  → *$${subtotal.toLocaleString("es-AR")}*\n`
     : `• *${i.nombre}* → $${subtotal.toLocaleString("es-AR")}\n`;
-  });
+});
 
   if (total < minimoCompra) {
     Swal.fire({
