@@ -1290,8 +1290,8 @@ document.getElementById("enviar-carrito")?.addEventListener("click", async (e) =
   totalProductos += i.cantidad;
 
   msg += i.cantidad > 1
-    ? `${i.cantidad} x ${i.nombre} — $${precioUnitario.toLocaleString("es-AR")} = $${subtotal.toLocaleString("es-AR")}\n`
-    : `${i.nombre} — $${subtotal.toLocaleString("es-AR")}\n`;
+? `• ${i.nombre} — ${i.cantidad} x $${precioUnitario.toLocaleString("es-AR")} → $${subtotal.toLocaleString("es-AR")}\n`
+: `• ${i.nombre} → $${subtotal.toLocaleString("es-AR")}\n`;
 });
 
   if (total < minimoCompra) {
@@ -1332,11 +1332,12 @@ document.getElementById("enviar-carrito")?.addEventListener("click", async (e) =
     (PROMO_ACTIVA === "envio" && total >= 80000) || total >= 350000
       ? 0
       : calcularCostoEnvio(cp);
-
+  msg += "\n────────────────────\n";
   msg += `\n📦 Total productos: ${totalProductos}`;
   msg += `\n🚚 Envío: $${envio.toLocaleString("es-AR")}`;
-  msg += `\n💳 Total: $${(total + envio).toLocaleString("es-AR")}`;
-  msg += `\n📍 Código Postal: ${cp}`;
+  msg += `\n`;
+  msg += `💳 *TOTAL FINAL: $${(total + envio).toLocaleString("es-AR")}*\n`;
+  msg += `📍 Código Postal: ${cp}`;
 
   const numero = "542236010443";
   const url = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
