@@ -199,11 +199,6 @@ const globosgrandes   = [
     precio: 2500,
     img: "img/globosgrandes2.jpeg"
   },
- {
-    nombre: "Globo Estrella Explosiva Azul 22 pulgdas (1 unidad)",
-    precio: 2500,
-    img: "img/globosgrandes3.jpeg"
-  },
 
 ];
 
