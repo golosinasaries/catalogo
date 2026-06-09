@@ -1290,8 +1290,8 @@ document.getElementById("enviar-carrito")?.addEventListener("click", async (e) =
   totalProductos += i.cantidad;
 
   msg += i.cantidad > 1
-? `• ${i.nombre} — ${i.cantidad} x $${precioUnitario.toLocaleString("es-AR")} → $${subtotal.toLocaleString("es-AR")}\n`
-: `• ${i.nombre} → $${subtotal.toLocaleString("es-AR")}\n`;
+  ? `• *${i.cantidad}* ${i.nombre} — $${precioUnitario.toLocaleString("es-AR")} x${i.cantidad} → $${subtotal.toLocaleString("es-AR")}\n`
+  : `• ${i.nombre} → $${subtotal.toLocaleString("es-AR")}\n`;
 });
 
   if (total < minimoCompra) {
@@ -1332,7 +1332,6 @@ document.getElementById("enviar-carrito")?.addEventListener("click", async (e) =
     (PROMO_ACTIVA === "envio" && total >= 80000) || total >= 350000
       ? 0
       : calcularCostoEnvio(cp);
-  msg += "\n────────────────────\n";
   msg += `\n📦 Total productos: ${totalProductos}`;
   msg += `\n🚚 Envío: $${envio.toLocaleString("es-AR")}`;
   msg += `\n`;
