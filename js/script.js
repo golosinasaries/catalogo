@@ -991,7 +991,7 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("carrito", JSON.stringify(carrito));
 
     const envio = localStorage.getItem("codigoPostalCliente")
-      ? ((PROMO_ACTIVA === "envio" && total >= 80000) || total >= 350.000
+      ? ((PROMO_ACTIVA === "envio" && total >= 80000) || total >= 350000
           ? 0
           : calcularCostoEnvio(localStorage.getItem("codigoPostalCliente")))
       : null;
@@ -1290,8 +1290,8 @@ document.getElementById("enviar-carrito")?.addEventListener("click", async (e) =
     totalProductos += i.cantidad;
 
     msg += i.cantidad > 1
-  ? `• *${i.nombre}* — ${i.cantidad} x ${i.precio} → $${subtotal.toLocaleString("es-AR")}\n`
-  : `• *${i.nombre}* → $${subtotal.toLocaleString("es-AR")}\n`;
+    ? `• *${i.nombre}* — *${i.cantidad}* x $${i.precio} → $${subtotal.toLocaleString("es-AR")}\n`
+    : `• *${i.nombre}* → $${subtotal.toLocaleString("es-AR")}\n`;
   });
 
   if (total < minimoCompra) {
@@ -1329,7 +1329,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", async (e) =
 
   // envío
   const envio =
-    (PROMO_ACTIVA === "envio" && total >= 80000) || total >= 350.000
+    (PROMO_ACTIVA === "envio" && total >= 80000) || total >= 350000
       ? 0
       : calcularCostoEnvio(cp);
 
@@ -1444,7 +1444,7 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
 
   if (PROMO_ACTIVA === "ninguna") {
 
-  if (total >= 350.000) {
+  if (total >= 350000) {
 
     aviso.innerHTML = `
       🎉 <strong>¡Tenés envío gratis!</strong><br>
@@ -1452,7 +1452,7 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
 
   } else {
 
-    const falta = 350.000 - total;
+    const falta = 350000 - total;
 
     aviso.innerHTML = `
     🛍️ Compra mínima $${minimoCompra.toLocaleString("es-AR")}✨
@@ -1811,7 +1811,7 @@ function mostrarEnvioModal(costo) {
        <p class="envio-precio">🚚 Envío: $${precioEnvio}</p>
 
         <p class="envio-gratis">
-          💖 Superando los $290.000 el envío es GRATIS
+          💖 Superando los $350.000 el envío es GRATIS
         </p>
 
         <div class="envio-actions">
@@ -1884,7 +1884,7 @@ if (menuEnvio) {
   const total = calcularTotal();
 
   const costo =
-    (PROMO_ACTIVA === "envio" && total >= 80000) || total >= 350.000
+    (PROMO_ACTIVA === "envio" && total >= 80000) || total >= 350000
       ? 0
       : calcularCostoEnvio(cp);
 
