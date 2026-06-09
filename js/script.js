@@ -438,7 +438,6 @@ if (modal) {
     "Chupetines con led Mc Donalds (30 u)": ["img/mc.jpg","img/mc2.jpg", "img/mc3.jpeg"],
     "Chupetines con led Oreo (30 u)": ["img/oreo1.jpg","img/oreo2.jpg",],
     "Chupetines led Monster (30 u)": ["img/monsterojo1.jpg","img/monsterojo.jpg",],
-    "Gomitas de Gelatinas Candy Loka (10 u)": ["img/gelatinaloka2.jpg","img/gelatinaloka1.jpg","img/gelatinaloka3.jpg","img/trompo.jpg",],
     "Chupetines Hongos (30 u)": ["img/hongo1.jpg","img/hongo2.jpg"],
     "Chupetines Frutillas (30 u)": ["img/chupetinfrutilla1.jpg","img/chupetinfrutilla2.jpg", "img/chupetinnnrutilla2.jpg"],
     "Gomitas Astronauta (30 u)": ["img/astronauta2.jpg","img/astronauta1.jpg"],
