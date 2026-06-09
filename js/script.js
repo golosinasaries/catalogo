@@ -6,8 +6,8 @@ const ENVIO_SANTACRUZ = 15900;
 const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 const minimoRegalo = 60000;   
-const REGALO_NOMBRE = " Macarrones (30 u) 💙💚🧡";
-const PROMO_ACTIVA = "ninguna"; // opciones: "envio", "regalo", "ninguna"
+const REGALO_NOMBRE = "Chupetes Capibara (30 u)";
+const PROMO_ACTIVA = "regalo"; // opciones: "envio", "regalo", "ninguna"
 
 let productos = [];
 let productoIndex = 0;
