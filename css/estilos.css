@@ -1304,7 +1304,7 @@ html { scroll-behavior: smooth; }
 }
 
 #whatsapp-btn:hover {
-  transform: scale(1.05);
+  opacity: 0.92;
 }
 
 #whatsapp-btn img {
@@ -1316,6 +1316,9 @@ html { scroll-behavior: smooth; }
 
 #whatsapp-btn span {
   white-space: nowrap;
+}
+#whatsapp-btn {
+  will-change: transform;
 }
 
 @media (max-width: 768px) {
