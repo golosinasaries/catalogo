@@ -316,7 +316,7 @@ function calcularCostoEnvio(cp) {
 
   // Miramar
   if (codigo === "7607") {
-    return ENVIO_MIRAMAR + extraEnvio;
+    return ENVIO_MIRAMAR;
   }
 
   // Santa Cruz
