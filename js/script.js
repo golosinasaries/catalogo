@@ -15,6 +15,7 @@ let currentVariantes = null;
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const STOCK_PRODUCTOS = {
+  "Pastillas D.R.F Sabor Anis (caja x 12 u)": 0,
   "Pastillas Alka sabor Cherry Mentol (caja x 12 u)": 0,
   "Llaveros láser Capibara (12 u)": 1,
   "Lenguetazo Pinta Lengua (32 u)": 2,
@@ -40,11 +41,13 @@ const alka = [
 ];
 
 const globos = [
+  /*
   {
     nombre: "Chicle Fierita Globo sabor Banana (95 u)",
     precio: 7900,
     img: "img/globobanana.jpg"
   },
+  */
   {
     nombre: "Chicle Fierita Globo sabor Frutilla (95 u)",
     precio: 7900,
@@ -173,15 +176,18 @@ const oblita = [
 ];
 
 const drf   = [
-    {
-    nombre: "Pastillas D.R.F Sabor Anis (caja x 12 u)",
-    precio: 6200,
-    img: "img/drfanis.jpeg"
-  },
+  /*
+
+  */
  {
     nombre: "Pastillas D.R.F Sabor Menta (caja x 12 u)",
     precio: 6200,
     img: "img/drfmenta.jpeg"
+  },
+      {
+    nombre: "Pastillas D.R.F Sabor Anis (caja x 12 u)",
+    precio: 6200,
+    img: "img/drfanis.jpeg"
   },
 
 ];
