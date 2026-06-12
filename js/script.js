@@ -58,14 +58,6 @@ const globos = [
 ];
 
 const alcancias = [
-
- 
-
- {
-    nombre: "Alcancía Tigre Rojo (con 12 gelatinas en su interior)",
-    precio: 6900,
-    img: "img/tigrerojo.png"
-  },
 /*
   {
     nombre: "Alcancía Pollito Rojo (con 12 gelatinas en su interior)",
@@ -100,6 +92,12 @@ const alcancias = [
     nombre: "Alcancía Oso Rosa (con 12 gelatinas en su interior)",
     precio: 6900,
     img: "img/osorosa2.png"
+  },
+
+   {
+    nombre: "Alcancía Tigre Rojo (con 12 gelatinas en su interior)",
+    precio: 6900,
+    img: "img/tigrerojo.png"
   },
 /*
       {
@@ -136,12 +134,12 @@ const recargados = [
 ];
 
 const oblita = [
-  {
+ /* {
     img: "img/oblita_blanco.jpg",
     nombre: "Oblita Chocolate Blanco (48 u)",
     precio: 6500
   },
-
+*/
   {
     img: "img/oblita_nougat.jpeg",
     nombre: "Oblita Nougat (48 u)",
