@@ -306,7 +306,7 @@ function calcularCostoEnvio(cp) {
   let extraEnvio = 0;
 
   // Si supera 27 productos
-  if (totalProductos > 27) {
+  if (totalProductos > 23) {
     return 25900;
   }
 
