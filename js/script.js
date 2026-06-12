@@ -302,7 +302,10 @@ function calcularCostoEnvio(cp) {
     (acc, item) => acc + item.cantidad,
     0
   );
-
+    // Miramar
+  if (codigo === "7607") {
+    return ENVIO_MIRAMAR;
+  }
   let extraEnvio = 0;
 
   // Si supera 27 productos
@@ -314,10 +317,6 @@ function calcularCostoEnvio(cp) {
   const extraBloques = Math.floor(totalProductos / 10);
   extraEnvio = extraBloques * 1900;
 
-  // Miramar
-  if (codigo === "7607") {
-    return ENVIO_MIRAMAR;
-  }
 
   // Santa Cruz
   const prefijos = ["9303", "4430", "8371", "3304"];
