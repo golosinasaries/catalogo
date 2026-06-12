@@ -2670,3 +2670,26 @@ a {
   padding:10px;
   margin-top:10px;
 }
+
+.card-instagram{
+  height: 415px;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 3px solid #ff2b7a;
+  background: white;
+}
+
+
+.card-instagram .instagram-media{
+  min-width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+
+
+.card-instagram iframe{
+  height: 760px !important;
+  margin-top: -145px;
+}
+
+
