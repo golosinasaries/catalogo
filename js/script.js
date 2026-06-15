@@ -18,7 +18,6 @@ const STOCK_PRODUCTOS = {
   "Chupetines Selección 384 g (24 u)": 1,
   "Pastillas D.R.F Sabor Anis (caja x 12 u)": 0,
   "Pastillas Alka sabor Cherry Mentol (caja x 12 u)": 0,
-  "Llaveros láser Capibara (12 u)": 1,
   "Lenguetazo Pinta Lengua (32 u)": 2,
   "Lenguetazo Tropical Punch (32 u)": 2,
   "Lenguetazo (32 u)": 2,
@@ -1019,7 +1018,7 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("carrito", JSON.stringify(carrito));
 
     const envio = localStorage.getItem("codigoPostalCliente")
-      ? ((PROMO_ACTIVA === "envio" && total >= 150000) || total >= 350000
+      ? ((PROMO_ACTIVA === "envio" && total >= 150000) || total >= 300000
           ? 0
           : calcularCostoEnvio(localStorage.getItem("codigoPostalCliente")))
       : null;
@@ -1357,7 +1356,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", async (e) =
 
   // envío
   const envio =
-    (PROMO_ACTIVA === "envio" && total >= 150000) || total >= 350000
+    (PROMO_ACTIVA === "envio" && total >= 150000) || total >= 300000
       ? 0
       : calcularCostoEnvio(cp);
   msg += `\n📦 Total productos: ${totalProductos}`;
@@ -1475,7 +1474,7 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
 
   if (PROMO_ACTIVA === "ninguna") {
 
-  if (total >= 350000) {
+  if (total >= 300000) {
 
     aviso.innerHTML = `
       🎉 <strong>¡Tenés envío gratis!</strong><br>
@@ -1483,7 +1482,7 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
 
   } else {
 
-    const falta = 350000 - total;
+    const falta = 300000 - total;
 
     aviso.innerHTML = `
     🛍️ Compra mínima $${minimoCompra.toLocaleString("es-AR")}✨
@@ -1915,7 +1914,7 @@ if (menuEnvio) {
   const total = calcularTotal();
 
   const costo =
-    (PROMO_ACTIVA === "envio" && total >= 150000) || total >= 350000
+    (PROMO_ACTIVA === "envio" && total >= 150000) || total >= 300000
       ? 0
       : calcularCostoEnvio(cp);
 
