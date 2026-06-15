@@ -207,6 +207,25 @@ const globosgrandes   = [
 
 ];
 
+const bulldog   = [
+    { 
+    nombre: "Bull Dog 360 g de Frambuesa Ácida",
+    precio: 7900,
+    img: "img/cajabulldogframbuesa.jpg"
+  },
+
+  { 
+    nombre: "Bull Dog 360 g de Tutti Frutti Ácida",
+    precio: 7900,
+    img: "img/cajabulldogtt.jpg"
+  },
+  { 
+    nombre: "Bull Dog 360 g de Frutilla Ácida",
+    precio: 7900,
+    img: "img/cajabulldogfrutilla.jpg"
+  },
+];
+
 
 const productosVariantes = {
   "card-alcancia": alcancias,
@@ -216,6 +235,7 @@ const productosVariantes = {
   "card-drf": drf,
   "card-alka": alka,
   "card-globosgrandes": globosgrandes,
+  "card-bulldog": bulldog,
 };
 
 function cambiarVariante(el, direccion) {
