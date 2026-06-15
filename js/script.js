@@ -15,6 +15,7 @@ let currentVariantes = null;
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const STOCK_PRODUCTOS = {
+  "Llaveros láser Capibara (1 u)": 5,
   "Chupetines Selección 384 g (24 u)": 1,
   "Pastillas D.R.F Sabor Anis (caja x 12 u)": 0,
   "Pastillas Alka sabor Cherry Mentol (caja x 12 u)": 0,
@@ -424,7 +425,7 @@ if (modal) {
     "Dinosaurio con caramelos y luces (1 unidad)": ["img/fotodinosaurio.jpg","img/videodinosaurio.mp4"],
     "Gomitas de boca (30 u)": ["img/boca.jpg","img/videoboca.mp4"],
     "Gomitas Spider-Man (60 u)": ["img/spiderman1.jpg","img/spiderman2.jpg","img/spiderman3.jpg","img/spiderman4.jpg","img/spiderman5.jpg"],
-    "Llaveros láser Capibara (12 u)": ["img/laser1.jpg","img/laser2.jpg","img/laser3.jpg"],
+    "Llaveros láser Capibara (1 u)": ["img/laser1.jpg","img/laser2.jpg","img/laser3.jpg"],
     "Ring Pop Barbie (30 u)": ["img/ringpopbarbie.jpg","img/ringpop.jpg"],
     "Pistolitas con luz (30 u)": ["img/pistolita1.jpg","img/pistolita2.jpg","img/pistolita3.jpg","img/pistolita4.jpg"],
     "YO-YOs con luces (12 u)": ["img/yoyo1.jpg","img/yoyo3.jpg","img/yoyo4.jpg","img/yoyo2.jpg"],
