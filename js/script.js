@@ -7,7 +7,7 @@ const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 const minimoRegalo = 60000;   
 const REGALO_NOMBRE = "Chupetes Capibara (30 u)";
-const PROMO_ACTIVA = "ninguna"; // opciones: "envio", "regalo", "ninguna"
+const PROMO_ACTIVA = "envio"; // opciones: "envio", "regalo", "ninguna"
 
 let productos = [];
 let productoIndex = 0;
@@ -15,7 +15,7 @@ let currentVariantes = null;
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const STOCK_PRODUCTOS = {
-  "Mogul Ladrillos Mundial 500 g": 1,
+  "Mogul Ladrillos Mundial 500 g": 3,
   "Llaveros láser Capibara (1 u)": 2,
   "Chupetines Selección 384 g (24 u)": 1,
   "Pastillas D.R.F Sabor Anis (caja x 12 u)": 0,
