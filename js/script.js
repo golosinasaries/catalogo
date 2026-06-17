@@ -17,7 +17,6 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 const STOCK_PRODUCTOS = {
   "Mogul Ladrillos Mundial 500 g": 3,
   "Llaveros láser Capibara (1 u)": 2,
-  "Chupetines Selección 384 g (24 u)": 1,
   "Pastillas D.R.F Sabor Anis (caja x 12 u)": 0,
   "Pastillas Alka sabor Cherry Mentol (caja x 12 u)": 0,
   "Lenguetazo Pinta Lengua (32 u)": 2,
