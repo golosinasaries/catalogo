@@ -226,6 +226,44 @@ const bulldog   = [
   },
 ];
 
+const simple   = [
+   {
+  nombre: "Alfajor Guaymallén simple de Dulce de Leche (10 u)",
+  precio: 4900,
+  img: "img/guaysimplenegro.jpg"
+  },
+  {
+    nombre: "Alfajor Guaymallén simple de Chocolate Blanco (10 u)",
+    precio: 4900,
+    img: "img/guaysimpleblanco.jpg"
+  }
+];
+
+const triple   = [
+  {
+    nombre: "Alfajor Guaymallén triple de Chocolate Blanco (12 u)",
+    precio: 8500,
+    img: "img/guayblanco.jpg"
+  },
+  {
+    nombre: "Alfajor Guaymallén triple de Dulce de Leche (12 u)",
+    precio: 8500,
+    img: "img/guayddl.jpg"
+  }
+];
+
+const triple6   = [
+    {
+    nombre: "Alfajor Guaymallén triple de Dulce de Leche (6 u)",
+    precio: 4500,
+    img: "img/guayddl.jpg"
+  },
+  {
+    nombre: "Alfajor Guaymallén triple de Chocolate Blanco (6 u)",
+    precio: 4500,
+    img: "img/guayblanco.jpg"
+  },
+  ];
 
 const productosVariantes = {
   "card-alcancia": alcancias,
@@ -236,6 +274,9 @@ const productosVariantes = {
   "card-alka": alka,
   "card-globosgrandes": globosgrandes,
   "card-bulldog": bulldog,
+  "card-simple": simple,
+  "card-triple": triple,
+  "card-triple6": triple6,
 };
 
 function cambiarVariante(el, direccion) {

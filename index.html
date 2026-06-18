@@ -663,27 +663,39 @@
           <button class="btn-carrito">Agregar al carrito</button>  
         </div>
 -->
-      
-        <div class="card" data-cat="alfajores">
-          <img src="img/guaysimpleblanco.jpg" alt="Alfajor"  >
-          <h3>Alfajor Guaymallén simple de Chocolate Blanco (10 u)</h3>
-          <p>$4.900</p>
-          <button class="btn-carrito">Agregar al carrito</button>  
+      <div class="card card-triple" data-index="0" data-cat="alfajores">
+        <div class="img-container">
+          <span class="flecha izq" onclick="event.stopPropagation(); cambiarVariante(this, -1)">‹</span> <img src="img/guayblanco.jpg" alt="Alfajor"> <span class="flecha der" onclick="event.stopPropagation(); cambiarVariante(this, 1)">›</span>
         </div>
+        <h3>Alfajor Guaymallén Triple de Chocolate Blanco (12 u)</h3>
+        <p>$8.500</p>
+        <button class="btn-carrito" data-nombre="Alfajor Guaymallén Triple de Chocolate Blanco (12 u)" data-precio="8500"> Agregar al carrito</button>
+      </div>
 
-        <div class="card" data-cat="alfajores">
-          <img src="img/guaysimplenegro.jpg" alt="Alfajor"  >
-          <h3>Alfajor Guaymallén simple de Dulce de Leche (10 u)</h3>
-          <p>$4.900</p>
-          <button class="btn-carrito">Agregar al carrito</button>  
+      <div class="card card-triple6" data-index="0" data-cat="alfajores">
+        <div class="img-container">
+          <span class="flecha izq" onclick="event.stopPropagation(); cambiarVariante(this, -1)">‹</span> <img src="img/guayddl.jpg" alt="Alfajor"> <span class="flecha der" onclick="event.stopPropagation(); cambiarVariante(this, 1)">›</span>
         </div>
+        <h3>Alfajor Guaymallén Triple de Dulce de Leche (6 u)</h3>
+        <p>$4.500</p>
+        <button class="btn-carrito" data-nombre="Alfajor Guaymallén Triple de Dulce de Leche (6 u)" data-precio="4500"> Agregar al carrito</button>
+      </div>
 
-        <div class="card" data-cat="chocolates">
-          <img src="img/bombones_surtidos.jpg" alt="Bombones Surtidos"  >
-          <h3>Bocaditos Bel (50 u)</h3>
-          <p>$9.500</p>
-          <button class="btn-carrito">Agregar al carrito</button>  
+      <div class="card card-simple" data-index="0" data-cat="alfajores">
+        <div class="img-container">
+          <span class="flecha izq" onclick="event.stopPropagation(); cambiarVariante(this, -1)">‹</span> <img src="img/guaysimpleblanco.jpg" alt="Alfajor"> <span class="flecha der" onclick="event.stopPropagation(); cambiarVariante(this, 1)">›</span>
         </div>
+        <h3>Alfajor Guaymallén simple de Chocolate Blanco (10 u)</h3>
+        <p>$4.900</p>
+        <button class="btn-carrito" data-nombre="Alfajor Guaymallén simple de Chocolate Blanco (10 u)" data-precio="4900"> Agregar al carrito</button>
+      </div>
+
+      <div class="card" data-cat="chocolates">
+        <img src="img/bombones_surtidos.jpg" alt="Bombones Surtidos"  >
+        <h3>Bocaditos Bel (50 u)</h3>
+        <p>$9.500</p>
+        <button class="btn-carrito">Agregar al carrito</button>  
+      </div>
 
         <!--
         <div class="card" data-cat="alfajores">
