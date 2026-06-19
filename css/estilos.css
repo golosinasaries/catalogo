@@ -1615,10 +1615,11 @@ html { scroll-behavior: smooth; }
 }
 
 .modal-content {
-  max-width: 350px;   
+  max-width: 350px;  
+  max-height: 90vh; 
   width: 100%;
   color: #000000;
-  padding: 1rem;
+  padding: 1.3rem;
   text-align: center;
   position: relative;
   align-items: center;
@@ -1653,10 +1654,9 @@ html { scroll-behavior: smooth; }
 
 .close {
   position: absolute;
-  top: 8px;
-  right: 16px;
+  top: -12px;
+  right: 2px;
   font-size: 4rem;
-  font-weight: bold;
   cursor: pointer;
   z-index: 200;
   user-select: none;
@@ -1664,20 +1664,20 @@ html { scroll-behavior: smooth; }
 }
 
 .close:hover { color: #EC4899; }
-
+/* Flechas de navegación en modal */
 .modal-content .prev,
 .modal-content .next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   background: rgba(44, 41, 41, 0.8);
   color: #fff;
-  font-size: 1.2rem;
+  font-size: 2.6rem;
   font-weight: bold;
   border-radius: 50%;
   cursor: pointer;
@@ -1685,8 +1685,8 @@ html { scroll-behavior: smooth; }
   transition: background 0.2s;
 }
 
-.modal-content .prev { left: 12px; }
-.modal-content .next { right: 12px; }
+.modal-content .prev { left: 2px; }
+.modal-content .next { right: 2px; }
 .modal-content .prev:hover,
 .modal-content .next:hover { background: rgba(0,0,0,0.95); }
 .modal-precio {
@@ -1748,7 +1748,7 @@ html { scroll-behavior: smooth; }
   margin-bottom: 0rem;
   margin-top: 0rem;
   overflow-y: auto;
-  padding: 10px;
+  padding: 12px;
 }
 
 .modal-footer {
