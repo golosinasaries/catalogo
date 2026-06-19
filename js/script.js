@@ -454,6 +454,7 @@ if (modal) {
 
   // Productos
   const imagenesProducto = {
+    "Alfajor Red Velvet Cheesecake 70g": ["img/redvelvet.jpeg","img/redvelvet.mp4"],
     "Gomitas Gatitos (30 u)": ["img/gatito1.jpeg","img/gatito2.jpeg","img/gatito3.jpeg","img/gatito4.jpeg"],
     "Gomitas Monsters (30 u)": ["img/monsters1.jpg","img/monsters2.jpg","img/monsters3.jpg","img/monsters4.jpg"],
     "Camisetas Niños👕(10 Camisetas)": ["img/camisetas1414.jpeg","img/videocamisetasniño.mp4","img/camisetaniños2.jpeg"],
