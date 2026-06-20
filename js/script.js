@@ -15,6 +15,7 @@ let currentVariantes = null;
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const STOCK_PRODUCTOS = {
+  "Gomitas Ojos (30 u)": 1,
   "Mogul Ladrillos Mundial 500 g": 3,
   "Llaveros láser Capibara (1 u)": 2,
   "Pastillas D.R.F Sabor Anis (caja x 12 u)": 0,
