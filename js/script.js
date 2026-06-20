@@ -20,7 +20,7 @@ const STOCK_PRODUCTOS = {
   "Llaveros láser Capibara (1 u)": 2,
   "Pastillas D.R.F Sabor Anis (caja x 12 u)": 0,
   "Pastillas Alka sabor Cherry Mentol (caja x 12 u)": 0,
-  "Lenguetazo Pinta Lengua (32 u)": 2,
+  "Lenguetazo Pinta Lengua (32 u)": 1,
   "Lenguetazo Tropical Punch (32 u)": 2,
   "Lenguetazo (32 u)": 2,
   "Alcancía Tigre Amarillo (con 12 gelatinas en su interior)": 12,
