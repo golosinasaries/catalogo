@@ -15,17 +15,14 @@ let currentVariantes = null;
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const STOCK_PRODUCTOS = {
+  "Chupetines K-pop (30 u)": 1,
   "Chupetines Deportes (24 u)": 1,
   "Latitas con chicles (30 latitas)": 5,
   "Mogul Ladrillos Mundial 500 g": 3,
   "Llaveros láser Capibara (1 u)": 2,
   "Pastillas D.R.F Sabor Anis (caja x 12 u)": 0,
-  "Pastillas Alka sabor Cherry Mentol (caja x 12 u)": 0,
-  "Lenguetazo Pinta Lengua (32 u)": 1,
+  "Lenguetazo Pinta Lengua (32 u)": 0,
   "Lenguetazo Tropical Punch (32 u)": 2,
-  "Lenguetazo (32 u)": 2,
-  "Alcancía Tigre Amarillo (con 12 gelatinas en su interior)": 12,
-  "Alcancía Tigre Rojo (con 12 gelatinas en su interior)": 10,
   "Alcancía Pollito Rojo (con 12 gelatinas en su interior)": 1,
 };
 
@@ -182,6 +179,12 @@ const drf   = [
   /*
 
   */
+      {
+    nombre: "Pastillas D.R.F Sabor Mentol (caja x 12 u)",
+    precio: 6200,
+    img: "img/drfmentol.png"
+  },
+
  {
     nombre: "Pastillas D.R.F Sabor Menta (caja x 12 u)",
     precio: 6200,
