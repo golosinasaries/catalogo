@@ -1825,6 +1825,7 @@ h1, h2, h3 {
   font-size: 18px;
   color: black;
   animation: fakeClick 1.6s infinite;
+  font-weight: bold;
 }
 
 .card .flecha.izq {  
