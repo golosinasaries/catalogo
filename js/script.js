@@ -13,8 +13,10 @@ let productos = [];
 let productoIndex = 0;
 let currentVariantes = null;
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+const cooldownCards = new WeakMap();
 
 const STOCK_PRODUCTOS = {
+  "Bull Dog 360 g de Frambuesa Ácida": 0,
   "Chupetines K-pop (30 u)": 1,
   "Chupetines Deportes (24 u)": 1,
   "Latitas con chicles (30 latitas)": 5,
@@ -213,16 +215,16 @@ const globosgrandes   = [
 ];
 
 const bulldog   = [
-    { 
-    nombre: "Bull Dog 360 g de Frambuesa Ácida",
-    precio: 7900,
-    img: "img/cajabulldogframbuesa.jpg"
-  },
-
+  
   { 
     nombre: "Bull Dog 360 g de Tutti Frutti Ácida",
     precio: 7900,
     img: "img/cajabulldogtt.jpg"
+  },
+    { 
+    nombre: "Bull Dog 360 g de Frambuesa Ácida",
+    precio: 7900,
+    img: "img/cajabulldogframbuesa.jpg"
   },
   { 
     nombre: "Bull Dog 360 g de Frutilla Ácida",
@@ -286,6 +288,11 @@ const productosVariantes = {
 
 function cambiarVariante(el, direccion) {
   const card = el.closest('.card');
+  card.classList.add('sin-animacion');
+
+  setTimeout(() => {
+    card.classList.remove('sin-animacion');
+  }, 10 * 60 * 1000);
 
   const claseVariante = Object.keys(productosVariantes)
     .find(c => card.classList.contains(c));
@@ -392,7 +399,7 @@ function calcularCostoEnvio(cp) {
 
 
   // Santa Cruz
-  const prefijos = ["9303", "4430", "8371", "3304"];
+  const prefijos = ["9303", "4430", "8371", "3304", "4449"];
 
   for (const p of prefijos) {
     if (codigo.startsWith(p)) {
