@@ -207,7 +207,7 @@ const globosgrandes   = [
     precio: 2500,
     img: "img/globosgrandes2.jpeg"
   },
-  
+
     {
     nombre: "Globo Unicornio 24 pulgdas (1 unidad)",
     precio: 2500,
@@ -470,7 +470,7 @@ if (modal) {
   const imagenesProducto = {
     "Alfajor Red Velvet Cheesecake 70g (5 unidades)": ["img/redvelvet.png","img/redvelvet.mp4"],
     "Gomitas Gatitos (30 u)": ["img/gatito1.jpeg","img/gatito2.jpeg","img/gatito3.jpeg","img/gatito4.jpeg"],
-    "Gomitas Monsters (30 u)": ["img/monsters1.jpg","img/monsters2.jpg","img/monsters3.jpg","img/monsters4.jpg"],
+    "Gomitas Monsters (30 u)": ["img/monster1.jpeg","img/monster2.jpeg","img/monster3.jpeg"],
     "Camisetas Niños👕(10 Camisetas)": ["img/camisetas1414.jpeg","img/videocamisetasniño.mp4","img/camisetaniños2.jpeg"],
     "Camisetas Adultos ⚽🔥 (10 Camisetas)": ["img/camisetas1616.jpeg","img/videocamisetaniño.mp4","img/adultos2.mp4","img/camiseta2.jpeg","img/camiseta3.jpeg","img/camiseta4.jpeg"],
     "Chupetines K-pop (30 u)": ["img/kpp1.jpeg","img/kpp2.jpeg","img/kpop.jpeg"],
