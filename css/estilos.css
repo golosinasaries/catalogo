@@ -1830,12 +1830,14 @@ h1, h2, h3 {
 .card .flecha.izq {  
   left: 6px;
   animation: clickIzq 1.6s infinite;
+  animation-delay: 0.8s;
+
 }
 
 .card .flecha.der { 
   right: 6px;
   animation: clickDer 1.6s infinite;
- }
+}
 
 @keyframes clickDer {
   0%, 70%, 100% {

@@ -201,15 +201,17 @@ const drf   = [
 ];
 
 const globosgrandes   = [
+
+   {
+    nombre: "Globo Unicornio Rosa 24 pulgdas (1 unidad)",
+    precio: 2500,
+    img: "img/globosgrandes2.jpeg"
+  },
+  
     {
     nombre: "Globo Unicornio 24 pulgdas (1 unidad)",
     precio: 2500,
     img: "img/globosgrandes1.jpeg"
-  },
- {
-    nombre: "Globo Unicornio Rosa 24 pulgdas (1 unidad)",
-    precio: 2500,
-    img: "img/globosgrandes2.jpeg"
   },
 
 ];
