@@ -1376,7 +1376,10 @@ document.getElementById("enviar-carrito")?.addEventListener("click", async (e) =
   ? `• *${i.cantidad}* ${i.nombre} — $${precioUnitario.toLocaleString("es-AR")} x${i.cantidad} → $${subtotal.toLocaleString("es-AR")}\n`
   : `• ${i.nombre} → $${subtotal.toLocaleString("es-AR")}\n`;
 });
-
+if (PROMO_ACTIVA === "regalo" && total >= minimoRegalo) {
+  msg += `• 🎁 ${REGALO_NOMBRE} → GRATIS\n`;
+  totalProductos += 1;
+}
   if (total < minimoCompra) {
     Swal.fire({
       icon: "warning",
@@ -1416,15 +1419,8 @@ document.getElementById("enviar-carrito")?.addEventListener("click", async (e) =
       ? 0
       : calcularCostoEnvio(cp);
 
-  // si hay promo regalo, sumarlo al total de productos
-  if (PROMO_ACTIVA === "regalo" && total >= minimoRegalo) {
-    totalProductos += 1;
-  }
   msg += `\n📦 Total productos: ${totalProductos}`;
   msg += `\n🚚 Envío: $${envio.toLocaleString("es-AR")}`;
-  if (PROMO_ACTIVA === "regalo" && total >= minimoRegalo) {
-  msg += `\n🎁 REGALO: ${REGALO_NOMBRE}\n`;
-}
   msg += `\n`;
   msg += `💳 *TOTAL FINAL: $${(total + envio).toLocaleString("es-AR")}*\n`;
   msg += `📍 Código Postal: ${cp}`;
