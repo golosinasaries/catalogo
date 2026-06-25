@@ -16,16 +16,15 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 const cooldownCards = new WeakMap();
 
 const STOCK_PRODUCTOS = {
+  "Alcancía Oso Rosa (con 12 gelatinas en su interior)": 0,
   "Bull Dog 360 g de Frambuesa Ácida": 3,
   "Chupetines K-pop (30 u)": 1,
-  "Chupetines Deportes (24 u)": 1,
   "Latitas con chicles (30 latitas)": 5,
   "Mogul Ladrillos Mundial 500 g": 3,
   "Llaveros láser Capibara (1 u)": 2,
   "Pastillas D.R.F Sabor Anis (caja x 12 u)": 0,
   "Lenguetazo Pinta Lengua (32 u)": 0,
   "Lenguetazo Tropical Punch (32 u)": 2,
-  "Alcancía Pollito Rojo (con 12 gelatinas en su interior)": 1,
 };
 
 const alka = [
@@ -85,14 +84,7 @@ const alcancias = [
     precio: 6900,
     img: "img/lechuza.jpg"
   },
- 
-  {
-    nombre: "Alcancía Lechuza Rosa (con 12 gelatinas en su interior)",
-    precio: 6900,
-    img: "img/lechuzarosa.jpg.png"
-  },
-  */
-
+ */
   {
     nombre: "Alcancía Oso Rosa (con 12 gelatinas en su interior)",
     precio: 6900,
@@ -104,6 +96,13 @@ const alcancias = [
     precio: 6900,
     img: "img/tigrerojo.png"
   },
+
+    {
+    nombre: "Alcancía Lechuza Rosa (con 12 gelatinas en su interior)",
+    precio: 6900,
+    img: "img/lechuzarosa.jpg.png"
+  },
+  
 /*
       {
     nombre: "Alcancía Pingüino Rosa (con 12 gelatinas en su interior)",
