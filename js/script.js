@@ -6,7 +6,7 @@ const ENVIO_SANTACRUZ = 15900;
 const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 const minimoRegalo = 60000;   
-const REGALO_NOMBRE = "Chupetes Capibara (30 u)";
+const REGALO_NOMBRE = "Gomita Helado (30 u)";
 const PROMO_ACTIVA = "ninguna"; // opciones: "envio", "regalo", "ninguna"
 
 let productos = [];
@@ -1416,6 +1416,11 @@ document.getElementById("enviar-carrito")?.addEventListener("click", async (e) =
     (PROMO_ACTIVA === "envio" && total >= 80000) || total >= 300000
       ? 0
       : calcularCostoEnvio(cp);
+
+  // si hay promo regalo, sumarlo al total de productos
+  if (PROMO_ACTIVA === "regalo" && total >= minimoRegalo) {
+    totalProductos += 1;
+  }
   msg += `\n📦 Total productos: ${totalProductos}`;
   msg += `\n🚚 Envío: $${envio.toLocaleString("es-AR")}`;
   if (PROMO_ACTIVA === "regalo" && total >= minimoRegalo) {
