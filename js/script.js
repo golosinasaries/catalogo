@@ -16,7 +16,7 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 const cooldownCards = new WeakMap();
 
 const STOCK_PRODUCTOS = {
-  "Bull Dog 360 g de Frambuesa Ácida": 0,
+  "Bull Dog 360 g de Frambuesa Ácida": 3,
   "Chupetines K-pop (30 u)": 1,
   "Chupetines Deportes (24 u)": 1,
   "Latitas con chicles (30 latitas)": 5,
