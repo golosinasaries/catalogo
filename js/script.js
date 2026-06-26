@@ -7,7 +7,7 @@ const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 const minimoRegalo = 60000;   
 const REGALO_NOMBRE = "Gomita Helado (30 u)";
-const PROMO_ACTIVA = "regalo"; // opciones: "envio", "regalo", "ninguna"
+const PROMO_ACTIVA = "ninguna"; // opciones: "envio", "regalo", "ninguna"
 
 let productos = [];
 let productoIndex = 0;
@@ -1064,6 +1064,7 @@ document.addEventListener("DOMContentLoaded", () => {
           ${i.cantidad}
 
           <button class='cantidad-btn sumar' data-nombre='${i.nombre}' data-talle='${i.talle || ""}'>+</button>
+          <button class='cantidad-btn carrito-eliminar' data-nombre='${i.nombre}' data-talle='${i.talle || ""}'>🗑️</button>
         </div>
       `).join("") + regaloHTML;
 
@@ -1122,6 +1123,8 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.dataset.precio = precio;
     }
   });
+
+
     carritoDropdown.addEventListener("mouseenter", () => clearTimeout(carritoTimer));
     carritoDropdown.addEventListener("mouseleave", iniciarTemporizadorCierre);
 
