@@ -7,7 +7,7 @@ const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 const minimoRegalo = 60000;   
 const REGALO_NOMBRE = "Gomita Helado (30 u)";
-const PROMO_ACTIVA = "ninguna"; // opciones: "envio", "regalo", "ninguna"
+const PROMO_ACTIVA = "envio"; // opciones: "envio", "regalo", "ninguna"
 
 let productos = [];
 let productoIndex = 0;
@@ -273,6 +273,44 @@ const triple6   = [
   },
   ];
 
+const Capullitos   = [
+  {
+    nombre: "Pack Cañitos de queso 80g (12 u)",
+    precio: 9500,
+    img: "img/ccanitos.jpeg"
+  },
+   {
+    nombre: "Pack Palitos de Maíz 80g (12 u)",
+    precio: 9500,
+    img: "img/cpalitosdemaiz.jpeg"
+  },
+   {
+    nombre: "Pack Bolifrut sabot Tutti Frutti 80g (12 u)",
+    precio: 9500,
+    img: "img/bolifrut.png"
+  },
+   {
+    nombre: "Pack Tapitas sabor Barbacoa 80g (12 u)",
+    precio: 9500,
+    img: "img/tapitas.png"
+  },
+   {
+    nombre: "Pack Aritos sabor Tutti Frutti 80g (12 u)",
+    precio: 9500,
+    img: "img/aritos.png"
+  },
+   {
+    nombre: "Pack Aritos sabor Cebolla 80g (12 u)",
+    precio: 9500,
+    img: "img/aritoscebolla.png"
+  },
+   {
+    nombre: "Pack Pizzitas sabor Jamón 80g (12 u)",
+    precio: 9500,
+    img: "img/pizzitas.png"
+  },
+];
+
 const productosVariantes = {
   "card-alcancia": alcancias,
   "card-globos": globos,
@@ -285,6 +323,7 @@ const productosVariantes = {
   "card-simple": simple,
   "card-triple": triple,
   "card-triple6": triple6,
+  "card-Capullitos": Capullitos
 };
 
 function cambiarVariante(el, direccion) {
