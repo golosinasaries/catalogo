@@ -285,7 +285,7 @@ const Capullitos   = [
     img: "img/cpalitosdemaiz.jpeg"
   },
    {
-    nombre: "Pack Bolifrut sabot Tutti Frutti 80g (12 u)",
+    nombre: "Pack Bolifrut sabor Tutti Frutti 80g (12 u)",
     precio: 9500,
     img: "img/bolifrut.png"
   },
