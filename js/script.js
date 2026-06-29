@@ -277,11 +277,13 @@ const Capullitos   = [
     precio: 9500,
     img: "img/ccanitos.jpeg"
   },
+  /*
    {
     nombre: "Pack Palitos de Maíz 80g (12 u)",
     precio: 9500,
     img: "img/cpalitosdemaiz.jpeg"
   },
+  */
    {
     nombre: "Pack Bolifrut sabor Tutti Frutti 80g (12 u)",
     precio: 9500,
