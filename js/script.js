@@ -6,7 +6,7 @@ const ENVIO_SANTACRUZ = 15900;
 const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 const minimoRegalo = 60000;   
-const REGALO_NOMBRE = "Gomita Helado (30 u)";
+const REGALO_NOMBRE = "Gomita Helado (30u)";
 const PROMO_ACTIVA = "ninguna"; // opciones: "envio", "regalo", "ninguna"
 
 let productos = [];
@@ -18,22 +18,22 @@ const cooldownCards = new WeakMap();
 const STOCK_PRODUCTOS = {
   "Alcancía Oso Rosa (con 12 gelatinas en su interior)": 0,
   "Bull Dog 360 g de Frambuesa Ácida": 3,
-  "Mogul Ladrillos Mundial 500 g": 3,
-  "Llaveros láser Capibara (1 u)": 2,
-  "Pastillas D.R.F Sabor Anis (caja x 12 u)": 0,
-  "Lenguetazo Pinta Lengua (32 u)": 0,
-  "Lenguetazo Tropical Punch (32 u)": 2,
+  "Mogul Ladrillos Mundial 500g": 3,
+  "Llaveros láser Capibara (1u)": 2,
+  "Pastillas D.R.F Sabor Anis (12u)": 0,
+  "Lenguetazo Pinta Lengua (32u)": 0,
+  "Lenguetazo Tropical Punch (32u)": 2,
 };
 
 const alka = [
 
   {
-    nombre: "Pastillas Alka sabor Menta (caja x 12 u)",
+    nombre: "Pastillas Alka sabor Menta (12u)",
     precio: 6900,
     img: "img/alkamenta.jpeg"
   },
     {
-    nombre: "Pastillas Alka sabor Cherry Mentol (caja x 12 u)",
+    nombre: "Pastillas Alka sabor Cherry Mentol (12u)",
     precio: 6900,
     img: "img/alkacherry.jpeg"
   },
@@ -42,18 +42,18 @@ const alka = [
 const globos = [
   /*
   {
-    nombre: "Chicle Fierita Globo sabor Banana (95 u)",
+    nombre: "Chicle Fierita Globo sabor Banana (95u)",
     precio: 7900,
     img: "img/globobanana.jpg"
   },
   */
   {
-    nombre: "Chicle Fierita Globo sabor Frutilla (95 u)",
+    nombre: "Chicle Fierita Globo sabor Frutilla (95u)",
     precio: 7900,
     img: "img/gobofrutilla.jpg"
   },
   {
-    nombre: "Chicle Fierita Globo sabor Menta (95 u)",
+    nombre: "Chicle Fierita Globo sabor Menta (95u)",
     precio: 7900,
     img: "img/globomenta.jpg"
   }
@@ -118,17 +118,17 @@ const alcancias = [
 
 const recargados = [
     {
-    nombre: "Chicle Fierita Recargado - Menta (50 u)",
+    nombre: "Chicle Fierita Recargado - Menta (50u)",
     precio: 6900,
     img: "img/fieritarecargadomenta.jpg"
   },
  {
-    nombre: "Chicle Fierita Recargado - Tutti Frutti (50 u)",
+    nombre: "Chicle Fierita Recargado - Tutti Frutti (50u)",
     precio: 6900,
     img: "img/fieritarecargado.jpg"
   },
   {
-    nombre: "Chicle Fierita Recargado - Frutilla (50 u)",
+    nombre: "Chicle Fierita Recargado - Frutilla (50u)",
     precio: 6900,
     img: "img/fieritarecargadofrutilla.png"
   },
@@ -138,37 +138,37 @@ const recargados = [
 const oblita = [
  /* {
     img: "img/oblita_blanco.jpg",
-    nombre: "Oblita Chocolate Blanco (48 u)",
+    nombre: "Oblita Chocolate Blanco (48u)",
     precio: 6500
   },
 */
   {
     img: "img/oblita_nougat.jpeg",
-    nombre: "Oblita Nougat (48 u)",
+    nombre: "Oblita Nougat (48u)",
     precio: 6500
   },
 
   {
     img: "img/oblita_chocolate.jpg",
-    nombre: "Oblita de Chocolate (48 u)",
+    nombre: "Oblita de Chocolate (48u)",
     precio: 6500
   },
 
   {
     img: "img/oblita_marroc.jpg",
-    nombre: "Oblita de Marroc (48 u)",
+    nombre: "Oblita de Marroc (48u)",
     precio: 6500
   },
 
   {
     img: "img/oblita_ddl.jpg",
-    nombre: "Oblita de DDL (48 u)",
+    nombre: "Oblita de DDL (48u)",
     precio: 6500
   },
 
   {
     img: "img/oblitafrutilla.jpg",
-    nombre: "Oblita de Frutilla (48 u)",
+    nombre: "Oblita de Frutilla (48u)",
     precio: 6500
   },
 
@@ -179,18 +179,18 @@ const drf   = [
 
   */
       {
-    nombre: "Pastillas D.R.F Sabor Mentol (caja x 12 u)",
+    nombre: "Pastillas D.R.F Sabor Mentol (12u)",
     precio: 6200,
     img: "img/drfmentol.png"
   },
 
  {
-    nombre: "Pastillas D.R.F Sabor Menta (caja x 12 u)",
+    nombre: "Pastillas D.R.F Sabor Menta (12u)",
     precio: 6200,
     img: "img/drfmenta.jpeg"
   },
       {
-    nombre: "Pastillas D.R.F Sabor Anis (caja x 12 u)",
+    nombre: "Pastillas D.R.F Sabor Anis (12u)",
     precio: 6200,
     img: "img/drfanis.jpeg"
   },
@@ -234,12 +234,12 @@ const bulldog   = [
 
 const simple   = [
    {
-  nombre: "Alfajor Guaymallén simple de Dulce de Leche (10 u)",
+  nombre: "Alfajor Guaymallén simple de Dulce de Leche (10u)",
   precio: 4900,
   img: "img/guaysimplenegro.jpg"
   },
   {
-    nombre: "Alfajor Guaymallén simple de Chocolate Blanco (10 u)",
+    nombre: "Alfajor Guaymallén simple de Chocolate Blanco (10u)",
     precio: 4900,
     img: "img/guaysimpleblanco.jpg"
   }
@@ -247,12 +247,12 @@ const simple   = [
 
 const triple   = [
   {
-    nombre: "Alfajor Guaymallén triple de Chocolate Blanco (12 u)",
+    nombre: "Alfajor Guaymallén triple de Chocolate Blanco (12u)",
     precio: 8500,
     img: "img/guayblanco.jpg"
   },
   {
-    nombre: "Alfajor Guaymallén triple de Dulce de Leche (12 u)",
+    nombre: "Alfajor Guaymallén triple de Dulce de Leche (12u)",
     precio: 8500,
     img: "img/guayddl.jpg"
   }
@@ -260,12 +260,12 @@ const triple   = [
 
 const triple6   = [
     {
-    nombre: "Alfajor Guaymallén triple de Dulce de Leche (6 u)",
+    nombre: "Alfajor Guaymallén triple de Dulce de Leche (6u)",
     precio: 4500,
     img: "img/guayddl.jpg"
   },
   {
-    nombre: "Alfajor Guaymallén triple de Chocolate Blanco (6 u)",
+    nombre: "Alfajor Guaymallén triple de Chocolate Blanco (6u)",
     precio: 4500,
     img: "img/guayblanco.jpg"
   },
@@ -273,39 +273,39 @@ const triple6   = [
 
 const Capullitos   = [
   {
-    nombre: "Pack Cañitos de queso 80g (6 u)",
+    nombre: "Pack Cañitos de queso 80g (6u)",
     precio: 4800,
     img: "img/ccanitos.jpeg"
   },
   /*
    {
-    nombre: "Pack Palitos de Maíz 80g (6 u)",
+    nombre: "Pack Palitos de Maíz 80g (6u)",
     precio: 4800,
     img: "img/cpalitosdemaiz.jpeg"
   },
   */
    {
-    nombre: "Pack Bolifrut sabor Tutti Frutti 80g (6 u)",
+    nombre: "Pack Bolifrut sabor Tutti Frutti 80g (6u)",
     precio: 4800,
     img: "img/bolifrut.png"
   },
    {
-    nombre: "Pack Tapitas sabor Barbacoa 80g (6 u)",
+    nombre: "Pack Tapitas sabor Barbacoa 80g (6u)",
     precio: 4800,
     img: "img/tapitas.png"
   },
    {
-    nombre: "Pack Aritos sabor Tutti Frutti 80g (6 u)",
+    nombre: "Pack Aritos sabor Tutti Frutti 80g (6u)",
     precio: 4800,
     img: "img/aritos.png"
   },
    {
-    nombre: "Pack Aritos sabor Cebolla 80g (6 u)",
+    nombre: "Pack Aritos sabor Cebolla 80g (6u)",
     precio: 4800,
     img: "img/aritoscebolla.png"
   },
    {
-    nombre: "Pack Pizzitas sabor Jamón 80g (6 u)",
+    nombre: "Pack Pizzitas sabor Jamón 80g (6u)",
     precio: 4800,
     img: "img/pizzitas.png"
   },
@@ -507,63 +507,63 @@ if (modal) {
   // Productos
   const imagenesProducto = {
     "Alfajor Red Velvet Cheesecake 70g (5 unidades)": ["img/redvelvet.png","img/redvelvet.mp4"],
-    "Gomitas Gatitos (30 u)": ["img/gatito1.jpeg","img/gatito2.jpeg","img/gatito3.jpeg","img/gatito4.jpeg"],
-    "Gomitas Monsters (30 u)": ["img/monster1.jpeg","img/monster2.jpeg","img/monster3.jpeg"],
+    "Gomitas Gatitos (30u)": ["img/gatito1.jpeg","img/gatito2.jpeg","img/gatito3.jpeg","img/gatito4.jpeg"],
+    "Gomitas Monsters (30u)": ["img/monster1.jpeg","img/monster2.jpeg","img/monster3.jpeg"],
     "Camisetas Niños👕(10 Camisetas)": ["img/camisetas1414.jpeg","img/videocamisetasniño.mp4","img/camisetaniños2.jpeg"],
     "Camisetas Adultos ⚽🔥 (10 Camisetas)": ["img/camisetas1616.jpeg","img/videocamisetaniño.mp4","img/adultos2.mp4","img/camiseta2.jpeg","img/camiseta3.jpeg","img/camiseta4.jpeg"],
-    "Chupetines K-pop (30 u)": ["img/kpp1.jpeg","img/kpp2.jpeg","img/kpop.jpeg"],
-    "Chupetines 2 in 1 (60 u)": ["img/dosenuno6.jpeg","img/dosenuno2.jpeg","img/dosenuno3.jpeg","img/dosenuno4.jpeg","img/dosenuno5.jpeg","img/dosenuno6.jpeg"],
-    "Gomitas Macarron (30 u)": ["img/macarron2.jpeg","img/macarron1.jpeg"],
-    "Gomitas Ojos (30 u)": ["img/ojos.jpg","img/videoojos.mp4"],
-    "Gomitas Oreo (30 u)": ["img/gomitasoreo.jpg","img/videooreo.mp4"],
+    "Chupetines K-pop (30u)": ["img/kpp1.jpeg","img/kpp2.jpeg","img/kpop.jpeg"],
+    "Chupetines 2 in 1 (60u)": ["img/dosenuno6.jpeg","img/dosenuno2.jpeg","img/dosenuno3.jpeg","img/dosenuno4.jpeg","img/dosenuno5.jpeg","img/dosenuno6.jpeg"],
+    "Gomitas Macarron (30u)": ["img/macarron2.jpeg","img/macarron1.jpeg"],
+    "Gomitas Ojos (30u)": ["img/ojos.jpg","img/videoojos.mp4"],
+    "Gomitas Oreo (30u)": ["img/gomitasoreo.jpg","img/videooreo.mp4"],
     "Dinosaurio con caramelos y luces (1 unidad)": ["img/fotodinosaurio.jpg","img/videodinosaurio.mp4"],
-    "Gomitas de boca (30 u)": ["img/boca.jpg","img/videoboca.mp4"],
-    "Gomitas Spider-Man (60 u)": ["img/spiderman1.jpg","img/spiderman2.jpg","img/spiderman3.jpg","img/spiderman4.jpg","img/spiderman5.jpg"],
-    "Llaveros láser Capibara (1 u)": ["img/laser1.jpg","img/laser2.jpg","img/laser3.jpg"],
-    "Ring Pop Barbie (30 u)": ["img/ringpopbarbie.jpg","img/ringpop.jpg"],
-    "Pistolitas con luz (30 u)": ["img/pistolita1.jpg","img/pistolita2.jpg","img/pistolita3.jpg","img/pistolita4.jpg"],
-    "YO-YOs con luces (12 u)": ["img/yoyo1.jpg","img/yoyo3.jpg","img/yoyo4.jpg","img/yoyo2.jpg"],
-    "YO-YOs con luces (24 u)": ["img/yoyo2.jpg","img/yoyo3.jpg","img/yoyo4.jpg","img/yoyo1.jpg"],
-    "Agenditas surtidas (10 u)": ["img/agendita2.jpg","img/agendita1.jpg","img/agendita3.jpg","img/agendita4.jpg"],
-    "Gomitas Lilo y Stitch (60 u)": ["img/stich1.jpg","img/stich2.jpg","img/stich3.jpg"],
-    "Chupetines con forma de helado (30 u)": ["img/chupetineshelado1.jpg","img/chupetineshelados2.jpg"],
-    "Chupetines con polvo ácido Bob Esponja (30 u)": ["img/bob1.jpg","img/bob2.jpg"],
+    "Gomitas de boca (30u)": ["img/boca.jpg","img/videoboca.mp4"],
+    "Gomitas Spider-Man (60u)": ["img/spiderman1.jpg","img/spiderman2.jpg","img/spiderman3.jpg","img/spiderman4.jpg","img/spiderman5.jpg"],
+    "Llaveros láser Capibara (1u)": ["img/laser1.jpg","img/laser2.jpg","img/laser3.jpg"],
+    "Ring Pop Barbie (30u)": ["img/ringpopbarbie.jpg","img/ringpop.jpg"],
+    "Pistolitas con luz (30u)": ["img/pistolita1.jpg","img/pistolita2.jpg","img/pistolita3.jpg","img/pistolita4.jpg"],
+    "YO-YOs con luces (12u)": ["img/yoyo1.jpg","img/yoyo3.jpg","img/yoyo4.jpg","img/yoyo2.jpg"],
+    "YO-YOs con luces (24u)": ["img/yoyo2.jpg","img/yoyo3.jpg","img/yoyo4.jpg","img/yoyo1.jpg"],
+    "Agenditas surtidas (10u)": ["img/agendita2.jpg","img/agendita1.jpg","img/agendita3.jpg","img/agendita4.jpg"],
+    "Gomitas Lilo y Stitch (60u)": ["img/stich1.jpg","img/stich2.jpg","img/stich3.jpg"],
+    "Chupetines con forma de helado (30u)": ["img/chupetineshelado1.jpg","img/chupetineshelados2.jpg"],
+    "Chupetines con polvo ácido Bob Esponja (30u)": ["img/bob1.jpg","img/bob2.jpg"],
     "Chicles WhatsApp con tatoo capibara (36 paquetes de 5 chicles)": ["img/wp1.jpg","img/wp2.jpg" ],
-    "Gomitas Capibaras (30 u)": ["img/capibara.jpg","img/capibara2.jpg",],
+    "Gomitas Capibaras (30u)": ["img/capibara.jpg","img/capibara2.jpg",],
     "Combito Surtido de Regalo 🎁": ["img/combito1.jpg","img/combito4.jpg","img/combito3.jpg","img/combito5.jpg", "img/combito2.jpg"],
     "Tractor dispenser + caramelos (1 unidad)": ["img/tractor1.jpg","img/tractor2.jpg"],
     "Camión dispenser + caramelos rosa (1 unidad)": ["img/camionrosa1.jpg","img/camionrosa2.jpg"],
     "Camión dispenser + caramelos celeste (1 unidad)": ["img/camionceleste1.jpg","img/camionceleste2.jpg"],
     "Tractor dispenser + caramelos verde (1 unidad)": ["img/tractorverde1.jpg","img/tractorverde2.jpg"],
-    "Chupetines Kuromy con led (30 u)": ["img/caramelokuromy.jpg","img/caramelokuromy2.jpg", "img/mc3.jpeg"],
-    "Chupetines Merlina (30 u)": ["img/merlina1.jpg","img/merlina2.jpg","img/merlina3.jpg","img/merlina4.jpg"],
-    "Chupetín con polvo ácido Brain (30 u)": ["img/braincaja.jpg","img/chupetinBrain.jpg"],
-    "Camiseta pimball con pastillitas (30 u)": ["img/pimballremera.jpg","img/reversaremera.jpg","img/r1.jpg","img/r2.jpg"],
-    "Chupetín Calabaza con polvo ácido y led (30 u)": ["img/cajaCalabaza.jpg","img/chupetincalabaza1.jpg","img/chupetincalabaza2.jpg"],
-    "Gelatina de diferentes formas (30 u)": ["img/gelatinaDiferentesSabores4.jpg","img/gelatinaDiferentesSabores3.jpg","img/gelatinaDiferentesSabores2.jpg","img/gelatinaDiferentesSabores5.jpg","img/gelatinaDiferentesSabores1.jpg"],
-    "Chupetines con led Corona (30 u)": ["img/chupetinesconled1.jpg","img/corona2.jpg"],
-    "Gomitas Monstruo (30 u)": ["img/gomitablandaCara2.jpg","img/gomitacara3.png"],
-    "Cool Mint pastillitas Frutales (30 u)": ["img/coolmint.jpg","img/coolmint2.jpg"],
+    "Chupetines Kuromy con led (30u)": ["img/caramelokuromy.jpg","img/caramelokuromy2.jpg", "img/mc3.jpeg"],
+    "Chupetines Merlina (30u)": ["img/merlina1.jpg","img/merlina2.jpg","img/merlina3.jpg","img/merlina4.jpg"],
+    "Chupetín con polvo ácido Brain (30u)": ["img/braincaja.jpg","img/chupetinBrain.jpg"],
+    "Camiseta pimball con pastillitas (30u)": ["img/pimballremera.jpg","img/reversaremera.jpg","img/r1.jpg","img/r2.jpg"],
+    "Chupetín Calabaza con polvo ácido y led (30u)": ["img/cajaCalabaza.jpg","img/chupetincalabaza1.jpg","img/chupetincalabaza2.jpg"],
+    "Gelatina de diferentes formas (30u)": ["img/gelatinaDiferentesSabores4.jpg","img/gelatinaDiferentesSabores3.jpg","img/gelatinaDiferentesSabores2.jpg","img/gelatinaDiferentesSabores5.jpg","img/gelatinaDiferentesSabores1.jpg"],
+    "Chupetines con led Corona (30u)": ["img/chupetinesconled1.jpg","img/corona2.jpg"],
+    "Gomitas Monstruo (30u)": ["img/gomitablandaCara2.jpg","img/gomitacara3.png"],
+    "Cool Mint pastillitas Frutales (30u)": ["img/coolmint.jpg","img/coolmint2.jpg"],
     "Trompetas con chupetin y sonido (20 u)": ["img/trompeta1.jpg","img/trompetas.jpg"],
-    "Huevos Sorpresa Capibara (30 u)": ["img/sorpresacapibara1.jpg","img/sorpresacapibara2.jpg", "img/sorpresacapi3.png"],
-    "Huevos Sorpresa Plantas vs Zombies (30 u)": ["img/sorpresaplant2.jpg","img/sorpresaplant.jpg"],
-    "Gomitas Fantasmita (30 u)": ["img/fantasmitas.jpg","img/fantasmitas2.jpg"],
-    "Gomitas Batman (30 u)": ["img/batman1.jpg","img/batman2.jpg"],
-    "Monedas de Chocolate (290 u)": ["img/monedas1.jpg","img/monedas2.jpg"],
-    "Gomitas ojo-boca-ojo (30 u)": ["img/gomitasoh1.jpg","img/gomitasoh.jpg"],
-    "Gomitas Kuromy (30 u)": ["img/gomitasblandas7.jpg","img/gomitasblandas71.jpg"],
-    "Chupetines Capibara (30 u)": ["img/chupetincapibara1.jpg","img/chupetincapibara2.jpg"],
-    "Chupetines con forma de Unicornio (30 u)":["img/unicornio2.jpg","img/unicornio1.jpg","img/unicornio3.jpg"],
-    "Chupetines con led Unicornio (30 u)":["img/unicornioled1.jpg","img/chupetinnnuni2.jpg","img/leduni.jpg", "img/mc3.jpeg"],
-    "Gomitas Super Mario (30 u)": ["img/supermario1.jpg","img/supermario2.jpg"],
-    "Saca lenguas (30 u)": ["img/sacalenguas1.jpg","img/sacalenguas2.jpg"],
-    "Chupetines con led Mc Donalds (30 u)": ["img/mc.jpg","img/mc2.jpg", "img/mc3.jpeg"],
-    "Chupetines con led Oreo (30 u)": ["img/oreo1.jpg","img/oreo2.jpg",],
-    "Chupetines led Monster (30 u)": ["img/monsterojo1.jpg","img/monsterojo.jpg",],
-    "Chupetines Hongos (30 u)": ["img/hongo1.jpg","img/hongo2.jpg"],
-    "Chupetines Frutillas (30 u)": ["img/chupetinfrutilla1.jpg","img/chupetinfrutilla2.jpg", "img/chupetinnnrutilla2.jpg"],
-    "Gomitas Astronauta (30 u)": ["img/astronauta2.jpg","img/astronauta1.jpg"],
-    "Chupetes Capibara (30 u)": ["img/chupete1.jpeg","img/chupete2.jpeg"],
+    "Huevos Sorpresa Capibara (30u)": ["img/sorpresacapibara1.jpg","img/sorpresacapibara2.jpg", "img/sorpresacapi3.png"],
+    "Huevos Sorpresa Plantas vs Zombies (30u)": ["img/sorpresaplant2.jpg","img/sorpresaplant.jpg"],
+    "Gomitas Fantasmita (30u)": ["img/fantasmitas.jpg","img/fantasmitas2.jpg"],
+    "Gomitas Batman (30u)": ["img/batman1.jpg","img/batman2.jpg"],
+    "Monedas de Chocolate (290u)": ["img/monedas1.jpg","img/monedas2.jpg"],
+    "Gomitas ojo-boca-ojo (30u)": ["img/gomitasoh1.jpg","img/gomitasoh.jpg"],
+    "Gomitas Kuromy (30u)": ["img/gomitasblandas7.jpg","img/gomitasblandas71.jpg"],
+    "Chupetines Capibara (30u)": ["img/chupetincapibara1.jpg","img/chupetincapibara2.jpg"],
+    "Chupetines con forma de Unicornio (30u)":["img/unicornio2.jpg","img/unicornio1.jpg","img/unicornio3.jpg"],
+    "Chupetines con led Unicornio (30u)":["img/unicornioled1.jpg","img/chupetinnnuni2.jpg","img/leduni.jpg", "img/mc3.jpeg"],
+    "Gomitas Super Mario (30u)": ["img/supermario1.jpg","img/supermario2.jpg"],
+    "Saca lenguas (30u)": ["img/sacalenguas1.jpg","img/sacalenguas2.jpg"],
+    "Chupetines con led Mc Donalds (30u)": ["img/mc.jpg","img/mc2.jpg", "img/mc3.jpeg"],
+    "Chupetines con led Oreo (30u)": ["img/oreo1.jpg","img/oreo2.jpg",],
+    "Chupetines led Monster (30u)": ["img/monsterojo1.jpg","img/monsterojo.jpg",],
+    "Chupetines Hongos (30u)": ["img/hongo1.jpg","img/hongo2.jpg"],
+    "Chupetines Frutillas (30u)": ["img/chupetinfrutilla1.jpg","img/chupetinfrutilla2.jpg", "img/chupetinnnrutilla2.jpg"],
+    "Gomitas Astronauta (30u)": ["img/astronauta2.jpg","img/astronauta1.jpg"],
+    "Chupetes Capibara (30u)": ["img/chupete1.jpeg","img/chupete2.jpeg"],
   };
 
   let currentImages = [];
