@@ -273,40 +273,40 @@ const triple6   = [
 
 const Capullitos   = [
   {
-    nombre: "Pack Cañitos de queso 80g (12 u)",
-    precio: 9500,
+    nombre: "Pack Cañitos de queso 80g (6 u)",
+    precio: 4800,
     img: "img/ccanitos.jpeg"
   },
   /*
    {
-    nombre: "Pack Palitos de Maíz 80g (12 u)",
-    precio: 9500,
+    nombre: "Pack Palitos de Maíz 80g (6 u)",
+    precio: 4800,
     img: "img/cpalitosdemaiz.jpeg"
   },
   */
    {
-    nombre: "Pack Bolifrut sabor Tutti Frutti 80g (12 u)",
-    precio: 9500,
+    nombre: "Pack Bolifrut sabor Tutti Frutti 80g (6 u)",
+    precio: 4800,
     img: "img/bolifrut.png"
   },
    {
-    nombre: "Pack Tapitas sabor Barbacoa 80g (12 u)",
-    precio: 9500,
+    nombre: "Pack Tapitas sabor Barbacoa 80g (6 u)",
+    precio: 4800,
     img: "img/tapitas.png"
   },
    {
-    nombre: "Pack Aritos sabor Tutti Frutti 80g (12 u)",
-    precio: 9500,
+    nombre: "Pack Aritos sabor Tutti Frutti 80g (6 u)",
+    precio: 4800,
     img: "img/aritos.png"
   },
    {
-    nombre: "Pack Aritos sabor Cebolla 80g (12 u)",
-    precio: 9500,
+    nombre: "Pack Aritos sabor Cebolla 80g (6 u)",
+    precio: 4800,
     img: "img/aritoscebolla.png"
   },
    {
-    nombre: "Pack Pizzitas sabor Jamón 80g (12 u)",
-    precio: 9500,
+    nombre: "Pack Pizzitas sabor Jamón 80g (6 u)",
+    precio: 4800,
     img: "img/pizzitas.png"
   },
 ];
