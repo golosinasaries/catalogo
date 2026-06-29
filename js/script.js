@@ -18,8 +18,6 @@ const cooldownCards = new WeakMap();
 const STOCK_PRODUCTOS = {
   "Alcancía Oso Rosa (con 12 gelatinas en su interior)": 0,
   "Bull Dog 360 g de Frambuesa Ácida": 3,
-  "Chupetines K-pop (30 u)": 1,
-  "Latitas con chicles (30 latitas)": 5,
   "Mogul Ladrillos Mundial 500 g": 3,
   "Llaveros láser Capibara (1 u)": 2,
   "Pastillas D.R.F Sabor Anis (caja x 12 u)": 0,
