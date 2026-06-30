@@ -83,6 +83,11 @@ const alcancias = [
     img: "img/lechuza.jpg"
   },
  */
+ {
+    nombre: "Alcancía Lechuza Rosa (con 12 gelatinas en su interior)",
+    precio: 6900,
+    img: "img/lechuzarosa.jpg.png"
+  },
   {
     nombre: "Alcancía Oso Rosa (con 12 gelatinas en su interior)",
     precio: 6900,
@@ -95,11 +100,7 @@ const alcancias = [
     img: "img/tigrerojo.png"
   },
 
-    {
-    nombre: "Alcancía Lechuza Rosa (con 12 gelatinas en su interior)",
-    precio: 6900,
-    img: "img/lechuzarosa.jpg.png"
-  },
+   
   
 /*
       {
