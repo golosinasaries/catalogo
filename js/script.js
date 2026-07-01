@@ -1588,7 +1588,7 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
     <br>
     `;
   }
-  // ========================
+// ========================
 //  🚚 Sumá <strong>$${falta.toLocaleString("es-AR")}</strong> para envío gratis<br>
 // ========================
   aviso.style.display = "block";
