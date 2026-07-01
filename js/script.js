@@ -16,11 +16,13 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 const cooldownCards = new WeakMap();
 
 const STOCK_PRODUCTOS = {
+  "Alfajor Red Velvet Cheesecake 70g (5 unidades)": 1,
+  "Saca lenguas (30u)": 1,
+  "Autito con pastillitas (30u)": 1,
+  "Alcancía Lechuza Rosa (con 12 gelatinas en su interior)": 1,
   "Alcancía Oso Rosa (con 12 gelatinas en su interior)": 0,
   "Bull Dog 360 g de Frambuesa Ácida": 3,
-  "Mogul Ladrillos Mundial 500g": 3,
   "Llaveros láser Capibara (1u)": 2,
-  "Pastillas D.R.F Sabor Anis (12u)": 0,
   "Lenguetazo Pinta Lengua (32u)": 0,
   "Lenguetazo Tropical Punch (32u)": 2,
 };
@@ -137,15 +139,9 @@ const recargados = [
 ];
 
 const oblita = [
- /* {
+  {
     img: "img/oblita_blanco.jpg",
     nombre: "Oblita Chocolate Blanco (48u)",
-    precio: 6500
-  },
-*/
-  {
-    img: "img/oblita_nougat.jpeg",
-    nombre: "Oblita Nougat (48u)",
     precio: 6500
   },
 
@@ -176,21 +172,18 @@ const oblita = [
 ];
 
 const drf   = [
-  /*
-
-  */
-      {
+  {
     nombre: "Pastillas D.R.F Sabor Mentol (12u)",
     precio: 6200,
     img: "img/drfmentol.png"
   },
-
- {
+  {
     nombre: "Pastillas D.R.F Sabor Menta (12u)",
     precio: 6200,
     img: "img/drfmenta.jpeg"
   },
-      {
+
+  {
     nombre: "Pastillas D.R.F Sabor Anis (12u)",
     precio: 6200,
     img: "img/drfanis.jpeg"
