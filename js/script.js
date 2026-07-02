@@ -506,7 +506,7 @@ if (modal) {
     "Camisetas Niños👕(10 Camisetas)": ["img/camisetas1414.jpeg","img/videocamisetasniño.mp4","img/camisetaniños2.jpeg"],
     "Camisetas Adultos ⚽🔥 (10 Camisetas)": ["img/camisetas1616.jpeg","img/videocamisetaniño.mp4","img/adultos2.mp4","img/camiseta2.jpeg","img/camiseta3.jpeg","img/camiseta4.jpeg"],
     "Chupetines K-pop (30u)": ["img/kpp1.jpeg","img/kpp2.jpeg","img/kpop.jpeg"],
-    "Chupetines 2 in 1 (60u)": ["img/dosenuno6.jpeg","img/dosenuno2.jpeg","img/dosenuno3.jpeg","img/dosenuno4.jpeg","img/dosenuno5.jpeg","img/dosenuno6.jpeg"],
+    "Chupetines 2 in 1 (60u)": ["img/dosenuno4.jpeg","img/dosenuno2.jpeg","img/dosenuno3.jpeg","img/dosenuno6.jpeg","img/dosenuno5.jpeg","img/dosenuno6.jpeg"],
     "Gomitas Macarron (30u)": ["img/macarron2.jpeg","img/macarron1.jpeg"],
     "Gomitas Ojos (30u)": ["img/ojos.jpg","img/videoojos.mp4"],
     "Gomitas Oreo (30u)": ["img/gomitasoreo.jpg","img/videooreo.mp4"],
