@@ -16,6 +16,7 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 const cooldownCards = new WeakMap();
 
 const STOCK_PRODUCTOS = {
+  "Gomitas Selección (30u)": 50,
   "Alfajor Red Velvet Cheesecake 70g (5 unidades)": 1,
   "Saca lenguas (30u)": 1,
   "Autito con pastillitas (30u)": 1,
