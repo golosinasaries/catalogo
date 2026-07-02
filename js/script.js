@@ -18,7 +18,7 @@ const cooldownCards = new WeakMap();
 const STOCK_PRODUCTOS = {
   "Gomitas Selección (30u)": 50,
   "Alfajor Red Velvet Cheesecake 70g (5 unidades)": 1,
-  "Saca lenguas (30u)": 1,
+  "Saca lenguas (30u)": 0,
   "Autito con pastillitas (30u)": 1,
   "Alcancía Lechuza Rosa (con 12 gelatinas en su interior)": 1,
   "Alcancía Oso Rosa (con 12 gelatinas en su interior)": 0,
