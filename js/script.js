@@ -63,11 +63,7 @@ const globos = [
 
 const alcancias = [
 /*
-  {
-    nombre: "Alcancía Pollito Rojo (con 12 gelatinas en su interior)",
-    precio: 6900,
-    img: "img/alcanciapinguinorojo.jpg"
-  },
+  
  {
     nombre: "Alcancía Oso Café (con 12 gelatinas en su interior)",
     precio: 6900,
@@ -90,6 +86,13 @@ const alcancias = [
     precio: 6900,
     img: "img/lechuzarosa.jpg.png"
   },
+
+  {
+    nombre: "Alcancía Pollito Rojo (con 12 gelatinas en su interior)",
+    precio: 6900,
+    img: "img/alcanciapinguinorojo.jpg"
+  },
+
   {
     nombre: "Alcancía Oso Rosa (con 12 gelatinas en su interior)",
     precio: 6900,
@@ -101,17 +104,13 @@ const alcancias = [
     precio: 6900,
     img: "img/tigrerojo.png"
   },
-
-   
-  
 /*
-      {
+  {
     nombre: "Alcancía Pingüino Rosa (con 12 gelatinas en su interior)",
     precio: 6900,
     img: "img/alcanciapinguinorosa.jpg"
   },
   */
-
   {
     nombre: "Alcancía Tigre Amarillo (con 12 gelatinas en su interior)",
     precio: 6900,
