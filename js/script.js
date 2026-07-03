@@ -117,7 +117,7 @@ const alcancias = [
 ];
 
 const recargados = [
-    {
+  {
     nombre: "Chicle Fierita Recargado - Menta (50u)",
     precio: 6900,
     img: "img/fieritarecargadomenta.jpg"
@@ -189,14 +189,13 @@ const drf   = [
 ];
 
 const globosgrandes   = [
-
-   {
+  {
     nombre: "Globo Unicornio Rosa 24 pulgdas (1 unidad)",
     precio: 2500,
     img: "img/globosgrandes2.jpeg"
   },
 
-    {
+  {
     nombre: "Globo Unicornio 24 pulgdas (1 unidad)",
     precio: 2500,
     img: "img/globosgrandes1.jpeg"
@@ -224,11 +223,12 @@ const bulldog   = [
 ];
 
 const simple   = [
-   {
-  nombre: "Alfajor Guaymallén simple de Dulce de Leche (10u)",
-  precio: 4900,
-  img: "img/guaysimplenegro.jpg"
+  {
+    nombre: "Alfajor Guaymallén simple de Dulce de Leche (10u)",
+    precio: 4900,
+    img: "img/guaysimplenegro.jpg"
   },
+
   {
     nombre: "Alfajor Guaymallén simple de Chocolate Blanco (10u)",
     precio: 4900,
@@ -285,16 +285,20 @@ const Capullitos   = [
     precio: 4800,
     img: "img/tapitas.png"
   },
+  /*
    {
     nombre: "Pack Aritos sabor Tutti Frutti 80g (6u)",
     precio: 4800,
     img: "img/aritos.png"
   },
+
    {
     nombre: "Pack Aritos sabor Cebolla 80g (6u)",
     precio: 4800,
     img: "img/aritoscebolla.png"
   },
+  */
+
    {
     nombre: "Pack Pizzitas sabor Jamón 80g (6u)",
     precio: 4800,
