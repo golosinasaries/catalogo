@@ -19,9 +19,6 @@ const STOCK_PRODUCTOS = {
   "Gomitas Selección (30u)": 50,
   "Alfajor Red Velvet Cheesecake 70g (5 unidades)": 1,
   "Saca lenguas (30u)": 0,
-  "Autito con pastillitas (30u)": 1,
-  "Alcancía Lechuza Rosa (con 12 gelatinas en su interior)": 1,
-  "Alcancía Oso Rosa (con 12 gelatinas en su interior)": 0,
   "Bull Dog 360 g de Frambuesa Ácida": 3,
   "Llaveros láser Capibara (1u)": 2,
   "Lenguetazo Pinta Lengua (32u)": 0,
@@ -81,7 +78,7 @@ const alcancias = [
     precio: 6900,
     img: "img/lechuza.jpg"
   },
- */
+
  {
     nombre: "Alcancía Lechuza Rosa (con 12 gelatinas en su interior)",
     precio: 6900,
@@ -99,7 +96,7 @@ const alcancias = [
     precio: 6900,
     img: "img/osorosa2.png"
   },
-
+ */
    {
     nombre: "Alcancía Tigre Rojo (con 12 gelatinas en su interior)",
     precio: 6900,
