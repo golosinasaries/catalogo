@@ -146,13 +146,13 @@ const oblita = [
     nombre: "Oblita de Chocolate (48u)",
     precio: 6500
   },
-
+  /*
   {
     img: "img/oblita_marroc.jpg",
     nombre: "Oblita de Marroc (48u)",
     precio: 6500
   },
-
+  */
   {
     img: "img/oblita_ddl.jpg",
     nombre: "Oblita de DDL (48u)",
