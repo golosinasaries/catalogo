@@ -16,6 +16,7 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 const cooldownCards = new WeakMap();
 
 const STOCK_PRODUCTOS = {
+  "Gomitas Mogul Frutilla con Crema 500g": 1,
   "Chocolate Block 38 g (6u)": 1,
   "Gomitas Selección (30u)": 50,
   "Bull Dog 360 g de Frambuesa Ácida": 3,
