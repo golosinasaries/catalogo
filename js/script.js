@@ -16,12 +16,11 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 const cooldownCards = new WeakMap();
 
 const STOCK_PRODUCTOS = {
+  "Chocolate Block 38 g (6u)": 1,
   "Gomitas Selección (30u)": 50,
   "Alfajor Red Velvet Cheesecake 70g (5 unidades)": 1,
-  "Saca lenguas (30u)": 0,
   "Bull Dog 360 g de Frambuesa Ácida": 3,
   "Llaveros láser Capibara (1u)": 2,
-  "Lenguetazo Pinta Lengua (32u)": 0,
   "Lenguetazo Tropical Punch (32u)": 2,
 };
 
