@@ -20,9 +20,7 @@ Permite a los clientes explorar artículos, agregarlos al carrito y realizar ped
 - **HTML5 / CSS3 / JavaScript**
 - **JSON / LocalStorage**
 - **Git / GitHub Pages** (para despliegue)
-- **Linux** (entorno de desarrollo)
 - **VSC** (entorno de desarrollo)
-
 ---
 
 ## 🚀 Cómo usarlo
@@ -31,12 +29,6 @@ Permite a los clientes explorar artículos, agregarlos al carrito y realizar ped
 2. Explorá los productos disponibles.  
 3. Agregá los que quieras al carrito.  
 4. Confirmá tu pedido por WhatsApp con un clic.  
-
----
-
-## 🧠 Próximas mejoras
-
-- Desarrollador Backend 
 
 ---
 
