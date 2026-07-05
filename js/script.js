@@ -1932,7 +1932,7 @@ function mostrarEnvioModal(costo) {
        <p class="envio-precio">🚚 Envío: $${precioEnvio}</p>
 
         <p class="envio-gratis">
-          💖 Superando los $350.000 el envío es GRATIS
+          💖 Superando los $300.000 el envío es GRATIS
         </p>
 
         <div class="envio-actions">
