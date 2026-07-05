@@ -2242,7 +2242,7 @@ h1, h2, h3 {
   .catalogo {
     grid-template-columns: repeat(2, 1fr); 
     gap: 0.9rem;
-    margin-top: 37%;
+    margin-top: 33%;
   }
 
   .card-instagram {
