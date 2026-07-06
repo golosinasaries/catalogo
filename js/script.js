@@ -6,7 +6,7 @@ const ENVIO_SANTACRUZ = 15900;
 const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 const minimoRegalo = 60000;   
-const REGALO_NOMBRE = "Gomitas Monstruo (30u)";
+const REGALO_NOMBRE = "Gomitas Monstruo (30u) 👾";
 const PROMO_ACTIVA = "regalo"; // opciones: "envio", "regalo", "ninguna"
 
 let productos = [];
