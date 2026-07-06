@@ -20,7 +20,9 @@ const STOCK_PRODUCTOS = {
   "Oblita Chocolate Blanco (48u)": 2,
   "Gomitas Mogul Frutilla con Crema 500g": 1,
   "Gomitas Selección (30u)": 50,
-  "Bull Dog 360 g de Frambuesa Ácida": 3,
+  "Bull Dog 360 g de Frambuesa Ácida": 1,
+  "Bull Dog 360 g de Frutilla Ácida": 1,
+  "Bull Dog 360 g de Tutti Frutti Ácida": 0,
   "Llaveros láser Capibara (1u)": 2,
 };
 
@@ -203,12 +205,7 @@ const globosgrandes   = [
 ];
 
 const bulldog   = [
-  
-  { 
-    nombre: "Bull Dog 360 g de Tutti Frutti Ácida",
-    precio: 7900,
-    img: "img/cajabulldogtt.jpg"
-  },
+ 
     { 
     nombre: "Bull Dog 360 g de Frambuesa Ácida",
     precio: 7900,
@@ -218,6 +215,12 @@ const bulldog   = [
     nombre: "Bull Dog 360 g de Frutilla Ácida",
     precio: 7900,
     img: "img/cajabulldogfrutilla.jpg"
+  },
+
+  { 
+    nombre: "Bull Dog 360 g de Tutti Frutti Ácida",
+    precio: 7900,
+    img: "img/cajabulldogtt.jpg"
   },
 ];
 
