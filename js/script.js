@@ -16,6 +16,7 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 const cooldownCards = new WeakMap();
 
 const STOCK_PRODUCTOS = {
+  "Gomitas Ojos (30u)": 48,
   "Oblita Chocolate Blanco (48u)": 2,
   "Gomitas Mogul Frutilla con Crema 500g": 1,
   "Gomitas Selección (30u)": 50,
