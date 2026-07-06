@@ -16,7 +16,7 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 const cooldownCards = new WeakMap();
 
 const STOCK_PRODUCTOS = {
-  "Oblita Chocolate Blanco (48u)": 0,
+  "Oblita Chocolate Blanco (48u)": 2,
   "Gomitas Mogul Frutilla con Crema 500g": 1,
   "Gomitas Selección (30u)": 50,
   "Bull Dog 360 g de Frambuesa Ácida": 3,
@@ -499,6 +499,7 @@ if (modal) {
 
   // Productos
   const imagenesProducto = {
+    "Chupetines con Sello (30u)": ["img/sello1.jpeg","img/sello2.jpeg"],
     "Alfajor Red Velvet Cheesecake 70g (5 unidades)": ["img/redvelvet.png","img/redvelvet.mp4"],
     "Gomitas Gatitos (30u)": ["img/gatito1.jpeg","img/gatito2.jpeg","img/gatito3.jpeg","img/gatito4.jpeg"],
     "Gomitas Monsters (30u)": ["img/monster1.jpeg","img/monster2.jpeg","img/monster3.jpeg"],
