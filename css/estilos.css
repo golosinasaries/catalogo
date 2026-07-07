@@ -2729,25 +2729,27 @@ a {
 }
 
 .card-instagram{
-  height: 415px;
-  overflow: hidden;
-  border:0.5px #000000;
-  border-radius: 18px;
-  background: white;
-  grid-column: span 2;
-}
+    /* height: 415px; */
+    height: 320px;
 
+    overflow: hidden;
+    border: 0.5px solid #000;
+    border-radius: 18px;
+    background: white;
+    grid-column: span 2;
+}
 
 .card-instagram .instagram-media{
-  min-width: 100% !important;
-  max-width: 100% !important;
-  margin: 0 !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
 }
-
 
 .card-instagram iframe{
-  height: 760px !important;
-  margin-top: -145px;
-}
+    /* height: 760px !important; */
+    /* margin-top: -145px; */
 
+    height: 560px !important;
+    margin-top: -110px;
+}
 
