@@ -424,7 +424,7 @@ function calcularCostoEnvio(cp) {
   let extraEnvio = 0;
 
   // Si supera 23 productos
-  if (totalProductos > 23) {
+  if (totalProductos > 23 && !ENVIO_MDP) {
     return 25900;
   }
 
