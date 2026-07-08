@@ -415,17 +415,15 @@ function calcularCostoEnvio(cp) {
     return { error: true, mensaje: "Código postal inválido" };
   }
 
-  const totalProductos = carrito.reduce(
-    (acc, item) => acc + item.cantidad,
-    0
-  );
-    // Miramar
+  const totalProductos = carrito.reduce((acc, item) => acc + item.cantidad,0);
+
+  // Miramar
   if (codigo === "7607") {
     return ENVIO_MIRAMAR;
   }
   let extraEnvio = 0;
 
-  // Si supera 27 productos
+  // Si supera 23 productos
   if (totalProductos > 23) {
     return 25900;
   }
@@ -433,7 +431,6 @@ function calcularCostoEnvio(cp) {
   // Extras normales
   const extraBloques = Math.floor(totalProductos / 10);
   extraEnvio = extraBloques * 3500;
-
 
   // Santa Cruz
   const prefijos = ["9303", "4430", "8371", "3304", "4449"];
