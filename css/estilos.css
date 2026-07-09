@@ -2746,10 +2746,6 @@ a {
 }
 
 .card-instagram iframe{
-    /* height: 760px !important; */
-    /* margin-top: -145px; */
-
-    height: 560px !important;
-    margin-top: -110px;
+    height: 760px !important;
+    margin-top: -145px;
 }
-
