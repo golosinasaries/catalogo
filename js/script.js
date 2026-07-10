@@ -19,7 +19,7 @@ const STOCK_PRODUCTOS = {
   "Alcancía Tigre Rojo (con 12 gelatinas en su interior)": 1,
   "Alcancía Tigre Amarillo (con 12 gelatinas en su interior)": 2,
   "Gomitas Ojos (30u)": 48,
-  "Oblita Chocolate Blanco (48u)": 2,
+  "Oblita Chocolate Blanco (48u)": 0,
   "Gomitas Mogul Frutilla con Crema 500g": 1,
   "Gomitas Selección (30u)": 50,
   "Bull Dog 360 g de Frambuesa Ácida": 1,
