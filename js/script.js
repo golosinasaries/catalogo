@@ -7,7 +7,7 @@ const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 const minimoRegalo = 70000;   
 const REGALO_NOMBRE = "Chupetines con Sello (30u)";
-const PROMO_ACTIVA = "envio"; // opciones: "envio", "regalo", "ninguna"
+const PROMO_ACTIVA = "ninguna"; // opciones: "envio", "regalo", "ninguna"
 
 let productos = [];
 let productoIndex = 0;
@@ -16,6 +16,8 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 const cooldownCards = new WeakMap();
 
 const STOCK_PRODUCTOS = {
+  "Alcancía Tigre Rojo (con 12 gelatinas en su interior)": 1,
+  "Alcancía Tigre Amarillo (con 12 gelatinas en su interior)": 2,
   "Gomitas Ojos (30u)": 48,
   "Oblita Chocolate Blanco (48u)": 2,
   "Gomitas Mogul Frutilla con Crema 500g": 1,
