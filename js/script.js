@@ -5,8 +5,8 @@ const ENVIO_LEJANO = 14900;
 const ENVIO_SANTACRUZ = 15900;
 const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
-const minimoRegalo = 60000;   
-const REGALO_NOMBRE = "Chupetines con Sello (30u)";
+const minimoRegalo = 80000;   
+const REGALO_NOMBRE = "Gomitas Selección (30u) 🇦🇷 ";
 const PROMO_ACTIVA = "regalo"; // opciones: "envio", "regalo", "ninguna"
 
 let productos = [];
