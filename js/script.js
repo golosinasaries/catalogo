@@ -7,7 +7,7 @@ const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 const minimoRegalo = 80000;   
 const REGALO_NOMBRE = "Gomitas Selección (30u) 🇦🇷 ";
-const PROMO_ACTIVA = "regalo"; // opciones: "envio", "regalo", "ninguna"
+const PROMO_ACTIVA = "ninguna"; // opciones: "envio", "regalo", "ninguna"
 
 let productos = [];
 let productoIndex = 0;
@@ -533,7 +533,7 @@ if (modal) {
     "Chupetines Kuromy con led (30u)": ["img/caramelokuromy.jpg","img/caramelokuromy2.jpg", "img/mc3.jpeg"],
     "Chupetines Merlina (30u)": ["img/merlina1.jpg","img/merlina2.jpg","img/merlina3.jpg","img/merlina4.jpg"],
     "Chupetín con polvo ácido Brain (30u)": ["img/braincaja.jpg","img/chupetinBrain.jpg"],
-    "Camiseta Pimball con pastillitas (30u)": ["img/remerapimball.jpg","img/r1.jpg","img/r2.jpg"],
+    "Camiseta Pimball con pastillitas (30u)": ["img/r1.png","img/remerapimball.jpg","img/r2.jpg"],
     "Chupetín Calabaza con polvo ácido y led (30u)": ["img/cajaCalabaza.jpg","img/chupetincalabaza1.jpg","img/chupetincalabaza2.jpg"],
     "Gelatina de diferentes formas (30u)": ["img/gelatinaDiferentesSabores4.jpg","img/gelatinaDiferentesSabores3.jpg","img/gelatinaDiferentesSabores2.jpg","img/gelatinaDiferentesSabores5.jpg","img/gelatinaDiferentesSabores1.jpg"],
     "Chupetines con led Corona (30u)": ["img/chupetinesconled1.jpg","img/corona2.jpg"],
