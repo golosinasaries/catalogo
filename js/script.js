@@ -507,7 +507,7 @@ if (modal) {
     "Camisetas Niños👕(10 Camisetas)": ["img/camisetas1414.jpeg","img/videocamisetasniño.mp4","img/camisetaniños2.jpeg"],
     "Camisetas Adultos ⚽🔥 (10 Camisetas)": ["img/camisetas1616.jpeg","img/videocamisetaniño.mp4","img/adultos2.mp4","img/camiseta2.jpeg","img/camiseta3.jpeg","img/camiseta4.jpeg"],
     "Chupetines K-pop (30u)": ["img/kpp1.jpeg","img/kpp2.jpeg","img/kpop.jpeg"],
-    "Chupetines 2 in 1 (60u)": ["img/dosenuno4.jpeg","img/dosenuno2.jpeg","img/dosenuno3.jpeg","img/dosenuno6.jpeg","img/dosenuno5.jpeg","img/dosenuno6.jpeg"],
+    "Chupetines 2 in 1 (60u)": ["img/dosenuno2.jpeg","img/dosenuno3.jpeg","img/dosenuno5.jpeg"],
     "Gomitas Macarron (30u)": ["img/macarron2.jpeg","img/macarron1.jpeg"],
     "Gomitas Ojos (30u)": ["img/ojos.jpg","img/videoojos.mp4"],
     "Gomitas Oreo (30u)": ["img/gomitasoreo.jpg","img/videooreo.mp4"],
@@ -547,7 +547,7 @@ if (modal) {
     "Monedas de Chocolate (290u)": ["img/monedas1.jpg","img/monedas2.jpg"],
     "Gomitas ojo-boca-ojo (30u)": ["img/gomitasoh1.jpg","img/gomitasoh.jpg"],
     "Gomitas Kuromy (30u)": ["img/gomitasblandas7.jpg","img/gomitasblandas71.jpg"],
-    "Chupetines Capibara (30u)": ["img/chupetincapibara1.jpg","img/chupetincapibara2.jpg"],
+    "Chupetines Capibara (30u)": ["img/chupetincapibara.png","img/chupetincapibara2.jpg"],
     "Chupetines con forma de Unicornio (30u)":["img/unicornio2.jpg","img/unicornio1.jpg","img/unicornio3.jpg"],
     "Chupetines con led Unicornio (30u)":["img/unicornioled1.jpg","img/chupetinnnuni2.jpg","img/leduni.jpg", "img/mc3.jpeg"],
     "Gomitas Super Mario (30u)": ["img/supermario1.jpg","img/supermario2.jpg"],
@@ -557,7 +557,7 @@ if (modal) {
     "Chupetines led Monster (30u)": ["img/monsterojo1.jpg","img/monsterojo.jpg",],
     "Chupetines Hongos (30u)": ["img/hongo1.jpg","img/hongo2.jpg"],
     "Chupetines Frutillas (30u)": ["img/chupetinfrutilla1.jpg","img/chupetinfrutilla2.jpg", "img/chupetinnnrutilla2.jpg"],
-    "Gomitas Astronauta (30u)": ["img/astronauta2.jpg","img/astronauta1.jpg"],
+    "Gomitas Astronauta (30u)": ["img/astronauta.png","img/astronauta2.png"],
     "Chupetes Capibara (30u)": ["img/chupete1.jpeg","img/chupete2.jpeg"],
   };
 
