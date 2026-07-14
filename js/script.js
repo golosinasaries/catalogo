@@ -205,22 +205,21 @@ const globosgrandes   = [
 ];
 
 const bulldog   = [
- 
-    { 
+  { 
     nombre: "Bull Dog 360 g de Frambuesa Ácida",
     precio: 7900,
-    img: "img/cajabulldogframbuesa.jpg"
+    img: "img/cajabulldoggframbuesa.png"
   },
   { 
     nombre: "Bull Dog 360 g de Frutilla Ácida",
     precio: 7900,
-    img: "img/cajabulldogfrutilla.jpg"
+    img: "img/cajabulldogfrutilla.png"
   },
 
   { 
     nombre: "Bull Dog 360 g de Tutti Frutti Ácida",
     precio: 7900,
-    img: "img/cajabulldogtt.jpg"
+    img: "img/cajatt.png"
   },
 ];
 
@@ -502,7 +501,7 @@ if (modal) {
   const imagenesProducto = {
     "Spiderman con pastillitas (30u)": ["img/spider.jpeg","img/spiderman2.png"],
     "Mechas mágicas Lilo y Stitch (30u)": ["img/mechaslilo1.png","img/mechaslilo2.png"],
-    "Chupetines con Sello (30u)": ["img/sello11.png", "img/sello1.jpeg","img/sello2.jpeg"],
+    "Chupetines con Sello (30u)": ["img/sello11.png","img/sello2.png", "img/sello1.jpeg","img/sello2.jpeg"],
     "Alfajor Red Velvet Cheesecake 70g (5 unidades)": ["img/redvelvet.png","img/redvelvet.mp4"],
     "Gomitas Gatitos (30u)": ["img/gatito.png","img/gatito2.jpeg","img/gatito3.jpeg"],
     "Gomitas Monsters (30u)": ["img/monster1.jpeg","img/monster2.jpeg","img/monster3.jpeg"],
@@ -510,8 +509,8 @@ if (modal) {
     "Camisetas Adultos ⚽🔥 (10 Camisetas)": ["img/camisetas1616.jpeg","img/videocamisetaniño.mp4","img/adultos2.mp4","img/camiseta2.jpeg","img/camiseta3.jpeg","img/camiseta4.jpeg"],
     "Chupetines K-pop (30u)": ["img/kpp1.jpeg","img/kpp2.jpeg","img/kpop.jpeg"],
     "Chupetines 2 in 1 (60u)": ["img/dosenuno2.jpeg","img/dosenuno3.jpeg","img/dosenuno5.jpeg"],
-    "Gomitas Macarron (30u)": ["img/macarron2.jpeg","img/macarron1.jpeg"],
-    "Gomitas Ojos (30u)": ["img/ojos.jpg","img/videoojos.mp4"],
+    "Gomitas Macarron (30u)": ["img/macarron.png","img/macarron1.jpeg"],
+    "Gomitas Ojos (30u)": ["img/ojos.png","img/videoojos.mp4"],
     "Gomitas Oreo (30u)": ["img/gomitasoreo.jpg","img/videooreo.mp4"],
     "Dinosaurio con caramelos y luces (1 unidad)": ["img/fotodinosaurio.jpg","img/videodinosaurio.mp4"],
     "Gomitas de boca (30u)": ["img/boca.jpg","img/videoboca.mp4"],
@@ -533,7 +532,7 @@ if (modal) {
     "Camión dispenser + caramelos celeste (1 unidad)": ["img/camionceleste1.jpg","img/camionceleste2.jpg"],
     "Tractor dispenser + caramelos verde (1 unidad)": ["img/tractorverde1.jpg","img/tractorverde2.jpg"],
     "Chupetines Kuromy con led (30u)": ["img/caramelokuromy.jpg","img/caramelokuromy2.jpg", "img/mc3.jpeg"],
-    "Chupetines Merlina (30u)": ["img/merlina1.jpg","img/merlina2.jpg","img/merlina3.jpg","img/merlina4.jpg"],
+    "Chupetines Merlina (30u)": ["img/merlina.png","img/merlina2.png","img/merlina2.jpg"],
     "Chupetín con polvo ácido Brain (30u)": ["img/braincaja.jpg","img/chupetinBrain.jpg"],
     "Camiseta Pimball con pastillitas (30u)": ["img/r11.png","img/r1.png","img/r2.png"],
     "Chupetín Calabaza con polvo ácido y led (30u)": ["img/cajaCalabaza.jpg","img/chupetincalabaza1.jpg","img/chupetincalabaza2.jpg"],
@@ -546,9 +545,8 @@ if (modal) {
     "Huevos Sorpresa Plantas vs Zombies (30u)": ["img/sorpresaplant2.jpg","img/sorpresaplant.jpg"],
     "Gomitas Fantasmita (30u)": ["img/fantasmitas.jpg","img/fantasmitas2.jpg"],
     "Gomitas Batman (30u)": ["img/batman1.jpg","img/batman2.jpg"],
-    "Monedas de Chocolate (290u)": ["img/monedas1.jpg","img/monedas2.jpg"],
     "Gomitas ojo-boca-ojo (30u)": ["img/gomitasoh1.jpg","img/gomitasoh.jpg"],
-    "Gomitas Kuromy (30u)": ["img/gomitasblandas7.jpg","img/gomitasblandas71.jpg"],
+    "Gomitas Kuromy (30u)": ["img/kuromygomita.png","img/kuromy2.png"],
     "Chupetines Capibara (30u)": ["img/chupetincapibara.png","img/chupetincapibara2.jpg"],
     "Chupetines con forma de Unicornio (30u)":["img/unicornio2.jpg","img/unicornio1.jpg","img/unicornio3.jpg"],
     "Chupetines con led Unicornio (30u)":["img/unicornioled1.jpg","img/chupetinnnuni2.jpg","img/leduni.jpg", "img/mc3.jpeg"],
