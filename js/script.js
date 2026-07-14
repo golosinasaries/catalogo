@@ -502,7 +502,7 @@ if (modal) {
   const imagenesProducto = {
     "Chupetines con Sello (30u)": ["img/sello1.jpeg","img/sello2.jpeg"],
     "Alfajor Red Velvet Cheesecake 70g (5 unidades)": ["img/redvelvet.png","img/redvelvet.mp4"],
-    "Gomitas Gatitos (30u)": ["img/gatito1.jpeg","img/gatito2.jpeg","img/gatito3.jpeg","img/gatito4.jpeg"],
+    "Gomitas Gatitos (30u)": ["img/gatito.png","img/gatito2.jpeg","img/gatito3.jpeg"],
     "Gomitas Monsters (30u)": ["img/monster1.jpeg","img/monster2.jpeg","img/monster3.jpeg"],
     "Camisetas Niños👕(10 Camisetas)": ["img/camisetas1414.jpeg","img/videocamisetasniño.mp4","img/camisetaniños2.jpeg"],
     "Camisetas Adultos ⚽🔥 (10 Camisetas)": ["img/camisetas1616.jpeg","img/videocamisetaniño.mp4","img/adultos2.mp4","img/camiseta2.jpeg","img/camiseta3.jpeg","img/camiseta4.jpeg"],
@@ -533,7 +533,7 @@ if (modal) {
     "Chupetines Kuromy con led (30u)": ["img/caramelokuromy.jpg","img/caramelokuromy2.jpg", "img/mc3.jpeg"],
     "Chupetines Merlina (30u)": ["img/merlina1.jpg","img/merlina2.jpg","img/merlina3.jpg","img/merlina4.jpg"],
     "Chupetín con polvo ácido Brain (30u)": ["img/braincaja.jpg","img/chupetinBrain.jpg"],
-    "Camiseta Pimball con pastillitas (30u)": ["img/r1.png","img/remerapimball.jpg","img/r2.jpg"],
+    "Camiseta Pimball con pastillitas (30u)": ["img/r1.png","img/remerapimball.jpg"],
     "Chupetín Calabaza con polvo ácido y led (30u)": ["img/cajaCalabaza.jpg","img/chupetincalabaza1.jpg","img/chupetincalabaza2.jpg"],
     "Gelatina de diferentes formas (30u)": ["img/gelatinaDiferentesSabores4.jpg","img/gelatinaDiferentesSabores3.jpg","img/gelatinaDiferentesSabores2.jpg","img/gelatinaDiferentesSabores5.jpg","img/gelatinaDiferentesSabores1.jpg"],
     "Chupetines con led Corona (30u)": ["img/chupetinesconled1.jpg","img/corona2.jpg"],
