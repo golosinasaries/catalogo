@@ -17,8 +17,8 @@ const cooldownCards = new WeakMap();
 
 const STOCK_PRODUCTOS = {
   "Saca lenguas (30u)": 1,
-  "Alcancía Tigre Rojo (con 12 gelatinas en su interior)": 1,
-  "Alcancía Tigre Amarillo (con 12 gelatinas en su interior)": 2,
+  "Alcancía Tigre Rojo (con 12 gelatinas en su interior)": 0,
+  "Alcancía Tigre Amarillo (con 12 gelatinas en su interior)": 0,
   "Gomitas Ojos (30u)": 48,
   "Gomitas Mogul Frutilla con Crema 500g": 0,
   "Gomitas Selección (30u)": 50,
@@ -1640,7 +1640,20 @@ function sincronizarCarritoConHTML() {
   // Validar carrito
   carrito = carrito.filter(item => {
     const nombreItem = normalizarNombre(item.nombre);
-    const precioActual = productosHTML[nombreItem];
+    let precioActual;
+
+    for (const lista of Object.values(productosVariantes)) {
+      const producto = lista.find(p => normalizarNombre(p.nombre) === nombreItem);
+      if (producto) {
+        precioActual = producto.precio;
+        break;
+      }
+    }
+    // fallback: productos normales (HTML)
+    if (precioActual === undefined) {
+      precioActual = productosHTML[nombreItem];
+    }
+
     const stock = STOCK_PRODUCTOS[nombreItem];
 
    if (precioActual === undefined || stock === 0) {
