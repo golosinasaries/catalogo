@@ -1640,20 +1640,7 @@ function sincronizarCarritoConHTML() {
   // Validar carrito
   carrito = carrito.filter(item => {
     const nombreItem = normalizarNombre(item.nombre);
-    let precioActual;
-
-    for (const lista of Object.values(productosVariantes)) {
-      const producto = lista.find(p => normalizarNombre(p.nombre) === nombreItem);
-      if (producto) {
-        precioActual = producto.precio;
-        break;
-      }
-    }
-    // fallback: productos normales (HTML)
-    if (precioActual === undefined) {
-      precioActual = productosHTML[nombreItem];
-    }
-
+    const precioActual = productosHTML[nombreItem];
     const stock = STOCK_PRODUCTOS[nombreItem];
 
    if (precioActual === undefined || stock === 0) {
