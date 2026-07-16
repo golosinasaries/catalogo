@@ -16,6 +16,7 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 const cooldownCards = new WeakMap();
 
 const STOCK_PRODUCTOS = {
+  "Saca lenguas (30u)": 1,
   "Alcancía Tigre Rojo (con 12 gelatinas en su interior)": 1,
   "Alcancía Tigre Amarillo (con 12 gelatinas en su interior)": 2,
   "Gomitas Ojos (30u)": 48,
@@ -551,7 +552,6 @@ if (modal) {
     "Chupetines con forma de Unicornio (30u)":["img/unicornio2.jpg","img/unicornio1.jpg","img/unicornio3.jpg"],
     "Chupetines con led Unicornio (30u)":["img/unicornioled1.jpg","img/chupetinnnuni2.jpg","img/leduni.jpg", "img/mc3.jpeg"],
     "Gomitas Super Mario (30u)": ["img/supermario1.jpg","img/supermario2.jpg"],
-    "Saca lenguas (30u)": ["img/sacalenguas1.jpg","img/sacalenguas2.jpg"],
     "Chupetines con led Mc Donalds (30u)": ["img/mc.jpg","img/mc2.jpg", "img/mc3.jpeg"],
     "Chupetines con led Oreo (30u)": ["img/oreo1.jpg","img/oreo2.jpg",],
     "Chupetines led Monster (30u)": ["img/monsterojo1.jpg","img/monsterojo.jpg",],
