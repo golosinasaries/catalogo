@@ -1463,7 +1463,7 @@ if (PROMO_ACTIVA === "regalo" && total >= minimoRegalo) {
   msg += `\n📦 Total productos: ${totalProductos}`;
   msg += `\n🚚 Envío: $${envio.toLocaleString("es-AR")}`;
   msg += `\n`;
-  msg += `💳 *💳 El total a abonar con envío incluido es de: $${(total + envio).toLocaleString("es-AR")}*\n`;
+  msg += `💳 *El total a abonar con envío incluido es de: $${(total + envio).toLocaleString("es-AR")}*\n`;
   msg += `📍 Código Postal: ${cp}`;
 
   const numero = "542236010443";
