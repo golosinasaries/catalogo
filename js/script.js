@@ -1,5 +1,5 @@
 const minimoCompra = 50000; 
-const ENVIO_MDP = 5000;
+const ENVIO_MDP = 7800;
 const ENVIO_GENERAL = 13900;
 const ENVIO_LEJANO = 14900;
 const ENVIO_SANTACRUZ = 15900;
@@ -7,7 +7,7 @@ const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 const minimoRegalo = 80000;   
 const REGALO_NOMBRE = "Gomitas Selección (30u) 🇦🇷 ";
-const PROMO_ACTIVA = "envio"; // opciones: "envio", "regalo", "ninguna"
+const PROMO_ACTIVA = "ninguna"; // opciones: "envio", "regalo", "ninguna"
 
 let productos = [];
 let productoIndex = 0;
@@ -16,6 +16,7 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 const cooldownCards = new WeakMap();
 
 const STOCK_PRODUCTOS = {
+  "Oblita de Chocolate (48u)": 0,
   "Saca lenguas (30u)": 1,
   "Alcancía Tigre Rojo (con 12 gelatinas en su interior)": 0,
   "Alcancía Tigre Amarillo (con 12 gelatinas en su interior)": 0,
@@ -1462,7 +1463,7 @@ if (PROMO_ACTIVA === "regalo" && total >= minimoRegalo) {
   msg += `\n📦 Total productos: ${totalProductos}`;
   msg += `\n🚚 Envío: $${envio.toLocaleString("es-AR")}`;
   msg += `\n`;
-  msg += `💳 *TOTAL FINAL: $${(total + envio).toLocaleString("es-AR")}*\n`;
+  msg += `💳 *💳 El total a abonar con envío incluido es de: $${(total + envio).toLocaleString("es-AR")}*\n`;
   msg += `📍 Código Postal: ${cp}`;
 
   const numero = "542236010443";
