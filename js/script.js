@@ -17,7 +17,7 @@ const cooldownCards = new WeakMap();
 
 const STOCK_PRODUCTOS = {
   "Oblita de Chocolate (48u)": 0,
-  "Saca lenguas (30u)": 1,
+  "Saca lenguas (30u)": 0,
   "Alcancía Tigre Rojo (con 12 gelatinas en su interior)": 0,
   "Alcancía Tigre Amarillo (con 12 gelatinas en su interior)": 0,
   "Gomitas Ojos (30u)": 48,
