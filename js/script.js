@@ -16,12 +16,14 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 const cooldownCards = new WeakMap();
 
 const STOCK_PRODUCTOS = {
-  "Oblita de Chocolate (48u)": 0,
+  "Chupetines Frutillas (30u)": 1,
+  "Mogul Ladrillos Mundial 500g": 1,
+  "Oblita de Chocolate (48u)": 1,
   "Saca lenguas (30u)": 0,
   "Alcancía Tigre Rojo (con 12 gelatinas en su interior)": 0,
   "Alcancía Tigre Amarillo (con 12 gelatinas en su interior)": 0,
   "Gomitas Ojos (30u)": 48,
-  "Gomitas Mogul Frutilla con Crema 500g": 0,
+  "Gomitas Mogul Frutilla con Crema 500g": 1,
   "Gomitas Selección (30u)": 50,
   "Bull Dog 360 g de Frambuesa Ácida": 1,
   "Bull Dog 360 g de Frutilla Ácida": 0,
