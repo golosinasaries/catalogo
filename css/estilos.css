@@ -1130,7 +1130,7 @@ html { scroll-behavior: smooth; }
 
 .carrito-item strong {
   display: block;
-  font-size: 1.3rem;
+  font-size: 2.1rem;
   margin-bottom: 0px;
   padding-bottom: 0%;
   font-weight: 700;
@@ -1148,8 +1148,10 @@ html { scroll-behavior: smooth; }
 .carrito-item-info {
   display: flex;
   flex-direction: row;
-  align-items: left;
-  gap: 10px;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
 }
 .carrito-item span {
   font-weight: bold;
@@ -1158,15 +1160,39 @@ html { scroll-behavior: smooth; }
 
 .carrito-item {
   display: flex;
-  flex-wrap: wrap; 
+  align-items: center;
+  gap: 8px;
   width: 100%;
   overflow: hidden;
   text-align: left;
-  padding-right: 1px;
-  padding-left: 10px;
-  padding-bottom: 1%;
-  padding-top: 0.3%;
-  margin-top: 0%;
+  padding: 4px 5px;
+  margin-top: 0;
+  box-sizing: border-box;
+  flex-wrap: nowrap;
+}
+
+@media (max-width: 768px) {
+  .carrito-item {
+    gap: 5px;
+    padding-left: 5px;
+  }
+
+  .carrito-item strong {
+    font-size: 1rem;
+  }
+
+  .carrito-item span {
+    font-size: 1rem;
+  }
+
+  .cantidad-btn {
+    padding: 4px 8px;
+    font-size: 14px;
+  }
+
+  .carrito-cantidad-controles {
+    gap: 3px;
+  }
 }
 .carrito-cantidad-controles {
   display: flex;
@@ -1353,6 +1379,15 @@ html { scroll-behavior: smooth; }
   #whatsapp-btn span {
     font-size: 13px;
   }
+
+  .cantidad-btn {
+  padding: 3px 6px;
+  font-size: 14px;
+}
+
+.carrito-cantidad-controles {
+  gap: 2px;
+}
 }
 
 /* BOTÓN CONSULTAS */
@@ -1982,13 +2017,13 @@ h1, h2, h3 {
     
   }
   .fb-sub {
-  font-size: 14px;
-  color: #cb1fff;
-  text-align: center;
-  margin-top: 82px;
-  line-height: 1.6;
-  opacity: 0.9;
-}
+    font-size: 14px;
+    color: #cb1fff;
+    text-align: center;
+    margin-top: 82px;
+    line-height: 1.6;
+    opacity: 0.9;
+  }
   .card .flecha:active {
     background: linear-gradient(
       135deg,#EC4899,#BE185D,#D946EF);
@@ -2001,6 +2036,7 @@ h1, h2, h3 {
     .card .flecha.der {
       right: 1px;
     }
+    
 
   }
 
@@ -2748,4 +2784,20 @@ a {
 .card-instagram iframe{
     height: 760px !important;
     margin-top: -145px;
+}
+
+.carrito-miniatura {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  flex-shrink: 0;
+}
+
+@media (min-width: 769px) {
+  .carrito-miniatura {
+    width: 55px;
+    height: 55px;
+  }
 }

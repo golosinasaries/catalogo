@@ -7,13 +7,17 @@ const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 const minimoRegalo = 70000;   
 const REGALO_NOMBRE = "Gomitas Kuromy (30u) ";
+const REGALO_IMAGEN = "img/kuromygomita.png";
 const PROMO_ACTIVA = "regalo"; // opciones: "envio", "regalo", "ninguna"
 
 let productos = [];
 let productoIndex = 0;
+let fondoModal = null;
 let currentVariantes = null;
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 const cooldownCards = new WeakMap();
+const carritoDropdown = document.getElementById("carrito-dropdown");
+fondoModal = document.getElementById("fondo-carrito");
 
 const STOCK_PRODUCTOS = {
   "Chupetines Frutillas (30u)": 1,
@@ -472,6 +476,8 @@ function calcularCostoEnvio(cp) {
 // ========================
 // MODAL DE PRODUCTOS
 // ========================
+let abiertoDesdeCarrito = false;
+let volverAlCarrito = false;
 const modal = document.getElementById('modal'); 
 if (modal) {
   const modalImg = document.getElementById('modal-img');
@@ -811,17 +817,35 @@ function actualizarModal() {
   bloqueandoCierre = true;
 
   modal.style.display = 'none';
+  if (volverAlCarrito) {
+    setTimeout(() => {
+      document.getElementById("carrito-btn").click();
+    }, 100);
+
+    volverAlCarrito = false;
+  }
   modalImg.classList.remove('zoomed');
 
   const cardActual = productos[productoIndex];
 
-    if (cardActual) {
+   if (abiertoDesdeCarrito) {
+
+      setTimeout(() => {
+        carritoDropdown.style.display = "block";
+        fondoModal.style.display = "block";
+      }, 100);
+
+      abiertoDesdeCarrito = false;
+
+    } else if (cardActual) {
+
       setTimeout(() => {
         cardActual.scrollIntoView({
           behavior: "smooth",
           block: "center"
         });
       }, 50);
+
     }
 
     setTimeout(() => {
@@ -1029,7 +1053,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const numero = "542236010443";
 
   const carritoBtn = document.getElementById("carrito-btn");
-  const carritoDropdown = document.getElementById("carrito-dropdown");
   const carritoItemsContainer = document.getElementById("carrito-items");
   const carritoCount = document.getElementById("carrito-count");
   
@@ -1041,7 +1064,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const vaciarBtn = document.getElementById("vaciar-carrito");
   const carritoTotal = document.getElementById("carrito-total");
 
-  const fondoModal = document.createElement("div");
+  fondoModal = document.createElement("div");
   fondoModal.id = "fondo-carrito";
   Object.assign(fondoModal.style, {
     position: "fixed", inset: 0, background: "rgba(0,0,0,0.5)",
@@ -1055,7 +1078,7 @@ document.addEventListener("DOMContentLoaded", () => {
     transform: "translate(-50%, -50%)",
     boxShadow: "0 0 15px rgba(0,0,0,0.4)",
     borderRadius: "12px", background: "white",
-    display: "none", padding: "15px", width: "300px",
+    display: "none", padding: "15px", width: window.innerWidth <= 768 ? "380px" : "620px",
   });
 
   const parsePrecio = p => parseFloat(p.replace(/[^\d,]/g,"").replace(/\./g,"").replace(",","."))||0;
@@ -1075,35 +1098,67 @@ document.addEventListener("DOMContentLoaded", () => {
       PROMO_ACTIVA === "regalo" && total >= minimoRegalo
         ? `
           <div class='carrito-item regalo-item'>
-            <strong>🎁 ${REGALO_NOMBRE}</strong>
-            <br>
-            <span style="color:green;font-weight:bold;">
-              GRATIS
-            </span>
+
+            <img class="carrito-miniatura"
+                src="${REGALO_IMAGEN}"
+                alt="${REGALO_NOMBRE}">
+
+            <div class="carrito-item-info">
+              <strong>🎁 ${REGALO_NOMBRE}</strong>
+
+              <br>
+
+              <span style="color:green;font-weight:bold;">
+                GRATIS
+              </span>
+            </div>
+
           </div>
         `
         : "";
     carritoItemsContainer.innerHTML = carrito.length === 0
       ? "<p class='carrito-vacio'>Tu carrito está vacío 🛒</p>"
       : carrito.map(i=>`
-          <div class='carrito-item'>
-          <strong>${i.nombre}</strong>
-          ${i.talle ? `<br><small>Talle: ${i.talle}</small>` : ""} 
-          <br>
-          <strong>
-            $${(
-              parsePrecio(i.precio) * i.cantidad
-            ).toLocaleString("es-AR")}
-          </strong>
-          <br>
-          <button class='cantidad-btn restar' data-nombre='${i.nombre}' data-talle='${i.talle || ""}'>-</button>
+            <div class="carrito-item" data-nombre="${i.nombre}">
 
-          ${i.cantidad}
+              <img class="carrito-miniatura"
+                  src="${i.imagen}"
+                  alt="${i.nombre}">
 
-          <button class='cantidad-btn sumar' data-nombre='${i.nombre}' data-talle='${i.talle || ""}'>+</button>
-          <button class='cantidad-btn carrito-eliminar' data-nombre='${i.nombre}' data-talle='${i.talle || ""}'>🗑️</button>
-        </div>
-      `).join("") + regaloHTML;
+              <div class="carrito-item-info">
+
+                <strong>${i.nombre}</strong>
+
+                ${i.talle ? `<br><small>Talle: ${i.talle}</small>` : ""}
+
+                <br>
+
+                <strong>
+                  $${(
+                    parsePrecio(i.precio) * i.cantidad
+                  ).toLocaleString("es-AR")}
+                </strong>
+
+                <br>
+
+                <button class='cantidad-btn restar'
+                  data-nombre='${i.nombre}'
+                  data-talle='${i.talle || ""}'>-</button>
+
+                ${i.cantidad}
+
+                <button class='cantidad-btn sumar'
+                  data-nombre='${i.nombre}'
+                  data-talle='${i.talle || ""}'>+</button>
+
+                <button class='cantidad-btn carrito-eliminar'
+                  data-nombre='${i.nombre}'
+                  data-talle='${i.talle || ""}'>🗑️</button>
+
+              </div>
+
+            </div>
+        `).join("") + regaloHTML;
 
     let totalProductos = carrito.reduce((a,i)=>a+i.cantidad,0);
 
@@ -1140,6 +1195,33 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("menu-envio").click();
      });
     actualizarAvisoEnvioGratis(total);
+
+    document.querySelectorAll(".carrito-item").forEach(item => {
+      item.addEventListener("click", (e) => {
+
+        if (e.target.closest("button")) return;
+
+        const nombre = item.dataset.nombre;
+
+        const card = [...document.querySelectorAll(".card")].find(card =>
+          card.querySelector("h3")?.textContent.trim() === nombre
+        );
+
+        if (card) {
+
+          carritoDropdown.style.display = "none";
+          fondoModal.style.display = "none";
+
+          abiertoDesdeCarrito = true;
+          volverAlCarrito = true;
+
+          setTimeout(() => {
+            card.click();
+          }, 100);
+
+        }
+      });
+    });
 
     let carritoTimer;
 
@@ -1338,11 +1420,16 @@ document.addEventListener("DOMContentLoaded", () => {
             ex.cantidad++;
             ex.talle = talle || ex.talle;
           } else {
-            carrito.push({ 
-              nombre, 
-              precio, 
-              cantidad: 1,
-              talle: talle || ""
+            const imagen = card
+                ? card.querySelector("img")?.src
+                : document.getElementById("modal-img")?.src;
+
+            carrito.push({
+                nombre,
+                precio,
+                cantidad: 1,
+                talle: talle || "",
+                imagen
             });
           }
 
