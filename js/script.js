@@ -20,8 +20,6 @@ const carritoDropdown = document.getElementById("carrito-dropdown");
 fondoModal = document.getElementById("fondo-carrito");
 
 const STOCK_PRODUCTOS = {
-  "Chupetines Capibara (30u)" : 1,
-  "Chupetines Frutillas (30u)": 1,
   "Mogul Ladrillos Mundial 500g": 1,
   "Oblita de Chocolate (48u)": 1,
   "Gomitas Ojos (30u)": 48,
