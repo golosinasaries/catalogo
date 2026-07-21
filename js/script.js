@@ -20,6 +20,7 @@ const carritoDropdown = document.getElementById("carrito-dropdown");
 fondoModal = document.getElementById("fondo-carrito");
 
 const STOCK_PRODUCTOS = {
+  "Globo Unicornio Rosa 24 pulgdas (1 unidad)": 0,
   "Mogul Ladrillos Mundial 500g": 1,
   "Oblita de Chocolate (48u)": 1,
   "Gomitas Ojos (30u)": 48,
@@ -194,16 +195,17 @@ const drf   = [
 ];
 
 const globosgrandes   = [
-  {
-    nombre: "Globo Unicornio Rosa 24 pulgdas (1 unidad)",
-    precio: 2500,
-    img: "img/globosgrandes2.jpeg"
-  },
 
   {
     nombre: "Globo Unicornio 24 pulgdas (1 unidad)",
     precio: 2500,
     img: "img/globosgrandes1.jpeg"
+  },
+
+    {
+    nombre: "Globo Unicornio Rosa 24 pulgdas (1 unidad)",
+    precio: 2500,
+    img: "img/globosgrandes2.jpeg"
   },
 
 ];
