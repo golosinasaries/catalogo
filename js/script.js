@@ -20,12 +20,10 @@ const carritoDropdown = document.getElementById("carrito-dropdown");
 fondoModal = document.getElementById("fondo-carrito");
 
 const STOCK_PRODUCTOS = {
+  "Chupetines Capibara (30u)" : 1,
   "Chupetines Frutillas (30u)": 1,
   "Mogul Ladrillos Mundial 500g": 1,
   "Oblita de Chocolate (48u)": 1,
-  "Saca lenguas (30u)": 0,
-  "Alcancía Tigre Rojo (con 12 gelatinas en su interior)": 0,
-  "Alcancía Tigre Amarillo (con 12 gelatinas en su interior)": 0,
   "Gomitas Ojos (30u)": 48,
   "Gomitas Mogul Frutilla con Crema 500g": 1,
   "Gomitas Selección (30u)": 50,
