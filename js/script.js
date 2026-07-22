@@ -66,6 +66,11 @@ const globos = [
 ];
 
 const alcancias = [
+    {
+    nombre: "Alcancía Tigre Amarillo (con 12 gelatinas en su interior)",
+    precio: 6900,
+    img: "img/alcanciaojoamarillo.png"
+  },
 /*
   
  {
@@ -115,11 +120,7 @@ const alcancias = [
     img: "img/alcanciapinguinorosa.jpg"
   },
   */
-  {
-    nombre: "Alcancía Tigre Amarillo (con 12 gelatinas en su interior)",
-    precio: 6900,
-    img: "img/alcanciaojoamarillo.png"
-  },
+
 ];
 
 const recargados = [
