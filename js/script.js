@@ -22,13 +22,9 @@ fondoModal = document.getElementById("fondo-carrito");
 const STOCK_PRODUCTOS = {
   "Globo Unicornio Rosa 24 pulgdas (1 unidad)": 0,
   "Mogul Ladrillos Mundial 500g": 1,
-  "Oblita de Chocolate (48u)": 1,
   "Gomitas Ojos (30u)": 48,
   "Gomitas Mogul Frutilla con Crema 500g": 1,
   "Gomitas Selección (30u)": 50,
-  "Bull Dog 360 g de Frambuesa Ácida": 1,
-  "Bull Dog 360 g de Frutilla Ácida": 0,
-  "Bull Dog 360 g de Tutti Frutti Ácida": 0,
 };
 
 const alka = [
