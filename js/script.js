@@ -147,31 +147,31 @@ const oblita = [
   {
     img: "img/oblita_chocolate.jpg",
     nombre: "Oblita de Chocolate (48u)",
-    precio: 6500
+    precio: 6900
   },
   /*
     {
     img: "img/oblita_blanco.jpg",
     nombre: "Oblita Chocolate Blanco (48u)",
-    precio: 6500
+    precio: 6900
   },
 
   {
     img: "img/oblita_marroc.jpg",
     nombre: "Oblita de Marroc (48u)",
-    precio: 6500
+    precio: 6900
   },
   */
   {
     img: "img/oblita_ddl.jpg",
     nombre: "Oblita de DDL (48u)",
-    precio: 6500
+    precio: 6900
   },
 
   {
     img: "img/oblitafrutilla.jpg",
     nombre: "Oblita de Frutilla (48u)",
-    precio: 6500
+    precio: 6900
   },
 
 ];
