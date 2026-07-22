@@ -143,11 +143,6 @@ const recargados = [
 ];
 
 const oblita = [
-  {
-    img: "img/oblita_blanco.jpg",
-    nombre: "Oblita Chocolate Blanco (48u)",
-    precio: 6500
-  },
 
   {
     img: "img/oblita_chocolate.jpg",
@@ -155,6 +150,12 @@ const oblita = [
     precio: 6500
   },
   /*
+    {
+    img: "img/oblita_blanco.jpg",
+    nombre: "Oblita Chocolate Blanco (48u)",
+    precio: 6500
+  },
+
   {
     img: "img/oblita_marroc.jpg",
     nombre: "Oblita de Marroc (48u)",
