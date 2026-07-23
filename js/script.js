@@ -1,5 +1,5 @@
 const minimoCompra = 50000; 
-const ENVIO_MDP = 6400;
+const ENVIO_MDP = 7800;
 const ENVIO_GENERAL = 13400;
 const ENVIO_LEJANO = 14300;
 const ENVIO_SANTACRUZ = 15400;
@@ -20,6 +20,8 @@ const carritoDropdown = document.getElementById("carrito-dropdown");
 fondoModal = document.getElementById("fondo-carrito");
 
 const STOCK_PRODUCTOS = {
+  "Bull Dog 360 g de Tutti Frutti Ácida": 0,
+  "Bull Dog 360 g de Frutilla Ácida": 0,
   "Globo Unicornio Rosa 24 pulgdas (1 unidad)": 0,
   "Mogul Ladrillos Mundial 500g": 1,
   "Gomitas Ojos (30u)": 48,
@@ -67,13 +69,14 @@ const alcancias = [
     precio: 6900,
     img: "img/alcanciaojoamarillo.png"
   },
-/*
+
   
  {
     nombre: "Alcancía Oso Café (con 12 gelatinas en su interior)",
     precio: 6900,
     img: "img/osocafe.png"
   },
+  /*
   {
     nombre: "Alcancía Pingüino Negro (con 12 gelatinas en su interior)",
     precio: 6900,
@@ -97,13 +100,13 @@ const alcancias = [
     precio: 6900,
     img: "img/alcanciapinguinorojo.jpg"
   },
-
+*/
   {
     nombre: "Alcancía Oso Rosa (con 12 gelatinas en su interior)",
     precio: 6900,
     img: "img/osorosa2.png"
   },
- */
+ 
    {
     nombre: "Alcancía Tigre Rojo (con 12 gelatinas en su interior)",
     precio: 6900,
@@ -554,7 +557,7 @@ if (modal) {
     "Gomitas ojo-boca-ojo (30u)": ["img/gomitasoh1.jpg","img/gomitasoh.jpg"],
     "Gomitas Kuromy (30u)": ["img/kuromygomita.png","img/kuromy2.png"],
     "Chupetines Capibara (30u)": ["img/chupetincapibara.png","img/chupetincapibara2.jpg"],
-    "Chupetines con forma de Unicornio (30u)":["img/unicornio2.jpg","img/unicornio1.jpg","img/unicornio3.jpg"],
+    "Chupetines con forma de Unicornio (30u)":["img/unicornio.png","img/unicornio3.jpg"],
     "Chupetines con led Unicornio (30u)":["img/unicornioled1.jpg","img/chupetinnnuni2.jpg","img/leduni.jpg", "img/mc3.jpeg"],
     "Gomitas Super Mario (30u)": ["img/supermario1.jpg","img/supermario2.jpg"],
     "Chupetines con led Mc Donalds (30u)": ["img/mc.jpg","img/mc2.jpg", "img/mc3.jpeg"],
@@ -564,6 +567,7 @@ if (modal) {
     "Chupetines Frutillas (30u)": ["img/chupetinfrutilla1.jpg","img/chupetinfrutilla2.jpg", "img/chupetinnnrutilla2.jpg"],
     "Gomitas Astronauta (30u)": ["img/astronauta.png","img/astronauta2.png"],
     "Chupetes Capibara (30u)": ["img/chupete1.jpeg","img/chupete2.jpeg"],
+    "Mechas mágicas Intensamente (30u)": ["img/intensamente.jpeg","img/intensamente2.jpeg"],
   };
 
   let currentImages = [];
