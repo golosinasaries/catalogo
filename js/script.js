@@ -45,11 +45,6 @@ const alka = [
 
 const monedaspanda = [
 
-  {
-    nombre: "Monedas de Chocolate Panda Rosa",
-    precio: 17500,
-    img: "img/monedaspandarosa1.png"
-  },
     {
     nombre: "Monedas de Chocolate Panda Celeste",
     precio: 17500,
@@ -529,6 +524,7 @@ if (modal) {
 
   // Productos
   const imagenesProducto = {
+    "Botella con Monedas de Chocolate Panda Rosa": ["img/monedaspandarosa1.png","img/videomonedaspanda.mp4"],
     "Spider-Man con pastillitas (30u)": ["img/spider.jpeg","img/spiderman2.png"],
     "Mechas mágicas Lilo y Stitch (30u)": ["img/mechaslilo1.png","img/mechaslilo2.png"],
     "Chupetines con Sello (30u)": ["img/sello11.png","img/sello2.png", "img/sello1.jpeg","img/sello2.jpeg"],
