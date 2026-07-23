@@ -446,7 +446,7 @@ function calcularCostoEnvio(cp) {
   let extraEnvio = 0;
 
   // Si supera 23 productos
-  if (totalProductos > 25 && !ENVIO_MDP) {
+  if (totalProductos > 25) {
     return 25900;
   }
 
@@ -465,7 +465,7 @@ function calcularCostoEnvio(cp) {
 
   // Mar del Plata
   if (codigo.startsWith("7600")) {
-    return ENVIO_MDP;
+    return ENVIO_MDP + extraEnvio;
   }
 
   // Zonas lejanas
