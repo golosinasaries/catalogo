@@ -43,6 +43,26 @@ const alka = [
   },
 ];
 
+const monedaspanda = [
+
+  {
+    nombre: "Monedas de Chocolate Panda Rosa",
+    precio: 17500,
+    img: "img/monedaspandarosa1.png"
+  },
+    {
+    nombre: "Monedas de Chocolate Panda Celeste",
+    precio: 17500,
+    img: "img/monedapandaceleste.png"
+  },
+
+      {
+    nombre: "Monedas de Chocolate Panda Marrón",
+    precio: 17500,
+    img: "img/monedapandamarron.png"
+  },
+];
+
 const globos = [
   /*
   {
@@ -326,7 +346,8 @@ const productosVariantes = {
   "card-simple": simple,
   "card-triple": triple,
   "card-triple6": triple6,
-  "card-Capullitos": Capullitos
+  "card-Capullitos": Capullitos,
+  "card-monedaspanda": monedaspanda,
 };
 
 function cambiarVariante(el, direccion) {
