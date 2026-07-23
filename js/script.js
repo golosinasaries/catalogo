@@ -1,8 +1,8 @@
 const minimoCompra = 50000; 
-const ENVIO_MDP = 7800;
-const ENVIO_GENERAL = 13900;
-const ENVIO_LEJANO = 14900;
-const ENVIO_SANTACRUZ = 15900;
+const ENVIO_MDP = 6400;
+const ENVIO_GENERAL = 13400;
+const ENVIO_LEJANO = 14300;
+const ENVIO_SANTACRUZ = 15400;
 const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 const minimoRegalo = 70000;   
@@ -427,7 +427,7 @@ function calcularCostoEnvio(cp) {
   let extraEnvio = 0;
 
   // Si supera 23 productos
-  if (totalProductos > 23 && !ENVIO_MDP) {
+  if (totalProductos > 25 && !ENVIO_MDP) {
     return 25900;
   }
 
