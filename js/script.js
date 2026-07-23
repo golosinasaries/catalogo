@@ -8,7 +8,7 @@ const ENVIO_GRATIS = 0;
 const minimoRegalo = 70000;   
 const REGALO_NOMBRE = "Gomitas Kuromy (30u) ";
 const REGALO_IMAGEN = "img/kuromygomita.png";
-const PROMO_ACTIVA = "ninguna"; // opciones: "envio", "regalo", "ninguna"
+const PROMO_ACTIVA = "envio"; // opciones: "envio", "regalo", "ninguna"
 
 let productos = [];
 let productoIndex = 0;
@@ -1188,7 +1188,7 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("carrito", JSON.stringify(carrito));
 
     const envio = localStorage.getItem("codigoPostalCliente")
-      ? ((PROMO_ACTIVA === "envio" && total >= 80000) || total >= 300000
+      ? ((PROMO_ACTIVA === "envio" && total >= 150000) || total >= 300000
           ? 0
           : calcularCostoEnvio(localStorage.getItem("codigoPostalCliente")))
       : null;
@@ -1562,7 +1562,7 @@ if (PROMO_ACTIVA === "regalo" && total >= minimoRegalo) {
 
   // envío
   const envio =
-    (PROMO_ACTIVA === "envio" && total >= 80000) || total >= 300000
+    (PROMO_ACTIVA === "envio" && total >= 150000) || total >= 300000
       ? 0
       : calcularCostoEnvio(cp);
 
@@ -1656,7 +1656,7 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
     }
 
   if (PROMO_ACTIVA === "envio") {
-    if (envioManualGratis || total >= 80000) {
+    if (envioManualGratis || total >= 150000) {
       aviso.innerHTML = "🎉 <strong>¡Tenés envío gratis!</strong>";
       aviso.style.display = "block";
 
@@ -1666,7 +1666,7 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
         estadoEnvio.toastMostrado = true; 
       }
     } else {
-      const falta = 80000 - total;
+      const falta = 150000 - total;
       aviso.innerHTML = `Sumá <strong>$${falta.toLocaleString("es-AR")}</strong> y conseguí <b>envío gratis</b>`;
       aviso.style.display = "block";
       // reset
@@ -2118,7 +2118,7 @@ if (menuEnvio) {
   const total = calcularTotal();
 
   const costo =
-    (PROMO_ACTIVA === "envio" && total >= 80000) || total >= 300000
+    (PROMO_ACTIVA === "envio" && total >= 150000) || total >= 300000
       ? 0
       : calcularCostoEnvio(cp);
 
