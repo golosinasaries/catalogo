@@ -505,7 +505,7 @@ if (modal) {
 
   // Productos
   const imagenesProducto = {
-    "Spiderman con pastillitas (30u)": ["img/spider.jpeg","img/spiderman2.png"],
+    "Spider-Man con pastillitas (30u)": ["img/spider.jpeg","img/spiderman2.png"],
     "Mechas mágicas Lilo y Stitch (30u)": ["img/mechaslilo1.png","img/mechaslilo2.png"],
     "Chupetines con Sello (30u)": ["img/sello11.png","img/sello2.png", "img/sello1.jpeg","img/sello2.jpeg"],
     "Alfajor Red Velvet Cheesecake 70g (5 unidades)": ["img/redvelvet.png","img/redvelvet.mp4"],
