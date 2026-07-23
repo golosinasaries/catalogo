@@ -524,6 +524,7 @@ if (modal) {
 
   // Productos
   const imagenesProducto = {
+    "Gomitas Gallito (30u)": ["img/gallina.jpeg","img/gallina.png"],
     "Botella con Monedas de Chocolate Panda Rosa": ["img/monedaspandarosa1.png","img/videomonedaspanda.mp4"],
     "Spider-Man con pastillitas (30u)": ["img/spider.jpeg","img/spiderman2.png"],
     "Mechas mágicas Lilo y Stitch (30u)": ["img/mechaslilo1.png","img/mechaslilo2.png"],
