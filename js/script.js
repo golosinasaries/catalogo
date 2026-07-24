@@ -608,7 +608,7 @@ if (modal) {
     "Gomitas Astronauta (30u)": ["img/astronauta.png","img/astronauta2.png"],
     "Chupetes Capibara (30u)": ["img/chupete1.jpeg","img/chupete2.jpeg"],
     "Mechas mágicas Intensamente (30u)": ["img/intensamente.jpeg","img/intensamente2.jpeg"],
-    "Iphone Pinball con pastillitas (30u)": ["img/iphone.png","img/iphone2.png"],
+    "iPhone Pinball con pastillitas (30u)": ["img/iphone.png","img/iphone2.png"],
   };
 
   let currentImages = [];
