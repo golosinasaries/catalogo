@@ -52,7 +52,7 @@ const monedaspanda = [
   },
 
       {
-    nombre: "Botella con Monedas de Chocolate Panda Marrón",
+    nombre: "Botella con Monedas de Chocolate Panda Beige",
     precio: 17500,
     img: "img/monedapandamarron.png"
   },
