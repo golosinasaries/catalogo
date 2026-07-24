@@ -46,13 +46,13 @@ const alka = [
 const monedaspanda = [
 
     {
-    nombre: "Monedas de Chocolate Panda Celeste",
+    nombre: "Botella con Monedas de Chocolate Panda Verde",
     precio: 17500,
     img: "img/monedapandaceleste.png"
   },
 
       {
-    nombre: "Monedas de Chocolate Panda Marrón",
+    nombre: "Botella con Monedas de Chocolate Panda Marrón",
     precio: 17500,
     img: "img/monedapandamarron.png"
   },
