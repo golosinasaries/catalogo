@@ -285,6 +285,26 @@ const triple6   = [
   },
   ];
 
+const cucurucho   = [
+    {
+    nombre: "Cucuruchos Helado Frutilla (30u)",
+    precio: 14500,
+    img: "img/cucuruchohelado.png"
+  },
+  {
+    nombre: "Cucuruchos Helado sabor Arandano (30u)",
+    precio: 14500,
+    img: "img/cucuruchovainilla.png"
+  },
+   {
+    nombre: "Cucuruchos Helado Chocolate (30u)",
+    precio: 14500,
+    img: "img/cucuruchochocolate.png"
+  },
+
+
+];
+
 const Capullitos   = [
   {
     nombre: "Pack Cañitos de queso 80g (6u)",
@@ -343,6 +363,7 @@ const productosVariantes = {
   "card-triple6": triple6,
   "card-Capullitos": Capullitos,
   "card-monedaspanda": monedaspanda,
+  "card-cucurucho": cucurucho
 };
 
 function cambiarVariante(el, direccion) {
@@ -524,7 +545,7 @@ if (modal) {
 
   // Productos
   const imagenesProducto = {
-    "Cucuruchos Helado (30u)": ["img/cucuruchohelado.png","img/cucuruchohelado2.png","img/cucurucho3.jpeg"],
+    "Cucuruchos Helado Chocolate (30u)": ["img/cucurucho3.jpeg","img/cucuruchohelado2.png"],
     "Gomitas Gallito (30u)": ["img/gallina.jpeg","img/gallina.png"],
     "Botella con Monedas de Chocolate Panda Rosa": ["img/monedaspandarosa1.png","img/videomonedaspanda.mp4"],
     "Spider-Man con pastillitas (30u)": ["img/spider.jpeg","img/spiderman2.png"],
@@ -587,6 +608,7 @@ if (modal) {
     "Gomitas Astronauta (30u)": ["img/astronauta.png","img/astronauta2.png"],
     "Chupetes Capibara (30u)": ["img/chupete1.jpeg","img/chupete2.jpeg"],
     "Mechas mágicas Intensamente (30u)": ["img/intensamente.jpeg","img/intensamente2.jpeg"],
+    "Iphone Pinball con pastillitas (30u)": ["img/iphone.png","img/iphone2.png"],
   };
 
   let currentImages = [];
