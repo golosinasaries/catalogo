@@ -20,6 +20,7 @@ const carritoDropdown = document.getElementById("carrito-dropdown");
 fondoModal = document.getElementById("fondo-carrito");
 
 const STOCK_PRODUCTOS = {
+  "🎒 Bandoleras infantiles kawaii – Modelos surtidos (7u)": 1,
   "Bull Dog 360 g de Tutti Frutti Ácida": 0,
   "Bull Dog 360 g de Frutilla Ácida": 0,
   "Globo Unicornio Rosa 24 pulgdas (1 unidad)": 0,
@@ -545,6 +546,7 @@ if (modal) {
 
   // Productos
   const imagenesProducto = {
+    "🎒 Bandoleras infantiles kawaii – Modelos surtidos (7u)": ["img/carterita1.png","img/carterita2.png"],
     "Cucuruchos Helado Chocolate (30u)": ["img/cucurucho3.jpeg","img/cucuruchohelado2.png"],
     "Gomitas Gallito (30u)": ["img/gallina.jpeg","img/gallina.png"],
     "Botella con Monedas de Chocolate Panda Rosa": ["img/monedaspandarosa1.png","img/videomonedaspanda.mp4"],
