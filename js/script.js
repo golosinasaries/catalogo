@@ -1,14 +1,14 @@
 const minimoCompra = 50000; 
 const ENVIO_MDP = 7800;
 const ENVIO_GENERAL = 13400;
-const ENVIO_LEJANO = 14300;
+const ENVIO_LEJANO = 14380;
 const ENVIO_SANTACRUZ = 15400;
 const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 const minimoRegalo = 70000;   
 const REGALO_NOMBRE = "Gomita Helado (30u)";
 const REGALO_IMAGEN = "img/helado.png";
-const PROMO_ACTIVA = "regalo"; // opciones: "envio", "regalo", "ninguna"
+const PROMO_ACTIVA = "ninguna"; // opciones: "envio", "regalo", "ninguna"
 
 let productos = [];
 let productoIndex = 0;
