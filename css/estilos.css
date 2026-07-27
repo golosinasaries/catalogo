@@ -879,6 +879,7 @@ html { scroll-behavior: smooth; }
   body {
     margin-top: 25%;
   }
+  
   main {
     margin-top: 0%;
   }
@@ -2281,7 +2282,7 @@ h1, h2, h3 {
   }
 
   .card-instagram {
-      width: calc(100% - 40px);
+    width: calc(100% - 40px);
     margin: 0 auto;
     height: auto;
   }
@@ -2765,9 +2766,7 @@ a {
 }
 
 .card-instagram{
-    /* height: 415px; */
     height: 415px;
-
     overflow: hidden;
     border: 0.5px solid #000;
     border-radius: 18px;
