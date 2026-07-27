@@ -151,7 +151,6 @@ nav a:active {
 
 .card {
   background: white;
-  border: 3px solid #E91E63;
   border-radius: 15px;
   padding: 1rem;
   text-align: center;
@@ -199,7 +198,7 @@ nav a:active {
   height: 220px;
   object-fit: cover;
   transition: transform 0.3s;
-  border: 2px solid #FFB3D9;
+  border: 2px solid #dc0973;
   position: relative;
   z-index: 1;
 }
@@ -2282,7 +2281,8 @@ h1, h2, h3 {
   }
 
   .card-instagram {
-    width: 100%;
+      width: calc(100% - 40px);
+    margin: 0 auto;
     height: auto;
   }
 

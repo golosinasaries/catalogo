@@ -47,13 +47,13 @@ const alka = [
 const monedaspanda = [
 
     {
-    nombre: "Botella con Monedas de Chocolate Panda Verde",
+    nombre: "Botella con Monedas de Chocolate Panda Verde (200 monedas)",
     precio: 17500,
     img: "img/monedapandaceleste.png"
   },
 
       {
-    nombre: "Botella con Monedas de Chocolate Panda Beige",
+    nombre: "Botella con Monedas de Chocolate Panda Beige (200 monedas)",
     precio: 17500,
     img: "img/monedapandamarron.png"
   },
@@ -549,7 +549,7 @@ if (modal) {
     "🎒 Bandoleras infantiles kawaii – Modelos surtidos (7u)": ["img/carterita1.png","img/carterita2.png"],
     "Cucuruchos Helado Chocolate (30u)": ["img/cucurucho3.jpeg","img/cucuruchohelado2.png"],
     "Gomitas Gallito (30u)": ["img/gallina.jpeg","img/gallina.png"],
-    "Botella con Monedas de Chocolate Panda Rosa": ["img/monedaspandarosa1.png","img/videomonedaspanda.mp4"],
+    "Botella con Monedas de Chocolate Panda Rosa (200 monedas)": ["img/monedaspandarosa1.png","img/videomonedaspanda.mp4"],
     "Spider-Man con pastillitas (30u)": ["img/spider.jpeg","img/spiderman2.png"],
     "Mechas mágicas Lilo y Stitch (30u)": ["img/mechaslilo1.png","img/mechaslilo2.png"],
     "Chupetines con Sello (30u)": ["img/sello11.png","img/sello2.png", "img/sello1.jpeg","img/sello2.jpeg"],
