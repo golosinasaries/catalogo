@@ -6,9 +6,9 @@ const ENVIO_SANTACRUZ = 13400;
 const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 const minimoRegalo = 70000;   
-const REGALO_NOMBRE = "Gomita Helado (30u)";
-const REGALO_IMAGEN = "img/helado.png";
-const PROMO_ACTIVA = "ninguna"; // opciones: "envio", "regalo", "ninguna"
+const REGALO_NOMBRE = "Alcancía Tigre Rojo (con 12 gelatinas en su interior)";
+const REGALO_IMAGEN = "img/tigrerojo.png";
+const PROMO_ACTIVA = "regalo"; // opciones: "envio", "regalo", "ninguna"
 
 let productos = [];
 let productoIndex = 0;
