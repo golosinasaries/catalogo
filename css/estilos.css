@@ -958,6 +958,7 @@ html { scroll-behavior: smooth; }
   
 }
 
+
 #carrito-footer {
   flex-shrink: 0;  
   display: flex;
@@ -2799,4 +2800,144 @@ a {
     width: 55px;
     height: 55px;
   }
+}
+
+@media (max-width: 330px) {
+
+  body{
+    margin-top:25%;
+  }
+
+  main{
+    margin-top:0;
+  }
+
+  .portfolio,
+  .catalogo{
+    grid-template-columns:repeat(2,1fr);
+    gap:.25rem;
+    margin-top:45%;
+  }
+
+  .card{
+    padding:4px;
+  }
+
+  .card img{
+    height:120px;
+  }
+
+  .card h3{
+    font-size:.85rem;
+    line-height:1.1;
+  }
+
+  .card p{
+    font-size:.75rem;
+    -webkit-line-clamp:2;
+  }
+
+  .card button,
+  .btn-carrito{
+    font-size:.70rem;
+    padding:5px;
+  }
+
+  .titulo-contenedor h1{
+    font-size:1rem;
+  }
+
+  #search{
+    width:95%;
+    font-size:.9rem;
+    margin-top:3rem;
+  }
+
+  .logo-mini{
+    width:75px;
+    left:35%;
+  }
+
+  /* -------- BOTÓN GRUPO -------- */
+
+  #whatsapp-btn{
+    bottom:35px;
+    right:53%;
+    transform:translateX(50%);
+    padding:7px 10px;
+    gap:4px;
+    max-width:170px;
+  }
+
+  #whatsapp-btn img{
+    width:18px;
+    height:18px;
+  }
+
+  #whatsapp-btn span{
+    font-size:10px;
+  }
+
+  /* -------- CARRITO -------- */
+
+  #carrito-dropdown{
+    width:95%;
+    max-height:82vh;
+    top:4%;
+  }
+
+  #carrito-items{
+    max-height:220px;
+  }
+
+  .carrito-miniatura{
+    width:38px;
+    height:38px;
+  }
+
+  .carrito-item{
+    gap:4px;
+    padding:3px;
+  }
+
+  .carrito-item strong{
+    font-size:.75rem;
+  }
+
+  .carrito-item span{
+    font-size:.70rem;
+  }
+
+  .carrito-item-info{
+    gap:3px;
+  }
+
+  .carrito-cantidad-controles{
+    gap:1px;
+  }
+
+  .cantidad-btn{
+    width:20px;
+    height:20px;
+    padding:0;
+    font-size:11px;
+    border-radius:6px;
+  }
+
+  .btn-enviar,
+  .btn-vaciar{
+    font-size:.85rem;
+    padding:8px;
+  }
+
+  #carrito-total{
+    font-size:.85rem;
+  }
+
+  #carrito-count{
+    min-width:18px;
+    height:18px;
+    font-size:9px;
+  }
+
 }
