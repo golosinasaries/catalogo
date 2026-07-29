@@ -487,7 +487,7 @@ function calcularCostoEnvio(cp) {
 
   // Mar del Plata
   if (codigo.startsWith("7600")) {
-    return ENVIO_MDP + extraEnvio;
+    return ENVIO_MDP;
   }
 
   // Zonas lejanas
