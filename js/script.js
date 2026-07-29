@@ -486,7 +486,7 @@ function calcularCostoEnvio(cp) {
   }
 
   // Mar del Plata
-  if (codigo.startsWith("7600")) {
+  if (codigo.startsWith("7600") || codigo.startsWith("7601")) {
     return ENVIO_MDP;
   }
 
