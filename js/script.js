@@ -1,5 +1,5 @@
 const minimoCompra = 50000; 
-const ENVIO_MDP = 7800;
+const ENVIO_MDP = 6900;
 const ENVIO_GENERAL = 13400;
 const ENVIO_LEJANO = 14400;
 const ENVIO_SANTACRUZ = 15400;
