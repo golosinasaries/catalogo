@@ -21,7 +21,6 @@ fondoModal = document.getElementById("fondo-carrito");
 
 const STOCK_PRODUCTOS = {
   "Botella Panda Rosa con 200 Monedas de Chocolate 🐼": 0,
-  "🎒 Bandoleras infantiles kawaii – Modelos surtidos (7u)": 1,
   "Bull Dog 360 g de Tutti Frutti Ácida": 0,
   "Bull Dog 360 g de Frutilla Ácida": 0,
   "Globo Unicornio Rosa 24 pulgdas (1 unidad)": 0,
