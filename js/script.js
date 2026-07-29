@@ -192,11 +192,13 @@ const oblita = [
 ];
 
 const drf   = [
+  /*
   {
     nombre: "Pastillas D.R.F Sabor Mentol (12u)",
     precio: 6200,
     img: "img/drfmentol.png"
   },
+  */
   {
     nombre: "Pastillas D.R.F Sabor Menta (12u)",
     precio: 6200,
