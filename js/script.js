@@ -20,6 +20,9 @@ const carritoDropdown = document.getElementById("carrito-dropdown");
 fondoModal = document.getElementById("fondo-carrito");
 
 const STOCK_PRODUCTOS = {
+  "Gomitas Capibaras (30u)": 1,
+  "Gomitas de Boca (30u)": 1,
+  "Chupetines Fierita Lengua Azul (50u)": 1,
   "Botella Panda Rosa con 200 Monedas de Chocolate 🐼": 0,
   "Bull Dog 360 g de Tutti Frutti Ácida": 0,
   "Bull Dog 360 g de Frutilla Ácida": 0,
