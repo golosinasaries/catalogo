@@ -478,7 +478,7 @@ function calcularCostoEnvio(cp) {
   }
 
   // Extras normales
-  const extraBloques = Math.floor(totalProductos / 10);
+  const extraBloques = Math.floor(totalProductos / 13);
   extraEnvio = extraBloques * 3500;
 
   // Santa Cruz
