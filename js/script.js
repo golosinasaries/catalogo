@@ -1219,7 +1219,7 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("carrito", JSON.stringify(carrito));
 
     const envio = localStorage.getItem("codigoPostalCliente")
-      ? ((PROMO_ACTIVA === "envio" && total >= 150000) || total >= 300000
+      ? ((PROMO_ACTIVA === "envio" && total >= 80000) || total >= 300000
           ? 0
           : calcularCostoEnvio(localStorage.getItem("codigoPostalCliente")))
       : null;
@@ -1593,7 +1593,7 @@ if (PROMO_ACTIVA === "regalo" && total >= minimoRegalo) {
 
   // envío
   const envio =
-    (PROMO_ACTIVA === "envio" && total >= 150000) || total >= 300000
+    (PROMO_ACTIVA === "envio" && total >= 8000) || total >= 300000
       ? 0
       : calcularCostoEnvio(cp);
 
@@ -1687,7 +1687,7 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
     }
 
   if (PROMO_ACTIVA === "envio") {
-    if (envioManualGratis || total >= 150000) {
+    if (envioManualGratis || total >= 80000) {
       aviso.innerHTML = "🎉 <strong>¡Tenés envío gratis!</strong>";
       aviso.style.display = "block";
 
@@ -1697,7 +1697,7 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
         estadoEnvio.toastMostrado = true; 
       }
     } else {
-      const falta = 150000 - total;
+      const falta = 80000 - total;
       aviso.innerHTML = `Sumá <strong>$${falta.toLocaleString("es-AR")}</strong> y conseguí <b>envío gratis</b>`;
       aviso.style.display = "block";
       // reset
@@ -2149,7 +2149,7 @@ if (menuEnvio) {
   const total = calcularTotal();
 
   const costo =
-    (PROMO_ACTIVA === "envio" && total >= 150000) || total >= 300000
+    (PROMO_ACTIVA === "envio" && total >= 80000) || total >= 300000
       ? 0
       : calcularCostoEnvio(cp);
 
