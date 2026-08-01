@@ -8,7 +8,7 @@ const ENVIO_GRATIS = 0;
 const minimoRegalo = 70000;   
 const REGALO_NOMBRE = "1 Alcancía";
 const REGALO_IMAGEN = "img/tigrerojo.png";
-const PROMO_ACTIVA = "ninguna"; // opciones: "envio", "regalo", "ninguna"
+const PROMO_ACTIVA = "envio"; // opciones: "envio", "regalo", "ninguna"
 
 let productos = [];
 let productoIndex = 0;
