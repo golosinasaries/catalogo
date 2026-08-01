@@ -967,7 +967,10 @@ function actualizarModal() {
     //  
     const sinStock = stock === 0;
 
-    if (card.classList.contains('promo')) return;
+    if (
+        card.classList.contains("promo") ||
+        card.classList.contains("card-instagram")
+    ) return;
     if (ev.target.closest('button')) return;
     if (ev.target.classList.contains("flecha")) return;
 

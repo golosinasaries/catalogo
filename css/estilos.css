@@ -2941,3 +2941,16 @@ a {
   }
 
 }
+
+.facebook-link {
+  display: block;
+  text-align: center;
+  margin-top: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #1877F2;
+}
+
+.facebook-link:hover {
+  text-decoration: underline;
+}
