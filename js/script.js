@@ -20,17 +20,13 @@ const carritoDropdown = document.getElementById("carrito-dropdown");
 fondoModal = document.getElementById("fondo-carrito");
 
 const STOCK_PRODUCTOS = {
-  "Gomitas Capibaras (30u)": 1,
+  "Chupetines con forma de Unicornio (30u)": 1,
   "Gomitas de Boca (30u)": 1,
   "Chupetines Fierita Lengua Azul (50u)": 1,
   "Botella Panda Rosa con 200 Monedas de Chocolate 🐼": 0,
   "Bull Dog 360 g de Tutti Frutti Ácida": 0,
   "Bull Dog 360 g de Frutilla Ácida": 0,
   "Globo Unicornio Rosa 24 pulgdas (1 unidad)": 0,
-  "Mogul Ladrillos Mundial 500g": 1,
-  "Gomitas Ojos (30u)": 48,
-  "Gomitas Mogul Frutilla con Crema 500g": 1,
-  "Gomitas Selección (30u)": 50,
 };
 
 const alka = [
