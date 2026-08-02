@@ -20,9 +20,11 @@ const carritoDropdown = document.getElementById("carrito-dropdown");
 fondoModal = document.getElementById("fondo-carrito");
 
 const STOCK_PRODUCTOS = {
+  "Gomitas Gallito (30u)": 1,
   "Chupetines con forma de Unicornio (30u)": 1,
   "Gomitas de Boca (30u)": 1,
   "Chupetines Fierita Lengua Azul (50u)": 1,
+  "Botella Panda Verde con 200 Monedas de Chocolate 🐼": 0,
   "Botella Panda Rosa con 200 Monedas de Chocolate 🐼": 0,
   "Bull Dog 360 g de Tutti Frutti Ácida": 0,
   "Bull Dog 360 g de Frutilla Ácida": 0,
@@ -44,17 +46,16 @@ const alka = [
 ];
 
 const monedaspanda = [
-
-    {
-    nombre: "Botella Panda Verde con 200 Monedas de Chocolate 🐼",
-    precio: 17500,
-    img: "img/monedapandaceleste.png"
-  },
-
       {
     nombre: "🤎 Botella Panda Beige con 200 Monedas de Chocolate 🐼",
     precio: 17500,
     img: "img/monedapandamarron.png"
+  },
+
+      {
+    nombre: "Botella Panda Verde con 200 Monedas de Chocolate 🐼",
+    precio: 17500,
+    img: "img/monedapandaceleste.png"
   },
 ];
 
