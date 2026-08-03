@@ -20,7 +20,6 @@ const carritoDropdown = document.getElementById("carrito-dropdown");
 fondoModal = document.getElementById("fondo-carrito");
 
 const STOCK_PRODUCTOS = {
-  "Gomitas Gallito (30u)": 1,
   "Chupetines con forma de Unicornio (30u)": 1,
   "Gomitas de Boca (30u)": 41,
   "Chupetines Fierita Lengua Azul (50u)": 1,
@@ -476,7 +475,7 @@ function calcularCostoEnvio(cp) {
 
   // Extras normales
   const extraBloques = Math.floor(totalProductos / 13);
-  extraEnvio = extraBloques * 3500;
+  extraEnvio = extraBloques * 1500;
 
   // Santa Cruz
   const prefijos = ["9303", "4430", "8371", "3304", "4449"];
