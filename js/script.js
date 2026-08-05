@@ -8,7 +8,7 @@ const ENVIO_GRATIS = 0;
 const minimoRegalo = 70000;   
 const REGALO_NOMBRE = "1 Alcancía";
 const REGALO_IMAGEN = "img/tigrerojo.png";
-const PROMO_ACTIVA = "envio"; // opciones: "envio", "regalo", "ninguna"
+const PROMOS_ACTIVAS = ["envio"]; 
 
 let productos = [];
 let productoIndex = 0;
@@ -1055,7 +1055,7 @@ function mostrarToast(mensaje, tipo = "success") {
 
   const myConfetti = confetti.create(canvas, {
     resize: true,
-    useWorker: true
+    useWorker: false
   });
 
   myConfetti({
@@ -1141,7 +1141,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const total = calcularTotal();
 
     const regaloHTML =
-      PROMO_ACTIVA === "regalo" && total >= minimoRegalo
+      PROMOS_ACTIVAS.includes("regalo") && total >= minimoRegalo
         ? `
           <div class='carrito-item regalo-item'>
 
@@ -1208,7 +1208,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let totalProductos = carrito.reduce((a,i)=>a+i.cantidad,0);
 
-    if (PROMO_ACTIVA === "regalo" && total >= minimoRegalo) {
+    if (PROMOS_ACTIVAS.includes("regalo") && total >= minimoRegalo) {
         totalProductos++;
     }
         
@@ -1217,7 +1217,7 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("carrito", JSON.stringify(carrito));
 
     const envio = localStorage.getItem("codigoPostalCliente")
-      ? ((PROMO_ACTIVA === "envio" && total >= 100000) || total >= 100000
+      ? ((PROMOS_ACTIVAS.includes("envio") && total >= 100000) || total >= 100000
           ? 0
           : calcularCostoEnvio(localStorage.getItem("codigoPostalCliente")))
       : null;
@@ -1552,7 +1552,7 @@ document.getElementById("enviar-carrito")?.addEventListener("click", async (e) =
   ? `• *${i.cantidad}* ${i.nombre} — $${precioUnitario.toLocaleString("es-AR")} x${i.cantidad} → $${subtotal.toLocaleString("es-AR")}\n`
   : `• ${i.nombre} → $${subtotal.toLocaleString("es-AR")}\n`;
 });
-if (PROMO_ACTIVA === "regalo" && total >= minimoRegalo) {
+if (PROMOS_ACTIVAS.includes("regalo") && total >= minimoRegalo) {
   msg += `• 🎁 ${REGALO_NOMBRE} → GRATIS\n`;
   totalProductos += 1;
 }
@@ -1591,7 +1591,7 @@ if (PROMO_ACTIVA === "regalo" && total >= minimoRegalo) {
 
   // envío
  const envio =
-  (PROMO_ACTIVA === "envio" && total >= 100000)
+  (PROMOS_ACTIVAS.includes("envio") && total >= 100000)
     ? 0
     : calcularCostoEnvio(cp);
 
@@ -1641,92 +1641,76 @@ if (PROMO_ACTIVA === "regalo" && total >= minimoRegalo) {
 // AVISO ENVÍO GRATIS
 // ========================
 const estadoEnvio = {
-  toastMostrado: false
+  regaloMostrado: false,
+  envioMostrado: false
 };
 
 function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
   const aviso = document.getElementById("aviso-envio-gratis");
-  if (!aviso) {
-    console.warn("No existe el elemento #aviso-envio-gratis");
-    return;
-  }
-
-  aviso.style.display = "none";
-
-  // Asegurarse de que estadoEnvio existe
-  if (typeof estadoEnvio === "undefined") window.estadoEnvio = { toastMostrado: false };
+  if (!aviso) return;
 
   total = Number(total) || 0;
 
-  console.log("PROMO_ACTIVA:", PROMO_ACTIVA, "total:", total);
+  let mensajes = [];
+  let lanzar = false;
 
-  if (PROMO_ACTIVA === "regalo") {
-  if (total >= minimoRegalo) {
-    aviso.innerHTML =
-  `🎁 <strong>¡Tu compra incluye:</strong><br>` +
-  `${REGALO_NOMBRE} de regalo!`;
+  // ===== REGALO =====
+  if (PROMOS_ACTIVAS.includes("regalo")) {
+    if (total >= minimoRegalo) {
+      mensajes.push(`🎁 <strong>¡Tu compra incluye!</strong><br>${REGALO_NOMBRE} de regalo`);
 
-    if (!estadoEnvio.toastMostrado) {
-      mostrarToast("🎁 ¡Ganaste un regalo! ✨", "fiesta");
-      lanzarConfetti();
-      estadoEnvio.toastMostrado = true;
-        }
-
-      } else {
-        const falta = minimoRegalo - total;
-        aviso.innerHTML = `🎁 Sumá <strong>$${falta.toLocaleString("es-AR")}</strong> y llevate un regalo!`;
-
-        // reset
-        estadoEnvio.toastMostrado = false;
-      }
-
-      aviso.style.display = "block";
-      return;
-    }
-
-  if (PROMO_ACTIVA === "envio") {
-    if (envioManualGratis || total >= 100000) {
-      aviso.innerHTML = "🎉 <strong>¡Tenés envío gratis!</strong>";
-      aviso.style.display = "block";
-
-      if (!estadoEnvio.toastMostrado) {
-        mostrarToast("🎉 Tenés envío gratis! ✨", "fiesta");
-        lanzarConfetti();
-        estadoEnvio.toastMostrado = true; 
+      if (!estadoEnvio.regaloMostrado) {
+        mostrarToast("🎁 ¡Ganaste un regalo! ✨", "fiesta");
+        lanzar = true;
+        estadoEnvio.regaloMostrado = true;
       }
     } else {
-      const falta = 100000 - total;
-      aviso.innerHTML = `Sumá <strong>$${falta.toLocaleString("es-AR")}</strong> y conseguí <b>envío gratis</b>`;
-      aviso.style.display = "block";
-      // reset
-      estadoEnvio.toastMostrado = false;
+      mensajes.push(
+        `🎁 Sumá <strong>$${(minimoRegalo - total).toLocaleString("es-AR")}</strong> y llevate un regalo`
+      );
     }
-    aviso.style.display = "block";
-    return;
   }
 
-  if (PROMO_ACTIVA === "ninguna") {
+  // ===== ENVÍO =====
+  if (PROMOS_ACTIVAS.includes("envio")) {
+    if (envioManualGratis || total >= 100000) {
+      mensajes.push("🚚 <strong>¡Tenés envío gratis!</strong>");
 
-  if (total >= 100000) {
-
-    aviso.innerHTML = `
-      🎉 <strong>¡Tenés envío gratis!</strong><br>
-    `;
-
-  } else {
-
-    const falta = 100000 - total;
-
-    aviso.innerHTML = `
-    🛍️ Compra mínima $${minimoCompra.toLocaleString("es-AR")}✨
-    <br>
-    `;
+      if (!estadoEnvio.envioMostrado) {
+        mostrarToast("🎉 ¡Tenés envío gratis! ✨", "fiesta");
+        lanzar = true;
+        estadoEnvio.envioMostrado = true;
+      }
+    } else {
+      mensajes.push(
+        `🚚 Sumá <strong>$${(100000 - total).toLocaleString("es-AR")}</strong> y conseguí envío gratis`
+      );
+    }
   }
-// ========================
-//  🚚 Sumá <strong>$${falta.toLocaleString("es-AR")}</strong> para envío gratis<br>
-// ========================
-  aviso.style.display = "block";
-}
+
+  // Sin promociones
+  if (PROMOS_ACTIVAS.length === 0) {
+    mensajes.push(`🛍️ Compra mínima $${minimoCompra.toLocaleString("es-AR")}`);
+    estadoEnvio.regaloMostrado = false;
+    estadoEnvio.envioMostrado = false;
+  }
+
+  // Mostrar mensajes
+  aviso.innerHTML = mensajes.join("<br><br>");
+  aviso.style.display = mensajes.length ? "block" : "none";
+
+  if (lanzar) {
+    lanzarConfetti();
+  }
+
+  // Reset cuando no alcanzó ninguna promo
+  if (
+    (!PROMOS_ACTIVAS.includes("regalo") || total < minimoRegalo) &&
+    (!PROMOS_ACTIVAS.includes("envio") || (!envioManualGratis && total < 100000))
+  ) {
+    estadoEnvio.regaloMostrado = false;
+    estadoEnvio.envioMostrado = false;
+  }
 }
 
 // ========================
@@ -2074,7 +2058,7 @@ function mostrarEnvioModal(costo) {
        <p class="envio-precio">🚚 Envío: $${precioEnvio}</p>
 
         <p class="envio-gratis">
-          💖 Superando los $100.000 el envío es GRATIS
+          💖 Superando los $100.000 el envío siempre es GRATIS
         </p>
 
         <div class="envio-actions">
@@ -2146,10 +2130,10 @@ if (menuEnvio) {
 
   const total = calcularTotal();
 
-  const costo =
-    (PROMO_ACTIVA === "envio" && total >= 100000) || total >= 100000
-      ? 0
-      : calcularCostoEnvio(cp);
+ const costo =
+  PROMOS_ACTIVAS.includes("envio") && total >= 100000
+    ? 0
+    : calcularCostoEnvio(cp);
 
   // Validar error
     if (costo?.error) {

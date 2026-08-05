@@ -2282,10 +2282,15 @@ h1, h2, h3 {
     margin-top: 37%;
   }
 
+  .compra-minima {
+  top: 22%;
+}
+
   .card-instagram {
     width: calc(100% - 40px);
     margin: 0 auto;
     height: auto;
+    margin-top: 11px;
   }
 
   .titulo-animado {
