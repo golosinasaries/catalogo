@@ -448,10 +448,14 @@ const btn = document.getElementById("whatsapp-btn");
 
 if (btn) {
   btn.addEventListener("click", () => {
-    const linkGrupo = "https://chat.whatsapp.com/KLSylBrQaCt40aRp8s5gPF";
+    const linkGrupo = "https://chat.whatsapp.com/LkfX8CtrWuQ4EU7k9aG4vN"; // GOLOSINAS -- 
     window.open(linkGrupo, "_blank");
   });
 }
+
+// https://chat.whatsapp.com/KLSylBrQaCt40aRp8s5gPF  GOLOSINAS -
+// https://chat.whatsapp.com/IOdckbjRmKR7iZJUoJpGEV MAYORISTA --
+// https://chat.whatsapp.com/CU7K3YOMLaO2rmkWHK84kp  MAYOTISTA -
 
 function calcularCostoEnvio(cp) {
   const codigo = (cp || "").trim();
