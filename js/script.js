@@ -21,6 +21,7 @@ fondoModal = document.getElementById("fondo-carrito");
 
 const STOCK_PRODUCTOS = {
   "Chupetines con forma de Unicornio (30u)": 1,
+  "Camiseta Pinball con pastillitas (30u)": 1,
   "Gomitas de Boca (30u)": 41,
   "Chupetines Fierita Lengua Azul (50u)": 1,
   "Botella Panda Verde con 200 Monedas de Chocolate 🐼": 0,
