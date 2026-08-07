@@ -448,7 +448,7 @@ const btn = document.getElementById("whatsapp-btn");
 
 if (btn) {
   btn.addEventListener("click", () => {
-    const linkGrupo = "https://chat.whatsapp.com/LkfX8CtrWuQ4EU7k9aG4vN"; // GOLOSINAS -- 
+    const linkGrupo = "https://chat.whatsapp.com/Gvuz6sIsH1a4IssI5lAMad"; // GOLOSINAS -- 
     window.open(linkGrupo, "_blank");
   });
 }
