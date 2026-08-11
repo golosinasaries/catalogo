@@ -289,21 +289,25 @@ const triple6   = [
   ];
 
 const cucurucho   = [
-    {
+   /* {
     nombre: "Cucuruchos Helado Frutilla (30u)",
     precio: 14500,
     img: "img/cucuruchohelado.png"
   },
+  */
+
+     {
+    nombre: "Cucuruchos Helado Chocolate (30u)",
+    precio: 14500,
+    img: "img/cucuruchochocolate.png"
+  },
+  
   {
     nombre: "Cucuruchos Helado sabor Arandano (30u)",
     precio: 14500,
     img: "img/cucuruchovainilla.png"
   },
-   {
-    nombre: "Cucuruchos Helado Chocolate (30u)",
-    precio: 14500,
-    img: "img/cucuruchochocolate.png"
-  },
+
 
 
 ];
