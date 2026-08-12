@@ -24,8 +24,6 @@ const STOCK_PRODUCTOS = {
   "Camiseta Pinball con pastillitas (30u)": 1,
   "Gomitas de Boca (30u)": 41,
   "Chupetines Fierita Lengua Azul (50u)": 1,
-  "Botella Panda Verde con 200 Monedas de Chocolate 🐼": 0,
-  "Botella Panda Rosa con 200 Monedas de Chocolate 🐼": 0,
   "Bull Dog 360 g de Tutti Frutti Ácida": 0,
   "Bull Dog 360 g de Frutilla Ácida": 0,
   "Globo Unicornio Rosa 24 pulgdas (1 unidad)": 0,
@@ -301,7 +299,7 @@ const cucurucho   = [
     precio: 14500,
     img: "img/cucuruchochocolate.png"
   },
-  
+
   {
     nombre: "Cucuruchos Helado sabor Arandano (30u)",
     precio: 14500,
