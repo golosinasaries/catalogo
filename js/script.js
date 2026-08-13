@@ -20,7 +20,6 @@ const carritoDropdown = document.getElementById("carrito-dropdown");
 fondoModal = document.getElementById("fondo-carrito");
 
 const STOCK_PRODUCTOS = {
-  "Spider-Man con pastillitas (30u)": 1,
   "Pack Cañitos de queso 80g (6u)": 0,
   "Camiseta Pinball con pastillitas (30u)": 1,
   "Gomitas de Boca (30u)": 41,
