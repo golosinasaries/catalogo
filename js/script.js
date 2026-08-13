@@ -20,7 +20,7 @@ const carritoDropdown = document.getElementById("carrito-dropdown");
 fondoModal = document.getElementById("fondo-carrito");
 
 const STOCK_PRODUCTOS = {
-  "Chupetines con forma de Unicornio (30u)": 1,
+  "Pack Cañitos de queso 80g (6u)": 0,
   "Camiseta Pinball con pastillitas (30u)": 1,
   "Gomitas de Boca (30u)": 41,
   "Chupetines Fierita Lengua Azul (50u)": 1,
@@ -287,14 +287,12 @@ const triple6   = [
   ];
 
 const cucurucho   = [
-   /* {
+    {
     nombre: "Cucuruchos Helado Frutilla (30u)",
     precio: 14500,
     img: "img/cucuruchohelado.png"
   },
-  */
-
-     {
+  {
     nombre: "Cucuruchos Helado Chocolate (30u)",
     precio: 14500,
     img: "img/cucuruchochocolate.png"
@@ -311,27 +309,30 @@ const cucurucho   = [
 ];
 
 const Capullitos   = [
-  {
-    nombre: "Pack Cañitos de queso 80g (6u)",
-    precio: 4800,
-    img: "img/ccanitos.jpeg"
-  },
-  /*
+ 
+   /*
    {
     nombre: "Pack Palitos de Maíz 80g (6u)",
     precio: 4800,
     img: "img/cpalitosdemaiz.jpeg"
   },
-  */
+ 
    {
     nombre: "Pack Bolifrut sabor Tutti Frutti 80g (6u)",
     precio: 4800,
     img: "img/bolifrut.png"
   },
+   */
    {
     nombre: "Pack Tapitas sabor Barbacoa 80g (6u)",
     precio: 4800,
     img: "img/tapitas.png"
+  },
+
+    {
+    nombre: "Pack Cañitos de queso 80g (6u)",
+    precio: 4800,
+    img: "img/ccanitos.jpeg"
   },
   /*
    {
@@ -345,13 +346,14 @@ const Capullitos   = [
     precio: 4800,
     img: "img/aritoscebolla.png"
   },
-  */
+  
 
    {
     nombre: "Pack Pizzitas sabor Jamón 80g (6u)",
     precio: 4800,
     img: "img/pizzitas.png"
   },
+  */
 ];
 
 const productosVariantes = {
@@ -574,7 +576,7 @@ if (modal) {
     "Gomitas de boca (30u)": ["img/boca.jpg","img/videoboca.mp4"],
     "Gomitas Spider-Man (60u)": ["img/spiderman1.jpg","img/spiderman2.jpg","img/spiderman3.jpg","img/spiderman4.jpg","img/spiderman5.jpg"],
     "Llaveros láser Capibara (1u)": ["img/laser1.jpg","img/laser2.jpg","img/laser3.jpg"],
-    "Ring Pop Barbie (30u)": ["img/ringpopbarbie.jpg","img/ringpop.jpg"],
+    "Ring Pop Barbie (30u)": ["img/ringpop1.png","img/ringpop2.jpeg", "img/ringpop3.png"],
     "Pistolitas con luz (30u)": ["img/pistolita1.jpg","img/pistolita2.jpg","img/pistolita3.jpg","img/pistolita4.jpg"],
     "YO-YOs con luces (12u)": ["img/yoyo1.jpg","img/yoyo3.jpg","img/yoyo4.jpg","img/yoyo2.jpg"],
     "YO-YOs con luces (24u)": ["img/yoyo2.jpg","img/yoyo3.jpg","img/yoyo4.jpg","img/yoyo1.jpg"],

@@ -90,6 +90,18 @@
         😕 No hay productos en esta categoría por el momento
       </div>
 
+     <div class="card card-instagram">
+        <blockquote
+          class="instagram-media"
+          data-instgrm-captioned
+          data-instgrm-permalink="https://www.instagram.com/reel/DXrgMD5AhVP/?utm_source=ig_embed&amp;utm_campaign=loading"
+          data-instgrm-version="14">
+        </blockquote>
+        <script async src="//www.instagram.com/embed.js"></script>
+      </div>
+      
+ <!--
+     
     <div class="card card-facebook">
       <iframe
         src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid02g17zg2d9aXHLEPnTER9pUFJnCmC7uFpZHiDhqgBvcKS5Aq4hWzuxXdznW5f2Hw5vl%26id%3D61578949001641&show_text=true&width=500"
@@ -101,20 +113,8 @@
         allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
       </iframe>
     </div>
-      
- <!--
-      <div class="card card-instagram">
-        <blockquote
-          class="instagram-media"
-          data-instgrm-captioned
-          data-instgrm-permalink="https://www.instagram.com/reel/DXrgMD5AhVP/?utm_source=ig_embed&amp;utm_campaign=loading"
-          data-instgrm-version="14">
-        </blockquote>
-        <script async src="//www.instagram.com/embed.js"></script>
-      </div>
 
-      <div class="card-instagram card">
-
+    <div class="card-instagram card">
         <iframe
           src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fmercadito.del.pueblo.2025%2Fposts%2Fpfbid02gEL4U2MNKMcFEw7n3gwPn9upnQJ7XxVbdWEvJ6i9Nh7ZP6pVZ7Ps5ayD7zD852Vgl&show_text=true&width=500"
           width="500"
@@ -149,6 +149,15 @@
         <h3>Latitas con chicles (30 latitas)</h3>
         <p>$14.900</p>
         <button class="btn-carrito">Agregar al carrito</button>
+      </div>
+
+      <div class="card card-Capullitos" data-index="0">
+        <div class="img-container">
+          <span class="flecha izq" onclick="event.stopPropagation(); cambiarVariante(this, -1)">←</span> <img src="img/tapitas.png" alt="Pack Tapitas sabor Barbacoa 80g (6u)"> <span class="flecha der" onclick="event.stopPropagation(); cambiarVariante(this, 1)">→</span>
+        </div>
+        <h3>Pack Tapitas sabor Barbacoa 80g (6u)</h3>
+        <p>$4.800</p>
+        <button class="btn-carrito" data-nombre="Pack Tapitas sabor Barbacoa 80g (6u)" data-precio="4800"> Agregar al carrito</button>
       </div>
 
       <div class="card" data-cat="chupetines">
@@ -242,14 +251,7 @@
         <button class="btn-carrito">Agregar al carrito</button>    
       </div>
       
-      <div class="card" data-cat="caramelos seleccion">
-        <img src="img/suguscmundial.jpeg" alt="Sugus selección"  >
-        <h3>Pack Sugus Confitados Selección 50 g (3u)</h3>
-        <p>$4.300</p>
-        <button class="btn-carrito">Agregar al carrito</button>     
-      </div>
-
-         <div class="card" data-cat="gomitasblandas">
+      <div class="card" data-cat="gomitasblandas">
         <img src="img/gatito.png" alt="Gatitos"  >
         <h3>Gomitas Gatitos (30u)</h3>
         <p>$9.400</p>
@@ -282,19 +284,6 @@
         <h3>Monedas de Chocolate (290u)</h3>
         <p>$17.000</p>
         <button class="btn-carrito">Agregar al carrito</button> 
-      </div>
-
-      <div class="card card-video" data-cat="gomitasblandas">
-        <img src="img/ojos.png" alt="Gomitas Ojos">
-        <video class="video-hover video-ojos"
-              src="img/videoojos.mp4"
-              muted
-              loop
-              playsinline>
-        </video>
-        <h3>Gomitas Ojos (30u)</h3>
-        <p>$9.400</p>
-        <button class="btn-carrito">Agregar al carrito</button>
       </div>
 
       <div class="card card-monedaspanda" data-index="0" data-cat="chocolates">
@@ -362,7 +351,14 @@
         <p>$9.900</p>
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
--->  
+
+      <div class="card" data-cat="chupetines">
+        <img src="img/unicornio.png" alt="Chupetines con formas"  >
+        <h3>Chupetines con forma de Unicornio (30u)</h3>
+        <p>$9.900</p>
+        <button class="btn-carrito">Agregar al carrito</button>
+      </div>
+ --> 
       <div class="card" data-cat="gomitasblandas">
         <img src="img/capibara.jpg" alt="Gomitas Blandas Capibaras"  >
         <h3>Gomitas Capibaras (30u)</h3>
@@ -396,6 +392,20 @@
         <p>$12.500</p>
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
+
+      <div class="card card-video" data-cat="gomitasblandas">
+        <img src="img/ojos.png" alt="Gomitas Ojos">
+        <video class="video-hover video-ojos"
+              src="img/videoojos.mp4"
+              muted
+              loop
+              playsinline>
+        </video>
+        <h3>Gomitas Ojos (30u)</h3>
+        <p>$9.400</p>
+        <button class="btn-carrito">Agregar al carrito</button>
+      </div>
+
  
       <div class="card" data-cat="chicles">
         <img src="img/botellitas.jpg" alt="Botellitas con chicles"  >
@@ -476,13 +486,6 @@
         <button class="btn-carrito" data-nombre="Cucuruchos Helado Chocolate (30u)" data-precio="14500"> Agregar al carrito</button>
       </div>
       <!--
-      <div class="card" data-cat="chupetines">
-        <img src="img/unicornio.png" alt="Chupetines con formas"  >
-        <h3>Chupetines con forma de Unicornio (30u)</h3>
-        <p>$9.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-  
        <div class="card" data-cat="pastillas">
         <img src="img/auto.png" alt="Cars"  >
         <h3>Autito con pastillitas (30u)</h3>
@@ -592,13 +595,6 @@
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
 
-    <div class="card">
-      <img src="img/ringpop.jpg" alt="ring pop"  >
-      <h3>Ring Pop Barbie (30u)</h3>
-      <p>$12.900</p>
-      <button class="btn-carrito">Agregar al carrito</button>   
-    </div>
-
       <div class="card" data-cat="chupetines">
         <img src="img/hongos.png" alt="Chupetines con formas"  >
         <h3>Chupetines Hongos (30u)</h3>
@@ -657,6 +653,13 @@
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
 -->
+    <div class="card">
+      <img src="img/ringpop1.png" alt="ring pop"  >
+      <h3>Ring Pop Barbie (30u)</h3>
+      <p>$13.900</p>
+      <button class="btn-carrito">Agregar al carrito</button>   
+    </div>
+
       <div class="card" data-cat="caramelos">
         <img src="img/mecha.jpg" alt="Mechas magicas"  >
         <h3>Mechas mágicas Simpsons (30u)</h3>
@@ -1039,6 +1042,14 @@
           <button class="btn-carrito">Agregar al carrito</button>  
         </div>
 
+        
+        <div class="card" data-cat="huevos">
+          <img src="img/sorpresasti.png" alt="Sorpresa Lilo y Stitch"  >
+          <h3>Huevos Sorpresa Lilo y Stitch (30u)</h3>
+          <p>$13.900</p>
+          <button class="btn-carrito">Agregar al carrito</button>  
+        </div>
+
  <!-- 
         <div class="card" data-cat="gomitasblandas">
           <img src="img/congys.jpg.jpeg" alt="Billiken"  >
@@ -1218,15 +1229,6 @@
         <h3>Globo Unicornio 24 pulgdas (1 unidad)</h3>
         <p>$2.500</p>
         <button class="btn-carrito" data-nombre="Globo Unicornio 24 pulgdas (1 unidad)" data-precio="2500"> Agregar al carrito</button>
-      </div>
-
-      <div class="card card-Capullitos" data-index="0">
-        <div class="img-container">
-          <span class="flecha izq" onclick="event.stopPropagation(); cambiarVariante(this, -1)">←</span> <img src="img/ccanitos.jpeg" alt="Pack Cañitos de queso 80g (6u)"> <span class="flecha der" onclick="event.stopPropagation(); cambiarVariante(this, 1)">→</span>
-        </div>
-        <h3>Pack Cañitos de queso 80g (6u)</h3>
-        <p>$4.800</p>
-        <button class="btn-carrito" data-nombre="Pack Cañitos de queso 80g (6u)" data-precio="4800"> Agregar al carrito</button>
       </div>
 <!--
       <div class="card" data-cat="galletitas">
