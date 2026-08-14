@@ -573,6 +573,7 @@ if (modal) {
     "Chupetines K-pop (30u)": ["img/kpp1.jpeg","img/kpp2.jpeg","img/kpop.jpeg"],
     "Gomitas Macarron (30u)": ["img/macarron.png","img/macarron1.jpeg"],
     "Gomitas Ojos (30u)": ["img/ojos.png","img/videoojos.mp4"],
+    "Chupetines con led Capibara (30u)": ["img/ledcapibara1.png","img/ledcapibara.png"],
     "Gomitas Oreo (30u)": ["img/gomitasoreo.jpg","img/videooreo.mp4"],
     "Dinosaurio con caramelos y luces (1 unidad)": ["img/fotodinosaurio.jpg","img/videodinosaurio.mp4"],
     "Gomitas de boca (30u)": ["img/boca.jpg","img/videoboca.mp4"],
