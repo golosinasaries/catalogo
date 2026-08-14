@@ -20,6 +20,9 @@ const carritoDropdown = document.getElementById("carrito-dropdown");
 fondoModal = document.getElementById("fondo-carrito");
 
 const STOCK_PRODUCTOS = {
+  "Chicles Tik Tok con tatoo (10u)": 1,
+  "Mechas mágicas Lilo y Stitch (30u)": 1,
+  "Saca lenguas (30u)": 1,
   "Pack Cañitos de queso 80g (6u)": 0,
   "Camiseta Pinball con pastillitas (30u)": 1,
   "Gomitas de Boca (30u)": 41,
