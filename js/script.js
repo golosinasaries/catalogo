@@ -824,19 +824,46 @@ function actualizarModal() {
   modalImg.classList.remove('zoomed');
 }
 
-  prevBtn.onclick = () => {
-    if (currentImages.length > 1) {
-      currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
-      actualizarModal();
-    }
-  };
+prevBtn.onclick = () => {
+  const estabaEnFullScreen = modalImg.classList.contains("zoomed");
 
-  nextBtn.onclick = () => {
-    if (currentImages.length > 1) {
-      currentIndex = (currentIndex + 1) % currentImages.length;
-      actualizarModal();
-    }
-  };
+  if (currentImages.length > 1 && currentIndex > 0) {
+    currentIndex--;
+    actualizarModal();
+  } else {
+    productoIndex = (productoIndex - 1 + productos.length) % productos.length;
+    abrirModal(productos[productoIndex]);
+
+    currentIndex = currentImages.length - 1;
+    actualizarModal();
+  }
+
+  if (estabaEnFullScreen) {
+    modalImg.classList.add("zoomed");
+  }
+};
+
+
+nextBtn.onclick = () => {
+  const estabaEnFullScreen = modalImg.classList.contains("zoomed");
+
+  if (currentImages.length > 1 && currentIndex < currentImages.length - 1) {
+    currentIndex++;
+    actualizarModal();
+  } else {
+    productoIndex = (productoIndex + 1) % productos.length;
+    abrirModal(productos[productoIndex]);
+
+    currentIndex = 0;
+    actualizarModal();
+  }
+
+  if (estabaEnFullScreen) {
+    modalImg.classList.add("zoomed");
+  }
+};
+
+
 
   prevProdBtn.onclick = () => {
   productoIndex = (productoIndex - 1 + productos.length) % productos.length;
@@ -911,12 +938,22 @@ function actualizarModal() {
     }
   });
 
-  // Tecla ESC
-  document.addEventListener('keydown', e => {
-    if (e.key === "Escape") {
-      cerrarModal();
-    }
-  });
+  document.addEventListener("keydown", e => {
+  if (modal.style.display !== "flex") return;
+
+  if (e.key === "ArrowLeft") {
+    prevBtn.click();
+  }
+
+  if (e.key === "ArrowRight") {
+    nextBtn.click();
+  }
+
+  if (e.key === "Escape") {
+    cerrarModal();
+  }
+});
+
 
   productos = Array.from(document.querySelectorAll('.card'))
   .filter(card => card.offsetParent !== null);
