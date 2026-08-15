@@ -634,6 +634,8 @@ if (modal) {
 
   function abrirModal(card) {
 
+  history.pushState({ modalAbierto: true }, "");
+
   productoIndex = productos.indexOf(card);
 
   const titulo = card.querySelector('h3')?.textContent.trim();
@@ -880,6 +882,27 @@ nextBtn.onclick = () => {
     modalImg.classList.toggle("zoomed");
   });
 
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  modalImg.addEventListener("touchstart", e => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  modalImg.addEventListener("touchend", e => {
+    touchEndX = e.changedTouches[0].screenX;
+
+    const diferencia = touchStartX - touchEndX;
+
+    if (diferencia > 50) {
+      nextBtn.click();
+    }
+
+    if (diferencia < -50) {
+      prevBtn.click();
+    }
+  });
+
   const closeBtn = modal.querySelector('.close');
 
   let bloqueandoCierre = false;
@@ -923,6 +946,12 @@ nextBtn.onclick = () => {
       bloqueandoCierre = false;
     }, 300);
   }
+
+  window.addEventListener("popstate", () => {
+    if (modal.style.display === "flex") {
+      cerrarModal();
+    }
+  });
 
   // Botón cerrar
   if (closeBtn) {
