@@ -848,24 +848,10 @@ function actualizarModal() {
     abrirModal(productos[productoIndex]);
   };
 
-  modalImg.addEventListener("pointerup", (e) => {
+  modalImg.addEventListener("click", (e) => {
     e.stopPropagation();
+    modalImg.classList.toggle("zoomed");
   });
-
-  modalImg.onclick = () => {
-    if (currentImages.length > 1) {
-      currentIndex = (currentIndex + 1) % currentImages.length;
-      actualizarModal();
-      return;
-    }
-    modalImg.classList.toggle('zoomed');
-    if (modalImg.classList.contains("zoomed")) {
-    currentX = 0;
-    currentY = 0;
-    modalImg.style.setProperty("--x", "0px");
-    modalImg.style.setProperty("--y", "0px");
-  }
-  };
 
   const closeBtn = modal.querySelector('.close');
 
@@ -1087,10 +1073,10 @@ function mostrarToast(mensaje, tipo = "success") {
 // ========================
 // ZOOM EN IMAGEN DEL MODAL
 // ========================
-const modalImgZoom = document.getElementById("modal-img");
-if (modalImgZoom) {
-  modalImgZoom.onclick = () => modalImgZoom.classList.toggle("zoomed");
-}
+//const modalImgZoom = document.getElementById("modal-img");
+//if (modalImgZoom) {
+//  modalImgZoom.onclick = () => modalImgZoom.classList.toggle("zoomed");
+//}
 
 // ========================
 // FUNCIONES DE CARRITO
@@ -1834,53 +1820,6 @@ function sincronizarCarritoConHTML() {
       <strong>- Total: $${total.toLocaleString("es-AR")}</strong>
     `;
   }
-}
-// Arrastrar zoom
-let isDragging = false;
-let lastX = 0;
-let lastY = 0;
-let currentX = 0;
-let currentY = 0;
-
-const modalImg = document.querySelector(".modal-content img");
-
-if (modalImg) {
-  modalImg.addEventListener("mousedown", (e) => {
-    if (!modalImg.classList.contains("zoomed")) return;
-
-    isDragging = true;
-    lastX = e.clientX;
-    lastY = e.clientY;
-
-    modalImg.style.cursor = "grabbing";
-  });
-
-document.addEventListener("mousemove", (e) => {
-  if (!isDragging) return;
-
-  const dx = e.clientX - lastX;
-  const dy = e.clientY - lastY;
-
-  currentX += dx;
-  currentY += dy;
-
-  lastX = e.clientX;
-  lastY = e.clientY;
-
-  // límite (opcional, ajustá si querés)
-  const maxMove = 200;
-  currentX = Math.max(-maxMove, Math.min(maxMove, currentX));
-  currentY = Math.max(-maxMove, Math.min(maxMove, currentY));
-
-  modalImg.style.setProperty("--x", currentX + "px");
-  modalImg.style.setProperty("--y", currentY + "px");
-});
-
-document.addEventListener("mouseup", () => {
-  isDragging = false;
-  modalImg.style.cursor = "grab";
-});
-
 }
 
 document.querySelectorAll(".card").forEach(card => {
