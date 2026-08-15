@@ -1232,7 +1232,7 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("carrito", JSON.stringify(carrito));
 
     const envio = localStorage.getItem("codigoPostalCliente")
-      ? ((PROMOS_ACTIVAS.includes("envio") && total >= 100000) || total >= 100000
+      ? ((PROMOS_ACTIVAS.includes("envio") && total >= 80000) || total >= 80000
           ? 0
           : calcularCostoEnvio(localStorage.getItem("codigoPostalCliente")))
       : null;
@@ -1606,7 +1606,7 @@ if (PROMOS_ACTIVAS.includes("regalo") && total >= minimoRegalo) {
 
   // envío
  const envio =
-  (PROMOS_ACTIVAS.includes("envio") && total >= 100000)
+  (PROMOS_ACTIVAS.includes("envio") && total >= 80000)
     ? 0
     : calcularCostoEnvio(cp);
 
@@ -1688,7 +1688,7 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
 
   // ===== ENVÍO =====
   if (PROMOS_ACTIVAS.includes("envio")) {
-    if (envioManualGratis || total >= 100000) {
+    if (envioManualGratis || total >= 80000) {
       mensajes.push("🚚 <strong>¡Tenés envío gratis!</strong>");
 
       if (!estadoEnvio.envioMostrado) {
@@ -1698,7 +1698,7 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
       }
     } else {
       mensajes.push(
-        `🚚 Sumá <strong>$${(100000 - total).toLocaleString("es-AR")}</strong> y conseguí envío gratis`
+        `🚚 Sumá <strong>$${(80000 - total).toLocaleString("es-AR")}</strong> y conseguí envío gratis`
       );
     }
   }
@@ -1721,7 +1721,7 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
   // Reset cuando no alcanzó ninguna promo
   if (
     (!PROMOS_ACTIVAS.includes("regalo") || total < minimoRegalo) &&
-    (!PROMOS_ACTIVAS.includes("envio") || (!envioManualGratis && total < 100000))
+    (!PROMOS_ACTIVAS.includes("envio") || (!envioManualGratis && total < 80000))
   ) {
     estadoEnvio.regaloMostrado = false;
     estadoEnvio.envioMostrado = false;
@@ -2146,7 +2146,7 @@ if (menuEnvio) {
   const total = calcularTotal();
 
  const costo =
-  PROMOS_ACTIVAS.includes("envio") && total >= 100000
+  PROMOS_ACTIVAS.includes("envio") && total >= 80000
     ? 0
     : calcularCostoEnvio(cp);
 
