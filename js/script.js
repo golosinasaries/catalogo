@@ -690,11 +690,17 @@ function actualizarModal() {
   if (media.endsWith(".mp4")) {
     modalImg.style.display = "none";
 
+    const estabaEnFullScreen = modalImg.classList.contains("zoomed");
+
     let video = document.getElementById("modal-video");
 
     if (!video) {
       video = document.createElement("video");
       video.id = "modal-video";
+
+      if (estabaEnFullScreen) {
+          video.classList.add("zoomed");
+        }
       video.autoplay = true;
       video.playsInline = true;
       video.controls = true;
@@ -739,6 +745,9 @@ function actualizarModal() {
       video.classList.add("video-ojos");
     }
     video.style.display = "block";
+
+    video.addEventListener("touchstart", iniciarSwipe);
+    video.addEventListener("touchend", terminarSwipe);
 
   } else {
     modalImg.style.display = "block";
@@ -882,26 +891,29 @@ nextBtn.onclick = () => {
     modalImg.classList.toggle("zoomed");
   });
 
-  let touchStartX = 0;
-  let touchEndX = 0;
+ let touchStartX = 0;
+let touchEndX = 0;
 
-  modalImg.addEventListener("touchstart", e => {
-    touchStartX = e.changedTouches[0].screenX;
-  });
+function iniciarSwipe(e) {
+  touchStartX = e.changedTouches[0].screenX;
+}
 
-  modalImg.addEventListener("touchend", e => {
-    touchEndX = e.changedTouches[0].screenX;
+function terminarSwipe(e) {
+  touchEndX = e.changedTouches[0].screenX;
 
-    const diferencia = touchStartX - touchEndX;
+  const diferencia = touchStartX - touchEndX;
 
-    if (diferencia > 50) {
-      nextBtn.click();
-    }
+  if (diferencia > 50) {
+    nextBtn.click();
+  }
 
-    if (diferencia < -50) {
-      prevBtn.click();
-    }
-  });
+  if (diferencia < -50) {
+    prevBtn.click();
+  }
+}
+
+modalImg.addEventListener("touchstart", iniciarSwipe);
+modalImg.addEventListener("touchend", terminarSwipe);
 
   const closeBtn = modal.querySelector('.close');
 
