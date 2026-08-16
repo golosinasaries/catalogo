@@ -576,7 +576,7 @@ if (modal) {
     "Chupetines K-pop (30u)": ["img/kpp1.jpeg","img/kpp2.jpeg","img/kpop.jpeg"],
     "Gomitas Macarron (30u)": ["img/macarron.png","img/macarron1.jpeg"],
     "Gomitas Ojos (30u)": ["img/ojos.png","img/videoojos.mp4"],
-    "Chupetines con led Capibara (30u)": ["img/ledcapibara1.png","img/ledcapibara.png"],
+    "Chupetines con led Capibara (30u)": ["img/capiled.png","img/capiled1.png"],
     "Gomitas Oreo (30u)": ["img/gomitasoreo.jpg","img/videooreo.mp4"],
     "Dinosaurio con caramelos y luces (1 unidad)": ["img/fotodinosaurio.jpg","img/videodinosaurio.mp4"],
     "Gomitas de boca (30u)": ["img/boca.jpg","img/videoboca.mp4"],
@@ -597,7 +597,7 @@ if (modal) {
     "Camión dispenser + caramelos rosa (1 unidad)": ["img/camionrosa1.jpg","img/camionrosa2.jpg"],
     "Camión dispenser + caramelos celeste (1 unidad)": ["img/camionceleste1.jpg","img/camionceleste2.jpg"],
     "Tractor dispenser + caramelos verde (1 unidad)": ["img/tractorverde1.jpg","img/tractorverde2.jpg"],
-    "Chupetines Kuromy con led (30u)": ["img/caramelokuromy.jpg","img/kuromyled.png", "img/mc3.jpeg"],
+    "Chupetines Kuromy con led (30u)": ["img/kuromyled1.png","img/kuromyled.png", "img/mc3.jpeg"],
     "Chupetines Merlina (30u)": ["img/merlina2.png","img/merlina.png","img/merlina2.jpg"],
     "Chupetín con polvo ácido Brain (30u)": ["img/braincaja.jpg","img/chupetinBrain.jpg"],
     "Camiseta Pinball con pastillitas (30u)": ["img/r11.png","img/r1.png","img/r2.png"],
@@ -624,7 +624,6 @@ if (modal) {
     "Chupetines Frutillas (30u)": ["img/chupetinfrutilla1.jpg","img/chupetinfrutilla2.jpg", "img/chupetinnnrutilla2.jpg"],
     "Gomitas Astronauta (30u)": ["img/astronauta.png","img/astronauta2.png"],
     "Chupetes Capibara (30u)": ["img/chupete1.jpeg","img/chupete2.jpeg"],
-    "Mechas mágicas Intensamente (30u)": ["img/intensamente.jpeg","img/intensamente2.jpeg"],
     "iPhone Pinball con pastillitas (30u)": ["img/iphone.png","img/iphone2.png"],
   };
 
@@ -1296,7 +1295,7 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("carrito", JSON.stringify(carrito));
 
     const envio = localStorage.getItem("codigoPostalCliente")
-      ? ((PROMOS_ACTIVAS.includes("envio") && total >= 80000) || total >= 80000
+      ? ((PROMOS_ACTIVAS.includes("envio") && total >= 100000) || total >= 100000
           ? 0
           : calcularCostoEnvio(localStorage.getItem("codigoPostalCliente")))
       : null;
@@ -1670,7 +1669,7 @@ if (PROMOS_ACTIVAS.includes("regalo") && total >= minimoRegalo) {
 
   // envío
  const envio =
-  (PROMOS_ACTIVAS.includes("envio") && total >= 80000)
+  (PROMOS_ACTIVAS.includes("envio") && total >= 100000)
     ? 0
     : calcularCostoEnvio(cp);
 
@@ -1752,7 +1751,7 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
 
   // ===== ENVÍO =====
   if (PROMOS_ACTIVAS.includes("envio")) {
-    if (envioManualGratis || total >= 80000) {
+    if (envioManualGratis || total >= 100000) {
       mensajes.push("🚚 <strong>¡Tenés envío gratis!</strong>");
 
       if (!estadoEnvio.envioMostrado) {
@@ -1762,7 +1761,7 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
       }
     } else {
       mensajes.push(
-        `🚚 Sumá <strong>$${(80000 - total).toLocaleString("es-AR")}</strong> y conseguí envío gratis`
+        `🚚 Sumá <strong>$${(100000 - total).toLocaleString("es-AR")}</strong> y conseguí envío gratis`
       );
     }
   }
@@ -1785,7 +1784,7 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
   // Reset cuando no alcanzó ninguna promo
   if (
     (!PROMOS_ACTIVAS.includes("regalo") || total < minimoRegalo) &&
-    (!PROMOS_ACTIVAS.includes("envio") || (!envioManualGratis && total < 80000))
+    (!PROMOS_ACTIVAS.includes("envio") || (!envioManualGratis && total < 100000))
   ) {
     estadoEnvio.regaloMostrado = false;
     estadoEnvio.envioMostrado = false;
@@ -2163,7 +2162,7 @@ if (menuEnvio) {
   const total = calcularTotal();
 
  const costo =
-  PROMOS_ACTIVAS.includes("envio") && total >= 80000
+  PROMOS_ACTIVAS.includes("envio") && total >= 100000
     ? 0
     : calcularCostoEnvio(cp);
 
