@@ -118,13 +118,13 @@ const alcancias = [
     precio: 6900,
     img: "img/lechuzarosa.jpg.png"
   },
-
+*/
   {
     nombre: "Alcancía Pollito Rojo (con 12 gelatinas en su interior)",
     precio: 6900,
-    img: "img/alcanciapinguinorojo.jpg"
+    img: "img/pollito.png"
   },
-*/
+
   {
     nombre: "Alcancía Oso Rosa (con 12 gelatinas en su interior)",
     precio: 6900,
@@ -615,7 +615,7 @@ if (modal) {
     "Gomitas Kuromy (30u)": ["img/kuromygomita.png","img/kuromy2.png"],
     "Chupetines Capibara (30u)": ["img/chupetincapibara.png","img/chupetincapibara2.jpg"],
     "Chupetines con forma de Unicornio (30u)":["img/unicornio.png","img/unicornio3.jpg"],
-    "Chupetines con led Unicornio (30u)":["img/unicornioled1.jpg","img/chupetinnnuni2.jpg","img/leduni.jpg", "img/mc3.jpeg"],
+    "Chupetines con led Unicornio (30u)":["img/unicornioled1.png","img/chupetinnnuni2.jpg","img/leduni.jpg", "img/mc3.jpeg"],
     "Gomitas Super Mario (30u)": ["img/supermario1.jpg","img/supermario2.jpg"],
     "Chupetines con led Mc Donalds (30u)": ["img/mc.jpg","img/mc2.jpg", "img/mc3.jpeg"],
     "Chupetines con led Oreo (30u)": ["img/oreo1.jpg","img/oreo2.jpg",],
