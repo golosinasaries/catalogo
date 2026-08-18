@@ -1668,10 +1668,7 @@ if (PROMOS_ACTIVAS.includes("regalo") && total >= minimoRegalo) {
   }
 
   // envío
- const envio =
-  (PROMOS_ACTIVAS.includes("envio") && total >= 100000)
-    ? 0
-    : calcularCostoEnvio(cp);
+ const envio = total >= 100000 ? 0 : calcularCostoEnvio(cp);
 
   msg += `\n📦 Total productos: ${totalProductos}`;
   msg += `\n🚚 Envío: $${envio.toLocaleString("es-AR")}`;
