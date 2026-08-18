@@ -6,9 +6,11 @@ const ENVIO_SANTACRUZ = 15400;
 const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 const minimoRegalo = 50000;   
+const minimoEnvioGratis = 100000;
 const REGALO_NOMBRE = "1 Alcancía";
 const REGALO_IMAGEN = "img/tigrerojo.png";
 const PROMOS_ACTIVAS = ["regalo"]; 
+
 
 let productos = [];
 let productoIndex = 0;
@@ -20,6 +22,7 @@ const carritoDropdown = document.getElementById("carrito-dropdown");
 fondoModal = document.getElementById("fondo-carrito");
 
 const STOCK_PRODUCTOS = {
+  "Payaso con pastillitas (30u)": 1,
   "Chicles Tik Tok con tatoo (10u)": 1,
   "Mechas mágicas Lilo y Stitch (30u)": 1,
   "Saca lenguas (30u)": 1,
@@ -1295,7 +1298,7 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("carrito", JSON.stringify(carrito));
 
     const envio = localStorage.getItem("codigoPostalCliente")
-      ? ((PROMOS_ACTIVAS.includes("envio") && total >= 100000) || total >= 100000
+      ? ((PROMOS_ACTIVAS.includes("envio") && total >= minimoEnvioGratis) || total >= 100000
           ? 0
           : calcularCostoEnvio(localStorage.getItem("codigoPostalCliente")))
       : null;
@@ -1720,7 +1723,7 @@ const estadoEnvio = {
   envioMostrado: false
 };
 
-function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
+function actualizarAvisoEnvioGratis(total = 0) {
   const aviso = document.getElementById("aviso-envio-gratis");
   if (!aviso) return;
 
@@ -1748,7 +1751,7 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
 
   // ===== ENVÍO =====
   if (PROMOS_ACTIVAS.includes("envio")) {
-    if (envioManualGratis || total >= 100000) {
+    if (total >= minimoEnvioGratis) {
       mensajes.push("🚚 <strong>¡Tenés envío gratis!</strong>");
 
       if (!estadoEnvio.envioMostrado) {
@@ -1781,7 +1784,7 @@ function actualizarAvisoEnvioGratis(total = 0, envioManualGratis = false) {
   // Reset cuando no alcanzó ninguna promo
   if (
     (!PROMOS_ACTIVAS.includes("regalo") || total < minimoRegalo) &&
-    (!PROMOS_ACTIVAS.includes("envio") || (!envioManualGratis && total < 100000))
+    (!PROMOS_ACTIVAS.includes("envio") || (total < minimoEnvioGratis))
   ) {
     estadoEnvio.regaloMostrado = false;
     estadoEnvio.envioMostrado = false;
@@ -2158,8 +2161,8 @@ if (menuEnvio) {
 
   const total = calcularTotal();
 
- const costo =
-  PROMOS_ACTIVAS.includes("envio") && total >= 100000
+ const envio =
+  PROMOS_ACTIVAS.includes("envio") && total >= minimoEnvioGratis
     ? 0
     : calcularCostoEnvio(cp);
 
