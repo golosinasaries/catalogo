@@ -5,10 +5,10 @@ const ENVIO_LEJANO = 14400;
 const ENVIO_SANTACRUZ = 15400;
 const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
-const minimoRegalo = 70000;   
+const minimoRegalo = 50000;   
 const REGALO_NOMBRE = "1 Alcancía";
 const REGALO_IMAGEN = "img/tigrerojo.png";
-const PROMOS_ACTIVAS = ["envio"]; 
+const PROMOS_ACTIVAS = ["regalo"]; 
 
 let productos = [];
 let productoIndex = 0;
