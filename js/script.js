@@ -22,7 +22,9 @@ const carritoDropdown = document.getElementById("carrito-dropdown");
 fondoModal = document.getElementById("fondo-carrito");
 
 const STOCK_PRODUCTOS = {
-  "Oblita Chocolate (48u)": 1,
+  "Pastillas D.R.F Sabor Anis (12u)": 0,
+  "Pastillas Alka sabor Cherry Mentol (12u)": 0,
+  "Oblita Chocolate (48u)": 0,
   "Payaso con pastillitas (30u)": 1,
   "Chicles Tik Tok con tatoo (10u)": 1,
   "Mechas mágicas Lilo y Stitch (30u)": 1,
@@ -74,7 +76,7 @@ const globos = [
   {
     nombre: "Chicle Fierita Globo sabor Frutilla (95u)",
     precio: 7900,
-    img: "img/gobofrutilla.jpg"
+    img: "img/recargadofrutilla.png"
   },
   {
     nombre: "Chicle Fierita Globo sabor Menta (95u)",
@@ -148,7 +150,7 @@ const recargados = [
   {
     nombre: "Chicle Fierita Recargado - Menta (50u)",
     precio: 6900,
-    img: "img/fieritarecargadomenta.jpg"
+    img: "img/recargadomenta.png"
   },
  {
     nombre: "Chicle Fierita Recargado - Tutti Frutti (50u)",
@@ -572,7 +574,7 @@ if (modal) {
     "Mechas mágicas Lilo y Stitch (30u)": ["img/mechaslilo1.png","img/mechaslilo2.png"],
     "Chupetines con Sello (30u)": ["img/sello11.png","img/sello2.png", "img/sello1.jpeg","img/sello2.jpeg"],
     "Alfajor Red Velvet Cheesecake 70g (5 unidades)": ["img/redvelvet.png","img/redvelvet.mp4"],
-    "Gomitas Gatitos (30u)": ["img/gatito.png","img/gatito2.jpeg","img/gatito3.jpeg"],
+    "Gomitas Gatitos (30u)": ["img/gatito.png","img/gatito2.png","img/gatito3.png"],
     "Gomitas Monsters (30u)": ["img/monster1.jpeg","img/monster2.jpeg","img/monster3.jpeg"],
     "Camisetas Niños👕(10 Camisetas)": ["img/camisetas1414.jpeg","img/videocamisetasniño.mp4","img/camisetaniños2.jpeg"],
     "Camisetas Adultos ⚽🔥 (10 Camisetas)": ["img/camisetas1616.jpeg","img/videocamisetaniño.mp4","img/adultos2.mp4","img/camiseta2.jpeg","img/camiseta3.jpeg","img/camiseta4.jpeg"],
@@ -594,7 +596,7 @@ if (modal) {
     "Chupetines con forma de helado (30u)": ["img/chupetineshelado1.jpg","img/chupetineshelados2.jpg"],
     "Chupetines con polvo ácido Bob Esponja (30u)": ["img/bob1.jpg","img/bob2.jpg"],
     "Chicles WhatsApp con tatoo capibara (36 paquetes de 5 chicles)": ["img/wp1.jpg","img/wp2.jpg" ],
-    "Gomitas Capibaras (30u)": ["img/capibara.jpg","img/capibara2.jpg",],
+    "Gomitas Capibaras (30u)": ["img/capibara.png","img/capibara2.png",],
     "Combito Surtido de Regalo 🎁": ["img/combito1.jpg","img/combito4.jpg","img/combito3.jpg","img/combito5.jpg", "img/combito2.jpg"],
     "Tractor dispenser + caramelos (1 unidad)": ["img/tractor1.jpg","img/tractor2.jpg"],
     "Camión dispenser + caramelos rosa (1 unidad)": ["img/camionrosa1.jpg","img/camionrosa2.jpg"],
