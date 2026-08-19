@@ -9,7 +9,7 @@ const minimoRegalo = 50000;
 const minimoEnvioGratis = 100000;
 const REGALO_NOMBRE = "1 Alcancía";
 const REGALO_IMAGEN = "img/tigrerojo.png";
-const PROMOS_ACTIVAS = ["regalo"]; 
+const PROMOS_ACTIVAS = ["envio"]; 
 
 
 let productos = [];
