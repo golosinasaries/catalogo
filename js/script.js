@@ -25,6 +25,7 @@ const carritoDropdown = document.getElementById("carrito-dropdown");
 fondoModal = document.getElementById("fondo-carrito");
 
 const STOCK_PRODUCTOS = {
+  "Gomitas Yummy Ositos ácidos 500g": 1,
   "Gomitas Mogul Frutilla con Crema 500g": 1,
   "Yummy Frutilla con Crema 500g": 1,
   "Chicles Tik Tok con tatoo (10u)": 1,
