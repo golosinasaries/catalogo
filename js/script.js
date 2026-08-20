@@ -25,8 +25,6 @@ const STOCK_PRODUCTOS = {
   "Pastillas D.R.F Sabor Anis (12u)": 0,
   "Pastillas Alka sabor Cherry Mentol (12u)": 0,
   "Oblita Chocolate (48u)": 0,
-  "Payaso con pastillitas (30u)": 1,
-  "Chicles Tik Tok con tatoo (10u)": 1,
   "Mechas mágicas Lilo y Stitch (30u)": 1,
   "Saca lenguas (30u)": 0,
   "Camiseta Pinball con pastillitas (30u)": 1,
