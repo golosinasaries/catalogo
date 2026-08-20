@@ -1,14 +1,17 @@
 const minimoCompra = 50000; 
+const minimoRegalo = 50000;   
+const minimoEnvioGratis = 100000;
+
 const ENVIO_MDP = 6900;
 const ENVIO_GENERAL = 12400;
 const ENVIO_LEJANO = 14400;
 const ENVIO_SANTACRUZ = 15400;
 const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
-const minimoRegalo = 50000;   
-const minimoEnvioGratis = 100000;
+
 const REGALO_NOMBRE = "1 Alcancía";
 const REGALO_IMAGEN = "img/tigrerojo.png";
+
 const PROMOS_ACTIVAS = ["envio"]; 
 
 
@@ -22,9 +25,13 @@ const carritoDropdown = document.getElementById("carrito-dropdown");
 fondoModal = document.getElementById("fondo-carrito");
 
 const STOCK_PRODUCTOS = {
-  "Pastillas D.R.F Sabor Anis (12u)": 0,
-  "Pastillas Alka sabor Cherry Mentol (12u)": 0,
-  "Oblita Chocolate (48u)": 0,
+  "Gomitas Mogul Frutilla con Crema 500g": 1,
+  "Yummy Frutilla con Crema 500g": 1,
+  "Chicles Tik Tok con tatoo (10u)": 1,
+  "Mechas mágicas Lilo y Stitch (30u)": 1,
+  "Mechas mágicas Intensamente (30u)": 1,
+  "Pastillas D.R.F Sabor Anis (12u)": 3,
+  "Pastillas Alka sabor Cherry Mentol (12u)": 1,
   "Mechas mágicas Lilo y Stitch (30u)": 1,
   "Saca lenguas (30u)": 0,
   "Camiseta Pinball con pastillitas (30u)": 1,
@@ -36,7 +43,6 @@ const STOCK_PRODUCTOS = {
 };
 
 const alka = [
-
   {
     nombre: "Pastillas Alka sabor Menta (12u)",
     precio: 6900,
@@ -164,24 +170,25 @@ const recargados = [
 ];
 
 const oblita = [
-
+  
+  {
+    img: "img/oblita_marroc.jpg",
+    nombre: "Oblita de Marroc (48u)",
+    precio: 6900
+  },
+ /*
   {
     img: "img/oblita_chocolate.jpg",
     nombre: "Oblita Chocolate (48u)",
     precio: 6900
   },
-  /*
+ 
     {
     img: "img/oblita_blanco.jpg",
     nombre: "Oblita Chocolate Blanco (48u)",
     precio: 6900
   },
 
-  {
-    img: "img/oblita_marroc.jpg",
-    nombre: "Oblita de Marroc (48u)",
-    precio: 6900
-  },
   */
   {
     img: "img/oblita_ddl.jpg",
@@ -584,18 +591,10 @@ if (modal) {
     "Dinosaurio con caramelos y luces (1 unidad)": ["img/fotodinosaurio.jpg","img/videodinosaurio.mp4"],
     "Gomitas de boca (30u)": ["img/boca.jpg","img/videoboca.mp4"],
     "Gomitas Spider-Man (60u)": ["img/spiderman1.jpg","img/spiderman2.jpg","img/spiderman3.jpg","img/spiderman4.jpg","img/spiderman5.jpg"],
-    "Llaveros láser Capibara (1u)": ["img/laser1.jpg","img/laser2.jpg","img/laser3.jpg"],
     "Ring Pop Barbie (30u)": ["img/ringpop1.png","img/ringpop2.jpeg", "img/ringpop3.png"],
-    "Pistolitas con luz (30u)": ["img/pistolita1.jpg","img/pistolita2.jpg","img/pistolita3.jpg","img/pistolita4.jpg"],
-    "YO-YOs con luces (12u)": ["img/yoyo1.jpg","img/yoyo3.jpg","img/yoyo4.jpg","img/yoyo2.jpg"],
-    "YO-YOs con luces (24u)": ["img/yoyo2.jpg","img/yoyo3.jpg","img/yoyo4.jpg","img/yoyo1.jpg"],
-    "Agenditas surtidas (10u)": ["img/agendita2.jpg","img/agendita1.jpg","img/agendita3.jpg","img/agendita4.jpg"],
-    "Gomitas Lilo y Stitch (60u)": ["img/stich1.jpg","img/stich2.jpg","img/stich3.jpg"],
-    "Chupetines con forma de helado (30u)": ["img/chupetineshelado1.jpg","img/chupetineshelados2.jpg"],
     "Chupetines con polvo ácido Bob Esponja (30u)": ["img/bob1.jpg","img/bob2.jpg"],
     "Chicles WhatsApp con tatoo capibara (36 paquetes de 5 chicles)": ["img/wp1.jpg","img/wp2.jpg" ],
     "Gomitas Capibaras (30u)": ["img/capibara.png","img/capibara2.png",],
-    "Combito Surtido de Regalo 🎁": ["img/combito1.jpg","img/combito4.jpg","img/combito3.jpg","img/combito5.jpg", "img/combito2.jpg"],
     "Tractor dispenser + caramelos (1 unidad)": ["img/tractor1.jpg","img/tractor2.jpg"],
     "Camión dispenser + caramelos rosa (1 unidad)": ["img/camionrosa1.jpg","img/camionrosa2.jpg"],
     "Camión dispenser + caramelos celeste (1 unidad)": ["img/camionceleste1.jpg","img/camionceleste2.jpg"],
@@ -1121,7 +1120,7 @@ function mostrarToast(mensaje, tipo = "success") {
   }, 800);
 }
 
-  function lanzarConfetti() {
+function lanzarConfetti() {
   const canvas = document.createElement("canvas");
 
   canvas.style.position = "fixed";
@@ -1986,9 +1985,9 @@ menuBtn.addEventListener("click", () => {
   menuPanel.classList.toggle("active");
 });
 
-  const menuPago = document.getElementById("menu-pago");
+const menuPago = document.getElementById("menu-pago");
 
-  menuPago.addEventListener("click", (e) => {
+menuPago.addEventListener("click", (e) => {
     e.preventDefault();
     const modalPago = document.getElementById("modal-pago");
     const cerrarPago = document.querySelector(".cerrar-pago");
