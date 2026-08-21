@@ -2161,7 +2161,7 @@ if (menuEnvio) {
 
   const total = calcularTotal();
 
- const envio =
+ const costo =
   PROMOS_ACTIVAS.includes("envio") && total >= minimoEnvioGratis
     ? 0
     : calcularCostoEnvio(cp);
