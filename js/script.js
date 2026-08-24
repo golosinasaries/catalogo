@@ -136,7 +136,7 @@ const alcancias = [
   },
 
     {
-    nombre: "Alcancía Pollito Amatrillo (con 12 gelatinas en su interior)",
+    nombre: "Alcancía Pollito Amarillo (con 12 gelatinas en su interior)",
     precio: 6900,
     img: "img/pollitoamarillo.png"
   },
