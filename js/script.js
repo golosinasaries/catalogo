@@ -25,17 +25,12 @@ const carritoDropdown = document.getElementById("carrito-dropdown");
 fondoModal = document.getElementById("fondo-carrito");
 
 const STOCK_PRODUCTOS = {
-  "Gomitas Yummy Ositos ácidos 500g": 1,
-  "Gomitas Mogul Frutilla con Crema 500g": 1,
-  "Yummy Frutilla con Crema 500g": 1,
-  "Chicles Tik Tok con tatoo (10u)": 1,
+  "Chupetines Kuromy con led (30u)": 1,
   "Mechas mágicas Lilo y Stitch (30u)": 1,
-  "Mechas mágicas Intensamente (30u)": 1,
   "Pastillas D.R.F Sabor Anis (12u)": 3,
   "Pastillas Alka sabor Cherry Mentol (12u)": 1,
   "Mechas mágicas Lilo y Stitch (30u)": 1,
   "Saca lenguas (30u)": 0,
-  "Camiseta Pinball con pastillitas (30u)": 1,
   "Gomitas de Boca (30u)": 41,
   "Chupetines Fierita Lengua Azul (50u)": 1,
   "Bull Dog 360 g de Tutti Frutti Ácida": 0,
