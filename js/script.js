@@ -25,6 +25,7 @@ const carritoDropdown = document.getElementById("carrito-dropdown");
 fondoModal = document.getElementById("fondo-carrito");
 
 const STOCK_PRODUCTOS = {
+  "Turrón Misky (10u)": 1,
   "Chicle Fierita Globo sabor Frutilla (95u)": 1,
   "Chicle Fierita Globo sabor Menta (95u)": 0,
   "Pastillas Alka sabor Menta (12u)": 1,
