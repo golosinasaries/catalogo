@@ -36,7 +36,6 @@ const STOCK_PRODUCTOS = {
   "Mechas mágicas Lilo y Stitch (30u)": 1,
   "Saca lenguas (30u)": 0,
   "Gomitas de Boca (30u)": 41,
-  "Chupetines Fierita Lengua Azul (50u)": 1,
   "Bull Dog 360 g de Tutti Frutti Ácida": 0,
   "Bull Dog 360 g de Frutilla Ácida": 0,
   "Globo Unicornio Rosa 24 pulgdas (1 unidad)": 0,
