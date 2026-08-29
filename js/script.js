@@ -26,6 +26,8 @@ fondoModal = document.getElementById("fondo-carrito");
 
 const STOCK_PRODUCTOS = {
   "Turrón Misky (10u)": 1,
+  "Gomitas Selección (30u)": 3,
+  "Chupetines con led Unicornio (30u)": 1,
   "Chicle Fierita Globo sabor Frutilla (95u)": 1,
   "Chicle Fierita Globo sabor Menta (95u)": 0,
   "Pastillas Alka sabor Menta (12u)": 1,
@@ -33,11 +35,11 @@ const STOCK_PRODUCTOS = {
   "Pastillas D.R.F Sabor Anis (12u)": 2,
   "Pastillas Alka sabor Cherry Mentol (12u)": 1,
   "Mechas mágicas Lilo y Stitch (30u)": 1,
-  "Saca lenguas (30u)": 0,
   "Gomitas de Boca (30u)": 41,
   "Bull Dog 360 g de Tutti Frutti Ácida": 0,
   "Bull Dog 360 g de Frutilla Ácida": 0,
   "Globo Unicornio Rosa 24 pulgdas (1 unidad)": 0,
+  "Latitas con chicles (30 latitas)": 1,
 };
 
 const alka = [
@@ -95,19 +97,13 @@ const alcancias = [
     img: "img/tigrerojo.png"
   },
   
- {
-    nombre: "Alcancía Oso Café (con 12 gelatinas en su interior)",
-    precio: 6900,
-    img: "img/osocafe.png"
-  },
-
-
      {
     nombre: "Alcancía Tigre Amarillo (con 12 gelatinas en su interior)",
     precio: 6900,
     img: "img/alcanciaojoamarillo.png"
   },
   /*
+
   {
     nombre: "Alcancía Pingüino Negro (con 12 gelatinas en su interior)",
     precio: 6900,
@@ -137,14 +133,18 @@ const alcancias = [
     precio: 6900,
     img: "img/pollitoamarillo.png"
   },
-
+/*
   {
     nombre: "Alcancía Oso Rosa (con 12 gelatinas en su interior)",
     precio: 6900,
     img: "img/osorosa2.png"
   },
- 
-/*
+
+ {
+    nombre: "Alcancía Oso Café (con 12 gelatinas en su interior)",
+    precio: 6900,
+    img: "img/osocafe.png"
+  },
   {
     nombre: "Alcancía Pingüino Rosa (con 12 gelatinas en su interior)",
     precio: 6900,
