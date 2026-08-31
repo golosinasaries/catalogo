@@ -12,7 +12,7 @@ const ENVIO_GRATIS = 0;
 const REGALO_NOMBRE = "1 Alcancía";
 const REGALO_IMAGEN = "img/tigrerojo.png";
 
-const PROMOS_ACTIVAS = ["envio"]; 
+const PROMOS_ACTIVAS = ["regalo"]; 
 
 
 let productos = [];
@@ -39,7 +39,6 @@ const STOCK_PRODUCTOS = {
   "Bull Dog 360 g de Tutti Frutti Ácida": 0,
   "Bull Dog 360 g de Frutilla Ácida": 0,
   "Globo Unicornio Rosa 24 pulgdas (1 unidad)": 0,
-  "Latitas con chicles (30 latitas)": 1,
 };
 
 const alka = [
