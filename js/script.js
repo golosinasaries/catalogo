@@ -27,7 +27,6 @@ fondoModal = document.getElementById("fondo-carrito");
 const STOCK_PRODUCTOS = {
   "Turrón Misky (10u)": 1,
   "Gomitas Selección (30u)": 3,
-  "Chupetines con led Unicornio (30u)": 1,
   "Chicle Fierita Globo sabor Frutilla (95u)": 1,
   "Chicle Fierita Globo sabor Menta (95u)": 0,
   "Pastillas Alka sabor Menta (12u)": 1,

@@ -1,0 +1,21 @@
+{
+  "name": "catalogo",
+  "version": "1.0.0",
+  "description": "**Golosinas Aries** es un catálogo online pensado para facilitar la venta de productos de forma visual, rápida y sencilla.  \r Permite a los clientes explorar artículos, agregarlos al carrito y realizar pedidos directamente por **WhatsApp**, sin necesidad de registro ni pagos en línea.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/golosinasaries/catalogo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/golosinasaries/catalogo/issues"
+  },
+  "homepage": "https://github.com/golosinasaries/catalogo#readme"
+}
