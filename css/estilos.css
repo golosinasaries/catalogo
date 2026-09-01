@@ -3198,6 +3198,9 @@ a {
       z-index: 100;      
     }
 
+    #carrito-dropdown h3 {
+      font-size: 1rem;
+     }
     .card p {
         font-size: 0.68rem;
         line-height: 1.05;
@@ -3252,7 +3255,7 @@ a {
   border-radius: 0 !important;
 }
 
-@media (max-width: 220px) {
+@media (max-width: 150px) {
 
 
   /* -------- BOTÓN GRUPO -------- */
@@ -3273,7 +3276,7 @@ a {
   }
 
   #whatsapp-btn span{
-    font-size:10px;
+    font-size:1px;
   }
   
 
@@ -3286,6 +3289,19 @@ a {
   }
 
   #carrito-items{
-    max-height:140px;
+    max-height:50px;
+    max-width: 100%;
   }
+
+  #carrito-dropdown h3 {
+  font-size: 1rem;
+  margin-bottom: 13px;
+  margin-top: 0px;
+  padding: 0px;
+  text-align: center;
+  font-weight: bold;
+  position: relative;
+  z-index: 2000;
+
+}
    }
