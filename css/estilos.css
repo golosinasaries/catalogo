@@ -492,7 +492,7 @@ footer p {
   position: fixed;     
   bottom: 30px;        
   left: 60px;   
-  z-index: 1000;      
+  z-index: 10;      
 }
 
 .back-to-top:hover { background:  #ce00af; color: #fff; transform: scale(1.05); }
@@ -2805,7 +2805,7 @@ a {
 @media (max-width: 330px) {
 
   body{
-    margin-top:25%;
+    margin-top:18%;
   }
 
   main{
@@ -2864,9 +2864,10 @@ a {
     bottom:35px;
     right:53%;
     transform:translateX(50%);
-    padding:7px 10px;
+    padding:7px 7px;
     gap:4px;
     max-width:170px;
+    z-index:99;
   }
 
   #whatsapp-btn img{
@@ -2887,7 +2888,7 @@ a {
   }
 
   #carrito-items{
-    max-height:220px;
+    max-height:190px;
   }
 
   .carrito-miniatura{
