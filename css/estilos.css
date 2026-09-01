@@ -3010,13 +3010,11 @@ a {
     }
 
     .carrito-item strong {
-        font-size: 0.65rem;
-        line-height: 1.05;
-        display: block;
-        white-space: normal;
-        overflow-wrap: anywhere;
-    }
-
+      font-size: .58rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      }
     .carrito-precio-cantidad {
         width: 100%;
         display: flex;
