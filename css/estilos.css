@@ -3251,3 +3251,41 @@ a {
   padding: 20px !important;
   border-radius: 0 !important;
 }
+
+@media (max-width: 220px) {
+
+
+  /* -------- BOTÓN GRUPO -------- */
+
+  #whatsapp-btn{
+    bottom:35px;
+    right:53%;
+    transform:translateX(50%);
+    padding:7px 7px;
+    gap:4px;
+    max-width:170px;
+    z-index:99;
+  }
+
+  #whatsapp-btn img{
+    width:18px;
+    height:18px;
+  }
+
+  #whatsapp-btn span{
+    font-size:10px;
+  }
+  
+
+  /* -------- CARRITO -------- */
+
+  #carrito-dropdown{
+    width:95%;
+    max-height:82vh;
+    top:4%;
+  }
+
+  #carrito-items{
+    max-height:140px;
+  }
+   }
