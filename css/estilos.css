@@ -497,7 +497,11 @@ footer p {
 
 .back-to-top:hover { background:  #ce00af; color: #fff; transform: scale(1.05); }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
 
 
 @keyframes pulse {
