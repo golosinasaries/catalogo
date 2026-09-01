@@ -2889,7 +2889,7 @@ a {
   }
 
   #carrito-items{
-    max-height:190px;
+    max-height:170px;
   }
 
   .carrito-miniatura{
@@ -3143,7 +3143,7 @@ a {
         font-size: 0.68rem;
         text-align: center;
     }
-
+    
 
     /* =========================
        CARDS
@@ -3163,6 +3163,13 @@ a {
     .card img {
         height: 105px;
         margin-bottom: 4px;
+    }
+
+    
+    .btn-enviar,
+    .btn-vaciar{
+      font-size:.85rem;
+      padding:4px;
     }
 
     .card h3 {
