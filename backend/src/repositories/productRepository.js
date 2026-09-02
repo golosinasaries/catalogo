@@ -6,8 +6,9 @@ function obtenerTodos() {
 
 function crear(producto) {
     const stmt = db.prepare(`
-        INSERT INTO productos (nombre, descripcion, precio, stock, imagen, categoria)
-        VALUES (?, ?, ?, ?, ?, ?)
+        INSERT INTO productos
+        (nombre, descripcion, precio, stock, imagen, video, categoria)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
     `);
 
     return stmt.run(
@@ -16,6 +17,7 @@ function crear(producto) {
         producto.precio,
         producto.stock,
         producto.imagen,
+        producto.video,
         producto.categoria
     );
 }

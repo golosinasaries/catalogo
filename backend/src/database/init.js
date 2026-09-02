@@ -23,6 +23,7 @@ productRepository.crear({
     precio: 14900,
     stock: 0,
     imagen: "img/latas.png",
+    video: "",
     categoria: "chicles"
 });
 
