@@ -492,12 +492,16 @@ footer p {
   position: fixed;     
   bottom: 30px;        
   left: 60px;   
-  z-index: 10;      
+  z-index: 100;      
 }
 
 .back-to-top:hover { background:  #ce00af; color: #fff; transform: scale(1.05); }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
 
 
 @keyframes pulse {
@@ -2878,6 +2882,7 @@ a {
   #whatsapp-btn span{
     font-size:10px;
   }
+  
 
   /* -------- CARRITO -------- */
 
@@ -2888,7 +2893,7 @@ a {
   }
 
   #carrito-items{
-    max-height:190px;
+    max-height:170px;
   }
 
   .carrito-miniatura{
@@ -2975,10 +2980,101 @@ a {
 }
 
 @media (max-width: 280px) {
-
     /* =========================
        ITEMS DEL CARRITO
        ========================= */
+
+    .phone {
+      width: 150px;
+      margin: 20px auto;
+      padding: 12px;
+      border-radius: 35px;
+      background: linear-gradient(145deg, #0f0f0f, #000);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.7),inset 0 0 10px rgba(255,255,255,0.05);
+      position: relative;
+      transition: all 0.4s ease;
+      overflow: hidden;
+    }
+
+    .phone::before {
+      content: "";
+      position: absolute;
+      top: -100%;
+      left: -50%;
+      width: 200%;
+      height: 300%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.15), transparent);
+      transform: rotate(25deg);
+      transition: 0.6s;
+    }
+
+    .phone:hover {
+      transform: scale(1.06) rotate(1deg);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.9),0 0 20px rgba(138,43,226,0.4); 
+    }
+
+    .phone:hover::before {
+      top: 100%;
+    }
+
+    .screen {
+      background: #000;
+      border-radius: 25px;
+      overflow: hidden;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .screen::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 25px;
+      box-shadow: inset 0 0 20px rgba(138,43,226,0.15);
+      pointer-events: none;
+    }
+
+    .screen iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .fb-fallback a {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 20px;
+      background: #0F62CE; 
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .fb-fallback a:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(255,255,255,0.4);
+    }
+
+
+    .card-instagram {
+      width: calc(100% - 30px);
+      margin: 0 auto;
+      height: auto;
+      margin-top: 25px;
+    }
+    #whatsapp-btn{
+      bottom:35px;
+      right:67%;
+      transform:translateX(50%);
+      padding:7px 7px;
+      gap:4px;
+      max-width:170px;
+      z-index:99;
+    }
 
     #carrito-items {
         width: 100%;
@@ -3051,7 +3147,7 @@ a {
         font-size: 0.68rem;
         text-align: center;
     }
-
+    
 
     /* =========================
        CARDS
@@ -3073,13 +3169,42 @@ a {
         margin-bottom: 4px;
     }
 
+    
+    .btn-enviar,
+    .btn-vaciar{
+      font-size:.85rem;
+      padding:4px;
+    }
+
     .card h3 {
         font-size: 0.78rem;
         line-height: 1.05;
         margin: 2px 0;
         padding: 0 2px;
     }
+    .back-to-top {
+      margin-top: 0.2rem;                             
+      padding: 0.7rem 1.2rem;                              
+      background: rgba(3, 2, 3, 0.667);                                
+      color: white;                              
+      font-weight: bold;                                   
+      border-radius: var(--border-radius);                 
+      text-decoration: none;                              
+      transition: background 0.3s, transform 0.3s, color 0.3s; 
+      font-size: 1rem;                                    
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);              
+      box-sizing: border-box;                              
+      float: left;
+      border-radius: 50px;
+      position: fixed;     
+      bottom: 70px;        
+      left: 30px;   
+      z-index: 100;      
+    }
 
+    #carrito-dropdown h3 {
+      font-size: 1rem;
+     }
     .card p {
         font-size: 0.68rem;
         line-height: 1.05;
@@ -3099,6 +3224,7 @@ a {
         padding: 5px 3px;
         margin-top: 4px;
     }
+
 }
 
 .modal-img.zoomed {
@@ -3132,3 +3258,54 @@ a {
   padding: 20px !important;
   border-radius: 0 !important;
 }
+
+@media (max-width: 150px) {
+
+
+  /* -------- BOTÓN GRUPO -------- */
+
+  #whatsapp-btn{
+    bottom:35px;
+    right:53%;
+    transform:translateX(50%);
+    padding:7px 7px;
+    gap:4px;
+    max-width:170px;
+    z-index:99;
+  }
+
+  #whatsapp-btn img{
+    width:18px;
+    height:18px;
+  }
+
+  #whatsapp-btn span{
+    font-size:1px;
+  }
+  
+
+  /* -------- CARRITO -------- */
+
+  #carrito-dropdown{
+    width:95%;
+    max-height:82vh;
+    top:4%;
+  }
+
+  #carrito-items{
+    max-height:50px;
+    max-width: 100%;
+  }
+
+  #carrito-dropdown h3 {
+  font-size: 1rem;
+  margin-bottom: 13px;
+  margin-top: 0px;
+  padding: 0px;
+  text-align: center;
+  font-weight: bold;
+  position: relative;
+  z-index: 2000;
+
+}
+   }
