@@ -13,4 +13,5 @@ node_modules/
 .env
 
 # Base de datos
+/catalogo.db
 backend/src/catalogo.db
