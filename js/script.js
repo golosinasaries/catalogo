@@ -88,7 +88,7 @@ const globos = [
 ];
 
 const alcancias = [
-
+/*
      {
     nombre: "Alcancía Tigre Rojo (con 12 gelatinas en su interior)",
     precio: 6900,
@@ -100,7 +100,7 @@ const alcancias = [
     precio: 6900,
     img: "img/alcanciaojoamarillo.png"
   },
-  /*
+  
 
   {
     nombre: "Alcancía Pingüino Negro (con 12 gelatinas en su interior)",
