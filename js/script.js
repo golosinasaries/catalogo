@@ -25,7 +25,6 @@ const carritoDropdown = document.getElementById("carrito-dropdown");
 fondoModal = document.getElementById("fondo-carrito");
 
 const STOCK_PRODUCTOS = {
-  "Turrón Misky (10u)": 1,
   "Gomitas Selección (30u)": 3,
   "Chicle Fierita Globo sabor Frutilla (95u)": 1,
   "Chicle Fierita Globo sabor Menta (95u)": 0,
