@@ -1,6 +1,6 @@
 const minimoCompra = 50000; 
 const minimoRegalo = 50000;   
-const minimoEnvioGratis = 100000;
+const minimoEnvioGratis = 150000;
 
 const ENVIO_MDP = 6900;
 const ENVIO_GENERAL = 12400;
@@ -9,10 +9,10 @@ const ENVIO_SANTACRUZ = 15400;
 const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 
-const REGALO_NOMBRE = "1 Alcancía";
-const REGALO_IMAGEN = "img/tigrerojo.png";
+const REGALO_NOMBRE = "Oblita de Marroc (48u)";
+const REGALO_IMAGEN = "img/oblita_marroc.jpg";
 
-const PROMOS_ACTIVAS = ["envio"]; 
+const PROMOS_ACTIVAS = ["regalo"]; 
 
 
 let productos = [];
@@ -1302,7 +1302,7 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("carrito", JSON.stringify(carrito));
 
     const envio = localStorage.getItem("codigoPostalCliente")
-      ? ((PROMOS_ACTIVAS.includes("envio") && total >= minimoEnvioGratis) || total >= 100000
+      ? ((PROMOS_ACTIVAS.includes("envio") && total >= minimoEnvioGratis) || total >= 150000
           ? 0
           : calcularCostoEnvio(localStorage.getItem("codigoPostalCliente")))
       : null;
@@ -1675,7 +1675,7 @@ if (PROMOS_ACTIVAS.includes("regalo") && total >= minimoRegalo) {
   }
 
   // envío
- const envio = total >= 100000 ? 0 : calcularCostoEnvio(cp);
+ const envio = total >= 150000 ? 0 : calcularCostoEnvio(cp);
 
   msg += `\n📦 Total productos: ${totalProductos}`;
   msg += `\n🚚 Envío: $${envio.toLocaleString("es-AR")}`;
@@ -1765,7 +1765,7 @@ function actualizarAvisoEnvioGratis(total = 0) {
       }
     } else {
       mensajes.push(
-        `🚚 Sumá <strong>$${(100000 - total).toLocaleString("es-AR")}</strong> y conseguí envío gratis`
+        `🚚 Sumá <strong>$${(150000 - total).toLocaleString("es-AR")}</strong> y conseguí envío gratis`
       );
     }
   }
@@ -2093,7 +2093,7 @@ function mostrarEnvioModal(costo) {
        <p class="envio-precio">🚚 Envío: $${precioEnvio}</p>
 
         <p class="envio-gratis">
-          💖 Superando los $100.000 el envío siempre es GRATIS
+          💖 Superando los $150.000 el envío siempre es GRATIS
         </p>
 
         <div class="envio-actions">
