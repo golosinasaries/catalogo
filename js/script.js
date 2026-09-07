@@ -67,7 +67,7 @@ const monedaspanda = [
 ];
 
 const globos = [
-  /*
+  /*-
   {
     nombre: "Chicle Fierita Globo sabor Banana (95u)",
     precio: 7900,
