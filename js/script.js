@@ -1,6 +1,6 @@
 const minimoCompra = 50000; 
 const minimoRegalo = 50000;   
-const minimoEnvioGratis = 150000;
+const minimoEnvioGratis = 100000;
 
 const ENVIO_MDP = 6900;
 const ENVIO_GENERAL = 12400;
@@ -1302,7 +1302,7 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("carrito", JSON.stringify(carrito));
 
     const envio = localStorage.getItem("codigoPostalCliente")
-      ? ((PROMOS_ACTIVAS.includes("envio") && total >= minimoEnvioGratis) || total >= 150000
+      ? ((PROMOS_ACTIVAS.includes("envio") && total >= minimoEnvioGratis) || total >= 100000
           ? 0
           : calcularCostoEnvio(localStorage.getItem("codigoPostalCliente")))
       : null;
@@ -1675,7 +1675,7 @@ if (PROMOS_ACTIVAS.includes("regalo") && total >= minimoRegalo) {
   }
 
   // envío
- const envio = total >= 150000 ? 0 : calcularCostoEnvio(cp);
+ const envio = total >= 100000 ? 0 : calcularCostoEnvio(cp);
 
   msg += `\n📦 Total productos: ${totalProductos}`;
   msg += `\n🚚 Envío: $${envio.toLocaleString("es-AR")}`;
@@ -1765,7 +1765,7 @@ function actualizarAvisoEnvioGratis(total = 0) {
       }
     } else {
       mensajes.push(
-        `🚚 Sumá <strong>$${(150000 - total).toLocaleString("es-AR")}</strong> y conseguí envío gratis`
+        `🚚 Sumá <strong>$${(100000 - total).toLocaleString("es-AR")}</strong> y conseguí envío gratis`
       );
     }
   }
