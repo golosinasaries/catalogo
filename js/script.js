@@ -12,7 +12,7 @@ const ENVIO_GRATIS = 0;
 const REGALO_NOMBRE = "Oblita de Marroc (48u)";
 const REGALO_IMAGEN = "img/oblita_marroc.jpg";
 
-const PROMOS_ACTIVAS = ["regalo"]; 
+const PROMOS_ACTIVAS = ["envio"]; 
 
 
 let productos = [];
