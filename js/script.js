@@ -9,8 +9,8 @@ const ENVIO_SANTACRUZ = 15400;
 const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 
-const REGALO_NOMBRE = "Gomitas Macarron (30u)";
-const REGALO_IMAGEN = "img/macarron.png";
+const REGALO_NOMBRE = "Gomitas Oreo (30u)";
+const REGALO_IMAGEN = "img/gomitasoreo.jpg";
 
 const PROMOS_ACTIVAS = ["regalo"]; 
 
