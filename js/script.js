@@ -26,7 +26,7 @@ fondoModal = document.getElementById("fondo-carrito");
 
 const STOCK_PRODUCTOS = {
   "Gomitas Selección (30u)": 3,
-  "Chicle Fierita Globo sabor Frutilla (95u)": 1,
+  "Chicle Fierita Globo sabor Frutilla (95u)": 0,
   "Chicle Fierita Globo sabor Menta (95u)": 0,
   "Pastillas Alka sabor Menta (12u)": 1,
   "Mechas mágicas Lilo y Stitch (30u)": 1,
