@@ -2969,6 +2969,9 @@ a {
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  grid-column: span 2;
+  margin-top: 10px;
+  border: 0.5px solid #000;
 }
 
 .card-facebook iframe {
