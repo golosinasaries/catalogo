@@ -12,7 +12,7 @@ const ENVIO_GRATIS = 0;
 const REGALO_NOMBRE = "Gomitas Macarron (30u)";
 const REGALO_IMAGEN = "img/macarron.png";
 
-const PROMOS_ACTIVAS = ["envio"]; 
+const PROMOS_ACTIVAS = ["regalo"]; 
 
 
 let productos = [];
