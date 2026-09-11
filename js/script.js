@@ -470,7 +470,7 @@ const btn = document.getElementById("whatsapp-btn");
 
 if (btn) {
   btn.addEventListener("click", () => {
-    const linkGrupo = "https://chat.whatsapp.com/IOdckbjRmKR7iZJUoJpGEV"; 
+    const linkGrupo = "https://chat.whatsapp.com/B6bms7zoQ4Q7Lh2xBjaodg"; 
     window.open(linkGrupo, "_blank");
   });
 }
@@ -478,7 +478,7 @@ if (btn) {
 // https://chat.whatsapp.com/KLSylBrQaCt40aRp8s5gPF  GOLOSINAS -
 // https://chat.whatsapp.com/IOdckbjRmKR7iZJUoJpGEV MAYORISTA --
 // https://chat.whatsapp.com/CU7K3YOMLaO2rmkWHK84kp  MAYOTISTA -
-// https://chat.whatsapp.com/Gvuz6sIsH1a4IssI5lAMad  Golosinas --
+// https://chat.whatsapp.com/B6bms7zoQ4Q7Lh2xBjaodg  Golosinas --
 
 function calcularCostoEnvio(cp) {
   const codigo = (cp || "").trim();
