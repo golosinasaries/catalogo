@@ -12,7 +12,7 @@ const ENVIO_GRATIS = 0;
 const REGALO_NOMBRE = "Gomitas Oreo (30u)";
 const REGALO_IMAGEN = "img/gomitasoreo.jpg";
 
-const PROMOS_ACTIVAS = ["regalo"]; 
+const PROMOS_ACTIVAS = ["envio"]; 
 
 
 let productos = [];
