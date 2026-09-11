@@ -25,14 +25,14 @@ const carritoDropdown = document.getElementById("carrito-dropdown");
 fondoModal = document.getElementById("fondo-carrito");
 
 const STOCK_PRODUCTOS = {
-  "Pastillas D.R.F Sabor Menta (12u)": 0,
+  "Pastillas D.R.F Sabor Menta (12u)": 1,
   "Gomitas Selección (30u)": 3,
-  "Chicle Fierita Globo sabor Frutilla (95u)": 0,
-  "Chicle Fierita Globo sabor Menta (95u)": 0,
+  "Chicle Fierita Globo sabor Frutilla (95u)": 1,
+  "Chicle Fierita Globo sabor Menta (95u)": 2,
   "Pastillas Alka sabor Menta (12u)": 0,
   "Mechas mágicas Lilo y Stitch (30u)": 1,
-  "Pastillas D.R.F Sabor Anis (12u)": 2,
-  "Pastillas Alka sabor Cherry Mentol (12u)": 5,
+  "Pastillas D.R.F Sabor Anis (12u)": 1,
+  "Pastillas Alka sabor Cherry Mentol (12u)": 1,
   "Mechas mágicas Lilo y Stitch (30u)": 1,
   "Gomitas de Boca (30u)": 41,
   "Bull Dog 360 g de Tutti Frutti Ácida": 0,
