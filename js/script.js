@@ -29,7 +29,7 @@ const STOCK_PRODUCTOS = {
   "Gomitas Selección (30u)": 3,
   "Chicle Fierita Globo sabor Frutilla (95u)": 1,
   "Chicle Fierita Globo sabor Menta (95u)": 2,
-  "Pastillas Alka sabor Menta (12u)": 0,
+  "Pastillas Alka sabor Menta (12u)": 1,
   "Mechas mágicas Lilo y Stitch (30u)": 1,
   "Pastillas D.R.F Sabor Anis (12u)": 1,
   "Pastillas Alka sabor Cherry Mentol (12u)": 1,
