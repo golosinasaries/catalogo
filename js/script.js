@@ -25,7 +25,7 @@ const carritoDropdown = document.getElementById("carrito-dropdown");
 fondoModal = document.getElementById("fondo-carrito");
 
 const STOCK_PRODUCTOS = {
-  "Latitas con chicles (30 latitas)": 1,
+  "Latitas con chicles (30 latitas)": 0,
   "Oblita Marroc (48u)": 0,
   "Pastillas D.R.F Sabor Menta (12u)": 1,
   "Gomitas Selección (30u)": 3,
