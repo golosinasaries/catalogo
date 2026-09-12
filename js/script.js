@@ -25,6 +25,7 @@ const carritoDropdown = document.getElementById("carrito-dropdown");
 fondoModal = document.getElementById("fondo-carrito");
 
 const STOCK_PRODUCTOS = {
+  "Oblita Marroc (48u)": 0,
   "Pastillas D.R.F Sabor Menta (12u)": 1,
   "Gomitas Selección (30u)": 3,
   "Chicle Fierita Globo sabor Frutilla (95u)": 1,
