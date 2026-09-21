@@ -1,6 +1,6 @@
 const minimoCompra = 50000; 
 const minimoRegalo = 50000;   
-const minimoEnvioGratis = 80000;
+const minimoEnvioGratis = 100000;
 
 const ENVIO_MDP = 6900;
 const ENVIO_GENERAL = 12400;
@@ -9,10 +9,10 @@ const ENVIO_SANTACRUZ = 15400;
 const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 
-const REGALO_NOMBRE = "Gomitas Oreo (30u)";
-const REGALO_IMAGEN = "img/gomitasoreo.jpg";
+const REGALO_NOMBRE = "1 caja de Oblita (48u)";
+const REGALO_IMAGEN = "img/oblita_ddl.jpg";
 
-const PROMOS_ACTIVAS = ["envio"]; 
+const PROMOS_ACTIVAS = ["regalo"]; 
 
 
 let productos = [];
@@ -1749,7 +1749,7 @@ function actualizarAvisoEnvioGratis(total = 0) {
       }
     } else {
       mensajes.push(
-        `🎁 Sumá <strong>$${(minimoRegalo - total).toLocaleString("es-AR")}</strong> y llevate un regalo`
+        `💥 Promo activa! Sumá <strong>$${(minimoRegalo - total).toLocaleString("es-AR")}</strong> y llevate un regalo 🎁`
       );
     }
   }
