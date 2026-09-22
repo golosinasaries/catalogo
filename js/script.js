@@ -9,10 +9,10 @@ const ENVIO_SANTACRUZ = 15400;
 const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 
-const REGALO_NOMBRE = "1 caja de Oblita (48u)";
-const REGALO_IMAGEN = "img/oblita_ddl.jpg";
+const REGALO_NOMBRE = "1 Chupetines Pelotitas (50u)";
+const REGALO_IMAGEN = "img/pelotitas.jpg";
 
-const PROMOS_ACTIVAS = ["envio"]; 
+const PROMOS_ACTIVAS = ["regalo"]; 
 
 
 let productos = [];
