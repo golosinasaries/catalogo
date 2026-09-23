@@ -25,12 +25,12 @@ const carritoDropdown = document.getElementById("carrito-dropdown");
 fondoModal = document.getElementById("fondo-carrito");
 
 const STOCK_PRODUCTOS = {
-  "Oblita Marroc (48u)": 1,
+  "Oblita Marroc (48u)": 0,
   "Pastillas D.R.F Sabor Menta (12u)": 2,
   "Gomitas Selección (30u)": 3,
   "Chicle Fierita Globo sabor Frutilla (95u)": 2,
   "Chicle Fierita Globo sabor Menta (95u)": 2,
-  "Pastillas Alka sabor Menta (12u)": 1,
+  "Pastillas Alka sabor Menta (12u)": 2,
   "Mechas mágicas Lilo y Stitch (30u)": 2,
   "Pastillas D.R.F Sabor Anis (12u)": 2,
   "Pastillas Alka sabor Cherry Mentol (12u)": 2,
@@ -174,11 +174,6 @@ const recargados = [
 
 const oblita = [
   
-  {
-    img: "img/oblita_marroc.jpg",
-    nombre: "Oblita de Marroc (48u)",
-    precio: 6900
-  },
  /*
   {
     img: "img/oblita_chocolate.jpg",
@@ -202,6 +197,11 @@ const oblita = [
   {
     img: "img/oblitafrutilla.jpg",
     nombre: "Oblita de Frutilla (48u)",
+    precio: 6900
+  },
+  {
+    img: "img/oblita_marroc.jpg",
+    nombre: "Oblita Marroc (48u)",
     precio: 6900
   },
 
