@@ -281,12 +281,12 @@ const simple   = [
 const triple   = [
   {
     nombre: "Alfajor Guaymallén triple de Chocolate Blanco (12u)",
-    precio: 8500,
+    precio: 8900,
     img: "img/guayblanco.jpg"
   },
   {
     nombre: "Alfajor Guaymallén triple de Dulce de Leche (12u)",
-    precio: 8500,
+    precio: 8900,
     img: "img/guayddl.jpg"
   }
 ];
@@ -294,12 +294,12 @@ const triple   = [
 const triple6   = [
     {
     nombre: "Alfajor Guaymallén triple de Dulce de Leche (6u)",
-    precio: 4500,
+    precio: 4900,
     img: "img/guayddl.jpg"
   },
   {
     nombre: "Alfajor Guaymallén triple de Chocolate Blanco (6u)",
-    precio: 4500,
+    precio: 4900,
     img: "img/guayblanco.jpg"
   },
   ];
@@ -307,18 +307,18 @@ const triple6   = [
 const cucurucho   = [
     {
     nombre: "Cucuruchos Helado Frutilla (30u)",
-    precio: 14500,
+    precio: 14900,
     img: "img/cucuruchohelado.png"
   },
   {
     nombre: "Cucuruchos Helado Chocolate (30u)",
-    precio: 14500,
+    precio: 14900,
     img: "img/cucuruchochocolate.png"
   },
 
   {
     nombre: "Cucuruchos Helado sabor Arandano (30u)",
-    precio: 14500,
+    precio: 14900,
     img: "img/cucuruchovainilla.png"
   },
 
