@@ -12,7 +12,7 @@ const ENVIO_GRATIS = 0;
 const REGALO_NOMBRE = "1 Chupetines Pelotitas (50u)";
 const REGALO_IMAGEN = "img/pelotitas.jpg";
 
-const PROMOS_ACTIVAS = ["regalo"]; 
+const PROMOS_ACTIVAS = ["envio"]; 
 
 
 let productos = [];
@@ -594,6 +594,7 @@ if (modal) {
     "Gomitas Oreo (30u)": ["img/gomitasoreo.jpg","img/videooreo.mp4"],
     "Dinosaurio con caramelos y luces (1 unidad)": ["img/fotodinosaurio.jpg","img/videodinosaurio.mp4"],
     "Gomitas de boca (30u)": ["img/boca.jpg","img/videoboca.mp4"],
+    "Riquito Alfajor Simple DDL (10u)": ["img/riquitosimple.jpg","img/riquito2.png"],
     "Gomitas Spider-Man (60u)": ["img/spiderman1.jpg","img/spiderman2.jpg","img/spiderman3.jpg","img/spiderman4.jpg","img/spiderman5.jpg"],
     "Ring Pop Barbie (30u)": ["img/ringpop1.png","img/ringpop2.jpeg", "img/ringpop3.png"],
     "Chupetines con polvo ácido Bob Esponja (30u)": ["img/bob1.jpg","img/bob2.jpg"],
