@@ -9,10 +9,10 @@ const ENVIO_SANTACRUZ = 15400;
 const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 
-const REGALO_NOMBRE = "1 Alcancía";
-const REGALO_IMAGEN = "img/alcanciaojoamarillo.png";
+const REGALO_NOMBRE = "Gomitas Macarron (30u)";
+const REGALO_IMAGEN = "img/macarron.png";
 
-const PROMOS_ACTIVAS = ["envio"]; 
+const PROMOS_ACTIVAS = ["regalo"]; 
 
 
 let productos = [];
