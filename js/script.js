@@ -1741,7 +1741,7 @@ function actualizarAvisoEnvioGratis(total = 0) {
   // ===== REGALO =====
   if (PROMOS_ACTIVAS.includes("regalo")) {
     if (total >= minimoRegalo) {
-      mensajes.push(`🎁 <strong>¡Tu compra incluye!</strong><br>${REGALO_NOMBRE} de regalo`);
+      mensajes.push(`🎁 <strong>Tenés</strong><br>${REGALO_NOMBRE} de regalo`);
 
       if (!estadoEnvio.regaloMostrado) {
         mostrarToast("🎁 ¡Ganaste un regalo! ✨", "fiesta");
