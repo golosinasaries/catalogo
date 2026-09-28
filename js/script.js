@@ -12,7 +12,7 @@ const ENVIO_GRATIS = 0;
 const REGALO_NOMBRE = "1 Alcancía";
 const REGALO_IMAGEN = "img/alcanciaojoamarillo.png";
 
-const PROMOS_ACTIVAS = ["regalo"]; 
+const PROMOS_ACTIVAS = ["envio"]; 
 
 
 let productos = [];
@@ -37,7 +37,6 @@ const STOCK_PRODUCTOS = {
   "Gomitas de Boca (30u)": 41,
   "Bull Dog 360 g de Tutti Frutti Ácida": 2,
   "Bull Dog 360 g de Frutilla Ácida": 2,
-  "Globo Unicornio Rosa 24 pulgdas (1 unidad)": 1,
 };
 
 const alka = [
@@ -227,7 +226,7 @@ const drf   = [
   },
 
 ];
-
+/*
 const globosgrandes   = [
 
   {
@@ -243,6 +242,7 @@ const globosgrandes   = [
   },
 
 ];
+*/
 
 const bulldog   = [
   { 
@@ -380,7 +380,7 @@ const productosVariantes = {
   "card-oblita": oblita,
   "card-drf": drf,
   "card-alka": alka,
-  "card-globosgrandes": globosgrandes,
+ /* "card-globosgrandes": globosgrandes,*/
   "card-bulldog": bulldog,
   "card-simple": simple,
   "card-triple": triple,
