@@ -426,8 +426,10 @@ function cambiarVariante(el, direccion) {
   btn.dataset.nombre = v.nombre;
   btn.dataset.precio = v.precio;
   const stock = STOCK_PRODUCTOS[v.nombre];
+  card.classList.toggle("sin-stock", stock === 0);
 
   // limpiar avisos viejos
+  
   card.querySelector(".sin-stock-label")?.remove();
   card.querySelector(".ultimo-stock")?.remove();
 
