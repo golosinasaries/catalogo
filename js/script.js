@@ -9,10 +9,10 @@ const ENVIO_SANTACRUZ = 15400;
 const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 
-const REGALO_NOMBRE = "Gomitas Macarron (30u)";
-const REGALO_IMAGEN = "img/macarron.png";
+const REGALO_NOMBRE = "Gomitas Oreo (30u)";
+const REGALO_IMAGEN = "img/videooreo.mp4";
 
-const PROMOS_ACTIVAS = ["envio"]; 
+const PROMOS_ACTIVAS = ["regalo"]; 
 
 
 let productos = [];
@@ -1232,9 +1232,15 @@ document.addEventListener("DOMContentLoaded", () => {
         ? `
           <div class='carrito-item regalo-item'>
 
-            <img class="carrito-miniatura"
-                src="${REGALO_IMAGEN}"
-                alt="${REGALO_NOMBRE}">
+            ${
+              /\.(mp4|webm|ogg)$/i.test(REGALO_IMAGEN)
+                ? `<video class="carrito-miniatura" autoplay muted loop playsinline>
+                    <source src="${REGALO_IMAGEN}" type="video/mp4">
+                  </video>`
+                : `<img class="carrito-miniatura"
+                    src="${REGALO_IMAGEN}"
+                    alt="${REGALO_NOMBRE}">`
+                }
 
             <div class="carrito-item-info">
               <strong>🎁 ${REGALO_NOMBRE}</strong>
