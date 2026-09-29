@@ -25,6 +25,7 @@ const carritoDropdown = document.getElementById("carrito-dropdown");
 fondoModal = document.getElementById("fondo-carrito");
 
 const STOCK_PRODUCTOS = {
+  "Cucuruchos Helado Chocolate (30u)": 0,
   "Nutello (30u)": 1,
   "Oblita Marroc (48u)": 0,
   "Pastillas D.R.F Sabor Menta (12u)": 2,
