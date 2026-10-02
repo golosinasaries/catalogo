@@ -9,10 +9,10 @@ const ENVIO_SANTACRUZ = 15400;
 const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 
-const REGALO_NOMBRE = "Gomitas Oreo (30u)";
-const REGALO_IMAGEN = "img/videooreo.mp4";
+const REGALO_NOMBRE = "Gomitas Macarron (30u)";
+const REGALO_IMAGEN = "img/macarron.png";
 
-const PROMOS_ACTIVAS = ["envio"]; 
+const PROMOS_ACTIVAS = ["regalo"]; 
 
 
 let productos = [];
@@ -38,6 +38,7 @@ const STOCK_PRODUCTOS = {
   "Gomitas de Boca (30u)": 41,
   "Bull Dog 360 g de Tutti Frutti Ácida": 2,
   "Bull Dog 360 g de Frutilla Ácida": 2,
+  "Chupetines Foot Lollipop explosivo (tira de 15u)": 2,
 };
 
 const alka = [
