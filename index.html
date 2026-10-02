@@ -31,8 +31,9 @@
     </a>
 
     <a href="#" onclick="filtrar('todos')" style="font-weight: bold;">
-      🛒 Todos los productos
+      🛍️ Todos los productos
     </a>
+    <a href="#" onclick="filtrar('halloween')"> 🎃 Halloween</a>
     <a href="#" onclick="filtrar('gomitasblandas')">🧸 Gomitas blandas</a>
     <a href="#" onclick="filtrar('chupetines')">🍭 Chupetines</a>
     <a href="#" onclick="filtrar('caramelos')">🍬 Caramelos</a>
@@ -152,7 +153,7 @@
           </div>
 
           <div class="card card--promo" data-cat="chupetines">
-            <img src="img/dosenuno.png" alt="Chupetines Merlina">
+            <img src="img/dosenuno.png" alt="Chupetines 2 in 1 (60u)">
 
             <span class="promo-badge">🔥 PROMO</span>
 
@@ -161,13 +162,29 @@
             <p class="precio-promo">$8.000</p>
             <button
               class="btn-carrito"
-              data-nombre="Chupetines Merlina (30u)"
+              data-nombre="Chupetines 2 in 1 (60u)"
               data-precio="8000">
               Agregar al carrito
             </button>
           </div>
 
       --->
+
+      <div class="card card--promo" data-cat="chupetines">
+            <img src="img/dosenuno.png" alt="Chupetines 2 in 1 (60u)">
+
+            <span class="promo-badge">🔥 PROMO</span>
+
+            <h3>Chupetines 2 in 1 (60u)</h3>
+            <h4 class="precio-anterior">$11.900</h4>
+            <p class="precio-promo">$8.000</p>
+            <button
+              class="btn-carrito"
+              data-nombre="Chupetines 2 in 1 (60u)"
+              data-precio="8000">
+              Agregar al carrito
+            </button>
+      </div>
 
        <div class="card" data-cat="huevos">
         <img src="img/sorpresasti.png" alt="Sorpresa Lilo y Stitch"  >
@@ -178,26 +195,33 @@
 
        <div class="card" data-cat="huevos">
         <img src="img/sorpresadino.png" alt="Sorpresa Dinos"  >
-        <h3>Huevos Sorpresa Dinos (30u)</h3>
+        <h3>Huevos Sorpresa Dinos 🦖 (30u)</h3>
         <p>$14.500</p>
         <button class="btn-carrito">Agregar al carrito</button>  
       </div>
 
-      <div class="card" data-cat="chupetines">
+      <div class="card" data-cat="chupetines halloween">
         <img src="img/Halloween.jpeg" alt="Chupetines con formas"  >
-        <h3>Chupetines Halloween (30u)</h3>
+        <h3>Chupetines Halloween (30u) 👻</h3>
         <p>$10.900</p>
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
 
-      <div class="card" data-cat="chupetines">
+       <div class="card" data-cat="chupetines halloween">
+        <img src="img/halloween3.png" alt="Chupetines con formas"  >
+        <h3>Chupetines Halloween 3 en 1 (30u) 🧙‍♀️</h3>
+        <p>$10.900</p>
+        <button class="btn-carrito">Agregar al carrito</button>
+      </div>
+
+      <div class="card" data-cat="chupetines halloween">
         <img src="img/cajamerlina.png" alt="Eyeball caramelo duro Merlina"  >
         <h3>Chupetines Merlina (30u)</h3>
         <p>$12.500</p>
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
 
-      <div class="card card-video" data-cat="gomitasblandas">
+      <div class="card card-video" data-cat="gomitasblandas halloween">
         <img src="img/ojos.png" alt="Gomitas Ojos">
         <video class="video-hover video-ojos"
               src="img/videoojos.mp4"
@@ -215,13 +239,6 @@
         <h3>Botellitas con chicles (30u)</h3>
         <p>$12.900</p>
         <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="chupetines">
-        <img src="img/dosenuno.png" alt="Chupetines 2 in 1"  >
-        <h3>Chupetines 2 in 1 (60u)</h3>
-        <p>$11.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>     
       </div>
 
       <div class="card" data-cat="chupetines">
@@ -405,6 +422,13 @@
         <h3>Chupetines Frutillas (30u)</h3>
         <p>$9.900</p>
         <button class="btn-carrito">Agregar al carrito</button>
+      </div>
+
+      <div class="card" data-cat="chupetines">
+        <img src="img/dosenuno.png" alt="Chupetines 2 in 1"  >
+        <h3>Chupetines 2 in 1 (60u)</h3>
+        <p>$11.900</p>
+        <button class="btn-carrito">Agregar al carrito</button>     
       </div>
 
       <div class="card" data-cat="gomitasblandas">
@@ -844,7 +868,7 @@
         <div class="img-container">
           <span class="flecha izq" onclick="event.stopPropagation(); cambiarVariante(this, -1)">←</span> <img src="img/alkamenta.jpeg" alt="Pastillas Alka sabor Menta (12u)"> <span class="flecha der" onclick="event.stopPropagation(); cambiarVariante(this, 1)">→</span>
         </div>
-        <h3>Pastillas Alka sabor Menta (12u)</h3>
+        <h3>Pastillas Alka sabor Menta (12u) 🌿</h3>
         <p>$6.900</p>
         <button class="btn-carrito" data-nombre="Pastillas Alka sabor Menta (12u)" data-precio="6900"> Agregar al carrito</button>
       </div>

@@ -32,7 +32,7 @@ const STOCK_PRODUCTOS = {
   "Gomitas Selección (30u)": 3,
   "Chicle Fierita Globo sabor Frutilla (95u)": 2,
   "Chicle Fierita Globo sabor Menta (95u)": 2,
-  "Pastillas Alka sabor Menta (12u)": 2,
+  "Pastillas Alka sabor Menta (12u) 🌿": 2,
   "Pastillas D.R.F Sabor Anis (12u)": 2,
   "Pastillas Alka sabor Cherry Mentol (12u)": 2,
   "Gomitas de Boca (30u)": 41,
@@ -43,7 +43,7 @@ const STOCK_PRODUCTOS = {
 
 const alka = [
   {
-    nombre: "Pastillas Alka sabor Menta (12u)",
+    nombre: "Pastillas Alka sabor Menta (12u) 🌿",
     precio: 6900,
     img: "img/alkamenta.jpeg"
   },
@@ -638,6 +638,7 @@ if (modal) {
     "Gomitas Astronauta (30u)": ["img/astronauta.png","img/astronauta2.png"],
     "Chupetes Capibara (30u)": ["img/chupete1.jpeg","img/chupete2.jpeg"],
     "iPhone Pinball con pastillitas (30u)": ["img/iphone.png","img/iphone2.png"],
+    "Chupetines Halloween 3 en 1 (30u) 🧙‍♀️": ["img/halloween3.png","img/halloween32.png"],
   };
 
   let currentImages = [];
