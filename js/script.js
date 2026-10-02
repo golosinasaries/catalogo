@@ -267,13 +267,13 @@ const bulldog   = [
 
 const simple   = [
   {
-    nombre: "Alfajor Guaymallén simple de Dulce de Leche (10u)",
+    nombre: "Alfajor Guaymallén simple de Negro (10u)",
     precio: 4900,
     img: "img/guaysimplenegro.jpg"
   },
 
   {
-    nombre: "Alfajor Guaymallén simple de Chocolate Blanco (10u)",
+    nombre: "Alfajor Guaymallén simple Blanco (10u)",
     precio: 4900,
     img: "img/guaysimpleblanco.jpg"
   }
@@ -281,12 +281,12 @@ const simple   = [
 
 const triple   = [
   {
-    nombre: "Alfajor Guaymallén triple de Chocolate Blanco (12u)",
+    nombre: "Alfajor Guaymallén triple Blanco (12u)",
     precio: 8900,
     img: "img/guayblanco.jpg"
   },
   {
-    nombre: "Alfajor Guaymallén triple de Dulce de Leche (12u)",
+    nombre: "Alfajor Guaymallén triple de Negro (12u)",
     precio: 8900,
     img: "img/guayddl.jpg"
   }
@@ -294,12 +294,12 @@ const triple   = [
 
 const triple6   = [
     {
-    nombre: "Alfajor Guaymallén triple de Dulce de Leche (6u)",
+    nombre: "Alfajor Guaymallén triple Negro (6u)",
     precio: 4900,
     img: "img/guayddl.jpg"
   },
   {
-    nombre: "Alfajor Guaymallén triple de Chocolate Blanco (6u)",
+    nombre: "Alfajor Guaymallén triple Blanco (6u)",
     precio: 4900,
     img: "img/guayblanco.jpg"
   },
