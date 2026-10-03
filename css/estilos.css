@@ -949,7 +949,7 @@ html {
   }
 
   .titulo-contenedor h1 {
-    font-size: 1.4rem; 
+    font-size: 1.1rem; 
   }
   
   nav a {
@@ -3428,5 +3428,62 @@ a {
 
   .next {
     right: 5px;
+  }
+}
+
+.menu-btn.atencion span:nth-child(1) {
+  animation: menuTop 0.9s ease-in-out;
+}
+
+.menu-btn.atencion span:nth-child(2) {
+  animation: menuMiddle 0.9s ease-in-out;
+}
+
+.menu-btn.atencion span:nth-child(3) {
+  animation: menuBottom 0.9s ease-in-out;
+}
+
+@keyframes menuTop {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-5px);
+  }
+  55% {
+    transform: translateY(2px);
+  }
+  75% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes menuMiddle {
+  0%, 100% {
+    transform: scaleX(1);
+  }
+  30% {
+    transform: scaleX(0.65);
+  }
+  55% {
+    transform: scaleX(1.08);
+  }
+  75% {
+    transform: scaleX(0.9);
+  }
+}
+
+@keyframes menuBottom {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(5px);
+  }
+  55% {
+    transform: translateY(-2px);
+  }
+  75% {
+    transform: translateY(2px);
   }
 }

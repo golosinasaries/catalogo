@@ -332,53 +332,7 @@ const cucurucho   = [
 
 ];
 
-const Capullitos   = [
- 
-   /*
-   {
-    nombre: "Pack Palitos de Maíz 80g (6u)",
-    precio: 4800,
-    img: "img/cpalitosdemaiz.jpeg"
-  },
- 
-   {
-    nombre: "Pack Bolifrut sabor Tutti Frutti 80g (6u)",
-    precio: 4800,
-    img: "img/bolifrut.png"
-  },
-   */
-   {
-    nombre: "Pack Tapitas sabor Barbacoa 80g (6u)",
-    precio: 4800,
-    img: "img/tapitas.png"
-  },
-
-    {
-    nombre: "Pack Cañitos de queso 80g (6u)",
-    precio: 4800,
-    img: "img/ccanitos.jpeg"
-  },
-  /*
-   {
-    nombre: "Pack Aritos sabor Tutti Frutti 80g (6u)",
-    precio: 4800,
-    img: "img/aritos.png"
-  },
-
-   {
-    nombre: "Pack Aritos sabor Cebolla 80g (6u)",
-    precio: 4800,
-    img: "img/aritoscebolla.png"
-  },
-  
-
-   {
-    nombre: "Pack Pizzitas sabor Jamón 80g (6u)",
-    precio: 4800,
-    img: "img/pizzitas.png"
-  },
-  */
-];
+0
 
 const productosVariantes = {
   "card-alcancia": alcancias,
@@ -392,7 +346,6 @@ const productosVariantes = {
   "card-simple": simple,
   "card-triple": triple,
   "card-triple6": triple6,
-  "card-Capullitos": Capullitos,
   "card-monedaspanda": monedaspanda,
   "card-cucurucho": cucurucho
 };
@@ -604,12 +557,9 @@ if (modal) {
     "Chicles WhatsApp con tatoo capibara (36 paquetes de 5 chicles)": ["img/wp1.jpg","img/wp2.jpg" ],
     "Gomitas Capibaras (30u)": ["img/capibara.png","img/capibara2.png",],
     "Tractor dispenser + caramelos (1 unidad)": ["img/tractor1.jpg","img/tractor2.jpg"],
-    "Camión dispenser + caramelos rosa (1 unidad)": ["img/camionrosa1.jpg","img/camionrosa2.jpg"],
-    "Camión dispenser + caramelos celeste (1 unidad)": ["img/camionceleste1.jpg","img/camionceleste2.jpg"],
     "Tractor dispenser + caramelos verde (1 unidad)": ["img/tractorverde1.jpg","img/tractorverde2.jpg"],
     "Chupetines Kuromy con led (30u)": ["img/kuromyled1.png","img/kuromyled.png", "img/mc3.jpeg"],
     "Chupetines Merlina (30u)": ["img/cajamerlina.png","img/merlina2.png","img/merlina.png"],
-    "Chupetín con polvo ácido Brain (30u)": ["img/braincaja.jpg","img/chupetinBrain.jpg"],
     "Camiseta Pinball con pastillitas (30u)": ["img/r11.png","img/r1.png","img/r2.png"],
     "Chupetín Calabaza con polvo ácido y led (30u)": ["img/cajaCalabaza.jpg","img/chupetincalabaza1.jpg","img/chupetincalabaza2.jpg"],
     "Chupetines con led Corona (30u)": ["img/chupetinesconled1.jpg","img/corona2.jpg"],
@@ -2044,12 +1994,89 @@ document.querySelectorAll(".card-video").forEach(card => {
 });
 
 
-const menuBtn = document.getElementById("menu-btn");
-const menuPanel = document.getElementById("menu-panel");
-const menuCatalogo = document.getElementById("menu-catalogo");
+document.addEventListener("DOMContentLoaded", () => {
+  const menuBtn = document.getElementById("menu-btn");
+  const menuPanel = document.getElementById("menu-panel");
+  const menuCatalogo = document.getElementById("menu-catalogo");
 
-menuBtn.addEventListener("click", () => {
-  menuPanel.classList.toggle("active");
+  if (!menuBtn || !menuPanel) return;
+
+  menuBtn.addEventListener("click", () => {
+    menuPanel.classList.toggle("active");
+  });
+
+  function mostrarMenuAutomaticamente() {
+    if (menuPanel.classList.contains("active")) return;
+
+    menuPanel.classList.add("active");
+    menuBtn.classList.add("atencion");
+
+    setTimeout(() => {
+      menuPanel.classList.remove("active");
+      menuBtn.classList.remove("atencion");
+    }, 2500);
+  }
+
+  setTimeout(() => {
+    mostrarMenuAutomaticamente();
+  }, 1000);
+
+  setInterval(() => {
+    mostrarMenuAutomaticamente();
+  }, 300000);
+
+  setInterval(() => {
+  if (!menuPanel.classList.contains("active")) {
+    menuBtn.classList.add("atencion");
+
+    setTimeout(() => {
+      menuBtn.classList.remove("atencion");
+    }, 1000);
+  }
+}, 60000);
+
+  let touchStartX = 0;
+  let touchStartY = 0;
+
+  document.addEventListener("touchstart", (e) => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  });
+
+  document.addEventListener("touchend", (e) => {
+    const touchEndX = e.changedTouches[0].clientX;
+    const touchEndY = e.changedTouches[0].clientY;
+
+    const diferenciaX = touchEndX - touchStartX;
+    const diferenciaY = Math.abs(touchEndY - touchStartY);
+
+    if (diferenciaY > Math.abs(diferenciaX)) return;
+
+    if (
+      touchStartX < 50 &&
+      diferenciaX > 60 &&
+      !menuPanel.classList.contains("active")
+    ) {
+      menuPanel.classList.add("active");
+    }
+
+    if (
+      menuPanel.classList.contains("active") &&
+      diferenciaX < -60
+    ) {
+      menuPanel.classList.remove("active");
+    }
+  });
+
+  menuCatalogo.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  if (window.location.pathname.includes("contacto.html")) {
+    window.location.href = "index.html";
+  } else {
+    window.location.href = "contacto.html";
+  }
+});
 });
 
 const menuPago = document.getElementById("menu-pago");
@@ -2064,16 +2091,6 @@ menuPago.addEventListener("click", (e) => {
       });
     modalPago.style.display = "flex";
     });
-
-menuCatalogo.addEventListener("click", (e) => {
-  e.preventDefault();
-
-  if (window.location.pathname.includes("contacto.html")) {
-    window.location.href = "index.html";
-  } else {
-    window.location.href = "contacto.html";
-  }
-});
 
 function copiarAlias() {
   navigator.clipboard.writeText("ana.maria.montiel");
