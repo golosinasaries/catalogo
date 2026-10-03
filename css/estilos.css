@@ -2389,7 +2389,7 @@ h1, h2, h3 {
   }
 
 .logo-mini {
-  width: 95px;
+  width: 75px;
   position: absolute;
   left: 37%;
   transform: translateX(-50%);
