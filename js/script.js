@@ -2269,7 +2269,10 @@ function filtrar(cat) {
   cards.forEach(card => {
     const cats = (card.dataset.cat || '').split(' ').filter(Boolean);
 
-    if (cat === 'todos' || cats.includes(cat)) {
+    if (
+      (cat === 'todos' && !cats.includes('bultos')) ||
+      (cat !== 'todos' && cats.includes(cat))
+    ) {
       card.style.display = 'block';
     } else {
       card.style.display = 'none';
@@ -2303,4 +2306,8 @@ document.querySelectorAll(".talle-btn").forEach(btn => {
     btn.classList.add("activo");
     talleSeleccionado = btn.dataset.talle;
   });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  filtrar("todos");
 });
