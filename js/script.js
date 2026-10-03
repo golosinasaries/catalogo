@@ -194,12 +194,13 @@ const oblita = [
     precio: 6900
   },
 
-  */
+  
   {
     img: "img/oblita_ddl.jpg",
     nombre: "Oblita de DDL (48u)",
     precio: 6900
   },
+  */
 
   {
     img: "img/oblitafrutilla.jpg",
