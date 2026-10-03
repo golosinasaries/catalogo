@@ -1,11 +1,11 @@
 const minimoCompra = 50000; 
 const minimoRegalo = 50000;   
-const minimoEnvioGratis = 100000;
+const minimoEnvioGratis = 150000;
 
-const ENVIO_MDP = 7900;
-const ENVIO_GENERAL = 12400;
-const ENVIO_LEJANO = 14400;
-const ENVIO_SANTACRUZ = 15400;
+const ENVIO_MDP = 5900;
+const ENVIO_GENERAL = 7900;
+const ENVIO_LEJANO = 9400;
+const ENVIO_SANTACRUZ = 11400;
 const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 
@@ -2172,7 +2172,7 @@ function mostrarEnvioModal(costo) {
        <p class="envio-precio">🚚 Envío: $${precioEnvio}</p>
 
         <p class="envio-gratis">
-          💖 Superando los $100.000 el envío siempre es GRATIS
+          💖 Superando los $150.000 el envío siempre es GRATIS
         </p>
 
         <div class="envio-actions">
