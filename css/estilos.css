@@ -1689,9 +1689,9 @@ html {
 }
 
 .modal-content {
-  max-width: 350px;
-  max-height: 90vh;
   width: 100%;
+  max-width: 420px;
+  max-height: 90vh;
   color: #000;
   padding: 1.3rem;
   text-align: center;
@@ -1702,6 +1702,7 @@ html {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
   background: linear-gradient(135deg, #fff 0%, #f8eaff 100%);
   border: 2px solid rgba(217, 70, 239, 0.7);
   border-radius: 22px;
@@ -1711,15 +1712,33 @@ html {
   animation: modalEntrada 0.28s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+.modal-body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+}
+
 .modal-content img {
-  max-width: 100%;
-  max-height: 60vh;  
+  width: 100%;
+  height: 350px;
   object-fit: contain;
   border-radius: 8px;
   cursor: grab;
   transition: transform 0.3s ease;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   z-index: 1;
+}
+
+#modal-video {
+  width: 100%;
+  height: 350px;
+  object-fit: contain;
+  border-radius: 8px;
 }
 
 

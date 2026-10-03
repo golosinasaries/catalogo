@@ -902,17 +902,21 @@ nextBtn.onclick = () => {
   }
 };
 
-
-
   prevProdBtn.onclick = () => {
-  productoIndex = (productoIndex - 1 + productos.length) % productos.length;
-  abrirModal(productos[productoIndex]);
-  };
+  do {
+    productoIndex = (productoIndex - 1 + productos.length) % productos.length;
+  } while (!productos[productoIndex].querySelector('h3'));
 
-  nextProdBtn.onclick = () => {
+  abrirModal(productos[productoIndex]);
+};
+
+nextProdBtn.onclick = () => {
+  do {
     productoIndex = (productoIndex + 1) % productos.length;
-    abrirModal(productos[productoIndex]);
-  };
+  } while (!productos[productoIndex].querySelector('h3'));
+
+  abrirModal(productos[productoIndex]);
+};
 
   modalImg.addEventListener("click", (e) => {
     e.stopPropagation();
