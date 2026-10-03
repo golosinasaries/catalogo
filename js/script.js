@@ -1234,7 +1234,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
               <div class="carrito-item-info">
 
-                <strong>${i.nombre}</strong>
+                <strong title="${i.nombre}">${i.nombre}</strong>
 
                 ${i.talle ? `<br><small>Talle: ${i.talle}</small>` : ""}
 
