@@ -25,6 +25,10 @@ const carritoDropdown = document.getElementById("carrito-dropdown");
 fondoModal = document.getElementById("fondo-carrito");
 
 const STOCK_PRODUCTOS = {
+  "Alfajor Guaymallén triple Negro (12u)": 0,
+  "Alfajor Guaymallén Triple Blanco (12u)": 1,
+  "Alfajor Guaymallén simple Blanco (10u)": 1,
+  "Alfajor Guaymallén simple Negro (10u)": 1,
   "Cucuruchos Helado Chocolate (30u)": 0,
   "Nutello (30u)": 1,
   "Oblita Marroc (48u)": 0,
@@ -266,17 +270,18 @@ const bulldog   = [
 ];
 
 const simple   = [
-  {
-    nombre: "Alfajor Guaymallén simple de Negro (10u)",
-    precio: 4900,
-    img: "img/guaysimplenegro.jpg"
-  },
 
   {
     nombre: "Alfajor Guaymallén simple Blanco (10u)",
     precio: 4900,
     img: "img/guaysimpleblanco.jpg"
+  },
+  {
+    nombre: "Alfajor Guaymallén simple Negro (10u)",
+    precio: 4900,
+    img: "img/guaysimplenegro.jpg"
   }
+  
 ];
 
 const triple   = [
@@ -286,7 +291,7 @@ const triple   = [
     img: "img/guayblanco.jpg"
   },
   {
-    nombre: "Alfajor Guaymallén triple de Negro (12u)",
+    nombre: "Alfajor Guaymallén triple Negro (12u)",
     precio: 8900,
     img: "img/guayddl.jpg"
   }
@@ -546,7 +551,7 @@ function calcularCostoEnvio(cp) {
 // MODAL DE PRODUCTOS
 // ========================
 let abiertoDesdeCarrito = false;
-let volverAlCarrito = false;
+
 const modal = document.getElementById('modal'); 
 if (modal) {
   const modalImg = document.getElementById('modal-img');
@@ -634,6 +639,21 @@ if (modal) {
     "iPhone Pinball con pastillitas (30u)": ["img/iphone.png","img/iphone2.png"],
     "Chupetines Halloween 3 en 1 (30u) 🧙‍♀️": ["img/halloween3.png","img/halloween32.png"],
   };
+  Object.values(imagenesProducto).forEach(medias => {
+    const media = medias[0];
+
+    if (media && !media.endsWith(".mp4")) {
+      const img = new Image();
+      img.src = media;
+    }
+  });
+
+  Object.values(productosVariantes).flat().forEach(v => {
+    if (v.img && !v.img.endsWith(".mp4")) {
+      const img = new Image();
+      img.src = v.img;
+    }
+  });
 
   let currentImages = [];
   let currentIndex = 0;
@@ -670,11 +690,12 @@ if (modal) {
     currentImages = imagenesProducto[currentTitle] || [img?.src || ''];
   }
 
-  modal.style.display = 'flex';
-  actualizarModal();
-
   modalTitle.textContent = currentTitle;
-  document.getElementById('modal-precio').textContent = price ? price.textContent : '';
+    document.getElementById('modal-precio').textContent = price ? price.textContent : '';
+
+    actualizarModal();
+
+    modal.style.display = 'flex';
 
   const modalAgregarBtn = document.getElementById('modal-agregar');
 
@@ -930,13 +951,7 @@ modalImg.addEventListener("touchend", terminarSwipe);
   bloqueandoCierre = true;
 
   modal.style.display = 'none';
-  if (volverAlCarrito) {
-    setTimeout(() => {
-      document.getElementById("carrito-btn").click();
-    }, 100);
 
-    volverAlCarrito = false;
-  }
   modalImg.classList.remove('zoomed');
 
   const cardActual = productos[productoIndex];
@@ -1335,31 +1350,67 @@ document.addEventListener("DOMContentLoaded", () => {
     actualizarAvisoEnvioGratis(total);
 
     document.querySelectorAll(".carrito-item").forEach(item => {
-      item.addEventListener("click", (e) => {
+  item.addEventListener("click", (e) => {
+    if (e.target.closest("button")) return;
 
-        if (e.target.closest("button")) return;
+    const nombre = item.dataset.nombre;
+    let card = null;
 
-        const nombre = item.dataset.nombre;
+    document.querySelectorAll(".card").forEach(c => {
+      if (card) return;
 
-        const card = [...document.querySelectorAll(".card")].find(card =>
-          card.querySelector("h3")?.textContent.trim() === nombre
-        );
+      const titulo = c.querySelector("h3")?.textContent.trim();
 
-        if (card) {
+      if (titulo === nombre) {
+        card = c;
+        return;
+      }
 
-          carritoDropdown.style.display = "none";
-          fondoModal.style.display = "none";
+      const claseVariante = Object.keys(productosVariantes)
+        .find(clase => c.classList.contains(clase));
 
-          abiertoDesdeCarrito = true;
-          volverAlCarrito = true;
+      if (!claseVariante) return;
 
-          setTimeout(() => {
-            card.click();
-          }, 100);
+      const variantes = productosVariantes[claseVariante];
+      const index = variantes.findIndex(v => v.nombre === nombre);
 
+      if (index !== -1) {
+        const variante = variantes[index];
+
+        c.dataset.index = index;
+
+        const img = c.querySelector("img");
+        const h3 = c.querySelector("h3");
+        const p = c.querySelector("p");
+        const btn = c.querySelector(".btn-carrito");
+
+        if (img) img.src = variante.img;
+        if (h3) h3.textContent = variante.nombre;
+        if (p) p.textContent = `$${variante.precio.toLocaleString("es-AR")}`;
+
+        if (btn) {
+          btn.dataset.nombre = variante.nombre;
+          btn.dataset.precio = variante.precio;
         }
-      });
+
+        card = c;
+      }
     });
+
+    if (card) {
+      carritoDropdown.style.display = "none";
+      fondoModal.style.display = "none";
+
+      abiertoDesdeCarrito = true;
+
+      setTimeout(() => {
+        abrirModal(card);
+      }, 100);
+    }
+  });
+});
+     
+
 
     let carritoTimer;
 
