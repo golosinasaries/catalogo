@@ -2,10 +2,10 @@ const minimoCompra = 50000;
 const minimoRegalo = 50000;   
 const minimoEnvioGratis = 150000;
 
-const ENVIO_MDP = 7900;
-const ENVIO_GENERAL = 9900;
-const ENVIO_LEJANO = 10400;
-const ENVIO_SANTACRUZ = 13400;
+const ENVIO_MDP = 8900;
+const ENVIO_GENERAL = 10900;
+const ENVIO_LEJANO = 12400;
+const ENVIO_SANTACRUZ = 14400;
 const ENVIO_MIRAMAR= 0;
 const ENVIO_GRATIS = 0;
 
