@@ -1,6 +1,6 @@
 const minimoCompra = 50000; 
 const minimoRegalo = 50000;   
-const minimoEnvioGratis = 150000;
+const minimoEnvioGratis = 120000;
 
 const ENVIO_MDP = 8900;
 const ENVIO_GENERAL = 10900;
@@ -2247,7 +2247,7 @@ function mostrarEnvioModal(costo) {
        <p class="envio-precio">🚚 Envío: $${precioEnvio}</p>
 
         <p class="envio-gratis">
-          💖 Superando los $150.000 el envío siempre es GRATIS
+          💖 Superando los $120.000 el envío siempre es GRATIS
         </p>
 
         <div class="envio-actions">
