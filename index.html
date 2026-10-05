@@ -32,7 +32,8 @@
 
     <a href="#" onclick="filtrar('todos')" style="font-weight: bold;">🛍️ Todos los productos</a>
     <a href="#" onclick="filtrar('bultos')">📦 Bultos cerrados</a>
-    <a href="#" onclick="filtrar('halloween')"> 🎃 Halloween</a>
+    <a href="#" onclick="filtrar('combo')">🎁 Combos</a>
+    <a href="#" onclick="filtrar('bultos')">📦 Bultos cerrados</a>
     <a href="#" onclick="filtrar('gomitasblandas')">🧸 Gomitas blandas</a>
     <a href="#" onclick="filtrar('chupetines')">🍭 Chupetines</a>
     <a href="#" onclick="filtrar('caramelos')">🍬 Caramelos</a>
@@ -143,6 +144,16 @@
         <button class="btn-carrito" data-nombre="Chupetines 2 in 1 (60u)" data-precio="8000">Agregar al carrito</button>
       </div>
 
+      <div class="card" data-cat="combo">
+        <img src="img/combo1.png" alt="Combo 1">
+        <h3>Combo Especial (12 productos)</h3>
+        <p>$99.000</p>
+        <button class="btn-detalle" onclick="mostrarDetalleCombo()">
+          👀 Ver detalle
+        </button>
+        <button class="btn-carrito">Agregar al carrito</button>
+      </div>
+
       <div class="card" data-cat="chupetines halloween">
         <img src="img/Halloween.jpeg" alt="Chupetines con formas"  >
         <h3>Chupetines Halloween (30u) 👻</h3>
@@ -215,21 +226,21 @@
       <div class="card" data-cat="chupetines">
         <img src="img/capiled.png" alt="Led Capibara"  >
         <h3>Chupetines con led Capibara (30u)</h3>
-        <p>$11.900</p>
+        <p>$12.900</p>
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
 
       <div class="card" data-cat="chupetines">
         <img src="img/oreoled.png" alt="Chupetines Led"  >
         <h3>Chupetines con Led Oreo (30u)</h3>
-        <p>$11.900</p>
+        <p>$12.900</p>
         <button class="btn-carrito">Agregar al carrito</button>
       </div> 
 
       <div class="card" data-cat="chupetines">
         <img src="img/unicornioled1.png" alt="Chupetines Led"  >
         <h3>Chupetines con led Unicornio (30u)</h3>
-        <p>$11.900</p>
+        <p>$12.900</p>
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
  <!--
@@ -524,7 +535,7 @@
       <div class="card" data-cat="chupetines">
         <img src="img/kuromyled1.png" alt="Kuromy"  >
         <h3>Chupetines Kuromy con led (30u)</h3>
-        <p>$11.900</p>
+        <p>$12.900</p>
         <button class="btn-carrito">Agregar al carrito</button>  
       </div>
 
@@ -586,14 +597,14 @@
       <div class="card" data-cat="chupetines">
         <img src="img/oreo1.jpg" alt="Donut"  >
         <h3>Chupetines con led Oreo (30u)</h3>
-        <p>$11.900</p>
+        <p>$12.900</p>
         <button class="btn-carrito">Agregar al carrito</button>
       </div>  
 
       <div class="card" data-cat="chupetines">
         <img src="img/mc.jpg" alt="Mc Donalds"  >
         <h3>Chupetines con led Mc Donalds (30u)</h3>
-        <p>$11.900</p>
+        <p>$12.900</p>
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
 
@@ -953,13 +964,6 @@
           <button class="btn-carrito">Agregar al carrito</button>   
         </div>
 
-        <div class="card" data-cat="caramelos">
-          <img src="img/fieritagranjero.jpg" alt=" fierita caramelos masticables"  >
-          <h3>Caramelos masticables Fierita Granjero (100u)</h3>
-          <p>$4.500</p>
-          <button class="btn-carrito">Agregar al carrito</button>
-        </div>
-
         <div class="card" data-cat="huevos">
           <img src="img/sorpresaprincesa.png" alt="Sorpresa"  >
           <h3>Huevos Sorpresa Princesas (30u)</h3>
@@ -967,6 +971,12 @@
           <button class="btn-carrito">Agregar al carrito</button>  
         </div>
 -->
+        <div class="card" data-cat="caramelos">
+          <img src="img/fieritagranjero.jpg" alt=" fierita caramelos masticables"  >
+          <h3>Caramelos masticables Fierita Granjero (100u)</h3>
+          <p>$4.500</p>
+          <button class="btn-carrito">Agregar al carrito</button>
+        </div>
         
         <div class="card" data-cat="gomitas500">
           <img src="img/yummydientes.jpeg" alt="Yummy"  >
@@ -1032,7 +1042,7 @@
         <p>$105.000</p>
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
-
+      
      <div class="card card-instagram">
         <blockquote
           class="instagram-media"
@@ -1098,7 +1108,7 @@
       <div class="card" data-cat="chupetines">
         <img src="img/donaled1.png" alt="Kuromy"  >
         <h3>Chupetines Donas con led (30u)</h3>
-        <p>$11.900</p>
+        <p>$12.900</p>
         <button class="btn-carrito">Agregar al carrito</button>  
       </div>
 
@@ -1242,6 +1252,71 @@
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="js/script.js"></script>
+
+<div id="modal-combo" class="modal-combo">
+
+  <div class="modal-combo-contenido">
+
+    <button class="cerrar-combo" onclick="cerrarDetalleCombo()">×</button>
+
+    <h2>🎁 COMBO ESPECIAL</h2>
+
+    <p>🔥 Incluye 12 productos:</p>
+
+    <div class="detalle-productos">
+
+      <div onclick="irAProducto('Gomitas RiCo Más 500g')" style="cursor:pointer;">Gomitas RiCo Más 500g<span>$6.900</span>
+      </div>
+
+      <div onclick="irAProducto('Chupetines con led Unicornio (30u)')" style="cursor:pointer;">Chupetines con led Unicornio (30u)<span>$12.900</span>
+      </div>
+
+      <div onclick="irAProducto('Chupetines Halloween 3 en 1 (30u) 🧙‍♀️')" style="cursor:pointer;">Chupetines Halloween 3 en 1 (30u) 🧙‍♀️<span>$10.900</span>
+      </div>
+
+      <div onclick="irAProducto('Gomitas Ojos (30u)')" style="cursor:pointer;">Gomitas Ojos (30u)<span>$9.400</span>
+      </div>
+
+      <div onclick="irAProducto('Huevos Sorpresa Dinos 🦖 (30u)')" style="cursor:pointer;">Huevos Sorpresa Dinos 🦖 (30u)<span>$14.500</span>
+      </div>
+
+      <div onclick="irAProducto('Botellitas con chicles (30u)')" style="cursor:pointer;">Botellitas con chicles (30u)<span>$12.900</span>
+      </div>
+
+      <div onclick="irAProducto('Chupetines Merlina (30u)')" style="cursor:pointer;">Chupetines Merlina (30u)<span>$12.500</span>
+      </div>
+
+      <div onclick="irAProducto('Mielcitas Drink Candy (50u)')" style="cursor:pointer;">Mielcitas Drink Candy (50u)<span>$5.500</span>
+      </div>
+
+      <div onclick="irAProducto('Pastillitas Lucky (385 g)')" style="cursor:pointer;">Pastillitas Lucky (385 g)<span>$5.800</span>
+      </div>
+
+      <div onclick="irAProducto('Chupetines Pelotitas (50u)')" style="cursor:pointer;">Chupetines Pelotitas (50u)<span>$4.900</span>
+      </div>
+
+      <div onclick="irAProducto('Chicle Fierita Recargado - Menta (50u)')" style="cursor:pointer;">Chicle Fierita Recargado - Menta (50u)<span>$6.900</span>
+      </div>
+
+      <div onclick="irAProducto('Caramelos masticables Fierita Granjero (100u)')" style="cursor:pointer;">Caramelos masticables Fierita Granjero (100u)<span>$4.500</span>
+      </div>
+
+    </div>
+
+    <div class="total-combo">
+      <strong>12 productos</strong>
+      <p>
+        TOTAL: <del>$107.600</del>
+        <strong>$99.000 🔥</strong>
+      </p>
+    </div>
+
+    <p class="marca-combo">
+      💗 <strong>Golosinas Aries ♈🔥</strong>
+    </p>
+
+  </div>
+</div>
 
 </body>
 </html>

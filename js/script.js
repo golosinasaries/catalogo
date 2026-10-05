@@ -20,6 +20,7 @@ let productoIndex = 0;
 let fondoModal = null;
 let currentVariantes = null;
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+let volverAlDetalleCombo = false;
 const cooldownCards = new WeakMap();
 const carritoDropdown = document.getElementById("carrito-dropdown");
 fondoModal = document.getElementById("fondo-carrito");
@@ -540,7 +541,6 @@ if (modal) {
 
   // Productos
   const imagenesProducto = {
-    "Cucuruchos Helado Chocolate (30u)": ["img/cucurucho3.jpeg","img/cucuruchohelado2.png"],
     "Gomitas Gallito (30u)": ["img/gallina.jpeg","img/gallina.png"],
     "Botella con Monedas de Chocolate Panda Rosa (200 monedas)": ["img/monedaspandarosa1.png","img/videomonedaspanda.mp4"],
     "Spider-Man con pastillitas (30u)": ["img/spider.jpeg","img/spiderman2.png"],
@@ -563,7 +563,7 @@ if (modal) {
     "Tractor dispenser + caramelos (1 unidad)": ["img/tractor1.jpg","img/tractor2.jpg"],
     "Tractor dispenser + caramelos verde (1 unidad)": ["img/tractorverde1.jpg","img/tractorverde2.jpg"],
     "Chupetines Kuromy con led (30u)": ["img/kuromyled1.png","img/kuromyled.png", "img/mc3.jpeg"],
-    "Chupetines Merlina (30u)": ["img/cajamerlina.png","img/merlina2.png","img/merlina.png"],
+    "Chupetines Merlina (30u)": ["img/cajamerlina.png","img/merlina2.png","img/cajamerlina.png"],
     "Camiseta Pinball con pastillitas (30u)": ["img/r11.png","img/r1.png","img/r2.png"],
     "Chupetín Calabaza con polvo ácido y led (30u)": ["img/cajaCalabaza.jpg","img/chupetincalabaza1.jpg","img/chupetincalabaza2.jpg"],
     "Chupetines con led Corona (30u)": ["img/chupetinesconled1.jpg","img/corona2.jpg"],
@@ -652,6 +652,30 @@ if (modal) {
     modal.style.display = 'flex';
 
   const modalAgregarBtn = document.getElementById('modal-agregar');
+
+  // Botón "Ver detalle" solo para el combo
+  let modalDetalleComboBtn = document.getElementById('modal-detalle-combo');
+
+  if (modalDetalleComboBtn) {
+    modalDetalleComboBtn.remove();
+  }
+
+  if (card.dataset.cat === "combo") {
+    modalDetalleComboBtn = document.createElement("button");
+    modalDetalleComboBtn.id = "modal-detalle-combo";
+    modalDetalleComboBtn.className = "btn-detalle";
+    modalDetalleComboBtn.textContent = "👀 Ver detalle";
+
+    modalDetalleComboBtn.onclick = () => {
+      modal.style.display = "none";
+      mostrarDetalleCombo();
+    };
+
+    modalAgregarBtn.parentElement.insertBefore(
+      modalDetalleComboBtn,
+      modalAgregarBtn
+    );
+  }
 
   //  SI ES PROMO → SOLO OCULTA EL BOTÓN Y AGRANDA EL MODAL
   if (card.classList.contains('promo')) {
@@ -836,7 +860,6 @@ prevBtn.onclick = () => {
   }
 };
 
-
 nextBtn.onclick = () => {
   const estabaEnFullScreen = modalImg.classList.contains("zoomed");
 
@@ -878,7 +901,7 @@ nextProdBtn.onclick = () => {
   });
 
  let touchStartX = 0;
-let touchEndX = 0;
+ let touchEndX = 0;
 
 function iniciarSwipe(e) {
   touchStartX = e.changedTouches[0].screenX;
@@ -913,6 +936,20 @@ modalImg.addEventListener("touchend", terminarSwipe);
   modalImg.classList.remove('zoomed');
 
   const cardActual = productos[productoIndex];
+
+    if (volverAlDetalleCombo) {
+      volverAlDetalleCombo = false;
+
+      setTimeout(() => {
+        mostrarDetalleCombo();
+      }, 100);
+
+      setTimeout(() => {
+        bloqueandoCierre = false;
+      }, 300);
+
+      return;
+    }
 
    if (abiertoDesdeCarrito) {
 
@@ -1028,9 +1065,43 @@ modalImg.addEventListener("touchend", terminarSwipe);
     if (ev.target.closest('button')) return;
     if (ev.target.classList.contains("flecha")) return;
 
-    abrirModal(card);
+     abrirModal(card);
   });
   });
+
+ window.abrirProductoDesdeCombo = function(nombreProducto) {
+  console.log("Buscando producto:", nombreProducto);
+
+  const cards = document.querySelectorAll(".card");
+
+  for (const card of cards) {
+    const titulo = card.querySelector("h3")?.textContent.trim();
+
+    console.log("Comparando con:", titulo);
+
+    if (
+      titulo &&
+      titulo.toLowerCase() === nombreProducto.toLowerCase()
+    ) {
+      volverAlDetalleCombo = true;
+      cerrarDetalleCombo();
+
+      card.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+
+      setTimeout(() => {
+        abrirModal(card);
+      }, 500);
+
+      return;
+    }
+  }
+
+  console.log("NO ENCONTRADO:", nombreProducto);
+};
+
 }
 
 // ========================
@@ -2315,3 +2386,20 @@ document.querySelectorAll(".talle-btn").forEach(btn => {
 document.addEventListener("DOMContentLoaded", () => {
   filtrar("todos");
 });
+
+
+function irAProducto(nombreProducto) {
+  if (window.abrirProductoDesdeCombo) {
+    window.abrirProductoDesdeCombo(nombreProducto);
+  } else {
+    console.log("No existe abrirProductoDesdeCombo");
+  }
+}
+
+function mostrarDetalleCombo() {
+  document.getElementById("modal-combo").classList.add("activo");
+}
+
+function cerrarDetalleCombo() {
+  document.getElementById("modal-combo").classList.remove("activo");
+}
