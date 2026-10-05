@@ -26,7 +26,7 @@ const carritoDropdown = document.getElementById("carrito-dropdown");
 fondoModal = document.getElementById("fondo-carrito");
 
 const STOCK_PRODUCTOS = {
-  "Botellitas con chicles (30u)": 0,
+  "Botellitas con chicles (30u)": 2,
   "Chupetines con led Unicornio — 30 unidades por pack, caja x10 packs": 0,
   "Botellitas con chicles — 30 unidades por pack, caja x10 packs": 0,
   "Alfajor Guaymallén triple Negro (12u)": 0,
