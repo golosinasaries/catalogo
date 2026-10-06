@@ -563,7 +563,7 @@ if (modal) {
     "Tractor dispenser + caramelos (1 unidad)": ["img/tractor1.jpg","img/tractor2.jpg"],
     "Tractor dispenser + caramelos verde (1 unidad)": ["img/tractorverde1.jpg","img/tractorverde2.jpg"],
     "Chupetines Kuromy con led (30u)": ["img/kuromyled1.png","img/kuromyled.png", "img/mc3.jpeg"],
-    "Chupetines Merlina (30u)": ["img/cajamerlina.png","img/merlina2.png","img/cajamerlina.png"],
+    "Chupetines Merlina (30u)": ["img/merlina4.png","img/merlina5.png","img/cajamerlina1.png"],
     "Camiseta Pinball con pastillitas (30u)": ["img/r11.png","img/r1.png","img/r2.png"],
     "Chupetín Calabaza con polvo ácido y led (30u)": ["img/cajaCalabaza.jpg","img/chupetincalabaza1.jpg","img/chupetincalabaza2.jpg"],
     "Chupetines con led Corona (30u)": ["img/chupetinesconled1.jpg","img/corona2.jpg"],
