@@ -148,18 +148,7 @@
         <p>$12.900</p>
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
-
         --->
-
-      <div class="card" data-cat="combo">
-        <img src="img/combo1.png" alt="Combo 1">
-        <h3>Combo Especial (12 productos)</h3>
-        <p>$99.000</p>
-        <button class="btn-detalle" onclick="mostrarDetalleCombo()">
-          👀 Ver detalle
-        </button>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
 
       <div class="card" data-cat="chupetines halloween">
         <img src="img/Halloween.jpeg" alt="Chupetines con formas"  >
@@ -287,7 +276,6 @@
         <p>$14.900</p>
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
-      
 
       <div class="card" data-cat="gomitasblandas">
         <img src="img/gallina.jpeg" alt="Gomitas Gallito"  >
@@ -512,7 +500,7 @@
       <div class="card" data-cat="gomitasblandas">
         <img src="img/helado.png" alt="Helados"  >
         <h3>Gomita Helado (30u)</h3>
-        <p>$9.400</p>
+        <p>$10.500</p>
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
 
@@ -1042,6 +1030,26 @@
         <p>$105.000</p>
         <button class="btn-carrito">Agregar al carrito</button>
       </div>
+
+      <div class="card" data-cat="combo" data-combo="1">
+        <img src="img/combo1.png" alt="Combo 1">
+        <h3>Combo Especial (12 productos)</h3>
+        <p>$99.000</p>
+        <button class="btn-detalle" onclick="mostrarDetalleCombo(1)">
+          👀 Ver detalle
+        </button>
+        <button class="btn-carrito">Agregar al carrito</button>
+      </div>
+
+      <div class="card" data-cat="combo" data-combo="2">
+        <img src="img/combo2.png" alt="Combo 2">
+        <h3>Combo 2 (12 productos)</h3>
+        <p>$99.000</p>
+        <button class="btn-detalle" onclick="mostrarDetalleCombo(2)">
+          👀 Ver detalle
+        </button>
+        <button class="btn-carrito">Agregar al carrito</button>
+      </div>
       
      <div class="card card-instagram">
         <blockquote
@@ -1254,69 +1262,9 @@
 <script src="js/script.js"></script>
 
 <div id="modal-combo" class="modal-combo">
-
-  <div class="modal-combo-contenido">
-
-    <button class="cerrar-combo" onclick="cerrarDetalleCombo()">×</button>
-
-    <h2>🎁 COMBO ESPECIAL</h2>
-
-    <p>🔥 Incluye 12 productos:</p>
-
-    <div class="detalle-productos">
-
-      <div onclick="irAProducto('Gomitas RiCo Más 500g')" style="cursor:pointer;">Gomitas RiCo Más 500g<span>$6.900</span>
-      </div>
-
-      <div onclick="irAProducto('Chupetines con led Unicornio (30u)')" style="cursor:pointer;">Chupetines con led Unicornio (30u)<span>$12.900</span>
-      </div>
-
-      <div onclick="irAProducto('Chupetines Halloween 3 en 1 (30u) 🧙‍♀️')" style="cursor:pointer;">Chupetines Halloween 3 en 1 (30u) 🧙‍♀️<span>$10.900</span>
-      </div>
-
-      <div onclick="irAProducto('Gomitas Ojos (30u)')" style="cursor:pointer;">Gomitas Ojos (30u)<span>$9.400</span>
-      </div>
-
-      <div onclick="irAProducto('Huevos Sorpresa Dinos 🦖 (30u)')" style="cursor:pointer;">Huevos Sorpresa Dinos 🦖 (30u)<span>$14.500</span>
-      </div>
-
-      <div onclick="irAProducto('Botellitas con chicles (30u)')" style="cursor:pointer;">Botellitas con chicles (30u)<span>$12.900</span>
-      </div>
-
-      <div onclick="irAProducto('Chupetines Merlina (30u)')" style="cursor:pointer;">Chupetines Merlina (30u)<span>$12.500</span>
-      </div>
-
-      <div onclick="irAProducto('Mielcitas Drink Candy (50u)')" style="cursor:pointer;">Mielcitas Drink Candy (50u)<span>$5.500</span>
-      </div>
-
-      <div onclick="irAProducto('Pastillitas Lucky (385 g)')" style="cursor:pointer;">Pastillitas Lucky (385 g)<span>$5.800</span>
-      </div>
-
-      <div onclick="irAProducto('Chupetines Pelotitas (50u)')" style="cursor:pointer;">Chupetines Pelotitas (50u)<span>$4.900</span>
-      </div>
-
-      <div onclick="irAProducto('Chicle Fierita Recargado - Menta (50u)')" style="cursor:pointer;">Chicle Fierita Recargado - Menta (50u)<span>$6.900</span>
-      </div>
-
-      <div onclick="irAProducto('Caramelos masticables Fierita Granjero (100u)')" style="cursor:pointer;">Caramelos masticables Fierita Granjero (100u)<span>$4.500</span>
-      </div>
-
-    </div>
-
-    <div class="total-combo">
-      <strong>12 productos</strong>
-      <p>
-        TOTAL: <del>$107.600</del>
-        <strong>$99.000 🔥</strong>
-      </p>
-    </div>
-
-    <p class="marca-combo">
-      💗 <strong>Golosinas Aries ♈🔥</strong>
-    </p>
-
-  </div>
+  <div class="modal-combo-contenido"></div>
 </div>
+
 
 </body>
 </html>

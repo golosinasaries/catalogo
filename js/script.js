@@ -454,24 +454,24 @@ function calcularCostoEnvio(cp) {
     return { error: true, mensaje: "Código postal inválido" };
   }
 
-  const totalProductos = carrito.reduce((acc, item) => acc + item.cantidad,0);
+  const totalProductos = carrito.reduce(
+    (acc, item) => acc + item.cantidad,
+    0
+  );
 
-  // Miramar
   if (codigo === "7607") {
     return ENVIO_MIRAMAR;
   }
+
   let extraEnvio = 0;
 
-  // Si supera 23 productos
   if (totalProductos > 25) {
     return 25900;
   }
 
-  // Extras normales
   const extraBloques = Math.floor(totalProductos / 13);
   extraEnvio = extraBloques * 1500;
 
-  // Santa Cruz
   const prefijos = ["9303", "4430", "8371", "3304", "4449"];
 
   for (const p of prefijos) {
@@ -480,12 +480,10 @@ function calcularCostoEnvio(cp) {
     }
   }
 
-  // Mar del Plata
   if (codigo.startsWith("7600") || codigo.startsWith("7601")) {
     return ENVIO_MDP;
   }
 
-  // Zonas lejanas
   if (
     codigo.startsWith("9") ||
     codigo.startsWith("4") ||
@@ -501,7 +499,6 @@ function calcularCostoEnvio(cp) {
     return ENVIO_LEJANO + extraEnvio;
   }
 
-  // General
   return ENVIO_GENERAL + extraEnvio;
 }
 
@@ -667,8 +664,15 @@ if (modal) {
     modalDetalleComboBtn.textContent = "👀 Ver detalle";
 
     modalDetalleComboBtn.onclick = () => {
+      const numeroCombo = card.dataset.combo;
+
+      console.log("VER DETALLE COMBO:", numeroCombo);
+
       modal.style.display = "none";
-      mostrarDetalleCombo();
+
+      setTimeout(() => {
+        mostrarDetalleCombo(numeroCombo);
+      }, 100);
     };
 
     modalAgregarBtn.parentElement.insertBefore(
@@ -940,8 +944,11 @@ modalImg.addEventListener("touchend", terminarSwipe);
     if (volverAlDetalleCombo) {
       volverAlDetalleCombo = false;
 
+      const modalCombo = document.getElementById("modal-combo");
+      const numeroCombo = modalCombo.dataset.combo;
+
       setTimeout(() => {
-        mostrarDetalleCombo();
+        mostrarDetalleCombo(numeroCombo);
       }, 100);
 
       setTimeout(() => {
@@ -1070,19 +1077,61 @@ modalImg.addEventListener("touchend", terminarSwipe);
   });
 
  window.abrirProductoDesdeCombo = function(nombreProducto) {
-  console.log("Buscando producto:", nombreProducto);
+  console.log("Buscando producto exacto:", nombreProducto);
+
+  const nombreBuscado = nombreProducto.trim();
 
   const cards = document.querySelectorAll(".card");
 
   for (const card of cards) {
     const titulo = card.querySelector("h3")?.textContent.trim();
 
-    console.log("Comparando con:", titulo);
+    if (titulo === nombreBuscado) {
+      volverAlDetalleCombo = true;
+      cerrarDetalleCombo();
 
-    if (
-      titulo &&
-      titulo.toLowerCase() === nombreProducto.toLowerCase()
-    ) {
+      card.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+
+      setTimeout(() => {
+        abrirModal(card);
+      }, 500);
+
+      return;
+    }
+
+    const claseVariante = Object.keys(productosVariantes)
+      .find(clase => card.classList.contains(clase));
+
+    if (!claseVariante) continue;
+
+    const variantes = productosVariantes[claseVariante];
+
+    const index = variantes.findIndex(
+      variante => variante.nombre.trim() === nombreBuscado
+    );
+
+    if (index !== -1) {
+      card.dataset.index = index;
+
+      const variante = variantes[index];
+
+      const img = card.querySelector("img");
+      const h3 = card.querySelector("h3");
+      const p = card.querySelector("p");
+      const btn = card.querySelector(".btn-carrito");
+
+      if (img) img.src = variante.img;
+      if (h3) h3.textContent = variante.nombre;
+      if (p) p.textContent = `$${variante.precio.toLocaleString("es-AR")}`;
+
+      if (btn) {
+        btn.dataset.nombre = variante.nombre;
+        btn.dataset.precio = variante.precio;
+      }
+
       volverAlDetalleCombo = true;
       cerrarDetalleCombo();
 
@@ -1099,10 +1148,10 @@ modalImg.addEventListener("touchend", terminarSwipe);
     }
   }
 
-  console.log("NO ENCONTRADO:", nombreProducto);
+  console.log("NO ENCONTRADO EXACTAMENTE:", nombreBuscado);
+};
 };
 
-}
 
 // ========================
 // BUSCADOR DE PRODUCTOS
@@ -1364,13 +1413,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
      ${
         envio !== null
-          ? `<strong>- ${
-              envio === 0
-                ? "🚚 Envío: GRATIS"
-                : `Envío: $${envio.toLocaleString("es-AR")}`
-            }</strong>
-            <button id="calcular-envio-btn">Calcular 📍</button>`
-          : `<button id="calcular-envio-btn">Calcular envío 📍</button>`
+        ? `<strong>- ${
+            envio === 0
+              ? "🚚 Envío: GRATIS"
+              : typeof envio === "number"
+                ? `🚚 Envío: $${envio.toLocaleString("es-AR")}`
+                : "🚚 Envío: calcular"
+          }</strong>
+          <button id="calcular-envio-btn">Calcular 📍</button>`
+        : `<button id="calcular-envio-btn">Calcular envío 📍</button>`
       }
     `;
     document.getElementById("calcular-envio-btn")?.addEventListener("click", () => {
@@ -2396,8 +2447,90 @@ function irAProducto(nombreProducto) {
   }
 }
 
-function mostrarDetalleCombo() {
-  document.getElementById("modal-combo").classList.add("activo");
+const combos = {
+  1: {
+    titulo: "🎁 COMBO ESPECIAL 1",
+    productos: [
+      ["Gomitas RiCo Más 500g", 6900],
+      ["Chupetines con led Unicornio (30u)", 12900],
+      ["Chupetines Halloween 3 en 1 (30u) 🧙‍♀️", 10900],
+      ["Gomitas Ojos (30u)", 9400],
+      ["Huevos Sorpresa Dinos 🦖 (30u)", 14500],
+      ["Botellitas con chicles (30u)", 12900],
+      ["Chupetines Merlina (30u)", 12500],
+      ["Mielcitas Drink Candy (50u)", 5500],
+      ["Pastillitas Lucky (385 g)", 5800],
+      ["Chupetines Pelotitas (50u)", 4900],
+      ["Chicle Fierita Recargado - Menta (50u)", 6900],
+      ["Caramelos masticables Fierita Granjero (100u)", 4500]
+    ],
+    totalAnterior: 107600,
+    total: 99000
+  },
+
+  2: {
+  titulo: "🎁 COMBO ESPECIAL 2",
+  productos: [
+    ["Chupetines con led Capibara (30u)", 12900],
+    ["Chupetines Halloween 3 en 1 (30u) 🧙‍♀️", 10900],
+    ["Chupetines con Led Oreo (30u)", 12900],
+    ["Caramelos Super Acidos Lipo (454 g)", 6300],
+    ["Chupetines 2 in 1 (60u)", 11900],
+    ["Gomita Helado (30u)", 10500],
+    ["Pastillas Alka sabor Menta (12u) 🌿", 6900],
+    ["Pastillas D.R.F Sabor Menta (12u)", 6200],
+    ["Chicle Fierita Globo sabor Frutilla (95u)", 7900],
+    ["Chicles WhatsApp Selección 🇦🇷 — Caja x20, 5 chicles cada uno", 8500],
+    ["Alcancía Pollito Rojo (con 12 gelatinas en su interior)", 6900],
+    ["Gomitas Frutillas (30u)", 9400]
+  ],
+  totalAnterior: 111200,
+  total: 99000
+},
+};
+
+function mostrarDetalleCombo(numero) {
+  const combo = combos[numero];
+
+  if (!combo) return;
+
+  const modal = document.getElementById("modal-combo");
+
+  modal.dataset.combo = numero;
+  const contenido = modal.querySelector(".modal-combo-contenido");
+
+  contenido.innerHTML = `
+    <button class="cerrar-combo" onclick="cerrarDetalleCombo()">×</button>
+
+    <h2>${combo.titulo}</h2>
+    <p>🔥 Incluye ${combo.productos.length} productos:</p>
+
+    <div class="detalle-productos">
+      ${combo.productos.map(([nombre, precio]) => `
+        <div onclick="irAProducto('${nombre.replace(/'/g, "\\'")}')" style="cursor:pointer;">
+          ${nombre}
+          <span>$${precio.toLocaleString("es-AR")}</span>
+        </div>
+      `).join("")}
+    </div>
+
+    <div class="total-combo">
+      <strong>${combo.productos.length} productos</strong>
+      <p>
+        TOTAL: <del>$${combo.totalAnterior.toLocaleString("es-AR")}</del>
+        <strong>$${combo.total.toLocaleString("es-AR")} 🔥</strong>
+      </p>
+    </div>
+
+    <p class="marca-combo">
+      💗 <strong>Golosinas Aries ♈🔥</strong>
+    </p>
+  `;
+
+  modal.classList.add("activo");
+
+  console.log("MODAL COMBO:", modal);
+  console.log("CLASES:", modal.className);
 }
 
 function cerrarDetalleCombo() {

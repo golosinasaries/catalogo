@@ -1818,11 +1818,13 @@ html {
 
 #modal-agregar {
   background: linear-gradient(59deg, var(--accent), var(--primary));  
-  color: rgb(0, 0, 0);
+  color: rgb(253, 253, 253);
   margin-top:-20px;
+  margin-left: 10px;
   box-sizing: border-box;
   border-bottom: 2px solid #080808;
   transition: opacity 0.3s ease;
+  font-weight: bold;
 }
 
 .modal-botones button:hover {
@@ -3582,8 +3584,9 @@ a {
 
 #modal-detalle-combo {
   background: linear-gradient(59deg, var(--accent), var(--primary));
-  color: rgb(0, 0, 0);
+  color: rgb(244, 236, 236);
   border-bottom: 2px solid #080808;
   box-sizing: border-box;
   margin-top: 0;
+  margin-left: 10px;
 }
