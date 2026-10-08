@@ -1,6 +1,6 @@
 const minimoCompra = 50000; 
 const minimoRegalo = 50000;   
-const minimoEnvioGratis = 120000;
+const minimoEnvioGratis = 70000;
 
 const ENVIO_MDP = 8900;
 const ENVIO_GENERAL = 10900;
