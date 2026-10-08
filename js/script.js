@@ -194,14 +194,14 @@ const oblita = [
     nombre: "Oblita Chocolate Blanco (48u)",
     precio: 6900
   },
-
+ */
   
   {
     img: "img/oblita_ddl.jpg",
     nombre: "Oblita de DDL (48u)",
     precio: 6900
   },
-  */
+ 
 
   {
     img: "img/oblitafrutilla.jpg",
@@ -2487,6 +2487,26 @@ const combos = {
   totalAnterior: 111200,
   total: 99000
 },
+
+  3: {
+    titulo: "🎁 COMBO 3",
+    productos: [
+      ["Gomitas Macarron (30u)", 9400],
+      ["Alcancía Tigre Amarillo (con 12 gelatinas en su interior)", 6900],
+      ["Gomitas Dinos (30u)", 9400],
+      ["Gomitas Astronauta (30u)", 9400],
+      ["Latitas con chicles (30 latitas)", 14900],
+      ["Gomitas Gatitos (30u)", 9400],
+      ["Chupetines Halloween (30u) 👻", 10900],
+      ["Oblita de Frutilla (48u)", 6900],
+      ["Oblita de DDL (48u)", 6900],
+      ["Gomitas Oreo (30u)", 9400],
+      ["Gomitas Yummy Dientes 500g", 8500],
+      ["Gomitas RiCo Más 500g", 6900]
+    ],
+    totalAnterior: 108900,
+    total: 99000
+  },
 };
 
 function mostrarDetalleCombo(numero) {
