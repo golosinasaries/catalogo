@@ -334,10 +334,7 @@ const cucurucho = [
   },
 
 
-
 ];
-
-0
 
 const productosVariantes = {
   "card-alcancia": alcancias,
@@ -1486,8 +1483,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-
-
     let carritoTimer;
 
     function iniciarTemporizadorCierre() {
@@ -1564,8 +1559,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     const visible = window.getComputedStyle(carritoDropdown).display === "block";
 
-    carritoDropdown.style.display = visible ? "none" : "block";
-    fondoModal.style.display = visible ? "none" : "block";
+    if (!visible) actualizarCarrito();
+      carritoDropdown.style.display = visible ? "none" : "block";
+      fondoModal.style.display = visible ? "none" : "block";
 
   });
 
@@ -1637,7 +1633,12 @@ document.addEventListener("DOMContentLoaded", () => {
           p.talle === (e.target.dataset.talle || ""))
       );
     }
-    actualizarCarrito();
+      if (
+      e.target.closest(".sumar, .restar, .carrito-eliminar")
+    ) {
+      actualizarCarrito();
+    }
+
   });
 
   document.querySelectorAll(".btn-carrito, #modal-agregar")
