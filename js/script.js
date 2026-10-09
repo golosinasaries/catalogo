@@ -33,6 +33,7 @@ const STOCK_PRODUCTOS = {
   "Alfajor Guaymallén Triple Blanco (12u)": 1,
   "Alfajor Guaymallén simple Blanco (10u)": 1,
   "Alfajor Guaymallén simple Negro (10u)": 1,
+  "Chupetines con Led Oreo (30u)": 1,
   "Cucuruchos Helado Chocolate (30u)": 0,
   "Nutello (30u)": 1,
   "Oblita Marroc (48u)": 0,
