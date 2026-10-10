@@ -26,6 +26,7 @@ const carritoDropdown = document.getElementById("carrito-dropdown");
 fondoModal = document.getElementById("fondo-carrito");
 
 const STOCK_PRODUCTOS = {
+  "Gomitas Ojos (30u)": 10,
   "Botellitas con chicles (30u)": 2,
   "Chupetines con led Unicornio — 30 unidades por pack, caja x10 packs": 0,
   "Botellitas con chicles — 30 unidades por pack, caja x10 packs": 0,
