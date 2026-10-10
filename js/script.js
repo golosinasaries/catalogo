@@ -12,7 +12,7 @@ const ENVIO_GRATIS = 0;
 const REGALO_NOMBRE = "Chupetines Pelotitas Pinta Lengua (50u)";
 const REGALO_IMAGEN = "img/pelotitaspintalengua.png";
 
-const PROMOS_ACTIVAS = ["regalo"];
+const PROMOS_ACTIVAS = ["envio"];
 
 
 let productos = [];
