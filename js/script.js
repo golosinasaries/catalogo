@@ -9,10 +9,10 @@ const ENVIO_SANTACRUZ = 14400;
 const ENVIO_MIRAMAR = 0;
 const ENVIO_GRATIS = 0;
 
-const REGALO_NOMBRE = "Gomitas Macarron (30u)";
-const REGALO_IMAGEN = "img/macarron.png";
+const REGALO_NOMBRE = "Chupetines Pelotitas Pinta Lengua (50u)";
+const REGALO_IMAGEN = "img/pelotitaspintalengua.png";
 
-const PROMOS_ACTIVAS = ["envio"];
+const PROMOS_ACTIVAS = ["regalo"];
 
 
 let productos = [];
