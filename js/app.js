@@ -919,7 +919,7 @@ function renderizarCarrito() {
   if (!estado.carrito.length) {
     const vacio = document.createElement("p");
     vacio.className = "carrito-vacio";
-    vacio.textContent = "Todavía no agregaste productos.";
+    vacio.textContent = "La compra mínima es de $50.000";
     elementos.items.append(vacio);
     actualizarResumenEnvio();
     return;
@@ -1081,11 +1081,11 @@ function finalizarPedido() {
 
   const mensaje =
     `Hola, Golosinas Aries. Quiero hacer este pedido:\n\n${lineas.join("\n")}` +
-    `\n\nCantidad de productos: ${unidades}` +
+    `\n\n📦 Cantidad de productos: ${unidades}` +
     `\nSubtotal: ${formatoPrecio(subtotal)}` +
-    `\nEnvío: ${envio === 0 ? "GRATIS" : formatoPrecio(envio)}` +
-    `\nTotal con envío incluido: ${formatoPrecio(total)}` +
-    `\nCódigo postal: ${cp}`;
+    `\n🚚 Envío: ${envio === 0 ? "GRATIS" : formatoPrecio(envio)}` +
+    `\n💳 Total con envío incluido: ${formatoPrecio(total)}` +
+    `\n📍Código postal: ${cp}`;
 
   window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensaje)}`, "_blank", "noopener,noreferrer");
 }
@@ -1247,6 +1247,19 @@ botonCalcularEnvio?.addEventListener("click", () => {
     }
   });
 
+  document.querySelector("#menu-calcular-envio")?.addEventListener("click", (evento) => {
+    evento.preventDefault();
+    cerrarMenu();
+    abrirCarrito();
+
+    setTimeout(() => {
+      const campo = document.querySelector("#codigo-postal");
+      if (campo) {
+        campo.scrollIntoView({ behavior: "smooth", block: "center" });
+        campo.focus({ preventScroll: true });
+      }
+    }, 300);
+  });
   document.querySelector("#abrir-carrito")?.addEventListener("click", cerrarMenu);
 })();
 // FIN MENU HAMBURGUESA

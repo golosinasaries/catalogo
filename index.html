@@ -43,9 +43,9 @@
       <strong>Menú</strong>
       <button class="cerrar-menu" id="cerrar-menu" type="button" aria-label="Cerrar menú">×</button>
     </div>
-    <a href="#" data-cerrar-menu>Inicio</a>
+  <a href="#codigo-postal" id="menu-calcular-envio" class="menu-calcular-envio" data-cerrar-menu>🚚 Calcular envío</a>
+  <a href="#" data-cerrar-menu>Inicio</a>
     <a href="#catalogo" data-cerrar-menu>Catálogo</a>
-    <a href="#categorias" data-cerrar-menu>Categorías</a>
     <a href="#contacto" data-cerrar-menu>Contacto</a>
   </nav>
 
@@ -99,10 +99,7 @@
         <button class="categoria" type="button" data-categoria="Turrones">🍯 Turrones</button>
         <button class="categoria" type="button" data-categoria="Alfajores">🍫 Alfajores</button>
       </div>
-      <div class="aviso-deslizar" id="aviso-deslizar" aria-hidden="true">
-        <span>Deslizá para ver más opciones</span>
-        <span class="flechas-deslizar">→</span>
-      </div>
+     
       <div class="rejilla-productos" id="productos">
         <div class="estado-vacio"><span>🍬</span><h3>¡Muy pronto!</h3><p>Estamos organizando el catálogo para que encuentres tus golosinas fácilmente.</p></div>
       </div>
@@ -117,7 +114,7 @@
     </div>
     <div id="items-carrito" class="items-carrito"><p class="carrito-vacio">Todavía no agregaste productos.</p></div>
     <div class="calcular-envio">
-      <label for="codigo-postal">¿Querés calcular el envío?</label>
+      <label for="codigo-postal">Ingresá acá tu código postal para calcular tu envío 👇🏻 </label>
       <div class="fila-envio">
         <input id="codigo-postal" type="text" inputmode="numeric" placeholder="Tu código postal" maxlength="10">
         <button id="calcular-envio" type="button">Consultar</button>
@@ -129,7 +126,7 @@
   </aside>
   <div class="fondo-panel" id="fondo-panel"></div>
 
-    <footer class="pie footer-aries">
+    <footer id="contacto" class="pie footer-aries">
     <a class="footer-marca" href="#" aria-label="Golosinas Aries, inicio">
       <img src="img/logoAries.png" alt="Logo de Golosinas Aries" loading="lazy">
     </a>
