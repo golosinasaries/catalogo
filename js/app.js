@@ -589,6 +589,12 @@ const variantesPorNombre = {
     { nombre: "Alfajor Guaymallen Triple Blanco (12u)", imagen: "img/guayblanco.jpg", precio: 8900, agotado: true },
     { nombre: "Alfajor Guaymallen Triple Negro (12u)", imagen: "img/guayddl.jpg", precio: 8900 }
   ],
+  "Alcancía Tigre Rojo (con 12 gelatinas en su interior)": [
+    { nombre: "Alcancía Tigre Rojo (con 12 gelatinas en su interior)", imagen: "img/tigrerojo.png", precio: 6900 },
+    { nombre: "Alcancía Tigre Amarillo (con 12 gelatinas en su interior)", imagen: "img/tigreamarillo.jpg", precio: 6900 },
+    { nombre: "Alcancía Pollito Rojo (con 12 gelatinas en su interior)", imagen: "img/pollito.png", precio: 6900 },
+    { nombre: "Alcancía Pollito Amarillo (con 12 gelatinas en su interior)", imagen: "img/pollitoamarillo.png", precio: 6900 }
+  ],
   "Cucuruchos Helado Frutilla (30u)": [
     { nombre: "Cucuruchos Helado Frutilla (30u)", imagen: "img/cucuruchohelado.png", precio: 14900 },
     { nombre: "Cucuruchos Helado Chocolate (30u)", imagen: "img/cucuruchochocolate.png", precio: 14900 },
@@ -1008,8 +1014,43 @@ function renderizarCarrito() {
 
   actualizarResumenEnvio();
 }
+function mostrarAvisoCompraMinima(faltante) {
+const overlay = document.createElement("div");
+overlay.className = "aviso-minimo-overlay";
+overlay.setAttribute("role", "presentation");
+
+overlay.innerHTML = `     <section class="aviso-minimo-card" role="dialog" aria-modal="true" aria-labelledby="aviso-minimo-titulo">       <button class="aviso-minimo-cerrar" type="button" aria-label="Cerrar aviso">&times;</button>       <div class="aviso-minimo-icono" aria-hidden="true">🛍️</div>       <p class="aviso-minimo-etiqueta">¡Ya casi está!</p>       <h2 id="aviso-minimo-titulo">Tu pedido necesita un poquito más</h2>       <p class="aviso-minimo-texto">La compra mínima para continuar es de <strong>${formatoPrecio(MINIMO_COMPRA)}</strong>.</p>       <div class="aviso-minimo-faltante">         <span>Te falta agregar</span>         <strong>${formatoPrecio(faltante)}</strong>       </div>       <p class="aviso-minimo-ayuda">Sumá tus golosinas favoritas y volvé a intentarlo. ¡Tu pedido te está esperando!</p>       <button class="aviso-minimo-aceptar" type="button">Seguir comprando</button>     </section>
+  `;
+
+const cerrar = () => {
+document.removeEventListener("keydown", alPresionarEscape);
+document.body.classList.remove("aviso-minimo-abierto");
+overlay.remove();
+};
+
+const alPresionarEscape = (evento) => {
+if (evento.key === "Escape") cerrar();
+};
+
+overlay.querySelector(".aviso-minimo-cerrar").addEventListener("click", cerrar);
+overlay.querySelector(".aviso-minimo-aceptar").addEventListener("click", cerrar);
+overlay.addEventListener("click", (evento) => {
+if (evento.target === overlay) cerrar();
+});
+
+document.addEventListener("keydown", alPresionarEscape);
+document.body.classList.add("aviso-minimo-abierto");
+document.body.append(overlay);
+overlay.querySelector(".aviso-minimo-cerrar").focus();
+}
 function finalizarPedido() {
   if (!estado.carrito.length) return;
+  const subtotalCompra = estado.carrito.reduce((suma, item) => suma + item.precio * item.cantidad, 0);
+  if (subtotalCompra < MINIMO_COMPRA) {
+    mostrarAvisoCompraMinima(MINIMO_COMPRA - subtotalCompra);
+    return;
+}
+
 
   const cp = document.querySelector("#codigo-postal")?.value.trim() ||
     localStorage.getItem("codigoPostalCliente") || "";

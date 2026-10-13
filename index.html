@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -15,6 +15,14 @@
     <button class="boton-menu" id="boton-menu" type="button" aria-label="Abrir menú" aria-controls="panel-menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
+    <a id="whatsapp-consulta"
+       href="https://wa.me/542236010443?text=Hola%20vengo%20del%20cat%C3%A1logo%20y%20tengo%20una%20consulta%20%F0%9F%8D%AD"
+       target="_blank" rel="noopener noreferrer"
+       aria-label="Hacer una consulta por WhatsApp"
+       title="Hacer una consulta por WhatsApp">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png"
+           alt="" width="30" height="30">
+    </a>
     <a class="marca" href="#" aria-label="Golosinas Aries, inicio">
       <img class="logo-aries" src="img/logoAries.png" alt="Golosinas Aries">
       <span>Golosinas <strong>Aries</strong><small>CATÁLOGO MAYORISTA</small></span>
@@ -23,6 +31,7 @@
       <span aria-hidden="true">⌕</span>
       <input id="busqueda" type="search" placeholder="Buscar golosinas..." aria-label="Buscar productos">
     </label>
+
     <button class="boton-carrito" id="abrir-carrito" type="button">
       🛒 Mi pedido <span id="cantidad-carrito">0</span>
     </button>
@@ -113,22 +122,12 @@
         <input id="codigo-postal" type="text" inputmode="numeric" placeholder="Tu código postal" maxlength="10">
         <button id="calcular-envio" type="button">Consultar</button>
       </div>
+      <p id="aviso-envio-gratis" class="aviso-envio-gratis" aria-live="polite"></p>
       <p id="resumen-envio" class="resumen-envio">Ingresá tu código postal para calcular el envío.</p>
     </div>
     <div class="carrito-pie"><div class="total"><span>Total</span><strong id="total-carrito">$0</strong></div><button id="finalizar-pedido" class="boton-principal boton-ancho" type="button" disabled>Continuar por WhatsApp →</button><small>El pedido se confirma al coordinar por WhatsApp.</small></div>
   </aside>
   <div class="fondo-panel" id="fondo-panel"></div>
-
-  <section id="contacto" class="seccion-contacto">
-    <span class="etiqueta">ESTAMOS PARA AYUDARTE</span>
-    <h2>Contacto</h2>
-    <p>¿Tenés dudas sobre los productos, tu pedido o el envío?</p>
-    <a href="https://wa.me/542236010443?text=Hola%2C%20vengo%20del%20cat%C3%A1logo%20y%20tengo%20una%20consulta%20%F0%9F%8D%AD" target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a>
-    <div class="enlaces-redes">
-      <a href="https://www.instagram.com/reel/DXrgMD5AhVP/" target="_blank" rel="noopener noreferrer">Instagram</a>
-      <a href="https://www.facebook.com/mercadito.del.pueblo.2025" target="_blank" rel="noopener noreferrer">Facebook</a>
-    </div>
-  </section>
 
     <footer class="pie footer-aries">
     <a class="footer-marca" href="#" aria-label="Golosinas Aries, inicio">
@@ -171,6 +170,19 @@
       </a>
     </div>
   </footer>
+
+  <!-- Botones flotantes de WhatsApp -->
+
+
+  <!-- Grupo de ofertas de WhatsApp -->
+  <a id="whatsapp-btn"
+     href="https://chat.whatsapp.com/B6bms7zoQ4Q7Lh2xBjaodg"
+     target="_blank" rel="noopener noreferrer"
+     aria-label="Unirse al grupo de ofertas de Golosinas Aries">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png"
+         alt="" width="24" height="24">
+    <span>🎁 Grupo de ofertas</span>
+  </a>
 </body>
 </html>
 
