@@ -1,4 +1,14 @@
 [
+
+
+    {
+        "nombre": "Chupetines Hongos (30u)",
+        "imagen": "img/hongos.png",
+        "precio": 10900,
+        "categoria": "Chupetines",
+        "agotado": true
+    },
+
     {
         "nombre":  "Chupetines Halloween (30u)",
         "imagen":  "img/Halloween.jpeg",
@@ -137,7 +147,7 @@
     {
         "nombre":  "Chupetines con forma de Unicornio (30u)",
         "imagen":  "img/unicornio.png",
-        "precio":  12900,
+        "precio":  10900,
         "categoria":  "Chupetines"
     },
     {
