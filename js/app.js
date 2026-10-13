@@ -913,6 +913,18 @@ function renderizarCarrito() {
 
   elementos.cantidad.textContent = unidades;
   elementos.total.textContent = formatoPrecio(total);
+
+  const subtotalVisible = document.querySelector("#subtotal-carrito");
+  if (subtotalVisible) subtotalVisible.textContent = formatoPrecio(subtotal);
+
+  const envioVisible = document.querySelector("#costo-envio-carrito");
+  if (envioVisible) {
+    envioVisible.textContent =
+      costoEnvio === null ? "Ingresá tu código postal" :
+      costoEnvio.error ? "Código postal inválido" :
+      costoEnvio === 0 ? "GRATIS" :
+      formatoPrecio(costoEnvio);
+  }
   elementos.finalizar.disabled = estado.carrito.length === 0;
   elementos.items.replaceChildren();
 
@@ -1279,4 +1291,58 @@ botonCalcularEnvio?.addEventListener("click", () => {
   });
 
   observador.observe(footer);
+})();
+// Ventana "Cómo pagar"
+(() => {
+  const enlacePago = document.querySelector("#menu-pago");
+  const modalPago = document.querySelector("#modal-pago");
+  const cerrarPago = document.querySelector(".cerrar-pago");
+  const botonCopiar = document.querySelector("#copiar-alias");
+  const mensajeCopiado = document.querySelector("#copiado-msg");
+
+  if (!enlacePago || !modalPago || !cerrarPago || !botonCopiar || !mensajeCopiado) {
+    console.error("No se pudo inicializar la ventana de pago: falta un elemento HTML.");
+    return;
+  }
+
+  function abrirPago() {
+    modalPago.classList.add("visible");
+    modalPago.setAttribute("aria-hidden", "false");
+    cerrarPago.focus();
+  }
+
+  function cerrarVentanaPago() {
+    modalPago.classList.remove("visible");
+    modalPago.setAttribute("aria-hidden", "true");
+    mensajeCopiado.textContent = "";
+    enlacePago.focus();
+  }
+
+  enlacePago.addEventListener("click", (evento) => {
+    evento.preventDefault();
+    abrirPago();
+  });
+
+  cerrarPago.addEventListener("click", cerrarVentanaPago);
+
+  modalPago.addEventListener("click", (evento) => {
+    if (evento.target === modalPago) {
+      cerrarVentanaPago();
+    }
+  });
+
+  document.addEventListener("keydown", (evento) => {
+    if (evento.key === "Escape" && modalPago.classList.contains("visible")) {
+      cerrarVentanaPago();
+    }
+  });
+
+  botonCopiar.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText("ana.maria.montiel");
+      mensajeCopiado.textContent = "¡Copiado! ✔";
+    } catch {
+      mensajeCopiado.textContent = "No se pudo copiar. Seleccioná el alias manualmente.";
+    }
+  });
 })();

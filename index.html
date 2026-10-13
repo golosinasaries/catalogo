@@ -44,6 +44,7 @@
       <button class="cerrar-menu" id="cerrar-menu" type="button" aria-label="Cerrar menú">×</button>
     </div>
   <a href="#codigo-postal" id="menu-calcular-envio" class="menu-calcular-envio" data-cerrar-menu>🚚 Calcular envío</a>
+  <a href="#" id="menu-pago" class="menu-como-pagar" data-cerrar-menu>💳 Cómo pagar</a>
   <a href="#" data-cerrar-menu>Inicio</a>
     <a href="#catalogo" data-cerrar-menu>Catálogo</a>
     <a href="#contacto" data-cerrar-menu>Contacto</a>
@@ -122,7 +123,7 @@
       <p id="aviso-envio-gratis" class="aviso-envio-gratis" aria-live="polite"></p>
       <p id="resumen-envio" class="resumen-envio">Ingresá tu código postal para calcular el envío.</p>
     </div>
-    <div class="carrito-pie"><div class="total"><span>Total</span><strong id="total-carrito">$0</strong></div><button id="finalizar-pedido" class="boton-principal boton-ancho" type="button" disabled>Continuar por WhatsApp →</button><small>El pedido se confirma al coordinar por WhatsApp.</small></div>
+    <div class="carrito-pie"><div class="total"><span>Subtotal</span><strong id="subtotal-carrito">$0</strong></div><div class="total"><span>Envío</span><strong id="costo-envio-carrito">Ingresá tu código postal</strong></div><div class="total"><span>Total</span><strong id="total-carrito">$0</strong></div><button id="finalizar-pedido" class="boton-principal boton-ancho" type="button" disabled>Continuar por WhatsApp →</button><small>El pedido se confirma al coordinar por WhatsApp.</small></div>
   </aside>
   <div class="fondo-panel" id="fondo-panel"></div>
 
@@ -180,6 +181,33 @@
          alt="" width="24" height="24">
     <span>🎁 Grupo de ofertas</span>
   </a>
+  <div id="modal-pago" class="modal-pago" aria-hidden="true">
+    <div class="modal-pago-content" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-pago">
+      <button type="button" class="cerrar-pago" aria-label="Cerrar ventana de pago">&times;</button>
+      <h2 id="titulo-modal-pago">💳 Cómo pagar</h2>
+      <p>Transferencia bancaria 💸</p>
+
+      <div class="datos-pago">
+        <p><strong>👤 Titular:</strong> Ana Maria Montiel</p>
+        <p class="fila-alias">
+          <strong>🏷️ Alias:</strong> <span>ana.maria.montiel</span>
+          <button type="button" id="copiar-alias" class="btn-copiar">Copiar</button>
+          <span id="copiado-msg" class="copiado-msg" aria-live="polite"></span>
+        </p>
+        <p><strong>🏦 CVU:</strong> 0000003100012664749584</p>
+        <p><strong>🧾 CUIT/CUIL:</strong> 27-20845773-5</p>
+      </div>
+
+      <div class="aviso-pago">
+        ⚠️ Este es el único alias para pagos. No realizamos cobros por otros alias ni cuentas. 😎
+      </div>
+
+      <a class="consulta-pago" href="https://wa.me/542236010443?text=Hola%20tengo%20una%20consulta%20sobre%20el%20pago%20de%20mi%20pedido" target="_blank" rel="noopener noreferrer">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="" width="32" height="32" loading="lazy">
+        <span>Consulta sobre el pago</span>
+      </a>
+    </div>
+  </div>
 </body>
 </html>
 
