@@ -1251,3 +1251,19 @@ botonCalcularEnvio?.addEventListener("click", () => {
 })();
 // FIN MENU HAMBURGUESA
 
+// Ocultar WhatsApp flotante cuando el footer está visible
+(() => {
+  const whatsapp = document.querySelector("#whatsapp-btn");
+  const footer = document.querySelector(".footer-aries");
+
+  if (!whatsapp || !footer) return;
+
+  const observador = new IntersectionObserver(([entrada]) => {
+    whatsapp.classList.toggle(
+      "oculto-por-footer",
+      entrada.isIntersecting
+    );
+  });
+
+  observador.observe(footer);
+})();
