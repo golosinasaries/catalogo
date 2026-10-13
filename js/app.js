@@ -925,7 +925,7 @@ function renderizarCarrito() {
       costoEnvio === 0 ? "GRATIS" :
       formatoPrecio(costoEnvio);
   }
-  elementos.finalizar.disabled = estado.carrito.length === 0;
+  elementos.finalizar.disabled = false;
   elementos.items.replaceChildren();
 
   if (!estado.carrito.length) {
@@ -1056,7 +1056,7 @@ document.body.append(overlay);
 overlay.querySelector(".aviso-minimo-cerrar").focus();
 }
 function finalizarPedido() {
-  if (!estado.carrito.length) return;
+  
   const subtotalCompra = estado.carrito.reduce((suma, item) => suma + item.precio * item.cantidad, 0);
   if (subtotalCompra < MINIMO_COMPRA) {
     mostrarAvisoCompraMinima(MINIMO_COMPRA - subtotalCompra);
@@ -1134,6 +1134,7 @@ elementos.categorias.querySelectorAll(".categoria").forEach((boton) => {
     });
 
     renderizarProductos();
+    elementos.productos.scrollIntoView({ behavior: "smooth", block: "center" });
   });
 });
 

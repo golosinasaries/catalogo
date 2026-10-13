@@ -2349,3 +2349,97 @@ color: #24683a;
     padding: 24px 16px 18px;
   }
 }
+
+/* Ajustes del resumen del carrito */
+.carrito-pie .total:not(.total-final) {
+  font-size: 13px;
+  font-weight: 400;
+  border-top: 0;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.carrito-pie .total-final {
+  border-top: 0;
+  margin-top: 5px;
+  padding-top: 5px;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+/* Ocultar solo el texto redundante del resumen de envio */
+#resumen-envio { display: none !important; }
+
+/* AJUSTE ESPACIO CARRITO ESCRITORIO Y MOVIL */
+.panel-carrito {
+  padding: 16px 18px;
+}
+.carrito-cabecera {
+  padding-bottom: 12px;
+}
+.carrito-acciones {
+  padding: 8px 0 6px;
+}
+.items-carrito {
+  min-height: 0;
+  flex: 1 1 0;
+  overflow-y: auto;
+  padding: 8px 0;
+}
+.calcular-envio {
+  flex: 0 0 auto;
+  padding: 8px 0;
+}
+.calcular-envio label {
+  margin-bottom: 6px;
+  font-size: 12px;
+  line-height: 1.3;
+}
+.fila-envio input,
+.fila-envio button {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+#aviso-envio-gratis,
+#resumen-envio {
+  display: none !important;
+}
+.carrito-pie {
+  flex: 0 0 auto;
+  padding-top: 10px;
+}
+.carrito-pie .total strong {
+  font-size: 19px;
+}
+.carrito-pie .boton-ancho {
+  margin: 10px 0 6px;
+}
+.carrito-pie > small {
+  font-size: 10px;
+}
+@media (max-width: 480px) {
+  .panel-carrito {
+    padding: 12px 15px;
+  }
+  .carrito-cabecera {
+    padding-bottom: 8px;
+  }
+  .calcular-envio label {
+    font-size: 11px;
+  }
+  .carrito-pie .total-final {
+    font-size: 15px;
+  }
+}
+/* OCULTAR DEFINITIVAMENTE AVISOS DE ENVIO */
+#aviso-envio-gratis,
+#resumen-envio,
+.aviso-envio-gratis,
+.resumen-envio {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
