@@ -1,1291 +1,179 @@
-<!DOCTYPE html>
-<html lang="es-AR">
-
+﻿<!DOCTYPE html>
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Golosinas Aries 🔥♈️</title>
-  <link rel="icon" href="img/logoAries.jpg" loading="lazy" type="image/jpeg" loading="lazy">
-  <link rel="stylesheet" href="css/estilos.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta name="theme-color" content="#fff5f0">
+  <link rel="icon" type="image/png" href="img/logoAries.png">
+  <meta name="description" content="Golosinas Aries: catálogo de golosinas para tu negocio.">
+  <title>Golosinas Aries | Catálogo mayorista</title>
+  <link rel="stylesheet" href="css/estilos.css?v=3">
+  <script src="js/app.js" defer></script>
 </head>
-
 <body>
-
-  <header>
-    <button id="menu-btn" class="menu-btn" aria-label="Abrir menú">
-      <span></span>
-      <span></span>
-      <span></span>
+  <header class="encabezado">
+    <button class="boton-menu" id="boton-menu" type="button" aria-label="Abrir menú" aria-controls="panel-menu" aria-expanded="false">
+      <span></span><span></span><span></span>
     </button>
-
-    <div id="menu-panel" class="menu-panel">
-
-      <a href="#" id="menu-envio" style="color:#ff7a2b; font-weight:500;">
-        <span class="icono">📦</span> Costo de envío
-      </a>
-      <a href="#" id="menu-pago" style="color:#1e9b5a; font-weight:500;">
-        <span class="icono">💳</span> Cómo pagar
-      </a>
-      <a href="#" id="menu-catalogo" style="color:#2b6cff; font-weight:500;">
-        <span class="icono">📱</span> Redes
-      </a>
-
-      <a href="#" onclick="filtrar('todos')" style="font-weight: bold;">🛍️ Todos los productos</a>
-      <a href="#" onclick="filtrar('bultos')">📦 Bultos cerrados</a>
-      <a href="#" onclick="filtrar('combo')">🎁 Combos</a>
-      <a href="#" onclick="filtrar('bultos')">📦 Bultos cerrados</a>
-      <a href="#" onclick="filtrar('gomitasblandas')">🧸 Gomitas blandas</a>
-      <a href="#" onclick="filtrar('chupetines')">🍭 Chupetines</a>
-      <a href="#" onclick="filtrar('caramelos')">🍬 Caramelos</a>
-      <a href="#" onclick="filtrar('pastillas')">💊 Pastillitas</a>
-      <a href="#" onclick="filtrar('huevos')">🥚 Huevos sorpresa</a>
-      <a href="#" onclick="filtrar('chicles')">🫧 Chicles</a>
-      <a href="#" onclick="filtrar('alcancias')">🐷 Alcancías</a>
-      <a href="#" onclick="filtrar('gomitas500')">🍡 Gomitas 500g</a>
-      <a href="#" onclick="filtrar('galletitas')">🍪 Galletitas</a>
-      <a href="#" onclick="filtrar('turrones')">🍫 Turrones</a>
-      <!--
-    <a href="#" onclick="filtrar('alfajores')">🍫 Alfajores</a>
-    <a href="#" onclick="filtrar('chocolates')">🍫 Chocolates</a>
-     -->
-    </div>
-
-    <div class="titulo-contenedor">
-      <h1 class="titulo-animado">
-        <span class="emoji"> 🚚 </span>Envíos a todo el país
-      </h1>
-      <nav>
-        <input type="text" id="search" placeholder="🔍 Buscá un producto..."
-          style="margin-left:0.1rem; padding:0.3rem; border-radius:5px; border:none;">
-        <p id="no-results" style="display:none; text-align:center; color:#fff; margin-top:0.5rem;"></p>
-      </nav>
-    </div>
-
-    <div id="carrito-contenedor">
-
-      <button id="carrito-btn" aria-label="Abrir carrito">
-        <i class="fas fa-shopping-cart"></i>
-        <span id="carrito-count">0</span>
-      </button>
-
-      <div id="carrito-dropdown">
-        <span id="salir-carrito"
-          style="cursor:pointer; float:left; font-size:20px; font-weight:bold; margin:5px;z-index: 9999; position: relative;">❌</span>
-        <h3>🛍️ Tu pedido:</h3>
-        <ul id="carrito-items"></ul>
-        <div id="carrito-footer">
-          <p id="carrito-total">Total: $0</p>
-          <button id="vaciar-carrito" class="btn-vaciar">Vaciar carrito</button>
-          <button id="enviar-carrito" class="btn-enviar">Hacer pedido</button>
-        </div>
-
-      </div>
-
-    </div>
-    <img src="img/logoAries1.png" loading="lazy" class="logo-mini" alt="Logo Aries" style="right: 10rem;">
+    <a class="marca" href="#" aria-label="Golosinas Aries, inicio">
+      <img class="logo-aries" src="img/logoAries.png" alt="Golosinas Aries">
+      <span>Golosinas <strong>Aries</strong><small>CATÁLOGO MAYORISTA</small></span>
+    </a>
+    <label class="buscador">
+      <span aria-hidden="true">⌕</span>
+      <input id="busqueda" type="search" placeholder="Buscar golosinas..." aria-label="Buscar productos">
+    </label>
+    <button class="boton-carrito" id="abrir-carrito" type="button">
+      🛒 Mi pedido <span id="cantidad-carrito">0</span>
+    </button>
   </header>
 
-  <div id="aviso-envio-gratis" class="compra-minima"></div> <!-- Aviso de compra mínima para envío gratis EN .JS -->
+  <div class="fondo-menu" id="fondo-menu" hidden></div>
+  <nav class="panel-menu" id="panel-menu" aria-label="Menú principal" aria-hidden="true" inert>
+    <div class="panel-menu-cabecera">
+      <strong>Menú</strong>
+      <button class="cerrar-menu" id="cerrar-menu" type="button" aria-label="Cerrar menú">×</button>
+    </div>
+    <a href="#" data-cerrar-menu>Inicio</a>
+    <a href="#catalogo" data-cerrar-menu>Catálogo</a>
+    <a href="#categorias" data-cerrar-menu>Categorías</a>
+    <a href="#contacto" data-cerrar-menu>Contacto</a>
+  </nav>
+
   <main>
-    <div class="portfolio">
-
-      <div id="sin-resultados" style="display:none; padding:20px; font-size: 34px;">
-        😕 No hay productos en esta categoría por el momento
-      </div>
-      <!--
-   <div class="card card-facebook">
-    <iframe 
-        src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0Ar26We7wGsofgjCsLMXnYGDPV4fJNGvwX2dCWugsDzdfpVzkgJVGZMD28gnDB1Ysl%26id%3D61578949001641&show_text=true&width=500"
-        width="500"
-        height="978"
-        style="border:none;overflow:hidden"
-        scrolling="no"
-        frameborder="0"
-        allowfullscreen="true"
-        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-    </iframe>
-    <a 
-        href="https://www.facebook.com/permalink.php?story_fbid=pfbid0Ar26We7wGsofgjCsLMXnYGDPV4fJNGvwX2dCWugsDzdfpVzkgJVGZMD28gnDB1Ysl&id=61578949001641"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn-facebook">
-        🔵 Ver en Facebook
-    </a>
-  </div>  
-      
-  <div class="card card--promo" data-cat="chupetines">
-    <img src="img/cajamerlina1.png" loading="lazy" alt="Chupetines Merlina" loading="lazy">
-    <span class="promo-badge">🔥 PROMO</span>
-    <h3>Chupetines Merlina (30u)</h3>
-    <h4 class="precio-anterior">$11.900</h4>
-    <p class="precio-promo">$8.000</p>
-    <button class="btn-carrito" data-nombre="Chupetines Merlina (30u)"data-precio="8000">Agregar al carrito</button>
-  </div>
-
-          <div class="card card--promo" data-cat="chupetines">
-            <img src="img/dosenuno.png" loading="lazy" alt="Chupetines 2 in 1 (60u)">
-            <span class="promo-badge">🔥 PROMO</span>
-            <h3>Chupetines 2 in 1 (60u)</h3>
-            <h4 class="precio-anterior">$11.900</h4>
-            <p class="precio-promo">$8.000</p>
-            <button class="btn-carrito"
-              data-nombre="Chupetines 2 in 1 (60u)"
-              data-precio="8000">
-              Agregar al carrito
-            </button>
-          </div>
-
-      <div class="card card--promo" data-cat="chupetines">
-        <img src="img/dosenuno.png" loading="lazy" alt="Chupetines 2 in 1 (60u)">
-        <span class="promo-badge">🔥 PROMO</span>
-        <h3>Chupetines 2 in 1 (60u)</h3>
-        <h4 class="precio-anterior">$11.900</h4>
-        <p class="precio-promo">$8.000</p>
-        <button class="btn-carrito" data-nombre="Chupetines 2 in 1 (60u)" data-precio="8000">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="chupetines">
-        <img src="img/unicornioled1.png" loading="lazy" alt="Chupetines Led"  >
-        <h3>Chupetines con led Unicornio (30u)</h3>
-        <p>$12.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-        --->
-
-      <div class="card" data-cat="chupetines halloween">
-        <img src="img/Halloween.jpeg" loading="lazy" alt="Chupetines con formas" loading="lazy">
-        <h3>Chupetines Halloween (30u) 👻</h3>
-        <p>$10.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="chupetines halloween">
-        <img src="img/halloween3.png" loading="lazy" alt="Chupetines con formas">
-        <h3>Chupetines Halloween 3 en 1 (30u) 🧙‍♀️</h3>
-        <p>$10.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="chupetines halloween">
-        <img src="img/merlina4.png" loading="lazy" alt="Eyeball caramelo duro Merlina">
-        <h3>Chupetines Merlina (30u)</h3>
-        <p>$12.500</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card card-video" data-cat="gomitasblandas halloween">
-        <img src="img/ojos.png" loading="lazy" alt="Gomitas Ojos">
-        <video class="video-hover video-ojos" src="img/videoojos.mp4" muted loop playsinline>
-        </video>
-        <h3>Gomitas Ojos (30u)</h3>
-        <p>$9.400</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="huevos">
-        <img src="img/sorpresasti.png" loading="lazy" alt="Sorpresa Lilo y Stitch">
-        <h3>Huevos Sorpresa Lilo y Stitch (30u)</h3>
-        <p>$14.500</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="huevos">
-        <img src="img/sorpresadino.png" loading="lazy" alt="Sorpresa Dinos">
-        <h3>Huevos Sorpresa Dinos 🦖 (30u)</h3>
-        <p>$14.500</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="chicles">
-        <img src="img/botellitas.jpg" loading="lazy" alt="Botellitas con chicles">
-        <h3>Botellitas con chicles (30u)</h3>
-        <p>$12.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="gomitasblandas">
-        <img src="img/mielcitas.png" loading="lazy" alt="Mielcitas">
-        <h3>Mielcitas Drink Candy (50u)</h3>
-        <p>$5.500</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="chupetines">
-        <img src="img/pelotitas.jpg" loading="lazy" alt="chupetines">
-        <h3>Chupetines Pelotitas (50u)</h3>
-        <p>$4.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="chupetines">
-        <img src="img/pelotitaspintalengua.png" loading="lazy" alt="chupetines">
-        <h3>Chupetines Pelotitas Pinta Lengua (50u)</h3>
-        <p>$5.500</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="chupetines">
-        <img src="img/capiled.png" loading="lazy" alt="Led Capibara">
-        <h3>Chupetines con led Capibara (30u)</h3>
-        <p>$12.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="chupetines">
-        <img src="img/oreoled.png" loading="lazy" alt="Chupetines Led">
-        <h3>Chupetines con Led Oreo (30u)</h3>
-        <p>$12.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <!--
-      <div class="card" data-cat="chupetines">
-        <img src="img/explosivo.png" loading="lazy" alt="Donut"  >
-        <h3>Lollipop explosivo (30u)</h3>
-        <p>$11.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div> 
--->
-      <div class="card" data-cat="pastillas">
-        <img src="img/coolmint.jpg" loading="lazy" alt="Cool Mint">
-        <h3>Cool Mint pastillitas Frutales (30u)</h3>
-        <p>$12.800</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="pastillas">
-        <img src="img/jucky.jpg" loading="lazy" alt="Cool Mint">
-        <h3>Pastillitas Lucky (385 g)</h3>
-        <p>$5.800</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card">
-        <img src="img/ringpop.png" loading="lazy" alt="ring pop">
-        <h3>Ring Pop Barbie (30u)</h3>
-        <p>$13.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card card-video" data-cat="chicles">
-        <img src="img/latas.png" loading="lazy" alt="Latitas con chicles">
-        <video class="video-hover" src="img/videolatita.mp4" loop playsinline preload="metadata">
-        </video>
-        <div class="sound-icon">🔇</div>
-        <h3>Latitas con chicles (30 latitas)</h3>
-        <p>$14.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="gomitasblandas">
-        <img src="img/gallina.jpeg" loading="lazy" alt="Gomitas Gallito">
-        <h3>Gomitas Gallito (30u)</h3>
-        <p>$9.400</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card card-video" data-cat="gomitasblandas">
-        <img src="img/boca.jpg" loading="lazy" alt="Gomitas de Boca">
-        <video class="video-hover" src="img/videoboca.mp4" muted loop playsinline>
-        </video>
-        <h3>Gomitas de Boca (30u)</h3>
-        <p>$9.000</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="gomitasblandas">
-        <img src="img/Boca.png" loading="lazy" alt="Gomitas de Boca">
-        <h3>Gomitas de Boca nuevo (30u)</h3>
-        <p>$9.400</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card card-alcancia" data-index="0" data-cat="alcancias">
-        <div class="img-container">
-          <span class="flecha izq" onclick="event.stopPropagation(); cambiarVariante(this, -1)">←</span> <img
-            src="img/tigrerojo.png" loading="lazy" alt="Alcancía"> <span class="flecha der"
-            onclick="event.stopPropagation(); cambiarVariante(this, 1)">→</span>
+    <section class="portada">
+      <div class="portada-texto">
+        <span class="etiqueta">TU MAYORISTA DE CONFIANZA</span>
+        <h1>Un mundo de<br><span>dulces posibilidades.</span></h1>
+        <p>Encontrá tus golosinas favoritas y prepará tu pedido de manera fácil y rápida.</p>
+        <a class="boton-principal" href="#catalogo">Explorar catálogo <span>→</span></a>
+        <div class="beneficios">
+          <span>✓ Atención personalizada</span>
+          <span>✓ Pedidos por WhatsApp</span>
         </div>
-        <h3>Alcancía Tigre Rojo (con 12 gelatinas en su interior)</h3>
-        <p>$6.900</p>
-        <button class="btn-carrito" data-nombre="Alcancía Tigre Rojo (con 12 gelatinas en su interior)"
-          data-precio="6900"> Agregar al carrito</button>
       </div>
-
-      <div class="card" data-cat="gomitasblandas">
-        <img src="img/frutilla.png" loading="lazy" alt="Frutillas">
-        <h3>Gomitas Frutillas (30u)</h3>
-        <p>$9.400</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="gomitasblandas">
-        <img src="img/gatito.png" loading="lazy" alt="Gatitos">
-        <h3>Gomitas Gatitos (30u)</h3>
-        <p>$9.400</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-      <!--
-       <div class="card" data-cat="gomitasblandas">
-        <img src="img/monster1.jpeg" loading="lazy" alt="Monsters"  >
-        <h3>Gomitas Monsters (30u)</h3>
-        <p>$9.400</p>
-        <button class="btn-carrito">Agregar al carrito</button> 
-      </div>
-
-      <div class="card" data-cat="chupetines">
-        <img src="img/tira2.png" loading="lazy" alt="Chupetines Led"  >
-        <h3>Chupetines Foot Lollipop explosivo (tira de 30u)</h3>
-        <p>$14.800</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div> 
-
-      <div class="card" data-cat="chicles">
-        <img src="img/tiktok.png" loading="lazy" alt="Chicles"  >
-        <h3>Chicles Tik Tok con tatoo (10u)</h3>
-        <p>$7.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card card-video" data-cat="gomitasbla1ndas">
-        <img src="img/seleccionaries.png" loading="lazy" alt="Gomitas Selección">
-        <video class="video-hover"
-              src="img/videoseleccion.mp4"
-              loop
-              playsinline>
-        </video>
-        <div class="sound-icon">🔇</div>
-        <h3>Gomitas Selección (30u)</h3>
-        <p>$9.400</p>
-        <button class="btn-carrito">Agregar al carrito</button>    
-      </div>
-
-      <div class="card" data-cat="gomitasblandas">
-        <img src="img/nemo.jpeg" loading="lazy" alt="Nemo"  >
-        <h3>Gomitas Nemo (30u)</h3>
-        <p>$9.400</p>
-        <button class="btn-carrito">Agregar al carrito</button> 
-      </div>
-
-       <div class="card" data-cat="chupetines">
-        <img src="img/silbato.png" loading="lazy" alt="Donut"  >
-        <h3>Chupetines Silbato 🎶 Simpsons (20u)</h3>
-        <p>$10.800</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="chupetines">
-        <img src="img/chupetinfrutilla1.jpg" loading="lazy" alt="Chupetines con formas"  >
-        <h3>Chupetines Frutillas (30u)</h3>
-        <p>$9.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="gomitasblandas">
-        <img src="img/river.jpg" loading="lazy" alt="Gomitas de River"  >
-        <h3>Gomitas de River (30u)</h3>
-        <p>$9.000</p>
-        <button class="btn-carrito">Agregar al carrito</button>     
-      </div> 
-
-      <div class="card" data-cat="chicles">
-        <img src="img/wp.png" loading="lazy" alt="Chicles"  >
-        <h3>Chicles WhatsApp con tatoo capibara (10u)</h3>
-        <p>$7.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="chocolates">
-        <img src="img/monedas.png" loading="lazy" alt="Monedas de chocolate"  >
-        <h3>Monedas de Chocolate (290u)</h3>
-        <p>$17.000</p>
-        <button class="btn-carrito">Agregar al carrito</button> 
-      </div>
- lalalal
-      <div class="card" data-cat="chupetines">
-        <img src="img/tira1.png" loading="lazy" alt="Chupetines Led"  >
-        <h3>Chupetines Foot Lollipop explosivo (tira de 15u)</h3>
-        <p>$7.800</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div> 
-
-      <div class="card card-monedaspanda" data-index="0" data-cat="chocolates">
-        <div class="img-container">
-          <span class="flecha izq" onclick="event.stopPropagation(); cambiarVariante(this, -1)">←</span> <img src="img/monedapandamarron.png" loading="lazy" alt="Monedas"> <span class="flecha der" onclick="event.stopPropagation(); cambiarVariante(this, 1)">→</span>
-        </div>
-        <h3>🤎 Botella Panda Beige con 200 Monedas de Chocolate 🐼</h3>
-        <p>$17.500</p>
-        <button class="btn-carrito" data-nombre="Botella Panda Beige con 200 Monedas de Chocolate 🐼" data-precio="17500"> Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="gomitasblandas">
-        <img src="img/River.png" loading="lazy" alt="Gomitas de River"  >
-        <h3>Gomitas de River nuevo (30u)</h3>
-        <p>$9.400</p>
-        <button class="btn-carrito">Agregar al carrito</button>     
-      </div> 
-
-      <div class="card" data-cat="chupetines">
-        <img src="img/chupetincapibara.png" loading="lazy" alt="Chupetines Capibara"  >
-        <h3>Chupetines Capibara (30u)</h3>
-        <p>$9.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
- -->
-      <div class="card" data-cat="chupetines">
-        <img src="img/unicornio.png" loading="lazy" alt="Chupetines con formas">
-        <h3>Chupetines con forma de Unicornio (30u)</h3>
-        <p>$12.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="gomitasblandas">
-        <img src="img/macarron.png" loading="lazy" alt="Macarron">
-        <h3>Gomitas Macarron (30u)</h3>
-        <p>$9.400</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="chicles">
-        <img src="img/chicleseleccion.png" loading="lazy" alt="Chicles">
-        <h3>Chicles WhatsApp Selección 🇦🇷 — Caja x20, 5 chicles cada uno</h3>
-        <p>$8.500</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="gomitasblandas">
-        <img src="img/gomitasdinos.png" loading="lazy" alt="Gomitas Dinos">
-        <h3>Gomitas Dinos (30u)</h3>
-        <p>$9.400</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="chupetines">
-        <img src="img/dosenuno.png" loading="lazy" alt="Chupetines 2 in 1">
-        <h3>Chupetines 2 in 1 (60u)</h3>
-        <p>$11.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card card-video" data-cat="gomitasblandas">
-        <img src="img/gomitasoreo.jpg" loading="lazy" alt="Gomitas Oreo">
-        <video class="video-hover video-ojos" src="img/videooreo.mp4" muted loop playsinline>
-        </video>
-        <h3>Gomitas Oreo (30u)</h3>
-        <p>$9.400</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card card-cucurucho" data-index="0" data-cat="galletitas">
-        <div class="img-container">
-          <span class="flecha izq" onclick="event.stopPropagation(); cambiarVariante(this, -1)">←</span> <img
-            src="img/cucuruchohelado.png" loading="lazy"> <span class="flecha der"
-            onclick="event.stopPropagation(); cambiarVariante(this, 1)">→</span>
-        </div>
-        <h3>Cucuruchos Helado Frutilla (30u)</h3>
-        <p>$14.900</p>
-        <button class="btn-carrito" data-nombre="Cucuruchos Helado Frutilla (30u)" data-precio="14900"> Agregar al
-          carrito</button>
-      </div>
-
-      <div class="card" data-cat="gomitasblandas">
-        <img src="img/helado.png" loading="lazy" alt="Helados">
-        <h3>Gomita Helado (30u)</h3>
-        <p>$10.500</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <!--  
-
-      <div class="card" data-cat="pastillas">
-        <img src="img/cars.png" loading="lazy" alt="Cars"  >
-        <h3>Cars con pastillitas (30u)</h3>
-        <p>$13.800</p>
-        <button class="btn-carrito">Agregar al carrito</button>   
-      </div>
-
-      <div class="card" data-cat="chupetines">
-        <img src="img/panda.png" loading="lazy" alt="Chupetin Panda"  >
-        <h3>Chupetines Panda (24u)</h3>
-        <p>$11.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>  
-      </div>
-
-      <div class="card" data-cat="gomitasblandas">
-        <img src="img/capibara.png" loading="lazy" alt="Gomitas Blandas Capibaras">
-        <h3>Gomitas Capibaras (30u)</h3>
-        <p>$9.400</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="chupetines">
-        <img src="img/kuromyled1.png" loading="lazy" alt="Kuromy"  >
-        <h3>Chupetines Kuromy con led (30u)</h3>
-        <p>$12.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>  
-      </div>
-
-      <div class="card" data-cat="chocolates">
-        <img src="img/nutello.png" loading="lazy" alt="Nutello"  >
-        <h3>Nutello (30u)</h3>
-        <p>$12.500</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="pastillas">
-        <img src="img/trompeta.png" loading="lazy" alt="Cars"  >
-        <h3>Trompetas con pastillitas (30u)</h3>
-        <p>$13.800</p>
-        <button class="btn-carrito">Agregar al carrito</button>   
-      </div>
-
-      <div class="card" data-cat="pastillas">
-        <img src="img/payasos.png" loading="lazy" alt="Payaso"  >
-        <h3>Payaso con pastillitas (30u)</h3>
-        <p>$13.800</p>
-        <button class="btn-carrito">Agregar al carrito</button>   
-      </div>
-
-      <div class="card" data-cat="chupetines">
-        <img src="img/bob1.jpg" loading="lazy" alt="Bob Esponja"  >
-        <h3>Chupetines con polvo ácido Bob Esponja (30u)</h3>
-        <p>$11.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>  
-      </div>
-
-    <div class="card card-video" data-cat="chocolates alcancias">
-        <img src="img/monedaspandarosa1.png" loading="lazy" alt="Botella Panda Rosa con 200 Monedas de Chocolate 🐼">
-        <video
-            class="video-hover"
-            src="img/videomonedaspanda.mp4"
-            muted
-            loop
-            playsinline
-            preload="metadata">
-        </video>
-        <h3>Botella Panda Rosa con 200 Monedas de Chocolate 🐼</h3>
-        <p>$17.500</p>
-        <button
-            class="btn-carrito"
-            data-nombre="Botella Panda Rosa con 200 Monedas de Chocolate 🐼"
-            data-precio="17500">
-            Agregar al carrito
-        </button>
-    </div>
-
-      <div class="card" data-cat="pastillas">
-        <img src="img/iphone.png" loading="lazy" alt="iPhone"  >
-        <h3>iPhone Pinball con pastillitas (30u)</h3>
-        <p>$13.800</p>
-        <button class="btn-carrito">Agregar al carrito</button>   
-      </div>
-
-      <div class="card" data-cat="chupetines">
-        <img src="img/oreo1.jpg" loading="lazy" alt="Donut"  >
-        <h3>Chupetines con led Oreo (30u)</h3>
-        <p>$12.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>  
-
-      <div class="card" data-cat="chupetines">
-        <img src="img/mc.jpg" loading="lazy" alt="Mc Donalds"  >
-        <h3>Chupetines con led Mc Donalds (30u)</h3>
-        <p>$12.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="chupetines">
-        <img src="img/hongos.png" loading="lazy" alt="Chupetines con formas"  >
-        <h3>Chupetines Hongos (30u)</h3>
-        <p>$9.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="pastillas">
-        <img src="img/spider.jpeg" loading="lazy" alt="Cars"  >
-        <h3>Spider-Man con pastillitas (30u)</h3>
-        <p>$13.800</p>
-        <button class="btn-carrito">Agregar al carrito</button>   
-      </div>
-
-     <div class="card card-video">
-      <div class="modal-media"></div>
-        <img src="img/fotodinosaurio.jpg" loading="lazy" alt="Dinosaurio">
-        <video class="video-hover"
-              src="img/videodinosaurio.mp4"
-              muted
-              loop
-              playsinline>
-        </video>
-        <h3>Dinosaurio con caramelos y luces (1 unidad)</h3>
-        <p>$9.400</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="gomitasblandas">
-        <img src="img/gomitasoh.jpg" loading="lazy" alt="Gomitas ojo boca ojo"  >
-        <h3>Gomitas ojo-boca-ojo (30u)</h3>
-        <p>$11.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>  
-      </div>
-
-      <div class="card">
-        <img src="img/mechasMario1.jpg" loading="lazy" alt="Mechas magicas"  >
-        <h3>Mechas mágicas Mario Bros (30u)</h3>
-        <p>$13.900</p>
-        <button class="btn-carrito">Agregar al carrito</button> 
-      </div>     
-      
-      <div class="card" data-cat="gomitasblandas">
-        <img src="img/supermario1.jpg" loading="lazy" alt="super mario"  >
-        <h3>Gomitas Super Mario (30u)</h3>
-        <p>$8.300</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="caramelos">
-        <img src="img/mecha.jpg" loading="lazy" alt="Mechas magicas"  >
-        <h3>Mechas mágicas Simpsons (30u)</h3>
-        <p>$13.900</p>
-        <button class="btn-carrito">Agregar al carrito</button> 
-      </div>
--->
-      <div class="card" data-cat="caramelos">
-        <img src="img/superacidos.jpg" loading="lazy" alt=" fierita caramelos masticables">
-        <h3>Caramelos Super Acidos Lipo (454 g)</h3>
-        <p>$6.300</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-      <!--
-      <div class="card" data-cat="caramelos">
-        <img src="img/intensa.png" loading="lazy" alt="Mechas magicas">
-        <h3>Mechas mágicas Intensamente (30u)</h3>
-        <p>$13.900</p>
-        <button class="btn-carrito">Agregar al carrito</button> 
-      </div> 
- 
-      <div class="card" data-cat="caramelos">
-        <img src="img/mechaslilo1.png" loading="lazy" alt="Mechas magicas">
-        <h3>Mechas mágicas Lilo y Stitch (30u)</h3>
-        <p>$13.900</p>
-        <button class="btn-carrito">Agregar al carrito</button> 
-      </div>   
-   
-     <div class="card" data-cat="pastillas">
-        <img src="img/fantasmita.jpg" loading="lazy" alt="Fantasmita"  >
-        <h3>Fantasmita con pastillitas y sonido (30u)</h3>
-        <p>$11.900👻</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="gomitasblandas">
-        <img src="img/bob.jpeg" loading="lazy" alt="Bob Esponja"  >
-        <h3>Gomitas Bob Esponja (60u)</h3>
-        <p>$17.000</p>
-        <button class="btn-carrito">Agregar al carrito</button> 
-      </div>
-
-      <div class="card" data-cat="gomitasblandas">
-        <img src="img/donas.jpg" loading="lazy" alt="Donas"  >
-        <h3>Gomitas Donas 🍩 (30u)</h3>
-        <p>$7.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>  
-      </div>
-
-      <div class="card" data-cat="gomitasblandas">
-        <img src="img/gomitasblandas5.jpg" loading="lazy" alt="Gomitas among us"  >
-        <h3>Gomitas Among Us (30u)</h3>
-        <p>$7.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>   
-      </div>
-
-      <div class="card" data-cat="gomitasblandas">
-        <img src="img/poke3.jpg" loading="lazy" alt="Gomitas"  >
-        <h3>Gomitas Pokémon (30u)</h3>
-        <p>$9.400</p>
-        <button class="btn-carrito">Agregar al carrito</button>   
-      </div>
-
-      <div class="card" data-cat="gomitasblandas">
-        <img src="img/kuromygomita.png" loading="lazy" alt="Gomitas kuromy"  >
-        <h3>Gomitas Kuromy (30u)</h3>
-        <p>$9.000</p>
-        <button class="btn-carrito">Agregar al carrito</button>  
-      </div>
--->
-      <div class="card" data-cat="gomitasblandas">
-        <img src="img/astronauta.png" loading="lazy" alt="Gomitas among us">
-        <h3>Gomitas Astronauta (30u)</h3>
-        <p>$9.400</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card card-oblita" data-index="0" data-cat="galletitas">
-        <div class="img-container">
-          <span class="flecha izq" onclick="event.stopPropagation(); cambiarVariante(this, -1)">←</span> <img
-            src="img/oblitafrutilla.jpg" loading="lazy"> <span class="flecha der"
-            onclick="event.stopPropagation(); cambiarVariante(this, 1)">→</span>
-        </div>
-        <h3>Oblita de Frutilla (48u)</h3>
-        <p>$6.900</p>
-        <button class="btn-carrito" data-nombre="Oblita de Frutilla (48u)" data-precio="6900"> Agregar al
-          carrito</button>
-      </div>
-
-      <div class="card card-triple" data-index="0" data-cat="alfajores">
-        <div class="img-container">
-          <span class="flecha izq" onclick="event.stopPropagation(); cambiarVariante(this, -1)">←</span> <img
-            src="img/guayblanco.jpg" loading="lazy" alt="Alfajor"> <span class="flecha der"
-            onclick="event.stopPropagation(); cambiarVariante(this, 1)">→</span>
-        </div>
-        <h3>Alfajor Guaymallén Triple Blanco (12u)</h3>
-        <p>$8.900</p>
-        <button class="btn-carrito" data-nombre="Alfajor Guaymallén Triple Blanco (12u)" data-precio="8900"> Agregar al
-          carrito</button>
-      </div>
-
-      <div class="card card-simple" data-index="0" data-cat="alfajores">
-        <div class="img-container">
-          <span class="flecha izq" onclick="event.stopPropagation(); cambiarVariante(this, -1)">←</span> <img
-            src="img/guaysimpleblanco.jpg" loading="lazy" alt="Alfajor"> <span class="flecha der"
-            onclick="event.stopPropagation(); cambiarVariante(this, 1)">→</span>
-        </div>
-        <h3>Alfajor Guaymallén simple Blanco (10u)</h3>
-        <p>$4.900</p>
-        <button class="btn-carrito" data-nombre="Alfajor Guaymallén simple Blanco (10u)" data-precio="4900"> Agregar al
-          carrito</button>
-      </div>
-
-      <div class="card card-globos" data-index="0" data-cat="chicles">
-        <div class="img-container">
-          <span class="flecha izq" onclick="event.stopPropagation(); cambiarVariante(this, -1)">←</span>
-          <img src="img/recargadofrutilla.png" loading="lazy" alt="Chicles">
-          <span class="flecha der" onclick="event.stopPropagation(); cambiarVariante(this, 1)">→</span>
-        </div>
-        <h3>Chicle Fierita Globo sabor Frutilla (95u)</h3>
-        <p>$7.900</p>
-        <button class="btn-carrito" data-nombre="Chicle Fierita Globo sabor Frutilla (95u)" data-precio="7900">
-          Agregar al carrito
-        </button>
-      </div>
-
-      <div class="card card-recargado" data-index="0" data-cat="chicles">
-        <div class="img-container">
-          <span class="flecha izq" onclick="event.stopPropagation(); cambiarVariante(this, -1)">←</span><img
-            src="img/recargadomenta.png" loading="lazy"><span class="flecha der"
-            onclick="event.stopPropagation(); cambiarVariante(this, 1)">→</span>
-        </div>
-        <h3>Chicle Fierita Recargado - Menta (50u)</h3>
-        <p>$6.900</p>
-        <button class="btn-carrito" data-nombre="Chicle Fierita Recargado - Menta (50u)" data-precio="6900">Agregar al
-          carrito</button>
-      </div>
-
-      <div class="card card-alka" data-index="0" data-cat="pastillas">
-        <div class="img-container">
-          <span class="flecha izq" onclick="event.stopPropagation(); cambiarVariante(this, -1)">←</span> <img
-            src="img/alkamenta.jpeg" loading="lazy" alt="Pastillas Alka sabor Menta (12u)"> <span class="flecha der"
-            onclick="event.stopPropagation(); cambiarVariante(this, 1)">→</span>
-        </div>
-        <h3>Pastillas Alka sabor Menta (12u) 🌿</h3>
-        <p>$6.900</p>
-        <button class="btn-carrito" data-nombre="Pastillas Alka sabor Menta (12u)" data-precio="6900"> Agregar al
-          carrito</button>
-      </div>
-
-      <div class="card card-drf" data-index="0" data-cat="pastillas">
-        <div class="img-container">
-          <span class="flecha izq" onclick="event.stopPropagation(); cambiarVariante(this, -1)">←</span> <img
-            src="img/drfmenta.jpeg" loading="lazy" alt="Pastillas D.R.F Sabor Menta (12u)"> <span class="flecha der"
-            onclick="event.stopPropagation(); cambiarVariante(this, 1)">→</span>
-        </div>
-        <h3>Pastillas D.R.F Sabor Menta (12u)</h3>
-        <p>$6.200</p>
-        <button class="btn-carrito" data-nombre="Pastillas D.R.F Sabor Menta (12u)" data-precio="6200"> Agregar al
-          carrito</button>
-      </div>
-
-      <div class="card" data-cat="alfajores">
-        <img src="img/riquitosimple.jpg" loading="lazy" alt="Alfajor">
-        <h3>Riquito Alfajor Simple DDL (10u)</h3>
-        <p>$2.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-      <!--
-      <div class="card" data-cat="caramelos">
-        <img src="img/tnt.jpg" loading="lazy" alt="Caramelo"  >
-        <h3>Tnt super ácido</h3>
-        <p>$7.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
- 
-      <div class="card" data-cat="gomitasblandas">
-        <img src="img/sacalenguas.jpeg" loading="lazy" alt="Sacalenguas"  >
-        <h3>Saca lenguas (30u)</h3>
-        <p>$11.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="chocolates">
-        <img src="img/smackbar30.jpg" loading="lazy" alt="Smack bar."  >
-        <h3>Smack Bar (30u)</h3>
-        <p>$9.400</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div> 
- 
-      <div class="card" data-cat="chocolates">
-        <img src="img/nutello60.jpg" loading="lazy" alt="Nutello"  >
-        <h3>Nutello (60u)</h3>
-        <p>$12.500</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="gomitasblandas">
-        <img src="img/frutilla60.png" loading="lazy" alt="Frutillas"  >
-        <h3>Gomitas Frutillas (60u)</h3>
-        <p>$18.500</p>
-        <button class="btn-carrito">Agregar al carrito</button> 
-      </div>
-
-        <div class="card" data-cat="chocolates">
-          <img src="img/surtidoespecial.jpg" loading="lazy" alt="Smack bar."  >
-          <h3>Chocolates Surtido Especial Arcor 223g</h3>
-          <p>$8.500</p>
-          <button class="btn-carrito">Agregar al carrito</button> 
-        </div>
-
-      <div class="card" data-cat="chocolates">
-        <img src="img/bombones_surtidos.jpg" loading="lazy" alt="Bombones Surtidos"  >
-        <h3>Bocaditos Bel (50u)</h3>
-        <p>$9.500</p>
-        <button class="btn-carrito">Agregar al carrito</button>  
-      </div>
-
-      <div class="card" data-cat="chicles">
-        <img src="img/fieritacomefuego.jpg" loading="lazy" alt="Chicles"  >
-        <h3>Chicle ácido Fierita Come Fuego Sabor Tutti Frutti (50u)</h3>
-        <p>$6.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-        <div class="card" data-cat="chocolates">
-          <img src="img/morang.jpg" loading="lazy" alt="Moranguete"  >
-          <h3>Moranguete 450g</h3>
-          <p>$9.500</p>
-          <button class="btn-carrito">Agregar al carrito</button>  
-        </div>
-
-        <div class="card">
-          <img src="img/barbiexmetro.jpg" loading="lazy" alt="Chicle por metro"  >
-          <h3>Chicle por metro Barbie con Tatoo (30u)</h3>
-          <p>$12.500</p>
-          <button class="btn-carrito">Agregar al carrito</button>  
-        </div>
-
-        <div class="card" data-cat="chupetines">
-          <img src="img/lenguaazul.jpg" loading="lazy" alt="fierita"  >
-          <h3>Chupetines Fierita Lengua Azul (50u)</h3>
-          <p>$9.900</p>
-          <button class="btn-carrito">Agregar al carrito</button>
-        </div>
-
-        <div class="card" data-cat="chupetines">
-          <img src="img/fieritacremosito.jpg" loading="lazy" alt="fierita"  >
-          <h3>Chupetines Cremosito Fierita - Frutilla y Crema (50u)</h3>
-          <p>$9.900</p>
-          <button class="btn-carrito">Agregar al carrito</button>
-        </div>
-
-       <div class="card" data-cat="alfajores">
-          <img src="img/bonobon3.jpeg" loading="lazy" alt="Alfajor"  >
-          <h3>Alfajor Bon o Bon Triple (3u)</h3>
-          <p>$8.400</p>
-          <button class="btn-carrito">Agregar al carrito</button>  
-        </div>
-
-      <div class="card card-triple6" data-index="0" data-cat="alfajores">
-        <div class="img-container">
-          <span class="flecha izq" onclick="event.stopPropagation(); cambiarVariante(this, -1)">←</span> <img src="img/guayddl.jpg" loading="lazy" alt="Alfajor"> <span class="flecha der" onclick="event.stopPropagation(); cambiarVariante(this, 1)">→</span>
-        </div>
-        <h3>Alfajor Guaymallén Triple Negro (6u)</h3>
-        <p>$4.500</p>
-        <button class="btn-carrito" data-nombre="Alfajor Guaymallén Triple Negro (6u)" data-precio="4500"> Agregar al carrito</button>
-      </div>
-
-        <div class="card" data-cat="gomitas500">
-          <img src="img/yummycrema.jpeg" loading="lazy" alt="Mogul frutilla con crema"  >
-          <h3>Yummy Frutilla con Crema 500g</h3>
-          <p>$8.500</p>
-          <button class="btn-carrito">Agregar al carrito</button>   
-        </div>
-
-        <div class="card" data-cat="gomitas500">
-          <img src="img/mogulfrutillaconcrema.jpg" loading="lazy" alt="Mogul frutilla con crema"  >
-          <h3>Gomitas Mogul Frutilla con Crema 500g</h3>
-          <p>$9.400</p>
-          <button class="btn-carrito">Agregar al carrito</button>   
-        </div>
-
-        <div class="card" data-cat="gomitas500">
-          <img src="img/yummy_ositos.webp" alt="Yummy"  >
-          <h3>Gomitas Yummy Ositos ácidos 500g</h3>
-          <p>$8.500</p>
-          <button class="btn-carrito">Agregar al carrito</button>    
-        </div>
-
-        <div class="card" data-cat="gomitas500">
-          <img src="img/yummyacidas.jpg" loading="lazy" alt="Yummy"  >
-          <h3>Gomitas Yummy ácidas 500g</h3>
-          <p>$8.500</p>
-          <button class="btn-carrito">Agregar al carrito</button>    
-        </div>
-
-      <div class="card" data-cat="alfajores">
-        <img src="img/guaysimplenegro.jpg" loading="lazy" alt="Alfajor"  >
-        <h3>Alfajor Guaymallén simple Negro (10u)</h3>
-        <p>$4.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>  
-      </div>
-
-        <div class="card" data-cat="gomitas500">
-          <img src="img/yummy_moritas.jpg" loading="lazy" alt="Yummy"  >
-          <h3>Gomitas Yummy Moritas 500g</h3>
-          <p>$8.500</p>
-          <button class="btn-carrito">Agregar al carrito</button>    
-        </div>
-
-        <div class="card" data-cat="gomitas500">
-          <img src="img/moguldientes.jpg" loading="lazy" alt="Mogul Dientes"  >
-          <h3>Gomitas Mogul Dientes 500g</h3>
-          <p>$7.900</p>
-          <button class="btn-carrito">Agregar al carrito</button>
-        </div>
-
-        <div class="card" data-cat="gomitas500" >
-          <img src="img/moritasmogul.jpg" loading="lazy" alt="Mogul Moritas"  >
-          <h3>Gomitas Mogul Moritas 500g</h3>
-          <p>$9.400</p>
-          <button class="btn-carrito">Agregar al carrito</button>   
-        </div>
-
-        <div class="card" data-cat="huevos">
-          <img src="img/sorpresaprincesa.png" loading="lazy" alt="Sorpresa"  >
-          <h3>Huevos Sorpresa Princesas (30u)</h3>
-          <p>$14.500</p>
-          <button class="btn-carrito">Agregar al carrito</button>  
-        </div>
---->
-      <div class="card" data-cat="caramelos">
-        <img src="img/fieritagranjero.jpg" loading="lazy" alt=" fierita caramelos masticables">
-        <h3>Caramelos masticables Fierita Granjero (100u)</h3>
-        <p>$4.500</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="gomitas500">
-        <img src="img/yummydientes.jpeg" loading="lazy" alt="Yummy">
-        <h3>Gomitas Yummy Dientes 500g</h3>
-        <p>$8.500</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="gomitas500">
-        <img src="img/ricomas.jpg" loading="lazy" alt="RiCo Mas">
-        <h3>Gomitas RiCo Más 500g</h3>
-        <p>$6.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <!-- 
-    
-        <div class="card" data-cat="chupetines">
-          <img src="img/fieritanitro.jpg" loading="lazy" alt="fierita"  >
-          <h3>Chupetines Fierita Nitro (50u)</h3>
-          <p>$9.900</p>
-          <button class="btn-carrito">Agregar al carrito</button>
-        </div>
-
-        <div class="card" data-cat="chupetines">
-          <img src="img/tatoofrutilla.jpg" loading="lazy" alt="fierita"  >
-          <h3>Fierita Super Tatoo Frutilla 600g</h3>
-          <p>$9.900</p>
-          <button class="btn-carrito">Agregar al carrito</button>
-        </div>
-
-        <div class="card" data-cat="chupetines">
-          <img src="img/tatootutti.jpg" loading="lazy" alt="fierita"  >
-          <h3>Fierita Super Tatoo Tutti Frutti 600g</h3>
-          <p>$9.900</p>
-          <button class="btn-carrito">Agregar al carrito</button>
-        </div>
-
-      <div class="card" data-cat="turrones">
-        <img src="img/turronmisky.png" loading="lazy" alt="Turrones"  >
-        <h3>Turrón Misky (10u)</h3>
-        <p>$3.500</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
--->
-      <div class="card">
-        <img src="img/bombulla.png" loading="lazy" alt="Bombuchas">
-        <h3>Bombuchas (100u)</h3>
-        <p>$1.500</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="bultos">
-        <img src="img/botellitas.jpg" loading="lazy" alt="Botellitas con chicles">
-        <h3>Botellitas con chicles — 30 unidades por pack, caja x10 packs</h3>
-        <p>$112.000</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="bultos">
-        <img src="img/unicornioled1.png" loading="lazy" alt="Chupetines Led">
-        <h3>Chupetines con led Unicornio — 30 unidades por pack, caja x10 packs</h3>
-        <p>$105.000</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="combo" data-combo="1">
-        <img src="img/combo1.png" loading="lazy" alt="Combo 1">
-        <h3>Combo Especial (12 productos)</h3>
-        <p>$99.000</p>
-        <button class="btn-detalle" onclick="mostrarDetalleCombo(1)">
-          👀 Ver detalle
-        </button>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="combo" data-combo="2">
-        <img src="img/combo2.png" loading="lazy" alt="Combo 2">
-        <h3>Combo 2 (12 productos)</h3>
-        <p>$99.000</p>
-        <button class="btn-detalle" onclick="mostrarDetalleCombo(2)">
-          👀 Ver detalle
-        </button>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="combo" data-combo="3">
-        <img src="img/combo3.png" loading="lazy" alt="Combo 3">
-        <h3>Combo 3 (12 productos)</h3>
-        <p>$99.000</p>
-        <button class="btn-detalle" onclick="mostrarDetalleCombo(3)">
-          👀 Ver detalle
-        </button>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-
-
-      <div class="card card-instagram">
-        <blockquote class="instagram-media" data-instgrm-captioned
-          data-instgrm-permalink="https://www.instagram.com/reel/DXrgMD5AhVP/?utm_source=ig_embed&amp;utm_campaign=loading"
-          data-instgrm-version="14">
-        </blockquote>
-        <script async src="//www.instagram.com/embed.js"></script>
-      </div>
-
-      <div class="card-instagram card">
-        <iframe
-          src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fmercadito.del.pueblo.2025%2Fposts%2Fpfbid02gEL4U2MNKMcFEw7n3gwPn9upnQJ7XxVbdWEvJ6i9Nh7ZP6pVZ7Ps5ayD7zD852Vgl&show_text=true&width=500"
-          width="500" height="581" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
-          allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-        </iframe>
-
-        <a href="https://www.facebook.com/mercadito.del.pueblo.2025" target="_blank" class="facebook-link">
-          Ver más publicaciones →
-        </a>
-      </div>
-
-      <!--
-      <div class="card card-globosgrandes" data-index="0">
-        <div class="img-container">
-          <span class="flecha izq" onclick="event.stopPropagation(); cambiarVariante(this, -1)">←</span> <img src="img/globosgrandes1.jpeg" loading="lazy" alt="Globos"> <span class="flecha der" onclick="event.stopPropagation(); cambiarVariante(this, 1)">→</span>
-        </div>
-        <h3>Globo Unicornio Blanco 24 pulgdas (1 unidad)</h3>
-        <p>$2.500</p>
-        <button class="btn-carrito" data-nombre="Globo Unicornio 24 pulgdas (1 unidad)" data-precio="2500"> Agregar al carrito</button>
-      </div>
-
-       <div class="card card-bulldog" data-index="0" data-cat="gomitasblandas">
-        <div class="img-container">
-          <span class="flecha izq" onclick="event.stopPropagation(); cambiarVariante(this, -1)">←</span> <img src="img/cajabulldoggframbuesa.png" loading="lazy" alt="Bull Dog 360 g de Frambuesa Ácida"> <span class="flecha der" onclick="event.stopPropagation(); cambiarVariante(this, 1)">→</span>
-        </div>
-        <h3>Bull Dog 360 g de Frambuesa Ácida</h3>
-        <p>$7.900</p>
-        <button class="btn-carrito" data-nombre="Bull Dog 360 g de Frambuesa Ácida" data-precio="7900"> Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="pastillas">
-        <img src="img/r11.png" loading="lazy" alt="Camisetas"  >
-        <h3>Camiseta Pinball con pastillitas (30u)</h3>
-        <p>$13.800</p>
-        <button class="btn-carrito">Agregar al carrito</button>   
-      </div>
-
-      <div class="card" data-cat="chupetines">
-        <img src="img/donit1.jpg" loading="lazy" alt="Donut"  >
-        <h3>Chupetines con led Simpsons (30u)</h3>
-        <p>$10.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>
-      </div>
-
-      <div class="card" data-cat="chupetines">
-        <img src="img/donaled1.png" loading="lazy" alt="Kuromy"  >
-        <h3>Chupetines Donas con led (30u)</h3>
-        <p>$12.900</p>
-        <button class="btn-carrito">Agregar al carrito</button>  
-      </div>
-
-    <div class="card card-camiseta">
-        <img src="img/camiseta1.jpeg" loading="lazy">
-        <h3>Camiseta</h3>
-        <p>$17.000</p>
-        <select class="talle-select">
-          <option value="" selected disabled>Seleccioná un talle</option>
-          <option value="S">S</option>
-          <option value="M">M</option>
-          <option value="L">L</option>
-          <option value="XL">XL</option>
-        </select>
-        <button class="btn-carrito">Agregar al carrito</button>
-    </div>
-   -->
-    </div>
-
-    <!-- MODALl DE PRODUCTO -->
-    <div id="modal" class="modal">
-      <div class="modal-content">
-
-        <span class="close">&times;</span>
-
-        <div class="modal-body">
-          <img id="modal-img" class="modal-img" src="" alt="Producto">
-          <p id="modal-title" class="modal-title"></p>
-          <p id="modal-precio" class="modal-precio"></p>
-        </div>
-
-        <div class="modal-botones">
-          <button id="modal-agregar" class="btn-carrito">Agregar al carrito</button>
-        </div>
-
-      </div>
-    </div>
-
+      <div class="portada-ilustracion" aria-hidden="true">
+        <div class="circulo circulo-grande"></div>
+        <img class="logo-centro-portada" src="img/logoAries.png" alt="">
+        <div class="dulce dulce-uno">🍭</div>
+        <div class="dulce dulce-dos">🍬</div>
+        <div class="dulce dulce-tres">🍫</div>
+        <div class="dulce dulce-cuatro">🍩</div>
+        <span class="destello destello-uno">✦</span>
+        <span class="destello destello-dos">✧</span>
+      </div>
+    </section>
+
+    <section class="franja-info" aria-label="Información de compra">
+      <div><span>🍭</span><p><strong>Gran variedad</strong><small>Para todos los gustos</small></p></div>
+      <div><span>📦</span><p><strong>Compra mayorista</strong><small></small></p></div>
+      <div><span>🚚</span><p><strong>Envios a todo el país</strong><small></small></p></div>
+    </section>
+
+    <section class="catalogo" id="catalogo">
+      <div class="seccion-cabecera">
+        <div><span class="etiqueta">DESCUBRÍ NUESTROS PRODUCTOS</span><h2>Catálogo:</h2></div>
+      </div>
+      <div class="categorias" id="categorias" aria-label="Categorías de productos">
+        <button class="categoria activa" type="button" data-categoria="Todas">✨ Todo</button>
+        <button class="categoria" type="button" data-categoria="Bultos cerrados">📦 Bultos cerrados</button>
+        <button class="categoria" type="button" data-categoria="Combos">🎁 Combos</button>
+        <button class="categoria" type="button" data-categoria="Gomitas blandas">🍬 Gomitas blandas</button>
+        <button class="categoria" type="button" data-categoria="Chupetines">🍭 Chupetines</button>
+        <button class="categoria" type="button" data-categoria="Caramelos">🍬 Caramelos</button>
+        <button class="categoria" type="button" data-categoria="Pastillitas">🌈 Pastillitas</button>
+        <button class="categoria" type="button" data-categoria="Huevos sorpresa">🥚 Huevos sorpresa</button>
+        <button class="categoria" type="button" data-categoria="Chicles">🫧 Chicles</button>
+        <button class="categoria" type="button" data-categoria="Alcancías">🐷 Alcancías</button>
+        <button class="categoria" type="button" data-categoria="Gomitas 500 g">🍓 Gomitas 500 g</button>
+        <button class="categoria" type="button" data-categoria="Galletitas">🍪 Galletitas</button>
+        <button class="categoria" type="button" data-categoria="Turrones">🍯 Turrones</button>
+        <button class="categoria" type="button" data-categoria="Alfajores">🍫 Alfajores</button>
+      </div>
+      <div class="aviso-deslizar" id="aviso-deslizar" aria-hidden="true">
+        <span>Deslizá para ver más opciones</span>
+        <span class="flechas-deslizar">→</span>
+      </div>
+      <div class="rejilla-productos" id="productos">
+        <div class="estado-vacio"><span>🍬</span><h3>¡Muy pronto!</h3><p>Estamos organizando el catálogo para que encuentres tus golosinas fácilmente.</p></div>
+      </div>
+    </section>
   </main>
 
-  <footer>
-    <a href="contacto.html" style="display:inline-flex; align-items:center; gap:8px;
-   font-size:1.3rem; letter-spacing:2px;
-   color:#fff; text-decoration:none;
-   padding:10px 16px; margin:0.3rem;
-   border-radius:999px;
-   background:linear-gradient(135deg,#D946EF,#EC4899);
-   box-shadow:0 8px 20px rgba(0,0,0,0.2);
-   transition:all 0.3s ease;">
+  <aside class="panel-carrito" id="panel-carrito" aria-label="Tu pedido" aria-hidden="true">
+    <div class="carrito-cabecera"><div><span class="etiqueta">TU COMPRA</span><h2>Mi pedido</h2></div><button id="cerrar-carrito" class="cerrar" type="button" aria-label="Cerrar carrito">✕</button></div>
+    <div class="carrito-acciones">
+      <span>Productos de tu pedido</span>
+      <button id="vaciar-carrito" class="boton-vaciar-carrito" type="button">Vaciar carrito</button>
+    </div>
+    <div id="items-carrito" class="items-carrito"><p class="carrito-vacio">Todavía no agregaste productos.</p></div>
+    <div class="calcular-envio">
+      <label for="codigo-postal">¿Querés calcular el envío?</label>
+      <div class="fila-envio">
+        <input id="codigo-postal" type="text" inputmode="numeric" placeholder="Tu código postal" maxlength="10">
+        <button id="calcular-envio" type="button">Consultar</button>
+      </div>
+      <p id="resumen-envio" class="resumen-envio">Ingresá tu código postal para calcular el envío.</p>
+    </div>
+    <div class="carrito-pie"><div class="total"><span>Total</span><strong id="total-carrito">$0</strong></div><button id="finalizar-pedido" class="boton-principal boton-ancho" type="button" disabled>Continuar por WhatsApp →</button><small>El pedido se confirma al coordinar por WhatsApp.</small></div>
+  </aside>
+  <div class="fondo-panel" id="fondo-panel"></div>
 
-      <span class="icono" style="font-size:1.3rem;">📱</span>
-      Redes
+  <section id="contacto" class="seccion-contacto">
+    <span class="etiqueta">ESTAMOS PARA AYUDARTE</span>
+    <h2>Contacto</h2>
+    <p>¿Tenés dudas sobre los productos, tu pedido o el envío?</p>
+    <a href="https://wa.me/542236010443?text=Hola%2C%20vengo%20del%20cat%C3%A1logo%20y%20tengo%20una%20consulta%20%F0%9F%8D%AD" target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a>
+    <div class="enlaces-redes">
+      <a href="https://www.instagram.com/reel/DXrgMD5AhVP/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.facebook.com/mercadito.del.pueblo.2025" target="_blank" rel="noopener noreferrer">Facebook</a>
+    </div>
+  </section>
+
+    <footer class="pie footer-aries">
+    <a class="footer-marca" href="#" aria-label="Golosinas Aries, inicio">
+      <img src="img/logoAries.png" alt="Logo de Golosinas Aries" loading="lazy">
     </a>
 
+    <p class="footer-frase">Un poquito de dulzura para cada día.</p>
+
+    <div class="social-buttons-wrapper">
+      <p class="footer-redes-titulo">¡Seguinos en nuestras redes!</p>
+      <div class="social-buttons">
+        <a href="https://instagram.com/golosinasaries"
+           target="_blank" rel="noopener noreferrer"
+           class="social-btn instagram" aria-label="Instagram de Golosinas Aries">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
+          Instagram
+        </a>
+
+        <a href="https://www.facebook.com/profile.php?id=61577104861271"
+           target="_blank" rel="noopener noreferrer"
+           class="social-btn facebook" aria-label="Facebook de Golosinas Aries">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.3V13h2.8v8z"/></svg>
+          Facebook
+        </a>
+
+        <a href="https://wa.me/542236010443?text=Hola%2C%20vengo%20del%20cat%C3%A1logo%20y%20tengo%20una%20consulta%20%F0%9F%8D%AD"
+           target="_blank" rel="noopener noreferrer"
+           class="social-btn whatsapp" aria-label="WhatsApp de Golosinas Aries">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a9.8 9.8 0 0 0-8.4 14.8L2.3 22l5.4-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.4-.2-3.2.8.9-3.1-.3-.5A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.8.9-.3.2-.5.1a6.5 6.5 0 0 1-1.9-1.2 7 7 0 0 1-1.3-1.6c-.1-.2 0-.3.1-.5l.4-.4.2-.4c.1-.2 0-.3 0-.4s-.5-1.2-.7-1.6-.4-.3-.5-.3h-.5c-.2 0-.4.1-.6.3s-.8.8-.8 1.9.8 2.2.9 2.3a9.8 9.8 0 0 0 3.8 3.4c.5.2.9.4 1.2.4.5.2 1 .2 1.4.1.4-.1 1.4-.6 1.6-1.1s.2-1 .2-1.1-.1-.2-.3-.3z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+
     <div class="footer-credito">
-
-      <span>Hecho con </span>
-
+      <span>Hecho por</span>
       <a href="https://api.whatsapp.com/send?phone=5492291570129&text=Hola%21%20Golosinas%20Aries%20me%20recomend%C3%B3%20tu%20servicio%20y%20me%20gustar%C3%ADa%20tener%20mi%20propia%20p%C3%A1gina%20web."
-        target="_blank" rel="noopener noreferrer"
-        style="display:inline-flex; align-items:center; gap:8px; color:#fff; text-decoration:none;">
-        Tecnoideas
-        <img src="https://golosinasaries.github.io/catalogo/img/TI.png" loading="lazy" alt="Tecnoideas"
-          class="ti-icono">
+         target="_blank" rel="noopener noreferrer">
+        Tecnoideas <img src="img/TI.png" alt="Tecnoideas" class="ti-icono" loading="lazy">
       </a>
-
     </div>
-
   </footer>
-
-  <!-- Botón flotante-->
-  <div id="whatsapp-btn">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" loading="lazy" alt="">
-    <span>Grupo de ofertas 🍭</span>
-  </div>
-
-  <a id="whatsapp-consulta"
-    href="https://wa.me/542236010443?text=Hola%20vengo%20del%20cat%C3%A1logo%20y%20tengo%20una%20consulta%20%F0%9F%8D%AD"
-    target="_blank" rel="noopener noreferrer">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" loading="lazy" alt="">
-  </a>
-
-  <!-- Cartel flotante general -->
-  <div id="toast" class="toast"></div>
-
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
-  <div id="modal-cp" class="modal-cp" style="display:none;">
-    <div class="modal-cp-content">
-
-      <h3>📍 Ingresá tu código postal:</h3>
-      <input type="text" id="cp-input" placeholder="Ejemplo: 7600" />
-
-      <div class="modal-cp-buttons">
-        <button id="cp-cancelar">Cancelar</button>
-        <button id="cp-confirmar">Aceptar</button>
-        <button id="retirar-miramar">📍 Retirar en Miramar, Bs As</button>
-      </div>
-
-    </div>
-  </div>
-
-  <a href="#" class="back-to-top" title="Volver arriba">
-    ↑
-  </a>
-
-  <div id="modal-pago" class="modal-pago">
-    <div class="modal-pago-content">
-
-      <span class="cerrar-pago">&times;</span>
-      <h2>💳 Cómo pagar</h2>
-      <p>Transferencia bancaria 👇</p>
-
-      <div class="datos-pago">
-        <p><strong>👤 Titular:</strong> Ana Maria Montiel</p>
-        <p>
-          <strong>🏷️ Alias:</strong> ana.maria.montiel
-          <button onclick="copiarAlias()" class="btn-copiar">Copiar</button>
-          <span id="copiado-msg" class="copiado-msg">Copiado ✔</span>
-        </p>
-        <p><strong>🏦 CVU:</strong> 0000003100012664749584</p>
-        <p><strong>🪪 CUIT/CUIL:</strong> 27-20845773-5</p>
-      </div>
-
-      <div class="aviso-pago">
-        ⚠️ Este es el único alias para pagos. No realizamos cobros por otros alias ni cuentas. 😊
-      </div>
-
-      <a href="https://wa.me/542236010443?text=Hola%20tengo%20una%20consulta%20sobre%20el%20pago%20de%20mi%20pedido"
-        target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:8px;margin-top:10px;">
-
-        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" loading="lazy"
-          style="width:40px;height:40px;">
-
-        <span>Consulta sobre el pago</span>
-      </a>
-
-    </div>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="js/script.js"></script>
-
-  <div id="modal-combo" class="modal-combo">
-    <div class="modal-combo-contenido"></div>
-  </div>
-
-
 </body>
-
 </html>
+
+
+
+

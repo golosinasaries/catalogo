@@ -1,0 +1,453 @@
+[
+    {
+        "nombre":  "Chupetines Halloween (30u)",
+        "imagen":  "img/Halloween.jpeg",
+        "precio":  10900,
+        "categoria":  "Chupetines"
+    },
+    {
+        "nombre":  "Chupetines Halloween 3 en 1 (30u)",
+        "imagen":  "img/halloween3.png",
+        "precio":  10900,
+        "categoria":  "Chupetines"
+    },
+    {
+        "nombre":  "Chupetines Merlina (30u)",
+        "imagen":  "img/merlina4.png",
+        "precio":  12500,
+        "categoria":  "Chupetines"
+    },
+    {
+        "nombre":  "Gomitas Ojos (30u)",
+        "imagen":  "img/ojos.png",
+        "precio":  9400,
+        "categoria":  "Gomitas blandas"
+    },
+    {
+        "nombre":  "Huevos Sorpresa Lilo y Stitch (30u)",
+        "imagen":  "img/sorpresasti.png",
+        "precio":  14500,
+        "categoria":  "Huevos sorpresa",
+        "agotado": true
+    },
+    {
+        "nombre":  "Huevos Sorpresa Dinos  (30u)",
+        "imagen":  "img/sorpresadino.png",
+        "precio":  14500,
+        "categoria":  "Huevos sorpresa"
+    },
+    {
+        "nombre":  "Botellitas con chicles (30u)",
+        "imagen":  "img/botellitas.jpg",
+        "precio":  12900,
+        "categoria":  "Chicles"
+    },
+    {
+        "nombre":  "Mielcitas Drink Candy (50u)",
+        "imagen":  "img/mielcitas.png",
+        "precio":  5500,
+        "categoria":  "Gomitas blandas"
+    },
+    {
+        "nombre":  "Chupetines Pelotitas (50u)",
+        "imagen":  "img/pelotitas.jpg",
+        "precio":  4900,
+        "categoria":  "Chupetines"
+    },
+    {
+        "nombre":  "Chupetines Pelotitas Pinta Lengua (50u)",
+        "imagen":  "img/pelotitaspintalengua.png",
+        "precio":  5500,
+        "categoria":  "Chupetines"
+    },
+    {
+        "nombre":  "Chupetines con led Capibara (30u)",
+        "imagen":  "img/capiled.png",
+        "precio":  12900,
+        "categoria":  "Chupetines"
+    },
+    {
+        "nombre":  "Chupetines con Led Oreo (30u)",
+        "imagen":  "img/oreoled.png",
+        "precio":  12900,
+        "categoria":  "Chupetines"
+    },
+    {
+        "nombre":  "Cool Mint pastillitas Frutales (30u)",
+        "imagen":  "img/coolmint.jpg",
+        "precio":  12800,
+        "categoria":  "Pastillitas"
+    },
+    {
+        "nombre":  "Pastillitas Lucky (385 g)",
+        "imagen":  "img/jucky.jpg",
+        "precio":  5800,
+        "categoria":  "Pastillitas"
+    },
+    {
+        "nombre":  "Ring Pop Barbie (30u)",
+        "imagen":  "img/ringpop.png",
+        "precio":  13900,
+        "categoria":  "Chupetines"
+    },
+    {
+        "nombre":  "Latitas con chicles (30 latitas)",
+        "imagen":  "img/latas.png",
+        "precio":  14900,
+        "categoria":  "Chicles"
+    },
+    {
+        "nombre":  "Gomitas Gallito (30u)",
+        "imagen":  "img/gallina.jpeg",
+        "precio":  9400,
+        "categoria":  "Gomitas blandas"
+    },
+    {
+        "nombre":  "Gomitas de Boca (30u)",
+        "imagen":  "img/boca.jpg",
+        "precio":  9000,
+        "categoria":  "Gomitas blandas"
+    },
+    {
+        "nombre":  "Gomitas de Boca nuevo (30u)",
+        "imagen":  "img/Boca.png",
+        "precio":  9400,
+        "categoria":  "Gomitas blandas"
+    },
+    {
+        "nombre":  "Alcancía Tigre Rojo (con 12 gelatinas en su interior)",
+        "imagen":  "img/tigrerojo.png",
+        "precio":  6900,
+        "categoria":  "Alcancías"
+    },
+    {
+        "nombre":  "Gomitas Frutillas (30u)",
+        "imagen":  "img/frutilla.png",
+        "precio":  9400,
+        "categoria":  "Gomitas blandas"
+    },
+    {
+        "nombre":  "Gomitas Gatitos (30u)",
+        "imagen":  "img/gatito.png",
+        "precio":  9400,
+        "categoria":  "Gomitas blandas"
+    },
+    {
+        "nombre":  "Chupetines con forma de Unicornio (30u)",
+        "imagen":  "img/unicornio.png",
+        "precio":  12900,
+        "categoria":  "Chupetines"
+    },
+    {
+        "nombre":  "Gomitas Macarron (30u)",
+        "imagen":  "img/macarron.png",
+        "precio":  9400,
+        "categoria":  "Gomitas blandas"
+    },
+    {
+        "nombre":  "Chicles WhatsApp Selección   Caja x20, 5 chicles cada uno",
+        "imagen":  "img/chicleseleccion.png",
+        "precio":  8500,
+        "categoria":  "Chicles"
+    },
+    {
+        "nombre":  "Gomitas Dinos (30u)",
+        "imagen":  "img/gomitasdinos.png",
+        "precio":  9400,
+        "categoria":  "Gomitas blandas"
+    },
+    {
+        "nombre":  "Chupetines 2 in 1 (60u)",
+        "imagen":  "img/dosenuno.png",
+        "precio":  11900,
+        "categoria":  "Chupetines"
+    },
+    {
+        "nombre":  "Gomitas Oreo (30u)",
+        "imagen":  "img/gomitasoreo.jpg",
+        "precio":  9400,
+        "categoria":  "Gomitas blandas"
+    },
+    {
+        "nombre":  "Cucuruchos Helado Frutilla (30u)",
+        "imagen":  "img/cucuruchohelado.png",
+        "precio":  14900,
+        "categoria":  "Galletitas"
+    },
+    {
+        "nombre":  "Gomita Helado (30u)",
+        "imagen":  "img/helado.png",
+        "precio":  10500,
+        "categoria":  "Gomitas blandas"
+    },
+    {
+        "nombre":  "Caramelos Super Acidos Lipo (454 g)",
+        "imagen":  "img/superacidos.jpg",
+        "precio":  6300,
+        "categoria":  "Caramelos"
+    },
+    {
+        "nombre":  "Gomitas Astronauta (30u)",
+        "imagen":  "img/astronauta.png",
+        "precio":  9400,
+        "categoria":  "Gomitas blandas"
+    },
+    {
+        "nombre":  "Oblita de Frutilla (48u)",
+        "imagen":  "img/oblitafrutilla.jpg",
+        "precio":  6900,
+        "categoria":  "Galletitas"
+    },
+    {
+        "nombre":  "Alfajor Guaymallen Triple Blanco (12u)",
+        "imagen":  "img/guayblanco.jpg",
+        "precio":  8900,
+        "categoria":  "Alfajores",
+        "agotado": true
+    },
+    {
+        "nombre":  "Alfajor Guaymallen simple Blanco (10u)",
+        "imagen":  "img/guaysimpleblanco.jpg",
+        "precio":  4900,
+        "categoria":  "Alfajores",
+        "agotado": true
+    },
+    {
+        "nombre":  "Chicle Fierita Globo sabor Frutilla (95u)",
+        "imagen":  "img/recargadofrutilla.png",
+        "precio":  7900,
+        "categoria":  "Chicles"
+    },
+    {
+        "nombre":  "Chicle Fierita Recargado - Menta (50u)",
+        "imagen":  "img/recargadomenta.png",
+        "precio":  6900,
+        "categoria":  "Chicles"
+    },
+    {
+        "nombre":  "Pastillas Alka sabor Menta (12u)",
+        "imagen":  "img/alkamenta.jpeg",
+        "precio":  6900,
+        "categoria":  "Pastillitas"
+    },
+    {
+        "nombre":  "Pastillas D.R.F Sabor Menta (12u)",
+        "imagen":  "img/drfmenta.jpeg",
+        "precio":  6200,
+        "categoria":  "Pastillitas"
+    },
+    {
+        "nombre":  "Riquito Alfajor Simple DDL (10u)",
+        "imagen":  "img/riquitosimple.jpg",
+        "precio":  2900,
+        "categoria":  "Alfajores"
+    },
+    {
+        "nombre":  "Caramelos masticables Fierita Granjero (100u)",
+        "imagen":  "img/fieritagranjero.jpg",
+        "precio":  4500,
+        "categoria":  "Caramelos"
+    },
+    {
+        "nombre":  "Gomitas Yummy Dientes 500g",
+        "imagen":  "img/yummydientes.jpeg",
+        "precio":  8500,
+        "categoria":  "Gomitas 500 g",
+        "agotado": true
+    },
+    {
+        "nombre":  "Gomitas RiCo Más 500g",
+        "imagen":  "img/ricomas.jpg",
+        "precio":  6900,
+        "categoria":  "Gomitas 500 g"
+    },
+    {
+        "nombre":  "Bombuchas (100u)",
+        "imagen":  "img/bombulla.png",
+        "precio":  1900,
+        "categoria":  "Otros"
+    },
+    {
+        "nombre":  "Botellitas con chicles  30 unidades por pack, caja x10 packs",
+        "imagen":  "img/botellitas.jpg",
+        "precio":  112000,
+        "categoria":  "Bultos cerrados"
+    },
+    {
+        "nombre":  "Chupetines con led Unicornio  30 unidades por pack, caja x10 packs",
+        "imagen":  "img/unicornioled1.png",
+        "precio":  105000,
+        "categoria":  "Bultos cerrados"
+    },
+    {
+        "nombre":  "Combo Especial (12 productos)",
+        "imagen":  "img/combo1.png",
+        "precio":  99000,
+        "categoria":  "Combos",
+        "totalAnterior":  107600,
+        "productosIncluidos":  [
+                                   {
+                                       "nombre":  "Gomitas RiCo Más 500g",
+                                       "precio":  6900
+                                   },
+                                   {
+                                       "nombre":  "Chupetines con led Unicornio (30u)",
+                                       "precio":  12900
+                                   },
+                                   {
+                                       "nombre":  "Chupetines Halloween 3 en 1 (30u)",
+                                       "precio":  10900
+                                   },
+                                   {
+                                       "nombre":  "Gomitas Ojos (30u)",
+                                       "precio":  9400
+                                   },
+                                   {
+                                       "nombre":  "Huevos Sorpresa Dinos (30u)",
+                                       "precio":  14500
+                                   },
+                                   {
+                                       "nombre":  "Botellitas con chicles (30u)",
+                                       "precio":  12900
+                                   },
+                                   {
+                                       "nombre":  "Chupetines Merlina (30u)",
+                                       "precio":  12500
+                                   },
+                                   {
+                                       "nombre":  "Mielcitas Drink Candy (50u)",
+                                       "precio":  5500
+                                   },
+                                   {
+                                       "nombre":  "Pastillitas Lucky (385 g)",
+                                       "precio":  5800
+                                   },
+                                   {
+                                       "nombre":  "Chupetines Pelotitas (50u)",
+                                       "precio":  4900
+                                   },
+                                   {
+                                       "nombre":  "Chicle Fierita Recargado - Menta (50u)",
+                                       "precio":  6900
+                                   },
+                                   {
+                                       "nombre":  "Caramelos masticables Fierita Granjero (100u)",
+                                       "precio":  4500
+                                   }
+                               ]
+    },
+    {
+        "nombre":  "Combo 2 (12 productos)",
+        "imagen":  "img/combo2.png",
+        "precio":  99000,
+        "categoria":  "Combos",
+        "totalAnterior":  111200,
+        "productosIncluidos":  [
+                                   {
+                                       "nombre":  "Chupetines con led Capibara (30u)",
+                                       "precio":  12900
+                                   },
+                                   {
+                                       "nombre":  "Chupetines Halloween 3 en 1 (30u)",
+                                       "precio":  10900
+                                   },
+                                   {
+                                       "nombre":  "Chupetines con Led Oreo (30u)",
+                                       "precio":  12900
+                                   },
+                                   {
+                                       "nombre":  "Caramelos Super Acidos Lipo (454 g)",
+                                       "precio":  6300
+                                   },
+                                   {
+                                       "nombre":  "Chupetines 2 in 1 (60u)",
+                                       "precio":  11900
+                                   },
+                                   {
+                                       "nombre":  "Gomita Helado (30u)",
+                                       "precio":  10500
+                                   },
+                                   {
+                                       "nombre":  "Pastillas Alka sabor Menta (12u)",
+                                       "precio":  6900
+                                   },
+                                   {
+                                       "nombre":  "Pastillas D.R.F Sabor Menta (12u)",
+                                       "precio":  6200
+                                   },
+                                   {
+                                       "nombre":  "Chicle Fierita Globo sabor Frutilla (95u)",
+                                       "precio":  7900
+                                   },
+                                   {
+                                       "nombre":  "Chicles WhatsApp Selección — Caja x20, 5 chicles cada uno",
+                                       "precio":  8500
+                                   },
+                                   {
+                                       "nombre":  "Alcancía Pollito Rojo (con 12 gelatinas en su interior)",
+                                       "precio":  6900
+                                   },
+                                   {
+                                       "nombre":  "Gomitas Frutillas (30u)",
+                                       "precio":  9400
+                                   }
+                               ]
+    },
+    {
+        "nombre":  "Combo 3 (12 productos)",
+        "imagen":  "img/combo3.png",
+        "precio":  99000,
+        "categoria":  "Combos",
+        "totalAnterior":  108900,
+        "productosIncluidos":  [
+                                   {
+                                       "nombre":  "Gomitas Macarron (30u)",
+                                       "precio":  9400
+                                   },
+                                   {
+                                       "nombre":  "Alcancía Tigre Amarillo (con 12 gelatinas en su interior)",
+                                       "precio":  6900
+                                   },
+                                   {
+                                       "nombre":  "Gomitas Dinos (30u)",
+                                       "precio":  9400
+                                   },
+                                   {
+                                       "nombre":  "Gomitas Astronauta (30u)",
+                                       "precio":  9400
+                                   },
+                                   {
+                                       "nombre":  "Latitas con chicles (30 latitas)",
+                                       "precio":  14900
+                                   },
+                                   {
+                                       "nombre":  "Gomitas Gatitos (30u)",
+                                       "precio":  9400
+                                   },
+                                   {
+                                       "nombre":  "Chupetines Halloween (30u)",
+                                       "precio":  10900
+                                   },
+                                   {
+                                       "nombre":  "Oblita de Frutilla (48u)",
+                                       "precio":  6900
+                                   },
+                                   {
+                                       "nombre":  "Oblita de DDL (48u)",
+                                       "precio":  6900
+                                   },
+                                   {
+                                       "nombre":  "Gomitas Oreo (30u)",
+                                       "precio":  9400
+                                   },
+                                   {
+                                       "nombre":  "Gomitas Yummy Dientes 500g",
+                                       "precio":  8500
+                                   },
+                                   {
+                                       "nombre":  "Gomitas RiCo Más 500g",
+                                       "precio":  6900
+                                   }
+                               ]
+    }
+]
