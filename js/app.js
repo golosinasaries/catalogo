@@ -16,7 +16,7 @@ const formatoPrecio = (valor) =>
     style: "currency",
     currency: "ARS",
     maximumFractionDigits: 0
-  }).format(valor);
+  }).format(valor).replace(/\s/g, "");
 
 const elementos = {
   abrir: document.querySelector("#abrir-carrito"),
@@ -905,9 +905,57 @@ function actualizarResumenEnvio() {
       ? "Envío: GRATIS"
       : `Envío: ${formatoPrecio(costo)} · Total con envío: ${formatoPrecio(total + costo)}`;
 }
+
+// Aviso persistente de envío gratis.
+let avisoEnvioGratisAnterior = false;
+
+function actualizarAvisoEnvioGratis(subtotal) {
+  const aviso = document.querySelector("#aviso-envio");
+  const texto = document.querySelector("#texto-aviso-envio");
+  const barra = document.querySelector("#barra-progreso-envio");
+  if (!aviso || !texto || !barra) return;
+
+  const objetivo = ENVIO_GRATIS_DESDE;
+  const tieneEnvioGratis = subtotal >= objetivo;
+  const progreso = Math.min(100, (subtotal / objetivo) * 100);
+
+  barra.style.width = `${progreso}%`;
+  aviso.classList.toggle("aviso-envio-logrado", tieneEnvioGratis);
+
+  if (tieneEnvioGratis) {
+    texto.textContent = "¡Lo lograste! Tenés envío gratis 🎉";
+
+    if (!avisoEnvioGratisAnterior && subtotal > 0) {
+      const reduceMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (!reduceMovimiento) {
+        const colores = ["#f4c542", "#e85d8e", "#72c9a2", "#9b82db", "#ff9866"];
+
+        for (let i = 0; i < 60; i++) {
+          const confeti = document.createElement("span");
+          confeti.className = "confeti-envio";
+          confeti.style.left = `${Math.random() * 100}%`;
+          confeti.style.backgroundColor = colores[i % colores.length];
+          confeti.style.animationDelay = `${Math.random() * 0.35}s`;
+          document.body.append(confeti);
+          setTimeout(() => confeti.remove(), 3000);
+
+
+        }
+      }
+    }
+  } else if (subtotal > 0) {
+    texto.textContent = `¡Te faltan ${formatoPrecio(objetivo - subtotal)} para conseguir envío gratis!`;
+  } else {
+    texto.textContent = "¡Envío gratis en compras desde $120.000!";
+  }
+
+  avisoEnvioGratisAnterior = tieneEnvioGratis;
+}
 function renderizarCarrito() {
   const unidades = estado.carrito.reduce((suma, item) => suma + item.cantidad, 0);
   const subtotal = estado.carrito.reduce((suma, item) => suma + item.precio * item.cantidad, 0);
+  actualizarAvisoEnvioGratis(subtotal);
   const costoEnvio = obtenerCostoEnvio();
   const total = costoEnvio === null || costoEnvio.error ? subtotal : subtotal + costoEnvio;
 
@@ -1074,7 +1122,6 @@ function finalizarPedido() {
     campo?.reportValidity();
     return;
   }
-
   localStorage.setItem("codigoPostalCliente", cp);
 
   const subtotal = estado.carrito.reduce((suma, item) => suma + item.precio * item.cantidad, 0);
@@ -1124,6 +1171,19 @@ document.addEventListener("keydown", (evento) => {
 elementos.busqueda.addEventListener("input", () => {
   estado.busqueda = elementos.busqueda.value.trim();
   renderizarProductos();
+
+  if (!estado.busqueda) return;
+
+  requestAnimationFrame(() => {
+    const primerProducto = elementos.productos.querySelector(".tarjeta-producto");
+    if (!primerProducto) return;
+
+    const posicion = primerProducto.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({
+      top: posicion - window.innerHeight * 0.42,
+      behavior: "smooth"
+    });
+  });
 });
 
 elementos.categorias.querySelectorAll(".categoria").forEach((boton) => {

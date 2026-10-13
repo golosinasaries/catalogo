@@ -39,6 +39,76 @@ a { color: inherit; text-decoration: none; }
 .dulce-uno { top: 22px; left: 17%; }
 .dulce-dos { top: 70px; right: 7%; transform: rotate(12deg); }
 .dulce-tres { bottom: 18px; left: 22%; transform: rotate(8deg); }
+
+/* Chupetín con forma de Amanita muscaria */
+.chupetin-hongo {
+  background: #fff;
+  overflow: hidden;
+}
+.chupetin-hongo .hongo-sombrero {
+  position: absolute;
+  top: 14px;
+  left: 17px;
+  width: 60px;
+  height: 42px;
+  border-radius: 42px 42px 18px 18px;
+  background: #e63843;
+  border: 2px solid #c62432;
+  z-index: 2;
+}
+.chupetin-hongo .hongo-sombrero i {
+  position: absolute;
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+}
+.chupetin-hongo .hongo-sombrero i:nth-child(1) { top: 8px; left: 12px; }
+.chupetin-hongo .hongo-sombrero i:nth-child(2) { top: 5px; right: 12px; }
+.chupetin-hongo .hongo-sombrero i:nth-child(3) { top: 21px; left: 25px; }
+.chupetin-hongo .hongo-sombrero i:nth-child(4) { top: 19px; right: 7px; }
+.chupetin-hongo .hongo-tallo {
+  position: absolute;
+  top: 48px;
+  left: 39px;
+  width: 17px;
+  height: 21px;
+  border-radius: 4px 4px 8px 8px;
+  background: #000000;
+  z-index: 1;
+}
+.chupetin-hongo .hongo-palito {
+  position: absolute;
+  top: 65px;
+  left: 46px;
+  width: 4px;
+  height: 28px;
+  border-radius: 4px;
+  background: #050504;
+  transform: rotate(-8deg);
+  transform-origin: top;
+  z-index: 0;
+}
+@media (max-width: 600px) {
+  .chupetin-hongo .hongo-sombrero {
+    top: 11px;
+    left: 13px;
+    transform: scale(.8);
+    transform-origin: top left;
+  }
+  .chupetin-hongo .hongo-tallo {
+    top: 39px;
+    left: 31px;
+    transform: scale(.8);
+    transform-origin: top left;
+  }
+  .chupetin-hongo .hongo-palito {
+    top: 53px;
+    left: 37px;
+    height: 23px;
+  }
+}
 .dulce-cuatro { bottom: 36px; right: 12%; transform: rotate(-13deg); }
 .destello { position: absolute; color: var(--rosa-fuerte); font-size: 35px; }
 .destello-uno { top: 12px; right: 23%; }.destello-dos { bottom: 20px; right: 2%; }
@@ -142,6 +212,33 @@ a { color: inherit; text-decoration: none; }
     min-height: 41px;
     padding: 10px 14px;
     font-size: 12px;
+  }
+}
+
+.portada-ilustracion .chupetin-hongo {
+  position: absolute !important;
+  top: 12px !important;
+  right: 34% !important;
+  bottom: auto !important;
+  left: auto !important;
+  width: 40px !important;
+  height: 50px !important;
+  overflow: visible !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  z-index: 4 !important;
+  transform: rotate(-5deg) !important;
+  transform-origin: top center !important;
+  transform: scale(.5) rotate(-5deg) !important;
+}
+
+@media (max-width: 760px) {
+  .portada-ilustracion .chupetin-hongo {
+    top: 8px !important;
+    right: 33% !important;
+    transform: scale(.82) rotate(-5deg) !important;
+    transform-origin: top center !important;
+    transform: scale(.4) rotate(-5deg) !important;
   }
 }
 
@@ -2442,4 +2539,261 @@ color: #24683a;
   min-height: 0 !important;
   margin: 0 !important;
   padding: 0 !important;
+}
+
+
+/* AVISO PERSISTENTE DE ENVIO GRATIS */
+.cabecera-fija {
+  position: sticky;
+  top: 0;
+  z-index: 39;
+  width: 100%;
+}
+.cabecera-fija .encabezado {
+  position: relative;
+  top: auto;
+  z-index: auto;
+}
+.aviso-envio {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 9px 16px;
+  overflow: hidden;
+  background: linear-gradient(100deg, #fff0d2, #ffe3ed, #fce8f4);
+  color: #762b49;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  box-shadow: 0 3px 12px #762b4910;
+}
+.aviso-envio-icono {
+  flex: 0 0 auto;
+  font-size: 19px;
+}
+.aviso-envio-texto {
+  position: relative;
+  z-index: 2;
+}
+.aviso-envio-progreso {
+  flex: 0 0 76px;
+  height: 7px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #ffffffb8;
+  box-shadow: inset 0 0 0 1px #762b491c;
+}
+#barra-progreso-envio {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #e9a83b, #c84e7a);
+  transition: width .35s ease;
+}
+.aviso-envio-logrado {
+  background: linear-gradient(100deg, #d9f8e8, #fff2c9, #fce1ed);
+  color: #285b43;
+}
+.aviso-envio-logrado #barra-progreso-envio {
+  background: linear-gradient(90deg, #42a879, #e4b63d);
+}
+.confeti-envio {
+  position: fixed;
+  z-index: 99999;
+  top: -12px;
+  width: 7px;
+  height: 11px;
+  border-radius: 2px;
+  pointer-events: none;
+  animation: caer-confeti-envio 2.8s ease-in forwards;
+}
+@keyframes caer-confeti-envio {
+  0% { transform: translateY(-5px) rotate(0deg); opacity: 0; }
+  12% { opacity: 1; }
+  100% { transform: translateY(110vh) rotate(540deg); opacity: 0; }
+}
+@media (max-width: 600px) {
+  .aviso-envio {
+    gap: 7px;
+    min-height: 42px;
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+  .aviso-envio-icono { font-size: 17px; }
+  .aviso-envio-progreso { flex-basis: 48px; height: 6px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #barra-progreso-envio { transition: none; }
+  .confeti-envio, .confeti-envio-franja { animation: none; display: none; }
+}
+
+/* PORTADA INTEGRADA ARIES v1 */
+/* Dulces libres, sin tarjetas cuadradas */
+.portada-ilustracion .dulce {
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  text-shadow: 0 5px 10px rgba(100, 45, 65, .13);
+}
+
+.portada-ilustracion .dulce-uno {
+  top: 18px;
+  left: 12%;
+  transform: rotate(-16deg);
+  font-size: 65px;
+}
+
+.portada-ilustracion .dulce-dos {
+  top: 48px;
+  right: 3%;
+  transform: rotate(15deg);
+  font-size: 59px;
+}
+
+.portada-ilustracion .dulce-tres {
+  bottom: 8px;
+  left: 13%;
+  transform: rotate(9deg);
+  font-size: 65px;
+}
+
+/* Logo integrado con el fondo, sin tarjeta blanca */
+.portada-ilustracion .logo-centro-portada {
+  width: 142px;
+  height: 142px;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 5px 8px rgba(72, 43, 58, .12));
+}
+
+/* La dona conserva su propia posición */
+.portada-ilustracion .dulce-dona {
+  bottom: 4px;
+  right: 12%;
+  width: 70px;
+  height: 70px;
+  transform: rotate(-13deg);
+  font-size: 56px;
+}
+
+@media (max-width: 760px) {
+  .portada-ilustracion .logo-centro-portada {
+    width: 112px;
+    height: 112px;
+  }
+
+  .portada-ilustracion .dulce-uno {
+    left: 5%;
+    font-size: 52px;
+  }
+
+  .portada-ilustracion .dulce-dos {
+    right: 0;
+    font-size: 48px;
+  }
+
+  .portada-ilustracion .dulce-tres {
+    left: 5%;
+    font-size: 53px;
+  }
+
+  .portada-ilustracion .dulce-dona {
+    right: 10%;
+    bottom: 0;
+    font-size: 45px;
+  }
+}
+
+/* PORTADA INTEGRADA ARIES v2 */
+.portada {
+  background: linear-gradient(135deg, #fff7fa 0%, #fceaf2 52%, #f8e8f5 100%);
+}
+
+.portada-ilustracion .circulo-grande {
+  background: radial-gradient(circle, #f9dce8 0%, #f8e8f2 72%, transparent 73%);
+  box-shadow: none;
+}
+
+.portada-ilustracion .logo-centro-portada {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  mix-blend-mode: normal;
+  filter: drop-shadow(0 4px 7px rgba(90, 40, 65, .10));
+  z-index: 2;
+}
+
+
+.portada-ilustracion .chupetin-hongo .hongo-sombrero {
+  top: 2px !important;
+  left: 2px;
+  width: 76px !important;
+  height: 51px !important;
+  box-sizing: border-box !important;
+  border: 2px solid #b91f32 !important;
+  border-radius: 48% 48% 25% 25% / 70% 70% 30% 30% !important;
+  background: radial-gradient(ellipse at 50% 18%, #ff6571 0%, #ed3547 58%, #c92135 100%) !important;
+  box-shadow: inset 0 3px 4px rgba(255,255,255,.3), 0 2px 3px rgba(120,20,35,.15) !important;
+  transform: none !important;
+  z-index: 2 !important;
+}
+
+.portada-ilustracion .chupetin-hongo .hongo-sombrero i {
+  width: 11px !important;
+  height: 11px !important;
+  background: #fff !important;
+  border-radius: 50% !important;
+  box-shadow: 0 1px 1px rgba(130,20,30,.12);
+}
+
+.portada-ilustracion .chupetin-hongo .hongo-sombrero i:nth-child(1) {
+  top: 9px !important;
+  left: 14px !important;
+}
+.portada-ilustracion .chupetin-hongo .hongo-sombrero i:nth-child(2) {
+  top: 6px !important;
+  right: 14px !important;
+}
+.portada-ilustracion .chupetin-hongo .hongo-sombrero i:nth-child(3) {
+  top: 27px !important;
+  left: 30px !important;
+}
+.portada-ilustracion .chupetin-hongo .hongo-sombrero i:nth-child(4) {
+  top: 23px !important;
+  right: 7px !important;
+}
+
+.portada-ilustracion .chupetin-hongo .hongo-tallo {
+  top: 43px !important;
+  left: 26px !important;
+  width: 25px !important;
+  height: 27px !important;
+  box-sizing: border-box !important;
+  border: 1px solid #000000 !important;
+  border-radius: 5px 5px 10px 10px !important;
+  background: linear-gradient(90deg, #f2d5a6 0%, #fff3dc 48%, #e8c99b 100%) !important;
+  transform: none !important;
+  z-index: 1 !important;
+}
+
+.portada-ilustracion .chupetin-hongo .hongo-palito {
+  top: 66px !important;
+  left: 36px !important;
+  width: 5px !important;
+  height: 34px !important;
+  box-sizing: border-box !important;
+  border: 1px solid #e6d6bb !important;
+  border-radius: 4px !important;
+  background: #000000 !important;
+  transform: rotate(-3deg) !important;
+  z-index: 0 !important;
 }

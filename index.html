@@ -11,6 +11,7 @@
   <script src="js/app.js" defer></script>
 </head>
 <body>
+  <div class="cabecera-fija">
   <header class="encabezado">
     <button class="boton-menu" id="boton-menu" type="button" aria-label="Abrir menú" aria-controls="panel-menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -36,6 +37,12 @@
       🛒 Mi pedido <span id="cantidad-carrito">0</span>
     </button>
   </header>
+  <div class="aviso-envio" id="aviso-envio" role="status" aria-live="polite">
+    <span class="aviso-envio-icono" aria-hidden="true">🚚</span>
+    <span class="aviso-envio-texto" id="texto-aviso-envio">¡Envío gratis en compras desde $120.000!</span>
+    <span class="aviso-envio-progreso" aria-hidden="true"><span id="barra-progreso-envio"></span></span>
+  </div>
+  </div>
 
   <div class="fondo-menu" id="fondo-menu" hidden></div>
   <nav class="panel-menu" id="panel-menu" aria-label="Menú principal" aria-hidden="true" inert>
@@ -68,7 +75,8 @@
         <div class="dulce dulce-uno">🍭</div>
         <div class="dulce dulce-dos">🍬</div>
         <div class="dulce dulce-tres">🍫</div>
-        <div class="dulce dulce-cuatro">🍩</div>
+        <div class="dulce dulce-cuatro chupetin-hongo" aria-hidden="true"><span class="hongo-sombrero"><i></i><i></i><i></i><i></i></span><span class="hongo-tallo"></span><span class="hongo-palito"></span></div>
+        <div class="dulce dulce-dona" aria-hidden="true">🍩</div>
         <span class="destello destello-uno">✦</span>
         <span class="destello destello-dos">✧</span>
       </div>
@@ -123,7 +131,7 @@
       <p id="aviso-envio-gratis" class="aviso-envio-gratis" aria-live="polite"></p>
       <p id="resumen-envio" class="resumen-envio">Ingresá tu código postal para calcular el envío.</p>
     </div>
-    <div class="carrito-pie"><div class="total"><span>Subtotal</span><strong id="subtotal-carrito">$0</strong></div><div class="total"><span>Envío</span><strong id="costo-envio-carrito">Ingresá tu código postal</strong></div><div class="total total-final"><span>Total final</span><strong id="total-carrito">$0</strong></div><button id="finalizar-pedido" class="boton-principal boton-ancho" type="button">Continuar por WhatsApp →</button><small>El pedido se confirma al coordinar por WhatsApp.</small></div>
+    <div class="carrito-pie"><div class="total"><span>Subtotal</span><strong id="subtotal-carrito">$0</strong></div><div class="total"><span>Envío</span><strong id="costo-envio-carrito">Ingresá tu código postal</strong></div><div class="total total-final"><span>Total final</span><strong id="total-carrito">$0</strong></div><button id="finalizar-pedido" class="boton-principal boton-ancho" type="button">Hacer Pedido →</button><small>El pedido se confirma al coordinar por WhatsApp.</small></div>
   </aside>
   <div class="fondo-panel" id="fondo-panel"></div>
 
