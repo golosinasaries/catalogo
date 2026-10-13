@@ -1087,18 +1087,28 @@ function finalizarPedido() {
   }
 
   const total = subtotal + envio;
-  const lineas = estado.carrito.map(
-    (item) => `• ${item.nombre} x${item.cantidad} — ${formatoPrecio(item.precio * item.cantidad)}`
-  );
+  const emojiCarrito = String.fromCodePoint(0x1F6D2);
+  const emojiCaja = String.fromCodePoint(0x1F4E6);
+  const emojiEnvio = String.fromCodePoint(0x1F69A);
+  const emojiPago = String.fromCodePoint(0x1F4B3);
+  const emojiUbicacion = String.fromCodePoint(0x1F4CD);
 
-  const mensaje =
-    `Hola, Golosinas Aries. Quiero hacer este pedido:\n\n${lineas.join("\n")}` +
-    `\n\n📦 Cantidad de productos: ${unidades}` +
-    `\nSubtotal: ${formatoPrecio(subtotal)}` +
-    `\n🚚 Envío: ${envio === 0 ? "GRATIS" : formatoPrecio(envio)}` +
-    `\n💳 Total con envío incluido: ${formatoPrecio(total)}` +
-    `\n📍Código postal: ${cp}`;
+  let mensaje = `${emojiCarrito} *Quiero comenzar este pedido:*\n\n`;
 
+  estado.carrito.forEach((item) => {
+    const precioUnitario = item.precio;
+    const subtotalItem = precioUnitario * item.cantidad;
+
+    mensaje += item.cantidad > 1
+      ? `\u2022 *${item.cantidad}* ${item.nombre} \u2014 ${formatoPrecio(precioUnitario)} x${item.cantidad} \u2192 ${formatoPrecio(subtotalItem)}\n`
+      : `\u2022 ${item.nombre} \u2192 ${formatoPrecio(subtotalItem)}\n`;
+  });
+
+  mensaje += `\n${emojiCaja} Total productos: ${unidades}`;
+  mensaje += `\n${emojiEnvio} Envío: ${envio === 0 ? "GRATIS" : formatoPrecio(envio)}`;
+  mensaje += `\n`;
+  mensaje += `${emojiPago} *El total a abonar con envío incluido es de: ${formatoPrecio(total)}*\n`;
+  mensaje += `${emojiUbicacion} Código Postal: ${cp}`;
   window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensaje)}`, "_blank", "noopener,noreferrer");
 }
 
