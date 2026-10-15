@@ -2797,3 +2797,115 @@ color: #24683a;
   transform: rotate(-3deg) !important;
   z-index: 0 !important;
 }
+
+/* Ticket de regalo para el artículo bonificado del carrito */
+.item-carrito.regalo-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 14px 0;
+  padding: 16px 14px;
+  overflow: hidden;
+  border: 2px dashed #d5a43b;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #fffdf4 0%, #fff4d7 100%);
+  box-shadow: 0 3px 10px rgb(120 85 20 / 8%);
+}
+
+.item-carrito.regalo-item::before,
+.item-carrito.regalo-item::after {
+  position: absolute;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  content: "";
+  transform: translateY(-50%);
+  border: 0 #d5a43b;
+  border-radius: 50%;
+  background: var(--fondo-carrito, #fff);
+}
+
+.item-carrito.regalo-item::before {
+  left: -9px;
+}
+
+.item-carrito.regalo-item::after {
+  right: -9px;
+}
+
+.item-carrito.regalo-item .imagen-item-carrito {
+  width: 68px;
+  height: 68px;
+  flex: 0 0 68px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.item-carrito.regalo-item .info-item-carrito {
+  min-width: 0;
+  flex: 1;
+}
+
+.item-carrito.regalo-item .info-item-carrito strong {
+  display: block;
+  margin-bottom: 7px;
+  color: #684716;
+  font-size: 0.92rem;
+  line-height: 1.35;
+}
+
+.item-carrito.regalo-item .precio-unitario-carrito {
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  padding: 4px 10px;
+  border-radius: 5px;
+  background: #287a48;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 480px) {
+  .item-carrito.regalo-item {
+    gap: 10px;
+    padding: 13px 12px;
+  }
+
+  .item-carrito.regalo-item .imagen-item-carrito {
+    width: 58px;
+    height: 58px;
+    flex-basis: 58px;
+  }
+
+  .item-carrito.regalo-item .info-item-carrito strong {
+    font-size: 0.84rem;
+  }
+}
+
+
+/* Contador discreto del carrito */
+.carrito-acciones {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+#total-productos-carrito {
+  margin-left: auto;
+  color: var(--suave);
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  #total-productos-carrito {
+    font-size: 11px;
+  }
+}

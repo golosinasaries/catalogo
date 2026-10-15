@@ -4,6 +4,20 @@ const WHATSAPP = "542236010443";
 const MINIMO_COMPRA = 50000;
 const ENVIO_GRATIS_DESDE = 120000;
 
+const REGALO_DESDE = 50000;
+const REGALO_NOMBRE = "Chupetines Pelotitas Pinta Lengua (50u)";
+const REGALO_IMAGEN = "img/pelotitaspintalengua.png";
+
+// Las promociones se pueden activar o desactivar independientemente.
+const PROMOS_ACTIVAS = ["envio"];
+
+function promoActiva(nombre) {
+  return PROMOS_ACTIVAS.includes(nombre);
+}
+
+function tieneRegaloGratis(subtotal) {
+  return promoActiva("regalo") && subtotal >= REGALO_DESDE;
+}
 const estado = {
   productos: [],
   carrito: [],
@@ -906,52 +920,85 @@ function actualizarResumenEnvio() {
       : `Envío: ${formatoPrecio(costo)} · Total con envío: ${formatoPrecio(total + costo)}`;
 }
 
-// Aviso persistente de envío gratis.
+// Aviso original de envío, con prioridad visual para la promoción de regalo.
 let avisoEnvioGratisAnterior = false;
+let avisoRegaloAnterior = false;
 
-function actualizarAvisoEnvioGratis(subtotal) {
+function actualizarAvisoEnvioGratis(subtotal = 0) {
   const aviso = document.querySelector("#aviso-envio");
   const texto = document.querySelector("#texto-aviso-envio");
   const barra = document.querySelector("#barra-progreso-envio");
   if (!aviso || !texto || !barra) return;
 
-  const objetivo = ENVIO_GRATIS_DESDE;
-  const tieneEnvioGratis = subtotal >= objetivo;
-  const progreso = Math.min(100, (subtotal / objetivo) * 100);
+  const regaloActivo = promoActiva("regalo");
+  const envioActivo = promoActiva("envio");
+  const tieneRegalo = tieneRegaloGratis(subtotal);
+  const objetivo = regaloActivo ? REGALO_DESDE : ENVIO_GRATIS_DESDE;
+  const tieneEnvio = subtotal >= ENVIO_GRATIS_DESDE;
+  const progreso = regaloActivo && tieneRegalo && envioActivo
+    ? Math.min(100, ((subtotal - REGALO_DESDE) / (ENVIO_GRATIS_DESDE - REGALO_DESDE)) * 100)
+    : Math.min(100, (subtotal / objetivo) * 100);
 
   barra.style.width = `${progreso}%`;
-  aviso.classList.toggle("aviso-envio-logrado", tieneEnvioGratis);
+  barra.parentElement.hidden = !regaloActivo && !envioActivo;
 
-  if (tieneEnvioGratis) {
-    texto.textContent = "¡Lo lograste! Tenés envío gratis 🎉";
-
-    if (!avisoEnvioGratisAnterior && subtotal > 0) {
-      const reduceMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-      if (!reduceMovimiento) {
-        const colores = ["#f4c542", "#e85d8e", "#72c9a2", "#9b82db", "#ff9866"];
-
-        for (let i = 0; i < 60; i++) {
-          const confeti = document.createElement("span");
-          confeti.className = "confeti-envio";
-          confeti.style.left = `${Math.random() * 100}%`;
-          confeti.style.backgroundColor = colores[i % colores.length];
-          confeti.style.animationDelay = `${Math.random() * 0.35}s`;
-          document.body.append(confeti);
-          setTimeout(() => confeti.remove(), 3000);
-
-
-        }
+  // Si el regalo está activo, el aviso muestra únicamente esa promoción.
+  if (regaloActivo) {
+    if (tieneRegalo) {
+      if (envioActivo && !tieneEnvio) {
+        texto.textContent = `🎁 ¡Tu compra incluye un regalo! 🚚 Te faltan ${formatoPrecio(ENVIO_GRATIS_DESDE - subtotal)} para conseguir envío gratis.`;
+      } else if (envioActivo && tieneEnvio) {
+        texto.textContent = "🎁 ¡Tu compra incluye un regalo! 🚚 ¡También tenés envío gratis!";
+      } else {
+        texto.textContent = "🎁 ¡Tu compra incluye un regalo!";
       }
+    } else if (subtotal > 0) {
+      texto.textContent = `🎁 Sumá ${formatoPrecio(REGALO_DESDE - subtotal)} más para conseguir un regalo.`;
+    } else {
+      texto.textContent = `🎁 Regalo en compras desde ${formatoPrecio(REGALO_DESDE)}.`;
     }
-  } else if (subtotal > 0) {
-    texto.textContent = `¡Te faltan ${formatoPrecio(objetivo - subtotal)} para conseguir envío gratis!`;
+  } else if (envioActivo) {
+    if (tieneEnvio) {
+      texto.textContent = "¡Lo lograste! Tenés envío gratis 🎉";
+    } else if (subtotal > 0) {
+      texto.textContent = `¡Te faltan ${formatoPrecio(Math.max(0, ENVIO_GRATIS_DESDE - subtotal))} para conseguir envío gratis!`;
+    } else {
+      texto.textContent = `¡Envío gratis en compras desde ${formatoPrecio(ENVIO_GRATIS_DESDE)}!`;
+    }
   } else {
-    texto.textContent = "¡Envío gratis en compras desde $120.000!";
+    texto.textContent = "";
   }
 
-  avisoEnvioGratisAnterior = tieneEnvioGratis;
+  aviso.classList.toggle(
+    "aviso-envio-logrado",
+    regaloActivo ? tieneRegalo : (envioActivo && tieneEnvio)
+  );
+
+  const acabaDeConseguirRegalo = regaloActivo && tieneRegalo && !avisoRegaloAnterior;
+  const acabaDeConseguirEnvio = envioActivo && tieneEnvio && !avisoEnvioGratisAnterior;
+
+  if ((acabaDeConseguirRegalo || acabaDeConseguirEnvio) && subtotal > 0) {
+    const reduceMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (!reduceMovimiento) {
+      const colores = ["#f4c542", "#e85d8e", "#72c9a2", "#9b82db", "#ff9866"];
+
+      for (let i = 0; i < 60; i++) {
+        const confeti = document.createElement("span");
+        confeti.className = "confeti-envio";
+        confeti.style.left = `${Math.random() * 100}%`;
+        confeti.style.backgroundColor = colores[i % colores.length];
+        confeti.style.animationDelay = `${Math.random() * 0.35}s`;
+        document.body.append(confeti);
+        setTimeout(() => confeti.remove(), 3000);
+      }
+    }
+  }
+
+  avisoRegaloAnterior = tieneRegalo;
+  avisoEnvioGratisAnterior = tieneEnvio;
 }
+
 function renderizarCarrito() {
   const unidades = estado.carrito.reduce((suma, item) => suma + item.cantidad, 0);
   const subtotal = estado.carrito.reduce((suma, item) => suma + item.precio * item.cantidad, 0);
@@ -959,7 +1006,13 @@ function renderizarCarrito() {
   const costoEnvio = obtenerCostoEnvio();
   const total = costoEnvio === null || costoEnvio.error ? subtotal : subtotal + costoEnvio;
 
-  elementos.cantidad.textContent = unidades;
+  elementos.cantidad.textContent = unidades + (tieneRegaloGratis(subtotal) ? 1 : 0);
+
+  const totalProductosVisible = document.querySelector("#total-productos-carrito");
+  if (totalProductosVisible) {
+    totalProductosVisible.textContent =
+      `Total productos: ${unidades + (tieneRegaloGratis(subtotal) ? 1 : 0)}`;
+  }
   elementos.total.textContent = formatoPrecio(total);
 
   const subtotalVisible = document.querySelector("#subtotal-carrito");
@@ -1071,6 +1124,32 @@ function renderizarCarrito() {
     fila.append(imagen, info, eliminar);
     elementos.items.append(fila);
   });
+  if (tieneRegaloGratis(subtotal)) {
+    const filaRegalo = document.createElement("div");
+    filaRegalo.className = "item-carrito regalo-item";
+
+    const imagenRegalo = document.createElement("img");
+    imagenRegalo.className = "imagen-item-carrito";
+    imagenRegalo.src = REGALO_IMAGEN;
+    imagenRegalo.alt = REGALO_NOMBRE;
+    imagenRegalo.loading = "lazy";
+    imagenRegalo.decoding = "async";
+
+    const infoRegalo = document.createElement("div");
+    infoRegalo.className = "info-item-carrito";
+
+    const nombreRegalo = document.createElement("strong");
+    nombreRegalo.textContent = `🎁 ${REGALO_NOMBRE}`;
+
+    const precioRegalo = document.createElement("p");
+    precioRegalo.className = "precio-unitario-carrito";
+    precioRegalo.textContent = "GRATIS";
+
+    infoRegalo.append(nombreRegalo, precioRegalo);
+    filaRegalo.append(imagenRegalo, infoRegalo);
+    elementos.items.append(filaRegalo);
+  }
+
 
   actualizarResumenEnvio();
 }
@@ -1151,7 +1230,10 @@ function finalizarPedido() {
       : `\u2022 ${item.nombre} \u2192 ${formatoPrecio(subtotalItem)}\n`;
   });
 
-  mensaje += `\n${emojiCaja} Total productos: ${unidades}`;
+  if (tieneRegaloGratis(subtotalCompra)) {
+    mensaje += `\n🎁 *Regalo gratis:* ${REGALO_NOMBRE}`;
+  }
+  mensaje += `\n${emojiCaja} Total productos: ${unidades + (tieneRegaloGratis(subtotalCompra) ? 1 : 0)}`;
   mensaje += `\n${emojiEnvio} Envío: ${envio === 0 ? "GRATIS" : formatoPrecio(envio)}`;
   mensaje += `\n`;
   mensaje += `${emojiPago} *El total a abonar con envío incluido es de: ${formatoPrecio(total)}*\n`;
