@@ -11,6 +11,61 @@ const REGALO_IMAGEN = "img/pelotitaspintalengua.png";
 // Las promociones se pueden activar o desactivar independientemente.
 const PROMOS_ACTIVAS = ["envio"];
 
+
+const STOCK_PRODUCTOS = {
+  "Caramelos Super Acidos Lipo (454 g)": 1,
+};
+
+function obtenerStockMaximo(producto) {
+  const nombre = String(producto?.nombre || "");
+
+  if (Object.prototype.hasOwnProperty.call(STOCK_PRODUCTOS, nombre)) {
+    const valor = Number(STOCK_PRODUCTOS[nombre]);
+    return Number.isFinite(valor) ? Math.max(0, Math.floor(valor)) : 0;
+  }
+
+  // Compatibilidad con los productos que todavía usan "agotado".
+  return producto?.agotado === true ? 0 : undefined;
+}
+
+function cantidadEnCarritoPorNombre(nombre) {
+  return estado.carrito
+    .filter((item) => item.nombre === nombre)
+    .reduce((total, item) => total + Number(item.cantidad || 0), 0);
+}
+
+function obtenerStockRestante(producto) {
+  const maximo = obtenerStockMaximo(producto);
+  if (maximo === undefined) return undefined;
+
+  return Math.max(
+    0,
+    maximo - cantidadEnCarritoPorNombre(String(producto?.nombre || ""))
+  );
+}
+
+function mostrarAvisoStock(mensaje) {
+  let aviso = document.getElementById("aviso-stock-flotante");
+
+  if (!aviso) {
+    aviso = document.createElement("div");
+    aviso.id = "aviso-stock-flotante";
+    aviso.className = "aviso-stock-flotante";
+    aviso.setAttribute("role", "alert");
+    aviso.setAttribute("aria-live", "assertive");
+    document.body.append(aviso);
+  }
+
+  aviso.textContent = mensaje;
+  aviso.classList.add("visible");
+
+  if (aviso._temporizador) clearTimeout(aviso._temporizador);
+
+  aviso._temporizador = setTimeout(() => {
+    aviso.classList.remove("visible");
+  }, 3000);
+}
+
 function promoActiva(nombre) {
   return PROMOS_ACTIVAS.includes(nombre);
 }
@@ -334,7 +389,7 @@ function abrirDetalleProducto(producto) {
 
   zonaImagen.append(imagen);
 
-  if (producto.agotado === true) {
+  if (producto.agotado === true || obtenerStockRestante(producto) === 0) {
     const etiqueta = document.createElement("span");
     etiqueta.className = "etiqueta-sin-stock";
     etiqueta.textContent = "SIN STOCK";
@@ -409,7 +464,7 @@ precio.textContent = String(producto.categoria || "").toLocaleLowerCase("es-AR")
         const productoElegido = {
           ...productoBase,
           ...varianteElegida,
-          agotado: agotadoElegido,
+          agotado: agotadoElegido || obtenerStockMaximo({ ...productoBase, ...varianteElegida }) === 0,
           id: indiceElegido === 0
             ? productoBase.id
             : `${productoBase.id}-variante-${indiceElegido}`
@@ -515,10 +570,23 @@ contenido.append(comparacion);
   const agregar = document.createElement("button");
   agregar.type = "button";
   agregar.className = "agregar-producto boton-agregar-detalle";
-  agregar.textContent = producto.agotado === true ? "Agotado" : "Agregar al carrito";
-  agregar.disabled = producto.agotado === true;
+  const stockDetalle = obtenerStockRestante(producto);
+  agregar.textContent =
+    producto.agotado === true || stockDetalle === 0
+      ? "Sin stock"
+      : stockDetalle === 1
+        ? "\uD83D\uDD25 \u00DAltima unidad — Agregar al carrito"
+        : "Agregar al carrito";
+  agregar.disabled = false;
   agregar.addEventListener("click", () => {
-    if (producto.agotado === true) return;
+    if (producto.agotado === true) {
+      mostrarAvisoStock("Este producto figura sin stock.");
+      return;
+    }
+    if (obtenerStockRestante(producto) === 0) {
+      mostrarAvisoStock("Ya alcanzaste el stock disponible de este producto.");
+      return;
+    }
     animarImagenAlCarrito(imagen);
     agregarAlCarrito(producto);
   });
@@ -668,26 +736,47 @@ function renderizarProductos() {
     const productoActual = {
       ...producto,
       ...variante,
-      agotado: agotadoActual,
+      agotado: agotadoActual || obtenerStockMaximo({ ...producto, ...variante }) === 0,
       id: indiceVariante === 0
         ? producto.id
         : `${producto.id}-variante-${indiceVariante}`
     };
 
+    const precioAnteriorValor = Number(productoActual.precioAnterior);
+    const precioActualValor = Number(productoActual.precio);
+    const tieneDescuento = Number.isFinite(precioAnteriorValor) &&
+      Number.isFinite(precioActualValor) && precioAnteriorValor > precioActualValor;
     const tarjeta = document.createElement("article");
     tarjeta.className = "tarjeta-producto tarjeta-interactiva";
     tarjeta.tabIndex = 0;
     tarjeta.setAttribute("role", "button");
     tarjeta.setAttribute("aria-label", "Ver detalle de " + productoActual.nombre);
 
-    tarjeta.classList.toggle("sin-stock", productoActual.agotado === true);
+    if (tieneDescuento) {
+      const etiquetaOferta = document.createElement("span");
+      etiquetaOferta.className = "etiqueta-oferta-producto";
+      etiquetaOferta.textContent = "OFERTA";
+      tarjeta.append(etiquetaOferta);
+    }
 
-    if (productoActual.agotado === true) {
+    const stockRestante = obtenerStockRestante(productoActual);
+    tarjeta.classList.toggle(
+      "sin-stock",
+      productoActual.agotado === true || stockRestante === 0
+    );
+
+    if (stockRestante === 0 || productoActual.agotado === true) {
       const sinStock = document.createElement("span");
       sinStock.className = "sin-stock-label";
-      sinStock.textContent = "❌ Sin stock";
+      sinStock.textContent = "\u274C Sin stock";
       sinStock.setAttribute("role", "status");
       tarjeta.append(sinStock);
+    } else if (stockRestante === 1) {
+      const ultimaUnidad = document.createElement("span");
+      ultimaUnidad.className = "ultima-stock-label";
+      ultimaUnidad.textContent = "\uD83D\uDD25 \u00DAltima";
+      ultimaUnidad.setAttribute("role", "status");
+      tarjeta.append(ultimaUnidad);
     }
 
     const carrusel = document.createElement("div");
@@ -752,6 +841,16 @@ function renderizarProductos() {
     precio.textContent = esCombo
       ? "Precio final del combo: " + formatoPrecio(productoActual.precio)
       : formatoPrecio(productoActual.precio);
+    let precioVisible = precio;
+    if (tieneDescuento) {
+      const bloquePrecios = document.createElement("div");
+      bloquePrecios.className = "precios-producto con-descuento";
+      const precioTachado = document.createElement("del");
+      precioTachado.className = "precio-anterior-producto";
+      precioTachado.textContent = formatoPrecio(precioAnteriorValor);
+      bloquePrecios.append(precioTachado, precio);
+      precioVisible = bloquePrecios;
+    }
 
     if (esCombo) {
       const verDetalle = document.createElement("button");
@@ -762,9 +861,9 @@ function renderizarProductos() {
         evento.stopPropagation();
         abrirDetalleProducto(productoActual);
       });
-      contenido.append(categoria, nombre, precio, verDetalle);
+      contenido.append(categoria, nombre, precioVisible, verDetalle);
     } else {
-      contenido.append(categoria, nombre, precio);
+      contenido.append(categoria, nombre, precioVisible);
     }
 
     if (selectorVariante) {
@@ -774,15 +873,25 @@ function renderizarProductos() {
     const agregar = document.createElement("button");
     agregar.type = "button";
     agregar.className = "agregar-producto";
-    agregar.textContent = productoActual.agotado === true
-      ? "Agotado"
-      : "Agregar al carrito";
-    agregar.disabled = productoActual.agotado === true;
+    const stockDisponible = obtenerStockRestante(productoActual);
+    agregar.textContent =
+      productoActual.agotado === true || stockDisponible === 0
+        ? "Sin stock"
+        : "Agregar al carrito";
+    agregar.disabled = false;
 
     agregar.addEventListener("click", (evento) => {
       evento.stopPropagation();
 
-      if (productoActual.agotado === true) return;
+      if (productoActual.agotado === true) {
+        mostrarAvisoStock("Este producto figura sin stock.");
+        return;
+      }
+
+      if (obtenerStockRestante(productoActual) === 0) {
+        mostrarAvisoStock("Ya alcanzaste el stock disponible de este producto.");
+        return;
+      }
 
       animarImagenAlCarrito(imagen);
       agregarAlCarrito(productoActual);
@@ -810,7 +919,18 @@ function renderizarProductos() {
 }
 
 function agregarAlCarrito(producto) {
-  if (producto.agotado === true) return;
+  const stockMaximo = obtenerStockMaximo(producto);
+  const cantidadActual = cantidadEnCarritoPorNombre(producto.nombre);
+
+  if (producto.agotado === true) {
+    mostrarAvisoStock("Este producto figura sin stock.");
+    return;
+  }
+
+  if (stockMaximo !== undefined && cantidadActual >= stockMaximo) {
+    mostrarAvisoStock("Ya alcanzaste el stock disponible de este producto.");
+    return;
+  }
 
   const existente = estado.carrito.find((item) => item.id === producto.id);
 
@@ -823,6 +943,7 @@ function agregarAlCarrito(producto) {
     });
   }
 
+  renderizarProductos();
   renderizarCarrito();
 
   const botonCarrito = document.getElementById("abrir-carrito");
@@ -1090,7 +1211,9 @@ function renderizarCarrito() {
     menos.addEventListener("click", () => {
       if (item.cantidad > 1) item.cantidad -= 1;
       else estado.carrito = estado.carrito.filter((p) => p.id !== item.id);
+
       renderizarCarrito();
+      renderizarProductos();
     });
 
     const cantidad = document.createElement("span");
@@ -1102,11 +1225,23 @@ function renderizarCarrito() {
     mas.className = "boton-cantidad";
     mas.textContent = "+";
     mas.setAttribute("aria-label", "Sumar una unidad");
-    mas.disabled = item.agotado === true;
+    mas.disabled = false;
     mas.addEventListener("click", () => {
-      if (item.agotado === true) return;
+      const maximo = obtenerStockMaximo(item);
+
+      if (item.agotado === true) {
+        mostrarAvisoStock("Este producto figura sin stock.");
+        return;
+      }
+
+      if (maximo !== undefined && item.cantidad >= maximo) {
+        mostrarAvisoStock("Ya alcanzaste el stock disponible de este producto.");
+        return;
+      }
+
       item.cantidad += 1;
       renderizarCarrito();
+      renderizarProductos();
     });
 
     const eliminar = document.createElement("button");
@@ -1116,7 +1251,9 @@ function renderizarCarrito() {
     eliminar.setAttribute("aria-label", "Eliminar producto");
     eliminar.addEventListener("click", () => {
       estado.carrito = estado.carrito.filter((p) => p.id !== item.id);
+
       renderizarCarrito();
+      renderizarProductos();
     });
 
     controles.append(menos, cantidad, mas);

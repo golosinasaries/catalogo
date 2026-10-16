@@ -148,6 +148,7 @@
         "nombre":  "Chupetines con forma de Unicornio (30u)",
         "imagen":  "img/unicornio.png",
         "precio":  10900,
+        "precioAnterior":  12900,
         "categoria":  "Chupetines"
     },
     {
