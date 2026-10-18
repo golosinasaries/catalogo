@@ -354,10 +354,11 @@ function abrirImagenPantallaCompleta(imagenOriginal, productoInicial = null) {
   document.addEventListener("keydown", manejarTeclado);
   cerrarImagen.focus();
 }
-function abrirDetalleProducto(producto) {
-  cerrarDetalleProducto();
+function abrirDetalleProducto(producto, navegar = false) {
+  const fondoExistente = navegar ? document.querySelector(".modal-detalle-fondo") : null;
+  if (!fondoExistente) cerrarDetalleProducto();
 
-  const fondo = document.createElement("div");
+  const fondo = fondoExistente || document.createElement("div");
   fondo.className = "modal-detalle-fondo";
 
   const modal = document.createElement("section");
@@ -652,7 +653,7 @@ const nombreVisible = typeof item === "string"
     if (productosVisibles.length < 2) return;
     const indiceActual = productosVisibles.indexOf(producto);
     const indiceAnterior = indiceActual < 0 ? productosVisibles.length - 1 : (indiceActual - 1 + productosVisibles.length) % productosVisibles.length;
-    abrirDetalleProducto(productosVisibles[indiceAnterior]);
+    abrirDetalleProducto(productosVisibles[indiceAnterior], true);
   });
 
   const siguiente = document.createElement("button");
@@ -669,19 +670,20 @@ const nombreVisible = typeof item === "string"
     if (productosVisibles.length < 2) return;
     const indiceActual = productosVisibles.indexOf(producto);
     const indiceSiguiente = indiceActual < 0 ? 0 : (indiceActual + 1) % productosVisibles.length;
-    abrirDetalleProducto(productosVisibles[indiceSiguiente]);
+    abrirDetalleProducto(productosVisibles[indiceSiguiente], true);
   });
 
   navegacion.append(anterior, siguiente);
   contenido.append(navegacion);
   modal.append(cerrar, zonaImagen, contenido);
-  fondo.append(modal);
+  fondo.replaceChildren(modal);
 
-  fondo.addEventListener("click", (evento) => {
+  if (!fondoExistente) {
+    fondo.addEventListener("click", (evento) => {
     if (evento.target === fondo) cerrarDetalleProducto();
-  });
-
-  document.body.append(fondo);
+    });
+    document.body.append(fondo);
+  }
   cerrar.focus();
 }
 const variantesSeleccionadas = new Map();
