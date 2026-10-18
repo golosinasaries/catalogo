@@ -412,9 +412,18 @@ function abrirDetalleProducto(producto, navegar = false, apilar = false) {
   const zonaImagen = document.createElement("div");
   zonaImagen.className = "zona-imagen-detalle";
 
+  const fotosMultiplesDetalle = {
+    "Gomitas Fantasmita (30u)": ["img/fantasmitas.jpg", "img/fantasmitas2.jpg"],
+    "iPhone Pinball con pastillitas (30u)": ["img/iphone.png", "img/iphone2.png"]
+  };
+
+  const fotosDetalle = fotosMultiplesDetalle[producto.nombre] || [producto.imagen];
+  let indiceFotoDetalle = 0;
+  zonaImagen.classList.add("carrusel-detalle");
+
   const imagen = document.createElement("img");
   imagen.className = "imagen-detalle-producto";
-  imagen.src = producto.imagen;
+  imagen.src = fotosDetalle[indiceFotoDetalle];
   imagen.alt = producto.nombre;
   imagen.tabIndex = 0;
   imagen.setAttribute("role", "button");
@@ -429,6 +438,42 @@ function abrirDetalleProducto(producto, navegar = false, apilar = false) {
   });
 
   zonaImagen.append(imagen);
+
+  if (fotosDetalle.length > 1) {
+    const indicadorDetalle = document.createElement("span");
+    indicadorDetalle.className = "indicador-variante";
+    indicadorDetalle.setAttribute("aria-live", "polite");
+    indicadorDetalle.textContent = "1/" + fotosDetalle.length;
+
+    const cambiarFotoDetalle = (direccion) => {
+      indiceFotoDetalle = (indiceFotoDetalle + direccion + fotosDetalle.length) % fotosDetalle.length;
+      imagen.src = fotosDetalle[indiceFotoDetalle];
+      imagen.alt = producto.nombre + " - foto " + (indiceFotoDetalle + 1);
+      indicadorDetalle.textContent = (indiceFotoDetalle + 1) + "/" + fotosDetalle.length;
+    };
+
+    const anteriorDetalle = document.createElement("button");
+    anteriorDetalle.type = "button";
+    anteriorDetalle.className = "flecha-variante izquierda";
+    anteriorDetalle.textContent = "‹";
+    anteriorDetalle.setAttribute("aria-label", "Foto anterior");
+    anteriorDetalle.addEventListener("click", (evento) => {
+      evento.stopPropagation();
+      cambiarFotoDetalle(-1);
+    });
+
+    const siguienteDetalle = document.createElement("button");
+    siguienteDetalle.type = "button";
+    siguienteDetalle.className = "flecha-variante derecha";
+    siguienteDetalle.textContent = "›";
+    siguienteDetalle.setAttribute("aria-label", "Foto siguiente");
+    siguienteDetalle.addEventListener("click", (evento) => {
+      evento.stopPropagation();
+      cambiarFotoDetalle(1);
+    });
+
+    zonaImagen.append(anteriorDetalle, siguienteDetalle, indicadorDetalle);
+  }
 
   if (producto.agotado === true || obtenerStockRestante(producto) === 0) {
     const etiqueta = document.createElement("span");
@@ -882,15 +927,19 @@ function renderizarProductos() {
 
     const imagen = document.createElement("img");
     imagen.className = "imagen-producto";
-    const esFantasmita = productoActual.nombre === "Gomitas Fantasmita (30u)";
-const fotosProducto = esFantasmita
-  ? ["img/fantasmitas.jpg", "img/fantasmitas2.jpg"]
-  : [productoActual.imagen];
-let indiceFoto = 0;
-imagen.src = fotosProducto[indiceFoto];
-imagen.alt = productoActual.nombre;
+
+    const fotosMultiples = {
+      "Gomitas Fantasmita (30u)": ["img/fantasmitas.jpg", "img/fantasmitas2.jpg"],
+      "iPhone Pinball con pastillitas (30u)": ["img/iphone.png", "img/iphone2.png"]
+    };
+
+    const fotosProducto = fotosMultiples[productoActual.nombre] || [productoActual.imagen];
+    let indiceFoto = 0;
+
     imagen.loading = "lazy";
     imagen.decoding = "async";
+    imagen.alt = productoActual.nombre;
+    imagen.src = fotosProducto[indiceFoto];
 
     imagen.addEventListener("error", () => {
       imagen.classList.add("imagen-no-disponible");
@@ -898,6 +947,41 @@ imagen.alt = productoActual.nombre;
     });
 
     carrusel.append(imagen);
+
+    if (fotosProducto.length > 1) {
+      const actualizarFoto = () => {
+        imagen.classList.remove("imagen-no-disponible");
+        imagen.src = fotosProducto[indiceFoto];
+        imagen.alt = productoActual.nombre + " - foto " + (indiceFoto + 1);
+        indicador.textContent = (indiceFoto + 1) + "/" + fotosProducto.length;
+      };
+
+      const crearFlecha = (direccion, simbolo, etiqueta) => {
+        const boton = document.createElement("button");
+        boton.type = "button";
+        boton.className = "flecha-variante " + direccion;
+        boton.textContent = simbolo;
+        boton.setAttribute("aria-label", etiqueta);
+        boton.addEventListener("click", (evento) => {
+          evento.preventDefault();
+          evento.stopPropagation();
+          indiceFoto = (indiceFoto + (direccion === "derecha" ? 1 : -1) + fotosProducto.length) % fotosProducto.length;
+          actualizarFoto();
+        });
+        return boton;
+      };
+
+      const indicador = document.createElement("span");
+      indicador.className = "indicador-variante";
+      indicador.setAttribute("aria-live", "polite");
+      indicador.textContent = "1/" + fotosProducto.length;
+
+      carrusel.append(
+        crearFlecha("izquierda", "‹", "Foto anterior"),
+        crearFlecha("derecha", "›", "Foto siguiente"),
+        indicador
+      );
+    }
 
     let selectorVariante = null;
 
