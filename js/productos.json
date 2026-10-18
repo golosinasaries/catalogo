@@ -3,8 +3,7 @@
         "nombre":  "Chupetines Hongos (30u)",
         "imagen":  "img/hongos.png",
         "precio":  10900,
-        "categoria":  "Chupetines",
-        "agotado":  true
+        "categoria":  "Chupetines"
     },
     {
         "nombre":  "Chupetines Halloween (30u)",
@@ -15,6 +14,30 @@
                                       "Halloween"
                                   ]
     },
+     {
+        "nombre":  "Gomitas Calabaza (30u)",
+        "imagen":  "img/calabaza.jpg",
+        "precio":  9400,
+        "categoria":  "Gomitas blandas",
+        "categoriasAdicionales":  [
+                                      "Halloween"
+                                  ]
+    },
+    {
+        "nombre":  "Gomitas Fantasmita (30u)",
+        "imagen":  "img/fantasmitas.jpg",
+        "precio":  9400,
+        "categoria":  "Gomitas blandas",
+        "categoriasAdicionales":  [
+                                      "Halloween"
+                                  ]
+    },
+    {
+        "nombre": "Chupetines Corazón (30u)",
+        "imagen": "img/corazon.jpg",
+        "precio": 10900,
+        "categoria": "Chupetines"
+        },
     {
         "nombre":  "Spider-Man con pastillitas (30u)",
         "imagen":  "img/spider.jpeg",
@@ -475,23 +498,5 @@
                                        "precio":  6900
                                    }
                                ]
-    },
-    {
-        "nombre":  "Gomitas Calabaza (30u)",
-        "imagen":  "img/calabaza.jpg",
-        "precio":  9400,
-        "categoria":  "Gomitas blandas",
-        "categoriasAdicionales":  [
-                                      "Halloween"
-                                  ]
-    },
-    {
-        "nombre":  "Gomitas Fantasmita (30u)",
-        "imagen":  "img/fantasmitas.jpg",
-        "precio":  9400,
-        "categoria":  "Gomitas blandas",
-        "categoriasAdicionales":  [
-                                      "Halloween"
-                                  ]
     }
 ]
