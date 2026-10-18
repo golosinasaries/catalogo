@@ -6,6 +6,12 @@
         "categoria":  "Chupetines"
     },
     {
+        "nombre": "Chupetines Frutillas (30u)",
+        "imagen": "img/chupetinfrutilla1.jpg",
+        "precio": 10900,
+        "categoria": "Chupetines"
+    },
+    {
         "nombre":  "Chupetines Halloween (30u)",
         "imagen":  "img/Halloween.jpeg",
         "precio":  10900,
@@ -282,6 +288,12 @@
         "imagen":  "img/oblita_ddl.jpg",
         "precio":  6900,
         "categoria":  "Galletitas"
+    },
+    {
+        "nombre": "Nutello (30u)",
+        "imagen": "img/nutello.png",
+        "precio": 12500,
+        "categoria": "Chocolates"
     },
     {
         "nombre":  "Alfajor Guaymallen Triple Blanco (12u)",

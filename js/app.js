@@ -1,4 +1,4 @@
-function productoTieneCategoria(producto, categoria) {
+﻿function productoTieneCategoria(producto, categoria) {
   return producto.categoria === categoria ||
     (Array.isArray(producto.categoriasAdicionales) &&
       producto.categoriasAdicionales.includes(categoria));
@@ -414,7 +414,7 @@ function abrirDetalleProducto(producto, navegar = false, apilar = false) {
 
   const fotosMultiplesDetalle = {
     "Gomitas Fantasmita (30u)": ["img/fantasmitas.jpg", "img/fantasmitas2.jpg"],
-    "iPhone Pinball con pastillitas (30u)": ["img/iphone.png", "img/iphone2.png"]
+    "iPhone Pinball con pastillitas (30u)": ["img/iphone.png", "img/iphone2.png"],
   };
 
   const fotosDetalle = fotosMultiplesDetalle[producto.nombre] || [producto.imagen];
