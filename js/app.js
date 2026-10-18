@@ -635,40 +635,45 @@ const nombreVisible = typeof item === "string"
 
   contenido.append(agregar);
 
+  const navegacion = document.createElement("div");
+  navegacion.className = "navegacion-productos-detalle";
+
+  const anterior = document.createElement("button");
+  anterior.type = "button";
+  anterior.className = "siguiente-producto-detalle";
+  anterior.textContent = "\u2190 Producto anterior";
+  anterior.addEventListener("click", () => {
+    const productosVisibles = estado.productos.filter((productoCatalogo) => {
+      if (productoCatalogo.oculto === true) return false;
+      const coincideCategoria = estado.categoria === "Todas" || productoTieneCategoria(productoCatalogo, estado.categoria);
+      const coincideBusqueda = productoCatalogo.nombre.toLocaleLowerCase("es-AR").includes(estado.busqueda.toLocaleLowerCase("es-AR"));
+      return coincideCategoria && coincideBusqueda;
+    });
+    if (productosVisibles.length < 2) return;
+    const indiceActual = productosVisibles.indexOf(producto);
+    const indiceAnterior = indiceActual < 0 ? productosVisibles.length - 1 : (indiceActual - 1 + productosVisibles.length) % productosVisibles.length;
+    abrirDetalleProducto(productosVisibles[indiceAnterior]);
+  });
+
   const siguiente = document.createElement("button");
   siguiente.type = "button";
   siguiente.className = "siguiente-producto-detalle";
-  siguiente.textContent = "Siguiente producto →";
+  siguiente.textContent = "Siguiente producto \u2192";
   siguiente.addEventListener("click", () => {
     const productosVisibles = estado.productos.filter((productoCatalogo) => {
       if (productoCatalogo.oculto === true) return false;
-
-      const nombreNormalizado = productoCatalogo.nombre
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .toLocaleLowerCase("es-AR");
-
-      const coincideCategoria =
-        estado.categoria === "Todas" || productoTieneCategoria(productoCatalogo, estado.categoria);
-
-      const coincideBusqueda = productoCatalogo.nombre
-        .toLocaleLowerCase("es-AR")
-        .includes(estado.busqueda.toLocaleLowerCase("es-AR"));
-
+      const coincideCategoria = estado.categoria === "Todas" || productoTieneCategoria(productoCatalogo, estado.categoria);
+      const coincideBusqueda = productoCatalogo.nombre.toLocaleLowerCase("es-AR").includes(estado.busqueda.toLocaleLowerCase("es-AR"));
       return coincideCategoria && coincideBusqueda;
     });
-
     if (productosVisibles.length < 2) return;
-
     const indiceActual = productosVisibles.indexOf(producto);
-    const indiceSiguiente = indiceActual < 0
-      ? 0
-      : (indiceActual + 1) % productosVisibles.length;
-
+    const indiceSiguiente = indiceActual < 0 ? 0 : (indiceActual + 1) % productosVisibles.length;
     abrirDetalleProducto(productosVisibles[indiceSiguiente]);
   });
 
-  contenido.append(siguiente);
+  navegacion.append(anterior, siguiente);
+  contenido.append(navegacion);
   modal.append(cerrar, zonaImagen, contenido);
   fondo.append(modal);
 
