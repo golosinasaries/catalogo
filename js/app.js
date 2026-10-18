@@ -1,3 +1,8 @@
+function productoTieneCategoria(producto, categoria) {
+  return producto.categoria === categoria ||
+    (Array.isArray(producto.categoriasAdicionales) &&
+      producto.categoriasAdicionales.includes(categoria));
+}
 "use strict";
 
 const WHATSAPP = "542236010443";
@@ -248,7 +253,7 @@ function abrirImagenPantallaCompleta(imagenOriginal, productoInicial = null) {
         .toLocaleLowerCase("es-AR");
 
       const categoriaCoincide =
-        estado.categoria === "Todas" || p.categoria === estado.categoria;
+        estado.categoria === "Todas" || productoTieneCategoria(p, estado.categoria);
 
       const busquedaCoincide =
         !estado.busqueda ||
@@ -504,10 +509,14 @@ const nombreVisible = typeof item === "string"
 : (item.nombre || item.producto || "Producto");
 
 
-  const productoCatalogo = estado.productos.find((productoCatalogo) =>
+  const coincidenciasCatalogo = estado.productos.filter((productoCatalogo) =>
+    String(productoCatalogo.categoria || "").toLocaleLowerCase("es-AR") !== "combos" &&
     normalizarNombreProducto(productoCatalogo.nombre) ===
     normalizarNombreProducto(nombreVisible)
   );
+  const productoCatalogo = coincidenciasCatalogo.length === 1
+    ? coincidenciasCatalogo[0]
+    : null;
 
   let nombreItem;
 
@@ -528,12 +537,18 @@ const nombreVisible = typeof item === "string"
 
 
 
-      if (typeof item === "object" && item !== null &&
-          Number.isFinite(Number(item.precio))) {
-        const precioItem = document.createElement("span");
-        precioItem.className = "precio-incluido-detalle";
-        precioItem.textContent = formatoPrecio(Number(item.precio));
-        elemento.append(precioItem);
+      if (typeof item === "object" && item !== null) {
+        const precioActualItem = productoCatalogo &&
+          Number.isFinite(Number(productoCatalogo.precio))
+          ? Number(productoCatalogo.precio)
+          : Number(item.precio);
+
+        if (Number.isFinite(precioActualItem)) {
+          const precioItem = document.createElement("span");
+          precioItem.className = "precio-incluido-detalle";
+          precioItem.textContent = formatoPrecio(precioActualItem);
+          elemento.append(precioItem);
+        }
       }
 
       lista.append(elemento);
@@ -542,25 +557,52 @@ const nombreVisible = typeof item === "string"
     contenido.append(subtitulo, lista);
 
     if (String(producto.categoria || "").toLocaleLowerCase("es-AR") === "combos") {
-      if (Number.isFinite(Number(producto.totalAnterior))) {
-const comparacion = document.createElement("div");
-comparacion.className = "ahorro-combo-detalle";
-const precioSeparado = document.createElement("p");
-precioSeparado.style.fontSize = "0.85em";
-precioSeparado.style.color = "#777";
-const etiquetaSeparado = document.createElement("span");
-etiquetaSeparado.textContent = "Los 12 productos por separado: ";
-const precioTachado = document.createElement("del");
-precioTachado.textContent = formatoPrecio(producto.totalAnterior);
-precioSeparado.append(etiquetaSeparado, precioTachado);
-const diferencia = Number(producto.totalAnterior) - Number(producto.precio);
-const textoAhorro = document.createElement("p");
-textoAhorro.textContent = diferencia > 0 ? "¡Ahorrás " + formatoPrecio(diferencia) + "!" : "Sin ahorro";
-comparacion.append(precioSeparado, textoAhorro);
-contenido.append(comparacion);
-      }
-    }
-  } else if (String(producto.categoria || "").toLocaleLowerCase("es-AR") === "combos") {
+      const incluidosActualizados = incluidos.map((item) => {
+        if (!item || typeof item !== "object") return item;
+
+        const nombreItem = item.nombre || item.producto || "";
+        const coincidencias = estado.productos.filter((p) =>
+          String(p.categoria || "").toLocaleLowerCase("es-AR") !== "combos" &&
+          normalizarNombreProducto(p.nombre) === normalizarNombreProducto(nombreItem) &&
+          Number.isFinite(Number(p.precio))
+        );
+
+        return coincidencias.length === 1
+          ? { ...item, precio: Number(coincidencias[0].precio) }
+          : item;
+      });
+
+      const totalSeparado = incluidosActualizados.reduce((total, item) => {
+        if (!item || typeof item !== "object") return total;
+        const precio = Number(item.precio);
+        return total + (Number.isFinite(precio) ? precio : 0);
+      }, 0);
+
+      const comparacion = document.createElement("div");
+      comparacion.className = "ahorro-combo-detalle";
+
+      const precioSeparado = document.createElement("p");
+      precioSeparado.style.fontSize = "0.85em";
+      precioSeparado.style.color = "#777";
+
+      const etiquetaSeparado = document.createElement("span");
+      etiquetaSeparado.textContent = "Los 12 productos por separado: ";
+
+      const precioTachado = document.createElement("del");
+      precioTachado.textContent = formatoPrecio(totalSeparado);
+      precioSeparado.append(etiquetaSeparado, precioTachado);
+
+      const diferencia = totalSeparado - Number(producto.precio);
+      const textoAhorro = document.createElement("p");
+      textoAhorro.textContent = diferencia > 0
+        ? "¡Ahorrás " + formatoPrecio(diferencia) + "!"
+        : diferencia === 0
+          ? "Sin ahorro"
+          : "El combo cuesta " + formatoPrecio(Math.abs(diferencia)) + " más que los productos por separado.";
+
+      comparacion.append(precioSeparado, textoAhorro);
+      contenido.append(comparacion);
+    }  } else if (String(producto.categoria || "").toLocaleLowerCase("es-AR") === "combos") {
     const nota = document.createElement("p");
     nota.className = "descripcion-detalle-producto";
     nota.textContent = "Este combo se anuncia con 12 productos. El catálogo todavía no tiene cargada la lista exacta de sus contenidos.";
@@ -607,8 +649,7 @@ contenido.append(comparacion);
         .toLocaleLowerCase("es-AR");
 
       const coincideCategoria =
-        estado.categoria === "Todas" ||
-        productoCatalogo.categoria === estado.categoria;
+        estado.categoria === "Todas" || productoTieneCategoria(productoCatalogo, estado.categoria);
 
       const coincideBusqueda = productoCatalogo.nombre
         .toLocaleLowerCase("es-AR")
@@ -664,7 +705,7 @@ const variantesPorNombre = {
     { nombre: "Pastillas D.R.F Sabor Anís (12u)", imagen: "img/drfanis.jpeg", precio: 6200 }
   ],
   "Alfajor Guaymallen simple Blanco (10u)": [
-    { nombre: "Alfajor Guaymallen simple Blanco (10u)", imagen: "img/guaysimpleblanco.jpg", precio: 4900, agotado: true },
+    { nombre: "Alfajor Guaymallen simple Blanco (10u)", imagen: "img/guaysimpleblanco.jpg", precio: 4900 },
     { nombre: "Alfajor Guaymallen simple Negro (10u)", imagen: "img/guaysimplenegro.jpg", precio: 4900 }
   ],
   "Alfajor Guaymallen Triple Blanco (12u)": [
@@ -689,8 +730,7 @@ function renderizarProductos() {
     if (producto.oculto === true) return false;
 
     const coincideCategoria =
-      estado.categoria === "Todas" ||
-      producto.categoria === estado.categoria;
+      estado.categoria === "Todas" || productoTieneCategoria(producto, estado.categoria);
 
     const coincideBusqueda = producto.nombre
       .toLocaleLowerCase("es-AR")
@@ -784,8 +824,13 @@ function renderizarProductos() {
 
     const imagen = document.createElement("img");
     imagen.className = "imagen-producto";
-    imagen.src = productoActual.imagen;
-    imagen.alt = productoActual.nombre;
+    const esFantasmita = productoActual.nombre === "Gomitas Fantasmita (30u)";
+const fotosProducto = esFantasmita
+  ? ["img/fantasmitas.jpg", "img/fantasmitas2.jpg"]
+  : [productoActual.imagen];
+let indiceFoto = 0;
+imagen.src = fotosProducto[indiceFoto];
+imagen.alt = productoActual.nombre;
     imagen.loading = "lazy";
     imagen.decoding = "async";
 

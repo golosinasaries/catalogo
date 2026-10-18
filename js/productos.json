@@ -1,44 +1,59 @@
 [
-
-
     {
-        "nombre": "Chupetines Hongos (30u)",
-        "imagen": "img/hongos.png",
-        "precio": 10900,
-        "categoria": "Chupetines",
-        "agotado": true
+        "nombre":  "Chupetines Hongos (30u)",
+        "imagen":  "img/hongos.png",
+        "precio":  10900,
+        "categoria":  "Chupetines",
+        "agotado":  true
     },
-
     {
         "nombre":  "Chupetines Halloween (30u)",
         "imagen":  "img/Halloween.jpeg",
         "precio":  10900,
-        "categoria":  "Chupetines"
+        "categoria":  "Chupetines",
+        "categoriasAdicionales":  [
+                                      "Halloween"
+                                  ]
+    },
+    {
+        "nombre":  "Spider-Man con pastillitas (30u)",
+        "imagen":  "img/spider.jpeg",
+        "precio":  13800,
+        "categoria":  "Pastillas"
     },
     {
         "nombre":  "Chupetines Halloween 3 en 1 (30u)",
         "imagen":  "img/halloween3.png",
         "precio":  10900,
-        "categoria":  "Chupetines"
+        "categoria":  "Chupetines",
+        "categoriasAdicionales":  [
+                                      "Halloween"
+                                  ]
     },
     {
         "nombre":  "Chupetines Merlina (30u)",
         "imagen":  "img/merlina4.png",
         "precio":  12500,
-        "categoria":  "Chupetines"
+        "categoria":  "Chupetines",
+        "categoriasAdicionales":  [
+                                      "Halloween"
+                                  ]
     },
     {
         "nombre":  "Gomitas Ojos (30u)",
         "imagen":  "img/ojos.png",
         "precio":  9400,
-        "categoria":  "Gomitas blandas"
+        "categoria":  "Gomitas blandas",
+        "categoriasAdicionales":  [
+                                      "Halloween"
+                                  ]
     },
     {
         "nombre":  "Huevos Sorpresa Lilo y Stitch (30u)",
         "imagen":  "img/sorpresasti.png",
         "precio":  14500,
         "categoria":  "Huevos sorpresa",
-        "agotado": true
+        "agotado":  true
     },
     {
         "nombre":  "Huevos Sorpresa Dinos  (30u)",
@@ -81,8 +96,7 @@
         "imagen":  "img/oreoled.png",
         "precio":  12900,
         "categoria":  "Chupetines",
-        "agotado": true
-
+        "agotado":  true
     },
     {
         "nombre":  "Cool Mint pastillitas Frutales (30u)",
@@ -216,14 +230,13 @@
         "imagen":  "img/guayblanco.jpg",
         "precio":  8900,
         "categoria":  "Alfajores",
-        "agotado": true
+        "agotado":  true
     },
     {
         "nombre":  "Alfajor Guaymallen simple Blanco (10u)",
         "imagen":  "img/guaysimpleblanco.jpg",
         "precio":  4900,
-        "categoria":  "Alfajores",
-        "agotado": true
+        "categoria":  "Alfajores"
     },
     {
         "nombre":  "Chicle Fierita Globo sabor Frutilla (95u)",
@@ -266,7 +279,7 @@
         "imagen":  "img/yummydientes.jpeg",
         "precio":  8500,
         "categoria":  "Gomitas 500 g",
-        "agotado": true
+        "agotado":  true
     },
     {
         "nombre":  "Gomitas RiCo Más 500g",
@@ -462,5 +475,23 @@
                                        "precio":  6900
                                    }
                                ]
+    },
+    {
+        "nombre":  "Gomitas Calabaza (30u)",
+        "imagen":  "img/calabaza.png",
+        "precio":  9400,
+        "categoria":  "Gomitas blandas",
+        "categoriasAdicionales":  [
+                                      "Halloween"
+                                  ]
+    },
+    {
+        "nombre":  "Gomitas Fantasmita (30u)",
+        "imagen":  "img/fantasmitas.jpg",
+        "precio":  9400,
+        "categoria":  "Gomitas blandas",
+        "categoriasAdicionales":  [
+                                      "Halloween"
+                                  ]
     }
 ]
