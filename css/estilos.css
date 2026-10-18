@@ -3054,3 +3054,19 @@ color: #24683a;
     min-height: 0;
   }
 }
+.modal-detalle:has(.lista-incluidos) {
+  height: auto;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+}
+
+.modal-detalle:has(.lista-incluidos) .contenido-detalle-producto {
+  height: auto;
+  min-height: 0;
+  overflow-y: visible;
+}
+
+.modal-detalle:has(.lista-incluidos) .lista-incluidos {
+  max-height: 40vh;
+  overflow-y: auto;
+}

@@ -118,8 +118,7 @@
         "nombre":  "Chupetines con Led Oreo (30u)",
         "imagen":  "img/oreoled.png",
         "precio":  12900,
-        "categoria":  "Chupetines",
-        "agotado":  true
+        "categoria":  "Chupetines"
     },
     {
         "nombre":  "Cool Mint pastillitas Frutales (30u)",

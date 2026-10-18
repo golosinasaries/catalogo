@@ -492,6 +492,7 @@ precio.textContent = String(producto.categoria || "").toLocaleLowerCase("es-AR")
   }
 
   const incluidos = producto.productosIncluidos || producto.productos || producto.contenido;
+  const esComboDetalle = String(producto.categoria || "").toLocaleLowerCase("es-AR") === "combos";
 
   if (Array.isArray(incluidos) && incluidos.length > 0) {
     const subtitulo = document.createElement("h3");
@@ -500,56 +501,43 @@ precio.textContent = String(producto.categoria || "").toLocaleLowerCase("es-AR")
 
     const lista = document.createElement("ul");
     lista.className = "lista-incluidos";
+    let totalSeparado = 0;
 
     incluidos.forEach((item) => {
       const elemento = document.createElement("li");
       elemento.className = "item-incluido-detalle";
 
-const nombreVisible = typeof item === "string"
-? item
-: (item.nombre || item.producto || "Producto");
+      const nombreVisible = typeof item === "string"
+        ? item
+        : (item.nombre || item.producto || "Producto");
 
+      const coincidencias = estado.productos.filter((p) =>
+        String(p.categoria || "").toLocaleLowerCase("es-AR") !== "combos" &&
+        normalizarNombreProducto(p.nombre) === normalizarNombreProducto(nombreVisible)
+      );
 
-  const coincidenciasCatalogo = estado.productos.filter((productoCatalogo) =>
-    String(productoCatalogo.categoria || "").toLocaleLowerCase("es-AR") !== "combos" &&
-    normalizarNombreProducto(productoCatalogo.nombre) ===
-    normalizarNombreProducto(nombreVisible)
-  );
-  const productoCatalogo = coincidenciasCatalogo.length === 1
-    ? coincidenciasCatalogo[0]
-    : null;
+      const productoCatalogo = coincidencias.length === 1 ? coincidencias[0] : null;
+      const nombreItem = document.createElement(productoCatalogo ? "button" : "span");
 
-  let nombreItem;
+      if (productoCatalogo) {
+        nombreItem.type = "button";
+        nombreItem.className = "enlace-incluido-detalle";
+        nombreItem.addEventListener("click", () => abrirDetalleProducto(productoCatalogo));
+      }
 
-  if (productoCatalogo) {
-    nombreItem = document.createElement("button");
-    nombreItem.type = "button";
-    nombreItem.className = "enlace-incluido-detalle";
-    nombreItem.textContent = nombreVisible;
-    nombreItem.addEventListener("click", () => abrirDetalleProducto(productoCatalogo));
-  } else {
-    nombreItem = document.createElement("span");
-    nombreItem.textContent = nombreVisible;
-  }
+      nombreItem.textContent = nombreVisible;
+      elemento.append(nombreItem);
 
-  elemento.append(nombreItem);
+      const precioGuardado = item && typeof item === "object" ? Number(item.precio) : NaN;
+      const precioCatalogo = productoCatalogo ? Number(productoCatalogo.precio) : NaN;
+      const precioActual = Number.isFinite(precioCatalogo) ? precioCatalogo : precioGuardado;
 
-
-
-
-
-      if (typeof item === "object" && item !== null) {
-        const precioActualItem = productoCatalogo &&
-          Number.isFinite(Number(productoCatalogo.precio))
-          ? Number(productoCatalogo.precio)
-          : Number(item.precio);
-
-        if (Number.isFinite(precioActualItem)) {
-          const precioItem = document.createElement("span");
-          precioItem.className = "precio-incluido-detalle";
-          precioItem.textContent = formatoPrecio(precioActualItem);
-          elemento.append(precioItem);
-        }
+      if (Number.isFinite(precioActual)) {
+        totalSeparado += precioActual;
+        const precioItem = document.createElement("span");
+        precioItem.className = "precio-incluido-detalle";
+        precioItem.textContent = formatoPrecio(precioActual);
+        elemento.append(precioItem);
       }
 
       lista.append(elemento);
@@ -557,28 +545,7 @@ const nombreVisible = typeof item === "string"
 
     contenido.append(subtitulo, lista);
 
-    if (String(producto.categoria || "").toLocaleLowerCase("es-AR") === "combos") {
-      const incluidosActualizados = incluidos.map((item) => {
-        if (!item || typeof item !== "object") return item;
-
-        const nombreItem = item.nombre || item.producto || "";
-        const coincidencias = estado.productos.filter((p) =>
-          String(p.categoria || "").toLocaleLowerCase("es-AR") !== "combos" &&
-          normalizarNombreProducto(p.nombre) === normalizarNombreProducto(nombreItem) &&
-          Number.isFinite(Number(p.precio))
-        );
-
-        return coincidencias.length === 1
-          ? { ...item, precio: Number(coincidencias[0].precio) }
-          : item;
-      });
-
-      const totalSeparado = incluidosActualizados.reduce((total, item) => {
-        if (!item || typeof item !== "object") return total;
-        const precio = Number(item.precio);
-        return total + (Number.isFinite(precio) ? precio : 0);
-      }, 0);
-
+    if (esComboDetalle) {
       const comparacion = document.createElement("div");
       comparacion.className = "ahorro-combo-detalle";
 
@@ -587,7 +554,7 @@ const nombreVisible = typeof item === "string"
       precioSeparado.style.color = "#777";
 
       const etiquetaSeparado = document.createElement("span");
-      etiquetaSeparado.textContent = "Los 12 productos por separado: ";
+      etiquetaSeparado.textContent = "Productos por separado: ";
 
       const precioTachado = document.createElement("del");
       precioTachado.textContent = formatoPrecio(totalSeparado);
@@ -603,13 +570,13 @@ const nombreVisible = typeof item === "string"
 
       comparacion.append(precioSeparado, textoAhorro);
       contenido.append(comparacion);
-    }  } else if (String(producto.categoria || "").toLocaleLowerCase("es-AR") === "combos") {
+    }
+  } else if (esComboDetalle) {
     const nota = document.createElement("p");
     nota.className = "descripcion-detalle-producto";
-    nota.textContent = "Este combo se anuncia con 12 productos. El catálogo todavía no tiene cargada la lista exacta de sus contenidos.";
+    nota.textContent = "Este combo todavía no tiene cargada la lista de productos incluidos.";
     contenido.append(nota);
   }
-
   const agregar = document.createElement("button");
   agregar.type = "button";
   agregar.className = "agregar-producto boton-agregar-detalle";
@@ -904,19 +871,7 @@ imagen.alt = productoActual.nombre;
       precioVisible = bloquePrecios;
     }
 
-    if (esCombo) {
-      const verDetalle = document.createElement("button");
-      verDetalle.type = "button";
-      verDetalle.className = "ver-detalle-producto";
-      verDetalle.textContent = "Ver detalle";
-      verDetalle.addEventListener("click", (evento) => {
-        evento.stopPropagation();
-        abrirDetalleProducto(productoActual);
-      });
-      contenido.append(categoria, nombre, precioVisible, verDetalle);
-    } else {
-      contenido.append(categoria, nombre, precioVisible);
-    }
+    contenido.append(categoria, nombre, precioVisible);
 
     if (selectorVariante) {
       contenido.append(selectorVariante);
