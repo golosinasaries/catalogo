@@ -168,8 +168,29 @@ return String(nombre || "")
 .trim()
 .replace(/\s+/g, " ");
 }
+const historialModalesDetalle = [];
+
 function cerrarDetalleProducto() {
-  document.querySelector(".modal-detalle-fondo")?.remove();
+  const fondo = document.querySelector(".modal-detalle-fondo");
+  if (!fondo) return;
+
+  if (historialModalesDetalle.length > 0) {
+    const anterior = historialModalesDetalle.pop();
+    fondo.replaceChildren(anterior.elemento);
+
+    requestAnimationFrame(() => {
+      const modal = fondo.querySelector(".modal-detalle");
+      const lista = fondo.querySelector(".lista-incluidos");
+
+      if (modal) modal.scrollTop = anterior.scrollModal;
+      if (lista) lista.scrollTop = anterior.scrollLista;
+      window.scrollTo(0, anterior.scrollVentana);
+    });
+
+    return;
+  }
+
+  fondo.remove();
 }
 
 function abrirImagenPantallaCompleta(imagenOriginal, productoInicial = null) {
@@ -354,9 +375,23 @@ function abrirImagenPantallaCompleta(imagenOriginal, productoInicial = null) {
   document.addEventListener("keydown", manejarTeclado);
   cerrarImagen.focus();
 }
-function abrirDetalleProducto(producto, navegar = false) {
+function abrirDetalleProducto(producto, navegar = false, apilar = false) {
   const fondoExistente = navegar ? document.querySelector(".modal-detalle-fondo") : null;
-  if (!fondoExistente) cerrarDetalleProducto();
+
+  if (!fondoExistente) {
+    document.querySelector(".modal-detalle-fondo")?.remove();
+    historialModalesDetalle.length = 0;
+  } else if (apilar && fondoExistente.firstElementChild) {
+        const modalActual = fondoExistente.querySelector(".modal-detalle");
+    const listaActual = fondoExistente.querySelector(".lista-incluidos");
+
+    historialModalesDetalle.push({
+      elemento: fondoExistente.firstElementChild,
+      scrollModal: modalActual?.scrollTop || 0,
+      scrollLista: listaActual?.scrollTop || 0,
+      scrollVentana: window.scrollY || 0
+    });
+  }
 
   const fondo = fondoExistente || document.createElement("div");
   fondo.className = "modal-detalle-fondo";
@@ -511,18 +546,67 @@ precio.textContent = String(producto.categoria || "").toLocaleLowerCase("es-AR")
         ? item
         : (item.nombre || item.producto || "Producto");
 
-      const coincidencias = estado.productos.filter((p) =>
-        String(p.categoria || "").toLocaleLowerCase("es-AR") !== "combos" &&
-        normalizarNombreProducto(p.nombre) === normalizarNombreProducto(nombreVisible)
+      const normalizadoVisible = normalizarNombreProducto(nombreVisible);
+      const productosSinCombos = estado.productos.filter((p) =>
+        String(p.categoria || "").toLocaleLowerCase("es-AR") !== "combos"
       );
 
+      const coincidenciasExactas = productosSinCombos.filter((p) =>
+        normalizarNombreProducto(p.nombre) === normalizadoVisible
+      );
+
+      let coincidencias = coincidenciasExactas;
+
+      if (coincidencias.length === 0) {
+        const normalizarPresentacion = (nombre) =>
+          normalizarNombreProducto(nombre)
+            .replace(/\b\d+\s*(?:u|unidades?|g|gr|gramos?|kg|ml|l)\b/gu, " ")
+            .replace(/\s+/g, " ")
+            .trim();
+
+        const baseVisible = normalizarPresentacion(nombreVisible);
+
+        coincidencias = productosSinCombos.filter((p) => {
+          const nombreCatalogo = normalizarNombreProducto(p.nombre);
+
+          // No enlazar presentaciones mayoristas con unidades individuales.
+          if (/\b(caja|bulto|por pack|x10)\b/u.test(nombreCatalogo)) {
+            return false;
+          }
+
+          return normalizarPresentacion(p.nombre) === baseVisible;
+        });
+      }
+
       const productoCatalogo = coincidencias.length === 1 ? coincidencias[0] : null;
+
+      if (productoCatalogo && productoCatalogo.imagen) {
+        const botonImagen = document.createElement("button");
+        botonImagen.type = "button";
+        botonImagen.className = "boton-imagen-incluido";
+        botonImagen.setAttribute("aria-label", "Ver " + nombreVisible);
+
+        const miniatura = document.createElement("img");
+        miniatura.className = "imagen-incluido-detalle";
+        miniatura.src = productoCatalogo.imagen;
+        miniatura.alt = nombreVisible;
+        miniatura.loading = "lazy";
+
+        botonImagen.append(miniatura);
+        botonImagen.addEventListener("click", () =>
+          abrirDetalleProducto(productoCatalogo, true, true)
+        );
+        elemento.append(botonImagen);
+      }
+
       const nombreItem = document.createElement(productoCatalogo ? "button" : "span");
 
       if (productoCatalogo) {
         nombreItem.type = "button";
         nombreItem.className = "enlace-incluido-detalle";
-        nombreItem.addEventListener("click", () => abrirDetalleProducto(productoCatalogo));
+        nombreItem.addEventListener("click", () =>
+          abrirDetalleProducto(productoCatalogo, true, true)
+        );
       }
 
       nombreItem.textContent = nombreVisible;

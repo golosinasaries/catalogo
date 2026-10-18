@@ -14,7 +14,7 @@
                                       "Halloween"
                                   ]
     },
-     {
+    {
         "nombre":  "Gomitas Calabaza (30u)",
         "imagen":  "img/calabaza.jpg",
         "precio":  9400,
@@ -33,14 +33,26 @@
                                   ]
     },
     {
-        "nombre": "Chupetines Corazón (30u)",
-        "imagen": "img/corazon.jpg",
-        "precio": 10900,
-        "categoria": "Chupetines"
-        },
+        "nombre":  "Chupetines Corazón (30u)",
+        "imagen":  "img/corazon.jpg",
+        "precio":  10900,
+        "categoria":  "Chupetines"
+    },
     {
         "nombre":  "Spider-Man con pastillitas (30u)",
         "imagen":  "img/spider.jpeg",
+        "precio":  13800,
+        "categoria":  "Pastillas"
+    },
+      {
+        "nombre":  "Cars con pastillitas (30u)",
+        "imagen":  "img/cars.png",
+        "precio":  13800,
+        "categoria":  "Pastillas"
+    },
+    {
+        "nombre":  "iPhone Pinball con pastillitas (30u)",
+        "imagen":  "img/iphone.png",
         "precio":  13800,
         "categoria":  "Pastillas"
     },
@@ -120,6 +132,12 @@
         "precio":  12900,
         "categoria":  "Chupetines"
     },
+        {
+        "nombre":  "Chupetines con led Unicornio (30u)",
+        "imagen":  "img/unicornioled1.png",
+        "precio":  12900,
+        "categoria":  "Chupetines"
+    },
     {
         "nombre":  "Cool Mint pastillitas Frutales (30u)",
         "imagen":  "img/coolmint.jpg",
@@ -168,6 +186,18 @@
         "precio":  6900,
         "categoria":  "Alcancías"
     },
+      {
+        "nombre":  "Alcancía Pollito Rojo (con 12 gelatinas en su interior)",
+        "imagen":  "img/pollito.png",
+        "precio":  6900,
+        "categoria":  "Alcancías"
+    },
+    {
+        "nombre":  "Alcancía Tigre Amarillo (con 12 gelatinas en su interior)",
+        "imagen":  "img/tigreamarillo.jpg",
+        "precio":  6900,
+        "categoria":  "Alcancías"
+    },
     {
         "nombre":  "Gomitas Frutillas (30u)",
         "imagen":  "img/frutilla.png",
@@ -194,7 +224,7 @@
         "categoria":  "Gomitas blandas"
     },
     {
-        "nombre":  "Chicles WhatsApp Selección   Caja x20, 5 chicles cada uno",
+        "nombre":  "Chicles WhatsApp Selección Caja x20, 5 chicles cada uno",
         "imagen":  "img/chicleseleccion.png",
         "precio":  8500,
         "categoria":  "Chicles"
@@ -244,6 +274,12 @@
     {
         "nombre":  "Oblita de Frutilla (48u)",
         "imagen":  "img/oblitafrutilla.jpg",
+        "precio":  6900,
+        "categoria":  "Galletitas"
+    },
+     {
+        "nombre":  "Oblita de DDL (48u)",
+        "imagen":  "img/oblita_ddl.jpg",
         "precio":  6900,
         "categoria":  "Galletitas"
     },
@@ -428,13 +464,14 @@
                                        "precio":  7900
                                    },
                                    {
-                                       "nombre":  "Chicles WhatsApp Selección — Caja x20, 5 chicles cada uno",
+                                       "nombre":  "Chicles WhatsApp Selección Caja x20, 5 chicles cada uno",
                                        "precio":  8500
                                    },
                                    {
                                        "nombre":  "Alcancía Pollito Rojo (con 12 gelatinas en su interior)",
                                        "precio":  6900
                                    },
+
                                    {
                                        "nombre":  "Gomitas Frutillas (30u)",
                                        "precio":  9400
@@ -498,4 +535,5 @@
                                    }
                                ]
     }
+  
 ]
