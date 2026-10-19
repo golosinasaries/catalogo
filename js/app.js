@@ -1543,7 +1543,7 @@ function finalizarPedido() {
   });
 
   if (tieneRegaloGratis(subtotalCompra)) {
-    mensaje += `\n🎁 *Regalo gratis:* ${REGALO_NOMBRE}`;
+    mensaje += `🎁 *Regalo:* ${REGALO_NOMBRE}`;
   }
   mensaje += `\n${emojiCaja} Total productos: ${unidades + (tieneRegaloGratis(subtotalCompra) ? 1 : 0)}`;
   mensaje += `\n${emojiEnvio} Envío: ${envio === 0 ? "GRATIS" : formatoPrecio(envio)}`;
