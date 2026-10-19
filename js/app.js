@@ -10,8 +10,8 @@ const MINIMO_COMPRA = 50000;
 const ENVIO_GRATIS_DESDE = 120000;
 
 const REGALO_DESDE = 50000;
-const REGALO_NOMBRE = "Chupetines Pelotitas Pinta Lengua (50u)";
-const REGALO_IMAGEN = "img/pelotitaspintalengua.png";
+const REGALO_NOMBRE = "1 Alcancía";
+const REGALO_IMAGEN = "img/tigrerojo.png";
 
 // Las promociones se pueden activar o desactivar independientemente.
 const PROMOS_ACTIVAS = ["envio", "regalo"];
