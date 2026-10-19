@@ -84,6 +84,27 @@ const estado = {
   categoria: "Todas",
   busqueda: ""
 };
+try {
+  const carritoGuardado = JSON.parse(
+    localStorage.getItem("carritoCliente") || "[]"
+  );
+
+  if (Array.isArray(carritoGuardado)) {
+    estado.carrito = carritoGuardado.filter(
+      (item) =>
+        item &&
+        item.id !== undefined &&
+        Number.isFinite(Number(item.precio)) &&
+        Number.isFinite(Number(item.cantidad)) &&
+        Number(item.cantidad) > 0
+    ).map((item) => ({
+      ...item,
+      cantidad: Number(item.cantidad)
+    }));
+  }
+} catch {
+  estado.carrito = [];
+}
 
 const formatoPrecio = (valor) =>
   new Intl.NumberFormat("es-AR", {
@@ -1296,6 +1317,14 @@ function actualizarAvisoEnvioGratis(subtotal = 0) {
 }
 
 function renderizarCarrito() {
+  try {
+    localStorage.setItem(
+      "carritoCliente",
+      JSON.stringify(estado.carrito)
+    );
+  } catch (error) {
+    console.error("No se pudo guardar el carrito:", error);
+  }
   const unidades = estado.carrito.reduce((suma, item) => suma + item.cantidad, 0);
   const subtotal = estado.carrito.reduce((suma, item) => suma + item.precio * item.cantidad, 0);
   actualizarAvisoEnvioGratis(subtotal);
@@ -1543,7 +1572,7 @@ function finalizarPedido() {
   });
 
   if (tieneRegaloGratis(subtotalCompra)) {
-    mensaje += `🎁 *Regalo:* ${REGALO_NOMBRE}`;
+    mensaje += `  * 🎁 *Regalo:* ${REGALO_NOMBRE}\n\n`;
   }
   mensaje += `\n${emojiCaja} Total productos: ${unidades + (tieneRegaloGratis(subtotalCompra) ? 1 : 0)}`;
   mensaje += `\n${emojiEnvio} Envío: ${envio === 0 ? "GRATIS" : formatoPrecio(envio)}`;

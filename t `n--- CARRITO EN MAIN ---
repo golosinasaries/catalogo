@@ -1,0 +1,1820 @@
+[1mdiff --git a/js/app.js b/js/app.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..14c3136[m
+[1m--- /dev/null[m
+[1m+++ b/js/app.js[m
+[36m@@ -0,0 +1,1813 @@[m
+[32m+[m[32m﻿function productoTieneCategoria(producto, categoria) {[m
+[32m+[m[32m  return producto.categoria === categoria ||[m
+[32m+[m[32m    (Array.isArray(producto.categoriasAdicionales) &&[m
+[32m+[m[32m      producto.categoriasAdicionales.includes(categoria));[m
+[32m+[m[32m}[m
+[32m+[m[32m"use strict";[m
+[32m+[m
+[32m+[m[32mconst WHATSAPP = "542236010443";[m
+[32m+[m[32mconst MINIMO_COMPRA = 50000;[m
+[32m+[m[32mconst ENVIO_GRATIS_DESDE = 120000;[m
+[32m+[m
+[32m+[m[32mconst REGALO_DESDE = 50000;[m
+[32m+[m[32mconst REGALO_NOMBRE = "1 Alcancía";[m
+[32m+[m[32mconst REGALO_IMAGEN = "img/tigrerojo.png";[m
+[32m+[m
+[32m+[m[32m// Las promociones se pueden activar o desactivar independientemente.[m
+[32m+[m[32mconst PROMOS_ACTIVAS = ["envio", "regalo"];[m
+[32m+[m
+[32m+[m
+[32m+[m[32mconst STOCK_PRODUCTOS = {[m
+[32m+[m[32m  "Caramelos Super Acidos Lipo (454 g)": 1,[m
+[32m+[m[32m};[m
+[32m+[m
+[32m+[m[32mfunction obtenerStockMaximo(producto) {[m
+[32m+[m[32m  const nombre = String(producto?.nombre || "");[m
+[32m+[m
+[32m+[m[32m  if (Object.prototype.hasOwnProperty.call(STOCK_PRODUCTOS, nombre)) {[m
+[32m+[m[32m    const valor = Number(STOCK_PRODUCTOS[nombre]);[m
+[32m+[m[32m    return Number.isFinite(valor) ? Math.max(0, Math.floor(valor)) : 0;[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  // Compatibilidad con los productos que todavía usan "agotado".[m
+[32m+[m[32m  return producto?.agotado === true ? 0 : undefined;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mfunction cantidadEnCarritoPorNombre(nombre) {[m
+[32m+[m[32m  return estado.carrito[m
+[32m+[m[32m    .filter((item) => item.nombre === nombre)[m
+[32m+[m[32m    .reduce((total, item) => total + Number(item.cantidad || 0), 0);[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mfunction obtenerStockRestante(producto) {[m
+[32m+[m[32m  const maximo = obtenerStockMaximo(producto);[m
+[32m+[m[32m  if (maximo === undefined) return undefined;[m
+[32m+[m
+[32m+[m[32m  return Math.max([m
+[32m+[m[32m    0,[m
+[32m+[m[32m    maximo - cantidadEnCarritoPorNombre(String(producto?.nombre || ""))[m
+[32m+[m[32m  );[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mfunction mostrarAvisoStock(mensaje) {[m
+[32m+[m[32m  let aviso = document.getElementById("aviso-stock-flotante");[m
+[32m+[m
+[32m+[m[32m  if (!aviso) {[m
+[32m+[m[32m    aviso = document.createElement("div");[m
+[32m+[m[32m    aviso.id = "aviso-stock-flotante";[m
+[32m+[m[32m    aviso.className = "aviso-stock-flotante";[m
+[32m+[m[32m    aviso.setAttribute("role", "alert");[m
+[32m+[m[32m    aviso.setAttribute("aria-live", "assertive");[m
+[32m+[m[32m    document.body.append(aviso);[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  aviso.textContent = mensaje;[m
+[32m+[m[32m  aviso.classList.add("visible");[m
+[32m+[m
+[32m+[m[32m  if (aviso._temporizador) clearTimeout(aviso._temporizador);[m
+[32m+[m
+[32m+[m[32m  aviso._temporizador = setTimeout(() => {[m
+[32m+[m[32m    aviso.classList.remove("visible");[m
+[32m+[m[32m  }, 3000);[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mfunction promoActiva(nombre) {[m
+[32m+[m[32m  return PROMOS_ACTIVAS.includes(nombre);[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mfunction tieneRegaloGratis(subtotal) {[m
+[32m+[m[32m  return promoActiva("regalo") && subtotal >= REGALO_DESDE;[m
+[32m+[m[32m}[m
+[32m+[m[32mconst estado = {[m
+[32m+[m[32m  productos: [],[m
+[32m+[m[32m  carrito: [],[m
+[32m+[m[32m  categoria: "Todas",[m
+[32m+[m[32m  busqueda: ""[m
+[32m+[m[32m};[m
+[32m+[m
+[32m+[m[32mconst formatoPrecio = (valor) =>[m
+[32m+[m[32m  new Intl.NumberFormat("es-AR", {[m
+[32m+[m[32m    style: "currency",[m
+[32m+[m[32m    currency: "ARS",[m
+[32m+[m[32m    maximumFractionDigits: 0[m
+[32m+[m[32m  }).format(valor).replace(/\s/g, "");[m
+[32m+[m
+[32m+[m[32mconst elementos = {[m
+[32m+[m[32m  abrir: document.querySelector("#abrir-carrito"),[m
+[32m+[m[32m  cerrar: document.querySelector("#cerrar-carrito"),[m
+[32m+[m[32m  panel: document.querySelector("#panel-carrito"),[m
+[32m+[m[32m  fondo: document.querySelector("#fondo-panel"),[m
+[32m+[m[32m  cantidad: document.querySelector("#cantidad-carrito"),[m
+[32m+[m[32m  items: document.querySelector("#items-carrito"),[m
+[32m+[m[32m  total: document.querySelector("#total-carrito"),[m
+[32m+[m[32m  finalizar: document.querySelector("#finalizar-pedido"),[m
+[32m+[m[32m  busqueda: document.querySelector("#busqueda"),[m
+[32m+[m[32m  productos: document.querySelector("#productos"),[m
+[32m+[m[32m  categorias: document.querySelector("#categorias")[m
+[32m+[m[32m};[m
+[32m+[m
+[32m+[m[32mfunction abrirCarrito() {[m
+[32m+[m[32m  elementos.panel.classList.add("abierto");[m
+[32m+[m[32m  elementos.fondo.classList.add("visible");[m
+[32m+[m[32m  elementos.panel.setAttribute("aria-hidden", "false");[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mfunction cerrarCarrito() {[m
+[32m+[m[32m  elementos.panel.classList.remove("abierto");[m
+[32m+[m[32m  elementos.fondo.classList.remove("visible");[m
+[32m+[m[32m  elementos.panel.setAttribute("aria-hidden", "true");[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mfunction animarImagenAlCarrito(imagen) {[m
+[32m+[m[32m  const carrito = document.getElementById("abrir-carrito");[m
+[32m+[m[32m  if (!imagen || !carrito) return;[m
+[32m+[m
+[32m+[m[32m  const origen = imagen.getBoundingClientRect();[m
+[32m+[m[32m  const destino = carrito.getBoundingClientRect();[m
+[32m+[m
+[32m+[m[32m  if (!origen.width || !origen.height) return;[m
+[32m+[m
+[32m+[m[32m  const vuelo = imagen.cloneNode(true);[m
+[32m+[m[32m  vuelo.removeAttribute("loading");[m
+[32m+[m
+[32m+[m[32m  vuelo.style.position = "fixed";[m
+[32m+[m[32m  vuelo.style.left = origen.left + "px";[m
+[32m+[m[32m  vuelo.style.top = origen.top + "px";[m
+[32m+[m[32m  vuelo.style.width = origen.width + "px";[m
+[32m+[m[32m  vuelo.style.height = origen.height + "px";[m
+[32m+[m[32m  vuelo.style.margin = "0";[m
+[32m+[m[32m  vuelo.style.zIndex = "99999";[m
+[32m+[m[32m  vuelo.style.pointerEvents = "none";[m
+[32m+[m[32m  vuelo.style.objectFit = "contain";[m
+[32m+[m[32m  vuelo.style.borderRadius = "12px";[m
+[32m+[m[32m  vuelo.style.boxShadow = "0 8px 25px rgba(80, 20, 45, 0.25)";[m
+[32m+[m[32m  vuelo.style.transition = "transform 650ms cubic-bezier(.2,.75,.25,1), opacity 650ms ease";[m
+[32m+[m
+[32m+[m[32m  document.body.appendChild(vuelo);[m
+[32m+[m
+[32m+[m[32m  const moverX = destino.left + destino.width / 2 - (origen.left + origen.width / 2);[m
+[32m+[m[32m  const moverY = destino.top + destino.height / 2 - (origen.top + origen.height / 2);[m
+[32m+[m
+[32m+[m[32m  vuelo.getBoundingClientRect();[m
+[32m+[m
+[32m+[m[32m  requestAnimationFrame(() => {[m
+[32m+[m[32m    vuelo.style.transform = `translate(${moverX}px, ${moverY}px) scale(0.15) rotate(12deg)`;[m
+[32m+[m[32m    vuelo.style.opacity = "0.25";[m
+[32m+[m[32m  });[m
+[32m+[m
+[32m+[m[32m  vuelo.addEventListener("transitionend", () => vuelo.remove(), { once: true });[m
+[32m+[m[32m  setTimeout(() => vuelo.remove(), 900);[m
+[32m+[m[32m}[m
+[32m+[m[32mfunction normalizarNombreProducto(nombre) {[m
+[32m+[m[32mreturn String(nombre || "")[m
+[32m+[m[32m.normalize("NFD")[m
+[32m+[m[32m.replace(/[\u0300-\u036f]/g, "")[m
+[32m+[m[32m.toLocaleLowerCase("es-AR")[m
+[32m+[m[32m.replace(/[–—-]/g, " ")[m
+[32m+[m[32m.replace(/[^\p{L}\p{N}]+/gu, " ")[m
+[32m+[m[32m.trim()[m
+[32m+[m[32m.replace(/\s+/g, " ");[m
+[32m+[m[32m}[m
+[32m+[m[32mconst historialModalesDetalle = [];[m
+[32m+[m
+[32m+[m[32mfunction cerrarDetalleProducto() {[m
+[32m+[m[32m  const fondo = document.querySelector(".modal-detalle-fondo");[m
+[32m+[m[32m  if (!fondo) return;[m
+[32m+[m
+[32m+[m[32m  if (historialModalesDetalle.length > 0) {[m
+[32m+[m[32m    const anterior = historialModalesDetalle.pop();[m
+[32m+[m[32m    fondo.replaceChildren(anterior.elemento);[m
+[32m+[m
+[32m+[m[32m    requestAnimationFrame(() => {[m
+[32m+[m[32m      const modal = fondo.querySelector(".modal-detalle");[m
+[32m+[m[32m      const lista = fondo.querySelector(".lista-incluidos");[m
+[32m+[m
+[32m+[m[32m      if (modal) modal.scrollTop = anterior.scrollModal;[m
+[32m+[m[32m      if (lista) lista.scrollTop = anterior.scrollLista;[m
+[32m+[m[32m      window.scrollTo(0, anterior.scrollVentana);[m
+[32m+[m[32m    });[m
+[32m+[m
+[32m+[m[32m    return;[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  fondo.remove();[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mfunction abrirImagenPantallaCompleta(imagenOriginal, productoInicial = null) {[m
+[32m+[m[32m  if (!imagenOriginal || !imagenOriginal.src) return;[m
+[32m+[m
+[32m+[m[32m  document.querySelector(".visor-imagen-fondo")?.remove();[m
+[32m+[m
+[32m+[m[32m  const fondoImagen = document.createElement("div");[m
+[32m+[m[32m  fondoImagen.className = "visor-imagen-fondo";[m
+[32m+[m[32m  fondoImagen.setAttribute("role", "dialog");[m
+[32m+[m[32m  fondoImagen.setAttribute("aria-modal", "true");[m
+[32m+[m[32m  fondoImagen.setAttribute("aria-label", "Imagen ampliada del producto");[m
+[32m+[m
+[32m+[m[32m  const cerrarImagen = document.createElement("button");[m
+[32m+[m[32m  cerrarImagen.type = "button";[m
+[32m+[m[32m  cerrarImagen.className = "visor-imagen-cerrar";[m
+[32m+[m[32m  cerrarImagen.textContent = "×";[m
+[32m+[m[32m  cerrarImagen.setAttribute("aria-label", "Cerrar imagen ampliada");[m
+[32m+[m
+[32m+[m[32m  const imagenAmpliada = document.createElement("img");[m
+[32m+[m[32m  imagenAmpliada.className = "visor-imagen";[m
+[32m+[m[32m  imagenAmpliada.src = imagenOriginal.src;[m
+[32m+[m[32m  imagenAmpliada.alt = imagenOriginal.alt;[m
+[32m+[m[32m  imagenAmpliada.draggable = false;[m
+[32m+[m
+[32m+[m[32m  const controles = document.createElement("div");[m
+[32m+[m[32m  controles.className = "visor-imagen-controles";[m
+[32m+[m
+[32m+[m[32m  const alejar = document.createElement("button");[m
+[32m+[m[32m  alejar.type = "button";[m
+[32m+[m[32m  alejar.textContent = "−";[m
+[32m+[m[32m  alejar.setAttribute("aria-label", "Alejar imagen");[m
+[32m+[m
+[32m+[m[32m  const nivelZoom = document.createElement("span");[m
+[32m+[m[32m  nivelZoom.className = "visor-imagen-nivel";[m
+[32m+[m[32m  nivelZoom.textContent = "100%";[m
+[32m+[m
+[32m+[m[32m  const acercar = document.createElement("button");[m
+[32m+[m[32m  acercar.type = "button";[m
+[32m+[m[32m  acercar.textContent = "+";[m
+[32m+[m[32m  acercar.setAttribute("aria-label", "Acercar imagen");[m
+[32m+[m
+[32m+[m[32m  const restablecer = document.createElement("button");[m
+[32m+[m[32m  restablecer.type = "button";[m
+[32m+[m[32m  restablecer.textContent = "Restablecer";[m
+[32m+[m[32m  restablecer.className = "visor-imagen-restablecer";[m
+[32m+[m
+[32m+[m
+[32m+[m[32m  let zoom = 1;[m
+[32m+[m[32m  let productoActual = productoInicial;[m
+[32m+[m[32m  let inicioX = 0;[m
+[32m+[m[32m  let inicioY = 0;[m
+[32m+[m[32m  let distanciaInicial = 0;[m
+[32m+[m[32m  let zoomInicial = 1;[m
+[32m+[m[32m  let gestoDePinza = false;[m
+[32m+[m
+[32m+[m[32m  function actualizarZoom(nuevoZoom) {[m
+[32m+[m[32m    zoom = Math.max(1, Math.min(5, nuevoZoom));[m
+[32m+[m[32m    imagenAmpliada.style.transform = "scale(" + zoom + ")";[m
+[32m+[m[32m    imagenAmpliada.style.cursor = zoom > 1 ? "zoom-out" : "zoom-in";[m
+[32m+[m[32m    nivelZoom.textContent = Math.round(zoom * 100) + "%";[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  function cerrarVisor() {[m
+[32m+[m[32m    document.removeEventListener("keydown", manejarTeclado);[m
+[32m+[m[32m    fondoImagen.remove();[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  function manejarTeclado(evento) {[m
+[32m+[m[32m    if (evento.key === "Escape") cerrarVisor();[m
+[32m+[m[32m    if (evento.key === "+" || evento.key === "=") actualizarZoom(zoom + 0.25);[m
+[32m+[m[32m    if (evento.key === "-") actualizarZoom(zoom - 0.25);[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  function productosVisibles() {[m
+[32m+[m[32m    return estado.productos.filter((p) => {[m
+[32m+[m[32m      if (p.oculto === true) return false;[m
+[32m+[m[32m      const nombre = (p.nombre || "")[m
+[32m+[m[32m        .normalize("NFD")[m
+[32m+[m[32m        .replace(/[\u0300-\u036f]/g, "")[m
+[32m+[m[32m        .toLocaleLowerCase("es-AR");[m
+[32m+[m
+[32m+[m[32m      const categoriaCoincide =[m
+[32m+[m[32m        estado.categoria === "Todas" || productoTieneCategoria(p, estado.categoria);[m
+[32m+[m
+[32m+[m[32m      const busquedaCoincide =[m
+[32m+[m[32m        !estado.busqueda ||[m
+[32m+[m[32m        nombre.includes([m
+[32m+[m[32m          estado.busqueda.normalize("NFD")[m
+[32m+[m[32m            .replace(/[\u0300-\u036f]/g, "")[m
+[32m+[m[32m            .toLocaleLowerCase("es-AR")[m
+[32m+[m[32m        );[m
+[32m+[m
+[32m+[m[32m      return categoriaCoincide && busquedaCoincide;[m
+[32m+[m[32m    });[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  function cambiarProducto(direccion) {[m
+[32m+[m[32m    const lista = productosVisibles();[m
+[32m+[m[32m    if (!lista.length) return;[m
+[32m+[m
+[32m+[m[32m    let indice = lista.findIndex((p) =>[m
+[32m+[m[32m      productoActual && p.id === productoActual.id[m
+[32m+[m[32m    );[m
+[32m+[m
+[32m+[m[32m    if (indice < 0) indice = 0;[m
+[32m+[m
+[32m+[m[32m    indice = (indice + direccion + lista.length) % lista.length;[m
+[32m+[m[32m    productoActual = lista[indice];[m
+[32m+[m
+[32m+[m[32m    imagenAmpliada.src = productoActual.imagen;[m
+[32m+[m[32m    imagenAmpliada.alt = productoActual.nombre;[m
+[32m+[m[32m    imagenOriginal.src = productoActual.imagen;[m
+[32m+[m[32m    imagenOriginal.alt = productoActual.nombre;[m
+[32m+[m[32m    actualizarZoom(1);[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  function distanciaDedos(touches) {[m
+[32m+[m[32m    const dx = touches[0].clientX - touches[1].clientX;[m
+[32m+[m[32m    const dy = touches[0].clientY - touches[1].clientY;[m
+[32m+[m[32m    return Math.hypot(dx, dy);[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  fondoImagen.addEventListener("touchstart", (evento) => {[m
+[32m+[m[32m    if (evento.touches.length === 2) {[m
+[32m+[m[32m      gestoDePinza = true;[m
+[32m+[m[32m      distanciaInicial = distanciaDedos(evento.touches);[m
+[32m+[m[32m      zoomInicial = zoom;[m
+[32m+[m[32m    } else if (evento.touches.length === 1) {[m
+[32m+[m[32m      gestoDePinza = false;[m
+[32m+[m[32m      inicioX = evento.touches[0].clientX;[m
+[32m+[m[32m      inicioY = evento.touches[0].clientY;[m
+[32m+[m[32m    }[m
+[32m+[m[32m  }, { passive: true });[m
+[32m+[m
+[32m+[m[32m  fondoImagen.addEventListener("touchmove", (evento) => {[m
+[32m+[m[32m    if (evento.touches.length === 2 && distanciaInicial > 0) {[m
+[32m+[m[32m      evento.preventDefault();[m
+[32m+[m[32m      gestoDePinza = true;[m
+[32m+[m[32m      actualizarZoom([m
+[32m+[m[32m        zoomInicial * distanciaDedos(evento.touches) / distanciaInicial[m
+[32m+[m[32m      );[m
+[32m+[m[32m    }[m
+[32m+[m[32m  }, { passive: false });[m
+[32m+[m
+[32m+[m[32m  fondoImagen.addEventListener("touchend", (evento) => {[m
+[32m+[m[32m    if (gestoDePinza) {[m
+[32m+[m[32m      if (evento.touches.length === 0) {[m
+[32m+[m[32m        gestoDePinza = false;[m
+[32m+[m[32m        distanciaInicial = 0;[m
+[32m+[m[32m      }[m
+[32m+[m[32m      return;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    if (evento.changedTouches.length !== 1 || evento.touches.length !== 0 || zoom > 1 || !productoActual) return;[m
+[32m+[m
+[32m+[m[32m    const dedo = evento.changedTouches[0];[m
+[32m+[m[32m    const dx = dedo.clientX - inicioX;[m
+[32m+[m[32m    const dy = dedo.clientY - inicioY;[m
+[32m+[m
+[32m+[m[32m    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.2) {[m
+[32m+[m[32m      cambiarProducto(dx < 0 ? 1 : -1);[m
+[32m+[m[32m    }[m
+[32m+[m[32m  }, { passive: true });[m
+[32m+[m[32m  acercar.addEventListener("click", () => actualizarZoom(zoom + 0.25));[m
+[32m+[m[32m  alejar.addEventListener("click", () => actualizarZoom(zoom - 0.25));[m
+[32m+[m[32m  restablecer.addEventListener("click", () => actualizarZoom(1));[m
+[32m+[m[32m  cerrarImagen.addEventListener("click", cerrarVisor);[m
+[32m+[m
+[32m+[m[32m  fondoImagen.addEventListener("click", (evento) => {[m
+[32m+[m[32m    if (evento.target === fondoImagen) cerrarVisor();[m
+[32m+[m[32m  });[m
+[32m+[m
+[32m+[m[32m  fondoImagen.addEventListener("wheel", (evento) => {[m
+[32m+[m[32m    evento.preventDefault();[m
+[32m+[m[32m    actualizarZoom(zoom + (evento.deltaY < 0 ? 0.2 : -0.2));[m
+[32m+[m[32m  }, { passive: false });[m
+[32m+[m
+[32m+[m[32m  controles.append(alejar, nivelZoom, acercar, restablecer);[m
+[32m+[m[32m  fondoImagen.append(cerrarImagen, imagenAmpliada, controles);[m
+[32m+[m[32m  document.body.append(fondoImagen);[m
+[32m+[m[32m  document.addEventListener("keydown", manejarTeclado);[m
+[32m+[m[32m  cerrarImagen.focus();[m
+[32m+[m[32m}[m
+[32m+[m[32mfunction abrirDetalleProducto(producto, navegar = false, apilar = false) {[m
+[32m+[m[32m  const fondoExistente = navegar ? document.querySelector(".modal-detalle-fondo") : null;[m
+[32m+[m
+[32m+[m[32m  if (!fondoExistente) {[m
+[32m+[m[32m    document.querySelector(".modal-detalle-fondo")?.remove();[m
+[32m+[m[32m    historialModalesDetalle.length = 0;[m
+[32m+[m[32m  } else if (apilar && fondoExistente.firstElementChild) {[m
+[32m+[m[32m        const modalActual = fondoExistente.querySelector(".modal-detalle");[m
+[32m+[m[32m    const listaActual = fondoExistente.querySelector(".lista-incluidos");[m
+[32m+[m
+[32m+[m[32m    historialModalesDetalle.push({[m
+[32m+[m[32m      elemento: fondoExistente.firstElementChild,[m
+[32m+[m[32m      scrollModal: modalActual?.scrollTop || 0,[m
+[32m+[m[32m      scrollLista: listaActual?.scrollTop || 0,[m
+[32m+[m[32m      scrollVentana: window.scrollY || 0[m
+[32m+[m[32m    });[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  const fondo = fondoExistente || document.createElement("div");[m
+[32m+[m[32m  fondo.className = "modal-detalle-fondo";[m
+[32m+[m
+[32m+[m[32m  const modal = document.createElement("section");[m
+[32m+[m[32m  modal.className = "modal-detalle";[m
+[32m+[m[32m  modal.setAttribute("role", "dialog");[m
+[32m+[m[32m  modal.setAttribute("aria-modal", "true");[m
+[32m+[m[32m  modal.setAttribute("aria-labelledby", "titulo-detalle-producto");[m
+[32m+[m
+[32m+[m[32m  const cerrar = document.createElement("button");[m
+[32m+[m[32m  cerrar.type = "button";[m
+[32m+[m[32m  cerrar.className = "cerrar-modal-detalle";[m
+[32m+[m[32m  cerrar.textContent = "×";[m
+[32m+[m[32m  cerrar.setAttribute("aria-label", "Cerrar detalle");[m
+[32m+[m[32m  cerrar.addEventListener("click", cerrarDetalleProducto);[m
+[32m+[m
+[32m+[m[32m  const zonaImagen = document.createElement("div");[m
+[32m+[m[32m  zonaImagen.className = "zona-imagen-detalle";[m
+[32m+[m
+[32m+[m[32m  const fotosMultiplesDetalle = {[m
+[32m+[m[32m    "Gomitas Fantasmita (30u)": ["img/fantasmitas.jpg", "img/fantasmitas2.jpg"],[m
+[32m+[m[32m    "iPhone Pinball con pastillitas (30u)": ["img/iphone.png", "img/iphone2.png"],[m
+[32m+[m[32m  };[m
+[32m+[m
+[32m+[m[32m  const fotosDetalle = fotosMultiplesDetalle[producto.nombre] || [producto.imagen];[m
+[32m+[m[32m  let indiceFotoDetalle = 0;[m
+[32m+[m[32m  zonaImagen.classList.add("carrusel-detalle");[m
+[32m+[m
+[32m+[m[32m  const imagen = document.createElement("img");[m
+[32m+[m[32m  imagen.className = "imagen-detalle-producto";[m
+[32m+[m[32m  imagen.src = fotosDetalle[indiceFotoDetalle];[m
+[32m+[m[32m  imagen.alt = producto.nombre;[m
+[32m+[m[32m  imagen.tabIndex = 0;[m
+[32m+[m[32m  imagen.setAttribute("role", "button");[m
+[32m+[m[32m  imagen.setAttribute("aria-label", "Ampliar imagen de " + producto.nombre);[m
+[32m+[m[32m  imagen.title = "Tocá para ampliar la imagen";[m
+[32m+[m[32m  imagen.addEventListener("click", () => abrirImagenPantallaCompleta(imagen, producto));[m
+[32m+[m[32m  imagen.addEventListener("keydown", (evento) => {[m
+[32m+[m[32m    if (evento.key === "Enter" || evento.key === " ") {[m
+[32m+[m[32m      evento.preventDefault();[m
+[32m+[m[32m      abrirImagenPantallaCompleta(imagen, producto);[m
+[32m+[m[32m    }[m
+[32m+[m[32m  });[m
+[32m+[m
+[32m+[m[32m  zonaImagen.append(imagen);[m
+[32m+[m
+[32m+[m[32m  if (fotosDetalle.length > 1) {[m
+[32m+[m[32m    const indicadorDetalle = document.createElement("span");[m
+[32m+[m[32m    indicadorDetalle.className = "indicador-variante";[m
+[32m+[m[32m    indicadorDetalle.setAttribute("aria-live", "polite");[m
+[32m+[m[32m    indicadorDetalle.textContent = "1/" + fotosDetalle.length;[m
+[32m+[m
+[32m+[m[32m    const cambiarFotoDetalle = (direccion) => {[m
+[32m+[m[32m      indiceFotoDetalle = (indiceFotoDetalle + direccion + fotosDetalle.length) % fotosDetalle.length;[m
+[32m+[m[32m      imagen.src = fotosDetalle[indiceFotoDetalle];[m
+[32m+[m[32m      imagen.alt = producto.nombre + " - foto " + (indiceFotoDetalle + 1);[m
+[32m+[m[32m      indicadorDetalle.textContent = (indiceFotoDetalle + 1) + "/" + fotosDetalle.length;[m
+[32m+[m[32m    };[m
+[32m+[m
+[32m+[m[32m    const anteriorDetalle = document.createElement("button");[m
+[32m+[m[32m    anteriorDetalle.type = "button";[m
+[32m+[m[32m    anteriorDetalle.className = "flecha-variante izquierda";[m
+[32m+[m[32m    anteriorDetalle.textContent = "‹";[m
+[32m+[m[32m    anteriorDetalle.setAttribute("aria-label", "Foto anterior");[m
+[32m+[m[32m    anteriorDetalle.addEventListener("click", (evento) => {[m
+[32m+[m[32m      evento.stopPropagation();[m
+[32m+[m[32m      cambiarFotoDetalle(-1);[m
+[32m+[m[32m    });[m
+[32m+[m
+[32m+[m[32m    const siguienteDetalle = document.createElement("button");[m
+[32m+[m[32m    siguienteDetalle.type = "button";[m
+[32m+[m[32m    siguienteDetalle.className = "flecha-variante derecha";[m
+[32m+[m[32m    siguienteDetalle.textContent = "›";[m
+[32m+[m[32m    siguienteDetalle.setAttribute("aria-label", "Foto siguiente");[m
+[32m+[m[32m    siguienteDetalle.addEventListener("click", (evento) => {[m
+[32m+[m[32m      evento.stopPropagation();[m
+[32m+[m[32m      cambiarFotoDetalle(1);[m
+[32m+[m[32m    });[m
+[32m+[m
+[32m+[m[32m    zonaImagen.append(anteriorDetalle, siguienteDetalle, indicadorDetalle);[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  if (producto.agotado === true || obtenerStockRestante(producto) === 0) {[m
+[32m+[m[32m    const etiqueta = document.createElement("span");[m
+[32m+[m[32m    etiqueta.className = "etiqueta-sin-stock";[m
+[32m+[m[32m    etiqueta.textContent = "SIN STOCK";[m
+[32m+[m[32m    etiqueta.setAttribute("role", "status");[m
+[32m+[m[32m    zonaImagen.append(etiqueta);[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  const contenido = document.createElement("div");[m
+[32m+[m[32m  contenido.className = "contenido-detalle-producto";[m
+[32m+[m
+[32m+[m[32m  const categoria = document.createElement("span");[m
+[32m+[m[32m  categoria.className = "etiqueta-producto";[m
+[32m+[m[32m  categoria.textContent = producto.categoria || "Producto";[m
+[32m+[m
+[32m+[m[32m  const titulo = document.createElement("h2");[m
+[32m+[m[32m  titulo.id = "titulo-detalle-producto";[m
+[32m+[m[32m  titulo.textContent = producto.nombre;[m
+[32m+[m
+[32m+[m[32m  const precio = document.createElement("p");[m
+[32m+[m[32mprecio.textContent = String(producto.categoria || "").toLocaleLowerCase("es-AR") === "combos"[m
+[32m+[m[32m? "Precio final del combo: " + formatoPrecio(producto.precio)[m
+[32m+[m[32m: formatoPrecio(producto.precio);[m
+[32m+[m[32m  precio.className = "precio-detalle-producto";[m
+[32m+[m
+[32m+[m[32m  contenido.append(categoria, titulo, precio);[m
+[32m+[m
+[32m+[m[32m  const coincidenciaVariantes = Object.entries(variantesPorNombre)[m
+[32m+[m[32m    .find(([nombreBase, opciones]) =>[m
+[32m+[m[32m      opciones.some((opcion) => opcion.nombre === producto.nombre)[m
+[32m+[m[32m    );[m
+[32m+[m
+[32m+[m[32m  if (coincidenciaVariantes) {[m
+[32m+[m[32m    const [nombreBase, variantesDetalle] = coincidenciaVariantes;[m
+[32m+[m[32m    const productoBase = estado.productos.find([m
+[32m+[m[32m      (item) => item.nombre === nombreBase[m
+[32m+[m[32m    );[m
+[32m+[m
+[32m+[m[32m    if (productoBase && variantesDetalle.length > 1) {[m
+[32m+[m[32m      const selectorDetalle = document.createElement("select");[m
+[32m+[m[32m      selectorDetalle.className = "selector-variante-producto selector-variante-detalle";[m
+[32m+[m[32m      selectorDetalle.setAttribute("aria-label", "Elegir variante del producto");[m
+[32m+[m
+[32m+[m[32m      const indiceActual = variantesDetalle.findIndex([m
+[32m+[m[32m        (opcion) => opcion.nombre === producto.nombre[m
+[32m+[m[32m      );[m
+[32m+[m[32m      const indiceSeleccionado = indiceActual >= 0[m
+[32m+[m[32m        ? indiceActual[m
+[32m+[m[32m        : (variantesSeleccionadas.get(productoBase.id) ?? 0);[m
+[32m+[m
+[32m+[m[32m      variantesDetalle.forEach((opcion, indice) => {[m
+[32m+[m[32m        const elemento = document.createElement("option");[m
+[32m+[m[32m        elemento.value = String(indice);[m
+[32m+[m[32m        elemento.textContent = opcion.nombre;[m
+[32m+[m[32m        elemento.selected = indice === indiceSeleccionado;[m
+[32m+[m[32m        selectorDetalle.append(elemento);[m
+[32m+[m[32m      });[m
+[32m+[m
+[32m+[m[32m      selectorDetalle.addEventListener("change", () => {[m
+[32m+[m[32m        const indiceElegido = Number(selectorDetalle.value);[m
+[32m+[m[32m        const varianteElegida = variantesDetalle[indiceElegido];[m
+[32m+[m
+[32m+[m[32m        variantesSeleccionadas.set(productoBase.id, indiceElegido);[m
+[32m+[m[32m        renderizarProductos();[m
+[32m+[m
+[32m+[m[32m        const agotadoElegido = Object.prototype.hasOwnProperty.call([m
+[32m+[m[32m          varianteElegida,[m
+[32m+[m[32m          "agotado"[m
+[32m+[m[32m        )[m
+[32m+[m[32m          ? varianteElegida.agotado === true[m
+[32m+[m[32m          : indiceElegido === 0 && productoBase.agotado === true;[m
+[32m+[m
+[32m+[m[32m        const productoElegido = {[m
+[32m+[m[32m          ...productoBase,[m
+[32m+[m[32m          ...varianteElegida,[m
+[32m+[m[32m          agotado: agotadoElegido || obtenerStockMaximo({ ...productoBase, ...varianteElegida }) === 0,[m
+[32m+[m[32m          id: indiceElegido === 0[m
+[32m+[m[32m            ? productoBase.id[m
+[32m+[m[32m            : `${productoBase.id}-variante-${indiceElegido}`[m
+[32m+[m[32m        };[m
+[32m+[m
+[32m+[m[32m        abrirDetalleProducto(productoElegido);[m
+[32m+[m[32m      });[m
+[32m+[m
+[32m+[m[32m      contenido.append(selectorDetalle);[m
+[32m+[m[32m    }[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m
+[32m+[m[32m  if (producto.descripcion) {[m
+[32m+[m[32m    const descripcion = document.createElement("p");[m
+[32m+[m[32m    descripcion.className = "descripcion-detalle-producto";[m
+[32m+[m[32m    descripcion.textContent = producto.descripcion;[m
+[32m+[m[32m    contenido.append(descripcion);[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  const incluidos = producto.productosIncluidos || producto.productos || producto.contenido;[m
+[32m+[m[32m  const esComboDetalle = String(producto.categoria || "").toLocaleLowerCase("es-AR") === "combos";[m
+[32m+[m
+[32m+[m[32m  if (Array.isArray(incluidos) && incluidos.length > 0) {[m
+[32m+[m[32m    const subtitulo = document.createElement("h3");[m
+[32m+[m[32m    subtitulo.className = "titulo-incluidos";[m
+[32m+[m[32m    subtitulo.textContent = "¿Qué incluye?";[m
+[32m+[m
+[32m+[m[32m    const lista = document.createElement("ul");[m
+[32m+[m[32m    lista.className = "lista-incluidos";[m
+[32m+[m[32m    let totalSeparado = 0;[m
+[32m+[m
+[32m+[m[32m    incluidos.forEach((item) => {[m
+[32m+[m[32m      const elemento = document.createElement("li");[m
+[32m+[m[32m      elemento.className = "item-incluido-detalle";[m
+[32m+[m
+[32m+[m[32m      const nombreVisible = typeof item === "string"[m
+[32m+[m[32m        ? item[m
+[32m+[m[32m        : (item.nombre || item.producto || "Producto");[m
+[32m+[m
+[32m+[m[32m      const normalizadoVisible = normalizarNombreProducto(nombreVisible);[m
+[32m+[m[32m      const productosSinCombos = estado.productos.filter((p) =>[m
+[32m+[m[32m        String(p.categoria || "").toLocaleLowerCase("es-AR") !== "combos"[m
+[32m+[m[32m      );[m
+[32m+[m
+[32m+[m[32m      const coincidenciasExactas = productosSinCombos.filter((p) =>[m
+[32m+[m[32m        normalizarNombreProducto(p.nombre) === normalizadoVisible[m
+[32m+[m[32m      );[m
+[32m+[m
+[32m+[m[32m      let coincidencias = coincidenciasExactas;[m
+[32m+[m
+[32m+[m[32m      if (coincidencias.length === 0) {[m
+[32m+[m[32m        const normalizarPresentacion = (nombre) =>[m
+[32m+[m[32m          normalizarNombreProducto(nombre)[m
+[32m+[m[32m            .replace(/\b\d+\s*(?:u|unidades?|g|gr|gramos?|kg|ml|l)\b/gu, " ")[m
+[32m+[m[32m            .replace(/\s+/g, " ")[m
+[32m+[m[32m            .trim();[m
+[32m+[m
+[32m+[m[32m        const baseVisible = normalizarPresentacion(nombreVisible);[m
+[32m+[m
+[32m+[m[32m        coincidencias = productosSinCombos.filter((p) => {[m
+[32m+[m[32m          const nombreCatalogo = normalizarNombreProducto(p.nombre);[m
+[32m+[m
+[32m+[m[32m          // No enlazar presentaciones mayoristas con unidades individuales.[m
+[32m+[m[32m          if (/\b(caja|bulto|por pack|x10)\b/u.test(nombreCatalogo)) {[m
+[32m+[m[32m            return false;[m
+[32m+[m[32m          }[m
+[32m+[m
+[32m+[m[32m          return normalizarPresentacion(p.nombre) === baseVisible;[m
+[32m+[m[32m        });[m
+[32m+[m[32m      }[m
+[32m+[m
+[32m+[m[32m      const productoCatalogo = coincidencias.length === 1 ? coincidencias[0] : null;[m
+[32m+[m
+[32m+[m[32m      if (productoCatalogo && productoCatalogo.imagen) {[m
+[32m+[m[32m        const botonImagen = document.createElement("button");[m
+[32m+[m[32m        botonImagen.type = "button";[m
+[32m+[m[32m        botonImagen.className = "boton-imagen-incluido";[m
+[32m+[m[32m        botonImagen.setAttribute("aria-label", "Ver " + nombreVisible);[m
+[32m+[m
+[32m+[m[32m        const miniatura = document.createElement("img");[m
+[32m+[m[32m        miniatura.className = "imagen-incluido-detalle";[m
+[32m+[m[32m        miniatura.src = productoCatalogo.imagen;[m
+[32m+[m[32m        miniatura.alt = nombreVisible;[m
+[32m+[m[32m        miniatura.loading = "lazy";[m
+[32m+[m
+[32m+[m[32m        botonImagen.append(miniatura);[m
+[32m+[m[32m        botonImagen.addEventListener("click", () =>[m
+[32m+[m[32m          abrirDetalleProducto(productoCatalogo, true, true)[m
+[32m+[m[32m        );[m
+[32m+[m[32m        elemento.append(botonImagen);[m
+[32m+[m[32m      }[m
+[32m+[m
+[32m+[m[32m      const nombreItem = document.createElement(productoCatalogo ? "button" : "span");[m
+[32m+[m
+[32m+[m[32m      if (productoCatalogo) {[m
+[32m+[m[32m        nombreItem.type = "button";[m
+[32m+[m[32m        nombreItem.className = "enlace-incluido-detalle";[m
+[32m+[m[32m        nombreItem.addEventListener("click", () =>[m
+[32m+[m[32m          abrirDetalleProducto(productoCatalogo, true, true)[m
+[32m+[m[32m        );[m
+[32m+[m[32m      }[m
+[32m+[m
+[32m+[m[32m      nombreItem.textContent = nombreVisible;[m
+[32m+[m[32m      elemento.append(nombreItem);[m
+[32m+[m
+[32m+[m[32m      const precioGuardado = item && typeof item === "object" ? Number(item.precio) : NaN;[m
+[32m+[m[32m      const precioCatalogo = productoCatalogo ? Number(productoCatalogo.precio) : NaN;[m
+[32m+[m[32m      const precioActual = Number.isFinite(precioCatalogo) ? precioCatalogo : precioGuardado;[m
+[32m+[m
+[32m+[m[32m      if (Number.isFinite(precioActual)) {[m
+[32m+[m[32m        totalSeparado += precioActual;[m
+[32m+[m[32m        const precioItem = document.createElement("span");[m
+[32m+[m[32m        precioItem.className = "precio-incluido-detalle";[m
+[32m+[m[32m        precioItem.textContent = formatoPrecio(precioActual);[m
+[32m+[m[32m        elemento.append(precioItem);[m
+[32m+[m[32m      }[m
+[32m+[m
+[32m+[m[32m      lista.append(elemento);[m
+[32m+[m[32m    });[m
+[32m+[m
+[32m+[m[32m    contenido.append(subtitulo, lista);[m
+[32m+[m
+[32m+[m[32m    if (esComboDetalle) {[m
+[32m+[m[32m      const comparacion = document.createElement("div");[m
+[32m+[m[32m      comparacion.className = "ahorro-combo-detalle";[m
+[32m+[m
+[32m+[m[32m      const precioSeparado = document.createElement("p");[m
+[32m+[m[32m      precioSeparado.style.fontSize = "0.85em";[m
+[32m+[m[32m      precioSeparado.style.color = "#777";[m
+[32m+[m
+[32m+[m[32m      const etiquetaSeparado = document.createElement("span");[m
+[32m+[m[32m      etiquetaSeparado.textContent = "Productos por separado: ";[m
+[32m+[m
+[32m+[m[32m      const precioTachado = document.createElement("del");[m
+[32m+[m[32m      precioTachado.textContent = formatoPrecio(totalSeparado);[m
+[32m+[m[32m      precioSeparado.append(etiquetaSeparado, precioTachado);[m
+[32m+[m
+[32m+[m[32m      const diferencia = totalSeparado - Number(producto.precio);[m
+[32m+[m[32m      const textoAhorro = document.createElement("p");[m
+[32m+[m[32m      textoAhorro.textContent = diferencia > 0[m
+[32m+[m[32m        ? "¡Ahorrás " + formatoPrecio(diferencia) + "!"[m
+[32m+[m[32m        : diferencia === 0[m
+[32m+[m[32m          ? "Sin ahorro"[m
+[32m+[m[32m          : "El combo cuesta " + formatoPrecio(Math.abs(diferencia)) + " más que los productos por separado.";[m
+[32m+[m
+[32m+[m[32m      comparacion.append(precioSeparado, textoAhorro);[m
+[32m+[m[32m      contenido.append(comparacion);[m
+[32m+[m[32m    }[m
+[32m+[m[32m  } else if (esComboDetalle) {[m
+[32m+[m[32m    const nota = document.createElement("p");[m
+[32m+[m[32m    nota.className = "descripcion-detalle-producto";[m
+[32m+[m[32m    nota.textContent = "Este combo todavía no tiene cargada la lista de productos incluidos.";[m
+[32m+[m[32m    contenido.append(nota);[m
+[32m+[m[32m  }[m
+[32m+[m[32m  const agregar = document.createElement("button");[m
+[32m+[m[32m  agregar.type = "button";[m
+[32m+[m[32m  agregar.className = "agregar-producto boton-agregar-detalle";[m
+[32m+[m[32m  const stockDetalle = obtenerStockRestante(producto);[m
+[32m+[m[32m  agregar.textContent =[m
+[32m+[m[32m    producto.agotado === true || stockDetalle === 0[m
+[32m+[m[32m      ? "Sin stock"[m
+[32m+[m[32m      : stockDetalle === 1[m
+[32m+[m[32m        ? "\uD83D\uDD25 \u00DAltima unidad — Agregar al carrito"[m
+[32m+[m[32m        : "Agregar al carrito";[m
+[32m+[m[32m  agregar.disabled = false;[m
+[32m+[m[32m  agregar.addEventListener("click", () => {[m
+[32m+[m[32m    if (producto.agotado === true) {[m
+[32m+[m[32m      mostrarAvisoStock("Este producto figura sin stock.");[m
+[32m+[m[32m      return;[m
+[32m+[m[32m    }[m
+[32m+[m[32m    if (obtenerStockRestante(producto) === 0) {[m
+[32m+[m[32m      mostrarAvisoStock("Ya alcanzaste el stock disponible de este producto.");[m
+[32m+[m[32m      return;[m
+[32m+[m[32m    }[m
+[32m+[m[32m    animarImagenAlCarrito(imagen);[m
+[32m+[m[32m    agregarAlCarrito(producto);[m
+[32m+[m[32m  });[m
+[32m+[m
+[32m+[m[32m  contenido.append(agregar);[m
+[32m+[m
+[32m+[m[32m  const navegacion = document.createElement("div");[m
+[32m+[m[32m  navegacion.className = "navegacion-productos-detalle";[m
+[32m+[m
+[32m+[m[32m  const anterior = document.createElement("button");[m
+[32m+[m[32m  anterior.type = "button";[m
+[32m+[m[32m  anterior.className = "siguiente-producto-detalle";[m
+[32m+[m[32m  anterior.textContent = "\u2190 Producto anterior";[m
+[32m+[m[32m  anterior.addEventListener("click", () => {[m
+[32m+[m[32m    const productosVisibles = estado.productos.filter((productoCatalogo) => {[m
+[32m+[m[32m      if (productoCatalogo.oculto === true) return false;[m
+[32m+[m[32m      const coincideCategoria = estado.categoria === "Todas" || productoTieneCategoria(productoCatalogo, estado.categoria);[m
+[32m+[m[32m      const coincideBusqueda = productoCatalogo.nombre.toLocaleLowerCase("es-AR").includes(estado.busqueda.toLocaleLowerCase("es-AR"));[m
+[32m+[m[32m      return coincideCategoria && coincideBusqueda;[m
+[32m+[m[32m    });[m
+[32m+[m[32m    if (productosVisibles.length < 2) return;[m
+[32m+[m[32m    const indiceActual = productosVisibles.indexOf(producto);[m
+[32m+[m[32m    const indiceAnterior = indiceActual < 0 ? productosVisibles.length - 1 : (indiceActual - 1 + productosVisibles.length) % productosVisibles.length;[m
+[32m+[m[32m    abrirDetalleProducto(productosVisibles[indiceAnterior], true);[m
+[32m+[m[32m  });[m
+[32m+[m
+[32m+[m[32m  const siguiente = document.createElement("button");[m
+[32m+[m[32m  siguiente.type = "button";[m
+[32m+[m[32m  siguiente.className = "siguiente-producto-detalle";[m
+[32m+[m[32m  siguiente.textContent = "Siguiente producto \u2192";[m
+[32m+[m[32m  siguiente.addEventListener("click", () => {[m
+[32m+[m[32m    const productosVisibles = estado.productos.filter((productoCatalogo) => {[m
+[32m+[m[32m      if (productoCatalogo.oculto === true) return false;[m
+[32m+[m[32m      const coincideCategoria = estado.categoria === "Todas" || productoTieneCategoria(productoCatalogo, estado.categoria);[m
+[32m+[m[32m      const coincideBusqueda = productoCatalogo.nombre.toLocaleLowerCase("es-AR").includes(estado.busqueda.toLocaleLowerCase("es-AR"));[m
+[32m+[m[32m      return coincideCategoria && coincideBusqueda;[m
+[32m+[m[32m    });[m
+[32m+[m[32m    if (productosVisibles.length < 2) return;[m
+[32m+[m[32m    const indiceActual = productosVisibles.indexOf(producto);[m
+[32m+[m[32m    const indiceSiguiente = indiceActual < 0 ? 0 : (indiceActual + 1) % productosVisibles.length;[m
+[32m+[m[32m    abrirDetalleProducto(productosVisibles[indiceSiguiente], true);[m
+[32m+[m[32m  });[m
+[32m+[m
+[32m+[m[32m  navegacion.append(anterior, siguiente);[m
+[32m+[m[32m  contenido.append(navegacion);[m
+[32m+[m[32m  modal.append(cerrar, zonaImagen, contenido);[m
+[32m+[m[32m  fondo.replaceChildren(modal);[m
+[32m+[m
+[32m+[m[32m  if (!fondoExistente) {[m
+[32m+[m[32m    fondo.addEventListener("click", (evento) => {[m
+[32m+[m[32m    if (evento.target === fondo) cerrarDetalleProducto();[m
+[32m+[m[32m    });[m
+[32m+[m[32m    document.body.append(fondo);[m
+[32m+[m[32m  }[m
+[32m+[m[32m  cerrar.focus();[m
+[32m+[m[32m}[m
+[32m+[m[32mconst variantesSeleccionadas = new Map();[m
+[32m+[m
+[32m+[m[32mconst variantesPorNombre = {[m
+[32m+[m[32m  "Pastillas Alka sabor Menta (12u)": [[m
+[32m+[m[32m    { nombre: "Pastillas Alka sabor Menta (12u)", imagen: "img/alkamenta.jpeg", precio: 6900 },[m
+[32m+[m[32m    { nombre: "Pastillas Alka sabor Cherry Mentol (12u)", imagen: "img/alkacherry.jpeg", precio: 6900 }[m
+[32m+[m[32m  ],[m
+[32m+[m[32m  "Chicle Fierita Globo sabor Frutilla (95u)": [[m
+[32m+[m[32m    { nombre: "Chicle Fierita Globo sabor Frutilla (95u)", imagen: "img/recargadofrutilla.png", precio: 7900 },[m
+[32m+[m[32m    { nombre: "Chicle Fierita Globo sabor Menta (95u)", imagen: "img/globomenta.jpg", precio: 7900 }[m
+[32m+[m[32m  ],[m
+[32m+[m[32m  "Chicle Fierita Recargado - Menta (50u)": [[m
+[32m+[m[32m    { nombre: "Chicle Fierita Recargado - Menta (50u)", imagen: "img/recargadomenta.png", precio: 6900 },[m
+[32m+[m[32m    { nombre: "Chicle Fierita Recargado - Tutti Frutti (50u)", imagen: "img/fieritarecargado.jpg", precio: 6900 },[m
+[32m+[m[32m    { nombre: "Chicle Fierita Recargado - Frutilla (50u)", imagen: "img/fieritarecargadofrutilla.png", precio: 6900 }[m
+[32m+[m[32m  ],[m
+[32m+[m[32m  "Oblita de Frutilla (48u)": [[m
+[32m+[m[32m    { nombre: "Oblita de Frutilla (48u)", imagen: "img/oblitafrutilla.jpg", precio: 6900 },[m
+[32m+[m[32m    { nombre: "Oblita de DDL (48u)", imagen: "img/oblita_ddl.jpg", precio: 6900 },[m
+[32m+[m[32m    { nombre: "Oblita de Marroc (48u)", imagen: "img/oblita_marroc.jpg", precio: 6900 }[m
+[32m+[m[32m  ],[m
+[32m+[m[32m  "Pastillas D.R.F Sabor Menta (12u)": [[m
+[32m+[m[32m    { nombre: "Pastillas D.R.F Sabor Menta (12u)", imagen: "img/drfmenta.jpeg", precio: 6200 },[m
+[32m+[m[32m    { nombre: "Pastillas D.R.F Sabor Anís (12u)", imagen: "img/drfanis.jpeg", precio: 6200 }[m
+[32m+[m[32m  ],[m
+[32m+[m[32m  "Alfajor Guaymallen simple Blanco (10u)": [[m
+[32m+[m[32m    { nombre: "Alfajor Guaymallen simple Blanco (10u)", imagen: "img/guaysimpleblanco.jpg", precio: 4900 },[m
+[32m+[m[32m    { nombre: "Alfajor Guaymallen simple Negro (10u)", imagen: "img/guaysimplenegro.jpg", precio: 4900 }[m
+[32m+[m[32m  ],[m
+[32m+[m[32m  "Alfajor Guaymallen Triple Blanco (12u)": [[m
+[32m+[m[32m    { nombre: "Alfajor Guaymallen Triple Blanco (12u)", imagen: "img/guayblanco.jpg", precio: 8900, agotado: true },[m
+[32m+[m[32m    { nombre: "Alfajor Guaymallen Triple Negro (12u)", imagen: "img/guayddl.jpg", precio: 8900 }[m
+[32m+[m[32m  ],[m
+[32m+[m[32m  "Alcancía Tigre Rojo (con 12 gelatinas en su interior)": [[m
+[32m+[m[32m    { nombre: "Alcancía Tigre Rojo (con 12 gelatinas en su interior)", imagen: "img/tigrerojo.png", precio: 6900 },[m
+[32m+[m[32m    { nombre: "Alcancía Tigre Amarillo (con 12 gelatinas en su interior)", imagen: "img/tigreamarillo.jpg", precio: 6900 },[m
+[32m+[m[32m    { nombre: "Alcancía Pollito Rojo (con 12 gelatinas en su interior)", imagen: "img/pollito.png", precio: 6900 },[m
+[32m+[m[32m    { nombre: "Alcancía Pollito Amarillo (con 12 gelatinas en su interior)", imagen: "img/pollitoamarillo.png", precio: 6900 }[m
+[32m+[m[32m  ],[m
+[32m+[m[32m  "Cucuruchos Helado Frutilla (30u)": [[m
+[32m+[m[32m    { nombre: "Cucuruchos Helado Frutilla (30u)", imagen: "img/cucuruchohelado.png", precio: 14900 },[m
+[32m+[m[32m    { nombre: "Cucuruchos Helado Chocolate (30u)", imagen: "img/cucuruchochocolate.png", precio: 14900 },[m
+[32m+[m[32m    { nombre: "Cucuruchos Helado Arándano (30u)", imagen: "img/cucuruchovainilla.png", precio: 14900 }[m
+[32m+[m[32m  ][m
+[32m+[m[32m};[m
+[32m+[m
+[32m+[m[32mfunction renderizarProductos() {[m
+[32m+[m[32m  const filtrados = estado.productos.filter((producto) => {[m
+[32m+[m[32m    if (producto.oculto === true) return false;[m
+[32m+[m
+[32m+[m[32m    const coincideCategoria =[m
+[32m+[m[32m      estado.categoria === "Todas" || productoTieneCategoria(producto, estado.categoria);[m
+[32m+[m
+[32m+[m[32m    const coincideBusqueda = producto.nombre[m
+[32m+[m[32m      .toLocaleLowerCase("es-AR")[m
+[32m+[m[32m      .includes(estado.busqueda.toLocaleLowerCase("es-AR"));[m
+[32m+[m
+[32m+[m[32m    return coincideCategoria && coincideBusqueda;[m
+[32m+[m[32m  });[m
+[32m+[m
+[32m+[m[32m  elementos.productos.replaceChildren();[m
+[32m+[m
+[32m+[m[32m  if (!filtrados.length) {[m
+[32m+[m[32m    const aviso = document.createElement("div");[m
+[32m+[m[32m    aviso.className = "estado-vacio";[m
+[32m+[m
+[32m+[m[32m    const titulo = document.createElement("h3");[m
+[32m+[m[32m    titulo.textContent = estado.productos.length[m
+[32m+[m[32m      ? "No encontramos productos"[m
+[32m+[m[32m      : "Estamos cargando el catálogo";[m
+[32m+[m
+[32m+[m[32m    const texto = document.createElement("p");[m
+[32m+[m[32m    texto.textContent = estado.productos.length[m
+[32m+[m[32m      ? "Probá con otra búsqueda o categoría."[m
+[32m+[m[32m      : "Enseguida vas a poder ver nuestros productos.";[m
+[32m+[m
+[32m+[m[32m    aviso.append(titulo, texto);[m
+[32m+[m[32m    elementos.productos.append(aviso);[m
+[32m+[m[32m    return;[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  filtrados.forEach((producto) => {[m
+[32m+[m[32m    const variantes = variantesPorNombre[producto.nombre] || null;[m
+[32m+[m[32m    const indiceGuardado = variantesSeleccionadas.get(producto.id) ?? 0;[m
+[32m+[m[32m    const indiceVariante = variantes[m
+[32m+[m[32m      ? indiceGuardado % variantes.length[m
+[32m+[m[32m      : 0;[m
+[32m+[m[32m    const variante = variantes ? variantes[indiceVariante] : producto;[m
+[32m+[m[32m    const esVarianteOriginal = variante.nombre === producto.nombre;[m
+[32m+[m
+[32m+[m[32m    const agotadoActual = Object.prototype.hasOwnProperty.call(variante, "agotado")[m
+[32m+[m[32m      ? variante.agotado === true[m
+[32m+[m[32m      : esVarianteOriginal && producto.agotado === true;[m
+[32m+[m
+[32m+[m[32m    const productoActual = {[m
+[32m+[m[32m      ...producto,[m
+[32m+[m[32m      ...variante,[m
+[32m+[m[32m      agotado: agotadoActual || obtenerStockMaximo({ ...producto, ...variante }) === 0,[m
+[32m+[m[32m      id: indiceVariante === 0[m
+[32m+[m[32m        ? producto.id[m
+[32m+[m[32m        : `${producto.id}-variante-${indiceVariante}`[m
+[32m+[m[32m    };[m
+[32m+[m
+[32m+[m[32m    const precioAnteriorValor = Number(productoActual.precioAnterior);[m
+[32m+[m[32m    const precioActualValor = Number(productoActual.precio);[m
+[32m+[m[32m    const tieneDescuento = Number.isFinite(precioAnteriorValor) &&[m
+[32m+[m[32m      Number.isFinite(precioActualValor) && precioAnteriorValor > precioActualValor;[m
+[32m+[m[32m    const tarjeta = document.createElement("article");[m
+[32m+[m[32m    tarjeta.className = "tarjeta-producto tarjeta-interactiva";[m
+[32m+[m[32m    tarjeta.tabIndex = 0;[m
+[32m+[m[32m    tarjeta.setAttribute("role", "button");[m
+[32m+[m[32m    tarjeta.setAttribute("aria-label", "Ver detalle de " + productoActual.nombre);[m
+[32m+[m
+[32m+[m[32m    if (tieneDescuento) {[m
+[32m+[m[32m      const etiquetaOferta = document.createElement("span");[m
+[32m+[m[32m      etiquetaOferta.className = "etiqueta-oferta-producto";[m
+[32m+[m[32m      etiquetaOferta.textContent = "OFERTA";[m
+[32m+[m[32m      tarjeta.append(etiquetaOferta);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    const stockRestante = obtenerStockRestante(productoActual);[m
+[32m+[m[32m    tarjeta.classList.toggle([m
+[32m+[m[32m      "sin-stock",[m
+[32m+[m[32m      productoActual.agotado === true || stockRestante === 0[m
+[32m+[m[32m    );[m
+[32m+[m
+[32m+[m[32m    if (stockRestante === 0 || productoActual.agotado === true) {[m
+[32m+[m[32m      const sinStock = document.createElement("span");[m
+[32m+[m[32m      sinStock.className = "sin-stock-label";[m
+[32m+[m[32m      sinStock.textContent = "\u274C Sin stock";[m
+[32m+[m[32m      sinStock.setAttribute("role", "status");[m
+[32m+[m[32m      tarjeta.append(sinStock);[m
+[32m+[m[32m    } else if (stockRestante === 1) {[m
+[32m+[m[32m      const ultimaUnidad = document.createElement("span");[m
+[32m+[m[32m      ultimaUnidad.className = "ultima-stock-label";[m
+[32m+[m[32m      ultimaUnidad.textContent = "\uD83D\uDD25 \u00DAltima";[m
+[32m+[m[32m      ultimaUnidad.setAttribute("role", "status");[m
+[32m+[m[32m      tarjeta.append(ultimaUnidad);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    const carrusel = document.createElement("div");[m
+[32m+[m[32m    carrusel.className = "carrusel-producto";[m
+[32m+[m
+[32m+[m[32m    const imagen = document.createElement("img");[m
+[32m+[m[32m    imagen.className = "imagen-producto";[m
+[32m+[m
+[32m+[m[32m    const fotosMultiples = {[m
+[32m+[m[32m      "Gomitas Fantasmita (30u)": ["img/fantasmitas.jpg", "img/fantasmitas2.jpg"],[m
+[32m+[m[32m      "iPhone Pinball con pastillitas (30u)": ["img/iphone.png", "img/iphone2.png"][m
+[32m+[m[32m    };[m
+[32m+[m
+[32m+[m[32m    const fotosProducto = fotosMultiples[productoActual.nombre] || [productoActual.imagen];[m
+[32m+[m[32m    let indiceFoto = 0;[m
+[32m+[m
+[32m+[m[32m    imagen.loading = "lazy";[m
+[32m+[m[32m    imagen.decoding = "async";[m
+[32m+[m[32m    imagen.alt = productoActual.nombre;[m
+[32m+[m[32m    imagen.src = fotosProducto[indiceFoto];[m
+[32m+[m
+[32m+[m[32m    imagen.addEventListener("error", () => {[m
+[32m+[m[32m      imagen.classList.add("imagen-no-disponible");[m
+[32m+[m[32m      imagen.alt = "Imagen no disponible: " + productoActual.nombre;[m
+[32m+[m[32m    });[m
+[32m+[m
+[32m+[m[32m    carrusel.append(imagen);[m
+[32m+[m
+[32m+[m[32m    if (fotosProducto.length > 1) {[m
+[32m+[m[32m      const actualizarFoto = () => {[m
+[32m+[m[32m        imagen.classList.remove("imagen-no-disponible");[m
+[32m+[m[32m        imagen.src = fotosProducto[indiceFoto];[m
+[32m+[m[32m        imagen.alt = productoActual.nombre + " - foto " + (indiceFoto + 1);[m
+[32m+[m[32m        indicador.textContent = (indiceFoto + 1) + "/" + fotosProducto.length;[m
+[32m+[m[32m      };[m
+[32m+[m
+[32m+[m[32m      const crearFlecha = (direccion, simbolo, etiqueta) => {[m
+[32m+[m[32m        const boton = document.createElement("button");[m
+[32m+[m[32m        boton.type = "button";[m
+[32m+[m[32m        boton.className = "flecha-variante " + direccion;[m
+[32m+[m[32m        boton.textContent = simbolo;[m
+[32m+[m[32m        boton.setAttribute("aria-label", etiqueta);[m
+[32m+[m[32m        boton.addEventListener("click", (evento) => {[m
+[32m+[m[32m          evento.preventDefault();[m
+[32m+[m[32m          evento.stopPropagation();[m
+[32m+[m[32m          indiceFoto = (indiceFoto + (direccion === "derecha" ? 1 : -1) + fotosProducto.length) % fotosProducto.length;[m
+[32m+[m[32m          actualizarFoto();[m
+[32m+[m[32m        });[m
+[32m+[m[32m        return boton;[m
+[32m+[m[32m      };[m
+[32m+[m
+[32m+[m[32m      const indicador = document.createElement("span");[m
+[32m+[m[32m      indicador.className = "indicador-variante";[m
+[32m+[m[32m      indicador.setAttribute("aria-live", "polite");[m
+[32m+[m[32m      indicador.textContent = "1/" + fotosProducto.length;[m
+[32m+[m
+[32m+[m[32m      carrusel.append([m
+[32m+[m[32m        crearFlecha("izquierda", "‹", "Foto anterior"),[m
+[32m+[m[32m        crearFlecha("derecha", "›", "Foto siguiente"),[m
+[32m+[m[32m        indicador[m
+[32m+[m[32m      );[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    let selectorVariante = null;[m
+[32m+[m
+[32m+[m[32m    if (variantes && variantes.length > 1) {[m
+[32m+[m[32m      selectorVariante = document.createElement("select");[m
+[32m+[m[32m      selectorVariante.className = "selector-variante-producto";[m
+[32m+[m[32m      selectorVariante.setAttribute("aria-label", "Elegir variante de " + producto.nombre);[m
+[32m+[m
+[32m+[m[32m      variantes.forEach((opcion, indice) => {[m
+[32m+[m[32m        const elemento = document.createElement("option");[m
+[32m+[m[32m        elemento.value = String(indice);[m
+[32m+[m[32m        elemento.textContent = opcion.nombre;[m
+[32m+[m[32m        elemento.selected = indice === indiceVariante;[m
+[32m+[m[32m        selectorVariante.append(elemento);[m
+[32m+[m[32m      });[m
+[32m+[m
+[32m+[m[32m      selectorVariante.addEventListener("click", (evento) => {[m
+[32m+[m[32m        evento.stopPropagation();[m
+[32m+[m[32m      });[m
+[32m+[m
+[32m+[m[32m      selectorVariante.addEventListener("change", (evento) => {[m
+[32m+[m[32m        evento.stopPropagation();[m
+[32m+[m[32m        variantesSeleccionadas.set(producto.id, Number(selectorVariante.value));[m
+[32m+[m[32m        renderizarProductos();[m
+[32m+[m[32m      });[m
+[32m+[m[32m    }[m
+[32m+[m[32m    const contenido = document.createElement("div");[m
+[32m+[m[32m    contenido.className = "contenido-producto";[m
+[32m+[m
+[32m+[m[32m    const categoria = document.createElement("span");[m
+[32m+[m[32m    categoria.className = "etiqueta-producto";[m
+[32m+[m[32m    categoria.textContent = productoActual.categoria;[m
+[32m+[m
+[32m+[m[32m    const nombre = document.createElement("h3");[m
+[32m+[m[32m    nombre.className = "nombre-producto";[m
+[32m+[m[32m    nombre.textContent = productoActual.nombre;[m
+[32m+[m
+[32m+[m[32m    const precio = document.createElement("p");[m
+[32m+[m[32m    precio.className = "precio-producto";[m
+[32m+[m
+[32m+[m[32m    const esCombo =[m
+[32m+[m[32m      String(productoActual.categoria || "").toLocaleLowerCase("es-AR") === "combos";[m
+[32m+[m
+[32m+[m[32m    precio.textContent = esCombo[m
+[32m+[m[32m      ? "Precio final del combo: " + formatoPrecio(productoActual.precio)[m
+[32m+[m[32m      : formatoPrecio(productoActual.precio);[m
+[32m+[m[32m    let precioVisible = precio;[m
+[32m+[m[32m    if (tieneDescuento) {[m
+[32m+[m[32m      const bloquePrecios = document.createElement("div");[m
+[32m+[m[32m      bloquePrecios.className = "precios-producto con-descuento";[m
+[32m+[m[32m      const precioTachado = document.createElement("del");[m
+[32m+[m[32m      precioTachado.className = "precio-anterior-producto";[m
+[32m+[m[32m      precioTachado.textContent = formatoPrecio(precioAnteriorValor);[m
+[32m+[m[32m      bloquePrecios.append(precioTachado, precio);[m
+[32m+[m[32m      precioVisible = bloquePrecios;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    contenido.append(categoria, nombre, precioVisible);[m
+[32m+[m
+[32m+[m[32m    if (selectorVariante) {[m
+[32m+[m[32m      contenido.append(selectorVariante);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    const agregar = document.createElement("button");[m
+[32m+[m[32m    agregar.type = "button";[m
+[32m+[m[32m    agregar.className = "agregar-producto";[m
+[32m+[m[32m    const stockDisponible = obtenerStockRestante(productoActual);[m
+[32m+[m[32m    agregar.textContent =[m
+[32m+[m[32m      productoActual.agotado === true || stockDisponible === 0[m
+[32m+[m[32m        ? "Sin stock"[m
+[32m+[m[32m        : "Agregar al carrito";[m
+[32m+[m[32m    agregar.disabled = false;[m
+[32m+[m
+[32m+[m[32m    agregar.addEventListener("click", (evento) => {[m
+[32m+[m[32m      evento.stopPropagation();[m
+[32m+[m
+[32m+[m[32m      if (productoActual.agotado === true) {[m
+[32m+[m[32m        mostrarAvisoStock("Este producto figura sin stock.");[m
+[32m+[m[32m        return;[m
+[32m+[m[32m      }[m
+[32m+[m
+[32m+[m[32m      if (obtenerStockRestante(productoActual) === 0) {[m
+[32m+[m[32m        mostrarAvisoStock("Ya alcanzaste el stock disponible de este producto.");[m
+[32m+[m[32m        return;[m
+[32m+[m[32m      }[m
+[32m+[m
+[32m+[m[32m      animarImagenAlCarrito(imagen);[m
+[32m+[m[32m      agregarAlCarrito(productoActual);[m
+[32m+[m[32m    });[m
+[32m+[m
+[32m+[m[32m    contenido.append(agregar);[m
+[32m+[m[32m    tarjeta.append(carrusel, contenido);[m
+[32m+[m
+[32m+[m[32m    tarjeta.addEventListener("click", (evento) => {[m
+[32m+[m[32m      if (evento.target.closest("button")) return;[m
+[32m+[m[32m      abrirDetalleProducto(productoActual);[m
+[32m+[m[32m    });[m
+[32m+[m
+[32m+[m[32m    tarjeta.addEventListener("keydown", (evento) => {[m
+[32m+[m[32m      if (evento.target !== tarjeta) return;[m
+[32m+[m
+[32m+[m[32m      if (evento.key === "Enter" || evento.key === " ") {[m
+[32m+[m[32m        evento.preventDefault();[m
+[32m+[m[32m        abrirDetalleProducto(productoActual);[m
+[32m+[m[32m      }[m
+[32m+[m[32m    });[m
+[32m+[m
+[32m+[m[32m    elementos.productos.append(tarjeta);[m
+[32m+[m[32m  });[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mfunction agregarAlCarrito(producto) {[m
+[32m+[m[32m  const stockMaximo = obtenerStockMaximo(producto);[m
+[32m+[m[32m  const cantidadActual = cantidadEnCarritoPorNombre(producto.nombre);[m
+[32m+[m
+[32m+[m[32m  if (producto.agotado === true) {[m
+[32m+[m[32m    mostrarAvisoStock("Este producto figura sin stock.");[m
+[32m+[m[32m    return;[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  if (stockMaximo !== undefined && cantidadActual >= stockMaximo) {[m
+[32m+[m[32m    mostrarAvisoStock("Ya alcanzaste el stock disponible de este producto.");[m
+[32m+[m[32m    return;[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  const existente = estado.carrito.find((item) => item.id === producto.id);[m
+[32m+[m
+[32m+[m[32m  if (existente) {[m
+[32m+[m[32m    existente.cantidad += 1;[m
+[32m+[m[32m  } else {[m
+[32m+[m[32m    estado.carrito.push({[m
+[32m+[m[32m      ...producto,[m
+[32m+[m[32m      cantidad: 1[m
+[32m+[m[32m    });[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  renderizarProductos();[m
+[32m+[m[32m  renderizarCarrito();[m
+[32m+[m
+[32m+[m[32m  const botonCarrito = document.getElementById("abrir-carrito");[m
+[32m+[m[32m  const contadorCarrito = document.getElementById("cantidad-carrito");[m
+[32m+[m
+[32m+[m[32m  if (botonCarrito) {[m
+[32m+[m[32m    botonCarrito.classList.remove("animar-carrito");[m
+[32m+[m[32m    void botonCarrito.offsetWidth;[m
+[32m+[m[32m    botonCarrito.classList.add("animar-carrito");[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  if (contadorCarrito) {[m
+[32m+[m[32m    contadorCarrito.classList.remove("animar-contador");[m
+[32m+[m[32m    void contadorCarrito.offsetWidth;[m
+[32m+[m[32m    contadorCarrito.classList.add("animar-contador");[m
+[32m+[m[32m  }[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mfunction calcularCostoEnvio(cp) {[m
+[32m+[m[32m  const codigo = String(cp || "").trim();[m
+[32m+[m
+[32m+[m[32m  if (!/^\d{4,8}$/.test(codigo)) {[m
+[32m+[m[32m    return { error: true, mensaje: "Código postal inválido. Ingresá entre 4 y 8 números." };[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  const totalProductos = estado.carrito.reduce([m
+[32m+[m[32m    (acc, item) => acc + item.cantidad, 0[m
+[32m+[m[32m  );[m
+[32m+[m
+[32m+[m[32m  if (codigo === "7607") return 0;[m
+[32m+[m[32m  if (totalProductos > 25) return 25900;[m
+[32m+[m
+[32m+[m[32m  const extraEnvio = Math.floor(totalProductos / 13) * 1500;[m
+[32m+[m[32m  const prefijosSantaCruz = ["9303", "4430", "8371", "3304", "4449"];[m
+[32m+[m
+[32m+[m[32m  if (prefijosSantaCruz.some((prefijo) => codigo.startsWith(prefijo))) {[m
+[32m+[m[32m    return 14400 + extraEnvio;[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  if (codigo.startsWith("7600") || codigo.startsWith("7601")) {[m
+[32m+[m[32m    return 8900;[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  if ([m
+[32m+[m[32m    codigo.startsWith("9") ||[m
+[32m+[m[32m    codigo.startsWith("4") ||[m
+[32m+[m[32m    codigo.startsWith("3") ||[m
+[32m+[m[32m    codigo.startsWith("6") ||[m
+[32m+[m[32m    codigo.startsWith("8") ||[m
+[32m+[m[32m    codigo.startsWith("2000") ||[m
+[32m+[m[32m    codigo.startsWith("5965") ||[m
+[32m+[m[32m    codigo.startsWith("2445") ||[m
+[32m+[m[32m    codigo.startsWith("5350") ||[m
+[32m+[m[32m    codigo.startsWith("5613")[m
+[32m+[m[32m  ) {[m
+[32m+[m[32m    return 12400 + extraEnvio;[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  return 10900 + extraEnvio;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mfunction obtenerCostoEnvio() {[m
+[32m+[m[32m  const cp = localStorage.getItem("codigoPostalCliente") || "";[m
+[32m+[m[32m  const total = estado.carrito.reduce((suma, item) => suma + item.precio * item.cantidad, 0);[m
+[32m+[m
+[32m+[m[32m  if (total >= ENVIO_GRATIS_DESDE) return 0;[m
+[32m+[m[32m  if (!cp) return null;[m
+[32m+[m
+[32m+[m[32m  return calcularCostoEnvio(cp);[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mfunction actualizarResumenEnvio() {[m
+[32m+[m[32m  const resumen = document.querySelector("#resumen-envio");[m
+[32m+[m[32m  const campo = document.querySelector("#codigo-postal");[m
+[32m+[m[32m  if (!resumen || !campo) return;[m
+[32m+[m
+[32m+[m[32m  const cp = campo.value.trim();[m
+[32m+[m[32m  const total = estado.carrito.reduce((suma, item) => suma + item.precio * item.cantidad, 0);[m
+[32m+[m
+[32m+[m[32m  if (total >= ENVIO_GRATIS_DESDE) {[m
+[32m+[m[32m    resumen.textContent = "¡Tu compra tiene envío gratis!";[m
+[32m+[m[32m    return;[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  if (!cp) {[m
+[32m+[m[32m    resumen.textContent = "Ingresá tu código postal para calcular el envío.";[m
+[32m+[m[32m    return;[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  const costo = calcularCostoEnvio(cp);[m
+[32m+[m[32m  resumen.textContent = costo && costo.error[m
+[32m+[m[32m    ? costo.mensaje[m
+[32m+[m[32m    : costo === 0[m
+[32m+[m[32m      ? "Envío: GRATIS"[m
+[32m+[m[32m      : `Envío: ${formatoPrecio(costo)} · Total con envío: ${formatoPrecio(total + costo)}`;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m// Aviso original de envío, con prioridad visual para la promoción de regalo.[m
+[32m+[m[32mlet avisoEnvioGratisAnterior = false;[m
+[32m+[m[32mlet avisoRegaloAnterior = false;[m
+[32m+[m
+[32m+[m[32mfunction actualizarAvisoEnvioGratis(subtotal = 0) {[m
+[32m+[m[32m  const aviso = document.querySelector("#aviso-envio");[m
+[32m+[m[32m  const texto = document.querySelector("#texto-aviso-envio");[m
+[32m+[m[32m  const barra = document.querySelector("#barra-progreso-envio");[m
+[32m+[m[32m  if (!aviso || !texto || !barra) return;[m
+[32m+[m
+[32m+[m[32m  const regaloActivo = promoActiva("regalo");[m
+[32m+[m[32m  const envioActivo = promoActiva("envio");[m
+[32m+[m[32m  const tieneRegalo = tieneRegaloGratis(subtotal);[m
+[32m+[m[32m  const objetivo = regaloActivo ? REGALO_DESDE : ENVIO_GRATIS_DESDE;[m
+[32m+[m[32m  const tieneEnvio = subtotal >= ENVIO_GRATIS_DESDE;[m
+[32m+[m[32m  const progreso = regaloActivo && tieneRegalo && envioActivo[m
+[32m+[m[32m    ? Math.min(100, ((subtotal - REGALO_DESDE) / (ENVIO_GRATIS_DESDE - REGALO_DESDE)) * 100)[m
+[32m+[m[32m    : Math.min(100, (subtotal / objetivo) * 100);[m
+[32m+[m
+[32m+[m[32m  barra.style.width = `${progreso}%`;[m
+[32m+[m[32m  barra.parentElement.hidden = !regaloActivo && !envioActivo;[m
+[32m+[m
+[32m+[m[32m  // Si el regalo está activo, el aviso muestra únicamente esa promoción.[m
+[32m+[m[32m  if (regaloActivo) {[m
+[32m+[m[32m    if (tieneRegalo) {[m
+[32m+[m[32m      if (envioActivo && !tieneEnvio) {[m
+[32m+[m[32m        texto.textContent = `🎁 ¡Tu compra incluye un regalo! 🚚 Te faltan ${formatoPrecio(ENVIO_GRATIS_DESDE - subtotal)} para conseguir envío gratis.`;[m
+[32m+[m[32m      } else if (envioActivo && tieneEnvio) {[m
+[32m+[m[32m        texto.textContent = "🎁 ¡Tu compra incluye un regalo! 🚚 ¡También tenés envío gratis!";[m
+[32m+[m[32m      } else {[m
+[32m+[m[32m        texto.textContent = "🎁 ¡Tu compra incluye un regalo!";[m
+[32m+[m[32m      }[m
+[32m+[m[32m    } else if (subtotal > 0) {[m
+[32m+[m[32m      texto.textContent = `🎁 Sumá ${formatoPrecio(REGALO_DESDE - subtotal)} más para conseguir un regalo.`;[m
+[32m+[m[32m    } else {[m
+[32m+[m[32m      texto.textContent = `🎁 Regalo en compras desde ${formatoPrecio(REGALO_DESDE)}.`;[m
+[32m+[m[32m    }[m
+[32m+[m[32m  } else if (envioActivo) {[m
+[32m+[m[32m    if (tieneEnvio) {[m
+[32m+[m[32m      texto.textContent = "¡Lo lograste! Tenés envío gratis 🎉";[m
+[32m+[m[32m    } else if (subtotal > 0) {[m
+[32m+[m[32m      texto.textContent = `¡Te faltan ${formatoPrecio(Math.max(0, ENVIO_GRATIS_DESDE - subtotal))} para conseguir envío gratis!`;[m
+[32m+[m[32m    } else {[m
+[32m+[m[32m      texto.textContent = `¡Envío gratis en compras desde ${formatoPrecio(ENVIO_GRATIS_DESDE)}!`;[m
+[32m+[m[32m    }[m
+[32m+[m[32m  } else {[m
+[32m+[m[32m    texto.textContent = "";[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  aviso.classList.toggle([m
+[32m+[m[32m    "aviso-envio-logrado",[m
+[32m+[m[32m    regaloActivo ? tieneRegalo : (envioActivo && tieneEnvio)[m
+[32m+[m[32m  );[m
+[32m+[m
+[32m+[m[32m  const acabaDeConseguirRegalo = regaloActivo && tieneRegalo && !avisoRegaloAnterior;[m
+[32m+[m[32m  const acabaDeConseguirEnvio = envioActivo && tieneEnvio && !avisoEnvioGratisAnterior;[m
+[32m+[m
+[32m+[m[32m  if ((acabaDeConseguirRegalo || acabaDeConseguirEnvio) && subtotal > 0) {[m
+[32m+[m[32m    const reduceMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;[m
+[32m+[m
+[32m+[m[32m    if (!reduceMovimiento) {[m
+[32m+[m[32m      const colores = ["#f4c542", "#e85d8e", "#72c9a2", "#9b82db", "#ff9866"];[m
+[32m+[m
+[32m+[m[32m      for (let i = 0; i < 60; i++) {[m
+[32m+[m[32m        const confeti = document.createElement("span");[m
+[32m+[m[32m        confeti.className = "confeti-envio";[m
+[32m+[m[32m        confeti.style.left = `${Math.random() * 100}%`;[m
+[32m+[m[32m        confeti.style.backgroundColor = colores[i % colores.length];[m
+[32m+[m[32m        confeti.style.animationDelay = `${Math.random() * 0.35}s`;[m
+[32m+[m[32m        document.body.append(confeti);[m
+[32m+[m[32m        setTimeout(() => confeti.remove(), 3000);[m
+[32m+[m[32m      }[m
+[32m+[m[32m    }[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  avisoRegaloAnterior = tieneRegalo;[m
+[32m+[m[32m  avisoEnvioGratisAnterior = tieneEnvio;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mfunction renderizarCarrito() {[m
+[32m+[m[32m  const unidades = estado.carrito.reduce((suma, item) => suma + item.cantidad, 0);[m
+[32m+[m[32m  const subtotal = estado.carrito.reduce((suma, item) => suma + item.precio * item.cantidad, 0);[m
+[32m+[m[32m  actualizarAvisoEnvioGratis(subtotal);[m
+[32m+[m[32m  const costoEnvio = obtenerCostoEnvio();[m
+[32m+[m[32m  const total = costoEnvio === null || costoEnvio.error ? subtotal : subtotal + costoEnvio;[m
+[32m+[m
+[32m+[m[32m  elementos.cantidad.textContent = unidades + (tieneRegaloGratis(subtotal) ? 1 : 0);[m
+[32m+[m
+[32m+[m[32m  const totalProductosVisible = document.querySelector("#total-productos-carrito");[m
+[32m+[m[32m  if (totalProductosVisible) {[m
+[32m+[m[32m    totalProductosVisible.textContent =[m
+[32m+[m[32m      `Total productos: ${unidades + (tieneRegaloGratis(subtotal) ? 1 : 0)}`;[m
+[32m+[m[32m  }[m
+[32m+[m[32m  elementos.total.textContent = formatoPrecio(total);[m
+[32m+[m
+[32m+[m[32m  const subtotalVisible = document.querySelector("#subtotal-carrito");[m
+[32m+[m[32m  if (subtotalVisible) subtotalVisible.textContent = formatoPrecio(subtotal);[m
+[32m+[m
+[32m+[m[32m  const envioVisible = document.querySelector("#costo-envio-carrito");[m
+[32m+[m[32m  if (envioVisible) {[m
+[32m+[m[32m    envioVisible.textContent =[m
+[32m+[m[32m      costoEnvio === null ? "Ingresá tu código postal" :[m
+[32m+[m[32m      costoEnvio.error ? "Código postal inválido" :[m
+[32m+[m[32m      costoEnvio === 0 ? "GRATIS" :[m
+[32m+[m[32m      formatoPrecio(costoEnvio);[m
+[32m+[m[32m  }[m
+[32m+[m[32m  elementos.finalizar.disabled = false;[m
+[32m+[m[32m  elementos.items.replaceChildren();[m
+[32m+[m
+[32m+[m[32m  if (!estado.carrito.length) {[m
+[32m+[m[32m    const vacio = document.createElement("p");[m
+[32m+[m[32m    vacio.className = "carrito-vacio";[m
+[32m+[m[32m    vacio.textContent = "La compra mínima es de $50.000";[m
+[32m+[m[32m    elementos.items.append(vacio);[m
+[32m+[m[32m    actualizarResumenEnvio();[m
+[32m+[m[32m    return;[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  estado.carrito.forEach((item) => {[m
+[32m+[m[32m    const fila = document.createElement("div");[m
+[32m+[m[32m    fila.className = "item-carrito";[m
+[32m+[m
+[32m+[m[32m    const imagen = document.createElement("img");[m
+[32m+[m[32m    imagen.className = "imagen-item-carrito";[m
+[32m+[m[32m    imagen.src = item.imagen || "";[m
+[32m+[m[32m    imagen.alt = item.nombre;[m
+[32m+[m[32m    imagen.setAttribute("role", "button");[m
+[32m+[m[32m    imagen.setAttribute("tabindex", "0");[m
+[32m+[m[32m    imagen.setAttribute("aria-label", `Ver detalle de ${item.nombre}`);[m
+[32m+[m[32m    imagen.addEventListener("click", () => abrirDetalleProducto(item));[m
+[32m+[m[32m    imagen.addEventListener("keydown", (evento) => {[m
+[32m+[m[32m      if (evento.key === "Enter" || evento.key === " ") {[m
+[32m+[m[32m        evento.preventDefault();[m
+[32m+[m[32m        abrirDetalleProducto(item);[m
+[32m+[m[32m      }[m
+[32m+[m[32m    });[m
+[32m+[m[32m    imagen.loading = "lazy";[m
+[32m+[m[32m    imagen.decoding = "async";[m
+[32m+[m[32m    imagen.addEventListener("error", () => {[m
+[32m+[m[32m      imagen.classList.add("imagen-item-carrito-error");[m
+[32m+[m[32m    });[m
+[32m+[m
+[32m+[m[32m    const info = document.createElement("div");[m
+[32m+[m[32m    info.className = "info-item-carrito";[m
+[32m+[m
+[32m+[m[32m    const nombre = document.createElement("button");[m
+[32m+[m[32m    nombre.type = "button";[m
+[32m+[m[32m    nombre.className = "nombre-producto-carrito";[m
+[32m+[m[32m    nombre.textContent = item.nombre;[m
+[32m+[m[32m    nombre.addEventListener("click", () => abrirDetalleProducto(item));[m
+[32m+[m
+[32m+[m[32m    const precio = document.createElement("p");[m
+[32m+[m[32m    precio.className = "precio-unitario-carrito";[m
+[32m+[m[32m    precio.textContent = `${formatoPrecio(item.precio)} c/u`;[m
+[32m+[m
+[32m+[m[32m    const subtotalProducto = document.createElement("p");[m
+[32m+[m[32m    subtotalProducto.className = "subtotal-producto-carrito";[m
+[32m+[m[32m    subtotalProducto.textContent = `Subtotal: ${formatoPrecio(item.precio * item.cantidad)}`;[m
+[32m+[m
+[32m+[m[32m    const controles = document.createElement("div");[m
+[32m+[m[32m    controles.className = "controles-cantidad";[m
+[32m+[m
+[32m+[m[32m    const menos = document.createElement("button");[m
+[32m+[m[32m    menos.type = "button";[m
+[32m+[m[32m    menos.className = "boton-cantidad";[m
+[32m+[m[32m    menos.textContent = "−";[m
+[32m+[m[32m    menos.setAttribute("aria-label", "Restar una unidad");[m
+[32m+[m[32m    menos.addEventListener("click", () => {[m
+[32m+[m[32m      if (item.cantidad > 1) item.cantidad -= 1;[m
+[32m+[m[32m      else estado.carrito = estado.carrito.filter((p) => p.id !== item.id);[m
+[32m+[m
+[32m+[m[32m      renderizarCarrito();[m
+[32m+[m[32m      renderizarProductos();[m
+[32m+[m[32m    });[m
+[32m+[m
+[32m+[m[32m    const cantidad = document.createElement("span");[m
+[32m+[m[32m    cantidad.className = "numero-cantidad";[m
+[32m+[m[32m    cantidad.textContent = item.cantidad;[m
+[32m+[m
+[32m+[m[32m    const mas = document.createElement("button");[m
+[32m+[m[32m    mas.type = "button";[m
+[32m+[m[32m    mas.className = "boton-cantidad";[m
+[32m+[m[32m    mas.textContent = "+";[m
+[32m+[m[32m    mas.setAttribute("aria-label", "Sumar una unidad");[m
+[32m+[m[32m    mas.disabled = false;[m
+[32m+[m[32m    mas.addEventListener("click", () => {[m
+[32m+[m[32m      const maximo = obtenerStockMaximo(item);[m
+[32m+[m
+[32m+[m[32m      if (item.agotado === true) {[m
+[32m+[m[32m        mostrarAvisoStock("Este producto figura sin stock.");[m
+[32m+[m[32m        return;[m
+[32m+[m[32m      }[m
+[32m+[m
+[32m+[m[32m      if (maximo !== undefined && item.cantidad >= maximo) {[m
+[32m+[m[32m        mostrarAvisoStock("Ya alcanzaste el stock disponible de este producto.");[m
+[32m+[m[32m        return;[m
+[32m+[m[32m      }[m
+[32m+[m
+[32m+[m[32m      item.cantidad += 1;[m
+[32m+[m[32m      renderizarCarrito();[m
+[32m+[m[32m      renderizarProductos();[m
+[32m+[m[32m    });[m
+[32m+[m
+[32m+[m[32m    const eliminar = document.createElement("button");[m
+[32m+[m[32m    eliminar.type = "button";[m
+[32m+[m[32m    eliminar.className = "boton-eliminar";[m
+[32m+[m[32m    eliminar.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M9 7V4h6v3m3 0-.8 13H6.8L6 7m4 4v5m4-5v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';[m
+[32m+[m[32m    eliminar.setAttribute("aria-label", "Eliminar producto");[m
+[32m+[m[32m    eliminar.addEventListener("click", () => {[m
+[32m+[m[32m      estado.carrito = estado.carrito.filter((p) => p.id !== item.id);[m
+[32m+[m
+[32m+[m[32m      renderizarCarrito();[m
+[32m+[m[32m      renderizarProductos();[m
+[32m+[m[32m    });[m
+[32m+[m
+[32m+[m[32m    controles.append(menos, cantidad, mas);[m
+[32m+[m[32m    info.append(nombre, precio, subtotalProducto, controles);[m
+[32m+[m[32m    fila.append(imagen, info, eliminar);[m
+[32m+[m[32m    elementos.items.append(fila);[m
+[32m+[m[32m  });[m
+[32m+[m[32m  if (tieneRegaloGratis(subtotal)) {[m
+[32m+[m[32m    const filaRegalo = document.createElement("div");[m
+[32m+[m[32m    filaRegalo.className = "item-carrito regalo-item";[m
+[32m+[m
+[32m+[m[32m    const imagenRegalo = document.createElement("img");[m
+[32m+[m[32m    imagenRegalo.className = "imagen-item-carrito";[m
+[32m+[m[32m    imagenRegalo.src = REGALO_IMAGEN;[m
+[32m+[m[32m    imagenRegalo.alt = REGALO_NOMBRE;[m
+[32m+[m[32m    imagenRegalo.loading = "lazy";[m
+[32m+[m[32m    imagenRegalo.decoding = "async";[m
+[32m+[m
+[32m+[m[32m    const infoRegalo = document.createElement("div");[m
+[32m+[m[32m    infoRegalo.className = "info-item-carrito";[m
+[32m+[m
+[32m+[m[32m    const nombreRegalo = document.createElement("strong");[m
+[32m+[m[32m    nombreRegalo.textContent = `🎁 ${REGALO_NOMBRE}`;[m
+[32m+[m
+[32m+[m[32m    const precioRegalo = document.createElement("p");[m
+[32m+[m[32m    precioRegalo.className = "precio-unitario-carrito";[m
+[32m+[m[32m    precioRegalo.textContent = "GRATIS";[m
+[32m+[m
+[32m+[m[32m    infoRegalo.append(nombreRegalo, precioRegalo);[m
+[32m+[m[32m    filaRegalo.append(imagenRegalo, infoRegalo);[m
+[32m+[m[32m    elementos.items.append(filaRegalo);[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m
+[32m+[m[32m  actualizarResumenEnvio();[m
+[32m+[m[32m}[m
+[32m+[m[32mfunction mostrarAvisoCompraMinima(faltante) {[m
+[32m+[m[32mconst overlay = document.createElement("div");[m
+[32m+[m[32moverlay.className = "aviso-minimo-overlay";[m
+[32m+[m[32moverlay.setAttribute("role", "presentation");[m
+[32m+[m
+[32m+[m[32moverlay.innerHTML = `     <section class="aviso-minimo-card" role="dialog" aria-modal="true" aria-labelledby="aviso-minimo-titulo">       <button class="aviso-minimo-cerrar" type="button" aria-label="Cerrar aviso">&times;</button>       <div class="aviso-minimo-icono" aria-hidden="true">🛍️</div>       <p class="aviso-minimo-etiqueta">¡Ya casi está!</p>       <h2 id="aviso-minimo-titulo">Tu pedido necesita un poquito más</h2>       <p class="aviso-minimo-texto">La compra mínima para continuar es de <strong>${formatoPrecio(MINIMO_COMPRA)}</strong>.</p>       <div class="aviso-minimo-faltante">         <span>Te falta agregar</span>         <strong>${formatoPrecio(faltante)}</strong>       </div>       <p class="aviso-minimo-ayuda">Sumá tus golosinas favoritas y volvé a intentarlo. ¡Tu pedido te está esperando!</p>       <button class="aviso-minimo-aceptar" type="button">Seguir comprando</button>     </section>[m
+[32m+[m[32m  `;[m
+[32m+[m
+[32m+[m[32mconst cerrar = () => {[m
+[32m+[m[32mdocument.removeEventListener("keydown", alPresionarEscape);[m
+[32m+[m[32mdocument.body.classList.remove("aviso-minimo-abierto");[m
+[32m+[m[32moverlay.remove();[m
+[32m+[m[32m};[m
+[32m+[m
+[32m+[m[32mconst alPresionarEscape = (evento) => {[m
+[32m+[m[32mif (evento.key === "Escape") cerrar();[m
+[32m+[m[32m};[m
+[32m+[m
+[32m+[m[32moverlay.querySelector(".aviso-minimo-cerrar").addEventListener("click", cerrar);[m
+[32m+[m[32moverlay.querySelector(".aviso-minimo-aceptar").addEventListener("click", cerrar);[m
+[32m+[m[32moverlay.addEventListener("click", (evento) => {[m
+[32m+[m[32mif (evento.target === overlay) cerrar();[m
+[32m+[m[32m});[m
+[32m+[m
+[32m+[m[32mdocument.addEventListener("keydown", alPresionarEscape);[m
+[32m+[m[32mdocument.body.classList.add("aviso-minimo-abierto");[m
+[32m+[m[32mdocument.body.append(overlay);[m
+[32m+[m[32moverlay.querySelector(".aviso-minimo-cerrar").focus();[m
+[32m+[m[32m}[m
+[32m+[m[32mfunction finalizarPedido() {[m
+[32m+[m[41m  [m
+[32m+[m[32m  const subtotalCompra = estado.carrito.reduce((suma, item) => suma + item.precio * item.cantidad, 0);[m
+[32m+[m[32m  if (subtotalCompra < MINIMO_COMPRA) {[m
+[32m+[m[32m    mostrarAvisoCompraMinima(MINIMO_COMPRA - subtotalCompra);[m
+[32m+[m[32m    return;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m
+[32m+[m[32m  const cp = document.querySelector("#codigo-postal")?.value.trim() ||[m
+[32m+[m[32m    localStorage.getItem("codigoPostalCliente") || "";[m
+[32m+[m
+[32m+[m[32m  if (!/^\d{4,8}$/.test(cp)) {[m
+[32m+[m[32m    const campo = document.querySelector("#codigo-postal");[m
+[32m+[m[32m    campo?.focus();[m
+[32m+[m[32m    campo?.setCustomValidity("Ingresá un código postal válido para calcular el envío.");[m
+[32m+[m[32m    campo?.reportValidity();[m
+[32m+[m[32m    return;[m
+[32m+[m[32m  }[m
+[32m+[m[32m  localStorage.setItem("codigoPostalCliente", cp);[m
+[32m+[m
+[32m+[m[32m  const subtotal = estado.carrito.reduce((suma, item) => suma + item.precio * item.cantidad, 0);[m
+[32m+[m[32m  const unidades = estado.carrito.reduce((suma, item) => suma + item.cantidad, 0);[m
+[32m+[m[32m  const envio = subtotal >= ENVIO_GRATIS_DESDE ? 0 : calcularCostoEnvio(cp);[m
+[32m+[m
+[32m+[m[32m  if (envio.error) {[m
+[32m+[m[32m    alert(envio.mensaje);[m
+[32m+[m[32m    return;[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  const total = subtotal + envio;[m
+[32m+[m[32m  const emojiCarrito = String.fromCodePoint(0x1F6D2);[m
+[32m+[m[32m  const emojiCaja = String.fromCodePoint(0x1F4E6);[m
+[32m+[m[32m  const emojiEnvio = String.fromCodePoint(0x1F69A);[m
+[32m+[m[32m  const emojiPago = String.fromCodePoint(0x1F4B3);[m
+[32m+[m[32m  const emojiUbicacion = String.fromCodePoint(0x1F4CD);[m
+[32m+[m
+[32m+[m[32m  let mensaje = `${emojiCarrito} *Quiero comenzar este pedido:*\n\n`;[m
+[32m+[m
+[32m+[m[32m  estado.carrito.forEach((item) => {[m
+[32m+[m[32m    const precioUnitario = item.precio;[m
+[32m+[m[32m    const subtotalItem = precioUnitario * item.cantidad;[m
+[32m+[m
+[32m+[m[32m    mensaje += item.cantidad > 1[m
+[32m+[m[32m      ? `\u2022 *${item.cantidad}* ${item.nombre} \u2014 ${formatoPrecio(precioUnitario)} x${item.cantidad} \u2192 ${formatoPrecio(subtotalItem)}\n`[m
+[32m+[m[32m      : `\u2022 ${item.nombre} \u2192 ${formatoPrecio(subtotalItem)}\n`;[m
+[32m+[m[32m  });[m
+[32m+[m
+[32m+[m[32m  if (tieneRegaloGratis(subtotalCompra)) {[m
+[32m+[m[32m    mensaje += `🎁 *Regalo:* ${REGALO_NOMBRE}`;[m
+[32m+[m[32m  }[m
+[32m+[m[32m  mensaje += `\n${emojiCaja} Total productos: ${unidades + (tieneRegaloGratis(subtotalCompra) ? 1 : 0)}`;[m
+[32m+[m[32m  mensaje += `\n${emojiEnvio} Envío: ${envio === 0 ? "GRATIS" : formatoPrecio(envio)}`;[m
+[32m+[m[32m  mensaje += `\n`;[m
+[32m+[m[32m  mensaje += `${emojiPago} *El total a abonar con envío incluido es de: ${formatoPrecio(total)}*\n`;[m
+[32m+[m[32m  mensaje += `${emojiUbicacion} Código Postal: ${cp}`;[m
+[32m+[m[32m  window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensaje)}`, "_blank", "noopener,noreferrer");[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32melementos.abrir.addEventListener("click", abrirCarrito);[m
+[32m+[m[32melementos.cerrar.addEventListener("click", cerrarCarrito);[m
+[32m+[m[32melementos.fondo.addEventListener("click", cerrarCarrito);[m
+[32m+[m[32melementos.finalizar.addEventListener("click", finalizarPedido);[m
+[32m+[m
+[32m+[m[32mdocument.addEventListener("keydown", (evento) => {[m
+[32m+[m[32m  if (evento.key === "Escape") cerrarCarrito();[m
+[32m+[m[32m});[m
+[32m+[m
+[32m+[m[32melementos.busqueda.addEventListener("input", () => {[m
+[32m+[m[32m  estado.busqueda = elementos.busqueda.value.trim();[m
+[32m+[m[32m  renderizarProductos();[m
+[32m+[m
+[32m+[m[32m  if (!estado.busqueda) return;[m
+[32m+[m
+[32m+[m[32m  requestAnimationFrame(() => {[m
+[32m+[m[32m    const primerProducto = elementos.productos.querySelector(".tarjeta-producto");[m
+[32m+[m[32m    if (!primerProducto) return;[m
+[32m+[m
+[32m+[m[32m    const posicion = primerProducto.getBoundingClientRect().top + window.scrollY;[m
+[32m+[m[32m    window.scrollTo({[m
+[32m+[m[32m      top: posicion - window.innerHeight * 0.42,[m
+[32m+[m[32m      behavior: "smooth"[m
+[32m+[m[32m    });[m
+[32m+[m[32m  });[m
+[32m+[m[32m});[m
+[32m+[m
+[32m+[m[32melementos.categorias.querySelectorAll(".categoria").forEach((boton) => {[m
+[32m+[m[32m  boton.setAttribute([m
+[32m+[m[32m    "aria-pressed",[m
+[32m+[m[32m    boton.classList.contains("activa") ? "true" : "false"[m
+[32m+[m[32m  );[m
+[32m+[m
+[32m+[m[32m  boton.addEventListener("click", () => {[m
+[32m+[m[32m    estado.categoria = boton.dataset.categoria;[m
+[32m+[m[32m    estado.busqueda = "";[m
+[32m+[m[32m    elementos.busqueda.value = "";[m
+[32m+[m
+[32m+[m[32m    elementos.categorias.querySelectorAll(".categoria").forEach((otro) => {[m
+[32m+[m[32m      const activa = otro === boton;[m
+[32m+[m[32m      otro.classList.toggle("activa", activa);[m
+[32m+[m[32m      otro.setAttribute("aria-pressed", activa ? "true" : "false");[m
+[32m+[m[32m    });[m
+[32m+[m
+[32m+[m[32m    renderizarProductos();[m
+[32m+[m[32m    elementos.productos.scrollIntoView({ behavior: "smooth", block: "center" });[m
+[32m+[m[32m  });[m
+[32m+[m[32m});[m
+[32m+[m
+[32m+[m[32masync function iniciarCatalogo() {[m
+[32m+[m[32m  try {[m
+[32m+[m[32m    const respuesta = await fetch("js/productos.json");[m
+[32m+[m
+[32m+[m[32m    if (!respuesta.ok) {[m
+[32m+[m[32m      throw new Error(`No se pudo cargar el catálogo (${respuesta.status})`);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    const productos = await respuesta.json();[m
+[32m+[m
+[32m+[m[32m    estado.productos = productos.map((producto, indice) => ({[m
+[32m+[m[32m      ...producto,[m
+[32m+[m[32m      id: indice + 1[m
+[32m+[m[32m    }));[m
+[32m+[m
+[32m+[m[32m    renderizarProductos();[m
+[32m+[m[32m  } catch (error) {[m
+[32m+[m[32m    console.error("Error al cargar los productos:", error);[m
+[32m+[m
+[32m+[m[32m    elementos.productos.replaceChildren();[m
+[32m+[m
+[32m+[m[32m    const aviso = document.createElement("div");[m
+[32m+[m[32m    aviso.className = "estado-vacio";[m
+[32m+[m
+[32m+[m[32m    const titulo = document.createElement("h3");[m
+[32m+[m[32m    titulo.textContent = "No pudimos cargar el catálogo";[m
+[32m+[m
+[32m+[m[32m    const texto = document.createElement("p");[m
+[32m+[m[32m    texto.textContent =[m
+[32m+[m[32m      "Abrí la tienda con un servidor local y verificá que exista js/productos.json.";[m
+[32m+[m
+[32m+[m[32m    aviso.append(titulo, texto);[m
+[32m+[m[32m    elementos.productos.append(aviso);[m
+[32m+[m[32m  }[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mconst botonVaciarCarrito = document.querySelector("#vaciar-carrito");[m
+[32m+[m[32mbotonVaciarCarrito?.addEventListener("click", () => {[m
+[32m+[m[32mestado.carrito = [];[m
+[32m+[m[32mrenderizarCarrito();[m
+[32m+[m[32m});[m
+[32m+[m[32mrenderizarCarrito();[m
+[32m+[m[32miniciarCatalogo();[m
+[32m+[m
+[32m+[m[32mconst botonCalcularEnvio = document.querySelector("#calcular-envio");[m
+[32m+[m[32mconst campoCodigoPostal = document.querySelector("#codigo-postal");[m
+[32m+[m
+[32m+[m[32mif (campoCodigoPostal) {[m
+[32m+[m[32m  campoCodigoPostal.value = localStorage.getItem("codigoPostalCliente") || "";[m
+[32m+[m[32m  campoCodigoPostal.addEventListener("input", () => {[m
+[32m+[m[32m    campoCodigoPostal.setCustomValidity("");[m
+[32m+[m[32m  });[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mbotonCalcularEnvio?.addEventListener("click", () => {[m
+[32m+[m[32m  const cp = campoCodigoPostal?.value.trim() || "";[m
+[32m+[m
+[32m+[m[32m  if (!/^\d{4,8}$/.test(cp)) {[m
+[32m+[m[32m    campoCodigoPostal?.setCustomValidity("Ingresá un código postal válido de 4 a 8 números.");[m
+[32m+[m[32m    campoCodigoPostal?.reportValidity();[m
+[32m+[m[32m    return;[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  campoCodigoPostal.setCustomValidity("");[m
+[32m+[m[32m  localStorage.setItem("codigoPostalCliente", cp);[m
+[32m+[m[32m  actualizarResumenEnvio();[m
+[32m+[m[32m  renderizarCarrito();[m
+[32m+[m[32m});[m
+[32m+[m
+[32m+[m[32m// INICIO MENU HAMBURGUESA[m
+[32m+[m[32m(() => {[m
+[32m+[m[32m  const boton = document.querySelector("#boton-menu");[m
+[32m+[m[32m  const panel = document.querySelector("#panel-menu");[m
+[32m+[m[32m  const fondo = document.querySelector("#fondo-menu");[m
+[32m+[m[32m  const cerrar = document.querySelector("#cerrar-menu");[m
+[32m+[m
+[32m+[m[32m  if (!boton || !panel || !fondo || !cerrar) return;[m
+[32m+[m
+[32m+[m[32m  function abrirMenu() {[m
+[32m+[m[32m    fondo.hidden = false;[m
+[32m+[m[32m    panel.inert = false;[m
+[32m+[m[32m    panel.setAttribute("aria-hidden", "false");[m
+[32m+[m[32m    boton.setAttribute("aria-expanded", "true");[m
+[32m+[m[32m    boton.setAttribute("aria-label", "Cerrar menú");[m
+[32m+[m[32m    requestAnimationFrame(() => {[m
+[32m+[m[32m      fondo.classList.add("visible");[m
+[32m+[m[32m      panel.classList.add("abierto");[m
+[32m+[m[32m    });[m
+[32m+[m[32m    cerrar.focus();[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  function cerrarMenu() {[m
+[32m+[m[32m    panel.classList.remove("abierto");[m
+[32m+[m[32m    fondo.classList.remove("visible");[m
+[32m+[m[32m    panel.setAttribute("aria-hidden", "true");[m
+[32m+[m[32m    panel.inert = true;[m
+[32m+[m[32m    boton.setAttribute("aria-expanded", "false");[m
+[32m+[m[32m    boton.setAttribute("aria-label", "Abrir menú");[m
+[32m+[m[32m    fondo.hidden = true;[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  boton.addEventListener("click", () => {[m
+[32m+[m[32m    if (boton.getAttribute("aria-expanded") === "true") {[m
+[32m+[m[32m      cerrarMenu();[m
+[32m+[m[32m    } else {[m
+[32m+[m[32m      abrirMenu();[m
+[32m+[m[32m    }[m
+[32m+[m[32m  });[m
+[32m+[m
+[32m+[m[32m  cerrar.addEventListener("click", cerrarMenu);[m
+[32m+[m[32m  fondo.addEventListener("click", cerrarMenu);[m
+[32m+[m[32m  panel.querySelectorAll("[data-cerrar-menu]").forEach((enlace) => {[m
+[32m+[m[32m    enlace.addEventListener("click", cerrarMenu);[m
+[32m+[m[32m  });[m
+[32m+[m
+[32m+[m[32m  document.addEventListener("keydown", (evento) => {[m
+[32m+[m[32m    if (evento.key === "Escape" && boton.getAttribute("aria-expanded") === "true") {[m
+[32m+[m[32m      cerrarMenu();[m
+[32m+[m[32m      boton.focus();[m
+[32m+[m[32m    }[m
+[32m+[m[32m  });[m
+[32m+[m
+[32m+[m[32m  document.querySelector("#menu-calcular-envio")?.addEventListener("click", (evento) => {[m
+[32m+[m[32m    evento.preventDefault();[m
+[32m+[m[32m    cerrarMenu();[m
+[32m+[m[32m    abrirCarrito();[m
+[32m+[m
+[32m+[m[32m    setTimeout(() => {[m
+[32m+[m[32m      const campo = document.querySelector("#codigo-postal");[m
+[32m+[m[32m      if (campo) {[m
+[32m+[m[32m        campo.scrollIntoView({ behavior: "smooth", block: "center" });[m
+[32m+[m[32m        campo.focus({ preventScroll: true });[m
+[32m+[m[32m      }[m
+[32m+[m[32m    }, 300);[m
+[32m+[m[32m  });[m
+[32m+[m[32m  document.querySelector("#abrir-carrito")?.addEventListener("click", cerrarMenu);[m
+[32m+[m[32m})();[m
+[32m+[m[32m// FIN MENU HAMBURGUESA[m
+[32m+[m
+[32m+[m[32m// Ocultar WhatsApp flotante cuando el footer está visible[m
+[32m+[m[32m(() => {[m
+[32m+[m[32m  const whatsapp = document.querySelector("#whatsapp-btn");[m
+[32m+[m[32m  const footer = document.querySelector(".footer-aries");[m
+[32m+[m
+[32m+[m[32m  if (!whatsapp || !footer) return;[m
+[32m+[m
+[32m+[m[32m  const observador = new IntersectionObserver(([entrada]) => {[m
+[32m+[m[32m    whatsapp.classList.toggle([m
+[32m+[m[32m      "oculto-por-footer",[m
+[32m+[m[32m      entrada.isIntersecting[m
+[32m+[m[32m    );[m
+[32m+[m[32m  });[m
+[32m+[m
+[32m+[m[32m  observador.observe(footer);[m
+[32m+[m[32m})();[m
+[32m+[m[32m// Ventana "Cómo pagar"[m
+[32m+[m[32m(() => {[m
+[32m+[m[32m  const enlacePago = document.querySelector("#menu-pago");[m
+[32m+[m[32m  const modalPago = document.querySelector("#modal-pago");[m
+[32m+[m[32m  const cerrarPago = document.querySelector(".cerrar-pago");[m
+[32m+[m[32m  const botonCopiar = document.querySelector("#copiar-alias");[m
+[32m+[m[32m  const mensajeCopiado = document.querySelector("#copiado-msg");[m
+[32m+[m
+[32m+[m[32m  if (!enlacePago || !modalPago || !cerrarPago || !botonCopiar || !mensajeCopiado) {[m
+[32m+[m[32m    console.error("No se pudo inicializar la ventana de pago: falta un elemento HTML.");[m
+[32m+[m[32m    return;[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  function abrirPago() {[m
+[32m+[m[32m    modalPago.classList.add("visible");[m
+[32m+[m[32m    modalPago.setAttribute("aria-hidden", "false");[m
+[32m+[m[32m    cerrarPago.focus();[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  function cerrarVentanaPago() {[m
+[32m+[m[32m    modalPago.classList.remove("visible");[m
+[32m+[m[32m    modalPago.setAttribute("aria-hidden", "true");[m
+[32m+[m[32m    mensajeCopiado.textContent = "";[m
+[32m+[m[32m    enlacePago.focus();[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  enlacePago.addEventListener("click", (evento) => {[m
+[32m+[m[32m    evento.preventDefault();[m
+[32m+[m[32m    abrirPago();[m
+[32m+[m[32m  });[m
+[32m+[m
+[32m+[m[32m  cerrarPago.addEventListener("click", cerrarVentanaPago);[m
+[32m+[m
+[32m+[m[32m  modalPago.addEventListener("click", (evento) => {[m
+[32m+[m[32m    if (evento.target === modalPago) {[m
+[32m+[m[32m      cerrarVentanaPago();[m
+[32m+[m[32m    }[m
+[32m+[m[32m  });[m
+[32m+[m
+[32m+[m[32m  document.addEventListener("keydown", (evento) => {[m
+[32m+[m[32m    if (evento.key === "Escape" && modalPago.classList.contains("visible")) {[m
+[32m+[m[32m      cerrarVentanaPago();[m
+[32m+[m[32m    }[m
+[32m+[m[32m  });[m
+[32m+[m
+[32m+[m[32m  botonCopiar.addEventListener("click", async () => {[m
+[32m+[m[32m    try {[m
+[32m+[m[32m      await navigator.clipboard.writeText("ana.maria.montiel");[m
+[32m+[m[32m      mensajeCopiado.textContent = "¡Copiado! ✔";[m
+[32m+[m[32m    } catch {[m
+[32m+[m[32m      mensajeCopiado.textContent = "No se pudo copiar. Seleccioná el alias manualmente.";[m
+[32m+[m[32m    }[m
+[32m+[m[32m  });[m
+[32m+[m[32m})();[m
+\ No newline at end of file[m
