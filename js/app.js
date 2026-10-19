@@ -14,7 +14,7 @@ const REGALO_NOMBRE = "Chupetines Pelotitas Pinta Lengua (50u)";
 const REGALO_IMAGEN = "img/pelotitaspintalengua.png";
 
 // Las promociones se pueden activar o desactivar independientemente.
-const PROMOS_ACTIVAS = ["envio"];
+const PROMOS_ACTIVAS = ["envio", "regalo"];
 
 
 const STOCK_PRODUCTOS = {
