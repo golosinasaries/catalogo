@@ -1,4 +1,4 @@
-﻿function productoTieneCategoria(producto, categoria) {
+function productoTieneCategoria(producto, categoria) {
   return producto.categoria === categoria ||
     (Array.isArray(producto.categoriasAdicionales) &&
       producto.categoriasAdicionales.includes(categoria));
@@ -295,7 +295,7 @@ function abrirImagenPantallaCompleta(imagenOriginal, productoInicial = null) {
         .toLocaleLowerCase("es-AR");
 
       const categoriaCoincide =
-        estado.categoria === "Todas" || productoTieneCategoria(p, estado.categoria);
+        Boolean(estado.busqueda) || estado.categoria === "Todas" || productoTieneCategoria(p, estado.categoria);
 
       const busquedaCoincide =
         !estado.busqueda ||
@@ -763,7 +763,7 @@ precio.textContent = String(producto.categoria || "").toLocaleLowerCase("es-AR")
   anterior.addEventListener("click", () => {
     const productosVisibles = estado.productos.filter((productoCatalogo) => {
       if (productoCatalogo.oculto === true) return false;
-      const coincideCategoria = estado.categoria === "Todas" || productoTieneCategoria(productoCatalogo, estado.categoria);
+      const coincideCategoria = Boolean(estado.busqueda) || estado.categoria === "Todas" || productoTieneCategoria(productoCatalogo, estado.categoria);
       const coincideBusqueda = productoCatalogo.nombre.toLocaleLowerCase("es-AR").includes(estado.busqueda.toLocaleLowerCase("es-AR"));
       return coincideCategoria && coincideBusqueda;
     });
@@ -780,7 +780,7 @@ precio.textContent = String(producto.categoria || "").toLocaleLowerCase("es-AR")
   siguiente.addEventListener("click", () => {
     const productosVisibles = estado.productos.filter((productoCatalogo) => {
       if (productoCatalogo.oculto === true) return false;
-      const coincideCategoria = estado.categoria === "Todas" || productoTieneCategoria(productoCatalogo, estado.categoria);
+      const coincideCategoria = Boolean(estado.busqueda) || estado.categoria === "Todas" || productoTieneCategoria(productoCatalogo, estado.categoria);
       const coincideBusqueda = productoCatalogo.nombre.toLocaleLowerCase("es-AR").includes(estado.busqueda.toLocaleLowerCase("es-AR"));
       return coincideCategoria && coincideBusqueda;
     });
@@ -854,7 +854,7 @@ function renderizarProductos() {
     if (producto.oculto === true) return false;
 
     const coincideCategoria =
-      estado.categoria === "Todas" || productoTieneCategoria(producto, estado.categoria);
+      Boolean(estado.busqueda) || estado.categoria === "Todas" || productoTieneCategoria(producto, estado.categoria);
 
     const coincideBusqueda = producto.nombre
       .toLocaleLowerCase("es-AR")
@@ -1609,6 +1609,17 @@ elementos.busqueda.addEventListener("input", () => {
   });
 });
 
+let botonTodas = elementos.categorias.querySelector('.categoria[data-categoria="Todas"]');
+
+if (!botonTodas) {
+  botonTodas = document.createElement("button");
+  botonTodas.type = "button";
+  botonTodas.className = "categoria";
+  botonTodas.dataset.categoria = "Todas";
+}
+
+botonTodas.textContent = "Todos";
+elementos.categorias.append(botonTodas);
 elementos.categorias.querySelectorAll(".categoria").forEach((boton) => {
   boton.setAttribute(
     "aria-pressed",
