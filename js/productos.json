@@ -119,7 +119,8 @@
         "nombre":  "Mielcitas Drink Candy (50u)",
         "imagen":  "img/mielcitas.png",
         "precio":  5500,
-        "categoria":  "Gomitas blandas"
+        "categoria":  "Gomitas blandas",
+        "agotado":  true
     },
     {
         "nombre":  "Chupetines Pelotitas (50u)",
@@ -155,6 +156,12 @@
         "nombre":  "Cool Mint pastillitas Frutales (30u)",
         "imagen":  "img/coolmint.jpg",
         "precio":  12800,
+        "categoria":  "Pastillitas"
+    },
+    {
+        "nombre":  "Pastillitas Frutales Barbie (30u)",
+        "imagen":  "img/barbie.jpeg",
+        "precio":  12000,
         "categoria":  "Pastillitas"
     },
     {
@@ -290,7 +297,7 @@
         "precio":  7500,
         "categoria":  "Galletitas"
     },
-     {
+    {
         "nombre":  "Oblita de DDL (48u)",
         "imagen":  "img/oblita_ddl.jpg",
         "precio":  7500,
