@@ -192,7 +192,8 @@
         "nombre":  "Gomitas de Boca (30u)",
         "imagen":  "img/boca.jpg",
         "precio":  9000,
-        "categoria":  "Gomitas blandas"
+        "categoria":  "Gomitas blandas",
+        "agotado":  true
     },
     {
         "nombre":  "Gomitas de Boca nuevo (30u)",
