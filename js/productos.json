@@ -287,13 +287,13 @@
     {
         "nombre":  "Oblita de Frutilla (48u)",
         "imagen":  "img/oblitafrutilla.jpg",
-        "precio":  6900,
+        "precio":  7500,
         "categoria":  "Galletitas"
     },
      {
         "nombre":  "Oblita de DDL (48u)",
         "imagen":  "img/oblita_ddl.jpg",
-        "precio":  6900,
+        "precio":  7500,
         "categoria":  "Galletitas"
     },
     {
@@ -534,11 +534,11 @@
                                    },
                                    {
                                        "nombre":  "Oblita de Frutilla (48u)",
-                                       "precio":  6900
+                                       "precio":  7500
                                    },
                                    {
                                        "nombre":  "Oblita de DDL (48u)",
-                                       "precio":  6900
+                                       "precio":  7500
                                    },
                                    {
                                        "nombre":  "Gomitas Oreo (30u)",

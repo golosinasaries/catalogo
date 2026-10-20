@@ -1,4 +1,4 @@
-function productoTieneCategoria(producto, categoria) {
+﻿function productoTieneCategoria(producto, categoria) {
   return producto.categoria === categoria ||
     (Array.isArray(producto.categoriasAdicionales) &&
       producto.categoriasAdicionales.includes(categoria));
@@ -14,7 +14,7 @@ const REGALO_NOMBRE = "1 Alcancía";
 const REGALO_IMAGEN = "img/tigrerojo.png";
 
 // Las promociones se pueden activar o desactivar independientemente.
-const PROMOS_ACTIVAS = ["envio", "regalo"];
+const PROMOS_ACTIVAS = ["envio"];
 
 
 const STOCK_PRODUCTOS = {
@@ -820,9 +820,9 @@ const variantesPorNombre = {
     { nombre: "Chicle Fierita Recargado - Frutilla (50u)", imagen: "img/fieritarecargadofrutilla.png", precio: 6900 }
   ],
   "Oblita de Frutilla (48u)": [
-    { nombre: "Oblita de Frutilla (48u)", imagen: "img/oblitafrutilla.jpg", precio: 6900 },
-    { nombre: "Oblita de DDL (48u)", imagen: "img/oblita_ddl.jpg", precio: 6900 },
-    { nombre: "Oblita de Marroc (48u)", imagen: "img/oblita_marroc.jpg", precio: 6900 }
+    { nombre: "Oblita de Frutilla (48u)", imagen: "img/oblitafrutilla.jpg", precio: 7500 },
+    { nombre: "Oblita de DDL (48u)", imagen: "img/oblita_ddl.jpg", precio: 7500 },
+    { nombre: "Oblita de Marroc (48u)", imagen: "img/oblita_marroc.jpg", precio: 7500 }
   ],
   "Pastillas D.R.F Sabor Menta (12u)": [
     { nombre: "Pastillas D.R.F Sabor Menta (12u)", imagen: "img/drfmenta.jpeg", precio: 6200 },
