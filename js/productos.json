@@ -94,7 +94,8 @@
         "categoria":  "Gomitas blandas",
         "categoriasAdicionales":  [
                                       "Halloween"
-                                  ]
+                                  ],
+        "agotado":  true
     },
     {
         "nombre":  "Huevos Sorpresa Lilo y Stitch (30u)",
