@@ -19,6 +19,8 @@ const PROMOS_ACTIVAS = ["envio"];
 
 const STOCK_PRODUCTOS = {
   "Caramelos Super Acidos Lipo (454 g)": 1,
+  "Cucuruchos Helado Frutilla (30u)": 0,
+  "Cucuruchos Helado Chocolate (30u)": 0,
 };
 
 function obtenerStockMaximo(producto) {
@@ -436,6 +438,8 @@ function abrirDetalleProducto(producto, navegar = false, apilar = false) {
   const fotosMultiplesDetalle = {
     "Gomitas Fantasmita (30u)": ["img/fantasmitas.jpg", "img/fantasmitas2.jpg"],
     "iPhone Pinball con pastillitas (30u)": ["img/iphone.png", "img/iphone2.png"],
+    "Chupetines con led Unicornio (30u)": ["img/unicornioled1.png", "img/leduni.jpg"],
+    "Chupetines con led Unicornio  30 unidades por pack, caja x10 packs": ["img/unicornioled1.png", "img/leduni.jpg"],
   };
 
   const fotosDetalle = fotosMultiplesDetalle[producto.nombre] || [producto.imagen];
@@ -842,10 +846,10 @@ const variantesPorNombre = {
     { nombre: "Alcancía Pollito Rojo (con 12 gelatinas en su interior)", imagen: "img/pollito.png", precio: 6900 },
     { nombre: "Alcancía Pollito Amarillo (con 12 gelatinas en su interior)", imagen: "img/pollitoamarillo.png", precio: 6900 }
   ],
-  "Cucuruchos Helado Frutilla (30u)": [
-    { nombre: "Cucuruchos Helado Frutilla (30u)", imagen: "img/cucuruchohelado.png", precio: 14900 },
+  "Cucuruchos Helado Arándano (30u)": [
+    { nombre: "Cucuruchos Helado Arándano (30u)", imagen: "img/cucuruchovainilla.png", precio: 14900 },
     { nombre: "Cucuruchos Helado Chocolate (30u)", imagen: "img/cucuruchochocolate.png", precio: 14900 },
-    { nombre: "Cucuruchos Helado Arándano (30u)", imagen: "img/cucuruchovainilla.png", precio: 14900 }
+    { nombre: "Cucuruchos Helado Frutilla (30u)", imagen: "img/cucuruchohelado.png", precio: 14900 },
   ]
 };
 
