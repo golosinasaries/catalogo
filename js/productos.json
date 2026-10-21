@@ -1,5 +1,12 @@
 [
     {
+        "nombre":  "Chupetines con Led Oreo (30u)",
+        "imagen":  "img/oreoled.png",
+        "precio":  9000,
+        "precioAnterior":  12900,
+        "categoria":  "Chupetines"
+    },
+    {
         "nombre":  "Chupetines Hongos (30u)",
         "imagen":  "img/hongos.png",
         "precio":  10900,
@@ -141,12 +148,6 @@
         "precio":  12900,
         "categoria":  "Chupetines"
     },
-    {
-        "nombre":  "Chupetines con Led Oreo (30u)",
-        "imagen":  "img/oreoled.png",
-        "precio":  12900,
-        "categoria":  "Chupetines"
-    },
         {
         "nombre":  "Chupetines con led Unicornio (30u)",
         "imagen":  "img/unicornioled1.png",
@@ -236,7 +237,6 @@
         "nombre":  "Chupetines con forma de Unicornio (30u)",
         "imagen":  "img/unicornio.png",
         "precio":  10900,
-        "precioAnterior":  12900,
         "categoria":  "Chupetines"
     },
     {

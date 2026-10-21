@@ -1316,7 +1316,55 @@ function actualizarAvisoEnvioGratis(subtotal = 0) {
   avisoEnvioGratisAnterior = tieneEnvio;
 }
 
+function actualizarPreciosCarrito() {
+  if (!estado.productos.length) return;
+
+  estado.carrito = estado.carrito.filter((item) => {
+   const productoBase = estado.productos.find(
+      (producto) =>
+        producto.nombre === item.nombre ||
+        variantesPorNombre[producto.nombre]?.some(
+          (variante) => variante.nombre === item.nombre
+        )
+    );
+
+    if (!productoBase) return false;
+
+    const variante = variantesPorNombre[productoBase.nombre]?.find(
+      (opcion) => opcion.nombre === item.nombre
+    );
+
+    const productoActual = {
+      ...productoBase,
+      ...(variante || {}),
+      nombre: item.nombre
+    };
+
+    const esVarianteOriginal =
+      !variante || variante.nombre === productoBase.nombre;
+
+    const agotadoActual =
+      variante && Object.prototype.hasOwnProperty.call(variante, "agotado")
+        ? variante.agotado === true
+        : esVarianteOriginal && productoBase.agotado === true;
+
+    if (
+      agotadoActual ||
+      obtenerStockMaximo(productoActual) === 0
+    ) {
+      return false;
+    }
+
+    if (Number.isFinite(Number(productoActual.precio))) {
+      item.precio = Number(productoActual.precio);
+    }
+
+    return true;
+  });
+}
+
 function renderizarCarrito() {
+  actualizarPreciosCarrito();
   try {
     localStorage.setItem(
       "carritoCliente",
@@ -1416,8 +1464,8 @@ function renderizarCarrito() {
       if (item.cantidad > 1) item.cantidad -= 1;
       else estado.carrito = estado.carrito.filter((p) => p.id !== item.id);
 
-      renderizarCarrito();
       renderizarProductos();
+      renderizarCarrito();
     });
 
     const cantidad = document.createElement("span");
@@ -1524,7 +1572,8 @@ document.body.append(overlay);
 overlay.querySelector(".aviso-minimo-cerrar").focus();
 }
 function finalizarPedido() {
-  
+  actualizarPreciosCarrito();
+
   const subtotalCompra = estado.carrito.reduce((suma, item) => suma + item.precio * item.cantidad, 0);
   if (subtotalCompra < MINIMO_COMPRA) {
     mostrarAvisoCompraMinima(MINIMO_COMPRA - subtotalCompra);
@@ -1658,6 +1707,7 @@ async function iniciarCatalogo() {
     }));
 
     renderizarProductos();
+    renderizarCarrito();
   } catch (error) {
     console.error("Error al cargar los productos:", error);
 
