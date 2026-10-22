@@ -251,12 +251,6 @@
         "categoria":  "Chicles"
     },
     {
-        "nombre":  "Gomitas Dinos (30u)",
-        "imagen":  "img/gomitasdinos.png",
-        "precio":  9400,
-        "categoria":  "Gomitas blandas"
-    },
-    {
         "nombre":  "Chupetines 2 in 1 (60u)",
         "imagen":  "img/dosenuno.png",
         "precio":  11900,
@@ -521,7 +515,7 @@
                                        "precio":  6900
                                    },
                                    {
-                                       "nombre":  "Gomitas Dinos (30u)",
+                                       "nombre":  "Gomitas Gatitos (30u)",
                                        "precio":  9400
                                    },
                                    {
