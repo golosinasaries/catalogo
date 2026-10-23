@@ -123,13 +123,13 @@
     {
         "nombre":  "Chupetines Pelotitas (50u)",
         "imagen":  "img/pelotitas.jpg",
-        "precio":  4900,
+        "precio":  5500,
         "categoria":  "Chupetines"
     },
     {
         "nombre":  "Chupetines Pelotitas Pinta Lengua (50u)",
         "imagen":  "img/pelotitaspintalengua.png",
-        "precio":  5500,
+        "precio":  5900,
         "categoria":  "Chupetines"
     },
     {
@@ -414,7 +414,7 @@
                                    },
                                    {
                                        "nombre":  "Chupetines Pelotitas (50u)",
-                                       "precio":  4900
+                                       "precio":  5500
                                    },
                                    {
                                        "nombre":  "Chicle Fierita Recargado - Menta (50u)",
