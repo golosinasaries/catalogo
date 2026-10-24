@@ -248,12 +248,6 @@
         "categoria":  "Gomitas blandas"
     },
     {
-        "nombre":  "Cucuruchos Helado Arándano (30u)",
-        "imagen":  "cucuruchovainilla.png",
-        "precio":  14900,
-        "categoria":  "Galletitas"
-    },
-    {
         "nombre":  "Gomita Helado (30u)",
         "imagen":  "img/helado.png",
         "precio":  10500,
@@ -352,9 +346,9 @@
         "categoria":  "Gomitas 500 g"
     },
     {
-        "nombre":  "Bombuchas (100u)",
+        "nombre":  "6 paquetes de Bombuchas (100u)",
         "imagen":  "img/bombulla.png",
-        "precio":  1900,
+        "precio":  10000,
         "categoria":  "Otros"
     },
     {

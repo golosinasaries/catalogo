@@ -19,8 +19,6 @@ const PROMOS_ACTIVAS = ["envio"];
 
 const STOCK_PRODUCTOS = {
   "Caramelos Super Acidos Lipo (454 g)": 1,
-  "Cucuruchos Helado Frutilla (30u)": 0,
-  "Cucuruchos Helado Chocolate (30u)": 0,
 };
 
 function obtenerStockMaximo(producto) {
@@ -845,11 +843,6 @@ const variantesPorNombre = {
     { nombre: "Alcancía Tigre Amarillo (con 12 gelatinas en su interior)", imagen: "img/tigreamarillo.jpg", precio: 6900 },
     { nombre: "Alcancía Pollito Rojo (con 12 gelatinas en su interior)", imagen: "img/pollito.png", precio: 6900 },
     { nombre: "Alcancía Pollito Amarillo (con 12 gelatinas en su interior)", imagen: "img/pollitoamarillo.png", precio: 6900 }
-  ],
-  "Cucuruchos Helado Arándano (30u)": [
-    { nombre: "Cucuruchos Helado Arándano (30u)", imagen: "img/cucuruchovainilla.png", precio: 14900 },
-    { nombre: "Cucuruchos Helado Chocolate (30u)", imagen: "img/cucuruchochocolate.png", precio: 14900 },
-    { nombre: "Cucuruchos Helado Frutilla (30u)", imagen: "img/cucuruchohelado.png", precio: 14900 },
   ]
 };
 
@@ -1669,6 +1662,22 @@ if (!botonTodas) {
   botonTodas.type = "button";
   botonTodas.className = "categoria";
   botonTodas.dataset.categoria = "Todas";
+}
+
+const menuCategorias = document.querySelector("#menu-categorias");
+
+if (menuCategorias) {
+  menuCategorias.replaceChildren();
+
+  elementos.categorias.querySelectorAll(".categoria").forEach((categoria) => {
+    const enlace = document.createElement("a");
+    enlace.href = "#catalogo";
+    enlace.className = "categoria";
+    enlace.textContent = categoria.textContent;
+    enlace.dataset.cerrarMenu = "";
+    enlace.addEventListener("click", () => categoria.click());
+    menuCategorias.append(enlace);
+  });
 }
 
 botonTodas.textContent = "Todos";
