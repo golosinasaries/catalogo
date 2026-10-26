@@ -1,5 +1,12 @@
 [
     {
+        "nombre":  "Cars con pastillitas (30u)",
+        "imagen":  "img/cars.png",
+        "precio":  10900,
+        "precioAnterior":  13800,
+        "categoria":  "Pastillas"
+    },
+    {
         "nombre":  "Chupetines con Led Oreo (30u)",
         "imagen":  "img/oreoled.png",
         "precio":  12900,
@@ -46,12 +53,6 @@
         "imagen": "img/silbato.png",
         "precio": 10800,
         "categoria": "Chupetines"
-    },
-      {
-        "nombre":  "Cars con pastillitas (30u)",
-        "imagen":  "img/cars.png",
-        "precio":  13800,
-        "categoria":  "Pastillas"
     },
     {
         "nombre":  "iPhone Pinball con pastillitas (30u)",
@@ -253,8 +254,7 @@
         "nombre":  "Alfajor Guaymallen Triple Blanco (12u)",
         "imagen":  "img/guayblanco.jpg",
         "precio":  8900,
-        "categoria":  "Alfajores",
-        "agotado":  true
+        "categoria":  "Alfajores"
     },
     {
         "nombre":  "Alfajor Guaymallen simple Blanco (10u)",
