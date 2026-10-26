@@ -36,13 +36,6 @@
                                   ]
     },
     {
-        "nombre":  "Chupetines Corazón (30u)",
-        "imagen":  "img/corazon.jpg",
-        "precio":  10900,
-        "categoria":  "Chupetines",
-        "agotado":  true
-    },
-    {
         "nombre":  "Spider-Man con pastillitas (30u)",
         "imagen":  "img/spider.jpeg",
         "precio":  13800,
@@ -95,13 +88,6 @@
         "agotado":  true
     },
     {
-        "nombre":  "Huevos Sorpresa Lilo y Stitch (30u)",
-        "imagen":  "img/sorpresasti.png",
-        "precio":  14500,
-        "categoria":  "Huevos sorpresa",
-        "agotado":  true
-    },
-    {
         "nombre":  "Huevos Sorpresa Dinos  (30u)",
         "imagen":  "img/sorpresadino.png",
         "precio":  14500,
@@ -112,13 +98,6 @@
         "imagen":  "img/botellitas.jpg",
         "precio":  12900,
         "categoria":  "Chicles"
-    },
-    {
-        "nombre":  "Mielcitas Drink Candy (50u)",
-        "imagen":  "img/mielcitas.png",
-        "precio":  5500,
-        "categoria":  "Gomitas blandas",
-        "agotado":  true
     },
     {
         "nombre":  "Chupetines Pelotitas (50u)",
@@ -163,12 +142,6 @@
         "categoria":  "Pastillitas"
     },
     {
-        "nombre":  "Ring Pop Barbie (30u)",
-        "imagen":  "img/ringpop.png",
-        "precio":  13900,
-        "categoria":  "Chupetines"
-    },
-    {
         "nombre":  "Latitas con chicles (30 latitas)",
         "imagen":  "img/latas.png",
         "precio":  14900,
@@ -179,13 +152,6 @@
         "imagen":  "img/gallina.jpeg",
         "precio":  9400,
         "categoria":  "Gomitas blandas"
-    },
-    {
-        "nombre":  "Gomitas de Boca (30u)",
-        "imagen":  "img/boca.jpg",
-        "precio":  9000,
-        "categoria":  "Gomitas blandas",
-        "agotado":  true
     },
     {
         "nombre":  "Gomitas de Boca nuevo (30u)",
@@ -331,13 +297,6 @@
         "imagen":  "img/fieritagranjero.jpg",
         "precio":  4500,
         "categoria":  "Caramelos"
-    },
-    {
-        "nombre":  "Gomitas Yummy Dientes 500g",
-        "imagen":  "img/yummydientes.jpeg",
-        "precio":  8500,
-        "categoria":  "Gomitas 500 g",
-        "agotado":  true
     },
     {
         "nombre":  "Gomitas RiCo Más 500g",

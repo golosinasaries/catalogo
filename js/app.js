@@ -18,7 +18,8 @@ const PROMOS_ACTIVAS = ["envio"];
 
 
 const STOCK_PRODUCTOS = {
-  "Caramelos Super Acidos Lipo (454 g)": 1,
+  "Caramelos Super Acidos Lipo (454 g)": 2,
+  "Latitas con chicles (30 latitas)": 1,
 };
 
 function obtenerStockMaximo(producto) {
