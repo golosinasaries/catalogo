@@ -7,11 +7,11 @@
 
 const WHATSAPP = "542236010443";
 const MINIMO_COMPRA = 50000;
-const ENVIO_GRATIS_DESDE = 80000;
+const ENVIO_GRATIS_DESDE = 120000;
 
 const REGALO_DESDE = 50000;
-const REGALO_NOMBRE = "1 Alcancía";
-const REGALO_IMAGEN = "img/tigrerojo.png";
+const REGALO_NOMBRE = "Gomitas Macarron (30u)";
+const REGALO_IMAGEN = "img/macarron.png";
 
 // Las promociones se pueden activar o desactivar independientemente.
 const PROMOS_ACTIVAS = ["envio", "regalo"];
@@ -830,20 +830,6 @@ const variantesPorNombre = {
   "Pastillas D.R.F Sabor Menta (12u)": [
     { nombre: "Pastillas D.R.F Sabor Menta (12u)", imagen: "img/drfmenta.jpeg", precio: 6200 },
     { nombre: "Pastillas D.R.F Sabor Anís (12u)", imagen: "img/drfanis.jpeg", precio: 6200 }
-  ],
-  "Alfajor Guaymallen simple Blanco (10u)": [
-    { nombre: "Alfajor Guaymallen simple Blanco (10u)", imagen: "img/guaysimpleblanco.jpg", precio: 4900 },
-    { nombre: "Alfajor Guaymallen simple Negro (10u)", imagen: "img/guaysimplenegro.jpg", precio: 4900 }
-  ],
-  "Alfajor Guaymallen Triple Blanco (12u)": [
-    { nombre: "Alfajor Guaymallen Triple Blanco (12u)", imagen: "img/guayblanco.jpg", precio: 8900 },
-    { nombre: "Alfajor Guaymallen Triple Negro (12u)", imagen: "img/guayddl.jpg", precio: 8900 }
-  ],
-  "Alcancía Tigre Rojo (con 12 gelatinas en su interior)": [
-    { nombre: "Alcancía Tigre Rojo (con 12 gelatinas en su interior)", imagen: "img/tigrerojo.png", precio: 6900 },
-    { nombre: "Alcancía Tigre Amarillo (con 12 gelatinas en su interior)", imagen: "img/tigreamarillo.jpg", precio: 6900 },
-    { nombre: "Alcancía Pollito Rojo (con 12 gelatinas en su interior)", imagen: "img/pollito.png", precio: 6900 },
-    { nombre: "Alcancía Pollito Amarillo (con 12 gelatinas en su interior)", imagen: "img/pollitoamarillo.png", precio: 6900 }
   ]
 };
 

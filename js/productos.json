@@ -159,15 +159,15 @@
         "precio":  9400,
         "categoria":  "Gomitas blandas"
     },
-    {
-        "nombre":  "Alcancía Tigre Rojo (con 12 gelatinas en su interior)",
-        "imagen":  "img/tigrerojo.png",
-        "precio":  6900,
-        "categoria":  "Alcancías"
-    },
       {
         "nombre":  "Alcancía Pollito Rojo (con 12 gelatinas en su interior)",
         "imagen":  "img/pollito.png",
+        "precio":  6900,
+        "categoria":  "Alcancías"
+    },
+     {
+        "nombre":  "Alcancía Pollito Amarillo (con 12 gelatinas en su interior)",
+        "imagen":  "img/pollitoamarillo.png",
         "precio":  6900,
         "categoria":  "Alcancías"
     },
@@ -250,26 +250,26 @@
         "categoria": "Chocolates"
     },
     {
-        "nombre":  "Alfajor Guaymallen Triple Blanco (12u)",
-        "imagen":  "img/guayblanco.jpg",
-        "precio":  8900,
-        "categoria":  "Alfajores"
-    },
-    {
-        "nombre":  "Alfajor Guaymallen simple Blanco (10u)",
-        "imagen":  "img/guaysimpleblanco.jpg",
-        "precio":  4900,
-        "categoria":  "Alfajores"
-    },
-    {
         "nombre":  "Chicle Fierita Globo sabor Frutilla (95u)",
         "imagen":  "img/recargadofrutilla.png",
         "precio":  7900,
         "categoria":  "Chicles"
     },
     {
+        "nombre":  "Chicle Fierita Globo sabor Menta (95u)",
+        "imagen":  "img/globomenta.jpg",
+        "precio":  7900,
+        "categoria":  "Chicles"
+    },
+    {
         "nombre":  "Chicle Fierita Recargado - Menta (50u)",
         "imagen":  "img/recargadomenta.png",
+        "precio":  6900,
+        "categoria":  "Chicles"
+    },
+     {
+        "nombre":  "Chicle Fierita Recargado - Tutti Frutti (50u)",
+        "imagen":  "img/fieritarecargado.jpg",
         "precio":  6900,
         "categoria":  "Chicles"
     },
