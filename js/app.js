@@ -836,7 +836,7 @@ const variantesPorNombre = {
     { nombre: "Alfajor Guaymallen simple Negro (10u)", imagen: "img/guaysimplenegro.jpg", precio: 4900 }
   ],
   "Alfajor Guaymallen Triple Blanco (12u)": [
-    { nombre: "Alfajor Guaymallen Triple Blanco (12u)", imagen: "img/guayblanco.jpg", precio: 8900, agotado: true },
+    { nombre: "Alfajor Guaymallen Triple Blanco (12u)", imagen: "img/guayblanco.jpg", precio: 8900 },
     { nombre: "Alfajor Guaymallen Triple Negro (12u)", imagen: "img/guayddl.jpg", precio: 8900 }
   ],
   "Alcancía Tigre Rojo (con 12 gelatinas en su interior)": [

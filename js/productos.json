@@ -2,8 +2,7 @@
     {
         "nombre":  "Cars con pastillitas (30u)",
         "imagen":  "img/cars.png",
-        "precio":  10900,
-        "precioAnterior":  13800,
+        "precio":  13800,
         "categoria":  "Pastillas"
     },
     {
