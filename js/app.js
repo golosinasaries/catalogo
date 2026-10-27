@@ -7,14 +7,14 @@
 
 const WHATSAPP = "542236010443";
 const MINIMO_COMPRA = 50000;
-const ENVIO_GRATIS_DESDE = 120000;
+const ENVIO_GRATIS_DESDE = 80000;
 
 const REGALO_DESDE = 50000;
 const REGALO_NOMBRE = "1 Alcancía";
 const REGALO_IMAGEN = "img/tigrerojo.png";
 
 // Las promociones se pueden activar o desactivar independientemente.
-const PROMOS_ACTIVAS = ["envio"];
+const PROMOS_ACTIVAS = ["envio", "regalo"];
 
 
 const STOCK_PRODUCTOS = {
