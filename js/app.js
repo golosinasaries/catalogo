@@ -1667,8 +1667,10 @@ if (menuCategorias) {
   });
 }
 
-botonTodas.textContent = "Todos";
-elementos.categorias.append(botonTodas);
+botonTodas.textContent = "✨ Todo";
+const botonTodasFinal = botonTodas.cloneNode(true);
+elementos.categorias.prepend(botonTodas);
+elementos.categorias.append(botonTodasFinal);
 elementos.categorias.querySelectorAll(".categoria").forEach((boton) => {
   boton.setAttribute(
     "aria-pressed",
@@ -1687,7 +1689,7 @@ elementos.categorias.querySelectorAll(".categoria").forEach((boton) => {
     });
 
     renderizarProductos();
-    elementos.productos.scrollIntoView({ behavior: "smooth", block: "center" });
+    document.querySelector("#catalogo").scrollIntoView({ behavior: "smooth", block: "start" });
   });
 });
 
