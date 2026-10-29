@@ -84,8 +84,7 @@
         "categoria":  "Gomitas blandas",
         "categoriasAdicionales":  [
                                       "Halloween"
-                                  ],
-        "agotado":  true
+                                  ]
     },
     {
         "nombre":  "Huevos Sorpresa Dinos  (30u)",
@@ -320,6 +319,12 @@
         "imagen":  "img/unicornioled1.png",
         "precio":  105000,
         "categoria":  "Bultos cerrados"
+    },
+    {
+        "nombre": "Caramelos masticables Yum Yum bolsa 300 g",
+        "imagen": "img/yumyum.jpg",
+        "precio": 4500,
+        "categoria": "Caramelos"
     },
     {
         "nombre":  "Combo Especial (12 productos)",
