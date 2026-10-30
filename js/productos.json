@@ -12,6 +12,18 @@
         "categoria":  "Chupetines"
     },
     {
+        "nombre": "Gomitas Yummy Dientes 500g",
+        "imagen": "img/yummydientes.jpeg",
+        "precio": 8500,
+        "categoria": "Gomitas"
+    },
+    {
+        "nombre": "Mielcitas Drink Candy (50u)",
+        "imagen": "img/mielcitas.png",
+        "precio": 5500,
+        "categoria": "gomitasblandas"
+    },
+    {
         "nombre":  "Chupetines Hongos (30u)",
         "imagen":  "img/hongos.png",
         "precio":  10900,
