@@ -101,6 +101,19 @@
         "categoria": "Chupetines"
     },
     {
+        "nombre": "Chupetines con led Mc Donalds (30u)",
+        "imagen": "img/mc.jpg",
+        "precio": 12900,
+        "categoria": "Chupetines"
+    },
+       {
+        "nombre": "Chupetines Donas con led (30u)",
+        "imagen": "img/donaled1.png",
+        "precio": 12900,
+        "categoria": "Chupetines"
+    },
+
+    {
         "nombre":  "iPhone Pinball con pastillitas (30u)",
         "imagen":  "img/iphone.png",
         "precio":  13800,

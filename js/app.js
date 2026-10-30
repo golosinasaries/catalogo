@@ -438,7 +438,10 @@ function abrirDetalleProducto(producto, navegar = false, apilar = false) {
     "iPhone Pinball con pastillitas (30u)": ["img/iphone.png", "img/iphone2.png"],
     "Chupetines con led Unicornio (30u)": ["img/unicornioled1.png", "img/leduni.jpg"],
     "Chupetines con led Unicornio  30 unidades por pack, caja x10 packs": ["img/unicornioled1.png", "img/leduni.jpg"],
+    "Chupetines con led Mc Donalds (30u)": ["img/mc.jpg", "img/mc2.jpg", "img/mc3.jpeg"],
+    "Chupetines Donas con led (30u)": ["img/donaled1.png", "img/donaled2.png"],
   };
+
 
   const fotosDetalle = fotosMultiplesDetalle[producto.nombre] || [producto.imagen];
   let indiceFotoDetalle = 0;
