@@ -24,6 +24,41 @@
         "categoria": "gomitasblandas"
     },
     {
+        "nombre": "Cucuruchos Helado Chocolate (30u)",
+        "imagen": "img/cucuruchochocolate.png",
+        "precio": 14900
+    },
+    {
+        "nombre": "Cucuruchos Helado Frutilla (30u)",
+        "imagen": "img/cucuruchohelado.png",
+        "precio": 14900
+    },
+    {
+        "nombre": "Gomitas Dinos (30u)",
+        "imagen": "img/gomitasdinos.png",
+        "precio": 9400,
+        "categoria": "Gomitas blandas"
+    },
+           {
+        "nombre": "Trompetas con pastillitas (30u)",
+        "imagen": "img/trompeta.png",
+        "precio": 13800,
+        "categoria": "Caramelos"
+    },
+    {
+        "nombre": "Gomitas Calabaza (30u)",
+        "imagen": "img/calabaza.jpg",
+        "precio": 9400,
+        "categoria": "Gomitas blandas",
+        "categoriasAdicionales": ["Halloween"]
+    },
+    {
+        "nombre": "Bocaditos Bel (50u)",
+        "imagen": "img/bombones_surtidos.jpg",
+        "precio": 9500,
+        "categoria": "Chocolates"
+    },
+    {
         "nombre":  "Chupetines Hongos (30u)",
         "imagen":  "img/hongos.png",
         "precio":  10900,
