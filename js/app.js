@@ -128,12 +128,24 @@ const elementos = {
 };
 
 function abrirCarrito() {
+  if (!elementos.panel.classList.contains("abierto")) {
+    history.pushState({ carritoAbierto: true }, "");
+  }
+
   elementos.panel.classList.add("abierto");
   elementos.fondo.classList.add("visible");
   elementos.panel.setAttribute("aria-hidden", "false");
 }
 
 function cerrarCarrito() {
+  if (
+    elementos.panel.classList.contains("abierto") &&
+    history.state?.carritoAbierto
+  ) {
+    history.back();
+    return;
+  }
+
   elementos.panel.classList.remove("abierto");
   elementos.fondo.classList.remove("visible");
   elementos.panel.setAttribute("aria-hidden", "true");
@@ -1676,6 +1688,12 @@ elementos.finalizar.addEventListener("click", finalizarPedido);
 
 document.addEventListener("keydown", (evento) => {
   if (evento.key === "Escape") cerrarCarrito();
+});
+
+window.addEventListener("popstate", () => {
+  elementos.panel.classList.remove("abierto");
+  elementos.fondo.classList.remove("visible");
+  elementos.panel.setAttribute("aria-hidden", "true");
 });
 
 elementos.busqueda.addEventListener("input", () => {

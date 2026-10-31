@@ -1,4 +1,4 @@
-﻿[
+[
     {
         "nombre":  "Cars con pastillitas (30u)",
         "imagen":  "img/cars.png",
@@ -236,22 +236,22 @@
         "categoria":  "Gomitas blandas"
     },
       {
-        "nombre":  "AlcancÃ­a Pollito Rojo (con 12 gelatinas en su interior)",
+        "nombre":  "Alcancí­a Pollito Rojo (con 12 gelatinas en su interior)",
         "imagen":  "img/pollito.png",
         "precio":  6900,
-        "categoria":  "AlcancÃ­as"
+        "categoria":  "Alcancí­as"
     },
      {
-        "nombre":  "AlcancÃ­a Pollito Amarillo (con 12 gelatinas en su interior)",
+        "nombre":  "Alcancí­a Pollito Amarillo (con 12 gelatinas en su interior)",
         "imagen":  "img/pollitoamarillo.png",
         "precio":  6900,
-        "categoria":  "AlcancÃ­as"
+        "categoria":  "Alcancí­as"
     },
     {
-        "nombre":  "AlcancÃ­a Tigre Amarillo (con 12 gelatinas en su interior)",
+        "nombre":  "Alcancí­a Tigre Amarillo (con 12 gelatinas en su interior)",
         "imagen":  "img/tigreamarillo.jpg",
         "precio":  6900,
-        "categoria":  "AlcancÃ­as"
+        "categoria":  "Alcancí­as"
     },
     {
         "nombre":  "Gomitas Frutillas (30u)",
@@ -272,7 +272,7 @@
         "categoria":  "Gomitas blandas"
     },
     {
-        "nombre":  "Chicles WhatsApp SelecciÃ³n Caja x20, 5 chicles cada uno",
+        "nombre":  "Chicles WhatsApp Selección Caja x20, 5 chicles cada uno",
         "imagen":  "img/chicleseleccion.png",
         "precio":  8500,
         "categoria":  "Chicles"
@@ -374,7 +374,7 @@
         "categoria":  "Caramelos"
     },
     {
-        "nombre":  "Gomitas RiCo MÃ¡s 500g",
+        "nombre":  "Gomitas RiCo Más 500g",
         "imagen":  "img/ricomas.jpg",
         "precio":  6900,
         "categoria":  "Gomitas 500 g"
@@ -411,7 +411,7 @@
         "totalAnterior":  107600,
         "productosIncluidos":  [
                                    {
-                                       "nombre":  "Gomitas RiCo MÃ¡s 500g",
+                                       "nombre":  "Gomitas RiCo Más 500g",
                                        "precio":  6900
                                    },
                                    {
@@ -504,11 +504,11 @@
                                        "precio":  7900
                                    },
                                    {
-                                       "nombre":  "Chicles WhatsApp SelecciÃ³n Caja x20, 5 chicles cada uno",
+                                       "nombre":  "Chicles WhatsApp Selección Caja x20, 5 chicles cada uno",
                                        "precio":  8500
                                    },
                                    {
-                                       "nombre":  "AlcancÃ­a Pollito Rojo (con 12 gelatinas en su interior)",
+                                       "nombre":  "Alcancí­a Pollito Rojo (con 12 gelatinas en su interior)",
                                        "precio":  6900
                                    },
 
@@ -530,7 +530,7 @@
                                        "precio":  9400
                                    },
                                    {
-                                       "nombre":  "AlcancÃ­a Tigre Amarillo (con 12 gelatinas en su interior)",
+                                       "nombre":  "Alcancí­a Tigre Amarillo (con 12 gelatinas en su interior)",
                                        "precio":  6900
                                    },
                                    {
@@ -570,7 +570,7 @@
                                        "precio":  8500
                                    },
                                    {
-                                       "nombre":  "Gomitas RiCo MÃ¡s 500g",
+                                       "nombre":  "Gomitas RiCo Más 500g",
                                        "precio":  6900
                                    }
                                ]
