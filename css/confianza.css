@@ -1,0 +1,61 @@
+.seccion-confianza {
+  width: 100%;
+  margin: 0;
+  padding: 16px 8px;
+  text-align: center;
+  background: transparent;
+}
+
+.confianza-contenido {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+}
+
+.confianza-contenido h2 {
+  margin: 5px 0;
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  color: #333;
+}
+
+.confianza-contenido p {
+  margin: 6px auto 10px;
+  color: #555;
+  line-height: 1.4;
+}
+
+.video-confianza {
+  width: 100%;
+  max-width: 267px;
+  margin: 10px auto;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #000;
+}
+
+.video-confianza iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 267 / 591;
+  height: auto;
+  border: 0;
+}
+
+.confianza-contenido .confianza-final {
+  margin: 10px 0;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .seccion-confianza {
+    padding: 12px 5px;
+  }
+
+  .video-confianza {
+    max-width: 250px;
+  }
+}
+
+.catalogo {
+  padding-bottom: 8px;
+}
