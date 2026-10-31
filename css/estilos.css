@@ -2762,7 +2762,7 @@ color: #24683a;
 /* PORTADA INTEGRADA ARIES v2 */
 .portada {
   background: linear-gradient(135deg, #fff7fa 0%, #fceaf2 52%, #f8e8f5 100%);
-  padding: 15px 10% 50px;
+  padding: 15px 10% 20px;
 }
 
 .portada-ilustracion .circulo-grande {
