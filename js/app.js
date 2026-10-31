@@ -448,6 +448,7 @@ function abrirDetalleProducto(producto, navegar = false, apilar = false) {
   
   const fotosMultiplesDetalle = {
     "Gomitas Fantasmita (30u)": ["img/fantasmitas.jpg", "img/fantasmitas2.jpg"],
+    "Chicle Globo Tennis Open (30u)": ["img/tennis.webp", "img/tennis.jpeg"],
     "Gomitas de River (30u)": ["img/river.jpg", "img/videoboca.mp4"],
     "iPhone Pinball con pastillitas (30u)": ["img/iphone.png", "img/iphone2.png"],
     "Chupetines con led Unicornio (30u)": ["img/unicornioled1.png", "img/leduni.jpg"],

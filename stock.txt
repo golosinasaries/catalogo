@@ -1,0 +1,7 @@
+ {
+        "nombre": "Mielcitas Drink Candy (50u)",
+        "imagen": "img/mielcitas.png",
+        "precio": 5500,
+        "categoria": "gomitasblandas"
+    },
+

@@ -1,4 +1,4 @@
-[
+﻿[
     {
         "nombre":  "Cars con pastillitas (30u)",
         "imagen":  "img/cars.png",
@@ -18,10 +18,10 @@
         "categoria": "Gomitas"
     },
     {
-        "nombre": "Mielcitas Drink Candy (50u)",
-        "imagen": "img/mielcitas.png",
+        "nombre": "Mielcitas (50u)",
+        "imagen": "img/mielcitass.png",
         "precio": 5500,
-        "categoria": "gomitasblandas"
+        "categoria": "Caramelos"
     },
     {
         "nombre": "Cucuruchos Helado Chocolate (30u)",
@@ -137,6 +137,12 @@
         "categoria":  "Pastillas"
     },
     {
+        "nombre": "Camiseta Pinball con pastillitas (30u)",
+        "imagen": "img/r11.png",
+        "precio": 13800,
+        "categoria": "Pastillas"
+    },
+    {
         "nombre":  "Chupetines Halloween 3 en 1 (30u)",
         "imagen":  "img/halloween3.png",
         "precio":  10900,
@@ -239,19 +245,19 @@
         "nombre":  "Alcancí­a Pollito Rojo (con 12 gelatinas en su interior)",
         "imagen":  "img/pollito.png",
         "precio":  6900,
-        "categoria":  "Alcancí­as"
+        "categoria":  "Alcancias"
     },
      {
         "nombre":  "Alcancí­a Pollito Amarillo (con 12 gelatinas en su interior)",
         "imagen":  "img/pollitoamarillo.png",
         "precio":  6900,
-        "categoria":  "Alcancí­as"
+        "categoria":  "Alcancias"
     },
     {
         "nombre":  "Alcancí­a Tigre Amarillo (con 12 gelatinas en su interior)",
         "imagen":  "img/tigreamarillo.jpg",
         "precio":  6900,
-        "categoria":  "Alcancí­as"
+        "categoria":  "Alcancias"
     },
     {
         "nombre":  "Gomitas Frutillas (30u)",
@@ -338,6 +344,12 @@
         "categoria":  "Chicles"
     },
     {
+        "nombre":  "Chicle Fierita Recargado Mundial (50u)",
+        "imagen":  "img/fieritarecargadomundial.webp",
+        "precio":  7900,
+        "categoria":  "Chicles"
+    },
+    {
         "nombre":  "Chicle Fierita Recargado - Menta (50u)",
         "imagen":  "img/recargadomenta.png",
         "precio":  6900,
@@ -350,6 +362,18 @@
         "categoria":  "Chicles"
     },
     {
+        "nombre": "Chicles Rellenos TNT Súper Ácido (40u)",
+        "imagen": "img/tntrellenos.webp",
+        "precio": 7900,
+        "categoria": "Chicles"
+    },
+    {
+        "nombre": "Chicle Globo Tennis Open (30u)",
+        "imagen": "img/tennis.webp",
+        "precio": 5900,
+        "categoria": "Chicles"
+    },
+    {
         "nombre":  "Pastillas Alka sabor Menta (12u)",
         "imagen":  "img/alkamenta.jpeg",
         "precio":  6900,
@@ -360,6 +384,24 @@
         "imagen":  "img/drfmenta.jpeg",
         "precio":  6200,
         "categoria":  "Pastillitas"
+    },
+    {
+        "nombre": "Pastillas Freegells Menta (12u)",
+        "imagen": "img/freegells_menta.webp",
+        "precio": 5900,
+        "categoria": "Pastillitas"
+    },
+    {
+        "nombre": "Caramelos Halls Menta-Lyptus (12u)",
+        "imagen": "img/hallsverde.webp",
+        "precio": 9900,
+        "categoria": "Pastillitas"
+    },
+    {
+        "nombre": "Caramelos Halls Extra Strong (12u)",
+        "imagen": "img/hallsnegras.avif",
+        "precio": 9900,
+        "categoria": "Pastillitas"
     },
     {
         "nombre":  "Riquito Alfajor Simple DDL (10u)",
