@@ -65,6 +65,18 @@
         "categoria":  "Chupetines"
     },
     {
+        "nombre": "Chupetines Pirulin Monster (30u)",
+        "imagen": "img/piruletas.png",
+        "precio": 10900,
+        "categoria": "Chupetines"
+    },
+    {
+        "nombre": "Chupetines Heladitos (30u)",
+        "imagen": "img/chupetinhelado.png",
+        "precio": 10900,
+        "categoria": "Chupetines"
+    },
+    {
         "nombre": "Chupetines Frutillas (30u)",
         "imagen": "img/chupetinfrutilla1.jpg",
         "precio": 10900,
