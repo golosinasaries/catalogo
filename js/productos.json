@@ -1,4 +1,4 @@
-[
+﻿[
     {
         "nombre":  "Cars con pastillitas (30u)",
         "imagen":  "img/cars.png",
@@ -107,7 +107,7 @@
         "categoria":  "Pastillas"
     },
     {
-        "nombre": "Chupetines Silbato 🍩 Simpsons (20u)",
+        "nombre": "Chupetines Silbato ðŸ© Simpsons (20u)",
         "imagen": "img/silbato.png",
         "precio": 10800,
         "categoria": "Chupetines"
@@ -118,13 +118,18 @@
         "precio": 12900,
         "categoria": "Chupetines"
     },
-       {
+    {
         "nombre": "Chupetines Donas con led (30u)",
         "imagen": "img/donaled1.png",
         "precio": 12900,
         "categoria": "Chupetines"
     },
-
+    {
+        "nombre": "Chupetines Kuromy con led (30u)",
+        "imagen": "img/kuromyled1.png",
+        "precio": 12900,
+        "categoria": "Chupetines"
+    },
     {
         "nombre":  "iPhone Pinball con pastillitas (30u)",
         "imagen":  "img/iphone.png",
@@ -231,22 +236,22 @@
         "categoria":  "Gomitas blandas"
     },
       {
-        "nombre":  "Alcancía Pollito Rojo (con 12 gelatinas en su interior)",
+        "nombre":  "AlcancÃ­a Pollito Rojo (con 12 gelatinas en su interior)",
         "imagen":  "img/pollito.png",
         "precio":  6900,
-        "categoria":  "Alcancías"
+        "categoria":  "AlcancÃ­as"
     },
      {
-        "nombre":  "Alcancía Pollito Amarillo (con 12 gelatinas en su interior)",
+        "nombre":  "AlcancÃ­a Pollito Amarillo (con 12 gelatinas en su interior)",
         "imagen":  "img/pollitoamarillo.png",
         "precio":  6900,
-        "categoria":  "Alcancías"
+        "categoria":  "AlcancÃ­as"
     },
     {
-        "nombre":  "Alcancía Tigre Amarillo (con 12 gelatinas en su interior)",
+        "nombre":  "AlcancÃ­a Tigre Amarillo (con 12 gelatinas en su interior)",
         "imagen":  "img/tigreamarillo.jpg",
         "precio":  6900,
-        "categoria":  "Alcancías"
+        "categoria":  "AlcancÃ­as"
     },
     {
         "nombre":  "Gomitas Frutillas (30u)",
@@ -267,7 +272,7 @@
         "categoria":  "Gomitas blandas"
     },
     {
-        "nombre":  "Chicles WhatsApp Selección Caja x20, 5 chicles cada uno",
+        "nombre":  "Chicles WhatsApp SelecciÃ³n Caja x20, 5 chicles cada uno",
         "imagen":  "img/chicleseleccion.png",
         "precio":  8500,
         "categoria":  "Chicles"
@@ -369,7 +374,7 @@
         "categoria":  "Caramelos"
     },
     {
-        "nombre":  "Gomitas RiCo Más 500g",
+        "nombre":  "Gomitas RiCo MÃ¡s 500g",
         "imagen":  "img/ricomas.jpg",
         "precio":  6900,
         "categoria":  "Gomitas 500 g"
@@ -406,7 +411,7 @@
         "totalAnterior":  107600,
         "productosIncluidos":  [
                                    {
-                                       "nombre":  "Gomitas RiCo Más 500g",
+                                       "nombre":  "Gomitas RiCo MÃ¡s 500g",
                                        "precio":  6900
                                    },
                                    {
@@ -499,11 +504,11 @@
                                        "precio":  7900
                                    },
                                    {
-                                       "nombre":  "Chicles WhatsApp Selección Caja x20, 5 chicles cada uno",
+                                       "nombre":  "Chicles WhatsApp SelecciÃ³n Caja x20, 5 chicles cada uno",
                                        "precio":  8500
                                    },
                                    {
-                                       "nombre":  "Alcancía Pollito Rojo (con 12 gelatinas en su interior)",
+                                       "nombre":  "AlcancÃ­a Pollito Rojo (con 12 gelatinas en su interior)",
                                        "precio":  6900
                                    },
 
@@ -525,7 +530,7 @@
                                        "precio":  9400
                                    },
                                    {
-                                       "nombre":  "Alcancía Tigre Amarillo (con 12 gelatinas en su interior)",
+                                       "nombre":  "AlcancÃ­a Tigre Amarillo (con 12 gelatinas en su interior)",
                                        "precio":  6900
                                    },
                                    {
@@ -565,10 +570,28 @@
                                        "precio":  8500
                                    },
                                    {
-                                       "nombre":  "Gomitas RiCo Más 500g",
+                                       "nombre":  "Gomitas RiCo MÃ¡s 500g",
                                        "precio":  6900
                                    }
                                ]
-    }
-  
+    },
+{
+    "nombre":  "Gomitas de Boca (30u)",
+    "imagen":  "img/boca.jpg",
+    "precio":  9000,
+    "categoria":  "Gomitas blandas",
+    "video":  "img/videoboca.mp4"
+},
+{
+    "nombre":  "Gomitas de River (30u)",
+    "imagen":  "img/river.jpg",
+    "precio":  9000,
+    "categoria":  "Gomitas blandas"
+},
+{
+    "nombre":  "Gomitas de River nuevo (30u)",
+    "imagen":  "img/River.png",
+    "precio":  9400,
+    "categoria":  "gomitasblandas"
+}
 ]

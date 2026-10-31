@@ -433,8 +433,10 @@ function abrirDetalleProducto(producto, navegar = false, apilar = false) {
   const zonaImagen = document.createElement("div");
   zonaImagen.className = "zona-imagen-detalle";
 
+  
   const fotosMultiplesDetalle = {
     "Gomitas Fantasmita (30u)": ["img/fantasmitas.jpg", "img/fantasmitas2.jpg"],
+    "Gomitas de River (30u)": ["img/river.jpg", "img/videoboca.mp4"],
     "iPhone Pinball con pastillitas (30u)": ["img/iphone.png", "img/iphone2.png"],
     "Chupetines con led Unicornio (30u)": ["img/unicornioled1.png", "img/leduni.jpg"],
     "Chupetines con led Unicornio  30 unidades por pack, caja x10 packs": ["img/unicornioled1.png", "img/leduni.jpg"],
@@ -442,28 +444,62 @@ function abrirDetalleProducto(producto, navegar = false, apilar = false) {
     "Chupetines Donas con led (30u)": ["img/donaled1.png", "img/donaled2.png"],
   };
 
-
   const fotosDetalle = fotosMultiplesDetalle[producto.nombre] || [producto.imagen];
   let indiceFotoDetalle = 0;
   zonaImagen.classList.add("carrusel-detalle");
 
-  const imagen = document.createElement("img");
-  imagen.className = "imagen-detalle-producto";
-  imagen.src = fotosDetalle[indiceFotoDetalle];
-  imagen.alt = producto.nombre;
-  imagen.tabIndex = 0;
-  imagen.setAttribute("role", "button");
-  imagen.setAttribute("aria-label", "Ampliar imagen de " + producto.nombre);
-  imagen.title = "Tocá para ampliar la imagen";
-  imagen.addEventListener("click", () => abrirImagenPantallaCompleta(imagen, producto));
-  imagen.addEventListener("keydown", (evento) => {
-    if (evento.key === "Enter" || evento.key === " ") {
-      evento.preventDefault();
-      abrirImagenPantallaCompleta(imagen, producto);
-    }
-  });
+  let imagen = null;
+  let videoDetalle = null;
 
-  zonaImagen.append(imagen);
+  function mostrarElementoDetalle() {
+    const archivo = fotosDetalle[indiceFotoDetalle];
+    const esVideo = /\.(mp4|webm|ogg)(?:[?#].*)?$/i.test(archivo);
+
+    if (esVideo) {
+      imagen?.remove();
+      imagen = null;
+
+      if (!videoDetalle) {
+        videoDetalle = document.createElement("video");
+        videoDetalle.className = "imagen-detalle-producto video-detalle-producto";
+        videoDetalle.controls = true;
+        videoDetalle.playsInline = true;
+        videoDetalle.preload = "metadata";
+        videoDetalle.setAttribute("aria-label", "Video de " + producto.nombre);
+        zonaImagen.append(videoDetalle);
+      }
+
+      videoDetalle.src = archivo;
+      videoDetalle.load();
+      return;
+    }
+
+    videoDetalle?.pause();
+    videoDetalle?.remove();
+    videoDetalle = null;
+
+    if (!imagen) {
+      imagen = document.createElement("img");
+      imagen.className = "imagen-detalle-producto";
+      imagen.tabIndex = 0;
+      imagen.setAttribute("role", "button");
+      imagen.addEventListener("click", () => abrirImagenPantallaCompleta(imagen, producto));
+      imagen.addEventListener("keydown", (evento) => {
+        if (evento.key === "Enter" || evento.key === " ") {
+          evento.preventDefault();
+          abrirImagenPantallaCompleta(imagen, producto);
+        }
+      });
+      zonaImagen.append(imagen);
+    }
+
+    imagen.src = archivo;
+    imagen.alt = producto.nombre + " - foto " + (indiceFotoDetalle + 1);
+    imagen.setAttribute("aria-label", "Ampliar imagen de " + producto.nombre);
+    imagen.title = "Tocá para ampliar la imagen";
+  }
+
+  mostrarElementoDetalle();
 
   if (fotosDetalle.length > 1) {
     const indicadorDetalle = document.createElement("span");
@@ -473,8 +509,7 @@ function abrirDetalleProducto(producto, navegar = false, apilar = false) {
 
     const cambiarFotoDetalle = (direccion) => {
       indiceFotoDetalle = (indiceFotoDetalle + direccion + fotosDetalle.length) % fotosDetalle.length;
-      imagen.src = fotosDetalle[indiceFotoDetalle];
-      imagen.alt = producto.nombre + " - foto " + (indiceFotoDetalle + 1);
+      mostrarElementoDetalle();
       indicadorDetalle.textContent = (indiceFotoDetalle + 1) + "/" + fotosDetalle.length;
     };
 
@@ -954,6 +989,23 @@ function renderizarProductos() {
     });
 
     carrusel.append(imagen);
+
+    if (productoActual.video) {
+      const video = document.createElement("video");
+      video.className = "video-producto";
+      video.src = productoActual.video;
+      video.poster = productoActual.imagen;
+      video.muted = true;
+      video.loop = true;
+      video.autoplay = true;
+      video.playsInline = true;
+      video.preload = "metadata";
+      video.setAttribute("aria-label", "Video de " + productoActual.nombre);
+
+      video.addEventListener("error", () => video.remove(), { once: true });
+
+      carrusel.append(video);
+    }
 
     if (fotosProducto.length > 1) {
       const actualizarFoto = () => {

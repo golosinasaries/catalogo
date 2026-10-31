@@ -3191,3 +3191,17 @@ color: #24683a;
     height: 58px;
   }
 }
+/* Video de producto */
+.carrusel-producto {
+  position: relative;
+}
+
+.carrusel-producto .video-producto {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #fff;
+}
