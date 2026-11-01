@@ -127,9 +127,13 @@ const elementos = {
   categorias: document.querySelector("#categorias")
 };
 
+
 function abrirCarrito() {
   if (!elementos.panel.classList.contains("abierto")) {
-    history.pushState({ carritoAbierto: true }, "");
+    history.pushState(
+      { ...history.state, carritoAbierto: true, ariesOverlay: "carrito" },
+      ""
+    );
   }
 
   elementos.panel.classList.add("abierto");
@@ -140,7 +144,10 @@ function abrirCarrito() {
 function cerrarCarrito() {
   if (
     elementos.panel.classList.contains("abierto") &&
-    history.state?.carritoAbierto
+    (
+      history.state?.ariesOverlay === "carrito" ||
+      (!history.state?.ariesOverlay && history.state?.carritoAbierto)
+    )
   ) {
     history.back();
     return;
@@ -150,6 +157,7 @@ function cerrarCarrito() {
   elementos.fondo.classList.remove("visible");
   elementos.panel.setAttribute("aria-hidden", "true");
 }
+
 
 function animarImagenAlCarrito(imagen) {
   const carrito = document.getElementById("abrir-carrito");
@@ -203,9 +211,21 @@ return String(nombre || "")
 }
 const historialModalesDetalle = [];
 
-function cerrarDetalleProducto() {
+
+function cerrarDetalleProducto(desdeHistorial = false) {
   const fondo = document.querySelector(".modal-detalle-fondo");
   if (!fondo) return;
+
+  if (
+    !desdeHistorial &&
+    (
+      history.state?.ariesOverlay === "detalle" ||
+      history.state?.ariesOverlay === "detalle-apilado"
+    )
+  ) {
+    history.back();
+    return;
+  }
 
   if (historialModalesDetalle.length > 0) {
     const anterior = historialModalesDetalle.pop();
@@ -225,6 +245,7 @@ function cerrarDetalleProducto() {
 
   fondo.remove();
 }
+
 
 function abrirImagenPantallaCompleta(imagenOriginal, productoInicial = null) {
   if (!imagenOriginal || !imagenOriginal.src) return;
