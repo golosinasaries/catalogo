@@ -281,7 +281,6 @@ function abrirImagenPantallaCompleta(imagenOriginal, productoInicial = null) {
   const nivelZoom = document.createElement("span");
   nivelZoom.className = "visor-imagen-nivel";
   nivelZoom.textContent = "100%";
-
   const acercar = document.createElement("button");
   acercar.type = "button";
   acercar.textContent = "+";
@@ -307,11 +306,18 @@ function abrirImagenPantallaCompleta(imagenOriginal, productoInicial = null) {
     imagenAmpliada.style.cursor = zoom > 1 ? "zoom-out" : "zoom-in";
     nivelZoom.textContent = Math.round(zoom * 100) + "%";
   }
+  
+  function cerrarVisor(desdeHistorial = false) {
+    if (!desdeHistorial && history.state?.ariesOverlay === "imagen") {
+      history.back();
+      return;
+    }
 
-  function cerrarVisor() {
     document.removeEventListener("keydown", manejarTeclado);
     fondoImagen.remove();
   }
+
+  fondoImagen.addEventListener("cerrarPorHistorial", () => cerrarVisor(true));
 
   function manejarTeclado(evento) {
     if (evento.key === "Escape") cerrarVisor();
@@ -425,18 +431,39 @@ function abrirImagenPantallaCompleta(imagenOriginal, productoInicial = null) {
 
   controles.append(alejar, nivelZoom, acercar, restablecer);
   fondoImagen.append(cerrarImagen, imagenAmpliada, controles);
+  
   document.body.append(fondoImagen);
+  history.pushState(
+    { ...history.state, ariesOverlay: "imagen" },
+    ""
+  );
   document.addEventListener("keydown", manejarTeclado);
+
   cerrarImagen.focus();
 }
+
 function abrirDetalleProducto(producto, navegar = false, apilar = false) {
+  const detalleYaAbierto = Boolean(document.querySelector(".modal-detalle-fondo"));
   const fondoExistente = navegar ? document.querySelector(".modal-detalle-fondo") : null;
+
+  if (navegar && apilar && fondoExistente) {
+    history.pushState(
+      { ...history.state, ariesOverlay: "detalle-apilado" },
+      ""
+    );
+  } else if (!detalleYaAbierto) {
+    history.pushState(
+      { ...history.state, ariesOverlay: "detalle" },
+      ""
+    );
+  }
+
 
   if (!fondoExistente) {
     document.querySelector(".modal-detalle-fondo")?.remove();
     historialModalesDetalle.length = 0;
   } else if (apilar && fondoExistente.firstElementChild) {
-        const modalActual = fondoExistente.querySelector(".modal-detalle");
+    const modalActual = fondoExistente.querySelector(".modal-detalle");
     const listaActual = fondoExistente.querySelector(".lista-incluidos");
 
     historialModalesDetalle.push({
@@ -1708,15 +1735,42 @@ elementos.cerrar.addEventListener("click", cerrarCarrito);
 elementos.fondo.addEventListener("click", cerrarCarrito);
 elementos.finalizar.addEventListener("click", finalizarPedido);
 
+
 document.addEventListener("keydown", (evento) => {
-  if (evento.key === "Escape") cerrarCarrito();
+  if (evento.key !== "Escape") return;
+
+  if (document.querySelector(".visor-imagen-fondo")) return;
+
+  if (document.querySelector(".modal-detalle-fondo")) {
+    cerrarDetalleProducto();
+    return;
+  }
+
+  cerrarCarrito();
 });
 
+
 window.addEventListener("popstate", () => {
-  elementos.panel.classList.remove("abierto");
-  elementos.fondo.classList.remove("visible");
-  elementos.panel.setAttribute("aria-hidden", "true");
+  const visor = document.querySelector(".visor-imagen-fondo");
+
+  if (visor) {
+    visor.dispatchEvent(new Event("cerrarPorHistorial"));
+    return;
+  }
+
+  if (document.querySelector(".modal-detalle-fondo")) {
+    cerrarDetalleProducto(true);
+    return;
+  }
+
+  if (history.state?.ariesOverlay !== "carrito") {
+    elementos.panel.classList.remove("abierto");
+    elementos.fondo.classList.remove("visible");
+    elementos.panel.setAttribute("aria-hidden", "true");
+  }
 });
+
+
 
 elementos.busqueda.addEventListener("input", () => {
   estado.busqueda = elementos.busqueda.value.trim();
