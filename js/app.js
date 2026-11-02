@@ -333,8 +333,14 @@ function abrirImagenPantallaCompleta(imagenOriginal, productoInicial = null) {
         .replace(/[\u0300-\u036f]/g, "")
         .toLocaleLowerCase("es-AR");
 
+      
+      const esGlobo = productoTieneCategoria(p, "Globos");
+
       const categoriaCoincide =
-        Boolean(estado.busqueda) || estado.categoria === "Todas" || productoTieneCategoria(p, estado.categoria);
+        Boolean(estado.busqueda) ||
+        (estado.categoria === "Todas" && !esGlobo) ||
+        productoTieneCategoria(p, estado.categoria);
+
 
       const busquedaCoincide =
         !estado.busqueda ||
@@ -935,8 +941,13 @@ function renderizarProductos() {
   const filtrados = estado.productos.filter((producto) => {
     if (producto.oculto === true) return false;
 
+    
+    const esGlobo = productoTieneCategoria(producto, "Globos");
+
     const coincideCategoria =
-      Boolean(estado.busqueda) || estado.categoria === "Todas" || productoTieneCategoria(producto, estado.categoria);
+      Boolean(estado.busqueda) ||
+      (estado.categoria === "Todas" && !esGlobo) ||
+      productoTieneCategoria(producto, estado.categoria);
 
     const coincideBusqueda = producto.nombre
       .toLocaleLowerCase("es-AR")
@@ -1211,6 +1222,49 @@ function renderizarProductos() {
 
     elementos.productos.append(tarjeta);
   });
+
+  if (estado.categoria === "Todas" && !estado.busqueda) {
+  const tarjetaGlobos = document.createElement("article");
+  tarjetaGlobos.className = "tarjeta-producto tarjeta-interactiva";
+  tarjetaGlobos.tabIndex = 0;
+  tarjetaGlobos.setAttribute("role", "button");
+  tarjetaGlobos.setAttribute("aria-label", "Ver sección Globos");
+
+  const carruselGlobos = document.createElement("div");
+  carruselGlobos.className = "carrusel-producto";
+
+  const imagenGlobos = document.createElement("img");
+  imagenGlobos.className = "imagen-producto";
+  imagenGlobos.src = "img/globosgrandes1.jpeg";
+  imagenGlobos.alt = "Globos";
+  imagenGlobos.loading = "lazy";
+  imagenGlobos.decoding = "async";
+
+  carruselGlobos.append(imagenGlobos);
+
+  const nombreGlobos = document.createElement("h3");
+  nombreGlobos.textContent = "🎈 GLOBOS";
+
+  tarjetaGlobos.append(carruselGlobos, nombreGlobos);
+
+  const abrirGlobos = () => {
+    const botonGlobos = elementos.categorias.querySelector(
+      '.categoria[data-categoria="Globos"]'
+    );
+    botonGlobos?.click();
+  };
+
+  tarjetaGlobos.addEventListener("click", abrirGlobos);
+
+  tarjetaGlobos.addEventListener("keydown", (evento) => {
+    if (evento.key === "Enter" || evento.key === " ") {
+        evento.preventDefault();
+        abrirGlobos();
+      }
+    });
+
+    elementos.productos.append(tarjetaGlobos);
+  }
 }
 
 function agregarAlCarrito(producto) {

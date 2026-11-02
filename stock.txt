@@ -5,3 +5,9 @@
         "categoria": "gomitasblandas"
     },
 
+    {
+        "nombre":  "Spider-Man con pastillitas (30u)",
+        "imagen":  "img/spider.jpeg",
+        "precio":  13800,
+        "categoria":  "Pastillas"
+    },

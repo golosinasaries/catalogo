@@ -101,12 +101,6 @@
                                   ]
     },
     {
-        "nombre":  "Spider-Man con pastillitas (30u)",
-        "imagen":  "img/spider.jpeg",
-        "precio":  13800,
-        "categoria":  "Pastillas"
-    },
-    {
         "nombre": "Chupetines Silbato 📣 Simpsons (20u)",
         "imagen": "img/silbato.png",
         "precio": 10800,
@@ -241,6 +235,25 @@
         "precio":  9400,
         "categoria":  "Gomitas blandas"
     },
+    {
+        "nombre":  "Gomitas de Boca (30u)",
+        "imagen":  "img/boca.jpg",
+        "precio":  9000,
+        "categoria":  "Gomitas blandas",
+        "video":  "img/videoboca.mp4"
+    },
+    {
+        "nombre":  "Gomitas de River (30u)",
+        "imagen":  "img/river.jpg",
+        "precio":  9000,
+        "categoria":  "Gomitas blandas"
+    },
+    {
+        "nombre":  "Gomitas de River nuevo (30u)",
+        "imagen":  "img/River.png",
+        "precio":  9400,
+        "categoria":  "Gomitas blandas"
+    },
       {
         "nombre":  "Alcancí­a Pollito Rojo (con 12 gelatinas en su interior)",
         "imagen":  "img/pollito.png",
@@ -283,6 +296,14 @@
         "precio":  8500,
         "categoria":  "Chicles"
     },
+
+    {
+        "nombre": "Globo Unicornio 3D",
+        "imagen": "img/globosgrandes1.jpeg",
+        "precio": 2500,
+        "categoria": "Globos"
+    },
+
     {
         "nombre":  "Chupetines 2 in 1 (60u)",
         "imagen":  "img/dosenuno.png",
@@ -616,24 +637,5 @@
                                        "precio":  6900
                                    }
                                ]
-    },
-{
-    "nombre":  "Gomitas de Boca (30u)",
-    "imagen":  "img/boca.jpg",
-    "precio":  9000,
-    "categoria":  "Gomitas blandas",
-    "video":  "img/videoboca.mp4"
-},
-{
-    "nombre":  "Gomitas de River (30u)",
-    "imagen":  "img/river.jpg",
-    "precio":  9000,
-    "categoria":  "Gomitas blandas"
-},
-{
-    "nombre":  "Gomitas de River nuevo (30u)",
-    "imagen":  "img/River.png",
-    "precio":  9400,
-    "categoria":  "gomitasblandas"
-}
+    }
 ]
