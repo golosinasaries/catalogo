@@ -11,3 +11,15 @@
         "precio":  13800,
         "categoria":  "Pastillas"
     },
+     {
+        "nombre":  "Cool Mint pastillitas Frutales (30u)",
+        "imagen":  "img/coolmint.jpg",
+        "precio":  12800,
+        "categoria":  "Pastillitas"
+    },
+     {
+        "nombre": "Bocaditos Bel (50u)",
+        "imagen": "img/bombones_surtidos.jpg",
+        "precio": 9500,
+        "categoria": "Chocolates"
+    },

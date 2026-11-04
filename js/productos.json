@@ -53,12 +53,6 @@
         "categoriasAdicionales": ["Halloween"]
     },
     {
-        "nombre": "Bocaditos Bel (50u)",
-        "imagen": "img/bombones_surtidos.jpg",
-        "precio": 9500,
-        "categoria": "Chocolates"
-    },
-    {
         "nombre":  "Chupetines Hongos (30u)",
         "imagen":  "img/hongos.png",
         "precio":  10900,
@@ -200,12 +194,6 @@
         "categoria":  "Chupetines"
     },
     {
-        "nombre":  "Cool Mint pastillitas Frutales (30u)",
-        "imagen":  "img/coolmint.jpg",
-        "precio":  12800,
-        "categoria":  "Pastillitas"
-    },
-    {
         "nombre":  "Chicles Barbie (30u)",
         "imagen":  "img/barbie.jpeg",
         "precio":  12000,
@@ -296,14 +284,6 @@
         "precio":  8500,
         "categoria":  "Chicles"
     },
-
-    {
-        "nombre": "Globo Unicornio 3D",
-        "imagen": "img/globosgrandes1.jpeg",
-        "precio": 2500,
-        "categoria": "Globos"
-    },
-
     {
         "nombre":  "Chupetines 2 in 1 (60u)",
         "imagen":  "img/dosenuno.png",

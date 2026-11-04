@@ -6,7 +6,7 @@
 "use strict";
 
 const WHATSAPP = "542236010443";
-const MINIMO_COMPRA = 50000;
+const MINIMO_COMPRA = 10000;
 const ENVIO_GRATIS_DESDE = 120000;
 
 const REGALO_DESDE = 50000;
@@ -334,11 +334,11 @@ function abrirImagenPantallaCompleta(imagenOriginal, productoInicial = null) {
         .toLocaleLowerCase("es-AR");
 
       
-      const esGlobo = productoTieneCategoria(p, "Globos");
+      const esCotillon = productoTieneCategoria(p, "Cotillón");
 
       const categoriaCoincide =
         Boolean(estado.busqueda) ||
-        (estado.categoria === "Todas" && !esGlobo) ||
+        (estado.categoria === "Todas" && !esCotillon) ||
         productoTieneCategoria(p, estado.categoria);
 
 
@@ -942,11 +942,11 @@ function renderizarProductos() {
     if (producto.oculto === true) return false;
 
     
-    const esGlobo = productoTieneCategoria(producto, "Globos");
+    const esCotillon = productoTieneCategoria(producto, "Cotillón");
 
     const coincideCategoria =
       Boolean(estado.busqueda) ||
-      (estado.categoria === "Todas" && !esGlobo) ||
+      (estado.categoria === "Todas" && !esCotillon) ||
       productoTieneCategoria(producto, estado.categoria);
 
     const coincideBusqueda = producto.nombre
@@ -1228,7 +1228,7 @@ function renderizarProductos() {
   tarjetaGlobos.className = "tarjeta-producto tarjeta-interactiva";
   tarjetaGlobos.tabIndex = 0;
   tarjetaGlobos.setAttribute("role", "button");
-  tarjetaGlobos.setAttribute("aria-label", "Ver sección Globos");
+  tarjetaGlobos.setAttribute("aria-label", "Ver sección Cotillón");
 
   const carruselGlobos = document.createElement("div");
   carruselGlobos.className = "carrusel-producto";
@@ -1236,20 +1236,36 @@ function renderizarProductos() {
   const imagenGlobos = document.createElement("img");
   imagenGlobos.className = "imagen-producto";
   imagenGlobos.src = "img/globosgrandes1.jpeg";
-  imagenGlobos.alt = "Globos";
+  imagenGlobos.alt = "Cotillón";
   imagenGlobos.loading = "lazy";
   imagenGlobos.decoding = "async";
 
   carruselGlobos.append(imagenGlobos);
 
-  const nombreGlobos = document.createElement("h3");
-  nombreGlobos.textContent = "🎈 GLOBOS";
+  const contenidoGlobos = document.createElement("div");
+contenidoGlobos.className = "contenido-producto";
 
-  tarjetaGlobos.append(carruselGlobos, nombreGlobos);
+const nombreGlobos = document.createElement("h3");
+nombreGlobos.textContent = "🎉 COTILLÓN";
+
+const descripcionGlobos = document.createElement("span");
+descripcionGlobos.className = "etiqueta-producto";
+descripcionGlobos.textContent = "Globos y decoración";
+
+const botonVerTodo = document.createElement("div");
+botonVerTodo.className = "agregar-producto";
+botonVerTodo.style.display = "flex";
+botonVerTodo.style.alignItems = "center";
+botonVerTodo.style.justifyContent = "center";
+botonVerTodo.style.textAlign = "center";
+botonVerTodo.textContent = "VER TODO →";
+
+contenidoGlobos.append(descripcionGlobos, nombreGlobos, botonVerTodo);
+tarjetaGlobos.append(carruselGlobos, contenidoGlobos);
 
   const abrirGlobos = () => {
     const botonGlobos = elementos.categorias.querySelector(
-      '.categoria[data-categoria="Globos"]'
+      '.categoria[data-categoria="Cotillón"]'
     );
     botonGlobos?.click();
   };
@@ -1263,8 +1279,89 @@ function renderizarProductos() {
       }
     });
 
-    elementos.productos.append(tarjetaGlobos);
-  }
+    elementos.productos.prepend(tarjetaGlobos);
+
+    const tarjetaGlobosFinal = tarjetaGlobos.cloneNode(true);
+    tarjetaGlobosFinal.addEventListener("click", abrirGlobos);
+    tarjetaGlobosFinal.addEventListener("keydown", (evento) => {
+      if (evento.key === "Enter" || evento.key === " ") {
+        evento.preventDefault();
+        abrirGlobos();
+      }
+    });
+
+    elementos.productos.append(tarjetaGlobosFinal);
+}
+
+if (estado.categoria === "Cotillón" && !estado.busqueda) {
+  const tarjetaGolosinas = document.createElement("article");
+  tarjetaGolosinas.className = "tarjeta-producto tarjeta-interactiva";
+  tarjetaGolosinas.tabIndex = 0;
+  tarjetaGolosinas.setAttribute("role", "button");
+  tarjetaGolosinas.setAttribute("aria-label", "Ver todas las golosinas");
+
+  const carrusel = document.createElement("div");
+carrusel.className = "carrusel-producto";
+
+const imagen = document.createElement("img");
+imagen.className = "imagen-producto";
+imagen.src = "img/logoAries.jpg";
+imagen.alt = "Golosinas Aries";
+imagen.loading = "lazy";
+imagen.decoding = "async";
+
+carrusel.append(imagen);
+
+const contenido = document.createElement("div");
+contenido.className = "contenido-producto";
+contenido.style.textAlign = "center";
+contenido.style.justifyContent = "center";
+contenido.style.alignItems = "center";
+
+const nombre = document.createElement("h3");
+nombre.textContent = "🍬 TODAS LAS GOLOSINAS";
+
+const descripcion = document.createElement("span");
+descripcion.className = "etiqueta-producto";
+descripcion.textContent = "Volver al catálogo completo";
+
+const boton = document.createElement("div");
+boton.className = "agregar-producto";
+boton.style.display = "flex";
+boton.style.alignItems = "center";
+boton.style.justifyContent = "center";
+boton.style.textAlign = "center";
+boton.textContent = "VER TODAS →";
+
+contenido.append(descripcion, nombre, boton);
+tarjetaGolosinas.append(carrusel, contenido);
+
+ const volverAlCatalogo = () => {
+    const botonTodas = elementos.categorias.querySelector(
+      '.categoria[data-categoria="Todas"]'
+    );
+
+    botonTodas?.click();
+
+    elementos.productos.style.scrollMarginTop = "280px";
+
+    elementos.productos.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  };
+  tarjetaGolosinas.addEventListener("click", volverAlCatalogo);
+
+  tarjetaGolosinas.addEventListener("keydown", (evento) => {
+    if (evento.key === "Enter" || evento.key === " ") {
+      evento.preventDefault();
+      volverAlCatalogo();
+    }
+  });
+
+  elementos.productos.append(tarjetaGolosinas);
+}
+  
 }
 
 function agregarAlCarrito(producto) {
@@ -1326,7 +1423,7 @@ function calcularCostoEnvio(cp) {
   if (totalProductos > 25) return 25900;
 
   const extraEnvio = Math.floor(totalProductos / 13) * 1500;
-  const prefijosSantaCruz = ["9303", "4430", "8371", "3304", "4449"];
+  const prefijosSantaCruz = ["9303", "4430", "8371", "3304", "4449", "9300", "9301", "9302", "9304", "9305", "9306", "9307", "9308", "9309"];
 
   if (prefijosSantaCruz.some((prefijo) => codigo.startsWith(prefijo))) {
     return 14400 + extraEnvio;
@@ -1348,10 +1445,10 @@ function calcularCostoEnvio(cp) {
     codigo.startsWith("5350") ||
     codigo.startsWith("5613")
   ) {
-    return 12400 + extraEnvio;
+    return 13900 + extraEnvio;
   }
 
-  return 10900 + extraEnvio;
+  return 12900 + extraEnvio;
 }
 
 function obtenerCostoEnvio() {
@@ -1558,7 +1655,7 @@ function renderizarCarrito() {
   if (!estado.carrito.length) {
     const vacio = document.createElement("p");
     vacio.className = "carrito-vacio";
-    vacio.textContent = "La compra mínima es de $50.000";
+    vacio.textContent = "La compra mínima es de $10.000";
     elementos.items.append(vacio);
     actualizarResumenEnvio();
     return;
@@ -1897,15 +1994,21 @@ elementos.categorias.querySelectorAll(".categoria").forEach((boton) => {
 
 async function iniciarCatalogo() {
   try {
-    const respuesta = await fetch("js/productos.json");
+        const [respuesta, respuestaCotillon] = await Promise.all([
+      fetch("js/productos.json"),
+      fetch("js/productos-cotillon.json")
+    ]);
 
-    if (!respuesta.ok) {
-      throw new Error(`No se pudo cargar el catálogo (${respuesta.status})`);
+    if (!respuesta.ok || !respuestaCotillon.ok) {
+      throw new Error("No se pudieron cargar los archivos del catálogo.");
     }
 
-    const productos = await respuesta.json();
+    const [productos, productosCotillon] = await Promise.all([
+      respuesta.json(),
+      respuestaCotillon.json()
+    ]);
 
-    estado.productos = productos.map((producto, indice) => ({
+    estado.productos = [...productos, ...productosCotillon].map((producto, indice) => ({
       ...producto,
       id: indice + 1
     }));
