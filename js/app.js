@@ -10,11 +10,11 @@ const MINIMO_COMPRA = 10000;
 const ENVIO_GRATIS_DESDE = 120000;
 
 const REGALO_DESDE = 50000;
-const REGALO_NOMBRE = "Gomitas Macarron (30u)";
-const REGALO_IMAGEN = "img/macarron.png";
+const REGALO_NOMBRE = "Gomitas Calabaza (30u)";
+const REGALO_IMAGEN = "img/calabaza.jpg";
 
 // Las promociones se pueden activar o desactivar independientemente.
-const PROMOS_ACTIVAS = ["envio"];
+const PROMOS_ACTIVAS = ["envio", "regalo"];
 
 
 const STOCK_PRODUCTOS = {
