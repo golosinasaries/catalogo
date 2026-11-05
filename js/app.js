@@ -1286,7 +1286,7 @@ function renderizarProductos() {
     elementos.productos.append(tarjeta);
   });
 
-  if (estado.categoria === "Todas" && !estado.busqueda) {
+  if (false && estado.categoria === "Todas" && !estado.busqueda) {
   const tarjetaGlobos = document.createElement("article");
   tarjetaGlobos.className = "tarjeta-producto tarjeta-interactiva";
   tarjetaGlobos.tabIndex = 0;
