@@ -19,6 +19,66 @@ const PROMOS_ACTIVAS = ["envio"];
 
 const STOCK_PRODUCTOS = {
   "Caramelos Super Acidos Lipo (454 g)": 2,
+  "GLOBO BATE 74 CM (Dorado)": 2,
+  "GLOBO BATE 74 CM (Fucsia)": 2,
+  "Rompecabezas Plastico 6*7cm": 8,
+  "Llavero búho Metal colorido": 12,
+  "Llavero búho Metal": 12,
+  "Globo Metalizado Feliz Año Nuevo Black & Gold 45 cm.": 15,
+  "Globo Metalizado Feliz Año Nuevo 2 Black & Gold 45 cm.": 15,
+  "Globo Metalizado Feliz Navidad rojo 45 cm.": 15,
+  "Globo Feliz Navidad verde 45 cm.": 15,
+  "GUIRNALDA FELIZ CUMPLE BROWNS": 15,
+  "Guirnalda Feliz Cumpleaños Multicolor": 15,
+  "Globo Pelota Futbol 45cm (NEGRO/AMARILLO)": 15,
+  "Globo Pelota Rugby Metalizado 50cm": 10,
+  "Globo Corazón Pastel 45 cm. (Rosa)": 15,
+  "Globo Metalizado Gatita Orange Cat 45 cm.": 15,
+  "Globo Metalizado Navidad Santa 45 cm.": 6,
+  "Globo Metalizado Santa en Trineo Feliz Navidad 45 cm.": 6,
+  "Blonda 11cm x 10 unidades (Rojo)": 10,
+  "Blonda Metalizada 16cm x 10 unidades": 10,
+  "Confeti Glitter Rose Gold 10 gramos": 2,
+  "Cortina Metalizada 1x2 m (Rosa Gold)": 12,
+  "Cortina Metalizada 1x2 m (Plateado)": 12,
+  "Cortina Metalizada 1x2 m (Negro)": 12,
+  "GLOBO 45cm FLAMENCO": 2,
+  "Globo Corazon c/Moño Metalizado 40cm": 4,
+  "Globo Metalizado Sapo Froggy Party 38 cm.": 6,
+  "Globo Corazon c/Moño Metalizado 40cm": 2,
+  "Globo mini Whisky 44 cm": 3,
+  "Globo Metalizado Caracol Blue 38 cm.": 6,
+  "Globo Love 50 cm. (Rosa)": 6,
+  "Globo Redondo Metalizado 45cm (Violeta)": 6,
+  "Globo Animalitos 40cm (Jirafa)": 6,
+  "Globo Carita Animales 18\" (Hipopotamo)": 6,
+  "Globo Carita Animales 18\" (Perro)": 6,
+  "Globo Animalitos 40cm (Tigre)": 6,
+  "Globo Animalitos 40cm. (CHANCHITO CUERPO)": 4,
+  "Globo Animalitos 40cm. (OVEJITA)": 4,
+  "GLOBO OSO 18\"": 4,
+  "Globo Vincha (JIRAFA)": 2,
+  "Globo Vincha (ZORRITO)": 2,
+  "Globo Zig Zag 45cm. (Azul)": 3,
+  "Globo Zig Zag 45cm. (Rojo)": 3,
+  "Globo Mini Flamenco 47 cm.": 3,
+  "Globo Metalizado Lunares 21 cm. (Celeste)": 3,
+  "Globo Metalizado Lunares 21 cm. (Fucsia)": 3,
+  "Globo Metalizado Lunares 21 cm. (Rojo)": 3,
+  "Globo Metalizado Lunares 21 cm. (Rosa)": 3,
+  "Globo Estrella Granas Metalizado 45cm": 4,
+  "GLOBO OSITO Redondo celeste 18\"": 2,
+  "Globo Osito 45 cm. (Beige)": 2,
+  "GLOBO PANDA 18\"": 15,
+  "Globo Unicornio 4D 65 cm": 17,
+  "Globo Latex 9\" Macaron 1,5 grs Mix x 50un.": 18,
+  "Globo Latex 9\" Metallic 1,5 grs Mix x 50un.": 18,
+  "Globo Latex 9\" Standard 1,5 grs Mix x 50un.": 18,
+  "Globo Latex 12\" Metallic 2,8 grs x 25un. (Púrpura)": 18,
+  "Globo Latex 12\" Metallic 2,8 grs x 25un. (Rosa Gold)": 18,
+  "Globo Estrella Degrade Metalizado 45cm": 6,
+  "Globo Estrella Degrade Metalizado 45cm (ROSA)": 6,
+
 };
 
 function obtenerStockMaximo(producto) {
@@ -501,6 +561,7 @@ function abrirDetalleProducto(producto, navegar = false, apilar = false) {
 
   
   const fotosMultiplesDetalle = {
+    "Librito para pintar + 6 colores": ["img/librito1.jpg", "img/librito2.jpg", "img/librito3.jpg"],
     "Gomitas Fantasmita (30u)": ["img/fantasmitas.jpg", "img/fantasmitas2.jpg"],
     "Chicle Globo Tennis Open (30u)": ["img/tennis.webp", "img/tennis.jpeg"],
     "Gomitas de River (30u)": ["img/river.jpg", "img/videoboca.mp4"],
@@ -1247,6 +1308,7 @@ contenidoGlobos.className = "contenido-producto";
 
 const nombreGlobos = document.createElement("h3");
 nombreGlobos.textContent = "🎉 COTILLÓN";
+nombreGlobos.className = "titulo-cotillon";
 
 const descripcionGlobos = document.createElement("span");
 descripcionGlobos.className = "etiqueta-producto";
@@ -1323,7 +1385,7 @@ nombre.textContent = "🍬 TODAS LAS GOLOSINAS";
 
 const descripcion = document.createElement("span");
 descripcion.className = "etiqueta-producto";
-descripcion.textContent = "Volver al catálogo completo";
+descripcion.textContent = "Volver al catálogo de golosinas";
 
 const boton = document.createElement("div");
 boton.className = "agregar-producto";

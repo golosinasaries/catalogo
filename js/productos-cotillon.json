@@ -1,614 +1,632 @@
-[
+[ 
   {
-    "nombre": "Globo Metalizado Feliz Año Nuevo Black & Gold 45 cm.",
-    "imagen": "img/felizanio1.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Globo Metalizado Feliz Año Nuevo 2 Black & Gold 45 cm.",
-    "imagen": "img/feliz2.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Globo Metalizado Feliz Navidad rojo 45 cm.",
-    "imagen": "img/navidadrojo.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-   {
-    "nombre": "Globo Feliz Navidad verde 45 cm.",
-    "imagen": "img/navidad1.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-   {
-    "nombre": "Globo Metalizado Navidad Santa 45 cm.",
-    "imagen": "img/santa1.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Globo Metalizado Santa en Trineo Feliz Navidad 45 cm.",
-    "imagen": "img/santa2.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Blonda Color 11cm x 100 u (Rojo)",
-    "imagen": "img/blonda.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Blonda Metalizada 16cm x 50 u",
-    "imagen": "img/blondam.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Confeti Glitter Rose Gold 10 gramos",
-    "imagen": "img/confeti.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Cortina Metalizada 1x2 m (Negro)",
-    "imagen": "img/cortinanegra.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Cortina Metalizada 1x2 m (Plateado)",
-    "imagen": "img/cortinaplateada.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Cortina Metalizada 1x2 m (Rosa Gold)",
-    "imagen": "img/cortinarosagold.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "GLOBO 45cm FLAMENCO",
-    "imagen": "img/flamenco1.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Globo Animalitos 40cm (Jirafa)",
-    "imagen": "img/jirafa40.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Globo Animalitos 40cm (Tigre)",
-    "imagen": "img/tigre40.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Globo Animalitos 40cm. (CHANCHITO CUERPO)",
-    "imagen": "img/chanchocuerpo.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Globo Animalitos 40cm. (OVEJITA)",
-    "imagen": "img/ovejita.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Globo Barco",
-    "imagen": "img/barco.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "GLOBO BATE 74 CM (Dorado)",
-    "imagen": "img/bate.png",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "GLOBO BATE 74 CM (Fucsia)",
-    "imagen": "img/bate.png",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "GLOBO BURRO 18\"",
-    "imagen": "img/burro.png",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Globo Carita Animales 18\" (Hipopotamo)",
-    "imagen": "img/caritahipopotamo.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Globo Carita Animales 18\" (Perro)",
-    "imagen": "img/caritaperro.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "GLOBO CONEJO ROSA 18\"",
-    "imagen": "img/conejorosa.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Globo Corazon c/Moño Metalizado 40cm",
-    "imagen": "img/corazonmoño.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Globo Corazón Pastel 45 cm. (Rosa)",
-    "imagen": "img/corazonpastelrosa.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "GLOBO DINO 18\"",
-    "imagen": "img/dino18.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Globo Emoji 45 cm (Besito)",
-    "imagen": "img/besito.jpeg",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Globo Emoji 45 cm (Enamorado)",
-    "imagen": "img/enamorado.jpeg",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Globo Emoji 45 cm (Lentes)",
-    "imagen": "img/emojilentes.png",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "GLOBO ESPACIAL COHETE 44 CM",
-    "imagen": "img/cohete.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Globo Estrella Degrade Metalizado 45cm (DORADA)",
-    "imagen": "img/estrelladorada.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Globo Estrella Degrade Metalizado 45cm (ROSA)",
-    "imagen": "img/estrellarosa.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Globo Estrella Granas Metalizado 45cm",
-    "imagen": "img/estrellagranas.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Globo Estrella Metalizado 25cm (Fucsia)",
-    "imagen": "img/estrella1.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "GLOBO FELIZ DIA 10\"",
-    "imagen": "img/felizdia1.png",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "GLOBO GATITA CORONA 14\"",
-    "imagen": "img/gatitacorona.png",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Globo Latex 9\" Macaron 1,5 grs Mix x 50un.",
-    "imagen": "img/globo9macaron.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Globo Latex 9\" Metallic 1,5 grs Mix x 50un.",
-    "imagen": "img/globo9metallic.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Globo Latex 9\" Standard 1,5 grs Mix x 50un.",
-    "imagen": "img/globo9standard.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Globo Latex 12\" Metallic 2,8 grs x 25un. (Púrpura)",
-    "imagen": "img/globometallicpurpura.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Globo Latex 12\" Metallic 2,8 grs x 25un. (Rosa Gold)",
-    "imagen": "img/globorosagold.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Globo Lolipop 45cm (Púrpura)",
-    "imagen": "img/lollypoppurpura.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Globo Lolipop 45cm (Roja)",
-    "imagen": "img/lollypoprojo.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Globo Love 50 cm. (Rosa)",
-    "imagen": "img/loverosa.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Globo Luna 25 cm. (ROSEGOLD)",
-    "imagen": "img/lunarosa.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Globo Marine Oso 43 cm",
-    "imagen": "img/osomarine.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "GLOBO MARINE PINGUI 41 CM",
-    "imagen": "img/pinguinomarine.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Globo Metalizado Caracol Blue 38 cm.",
-    "imagen": "img/caracol.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Globo Metalizado Gatita Orange Cat 45 cm.",
-    "imagen": "img/gatitaorange.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Globo Metalizado Jirafa Baby 45 cm.",
-    "imagen": "img/jirafababy.webp",
-    "precio": 0,
+    "nombre": "Globo Redondo Metalizado 45cm (Violeta)",
+    "imagen": "img/redondovioleta.webp",
+    "precio": 900,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Metalizado Lunares 21 cm. (Celeste)",
     "imagen": "img/lunaresceleste.webp",
-    "precio": 0,
+    "precio": 700,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Metalizado Lunares 21 cm. (Fucsia)",
     "imagen": "img/lunaresfucsia.webp",
-    "precio": 0,
+    "precio": 700,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Metalizado Lunares 21 cm. (Rojo)",
     "imagen": "img/lunaresrojo.webp",
-    "precio": 0,
+    "precio": 700,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Metalizado Lunares 21 cm. (Rosa)",
     "imagen": "img/lunaresrosa.webp",
-    "precio": 0,
+    "precio": 700,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Globo Metalizado Feliz Año Nuevo Black & Gold 45 cm.",
+    "imagen": "img/felizanio1.webp",
+    "precio": 900,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Globo Metalizado Feliz Año Nuevo 2 Black & Gold 45 cm.",
+    "imagen": "img/feliz2.webp",
+    "precio": 900,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Globo Metalizado Feliz Navidad rojo 45 cm.",
+    "imagen": "img/navidadrojo.webp",
+    "precio": 900,
+    "categoria": "Cotillón"
+  },
+   {
+    "nombre": "Globo Feliz Navidad verde 45 cm.",
+    "imagen": "img/navidad1.webp",
+    "precio": 900,
+    "categoria": "Cotillón"
+  },
+   {
+    "nombre": "Globo Metalizado Navidad Santa 45 cm.",
+    "imagen": "img/santa1.webp",
+    "precio": 900,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Globo Metalizado Santa en Trineo Feliz Navidad 45 cm.",
+    "imagen": "img/santa2.webp",
+    "precio": 900,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Blonda 11cm x 10 unidades (Rojo)",
+    "imagen": "img/blonda.webp",
+    "precio": 1200,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Blonda Metalizada 16cm x 10 unidades",
+    "imagen": "img/blondam.webp",
+    "precio": 1700,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Confeti Glitter Rose Gold 10 gramos",
+    "imagen": "img/confeti.webp",
+    "precio": 950,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Cortina Metalizada 1x2 m (Negro)",
+    "imagen": "img/cortinanegra.webp",
+    "precio": 1200,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Cortina Metalizada 1x2 m (Plateado)",
+    "imagen": "img/cortinaplateada.webp",
+    "precio": 1200,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Cortina Metalizada 1x2 m (Rosa Gold)",
+    "imagen": "img/cortinarosagold.webp",
+    "precio": 1200,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "GLOBO 45cm FLAMENCO",
+    "imagen": "img/flamenco1.webp",
+    "precio": 990,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Globo Animalitos 40cm (Jirafa)",
+    "imagen": "img/jirafa40.webp",
+    "precio": 900,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Globo Animalitos 40cm (Tigre)",
+    "imagen": "img/tigre40.webp",
+    "precio": 900,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Globo Animalitos 40cm. (CHANCHITO CUERPO)",
+    "imagen": "img/chanchocuerpo.webp",
+    "precio": 900,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Globo Animalitos 40cm. (OVEJITA)",
+    "imagen": "img/ovejita.webp",
+    "precio": 900,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Globo Barco",
+    "imagen": "img/barco.webp",
+    "precio": 900,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "GLOBO BATE 74 CM (Dorado)",
+    "imagen": "img/bate.png",
+    "precio": 1200,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "GLOBO BATE 74 CM (Fucsia)",
+    "imagen": "img/bate.png",
+    "precio": 1200,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "GLOBO BURRO 18\"",
+    "imagen": "img/burro.png",
+    "precio": 900,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Globo Carita Animales 18\" (Hipopotamo)",
+    "imagen": "img/caritahipopotamo.webp",
+    "precio": 900,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Globo Carita Animales 18\" (Perro)",
+    "imagen": "img/caritaperro.webp",
+    "precio": 900,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "GLOBO CONEJO ROSA 18\"",
+    "imagen": "img/conejorosa.webp",
+    "precio": 900,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Globo Corazon c/Moño Metalizado 40cm",
+    "imagen": "img/corazonmoño.webp",
+    "precio": 1000,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Globo Corazón Pastel 45 cm. (Rosa)",
+    "imagen": "img/corazonpastelrosa.webp",
+    "precio": 700,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "GLOBO DINO 18\"",
+    "imagen": "img/dino18.webp",
+    "precio": 800,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Globo Emoji 45 cm (Besito)",
+    "imagen": "img/besito.jpeg",
+    "precio": 900,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Globo Emoji 45 cm (Enamorado)",
+    "imagen": "img/enamorado.jpeg",
+    "precio": 900,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Globo Emoji 45 cm (Lentes)",
+    "imagen": "img/emojilentes.png",
+    "precio": 900,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "GLOBO ESPACIAL COHETE 44 CM",
+    "imagen": "img/cohete.webp",
+    "precio": 900,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "lobo Estrella Degrade Metalizado 45cm",
+    "imagen": "img/estrelladorada.webp",
+    "precio": 990,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Globo Estrella Degrade Metalizado 45cm (ROSA)",
+    "imagen": "img/estrellarosa.webp",
+    "precio": 990,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Globo Estrella Granas Metalizado 45cm",
+    "imagen": "img/estrellagranas.webp",
+    "precio": 900,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Globo Estrella Metalizado 25cm (Fucsia)",
+    "imagen": "img/estrella1.webp",
+    "precio": 900,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "GLOBO FELIZ DIA 10\"",
+    "imagen": "img/felizdia1.png",
+    "precio": 900,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "GLOBO GATITA CORONA 14\"",
+    "imagen": "img/gatitacorona.png",
+    "precio": 800,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Globo Latex 9\" Macaron 1,5 grs Mix x 50un.",
+    "imagen": "img/globo9macaron.webp",
+    "precio": 5500,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Globo Latex 9\" Metallic 1,5 grs Mix x 50un.",
+    "imagen": "img/globo9metallic.webp",
+    "precio": 5500,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Globo Latex 9\" Standard 1,5 grs Mix x 50un.",
+    "imagen": "img/globo9standard.webp",
+    "precio": 5500,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Globo Latex 12\" Metallic 2,8 grs x 25un. (Púrpura)",
+    "imagen": "img/globometallicpurpura.webp",
+    "precio": 4800,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Globo Latex 12\" Metallic 2,8 grs x 25un. (Rosa Gold)",
+    "imagen": "img/globorosagold.webp",
+    "precio": 4800,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Globo Lolipop 45cm (Púrpura)",
+    "imagen": "img/lollypoppurpura.webp",
+    "precio": 900,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Globo Lolipop 45cm (Roja)",
+    "imagen": "img/lollypoprojo.webp",
+    "precio": 900,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Globo Love 50 cm. (Rosa)",
+    "imagen": "img/loverosa.webp",
+    "precio": 1100,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Globo Luna 25 cm. (ROSEGOLD)",
+    "imagen": "img/lunarosa.webp",
+    "precio": 900,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Globo Marine Oso 43 cm",
+    "imagen": "img/osomarine.webp",
+    "precio": 900,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "GLOBO MARINE PINGUI 41 CM",
+    "imagen": "img/pinguinomarine.webp",
+    "precio": 900,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Globo Metalizado Caracol Blue 38 cm.",
+    "imagen": "img/caracol.webp",
+    "precio": 900,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Globo Metalizado Gatita Orange Cat 45 cm.",
+    "imagen": "img/gatitaorange.webp",
+    "precio": 900,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Globo Metalizado Jirafa Baby 45 cm.",
+    "imagen": "img/jirafababy.webp",
+    "precio": 900,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Metalizado Mermaid Ocean Feliz Cumpleaños 45 cm.",
     "imagen": "img/felizcumple1.webp",
-    "precio": 0,
+    "precio": 900,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Metalizado Sapo Froggy Party 38 cm.",
     "imagen": "img/sapo.webp",
-    "precio": 0,
+    "precio": 900,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Mini chopp 12\"",
     "imagen": "img/minichop.webp",
-    "precio": 0,
+    "precio": 700,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Mini Flamenco 47 cm.",
     "imagen": "img/miniflamenco.webp",
-    "precio": 0,
+    "precio": 900,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Mini Tiburon 34 cm.",
     "imagen": "img/minitiburon.webp",
-    "precio": 0,
+    "precio": 900,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo mini Whisky 44 cm",
     "imagen": "img/wisky.jpeg",
-    "precio": 0,
+    "precio": 950,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Numero Dorado 40cm (1)",
     "imagen": "img/dorado1.webp",
-    "precio": 0,
+    "precio": 950,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Numero Dorado 40cm (2)",
     "imagen": "img/dorado2.webp",
-    "precio": 0,
+    "precio": 950,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Numero Dorado 40cm (3)",
     "imagen": "img/dorado4.webp",
-    "precio": 0,
+    "precio": 950,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Numero Dorado 40cm (4)",
     "imagen": "img/dorado44.webp",
-    "precio": 0,
+    "precio": 950,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Numero Dorado 40cm (5)",
     "imagen": "img/dorado5.webp",
-    "precio": 0,
+    "precio": 950,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Numero Dorado 40cm (6)",
     "imagen": "img/dorado6.webp",
-    "precio": 0,
+    "precio": 950,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Numero Dorado 40cm (7)",
     "imagen": "img/dorado7.webp",
-    "precio": 0,
+    "precio": 950,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Numero Dorado 40cm (8)",
     "imagen": "img/dorado8.webp",
-    "precio": 0,
+    "precio": 950,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Numero Dorado 40cm (9)",
     "imagen": "img/dorado9.webp",
-    "precio": 0,
+    "precio": 950,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Numero Dorado 40cm (O)",
     "imagen": "img/dorado0.webp",
-    "precio": 0,
+    "precio": 950,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Numero Plateado 40cm (1)",
     "imagen": "img/plateado1.webp",
-    "precio": 0,
+    "precio": 950,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Numero Plateado 40cm (2)",
     "imagen": "img/plateado2.webp",
-    "precio": 0,
+    "precio": 950,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Numero Plateado 40cm (3)",
     "imagen": "img/plateado3.webp",
-    "precio": 0,
+    "precio": 950,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Numero Plateado 40cm (4)",
     "imagen": "img/plateado4.webp",
-    "precio": 0,
+    "precio": 950,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Numero Plateado 40cm (5)",
     "imagen": "img/plateado5.webp",
-    "precio": 0,
+    "precio": 950,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Numero Plateado 40cm (6)",
     "imagen": "img/plateado6.webp",
-    "precio": 0,
+    "precio": 950,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Numero Plateado 40cm (7)",
     "imagen": "img/plateado7.webp",
-    "precio": 0,
+    "precio": 950,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Numero Plateado 40cm (8)",
     "imagen": "img/plateado8.webp",
-    "precio": 0,
+    "precio": 950,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Numero Plateado 40cm (9)",
     "imagen": "img/plateado9.webp",
-    "precio": 0,
+    "precio": 950,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Numero Plateado 40cm (O)",
     "imagen": "img/plateado0.webp",
-    "precio": 0,
+    "precio": 950,
     "categoria": "Cotillón"
   },
   {
     "nombre": "GLOBO FC OCEANO 18\"",
     "imagen": "img/fcocean.webp",
-    "precio": 0,
+    "precio": 900,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Osito 45 cm. (Beige)",
     "imagen": "img/osoredondobeige.webp",
-    "precio": 0,
+    "precio": 900,
     "categoria": "Cotillón"
   },
   {
     "nombre": "GLOBO OSITO Redondo celeste 18\"",
     "imagen": "img/globoosito.png",
-    "precio": 0,
+    "precio": 900,
     "categoria": "Cotillón"
   },
   {
     "nombre": "GLOBO OSO 18\"",
     "imagen": "img/oso3.png",
-    "precio": 0,
+    "precio": 900,
     "categoria": "Cotillón"
   },
   {
     "nombre": "GLOBO PANDA 18\"",
     "imagen": "img/panda18.png",
-    "precio": 0,
+    "precio": 900,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Pelota Futbol 45cm (NEGRO/AMARILLO)",
     "imagen": "img/pelotana.webp",
-    "precio": 0,
+    "precio": 900,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Pelota Rugby Metalizado 50cm",
     "imagen": "img/rugby.webp",
-    "precio": 0,
+    "precio": 900,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Pirata 18\"",
     "imagen": "img/pirata1.webp",
-    "precio": 0,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Globo Redondo Metalizado 45cm (Violeta)",
-    "imagen": "img/redondovioleta.webp",
-    "precio": 0,
+    "precio": 900,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Reno 38cm. (Verde)",
     "imagen": "img/renoverde.webp",
-    "precio": 0,
+    "precio": 900,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Te Amo Mucho 10\"",
     "imagen": "img/TEAMOMUCHO.webp",
-    "precio": 0,
+    "precio": 800,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Unicornio 4D 65 cm",
     "imagen": "img/unicornio.webp",
-    "precio": 0,
+    "precio": 1800,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Vincha (JIRAFA)",
     "imagen": "img/vinchajirafa.webp",
-    "precio": 0,
+    "precio": 900,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Vincha (ZORRITO)",
     "imagen": "img/vinchazorrito.webp",
-    "precio": 0,
+    "precio": 900,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Zig Zag 45cm. (Azul)",
     "imagen": "img/zigzagazul.webp",
-    "precio": 0,
+    "precio": 900,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Zig Zag 45cm. (Rojo)",
     "imagen": "img/zigzagrojo.webp",
-    "precio": 0,
+    "precio": 900,
     "categoria": "Cotillón"
   },
   {
     "nombre": "GUIRNALDA FELIZ CUMPLE BROWNS",
     "imagen": "img/fcb.webp",
-    "precio": 0,
+    "precio": 1300,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Guirnalda Feliz Cumpleaños Multicolor",
     "imagen": "img/fcm.webp",
-    "precio": 0,
+    "precio": 1300,
     "categoria": "Cotillón"
   },
   {
-    "nombre": "Llavero búho Metal Blíster x 12 un.",
+    "nombre": "Llavero búho Metal colorido",
     "imagen": "img/llaveroBuho.webp",
-    "precio": 0,
+    "precio": 1200,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Llavero búho Metal",
+    "imagen": "img/llaveroBuho2.webp",
+    "precio": 1200,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Mini Luz LED Decorativa 1,4 cm (Multicolor)",
     "imagen": "img/miniluz.webp",
-    "precio": 0,
+    "precio": 900,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Rompecabezas Plastico 6*7cm",
     "imagen": "img/rompecabezas.webp",
-    "precio": 0,
+    "precio": 1200,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Spiner pelota antiestrés (CLASSIC OPACO)",
+    "imagen": "img/spin.jpg",
+    "precio": 4800,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Librito para pintar + 6 colores",
+    "imagen": "img/librito1.jpg",
+    "precio": 1300,
     "categoria": "Cotillón"
   }
 ]
