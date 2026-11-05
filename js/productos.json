@@ -2,57 +2,48 @@
      {
         "nombre": "Spiner pelota antiestrés (CLASSIC OPACO)",
         "imagen": "img/spin.jpg",
-        "precio": 4500,
-        "categoria": ["todo", "Cotillón"]
+        "precio": 4500
     },
     {
         "nombre": "Pack x3 Spiner pelota antiestrés (CLASSIC OPACO)",
         "imagen": "img/spin.jpg",
         "video": "img/videospiner_.mp4",
-        "precio": 12600,
-        "categoria": ["todo", "Cotillón"]
+        "precio": 12600
     },
     {
         "nombre": "Librito para pintar Stitch + 6 colores",
         "imagen": "img/librito1.jpg",
-        "precio": 1900,
-        "categoria": ["todo", "Cotillón"]
+        "precio": 1900
     },
     {
         "nombre": "Librito para pintar K-pop + 6 colores",
         "imagen": "img/librito4.png",
-        "precio": 1900,
-        "categoria": ["todo", "Cotillón"]
-    },
+        "precio": 1900
+     },
     {
         "nombre": "Librito para pintar Dragon Ball Z + 6 colores",
         "imagen": "img/librito5.png",
-        "precio": 1900,
-        "categoria": ["todo", "Cotillón"]
+        "precio": 1900
     },
     {
         "nombre": "Librito para pintar Spiderman + 6 colores",
         "imagen": "img/librito3.jpg",
-        "precio": 1900,
-        "categoria": ["todo", "Cotillón"]
+        "precio": 1900
     },
     {
         "nombre": "Librito para pintar Capibara + 6 colores",
         "imagen": "img/librito6.png",
-        "precio": 1900,
-        "categoria": ["todo", "Cotillón"]
+        "precio": 1900
     },
    {
     "nombre": "Librito para pintar Toy Story + 6 colores",
     "imagen": "img/librito7.png",
-    "precio": 1900,
-    "categoria": ["todo", "Cotillón"]
+    "precio": 1900
   },
   {
     "nombre": "Pack x3 Libritos surtidos para pintar + 18 colores",
     "imagen": "img/librito2.jpg",
-    "precio": 4500,
-    "categoria": ["todo", "Cotillón"]
+    "precio": 4500
   },
     {
         "nombre":  "Cars con pastillitas (30u)",
@@ -98,14 +89,13 @@
         "nombre": "Trompetas con pastillitas (30u)",
         "imagen": "img/trompeta.png",
         "precio": 13800,
-        "categoria": "Caramelos"
+        "categoria": "Pastillas"
     },
     {
         "nombre": "Gomitas Calabaza (30u)",
         "imagen": "img/calabaza.jpg",
         "precio": 9400,
-        "categoria": "Gomitas blandas",
-        "categoriasAdicionales": ["Halloween"]
+        "categoria": "Gomitas blandas"
     },
     {
         "nombre":  "Chupetines Hongos (30u)",
@@ -135,19 +125,13 @@
         "nombre":  "Chupetines Halloween (30u)",
         "imagen":  "img/Halloween.jpeg",
         "precio":  10900,
-        "categoria":  "Chupetines",
-        "categoriasAdicionales":  [
-                                      "Halloween"
-                                  ]
+        "categoria":  "Chupetines"
     },
     {
         "nombre":  "Gomitas Fantasmita (30u)",
         "imagen":  "img/fantasmitas.jpg",
         "precio":  9400,
-        "categoria":  "Gomitas blandas",
-        "categoriasAdicionales":  [
-                                      "Halloween"
-                                  ]
+        "categoria":  "Gomitas blandas"
     },
     {
         "nombre": "Chupetines Silbato 📣 Simpsons (20u)",
@@ -189,28 +173,19 @@
         "nombre":  "Chupetines Halloween 3 en 1 (30u)",
         "imagen":  "img/halloween3.png",
         "precio":  10900,
-        "categoria":  "Chupetines",
-        "categoriasAdicionales":  [
-                                      "Halloween"
-                                  ]
+        "categoria":  "Chupetines"
     },
     {
         "nombre":  "Chupetines Merlina (30u)",
         "imagen":  "img/merlina4.png",
         "precio":  12500,
-        "categoria":  "Chupetines",
-        "categoriasAdicionales":  [
-                                      "Halloween"
-                                  ]
+        "categoria":  "Chupetines"
     },
     {
         "nombre":  "Gomitas Ojos (30u)",
         "imagen":  "img/ojos.png",
         "precio":  9400,
-        "categoria":  "Gomitas blandas",
-        "categoriasAdicionales":  [
-                                      "Halloween"
-                                  ]
+        "categoria":  "Gomitas blandas"
     },
     {
         "nombre":  "Huevos Sorpresa Dinos  (30u)",

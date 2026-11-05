@@ -25,12 +25,12 @@ a { color: inherit; text-decoration: none; }
 .buscador input { width: 100%; border: 0; outline: 0; background: transparent; color: var(--texto); }
 .boton-carrito { border: 0; border-radius: 13px; padding: 13px 17px; background: var(--bordo); color: white; font-weight: 600; cursor: pointer; white-space: nowrap; }
 #cantidad-carrito { display: inline-grid; place-items: center; min-width: 23px; height: 23px; margin-left: 5px; padding: 0 5px; border-radius: 50px; background: var(--amarillo); color: var(--bordo); }
-.portada { min-height: 435px; padding: 58px 10% 50px; display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 25px; overflow: hidden; background: linear-gradient(110deg,#fff2ed 0%,#ffedf0 58%,#fbe0e8 100%); }
+.portada { min-height: 15px; padding: 58px 10% 50px; display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 25px; overflow: hidden; background: linear-gradient(110deg,#fff2ed 0%,#ffedf0 58%,#fbe0e8 100%); }
 .etiqueta { color: var(--rosa-oscuro); font-size: 15px; font-weight: 800; letter-spacing: 2px; }
 .portada h1 { margin: 1px 0; color: var(--bordo); font-size: clamp(36px,4.4vw,57px); line-height: 1.08; letter-spacing: -2px; }
 .portada h1 span { color: var(--rosa-fuerte); }
 .portada-texto > p { max-width: 440px; line-height: 1.7; color: #78666f; font-size: 15px; }
-.boton-principal { display: inline-flex; align-items: center; justify-content: center; gap: 22px; margin-top: 1px; padding: 15px 21px; border: 0; border-radius: 12px; background: var(--rosa-fuerte); color: white; font-weight: 700; font-size: 25px; cursor: pointer; transition: transform .2s, background .2s; }
+.boton-principal { display: inline-flex; align-items: center; justify-content: center; gap: 22px; margin-top: 15px; padding: 15px 21px; border: 0; border-radius: 12px; background: var(--rosa-fuerte); color: white; font-weight: 700; font-size: 25px; cursor: pointer; transition: transform .2s, background .2s; }
 .boton-principal:hover { transform: translateY(-2px); background: var(--rosa-oscuro); }
 .portada-social-buttons {
   display: flex;
@@ -168,7 +168,7 @@ a { color: inherit; text-decoration: none; }
 .franja-info > div > span { font-size: 27px; }
 .franja-info p { display: grid; gap: 5px; margin: 0; font-size: 13px; }
 .franja-info small { color: var(--suave); font-size: 11px; }
-.catalogo { padding: 66px 8% 85px; min-height: 390px; }
+.catalogo { padding: 6px 8% 85px; min-height: 390px; }
 .seccion-cabecera { display: flex; justify-content: space-between; align-items: end; }
 .seccion-cabecera h2 { margin: 8px 0; font-size: 34px; color: var(--bordo); letter-spacing: -1px; }
 .seccion-cabecera p { margin: 0; color: var(--suave); font-size: 14px; }
@@ -183,7 +183,7 @@ a { color: inherit; text-decoration: none; }
 .carrito-cabecera { display: flex; align-items: center; justify-content: space-between; padding-bottom: 20px; border-bottom: 1px solid #f0e4e5; }
 .carrito-cabecera h2 { margin: 6px 0 0; color: var(--bordo); }
 .cerrar { width: 38px; height: 38px; border: 0; border-radius: 50%; background: #fff0f3; cursor: pointer; }
-.items-carrito { flex: 1; overflow-y: auto; padding: 18px 0; }
+.items-carrito { flex: 1; overflow-y: auto; padding: 18px 0;}
 .carrito-vacio { padding: 35px 0; text-align: center; color: var(--suave); }
 .carrito-pie { padding-top: 18px; border-top: 1px solid #f0e4e5; }
 .total { display: flex; justify-content: space-between; align-items: center; font-size: 17px; }
@@ -197,9 +197,9 @@ a { color: inherit; text-decoration: none; }
 .pie p { color: var(--suave); font-size: 12px; }
 @media (max-width: 760px) {
   .encabezado { height: auto; min-height: 75px; padding: 12px 4%; flex-wrap: wrap; gap: 12px; }
-  .marca { font-size: 16px; }.marca-icono { width: 38px; height: 38px; }
+  .marca { display: none; }
   .buscador { order: 3; width: 100%; max-width: none; }
-  .boton-carrito { margin-left: auto; padding: 11px 12px; font-size: 12px; }
+  .boton-carrito { margin-left: auto; padding: 11px 12px; }
   .portada { grid-template-columns: 1fr; padding: 45px 7% 25px; }
   .portada h1 { font-size: 34px; }
   .portada-ilustracion { min-height: 60px; max-height: 200px; transform: translateX(0); }
@@ -431,7 +431,7 @@ a { color: inherit; text-decoration: none; }
   background: var(--bordo);
   color: white;
   font: inherit;
-  font-size: 12px;
+  font-size: 19px;
   font-weight: 700;
   cursor: pointer;
 }
@@ -461,7 +461,7 @@ a { color: inherit; text-decoration: none; }
 .item-carrito p {
   margin: 6px 0 0;
   color: #82747b;
-  font-size: 12px;
+  font-size: 17px;
 }
 
 @media (max-width: 1000px) {
@@ -472,7 +472,7 @@ a { color: inherit; text-decoration: none; }
 
 @media (max-width: 760px) {
   .rejilla-productos {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
   }
 
@@ -491,8 +491,8 @@ a { color: inherit; text-decoration: none; }
 
   .agregar-producto {
     min-height: 38px;
-    padding: 5px 3px;
-    font-size: 11px;
+    padding: 9px 3px;
+    font-size: 17px;
   }
 
   .imagen-producto {
@@ -1115,7 +1115,7 @@ cursor: pointer;
 display: block;
 max-width: 100%;
 overflow-wrap: anywhere;
-font-size: 13px;
+font-size: 18px;
 font-weight: 700;
 }
 
@@ -1398,7 +1398,7 @@ gap: 8px;
   width: 44px;
   height: 44px;
   padding: 10px;
-  border: 1px solid #eee1e3;
+  border: 1px solid #020202;
   border-radius: 12px;
   background: #fff;
   cursor: pointer;
@@ -3298,10 +3298,10 @@ color: #24683a;
 @media (max-width: 760px) {
   .encabezado {
     display: grid;
-    grid-template-columns: 36px 36px minmax(0, 1fr) auto;
+    grid-template-columns: 36px minmax(0, 1fr) auto;
     grid-template-areas:
-      "menu whatsapp marca carrito"
-      "buscador buscador buscador buscador";
+      "menu whatsapp carrito"
+      "buscador buscador buscador";
     align-items: center;
     gap: 9px;
     height: auto;
@@ -3376,7 +3376,6 @@ color: #24683a;
     grid-area: carrito;
     margin: 0;
     padding: 10px 11px;
-    font-size: 12px;
   }
 
   .portada {
@@ -3390,6 +3389,7 @@ color: #24683a;
     font-size: clamp(29px, 8vw, 34px);
     line-height: 1.12;
     letter-spacing: -1px;
+    margin-top: -21px;
   }
 
   .portada .boton-principal {
@@ -3401,9 +3401,9 @@ color: #24683a;
   .portada-social-buttons {
     display: flex;
     flex-wrap: nowrap;
-    width: 100%;
+    width: 97%;
     gap: 7px;
-    margin-top: 20px;
+    margin-top: 10px;
   }
 
   .portada-social-buttons .social-btn {
@@ -3466,7 +3466,7 @@ color: #24683a;
 
   .boton-carrito {
     padding: 8px 9px;
-    font-size: 11px;
+    font-size: 18px;
   }
 
   .portada {
