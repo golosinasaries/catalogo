@@ -561,7 +561,9 @@ function abrirDetalleProducto(producto, navegar = false, apilar = false) {
 
   
   const fotosMultiplesDetalle = {
-    "Librito para pintar + 6 colores": ["img/librito1.jpg", "img/librito2.jpg", "img/librito3.jpg"],
+    "Pack x3 Libritos surtidos para pintar + 18 colores": ["img/librito2.jpg", "img/librito6.png", "img/librito3.jpg", "img/librito1.jpg", "img/librito4.png", "img/librito5.png", "img/librito7.png"],
+    "Spiner pelota antiestrés (CLASSIC OPACO)": ["img/videospiner_.mp4","img/spin.jpg"],
+    "Librito para pintar Stitch + 6 colores": ["img/librito1.jpg", "img/librito2.jpg"],
     "Gomitas Fantasmita (30u)": ["img/fantasmitas.jpg", "img/fantasmitas2.jpg"],
     "Chicle Globo Tennis Open (30u)": ["img/tennis.webp", "img/tennis.jpeg"],
     "Gomitas de River (30u)": ["img/river.jpg", "img/videoboca.mp4"],
@@ -1381,6 +1383,7 @@ contenido.style.justifyContent = "center";
 contenido.style.alignItems = "center";
 
 const nombre = document.createElement("h3");
+nombre.className = "titulo-todas-golosinas";
 nombre.textContent = "🍬 TODAS LAS GOLOSINAS";
 
 const descripcion = document.createElement("span");
