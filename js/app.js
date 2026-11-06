@@ -1717,14 +1717,30 @@ function renderizarCarrito() {
   elementos.finalizar.disabled = false;
   elementos.items.replaceChildren();
 
-  if (!estado.carrito.length) {
-    const vacio = document.createElement("p");
-    vacio.className = "carrito-vacio";
-    vacio.textContent = "La compra mínima es de $10.000";
-    elementos.items.append(vacio);
-    actualizarResumenEnvio();
-    return;
-  }
+ if (!estado.carrito.length) {
+  const vacio = document.createElement("p");
+  vacio.className = "carrito-vacio";
+  vacio.style.whiteSpace = "pre-line";
+  vacio.textContent = "La compra mínima es de $10.000\n\nHacemos envíos a todo el país 🇦🇷";
+
+  const comprar = document.createElement("a");
+  comprar.href = "#catalogo";
+  comprar.className = "boton-seguir-comprando";
+  comprar.textContent = "🛍️ Agregar productos";
+  comprar.addEventListener("click", (evento) => {
+    evento.preventDefault();
+    cerrarCarrito();
+
+    setTimeout(() => {
+      const primerProducto = elementos.productos.querySelector(".tarjeta-producto");
+      primerProducto?.scrollIntoView({ behavior: "smooth", block: "center" });
+    }, 300);
+  });
+
+  elementos.items.append(vacio, comprar);
+  actualizarResumenEnvio();
+  return;
+}
 
   estado.carrito.forEach((item) => {
     const fila = document.createElement("div");

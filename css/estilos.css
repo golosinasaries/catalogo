@@ -1167,7 +1167,7 @@ gap: 8px;
   padding: 5px 0 5px 8px;
   border: 0;
   background: transparent;
-  color: rgb(251, 0, 0);
+  color: #c44b83;
   cursor: pointer;
   font: inherit;
   font-weight: 900;
@@ -2138,6 +2138,7 @@ gap: 8px;
     border-radius: 50%;
     background: #25D366;
     z-index: 12;
+    
   }
 
   .encabezado #whatsapp-consulta img {
@@ -3327,10 +3328,11 @@ color: #24683a;
     display: inline-flex !important;
     align-items: center;
     justify-content: center;
-    width: 34px !important;
-    height: 34px !important;
-    min-width: 34px !important;
-    flex: 0 0 34px !important;
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    flex: 0 0 40px !important;
+    transform: translateX(10px) !important;
     margin: 0 !important;
     padding: 0 !important;
     border-radius: 50%;
@@ -3375,7 +3377,6 @@ color: #24683a;
   .boton-carrito {
     grid-area: carrito;
     margin: 0;
-    padding: 10px 11px;
   }
 
   .portada {
@@ -3441,13 +3442,6 @@ color: #24683a;
     flex-basis: 32px;
   }
 
-  .encabezado #whatsapp-consulta {
-    width: 30px !important;
-    height: 30px !important;
-    min-width: 30px !important;
-    flex-basis: 30px !important;
-  }
-
   .marca {
     gap: 4px;
     font-size: 12px;
@@ -3465,8 +3459,10 @@ color: #24683a;
   }
 
   .boton-carrito {
-    padding: 8px 9px;
+    padding: 9px 9px;
     font-size: 18px;
+    max-width: fit-content;
+    margin-left: auto;
   }
 
   .portada {
@@ -3520,3 +3516,25 @@ color: #24683a;
     font-size: 0.85rem;
   }
 }
+
+.boton-seguir-comprando {
+  display: block;
+  width: fit-content;
+  margin: 25px auto 10px;
+  padding: 13px 24px;
+  background: linear-gradient(135deg, #e879a9, #b58add);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(255, 100, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.boton-seguir-comprando:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 100, 0, 0.35);
+}
+
