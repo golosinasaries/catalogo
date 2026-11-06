@@ -21,7 +21,8 @@
         "nombre": "Mielcitas (50u)",
         "imagen": "img/mielcitass.png",
         "precio": 5500,
-        "categoria": "Caramelos"
+        "categoria": "Caramelos",
+        "agotado": true
     },
     {
         "nombre": "Cucuruchos Helado Chocolate (30u)",
