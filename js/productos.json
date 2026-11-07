@@ -434,48 +434,56 @@
      {
         "nombre": "Spiner pelota antiestrés (CLASSIC OPACO)",
         "imagen": "img/spin.jpg",
-        "precio": 4500
+        "precio": 4500,
+        "categoria":  "Otros"
     },
     {
         "nombre": "Pack x3 Spiner pelota antiestrés (CLASSIC OPACO)",
         "imagen": "img/spin.jpg",
         "video": "img/videospiner_.mp4",
-        "precio": 12600
-    },
+        "precio": 12600,
+        "categoria":  "Otros"
     {
         "nombre": "Librito para pintar Stitch + 6 colores",
         "imagen": "img/librito1.jpg",
-        "precio": 1900
+        "precio": 1900,
+        "categoria":  "Otros"
     },
     {
         "nombre": "Librito para pintar K-pop + 6 colores",
         "imagen": "img/librito4.png",
-        "precio": 1900
+        "precio": 1900,
+        "categoria":  "Otros"
      },
     {
         "nombre": "Librito para pintar Dragon Ball Z + 6 colores",
         "imagen": "img/librito5.png",
-        "precio": 1900
+        "precio": 1900,
+        "categoria":  "Otros"
     },
     {
         "nombre": "Librito para pintar Spiderman + 6 colores",
         "imagen": "img/librito3.jpg",
-        "precio": 1900
+        "precio": 1900,
+        "categoria":  "Otros"
     },
     {
         "nombre": "Librito para pintar Capibara + 6 colores",
         "imagen": "img/librito6.png",
-        "precio": 1900
+        "precio": 1900,
+        "categoria":  "Otros"
     },
     {
         "nombre": "Librito para pintar Toy Story + 6 colores",
         "imagen": "img/librito7.png",
-        "precio": 1900
+        "precio": 1900,
+        "categoria":  "Otros"
     },
     {
         "nombre": "Pack x3 Libritos surtidos para pintar + 18 colores",
         "imagen": "img/librito2.jpg",
-        "precio": 4500
+        "precio": 4500,
+        "categoria":  "Otros"
     },
     {
         "nombre":  "Combo Especial (12 productos)",

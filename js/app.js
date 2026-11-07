@@ -14,7 +14,7 @@ const REGALO_NOMBRE = "Gomitas Calabaza (30u)";
 const REGALO_IMAGEN = "img/calabaza.jpg";
 
 // Las promociones se pueden activar o desactivar independientemente.
-const PROMOS_ACTIVAS = ["envio", "regalo"];
+const PROMOS_ACTIVAS = ["envio"];
 
 
 const STOCK_PRODUCTOS = {
