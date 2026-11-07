@@ -408,10 +408,10 @@
         "categoria":  "Gomitas 500 g"
     },
     {
-        "nombre":  "6 paquetes de Bombuchas (100u)",
-        "imagen":  "img/bombulla.png",
-        "precio":  10000,
-        "categoria":  "Otros"
+    "nombre": "Bombuchas (100u)",
+    "imagen": "img/bombulla.png",
+    "precio": 1700,
+    "categoria": "Otros"
     },
     {
         "nombre":  "Botellitas con chicles  30 unidades por pack, caja x10 packs",
@@ -443,6 +443,7 @@
         "video": "img/videospiner_.mp4",
         "precio": 12600,
         "categoria":  "Otros"
+    },
     {
         "nombre": "Librito para pintar Stitch + 6 colores",
         "imagen": "img/librito1.jpg",
