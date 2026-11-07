@@ -2109,7 +2109,7 @@ async function iniciarCatalogo() {
 
     const texto = document.createElement("p");
     texto.textContent =
-      "Abrí la tienda con un servidor local y verificá que exista js/productos.json.";
+      "Probá de nuevo en unos minutos";
 
     aviso.append(titulo, texto);
     elementos.productos.append(aviso);
