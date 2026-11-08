@@ -1,5 +1,11 @@
-﻿[  
-    {
+﻿[ 
+     {
+    "nombre": "Turrón Misky (10u)",
+    "imagen": "img/turronmisky.png",
+    "precio": 3500,
+    "categoria": "Turrones"
+    },
+        {
         "nombre":  "Cars con pastillitas (30u)",
         "imagen":  "img/cars.png",
         "precio":  13800,
@@ -27,12 +33,14 @@
     {
         "nombre": "Cucuruchos Helado Chocolate (30u)",
         "imagen": "img/cucuruchochocolate.png",
-        "precio": 14900
+        "precio": 14900,
+        "categoria":  "Galletitas"
     },
     {
         "nombre": "Cucuruchos Helado Frutilla (30u)",
         "imagen": "img/cucuruchohelado.png",
-        "precio": 14900
+        "precio": 14900,
+        "categoria":  "Galletitas"
     },
     {
         "nombre": "Gomitas Dinos (30u)",
@@ -366,6 +374,12 @@
         "categoria":  "Pastillitas"
     },
     {
+        "nombre": "Pastillas Alka sabor Cherry Mentol (12u)",
+        "imagen": "img/alkacherry.jpeg",
+        "precio": 6900,
+        "categoria": "Pastillitas"
+    },
+    {
         "nombre":  "Pastillas D.R.F Sabor Menta (12u)",
         "imagen":  "img/drfmenta.jpeg",
         "precio":  6200,
@@ -394,6 +408,18 @@
         "imagen":  "img/riquitosimple.jpg",
         "precio":  2900,
         "categoria":  "Alfajores"
+    },
+    {
+        "nombre": "Alfajor Guaymallén Simple Blanco (10u)",
+        "imagen": "img/guaysimpleblanco.jpg",
+        "precio": 4900,
+        "categoria": "Alfajores"
+    },
+    {
+        "nombre": "Alfajor Guaymallén Simple Negro (10u)",
+        "imagen": "img/guaysimplenegro.jpg",
+        "precio": 4900,
+        "categoria": "Alfajores"
     },
     {
         "nombre":  "Caramelos masticables Fierita Granjero (100u)",
