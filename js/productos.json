@@ -542,6 +542,24 @@
         "categoria": "Navidad"
     },
     {
+        "nombre": "Luces Meteoro 8 tubos",
+        "imagen": "img/lucesmulti.jpg",
+        "precio": 18500,
+        "categoria": "Navidad"
+    },
+    {
+        "nombre": "Luz solar Libélula (30 luces)",
+        "imagen": "img/lubelula.jpg",
+        "precio": 16000,
+        "categoria": "Navidad"
+    },
+    {
+        "nombre": "Luz solar Abeja (20 luces)",
+        "imagen": "img/abeja.jpg",
+        "precio": 15000,
+        "categoria": "Navidad"
+    },
+    {
         "nombre": "Guirnalda LED Daewo Burbuja Multicolor (20 luces)",
         "imagen": "img/burbuja.jpg",
         "precio": 5800,
