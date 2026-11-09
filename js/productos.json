@@ -550,13 +550,13 @@
     {
         "nombre": "Luz solar Libélula (30 luces)",
         "imagen": "img/lubelula.jpg",
-        "precio": 16000,
+        "precio": 15000,
         "categoria": "Navidad"
     },
     {
         "nombre": "Luz solar Abeja (20 luces)",
         "imagen": "img/abeja.jpg",
-        "precio": 15000,
+        "precio": 14000,
         "categoria": "Navidad"
     },
     {
