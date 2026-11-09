@@ -13,7 +13,7 @@ const REGALO_DESDE = 50000;
 const REGALO_NOMBRE = "Chicles WhatsApp Selección Caja x20, 5 chicles cada uno";
 const REGALO_IMAGEN = "img/chicleseleccion.png"
 // Las promociones se pueden activar o desactivar independientemente.
-const PROMOS_ACTIVAS = ["envio","regalo"];
+const PROMOS_ACTIVAS = ["envio"];
 
 
 const STOCK_PRODUCTOS = {

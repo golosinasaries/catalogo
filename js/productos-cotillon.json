@@ -33,37 +33,43 @@
     "nombre": "Globo Metalizado Feliz Año Nuevo Black & Gold 45 cm.",
     "imagen": "img/felizanio1.webp",
     "precio": 900,
-    "categoria": "Cotillón"
+    "categoria": "Cotillón",
+    "categoriasAdicionales": ["Navidad"]
   },
   {
     "nombre": "Globo Metalizado Feliz Año Nuevo 2 Black & Gold 45 cm.",
     "imagen": "img/feliz2.webp",
     "precio": 900,
-    "categoria": "Cotillón"
+    "categoria": "Cotillón",
+    "categoriasAdicionales": ["Navidad"]
   },
   {
     "nombre": "Globo Metalizado Feliz Navidad rojo 45 cm.",
     "imagen": "img/navidadrojo.webp",
     "precio": 900,
-    "categoria": "Cotillón"
+    "categoria": "Cotillón",
+    "categoriasAdicionales": ["Navidad"]
   },
-   {
+  {
     "nombre": "Globo Feliz Navidad verde 45 cm.",
     "imagen": "img/navidad1.webp",
     "precio": 900,
-    "categoria": "Cotillón"
+    "categoria": "Cotillón",
+    "categoriasAdicionales": ["Navidad"]
   },
-   {
+  {
     "nombre": "Globo Metalizado Navidad Santa 45 cm.",
     "imagen": "img/santa1.webp",
     "precio": 900,
-    "categoria": "Cotillón"
+    "categoria": "Cotillón",
+    "categoriasAdicionales": ["Navidad"]
   },
   {
     "nombre": "Globo Metalizado Santa en Trineo Feliz Navidad 45 cm.",
     "imagen": "img/santa2.webp",
     "precio": 900,
-    "categoria": "Cotillón"
+    "categoria": "Cotillón",
+    "categoriasAdicionales": ["Navidad"]
   },
   {
     "nombre": "Blonda 11cm x 10 unidades (Rojo)",

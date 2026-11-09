@@ -1,11 +1,11 @@
 ﻿[ 
-     {
-    "nombre": "Turrón Misky (10u)",
-    "imagen": "img/turronmisky.png",
-    "precio": 3500,
-    "categoria": "Turrones"
+    {
+        "nombre": "Turrón Misky (10u)",
+        "imagen": "img/turronmisky.png",
+        "precio": 3500,
+        "categoria": "Turrones"
     },
-        {
+    {
         "nombre":  "Cars con pastillitas (30u)",
         "imagen":  "img/cars.png",
         "precio":  13800,
@@ -27,8 +27,7 @@
         "nombre": "Mielcitas (50u)",
         "imagen": "img/mielcitass.png",
         "precio": 5500,
-        "categoria": "Caramelos",
-        "agotado": true
+        "categoria": "Caramelos"
     },
     {
         "nombre": "Cucuruchos Helado Chocolate (30u)",
@@ -434,10 +433,10 @@
         "categoria":  "Gomitas 500 g"
     },
     {
-    "nombre": "Bombuchas (100u)",
-    "imagen": "img/bombulla.png",
-    "precio": 1900,
-    "categoria": "Otros"
+        "nombre": "Bombuchas (100u)",
+        "imagen": "img/bombulla.png",
+        "precio": 1900,
+        "categoria": "Otros"
     },
     {
         "nombre":  "Botellitas con chicles  30 unidades por pack, caja x10 packs",
@@ -457,7 +456,7 @@
         "precio": 4500,
         "categoria": "Caramelos"
     },
-     {
+    {
         "nombre": "Spiner pelota antiestrés (CLASSIC OPACO)",
         "imagen": "img/spin.jpg",
         "precio": 4500,
@@ -511,6 +510,30 @@
         "imagen": "img/librito2.jpg",
         "precio": 4500,
         "categoria":  "Otros"
+    },
+    {
+        "nombre": "Adorno navideño (12 pcs)",
+        "imagen": "img/adorno12.jpg",
+        "precio": 4800,
+        "categoria":  "Navidad"
+    },
+    {
+        "nombre": "Campanitas Rojas (10 u)",
+        "imagen": "img/campanas.jpg",
+        "precio": 4500,
+        "categoria":  "Navidad"
+    },
+    {
+        "nombre": "Guirnalda Navideña Metalizada",
+        "imagen": "img/nvd.jpg",
+        "precio": 1990,
+        "categoria": "Navidad"
+    },
+    {
+        "nombre": "Luces Navideñas 100 luces",
+        "imagen": "img/luces.jpg",
+        "precio": 5500,
+        "categoria": "Navidad"
     },
     {
         "nombre":  "Combo Especial (12 productos)",
