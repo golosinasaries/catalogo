@@ -530,9 +530,27 @@
         "categoria": "Navidad"
     },
     {
-        "nombre": "Luces Navideñas Multicolor",
-        "imagen": "img/luces.jpg",
+        "nombre": "Luces Navideñas Blancas (100 luces)",
+        "imagen": "img/lucesblancas.jpg",
         "precio": 5500,
+        "categoria": "Navidad"
+    },
+    {
+        "nombre": "Luces Navideñas Multicolor (100 luces)",
+        "imagen": "img/lucesmulti.jpg",
+        "precio": 5500,
+        "categoria": "Navidad"
+    },
+    {
+        "nombre": "Guirnalda LED Daewo Burbuja Multicolor (20 luces)",
+        "imagen": "img/burbuja.jpg",
+        "precio": 5800,
+        "categoria": "Navidad"
+    },
+     {
+        "nombre": "Guirnalda LED Daewo Burbuja Cálida (20 luces)",
+        "imagen": "img/burbujacalida.jpg",
+        "precio": 5800,
         "categoria": "Navidad"
     },
     {
