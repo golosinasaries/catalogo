@@ -23,3 +23,16 @@
         "precio": 9500,
         "categoria": "Chocolates"
     },
+    {
+        "nombre": "Globo Corazon c/Moño Metalizado 40cm",
+        "imagen": "img/corazonmoño.webp",
+        "precio": 1000,
+        "categoria": "Cotillón"
+    },
+      {
+    "nombre": "Globo Metalizado Santa en Trineo Feliz Navidad 45 cm.",
+    "imagen": "img/santa2.webp",
+    "precio": 900,
+    "categoria": "Cotillón",
+    "categoriasAdicionales": ["Navidad"]
+  },

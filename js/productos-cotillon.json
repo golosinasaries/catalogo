@@ -65,13 +65,6 @@
     "categoriasAdicionales": ["Navidad"]
   },
   {
-    "nombre": "Globo Metalizado Santa en Trineo Feliz Navidad 45 cm.",
-    "imagen": "img/santa2.webp",
-    "precio": 900,
-    "categoria": "Cotillón",
-    "categoriasAdicionales": ["Navidad"]
-  },
-  {
     "nombre": "Blonda 11cm x 10 unidades (Rojo)",
     "imagen": "img/blonda.webp",
     "precio": 1200,
@@ -177,12 +170,6 @@
     "nombre": "GLOBO CONEJO ROSA 18\"",
     "imagen": "img/conejorosa.webp",
     "precio": 900,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Globo Corazon c/Moño Metalizado 40cm",
-    "imagen": "img/corazonmoño.webp",
-    "precio": 1000,
     "categoria": "Cotillón"
   },
   {
