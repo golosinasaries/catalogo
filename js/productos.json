@@ -211,7 +211,7 @@
     },
     {
         "nombre":  "Gomitas de Boca nuevo (30u)",
-        "imagen":  "img/Boca.webp",
+        "imagen":  "img/Boca.png",
         "precio":  9400,
         "categoria":  "Gomitas blandas"
     },
@@ -230,7 +230,7 @@
     },
     {
         "nombre":  "Gomitas de River nuevo (30u)",
-        "imagen":  "img/River.webp",
+        "imagen":  "img/River.png",
         "precio":  9400,
         "categoria":  "Gomitas blandas"
     },
