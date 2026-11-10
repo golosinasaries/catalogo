@@ -145,19 +145,19 @@
   },
   {
     "nombre": "GLOBO BATE 74 CM (Dorado)",
-    "imagen": "img/bate.png",
+    "imagen": "img/bate.webp",
     "precio": 1200,
     "categoria": "Cotillón"
   },
   {
     "nombre": "GLOBO BATE 74 CM (Fucsia)",
-    "imagen": "img/bate.png",
+    "imagen": "img/bate.webp",
     "precio": 1200,
     "categoria": "Cotillón"
   },
   {
     "nombre": "GLOBO BURRO 18\"",
-    "imagen": "img/burro.png",
+    "imagen": "img/burro.webp",
     "precio": 900,
     "categoria": "Cotillón"
   },
@@ -199,19 +199,19 @@
   },
   {
     "nombre": "Globo Emoji 45 cm (Besito)",
-    "imagen": "img/besito.jpeg",
+    "imagen": "img/besito.webp",
     "precio": 900,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Emoji 45 cm (Enamorado)",
-    "imagen": "img/enamorado.jpeg",
+    "imagen": "img/enamorado.webp",
     "precio": 900,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Globo Emoji 45 cm (Lentes)",
-    "imagen": "img/emojilentes.png",
+    "imagen": "img/emojilentes.webp",
     "precio": 900,
     "categoria": "Cotillón"
   },
@@ -247,13 +247,13 @@
   },
   {
     "nombre": "GLOBO FELIZ DIA 10\"",
-    "imagen": "img/felizdia1.png",
+    "imagen": "img/felizdia1.webp",
     "precio": 900,
     "categoria": "Cotillón"
   },
   {
     "nombre": "GLOBO GATITA CORONA 14\"",
-    "imagen": "img/gatitacorona.png",
+    "imagen": "img/gatitacorona.webp",
     "precio": 800,
     "categoria": "Cotillón"
   },
@@ -373,7 +373,7 @@
   },
   {
     "nombre": "Globo mini Whisky 44 cm",
-    "imagen": "img/wisky.jpeg",
+    "imagen": "img/wisky.webp",
     "precio": 950,
     "categoria": "Cotillón"
   },
@@ -511,19 +511,19 @@
   },
   {
     "nombre": "GLOBO OSITO Redondo celeste 18\"",
-    "imagen": "img/globoosito.png",
+    "imagen": "img/globoosito.webp",
     "precio": 900,
     "categoria": "Cotillón"
   },
   {
     "nombre": "GLOBO OSO 18\"",
-    "imagen": "img/oso3.png",
+    "imagen": "img/oso3.webp",
     "precio": 900,
     "categoria": "Cotillón"
   },
   {
     "nombre": "GLOBO PANDA 18\"",
-    "imagen": "img/panda18.png",
+    "imagen": "img/panda18.webp",
     "precio": 900,
     "categoria": "Cotillón"
   },
@@ -625,56 +625,56 @@
   },
   {
     "nombre": "Spiner pelota antiestrés (CLASSIC OPACO)",
-    "imagen": "img/spin.jpg",
+    "imagen": "img/spin.webp",
     "precio": 4500,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Pack x3 Spiner pelota antiestrés (CLASSIC OPACO)",
-    "imagen": "img/spin.jpg",
+    "imagen": "img/spin.webp",
     "video": "img/videospiner_.mp4",
     "precio": 12600,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Librito para pintar Stitch + 6 colores",
-    "imagen": "img/librito1.jpg",
+    "imagen": "img/librito1.webp",
     "precio": 1900,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Librito para pintar K-pop + 6 colores",
-    "imagen": "img/librito4.png",
+    "imagen": "img/librito4.webp",
     "precio": 1900,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Librito para pintar Dragon Ball Z + 6 colores",
-    "imagen": "img/librito5.png",
+    "imagen": "img/librito5.webp",
     "precio": 1900,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Librito para pintar Spiderman + 6 colores",
-    "imagen": "img/librito3.jpg",
+    "imagen": "img/librito3.webp",
     "precio": 1900,
     "categoria": "Cotillón"
   },
    {
     "nombre": "Librito para pintar Capibara + 6 colores",
-    "imagen": "img/librito6.png",
+    "imagen": "img/librito6.webp",
     "precio": 1900,
     "categoria": "Cotillón"
   },
    {
     "nombre": "Librito para pintar Toy Story + 6 colores",
-    "imagen": "img/librito7.png",
+    "imagen": "img/librito7.webp",
     "precio": 1900,
     "categoria": "Cotillón"
   },
   {
     "nombre": "Pack x3 Libritos surtidos para pintar + 18 colores",
-    "imagen": "img/librito2.jpg",
+    "imagen": "img/librito2.webp",
     "precio": 4500,
     "categoria": "Cotillón"
   }

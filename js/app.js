@@ -11,7 +11,7 @@ const ENVIO_GRATIS_DESDE = 120000;
 
 const REGALO_DESDE = 50000;
 const REGALO_NOMBRE = "Chicles WhatsApp Selección Caja x20, 5 chicles cada uno";
-const REGALO_IMAGEN = "img/chicleseleccion.png"
+const REGALO_IMAGEN = "img/chicleseleccion.webp"
 
 const PROMOS_ACTIVAS = ["envio"];
 
@@ -560,17 +560,17 @@ function abrirDetalleProducto(producto, navegar = false, apilar = false) {
 
   
   const fotosMultiplesDetalle = {
-    "Pack x3 Libritos surtidos para pintar + 18 colores": ["img/librito2.jpg", "img/librito6.png", "img/librito3.jpg", "img/librito1.jpg", "img/librito4.png", "img/librito5.png", "img/librito7.png"],
-    "Spiner pelota antiestrés (CLASSIC OPACO)": ["img/videospiner_.mp4","img/spin.jpg"],
-    "Librito para pintar Stitch + 6 colores": ["img/librito1.jpg", "img/librito2.jpg"],
-    "Gomitas Fantasmita (30u)": ["img/fantasmitas.jpg", "img/fantasmitas2.jpg"],
-    "Chicle Globo Tennis Open (30u)": ["img/tennis.webp", "img/tennis.jpeg"],
-    "Gomitas de River (30u)": ["img/river.jpg", "img/videoboca.mp4"],
-    "iPhone Pinball con pastillitas (30u)": ["img/iphone.png", "img/iphone2.png"],
-    "Chupetines con led Unicornio (30u)": ["img/unicornioled1.png", "img/leduni.jpg"],
-    "Chupetines con led Unicornio  30 unidades por pack, caja x10 packs": ["img/unicornioled1.png", "img/leduni.jpg"],
-    "Chupetines con led Mc Donalds (30u)": ["img/mc.jpg", "img/mc2.jpg", "img/mc3.jpeg"],
-    "Chupetines Donas con led (30u)": ["img/donaled1.png", "img/donaled2.png"],
+    "Pack x3 Libritos surtidos para pintar + 18 colores": ["img/librito2.webp", "img/librito6.webp", "img/librito3.webp", "img/librito1.webp", "img/librito4.webp", "img/librito5.webp", "img/librito7.webp"],
+    "Spiner pelota antiestrés (CLASSIC OPACO)": ["img/videospiner_.mp4","img/spin.webp"],
+    "Librito para pintar Stitch + 6 colores": ["img/librito1.webp", "img/librito2.webp"],
+    "Gomitas Fantasmita (30u)": ["img/fantasmitas.webp", "img/fantasmitas2.webp"],
+    "Chicle Globo Tennis Open (30u)": ["img/tennis.webp", "img/tennis.webp"],
+    "Gomitas de River (30u)": ["img/river.webp", "img/videoboca.mp4"],
+    "iPhone Pinball con pastillitas (30u)": ["img/iphone.webp", "img/iphone2.webp"],
+    "Chupetines con led Unicornio (30u)": ["img/unicornioled1.webp", "img/leduni.webp"],
+    "Chupetines con led Unicornio  30 unidades por pack, caja x10 packs": ["img/unicornioled1.webp", "img/leduni.webp"],
+    "Chupetines con led Mc Donalds (30u)": ["img/mc.webp", "img/mc2.webp", "img/mc3.webp"],
+    "Chupetines Donas con led (30u)": ["img/donaled1.webp", "img/donaled2.webp"],
   };
 
   const fotosDetalle = fotosMultiplesDetalle[producto.nombre] || [producto.imagen];
@@ -976,26 +976,26 @@ const variantesSeleccionadas = new Map();
 
 const variantesPorNombre = {
   "Pastillas Alka sabor Menta (12u)": [
-    { nombre: "Pastillas Alka sabor Menta (12u)", imagen: "img/alkamenta.jpeg", precio: 6900 },
-    { nombre: "Pastillas Alka sabor Cherry Mentol (12u)", imagen: "img/alkacherry.jpeg", precio: 6900 }
+    { nombre: "Pastillas Alka sabor Menta (12u)", imagen: "img/alkamenta.webp", precio: 6900 },
+    { nombre: "Pastillas Alka sabor Cherry Mentol (12u)", imagen: "img/alkacherry.webp", precio: 6900 }
   ],
   "Chicle Fierita Globo sabor Frutilla (95u)": [
-    { nombre: "Chicle Fierita Globo sabor Frutilla (95u)", imagen: "img/recargadofrutilla.png", precio: 7900 },
-    { nombre: "Chicle Fierita Globo sabor Menta (95u)", imagen: "img/globomenta.jpg", precio: 7900 }
+    { nombre: "Chicle Fierita Globo sabor Frutilla (95u)", imagen: "img/recargadofrutilla.webp", precio: 7900 },
+    { nombre: "Chicle Fierita Globo sabor Menta (95u)", imagen: "img/globomenta.webp", precio: 7900 }
   ],
   "Chicle Fierita Recargado - Menta (50u)": [
-    { nombre: "Chicle Fierita Recargado - Menta (50u)", imagen: "img/recargadomenta.png", precio: 6900 },
-    { nombre: "Chicle Fierita Recargado - Tutti Frutti (50u)", imagen: "img/fieritarecargado.jpg", precio: 6900 },
-    { nombre: "Chicle Fierita Recargado - Frutilla (50u)", imagen: "img/fieritarecargadofrutilla.png", precio: 6900 }
+    { nombre: "Chicle Fierita Recargado - Menta (50u)", imagen: "img/recargadomenta.webp", precio: 6900 },
+    { nombre: "Chicle Fierita Recargado - Tutti Frutti (50u)", imagen: "img/fieritarecargado.webp", precio: 6900 },
+    { nombre: "Chicle Fierita Recargado - Frutilla (50u)", imagen: "img/fieritarecargadofrutilla.webp", precio: 6900 }
   ],
   "Oblita de Frutilla (48u)": [
-    { nombre: "Oblita de Frutilla (48u)", imagen: "img/oblitafrutilla.jpg", precio: 7500 },
-    { nombre: "Oblita de DDL (48u)", imagen: "img/oblita_ddl.jpg", precio: 7500 },
-    { nombre: "Oblita de Marroc (48u)", imagen: "img/oblita_marroc.jpg", precio: 7500 }
+    { nombre: "Oblita de Frutilla (48u)", imagen: "img/oblitafrutilla.webp", precio: 7500 },
+    { nombre: "Oblita de DDL (48u)", imagen: "img/oblita_ddl.webp", precio: 7500 },
+    { nombre: "Oblita de Marroc (48u)", imagen: "img/oblita_marroc.webp", precio: 7500 }
   ],
   "Pastillas D.R.F Sabor Menta (12u)": [
-    { nombre: "Pastillas D.R.F Sabor Menta (12u)", imagen: "img/drfmenta.jpeg", precio: 6200 },
-    { nombre: "Pastillas D.R.F Sabor Anís (12u)", imagen: "img/drfanis.jpeg", precio: 6200 }
+    { nombre: "Pastillas D.R.F Sabor Menta (12u)", imagen: "img/drfmenta.webp", precio: 6200 },
+    { nombre: "Pastillas D.R.F Sabor Anís (12u)", imagen: "img/drfanis.webp", precio: 6200 }
   ]
 };
 
@@ -1102,8 +1102,8 @@ function renderizarProductos() {
     imagen.className = "imagen-producto";
 
     const fotosMultiples = {
-      "Gomitas Fantasmita (30u)": ["img/fantasmitas.jpg", "img/fantasmitas2.jpg"],
-      "iPhone Pinball con pastillitas (30u)": ["img/iphone.png", "img/iphone2.png"]
+      "Gomitas Fantasmita (30u)": ["img/fantasmitas.webp", "img/fantasmitas2.webp"],
+      "iPhone Pinball con pastillitas (30u)": ["img/iphone.webp", "img/iphone2.webp"]
     };
 
     const fotosProducto = fotosMultiples[productoActual.nombre] || [productoActual.imagen];
@@ -1294,7 +1294,7 @@ carrusel.className = "carrusel-producto";
 
 const imagen = document.createElement("img");
 imagen.className = "imagen-producto";
-imagen.src = "img/logoAries.jpg";
+imagen.src = "img/logoAries.webp";
 imagen.alt = "Golosinas Aries";
 imagen.loading = "lazy";
 imagen.decoding = "async";
