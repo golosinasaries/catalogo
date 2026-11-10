@@ -3481,5 +3481,37 @@ color: #24683a;
   .portada  {
     display: none !important;
   }
-  d
+}
+.boton-principal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  margin-top: 15px;
+  padding: 15px 21px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--rosa-fuerte);
+  color: white;
+  font-weight: 700;
+  font-size: 25px;
+  cursor: pointer;
+  transition: transform .2s, background .2s;
+}
+
+.boton-principal:hover {
+  transform: translateY(-2px);
+  background: var(--rosa-oscuro);
+}
+
+.boton-principal:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.boton-ancho {
+  display: flex;
+  width: 100%;
+  margin: 18px 0 10px;
 }
