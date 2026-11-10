@@ -563,7 +563,7 @@ function abrirDetalleProducto(producto, navegar = false, apilar = false) {
     "Librito para pintar Stitch + 6 colores": ["img/librito1.webp", "img/librito2.webp"],
     "Gomitas Fantasmita (30u)": ["img/fantasmitas.webp", "img/fantasmitas2.webp"],
     "Chicle Globo Tennis Open (30u)": ["img/tennis.webp", "img/tennis.webp"],
-    "Gomitas de River (30u)": ["img/river.webp", "img/videoboca.mp4"],
+    "Gomitas de River (30u)": ["img/river.jpg", "img/videoboca.mp4"],
     "iPhone Pinball con pastillitas (30u)": ["img/iphone.webp", "img/iphone2.webp"],
     "Chupetines con led Unicornio (30u)": ["img/unicornioled1.webp", "img/leduni.webp"],
     "Chupetines con led Unicornio  30 unidades por pack, caja x10 packs": ["img/unicornioled1.webp", "img/leduni.webp"],

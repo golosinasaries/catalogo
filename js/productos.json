@@ -217,14 +217,14 @@
     },
     {
         "nombre":  "Gomitas de Boca (30u)",
-        "imagen":  "img/boca.webp",
+        "imagen":  "img/boca.jpg",
         "precio":  9000,
         "categoria":  "Gomitas blandas",
         "video":  "img/videoboca.mp4"
     },
     {
         "nombre":  "Gomitas de River (30u)",
-        "imagen":  "img/river.webp",
+        "imagen":  "img/river.jpg",
         "precio":  9000,
         "categoria":  "Gomitas blandas"
     },
