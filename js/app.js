@@ -12,7 +12,7 @@ const ENVIO_GRATIS_DESDE = 120000;
 const REGALO_DESDE = 50000;
 const REGALO_NOMBRE = "Chicles WhatsApp Selección Caja x20, 5 chicles cada uno";
 const REGALO_IMAGEN = "img/chicleseleccion.png"
-// Las promociones se pueden activar o desactivar independientemente.
+
 const PROMOS_ACTIVAS = ["envio"];
 
 
@@ -1994,7 +1994,10 @@ elementos.categorias.querySelectorAll(".categoria").forEach((boton) => {
     });
 
     renderizarProductos();
-    document.querySelector("#catalogo").scrollIntoView({ behavior: "smooth", block: "start" });
+    window.scrollTo({
+      top: elementos.productos.getBoundingClientRect().top + window.scrollY - 280,
+      behavior: "smooth"
+    });
   });
 });
 
