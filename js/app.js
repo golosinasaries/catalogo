@@ -300,7 +300,24 @@ function cerrarDetalleProducto(desdeHistorial = false) {
     return;
   }
 
+  const nombreProducto = fondo.querySelector(
+  "#titulo-detalle-producto"
+)?.textContent;
+
   fondo.remove();
+
+  requestAnimationFrame(() => {
+    const tarjeta = [...elementos.productos.querySelectorAll(".tarjeta-producto")]
+      .find(item =>
+        item.getAttribute("aria-label") ===
+        "Ver detalle de " + nombreProducto
+      );
+
+    tarjeta?.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+  });
 }
 
 
@@ -561,7 +578,7 @@ function abrirDetalleProducto(producto, navegar = false, apilar = false) {
     "Pack x3 Libritos surtidos para pintar + 18 colores": ["img/librito2.webp", "img/librito6.webp", "img/librito3.webp", "img/librito1.webp", "img/librito4.webp", "img/librito5.webp", "img/librito7.webp"],
     "Spiner pelota antiestrés (CLASSIC OPACO)": ["img/videospiner_.mp4","img/spin.webp"],
     "Librito para pintar Stitch + 6 colores": ["img/librito1.webp", "img/librito2.webp"],
-    "Gomitas Fantasmita (30u)": ["img/fantasmitas.webp", "img/fantasmitas2.webp"],
+    "Gomitas Fantasmita (30u)": ["img/fantasmitas.webp", "img/gomitas_fantasma_mejorada.webp"],
     "Chicle Globo Tennis Open (30u)": ["img/tennis.webp", "img/tennis.webp"],
     "Gomitas de River (30u)": ["img/river.jpg", "img/videoboca.mp4"],
     "Gomitas de Boca (30u)": ["img/boca.jpg", "img/videoboca.mp4"],
@@ -936,7 +953,20 @@ precio.textContent = String(producto.categoria || "").toLocaleLowerCase("es-AR")
       return coincideCategoria && coincideBusqueda;
     });
     if (productosVisibles.length < 2) return;
-    const indiceActual = productosVisibles.indexOf(producto);
+    const varianteActual = Object.entries(variantesPorNombre)
+      .find(([nombreBase, opciones]) =>
+        opciones.some(opcion => opcion.nombre === producto.nombre)
+      );
+
+    const nombreActual = varianteActual
+      ? varianteActual[0]
+      : producto.nombre;
+
+    const idActual = String(producto.id).replace(/-variante-\d+$/, "");
+
+    const indiceActual = productosVisibles.findIndex(item =>
+      String(item.id) === idActual || item.nombre === nombreActual
+    );
     const indiceAnterior = indiceActual < 0 ? productosVisibles.length - 1 : (indiceActual - 1 + productosVisibles.length) % productosVisibles.length;
     abrirDetalleProducto(productosVisibles[indiceAnterior], true);
   });
@@ -945,17 +975,73 @@ precio.textContent = String(producto.categoria || "").toLocaleLowerCase("es-AR")
   siguiente.type = "button";
   siguiente.className = "siguiente-producto-detalle";
   siguiente.textContent = "Siguiente producto \u2192";
+  
   siguiente.addEventListener("click", () => {
-    const productosVisibles = estado.productos.filter((productoCatalogo) => {
-      if (productoCatalogo.oculto === true) return false;
-      const coincideCategoria = Boolean(estado.busqueda) || estado.categoria === "Todas" || productoTieneCategoria(productoCatalogo, estado.categoria);
-      const coincideBusqueda = productoCatalogo.nombre.toLocaleLowerCase("es-AR").includes(estado.busqueda.toLocaleLowerCase("es-AR"));
-      return coincideCategoria && coincideBusqueda;
-    });
+  const nombresVariantesSecundarias = new Set(
+    Object.values(variantesPorNombre).flatMap(variantes =>
+      variantes.slice(1).map(variante => variante.nombre)
+    )
+  );
+
+  const productosVisibles = estado.productos.filter(p => {
+    if (p.oculto === true) return false;
+    if (nombresVariantesSecundarias.has(p.nombre)) return false;
+
+    const coincideCategoria = Boolean(estado.busqueda) ||
+      estado.categoria === "Todas" ||
+      productoTieneCategoria(p, estado.categoria);
+
+    const coincideBusqueda = p.nombre.toLocaleLowerCase("es-AR")
+      .includes(estado.busqueda.toLocaleLowerCase("es-AR"));
+
+    return coincideCategoria && coincideBusqueda;
+  });
+
     if (productosVisibles.length < 2) return;
-    const indiceActual = productosVisibles.indexOf(producto);
-    const indiceSiguiente = indiceActual < 0 ? 0 : (indiceActual + 1) % productosVisibles.length;
-    abrirDetalleProducto(productosVisibles[indiceSiguiente], true);
+
+    const varianteActual = Object.entries(variantesPorNombre)
+      .find(([nombreBase, opciones]) =>
+        opciones.some(opcion => opcion.nombre === producto.nombre)
+      );
+
+    const nombreBaseActual = varianteActual
+      ? varianteActual[0]
+      : producto.nombre;
+
+    const idBaseActual = String(producto.id).replace(/-variante-\d+$/, "");
+
+    const indiceActual = productosVisibles.findIndex(p =>
+      String(p.id) === idBaseActual || p.nombre === nombreBaseActual
+    );
+
+    if (indiceActual < 0) return;
+
+    const siguienteBase = productosVisibles[
+      (indiceActual + 1) % productosVisibles.length
+    ];
+
+    const variantes = variantesPorNombre[siguienteBase.nombre];
+
+    if (variantes && variantes.length > 0) {
+      const indice = (variantesSeleccionadas.get(siguienteBase.id) ?? 0) % variantes.length;
+      const variante = variantes[indice];
+
+      const productoSiguiente = {
+        ...siguienteBase,
+        ...variante,
+        agotado: (Object.prototype.hasOwnProperty.call(variante, "agotado")
+          ? variante.agotado === true
+          : indice === 0 && siguienteBase.agotado === true) ||
+          obtenerStockMaximo({ ...siguienteBase, ...variante }) === 0,
+        id: indice === 0
+          ? siguienteBase.id
+          : `${siguienteBase.id}-variante-${indice}`
+      };
+
+      abrirDetalleProducto(productoSiguiente, true);
+    } else {
+      abrirDetalleProducto(siguienteBase, true);
+    }
   });
 
   navegacion.append(anterior, siguiente);
