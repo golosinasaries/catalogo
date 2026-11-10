@@ -397,7 +397,7 @@ function abrirImagenPantallaCompleta(imagenOriginal, productoInicial = null) {
 
       const categoriaCoincide =
         Boolean(estado.busqueda) ||
-        (estado.categoria === "Todas" && !esCotillon) ||
+        estado.categoria === "Todas" ||
         productoTieneCategoria(p, estado.categoria);
 
 
@@ -1003,13 +1003,10 @@ function renderizarProductos() {
   const filtrados = estado.productos.filter((producto) => {
     if (producto.oculto === true) return false;
 
-    
-    const esCotillon = productoTieneCategoria(producto, "Cotillón");
-
     const coincideCategoria =
-      Boolean(estado.busqueda) ||
-      (estado.categoria === "Todas" && !esCotillon) ||
-      productoTieneCategoria(producto, estado.categoria);
+    Boolean(estado.busqueda) ||
+    estado.categoria === "Todas" ||
+    productoTieneCategoria(producto, estado.categoria);
 
     const coincideBusqueda = producto.nombre
       .toLocaleLowerCase("es-AR")
@@ -1284,77 +1281,6 @@ function renderizarProductos() {
 
     elementos.productos.append(tarjeta);
   });
-
-  if (false && estado.categoria === "Todas" && !estado.busqueda) {
-  const tarjetaGlobos = document.createElement("article");
-  tarjetaGlobos.className = "tarjeta-producto tarjeta-interactiva";
-  tarjetaGlobos.tabIndex = 0;
-  tarjetaGlobos.setAttribute("role", "button");
-  tarjetaGlobos.setAttribute("aria-label", "Ver sección Cotillón");
-
-  const carruselGlobos = document.createElement("div");
-  carruselGlobos.className = "carrusel-producto";
-
-  const imagenGlobos = document.createElement("img");
-  imagenGlobos.className = "imagen-producto";
-  imagenGlobos.src = "img/globosgrandes1.jpeg";
-  imagenGlobos.alt = "Cotillón";
-  imagenGlobos.loading = "lazy";
-  imagenGlobos.decoding = "async";
-
-  carruselGlobos.append(imagenGlobos);
-
-  const contenidoGlobos = document.createElement("div");
-contenidoGlobos.className = "contenido-producto";
-
-const nombreGlobos = document.createElement("h3");
-nombreGlobos.textContent = "🎉 COTILLÓN";
-nombreGlobos.className = "titulo-cotillon";
-
-const descripcionGlobos = document.createElement("span");
-descripcionGlobos.className = "etiqueta-producto";
-descripcionGlobos.textContent = "Globos y decoración";
-
-const botonVerTodo = document.createElement("div");
-botonVerTodo.className = "agregar-producto";
-botonVerTodo.style.display = "flex";
-botonVerTodo.style.alignItems = "center";
-botonVerTodo.style.justifyContent = "center";
-botonVerTodo.style.textAlign = "center";
-botonVerTodo.textContent = "VER TODO →";
-
-contenidoGlobos.append(descripcionGlobos, nombreGlobos, botonVerTodo);
-tarjetaGlobos.append(carruselGlobos, contenidoGlobos);
-
-  const abrirGlobos = () => {
-    const botonGlobos = elementos.categorias.querySelector(
-      '.categoria[data-categoria="Cotillón"]'
-    );
-    botonGlobos?.click();
-  };
-
-  tarjetaGlobos.addEventListener("click", abrirGlobos);
-
-  tarjetaGlobos.addEventListener("keydown", (evento) => {
-    if (evento.key === "Enter" || evento.key === " ") {
-        evento.preventDefault();
-        abrirGlobos();
-      }
-    });
-
-    elementos.productos.prepend(tarjetaGlobos);
-
-    const tarjetaGlobosFinal = tarjetaGlobos.cloneNode(true);
-    tarjetaGlobosFinal.addEventListener("click", abrirGlobos);
-    tarjetaGlobosFinal.addEventListener("keydown", (evento) => {
-      if (evento.key === "Enter" || evento.key === " ") {
-        evento.preventDefault();
-        abrirGlobos();
-      }
-    });
-
-    elementos.productos.append(tarjetaGlobosFinal);
-}
 
 if (estado.categoria === "Cotillón" && !estado.busqueda) {
   const tarjetaGolosinas = document.createElement("article");
