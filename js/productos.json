@@ -21,7 +21,7 @@
         "nombre": "Gomitas Yummy Dientes 500g",
         "imagen": "img/yummydientes.jpeg",
         "precio": 8500,
-        "categoria": "Gomitas"
+        "categoria": "Gomitas 500g"
     },
     {
         "nombre": "Mielcitas (50u)",
@@ -430,7 +430,7 @@
         "nombre":  "Gomitas RiCo Más 500g",
         "imagen":  "img/ricomas.jpg",
         "precio":  6900,
-        "categoria":  "Gomitas 500 g"
+        "categoria":  "Gomitas 500g"
     },
     {
         "nombre": "Bombuchas (100u)",
