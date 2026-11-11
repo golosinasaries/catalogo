@@ -1,4 +1,4 @@
-[ 
+[
   {
     "nombre": "Globo Redondo Metalizado 45cm (Violeta)",
     "imagen": "img/redondovioleta.webp",
@@ -34,35 +34,45 @@
     "imagen": "img/felizanio1.webp",
     "precio": 900,
     "categoria": "Cotillón",
-    "categoriasAdicionales": ["Navidad"]
+    "categoriasAdicionales": [
+      "Navidad"
+    ]
   },
   {
     "nombre": "Globo Metalizado Feliz Año Nuevo 2 Black & Gold 45 cm.",
     "imagen": "img/feliz2.webp",
     "precio": 900,
     "categoria": "Cotillón",
-    "categoriasAdicionales": ["Navidad"]
+    "categoriasAdicionales": [
+      "Navidad"
+    ]
   },
   {
     "nombre": "Globo Metalizado Feliz Navidad rojo 45 cm.",
     "imagen": "img/navidadrojo.webp",
     "precio": 900,
     "categoria": "Cotillón",
-    "categoriasAdicionales": ["Navidad"]
+    "categoriasAdicionales": [
+      "Navidad"
+    ]
   },
   {
     "nombre": "Globo Feliz Navidad verde 45 cm.",
     "imagen": "img/navidad1.webp",
     "precio": 900,
     "categoria": "Cotillón",
-    "categoriasAdicionales": ["Navidad"]
+    "categoriasAdicionales": [
+      "Navidad"
+    ]
   },
   {
     "nombre": "Globo Metalizado Navidad Santa 45 cm.",
     "imagen": "img/santa1.webp",
     "precio": 900,
     "categoria": "Cotillón",
-    "categoriasAdicionales": ["Navidad"]
+    "categoriasAdicionales": [
+      "Navidad"
+    ]
   },
   {
     "nombre": "Blonda 11cm x 10 unidades (Rojo)",
@@ -647,13 +657,13 @@
     "precio": 1900,
     "categoria": "Cotillón"
   },
-   {
+  {
     "nombre": "Librito para pintar Capibara + 6 colores",
     "imagen": "img/librito6.webp",
     "precio": 1900,
     "categoria": "Cotillón"
   },
-   {
+  {
     "nombre": "Librito para pintar Toy Story + 6 colores",
     "imagen": "img/librito7.webp",
     "precio": 1900,
