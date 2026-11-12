@@ -349,6 +349,12 @@
         "categoria": "Chicles"
     },
     {
+        "nombre": "Chicle Fierita Recargado - Frutilla (50u)",
+        "imagen": "img/fieritarecargadofrutilla.webp",
+        "precio": 6900,
+        "categoria": "Chicles"
+    },
+    {
         "nombre": "Chicle Fierita Recargado - Tutti Frutti (50u)",
         "imagen": "img/fieritarecargado.webp",
         "precio": 6900,

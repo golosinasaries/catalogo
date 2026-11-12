@@ -597,6 +597,18 @@
     "categoria": "Cotillón"
   },
   {
+    "nombre": "Globo Unicornio redondo 45cm",
+    "imagen": "img/globounicornio.png",
+    "precio": 990,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Globo Harry Potter 45cm",
+    "imagen": "img/harry.png",
+    "precio": 990,
+    "categoria": "Cotillón"
+  },
+  {
     "nombre": "GUIRNALDA FELIZ CUMPLE BROWNS",
     "imagen": "img/fcb.webp",
     "precio": 1300,
