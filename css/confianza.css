@@ -1,36 +1,57 @@
 .seccion-confianza {
   width: 100%;
-  margin: 0;
-  padding: 16px 8px;
-  text-align: center;
-  background: transparent;
+  padding: 45px 24px;
+  background: linear-gradient(135deg, #fff5f0, #fff0f5);
 }
 
 .confianza-contenido {
   width: 100%;
-  max-width: 100%;
-  margin: 0;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  grid-template-areas:
+    "etiqueta video"
+    "titulo video"
+    "descripcion video"
+    "final video"
+    "boton video";
+  column-gap: 55px;
+  align-items: center;
+  text-align: left;
+}
+
+.confianza-contenido > .etiqueta {
+  grid-area: etiqueta;
+  justify-self: start;
 }
 
 .confianza-contenido h2 {
-  margin: 5px 0;
-  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  grid-area: titulo;
+  margin: 10px 0;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  line-height: 1.2;
   color: #333;
 }
 
-.confianza-contenido p {
-  margin: 6px auto 10px;
+.confianza-contenido > p:not(.confianza-final) {
+  grid-area: descripcion;
+  margin: 8px 0 18px;
   color: #555;
-  line-height: 1.4;
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
 .video-confianza {
+  grid-area: video;
   width: 100%;
-  max-width: 267px;
-  margin: 10px auto;
+  max-width: 300px;
+  margin: 0 auto;
   overflow: hidden;
-  border-radius: 12px;
+  border: 5px solid #fff;
+  border-radius: 20px;
   background: #000;
+  box-shadow: 0 12px 35px rgba(80, 40, 60, 0.18);
 }
 
 .video-confianza iframe {
@@ -42,17 +63,49 @@
 }
 
 .confianza-contenido .confianza-final {
-  margin: 10px 0;
+  grid-area: final;
+  margin: 12px 0 20px;
+  color: #555;
   font-weight: 600;
+}
+
+.confianza-contenido > .boton-principal {
+  grid-area: boton;
+  justify-self: start;
 }
 
 @media (max-width: 600px) {
   .seccion-confianza {
-    padding: 12px 5px;
+    padding: 28px 16px;
+  }
+
+  .confianza-contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .confianza-contenido > .etiqueta {
+    align-self: center;
+  }
+
+  .confianza-contenido h2 {
+    font-size: 1.5rem;
+  }
+
+  .confianza-contenido > p:not(.confianza-final) {
+    font-size: 0.95rem;
   }
 
   .video-confianza {
     max-width: 250px;
+    margin: 12px auto;
+  }
+
+  .confianza-contenido > .boton-principal {
+    align-self: center;
   }
 }
 

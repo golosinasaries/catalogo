@@ -23,6 +23,12 @@
         "precio": 9500,
         "categoria": "Chocolates"
     },
+      {
+        "nombre": "Campanitas Rojas (10 u)",
+        "imagen": "img/campanas.webp",
+        "precio": 4500,
+        "categoria": "Navidad"
+    },
     {
         "nombre": "Globo Corazon c/Moño Metalizado 40cm",
         "imagen": "img/corazonmoño.webp",

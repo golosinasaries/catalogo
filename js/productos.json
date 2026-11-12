@@ -512,15 +512,27 @@
         "categoria": "Otros"
     },
     {
+        "nombre": "Árbol de Navidad 1,20 m (90 ramas)",
+        "imagen": "img/arbol.png",
+        "precio": 11900,
+        "categoria": "Navidad"
+    },
+    {
         "nombre": "Adorno navideño (12 pcs)",
         "imagen": "img/adorno12.webp",
         "precio": 5800,
         "categoria": "Navidad"
     },
     {
-        "nombre": "Campanitas Rojas (10 u)",
-        "imagen": "img/campanas.webp",
-        "precio": 4500,
+        "nombre": "Adorno navideño Santa",
+        "imagen": "img/adornobronce.jpeg",
+        "precio": 14900,
+        "categoria": "Navidad"
+    },
+    {
+        "nombre": "Cintas navideñas",
+        "imagen": "img/cintas.jpeg",
+        "precio": 5300,
         "categoria": "Navidad"
     },
     {
@@ -548,8 +560,50 @@
         "categoria": "Navidad"
     },
     {
+        "nombre": "Guirnalda Led Flor cálida (20 luces)",
+        "imagen": "img/flocalida.jpg",
+        "precio": 5900,
+        "categoria": "Navidad"
+    },
+    {
+        "nombre": "Guirnalda Led Flor multicolor (20 luces)",
+        "imagen": "img/florled.jpg",
+        "precio": 5900,
+        "categoria": "Navidad"
+    },
+    {
+        "nombre": "Guirnalda Led Estrella multicolor (20 luces)",
+        "imagen": "img/estrellaled.jpg",
+        "precio": 5900,
+        "categoria": "Navidad"
+    },
+    {
+        "nombre": "Guirnalda Led Copo de Nieve multicolor (20 luces)",
+        "imagen": "img/copoled.jpg",
+        "precio": 5900,
+        "categoria": "Navidad"
+    },
+    {
+        "nombre": "Guirnalda Luz Corcho cálida (20 luces)",
+        "imagen": "img/corcho.png",
+        "precio": 1990,
+        "categoria": "Navidad"
+    },
+    {
         "nombre": "Luz solar Libélula (30 luces)",
         "imagen": "img/lubelula.webp",
+        "precio": 15000,
+        "categoria": "Navidad"
+    },
+     {
+        "nombre": "Luz solar Flor multicolor 5 mts (30 luces)",
+        "imagen": "img/solarflor.jpeg",
+        "precio": 15000,
+        "categoria": "Navidad"
+    },
+     {
+        "nombre": "Luz solar Flor cálida 5 mts (30 luces)",
+        "imagen": "img/florsolarcalida.png",
         "precio": 15000,
         "categoria": "Navidad"
     },
