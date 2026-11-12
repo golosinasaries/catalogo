@@ -1,0 +1,2 @@
+"use strict";(globalThis.__LOADABLE_LOADED_CHUNKS__||=[]).push([[21336],{87523(s,i,l){l.r(i);var e=l(96540),t=l(46942),n=l.n(t),o=l(75656),c=l(74848);const a=o.iconList.IconPolyStarFill,r=s=>{let{className:i=""}=s;return(0,c.jsx)("svg",{className:n()("ui-pdp-icon ui-pdp-icon--star-full",i),width:"10",height:"10",viewBox:"0 0 10 10",fill:"none",children:(0,c.jsx)("use",{href:`#${a}`})})};r.ICON_ID=a;const u=(0,e.memo)(r);l.d(i,["default",0,u])}}]);
+//# sourceMappingURL=poly_star_fill.b95bb6c7.js.map

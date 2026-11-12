@@ -585,6 +585,18 @@
     "categoria": "Cotillón"
   },
   {
+    "nombre": "Globo Sonic 45cm",
+    "imagen": "img/sonic.png",
+    "precio": 990,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Globo 2 Sonic 45cm",
+    "imagen": "img/sonic2.png",
+    "precio": 990,
+    "categoria": "Cotillón"
+  },
+  {
     "nombre": "GUIRNALDA FELIZ CUMPLE BROWNS",
     "imagen": "img/fcb.webp",
     "precio": 1300,
@@ -675,4 +687,5 @@
     "precio": 4500,
     "categoria": "Cotillón"
   }
+  
 ]

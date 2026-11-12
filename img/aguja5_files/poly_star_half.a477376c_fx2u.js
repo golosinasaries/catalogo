@@ -1,0 +1,2 @@
+"use strict";(globalThis.__LOADABLE_LOADED_CHUNKS__||=[]).push([[27020],{96311(s,e,i){i.r(e);var l=i(96540),t=i(46942),a=i.n(t),n=i(75656),o=i(74848);const c=n.iconList.IconPolyStarHalf,r=s=>{let{className:e=""}=s;return(0,o.jsx)("svg",{className:a()("ui-pdp-icon ui-pdp-icon--star-half",e),width:"10",height:"10",viewBox:"0 0 10 10",fill:"none",children:(0,o.jsx)("use",{href:`#${c}`})})};r.ICON_ID=c;const h=(0,l.memo)(r);i.d(e,["default",0,h])}}]);
+//# sourceMappingURL=poly_star_half.a477376c.js.map

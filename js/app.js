@@ -588,6 +588,7 @@ function abrirDetalleProducto(producto, navegar = false, apilar = false) {
     "Chupetines con led Unicornio  30 unidades por pack, caja x10 packs": ["img/unicornioled1.webp", "img/leduni.webp"],
     "Chupetines con led Mc Donalds (30u)": ["img/mc.webp", "img/mc2.webp", "img/mc3.webp"],
     "Chupetines Donas con led (30u)": ["img/donaled1.webp", "img/donaled2.webp"],
+    "Set Canasta Chica De Agujas De Coser - 19 Agujas Y Enebrador": ["img/aguja1.webp","img/aguja2.webp","img/aguja16.webp","img/aguja7.webp"],
   };
 
   const fotosDetalle = fotosMultiplesDetalle[producto.nombre] || [producto.imagen];

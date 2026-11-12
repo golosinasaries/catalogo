@@ -1,0 +1,2 @@
+"use strict";(globalThis.__LOADABLE_LOADED_CHUNKS__||=[]).push([[94280],{44979(s,t,e){e.r(t);var i=e(96540),n=e(46942),a=e.n(n),c=e(75656),r=e(74848);const o=c.iconList.IconCartA2C,l=s=>{let{className:t=""}=s;return(0,r.jsx)("svg",{className:a()("ui-pdp-icon ui-pdp-icon--cart-a2c",t),width:"20",height:"20",viewBox:"0 0 20 20",fill:"none",xmlns:"http://www.w3.org/2000/svg","aria-hidden":"true",children:(0,r.jsx)("use",{href:`#${o}`})})};l.ICON_ID=o;const h=(0,i.memo)(l);e.d(t,["IconCartA2C",0,l,"default",0,h])}}]);
+//# sourceMappingURL=icon_cart_a2c.abfee4ca.js.map

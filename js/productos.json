@@ -469,6 +469,12 @@
         "precio": 12600,
         "categoria": "Otros"
     },
+     {
+        "nombre": "Cubo Magico",
+        "imagen": "img/cubo.png",
+        "precio": 1500,
+        "categoria": "Otros"
+    },
     {
         "nombre": "Librito para pintar Stitch + 6 colores",
         "imagen": "img/librito1.webp",
@@ -509,6 +515,12 @@
         "nombre": "Pack x3 Libritos surtidos para pintar + 18 colores",
         "imagen": "img/librito2.webp",
         "precio": 4500,
+        "categoria": "Otros"
+    },
+    {
+        "nombre": "Set Canasta Chica De Agujas De Coser - 19 Agujas Y Enebrador",
+        "imagen": "img/aguja1.webp",
+        "precio": 1300,
         "categoria": "Otros"
     },
     {

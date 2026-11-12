@@ -1,0 +1,2 @@
+"use strict";(globalThis.__LOADABLE_LOADED_CHUNKS__||=[]).push([[12976],{38251(s,e,i){i.r(e);var t=i(96540),c=i(46942),u=i.n(c),n=i(75656),o=i(74848);const r=n.iconList.IconFastTruckMedium,d=s=>{let{className:e=""}=s;return(0,o.jsx)("svg",{className:u()("ui-pdp-icon ui-pdp-icon--rounded-truck-medium",e),xmlns:"http://www.w3.org/2000/svg",width:"30",height:"30",viewBox:"0 0 30 30",children:(0,o.jsx)("use",{href:`#${r}`})})};d.ICON_ID=r;const a=(0,t.memo)(d);i.d(e,["IconFastTruckMedium",0,d,"default",0,a])}}]);
+//# sourceMappingURL=rounded_truck_medium.7eeb850d.js.map

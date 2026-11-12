@@ -1,0 +1,2 @@
+"use strict";(globalThis.__LOADABLE_LOADED_CHUNKS__||=[]).push([[78542],{79945(e,n,o){o.r(n);var s=o(96540),c=o(46942),d=o.n(c),i=o(75656),t=o(74848);const r=i.iconList.IconCouponUnredeemed,u=e=>{let{className:n=""}=e;return(0,t.jsx)("svg",{width:"20",height:"20",viewBox:"0 0 20 20",xmlns:"http://www.w3.org/2000/svg",className:d()("ui-pdp-icon ui-pdp-icon--coupon_unredeemed",n),children:(0,t.jsx)("use",{href:`#${r}`})})};u.ICON_ID=r;const p=(0,s.memo)(u);o.d(n,["IconCouponUnredeemed",0,u,"default",0,p])}}]);
+//# sourceMappingURL=coupon_unredeemed.5cd137e0.js.map
