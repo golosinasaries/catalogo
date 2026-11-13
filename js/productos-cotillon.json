@@ -123,6 +123,24 @@
     "categoria": "Cotillón"
   },
   {
+    "nombre": "Globo Animalitos (Vaca)",
+    "imagen": "img/vaca.png",
+    "precio": 900,
+    "categoria": "Cotillón"
+  },
+   {
+    "nombre": "Globo Paw Patrol",
+    "imagen": "img/pawpatrol.webp",
+    "precio": 900,
+    "categoria": "Cotillón"
+  },
+   {
+    "nombre": "Globo Mickey",
+    "imagen": "img/mickey.png",
+    "precio": 990,
+    "categoria": "Cotillón"
+  },
+  {
     "nombre": "Globo Animalitos 40cm (Tigre)",
     "imagen": "img/tigre40.webp",
     "precio": 900,
@@ -613,7 +631,19 @@
     "imagen": "img/globobebe.png",
     "precio": 990,
     "categoria": "Cotillón"
-  }, 
+  },
+  {
+    "nombre": "Globo Batman 45cm",
+    "imagen": "img/batman.png",
+    "precio": 990,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Globo Granja de Zenon 45cm",
+    "imagen": "img/granja.png",
+    "precio": 990,
+    "categoria": "Cotillón"
+  },
   {
     "nombre": "Globo Harry Potter 45cm",
     "imagen": "img/harry.png",
@@ -648,12 +678,6 @@
     "nombre": "Mini Luz LED Decorativa 1,4 cm (Multicolor)",
     "imagen": "img/miniluz.webp",
     "precio": 900,
-    "categoria": "Cotillón"
-  },
-  {
-    "nombre": "Rompecabezas Plastico 6*7cm",
-    "imagen": "img/rompecabezas.webp",
-    "precio": 1200,
     "categoria": "Cotillón"
   },
   {
@@ -711,5 +735,4 @@
     "precio": 4500,
     "categoria": "Cotillón"
   }
-  
 ]

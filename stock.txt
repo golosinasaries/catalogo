@@ -23,6 +23,12 @@
         "precio": 9500,
         "categoria": "Chocolates"
     },
+     {
+    "nombre": "Rompecabezas Plastico 6*7cm",
+    "imagen": "img/rompecabezas.webp",
+    "precio": 1200,
+    "categoria": "Cotillón"
+  },
       {
         "nombre": "Campanitas Rojas (10 u)",
         "imagen": "img/campanas.webp",
@@ -30,11 +36,12 @@
         "categoria": "Navidad"
     },
      {
-        "nombre": "Globo Batman 45cm",
-        "imagen": "img/globobatman.png",
+        "nombre": "Globo Minnie",
+        "imagen": "img/minnie.png",
         "precio": 990,
         "categoria": "Cotillón"
     },
+    
     {
         "nombre": "Globo Estrella azul 14 Puntas Metalizadas 45cm 4d",
         "imagen": "img/globoestrellaazul.webp",
