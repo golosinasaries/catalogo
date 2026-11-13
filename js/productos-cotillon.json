@@ -556,7 +556,7 @@
   },
   {
     "nombre": "Globo Unicornio 4D 65 cm",
-    "imagen": "img/unicornio.webp",
+    "imagen": "img/globosgrandes2.webp",
     "precio": 1800,
     "categoria": "Cotillón"
   },
@@ -602,6 +602,18 @@
     "precio": 990,
     "categoria": "Cotillón"
   },
+  {
+    "nombre": "Globo Boca 45cm",
+    "imagen": "img/globoboca.png",
+    "precio": 990,
+    "categoria": "Cotillón"
+  },
+  {
+    "nombre": "Globo Bebe 45cm",
+    "imagen": "img/globobebe.png",
+    "precio": 990,
+    "categoria": "Cotillón"
+  }, 
   {
     "nombre": "Globo Harry Potter 45cm",
     "imagen": "img/harry.png",

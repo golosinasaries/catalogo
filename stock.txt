@@ -29,6 +29,18 @@
         "precio": 4500,
         "categoria": "Navidad"
     },
+     {
+        "nombre": "Globo Batman 45cm",
+        "imagen": "img/globobatman.png",
+        "precio": 990,
+        "categoria": "Cotillón"
+    },
+    {
+        "nombre": "Globo Estrella azul 14 Puntas Metalizadas 45cm 4d",
+        "imagen": "img/globoestrellaazul.webp",
+        "precio": 990,
+        "categoria": "Cotillón"
+    },
     {
         "nombre": "Globo Corazon c/Moño Metalizado 40cm",
         "imagen": "img/corazonmoño.webp",
