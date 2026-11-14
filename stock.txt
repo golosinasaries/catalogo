@@ -35,6 +35,8 @@
         "precio": 1200,
         "categoria": "Cotillón"
     },
+
+    “UNO” juego de cartas
       {
         "nombre": "Campanitas Rojas (10 u)",
         "imagen": "img/campanas.webp",
