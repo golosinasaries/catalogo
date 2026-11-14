@@ -24,11 +24,17 @@
         "categoria": "Chocolates"
     },
      {
-    "nombre": "Rompecabezas Plastico 6*7cm",
-    "imagen": "img/rompecabezas.webp",
-    "precio": 1200,
-    "categoria": "Cotillón"
-  },
+        "nombre": "Gomitas Fantasmita (30u)",
+        "imagen": "img/fantasmitas.webp",
+        "precio": 9400,
+        "categoria": "Gomitas blandas"
+    },
+     {
+        "nombre": "Rompecabezas Plastico 6*7cm",
+        "imagen": "img/rompecabezas.webp",
+        "precio": 1200,
+        "categoria": "Cotillón"
+    },
       {
         "nombre": "Campanitas Rojas (10 u)",
         "imagen": "img/campanas.webp",
