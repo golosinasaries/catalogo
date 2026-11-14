@@ -19,6 +19,7 @@ const PROMOS_ACTIVAS = ["envio"];
 const STOCK_PRODUCTOS = {
   "Mielcitas (50u)": 0,
   "Caramelos Super Acidos Lipo (454 g)": 2,
+  "Rompecabezas Plastico 6*7cm": 1,
   "Mini Luz LED Decorativa 1,4 cm (Multicolor)": 4,
   "GLOBO BATE 74 CM (Dorado)": 0,
   "GLOBO BATE 74 CM (Fucsia)": 0,

@@ -482,6 +482,12 @@
         "categoria": "Otros"
     },
     {
+        "nombre": "Rompecabezas Plastico 6*7cm",
+        "imagen": "img/rompecabezas.webp",
+        "precio": 1200,
+        "categoria": "Cotillón"
+    },
+    {
         "nombre": "Librito para pintar K-pop + 6 colores",
         "imagen": "img/librito4.webp",
         "precio": 1900,
