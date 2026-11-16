@@ -10,10 +10,10 @@ const MINIMO_COMPRA = 10000;
 const ENVIO_GRATIS_DESDE = 120000;
 
 const REGALO_DESDE = 50000;
-const REGALO_NOMBRE = "Chicles WhatsApp Selección Caja x20, 5 chicles cada uno";
-const REGALO_IMAGEN = "img/chicleseleccion.webp"
+const REGALO_NOMBRE = "Pastillitas Lucky (385 g)";
+const REGALO_IMAGEN = "img/jucky.webp"
 
-const PROMOS_ACTIVAS = ["envio"];
+const PROMOS_ACTIVAS = ["envio", "regalo"];
 
 
 const STOCK_PRODUCTOS = {
