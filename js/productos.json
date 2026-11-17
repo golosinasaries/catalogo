@@ -241,12 +241,6 @@
         "categoria": "Alcancias"
     },
     {
-        "nombre": "Alcancí­a Tigre Amarillo (con 12 gelatinas en su interior)",
-        "imagen": "img/tigreamarillo.webp",
-        "precio": 6900,
-        "categoria": "Alcancias"
-    },
-    {
         "nombre": "Gomitas Frutillas (30u)",
         "imagen": "img/frutilla.webp",
         "precio": 9400,
@@ -769,7 +763,7 @@
                 "precio": 9400
             },
             {
-                "nombre": "Alcancí­a Tigre Amarillo (con 12 gelatinas en su interior)",
+                "nombre": "Alcancí­a Pollito Amarillo (con 12 gelatinas en su interior)",
                 "precio": 6900
             },
             {

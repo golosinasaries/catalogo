@@ -35,6 +35,12 @@
         "precio": 1200,
         "categoria": "Cotillón"
     },
+     {
+        "nombre": "Alcancí­a Tigre Amarillo (con 12 gelatinas en su interior)",
+        "imagen": "img/tigreamarillo.webp",
+        "precio": 6900,
+        "categoria": "Alcancias"
+    },
 
     “UNO” juego de cartas
       {
