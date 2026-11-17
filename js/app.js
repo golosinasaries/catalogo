@@ -13,7 +13,7 @@ const REGALO_DESDE = 50000;
 const REGALO_NOMBRE = "Pastillitas Lucky (385 g)";
 const REGALO_IMAGEN = "img/jucky.webp"
 
-const PROMOS_ACTIVAS = ["envio", "regalo"];
+const PROMOS_ACTIVAS = ["envio"];
 
 
 const STOCK_PRODUCTOS = {
