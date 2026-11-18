@@ -450,19 +450,6 @@
         "precio": 4500,
         "categoria": "Caramelos"
     },
-    {
-        "nombre": "Spiner pelota antiestrés (CLASSIC OPACO)",
-        "imagen": "img/spin.webp",
-        "precio": 4500,
-        "categoria": "Otros"
-    },
-    {
-        "nombre": "Pack x3 Spiner pelota antiestrés (CLASSIC OPACO)",
-        "imagen": "img/spin.webp",
-        "video": "img/videospiner_.mp4",
-        "precio": 12600,
-        "categoria": "Otros"
-    },
      {
         "nombre": "Cubo Magico",
         "imagen": "img/cubo.png",

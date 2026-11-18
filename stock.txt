@@ -41,6 +41,19 @@
         "precio": 6900,
         "categoria": "Alcancias"
     },
+    {
+        "nombre": "Spiner pelota antiestrés (CLASSIC OPACO)",
+        "imagen": "img/spin.webp",
+        "precio": 4500,
+        "categoria": "Otros"
+    },
+    {
+        "nombre": "Pack x3 Spiner pelota antiestrés (CLASSIC OPACO)",
+        "imagen": "img/spin.webp",
+        "video": "img/videospiner_.mp4",
+        "precio": 12600,
+        "categoria": "Otros"
+    }, 
 
     “UNO” juego de cartas
       {
