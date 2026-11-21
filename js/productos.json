@@ -511,18 +511,6 @@
         "categoria": "Otros"
     },
     {
-        "nombre": "Árbol de Navidad 1,20 m (90 ramas)",
-        "imagen": "img/arbol.png",
-        "precio": 11900,
-        "categoria": "Navidad"
-    },
-    {
-        "nombre": "Adorno navideño (12 pcs)",
-        "imagen": "img/adorno12.webp",
-        "precio": 5800,
-        "categoria": "Navidad"
-    },
-    {
         "nombre": "Adorno navideño Santa",
         "imagen": "img/adornobronce.jpeg",
         "precio": 14900,
@@ -561,25 +549,25 @@
     {
         "nombre": "Guirnalda Led Flor cálida (20 luces)",
         "imagen": "img/flocalida.jpg",
-        "precio": 5900,
+        "precio": 6500,
         "categoria": "Navidad"
     },
     {
         "nombre": "Guirnalda Led Flor multicolor (20 luces)",
         "imagen": "img/florled.jpg",
-        "precio": 5900,
+        "precio": 6500,
         "categoria": "Navidad"
     },
     {
         "nombre": "Guirnalda Led Estrella multicolor (20 luces)",
         "imagen": "img/estrellaled.jpg",
-        "precio": 5900,
+        "precio": 6500,
         "categoria": "Navidad"
     },
     {
         "nombre": "Guirnalda Led Copo de Nieve multicolor (20 luces)",
         "imagen": "img/copoled.jpg",
-        "precio": 5900,
+        "precio": 6500,
         "categoria": "Navidad"
     },
     {
@@ -615,13 +603,13 @@
     {
         "nombre": "Guirnalda LED Daewo Burbuja Multicolor (20 luces)",
         "imagen": "img/burbuja.webp",
-        "precio": 5800,
+        "precio": 6500,
         "categoria": "Navidad"
     },
     {
         "nombre": "Guirnalda LED Daewo Burbuja Cálida (20 luces)",
         "imagen": "img/burbujacalida.webp",
-        "precio": 5800,
+        "precio": 6500,
         "categoria": "Navidad"
     },
     {

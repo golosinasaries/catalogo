@@ -54,6 +54,18 @@
         "precio": 12600,
         "categoria": "Otros"
     }, 
+    {
+        "nombre": "Árbol de Navidad 1,20 m (90 ramas)",
+        "imagen": "img/arbol.png",
+        "precio": 11900,
+        "categoria": "Navidad"
+    },
+     {
+        "nombre": "Adorno navideño (12 pcs)",
+        "imagen": "img/adorno12.webp",
+        "precio": 5800,
+        "categoria": "Navidad"
+    },
 
     “UNO” juego de cartas
       {
