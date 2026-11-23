@@ -583,12 +583,6 @@
         "categoria": "Navidad"
     },
     {
-        "nombre": "Luz solar Libélula (30 luces)",
-        "imagen": "img/lubelula.webp",
-        "precio": 15000,
-        "categoria": "Navidad"
-    },
-     {
         "nombre": "Luz solar Flor multicolor 5 mts (30 luces)",
         "imagen": "img/solarflor.jpeg",
         "precio": 15000,
@@ -600,12 +594,7 @@
         "precio": 15000,
         "categoria": "Navidad"
     },
-    {
-        "nombre": "Luz solar Abeja (20 luces)",
-        "imagen": "img/abeja.webp",
-        "precio": 14000,
-        "categoria": "Navidad"
-    },
+    
     {
         "nombre": "Guirnalda LED Daewo Burbuja Multicolor (20 luces)",
         "imagen": "img/burbuja.webp",
