@@ -10,14 +10,14 @@ const MINIMO_COMPRA = 10000;
 const ENVIO_GRATIS_DESDE = 120000;
 
 const REGALO_DESDE = 50000;
-const REGALO_NOMBRE = "Pastillitas Lucky (385 g)";
-const REGALO_IMAGEN = "img/jucky.webp"
+const REGALO_NOMBRE = "Chicles Rellenos TNT Súper Ácido (40u)";
+const REGALO_IMAGEN = "img/tntrellenos.webp"
 
-const PROMOS_ACTIVAS = ["envio"];
+const PROMOS_ACTIVAS = ["envio", "regalo"];
 
 
 const STOCK_PRODUCTOS = {
-  "Mielcitas (50u)": 0,
+  "Mielcitas (50u)": 2,
   "Caramelos Super Acidos Lipo (454 g)": 2,
   "Rompecabezas Plastico 6*7cm": 1,
   "Mini Luz LED Decorativa 1,4 cm (Multicolor)": 4,
