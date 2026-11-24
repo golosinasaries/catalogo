@@ -721,5 +721,12 @@
     "imagen": "img/librito2.webp",
     "precio": 4500,
     "categoria": "Cotillón"
+  },
+  {
+    "nombre": "",
+    "imagen": "img/blanco.jpeg",
+    "precio": 0,
+    "categoria": "Blanquería",
+    "agotado": true
   }
 ]

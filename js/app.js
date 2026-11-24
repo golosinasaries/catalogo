@@ -260,14 +260,14 @@ function animarImagenAlCarrito(imagen) {
   setTimeout(() => vuelo.remove(), 900);
 }
 function normalizarNombreProducto(nombre) {
-return String(nombre || "")
-.normalize("NFD")
-.replace(/[\u0300-\u036f]/g, "")
-.toLocaleLowerCase("es-AR")
-.replace(/[–—-]/g, " ")
-.replace(/[^\p{L}\p{N}]+/gu, " ")
-.trim()
-.replace(/\s+/g, " ");
+  return String(nombre || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLocaleLowerCase("es-AR")
+    .replace(/[–—-]/g, " ")
+    .replace(/[^\p{L}\p{N}]+/gu, " ")
+    .trim()
+    .replace(/\s+/g, " ");
 }
 const historialModalesDetalle = [];
 
@@ -304,8 +304,8 @@ function cerrarDetalleProducto(desdeHistorial = false) {
   }
 
   const nombreProducto = fondo.querySelector(
-  "#titulo-detalle-producto"
-)?.textContent;
+    "#titulo-detalle-producto"
+  )?.textContent;
 
   fondo.remove();
 
@@ -383,7 +383,7 @@ function abrirImagenPantallaCompleta(imagenOriginal, productoInicial = null) {
     imagenAmpliada.style.cursor = zoom > 1 ? "zoom-out" : "zoom-in";
     nivelZoom.textContent = Math.round(zoom * 100) + "%";
   }
-  
+
   function cerrarVisor(desdeHistorial = false) {
     if (!desdeHistorial && history.state?.ariesOverlay === "imagen") {
       history.back();
@@ -410,7 +410,7 @@ function abrirImagenPantallaCompleta(imagenOriginal, productoInicial = null) {
         .replace(/[\u0300-\u036f]/g, "")
         .toLocaleLowerCase("es-AR");
 
-      
+
       const esCotillon = productoTieneCategoria(p, "Cotillón");
 
       const categoriaCoincide =
@@ -514,7 +514,7 @@ function abrirImagenPantallaCompleta(imagenOriginal, productoInicial = null) {
 
   controles.append(alejar, nivelZoom, acercar, restablecer);
   fondoImagen.append(cerrarImagen, imagenAmpliada, controles);
-  
+
   document.body.append(fondoImagen);
   history.pushState(
     { ...history.state, ariesOverlay: "imagen" },
@@ -576,10 +576,10 @@ function abrirDetalleProducto(producto, navegar = false, apilar = false) {
   const zonaImagen = document.createElement("div");
   zonaImagen.className = "zona-imagen-detalle";
 
-  
+
   const fotosMultiplesDetalle = {
     "Pack x3 Libritos surtidos para pintar + 18 colores": ["img/librito2.webp", "img/librito6.webp", "img/librito3.webp", "img/librito1.webp", "img/librito4.webp", "img/librito5.webp", "img/librito7.webp"],
-    "Spiner pelota antiestrés (CLASSIC OPACO)": ["img/videospiner_.mp4","img/spin.webp"],
+    "Spiner pelota antiestrés (CLASSIC OPACO)": ["img/videospiner_.mp4", "img/spin.webp"],
     "Librito para pintar Stitch + 6 colores": ["img/librito1.webp", "img/librito2.webp"],
     "Gomitas Fantasmita (30u)": ["img/fantasmitas.webp", "img/gomitas_fantasma_mejorada.webp"],
     "Chicle Globo Tennis Open (30u)": ["img/tennis.webp", "img/tennis.webp"],
@@ -590,7 +590,7 @@ function abrirDetalleProducto(producto, navegar = false, apilar = false) {
     "Chupetines con led Unicornio  30 unidades por pack, caja x10 packs": ["img/unicornioled1.webp", "img/leduni.webp"],
     "Chupetines con led Mc Donalds (30u)": ["img/mc.webp", "img/mc2.webp", "img/mc3.webp"],
     "Chupetines Donas con led (30u)": ["img/donaled1.webp", "img/donaled2.webp"],
-    "Set Canasta Chica De Agujas De Coser - 19 Agujas Y Enebrador": ["img/aguja1.webp","img/aguja2.webp","img/aguja16.webp","img/aguja7.webp"],
+    "Set Canasta Chica De Agujas De Coser - 19 Agujas Y Enebrador": ["img/aguja1.webp", "img/aguja2.webp", "img/aguja16.webp", "img/aguja7.webp"],
   };
 
   const fotosDetalle = fotosMultiplesDetalle[producto.nombre] || [producto.imagen];
@@ -705,9 +705,9 @@ function abrirDetalleProducto(producto, navegar = false, apilar = false) {
   titulo.textContent = producto.nombre;
 
   const precio = document.createElement("p");
-precio.textContent = String(producto.categoria || "").toLocaleLowerCase("es-AR") === "combos"
-? "Precio final del combo: " + formatoPrecio(producto.precio)
-: formatoPrecio(producto.precio);
+  precio.textContent = String(producto.categoria || "").toLocaleLowerCase("es-AR") === "combos"
+    ? "Precio final del combo: " + formatoPrecio(producto.precio)
+    : formatoPrecio(producto.precio);
   precio.className = "precio-detalle-producto";
 
   contenido.append(categoria, titulo, precio);
@@ -979,27 +979,27 @@ precio.textContent = String(producto.categoria || "").toLocaleLowerCase("es-AR")
   siguiente.type = "button";
   siguiente.className = "siguiente-producto-detalle";
   siguiente.textContent = "Siguiente producto \u2192";
-  
+
   siguiente.addEventListener("click", () => {
-  const nombresVariantesSecundarias = new Set(
-    Object.values(variantesPorNombre).flatMap(variantes =>
-      variantes.slice(1).map(variante => variante.nombre)
-    )
-  );
+    const nombresVariantesSecundarias = new Set(
+      Object.values(variantesPorNombre).flatMap(variantes =>
+        variantes.slice(1).map(variante => variante.nombre)
+      )
+    );
 
-  const productosVisibles = estado.productos.filter(p => {
-    if (p.oculto === true) return false;
-    if (nombresVariantesSecundarias.has(p.nombre)) return false;
+    const productosVisibles = estado.productos.filter(p => {
+      if (p.oculto === true) return false;
+      if (nombresVariantesSecundarias.has(p.nombre)) return false;
 
-    const coincideCategoria = Boolean(estado.busqueda) ||
-      estado.categoria === "Todas" ||
-      productoTieneCategoria(p, estado.categoria);
+      const coincideCategoria = Boolean(estado.busqueda) ||
+        estado.categoria === "Todas" ||
+        productoTieneCategoria(p, estado.categoria);
 
-    const coincideBusqueda = p.nombre.toLocaleLowerCase("es-AR")
-      .includes(estado.busqueda.toLocaleLowerCase("es-AR"));
+      const coincideBusqueda = p.nombre.toLocaleLowerCase("es-AR")
+        .includes(estado.busqueda.toLocaleLowerCase("es-AR"));
 
-    return coincideCategoria && coincideBusqueda;
-  });
+      return coincideCategoria && coincideBusqueda;
+    });
 
     if (productosVisibles.length < 2) return;
 
@@ -1055,7 +1055,7 @@ precio.textContent = String(producto.categoria || "").toLocaleLowerCase("es-AR")
 
   if (!fondoExistente) {
     fondo.addEventListener("click", (evento) => {
-    if (evento.target === fondo) cerrarDetalleProducto();
+      if (evento.target === fondo) cerrarDetalleProducto();
     });
     document.body.append(fondo);
   }
@@ -1092,10 +1092,14 @@ function renderizarProductos() {
   const filtrados = estado.productos.filter((producto) => {
     if (producto.oculto === true) return false;
 
+    const esBlanqueria = productoTieneCategoria(producto, "Blanquería");
+
     const coincideCategoria =
-    Boolean(estado.busqueda) ||
-    estado.categoria === "Todas" ||
-    productoTieneCategoria(producto, estado.categoria);
+      Boolean(estado.busqueda)
+        ? true
+        : estado.categoria === "Todas"
+          ? !esBlanqueria
+          : productoTieneCategoria(producto, estado.categoria);
 
     const coincideBusqueda = producto.nombre
       .toLocaleLowerCase("es-AR")
@@ -1371,76 +1375,76 @@ function renderizarProductos() {
     elementos.productos.append(tarjeta);
   });
 
-if (estado.categoria === "Cotillón" && !estado.busqueda) {
-  const tarjetaGolosinas = document.createElement("article");
-  tarjetaGolosinas.className = "tarjeta-producto tarjeta-interactiva";
-  tarjetaGolosinas.tabIndex = 0;
-  tarjetaGolosinas.setAttribute("role", "button");
-  tarjetaGolosinas.setAttribute("aria-label", "Ver todas las golosinas");
+  if (estado.categoria === "Cotillón" && !estado.busqueda) {
+    const tarjetaGolosinas = document.createElement("article");
+    tarjetaGolosinas.className = "tarjeta-producto tarjeta-interactiva";
+    tarjetaGolosinas.tabIndex = 0;
+    tarjetaGolosinas.setAttribute("role", "button");
+    tarjetaGolosinas.setAttribute("aria-label", "Ver todas las golosinas");
 
-  const carrusel = document.createElement("div");
-carrusel.className = "carrusel-producto";
+    const carrusel = document.createElement("div");
+    carrusel.className = "carrusel-producto";
 
-const imagen = document.createElement("img");
-imagen.className = "imagen-producto";
-imagen.src = "img/logoAries.webp";
-imagen.alt = "Golosinas Aries";
-imagen.loading = "lazy";
-imagen.decoding = "async";
+    const imagen = document.createElement("img");
+    imagen.className = "imagen-producto";
+    imagen.src = "img/logoAries.webp";
+    imagen.alt = "Golosinas Aries";
+    imagen.loading = "lazy";
+    imagen.decoding = "async";
 
-carrusel.append(imagen);
+    carrusel.append(imagen);
 
-const contenido = document.createElement("div");
-contenido.className = "contenido-producto";
-contenido.style.textAlign = "center";
-contenido.style.justifyContent = "center";
-contenido.style.alignItems = "center";
+    const contenido = document.createElement("div");
+    contenido.className = "contenido-producto";
+    contenido.style.textAlign = "center";
+    contenido.style.justifyContent = "center";
+    contenido.style.alignItems = "center";
 
-const nombre = document.createElement("h3");
-nombre.className = "titulo-todas-golosinas";
-nombre.textContent = "🍬 TODAS LAS GOLOSINAS";
+    const nombre = document.createElement("h3");
+    nombre.className = "titulo-todas-golosinas";
+    nombre.textContent = "🍬 TODAS LAS GOLOSINAS";
 
-const descripcion = document.createElement("span");
-descripcion.className = "etiqueta-producto";
-descripcion.textContent = "Volver al catálogo de golosinas";
+    const descripcion = document.createElement("span");
+    descripcion.className = "etiqueta-producto";
+    descripcion.textContent = "Volver al catálogo de golosinas";
 
-const boton = document.createElement("div");
-boton.className = "agregar-producto";
-boton.style.display = "flex";
-boton.style.alignItems = "center";
-boton.style.justifyContent = "center";
-boton.style.textAlign = "center";
-boton.textContent = "VER TODAS →";
+    const boton = document.createElement("div");
+    boton.className = "agregar-producto";
+    boton.style.display = "flex";
+    boton.style.alignItems = "center";
+    boton.style.justifyContent = "center";
+    boton.style.textAlign = "center";
+    boton.textContent = "VER TODAS →";
 
-contenido.append(descripcion, nombre, boton);
-tarjetaGolosinas.append(carrusel, contenido);
+    contenido.append(descripcion, nombre, boton);
+    tarjetaGolosinas.append(carrusel, contenido);
 
- const volverAlCatalogo = () => {
-    const botonTodas = elementos.categorias.querySelector(
-      '.categoria[data-categoria="Todas"]'
-    );
+    const volverAlCatalogo = () => {
+      const botonTodas = elementos.categorias.querySelector(
+        '.categoria[data-categoria="Todas"]'
+      );
 
-    botonTodas?.click();
+      botonTodas?.click();
 
-    elementos.productos.style.scrollMarginTop = "280px";
+      elementos.productos.style.scrollMarginTop = "280px";
 
-    elementos.productos.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
+      elementos.productos.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    };
+    tarjetaGolosinas.addEventListener("click", volverAlCatalogo);
+
+    tarjetaGolosinas.addEventListener("keydown", (evento) => {
+      if (evento.key === "Enter" || evento.key === " ") {
+        evento.preventDefault();
+        volverAlCatalogo();
+      }
     });
-  };
-  tarjetaGolosinas.addEventListener("click", volverAlCatalogo);
 
-  tarjetaGolosinas.addEventListener("keydown", (evento) => {
-    if (evento.key === "Enter" || evento.key === " ") {
-      evento.preventDefault();
-      volverAlCatalogo();
-    }
-  });
+    elementos.productos.append(tarjetaGolosinas);
+  }
 
-  elementos.productos.append(tarjetaGolosinas);
-}
-  
 }
 
 function agregarAlCarrito(producto) {
@@ -1649,7 +1653,7 @@ function actualizarPreciosCarrito() {
   if (!estado.productos.length) return;
 
   estado.carrito = estado.carrito.filter((item) => {
-   const productoBase = estado.productos.find(
+    const productoBase = estado.productos.find(
       (producto) =>
         producto.nombre === item.nombre ||
         variantesPorNombre[producto.nombre]?.some(
@@ -1724,37 +1728,37 @@ function renderizarCarrito() {
   if (envioVisible) {
     envioVisible.textContent =
       costoEnvio === null ? "Ingresá tu código postal" :
-      costoEnvio.error ? "Código postal inválido" :
-      costoEnvio === 0 ? "GRATIS" :
-      formatoPrecio(costoEnvio);
+        costoEnvio.error ? "Código postal inválido" :
+          costoEnvio === 0 ? "GRATIS" :
+            formatoPrecio(costoEnvio);
   }
   elementos.finalizar.disabled = false;
   elementos.items.replaceChildren();
 
- if (!estado.carrito.length) {
-  const vacio = document.createElement("p");
-  vacio.className = "carrito-vacio";
-  vacio.style.whiteSpace = "pre-line";
-  vacio.textContent = "La compra mínima es de $10.000\n\nHacemos envíos a todo el país 🇦🇷";
+  if (!estado.carrito.length) {
+    const vacio = document.createElement("p");
+    vacio.className = "carrito-vacio";
+    vacio.style.whiteSpace = "pre-line";
+    vacio.textContent = "La compra mínima es de $10.000\n\nHacemos envíos a todo el país 🇦🇷";
 
-  const comprar = document.createElement("a");
-  comprar.href = "#catalogo";
-  comprar.className = "boton-seguir-comprando";
-  comprar.textContent = "🛍️ Agregar productos";
-  comprar.addEventListener("click", (evento) => {
-    evento.preventDefault();
-    cerrarCarrito();
+    const comprar = document.createElement("a");
+    comprar.href = "#catalogo";
+    comprar.className = "boton-seguir-comprando";
+    comprar.textContent = "🛍️ Agregar productos";
+    comprar.addEventListener("click", (evento) => {
+      evento.preventDefault();
+      cerrarCarrito();
 
-    setTimeout(() => {
-      const primerProducto = elementos.productos.querySelector(".tarjeta-producto");
-      primerProducto?.scrollIntoView({ behavior: "smooth", block: "center" });
-    }, 300);
-  });
+      setTimeout(() => {
+        const primerProducto = elementos.productos.querySelector(".tarjeta-producto");
+        primerProducto?.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 300);
+    });
 
-  elementos.items.append(vacio, comprar);
-  actualizarResumenEnvio();
-  return;
-}
+    elementos.items.append(vacio, comprar);
+    actualizarResumenEnvio();
+    return;
+  }
 
   estado.carrito.forEach((item) => {
     const fila = document.createElement("div");
@@ -1888,33 +1892,33 @@ function renderizarCarrito() {
   actualizarResumenEnvio();
 }
 function mostrarAvisoCompraMinima(faltante) {
-const overlay = document.createElement("div");
-overlay.className = "aviso-minimo-overlay";
-overlay.setAttribute("role", "presentation");
+  const overlay = document.createElement("div");
+  overlay.className = "aviso-minimo-overlay";
+  overlay.setAttribute("role", "presentation");
 
-overlay.innerHTML = `     <section class="aviso-minimo-card" role="dialog" aria-modal="true" aria-labelledby="aviso-minimo-titulo">       <button class="aviso-minimo-cerrar" type="button" aria-label="Cerrar aviso">&times;</button>       <div class="aviso-minimo-icono" aria-hidden="true">🛍️</div>       <p class="aviso-minimo-etiqueta">¡Ya casi está!</p>       <h2 id="aviso-minimo-titulo">Tu pedido necesita un poquito más</h2>       <p class="aviso-minimo-texto">La compra mínima para continuar es de <strong>${formatoPrecio(MINIMO_COMPRA)}</strong>.</p>       <div class="aviso-minimo-faltante">         <span>Te falta agregar</span>         <strong>${formatoPrecio(faltante)}</strong>       </div>       <p class="aviso-minimo-ayuda">Sumá tus golosinas favoritas y volvé a intentarlo. ¡Tu pedido te está esperando!</p>       <button class="aviso-minimo-aceptar" type="button">Seguir comprando</button>     </section>
+  overlay.innerHTML = `     <section class="aviso-minimo-card" role="dialog" aria-modal="true" aria-labelledby="aviso-minimo-titulo">       <button class="aviso-minimo-cerrar" type="button" aria-label="Cerrar aviso">&times;</button>       <div class="aviso-minimo-icono" aria-hidden="true">🛍️</div>       <p class="aviso-minimo-etiqueta">¡Ya casi está!</p>       <h2 id="aviso-minimo-titulo">Tu pedido necesita un poquito más</h2>       <p class="aviso-minimo-texto">La compra mínima para continuar es de <strong>${formatoPrecio(MINIMO_COMPRA)}</strong>.</p>       <div class="aviso-minimo-faltante">         <span>Te falta agregar</span>         <strong>${formatoPrecio(faltante)}</strong>       </div>       <p class="aviso-minimo-ayuda">Sumá tus golosinas favoritas y volvé a intentarlo. ¡Tu pedido te está esperando!</p>       <button class="aviso-minimo-aceptar" type="button">Seguir comprando</button>     </section>
   `;
 
-const cerrar = () => {
-document.removeEventListener("keydown", alPresionarEscape);
-document.body.classList.remove("aviso-minimo-abierto");
-overlay.remove();
-};
+  const cerrar = () => {
+    document.removeEventListener("keydown", alPresionarEscape);
+    document.body.classList.remove("aviso-minimo-abierto");
+    overlay.remove();
+  };
 
-const alPresionarEscape = (evento) => {
-if (evento.key === "Escape") cerrar();
-};
+  const alPresionarEscape = (evento) => {
+    if (evento.key === "Escape") cerrar();
+  };
 
-overlay.querySelector(".aviso-minimo-cerrar").addEventListener("click", cerrar);
-overlay.querySelector(".aviso-minimo-aceptar").addEventListener("click", cerrar);
-overlay.addEventListener("click", (evento) => {
-if (evento.target === overlay) cerrar();
-});
+  overlay.querySelector(".aviso-minimo-cerrar").addEventListener("click", cerrar);
+  overlay.querySelector(".aviso-minimo-aceptar").addEventListener("click", cerrar);
+  overlay.addEventListener("click", (evento) => {
+    if (evento.target === overlay) cerrar();
+  });
 
-document.addEventListener("keydown", alPresionarEscape);
-document.body.classList.add("aviso-minimo-abierto");
-document.body.append(overlay);
-overlay.querySelector(".aviso-minimo-cerrar").focus();
+  document.addEventListener("keydown", alPresionarEscape);
+  document.body.classList.add("aviso-minimo-abierto");
+  document.body.append(overlay);
+  overlay.querySelector(".aviso-minimo-cerrar").focus();
 }
 function finalizarPedido() {
   actualizarPreciosCarrito();
@@ -1923,7 +1927,7 @@ function finalizarPedido() {
   if (subtotalCompra < MINIMO_COMPRA) {
     mostrarAvisoCompraMinima(MINIMO_COMPRA - subtotalCompra);
     return;
-}
+  }
 
 
   const cp = document.querySelector("#codigo-postal")?.value.trim() ||
@@ -2092,7 +2096,7 @@ elementos.categorias.querySelectorAll(".categoria").forEach((boton) => {
 
 async function iniciarCatalogo() {
   try {
-        const [respuesta, respuestaCotillon] = await Promise.all([
+    const [respuesta, respuestaCotillon] = await Promise.all([
       fetch("js/productos.json"),
       fetch("js/productos-cotillon.json")
     ]);
@@ -2135,8 +2139,8 @@ async function iniciarCatalogo() {
 
 const botonVaciarCarrito = document.querySelector("#vaciar-carrito");
 botonVaciarCarrito?.addEventListener("click", () => {
-estado.carrito = [];
-renderizarCarrito();
+  estado.carrito = [];
+  renderizarCarrito();
 });
 renderizarCarrito();
 iniciarCatalogo();

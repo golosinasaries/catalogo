@@ -4260,3 +4260,7 @@ body.aviso-minimo-abierto {
   width: 100%;
   margin: 18px 0 10px;
 }
+
+#categorias .categoria[data-categoria="Blanquería"] {
+  display: none;
+}
