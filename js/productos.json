@@ -25,6 +25,12 @@
         "categoria": "Chocolates"
     },
     {
+        "nombre": "Chocolate La Piñata con Maní 100 g (Pack x6 unidades)",
+        "imagen": "img/pilatachocolate.webp",
+        "precio": 11700,
+        "categoria": "Chocolates"
+    },
+    {
         "nombre": "Turrón Misky (10u)",
         "imagen": "img/turronmisky.webp",
         "precio": 3500,
@@ -53,6 +59,18 @@
         "imagen": "img/mielcitass.webp",
         "precio": 5500,
         "categoria": "Caramelos"
+    },
+     {
+        "nombre": "OPEN CANDY caramelo en polvo explosivo sabor frutilla (3u)",
+        "imagen": "img/openboomfrutilla.png",
+        "precio": 2000,
+        "categoria": "Caramelos"
+    },
+     {
+        "nombre": "Boom Lollipop Chupetin Explosivo Frutilla Y Arándano (3u)",
+        "imagen": "img/openboomchupetin.webp",
+        "precio": 2800,
+        "categoria": "Chupetines"
     },
     {
         "nombre": "Cucuruchos Helado Chocolate (30u)",
@@ -326,6 +344,12 @@
         "categoria": "Galletitas"
     },
     {
+        "nombre": "Obleas 5 capas Frutilla Nevares 80g (Pack x6 unidades)",
+        "imagen": "img/nevaresfrutilla.png",
+        "precio": 5880,
+        "categoria": "Galletitas"
+    },
+    {
         "nombre": "Nutello (30u)",
         "imagen": "img/nutello.webp",
         "precio": 12500,
@@ -416,6 +440,18 @@
         "nombre": "Caramelos Halls Extra Strong (12u)",
         "imagen": "img/hallsnegras.avif",
         "precio": 9900,
+        "categoria": "Pastillitas"
+    },
+    {
+        "nombre": " Pastillas BULL DOG TUTTI FRUTTI 30g (Pack x3 unidades)",
+        "imagen": "img/30tuti.png",
+        "precio": 2500,
+        "categoria": "Pastillitas"
+    },
+     {
+        "nombre": " Pastillas BULL DOG MIX 30g (Pack x3 unidades)",
+        "imagen": "img/mix30.webp",
+        "precio": 2500,
         "categoria": "Pastillitas"
     },
     {

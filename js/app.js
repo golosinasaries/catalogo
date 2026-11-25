@@ -577,6 +577,7 @@ function abrirDetalleProducto(producto, navegar = false, apilar = false) {
 
 
   const fotosMultiplesDetalle = {
+    "Botellitas con chicles (30u)": ["img/botellitas.webp","img/30botellas.webp"],
     "Pack x3 Libritos surtidos para pintar + 18 colores": ["img/librito2.webp", "img/librito6.webp", "img/librito3.webp", "img/librito1.webp", "img/librito4.webp", "img/librito5.webp", "img/librito7.webp"],
     "Spiner pelota antiestrés (CLASSIC OPACO)": ["img/videospiner_.mp4", "img/spin.webp"],
     "Librito para pintar Stitch + 6 colores": ["img/librito1.webp", "img/librito2.webp"],
