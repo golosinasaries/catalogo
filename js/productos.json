@@ -1,4 +1,23 @@
-﻿[
+﻿[  
+    {
+        "nombre": "Chupetines Halloween (30u)",
+        "imagen": "img/Halloween.webp",
+        "precio": 8500,
+        "precioAnterior": 10900,
+        "categoria": "Chupetines"
+    },
+        {
+        "nombre": "Chocolates Surtido Especial Arcor 223g",
+        "imagen": "img/surtidoespecial.webp",
+        "precio": 8500,
+        "categoria": "Chocolates"
+    },
+    {
+        "nombre": "Bocaditos Bel (50u)",
+        "imagen": "img/bombones_surtidos.webp",
+        "precio": 9500,
+        "categoria": "Chocolates"
+    },
     {
         "nombre": "Turrón Misky (10u)",
         "imagen": "img/turronmisky.webp",
@@ -80,12 +99,6 @@
     {
         "nombre": "Chupetines Frutillas (30u)",
         "imagen": "img/chupetinfrutilla1.webp",
-        "precio": 10900,
-        "categoria": "Chupetines"
-    },
-    {
-        "nombre": "Chupetines Halloween (30u)",
-        "imagen": "img/Halloween.webp",
         "precio": 10900,
         "categoria": "Chupetines"
     },

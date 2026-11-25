@@ -55,6 +55,12 @@
         "categoria": "Otros"
     }, 
     {
+    "nombre": "GLOBO BATE 74 CM (Fucsia)",
+    "imagen": "img/bate.webp",
+    "precio": 1200,
+    "categoria": "Cotillón"
+  },
+    {
         "nombre": "Luz solar Libélula (30 luces)",
         "imagen": "img/lubelula.webp",
         "precio": 15000,

@@ -13,7 +13,7 @@ const REGALO_DESDE = 50000;
 const REGALO_NOMBRE = "Chicles Rellenos TNT Súper Ácido (40u)";
 const REGALO_IMAGEN = "img/tntrellenos.webp"
 
-const PROMOS_ACTIVAS = ["envio", "regalo"];
+const PROMOS_ACTIVAS = ["envio"];
 
 
 const STOCK_PRODUCTOS = {
@@ -21,8 +21,7 @@ const STOCK_PRODUCTOS = {
   "Caramelos Super Acidos Lipo (454 g)": 2,
   "Rompecabezas Plastico 6*7cm": 1,
   "Mini Luz LED Decorativa 1,4 cm (Multicolor)": 4,
-  "GLOBO BATE 74 CM (Dorado)": 0,
-  "GLOBO BATE 74 CM (Fucsia)": 0,
+  "GLOBO BATE 74 CM (Dorado)": 1,
   "Rompecabezas Plastico 6*7cm": 7,
   "Llavero búho Metal colorido": 12,
   "Llavero búho Metal": 12,
@@ -2060,7 +2059,7 @@ if (menuCategorias) {
     enlace.className = "categoria";
     enlace.textContent = categoria.textContent;
     enlace.dataset.cerrarMenu = "";
-    enlace.addEventListener("click", () => categoria.click());
+    enlace.addEventListener("click", (evento) => { evento.preventDefault(); categoria.click(); });
     menuCategorias.append(enlace);
   });
 }
