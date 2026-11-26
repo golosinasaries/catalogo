@@ -56,6 +56,7 @@ const STOCK_PRODUCTOS = {
   "Globo Animalitos 40cm. (CHANCHITO CUERPO)": 3,
   "Globo Animalitos 40cm. (OVEJITA)": 2,
   "GLOBO OSO 18\"": 4,
+  "Mielcitas (50u)": 1,
   "Globo Vincha (JIRAFA)": 0,
   "Globo Vincha (ZORRITO)": 0,
   "Globo Zig Zag 45cm. (Azul)": 3,
