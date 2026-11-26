@@ -60,13 +60,13 @@
         "precio": 5500,
         "categoria": "Caramelos"
     },
-     {
+    {
         "nombre": "OPEN CANDY caramelo en polvo explosivo sabor frutilla (3u)",
         "imagen": "img/openboomfrutilla.png",
         "precio": 2000,
         "categoria": "Caramelos"
     },
-     {
+    {
         "nombre": "Boom Lollipop Chupetin Explosivo Frutilla Y Arándano (3u)",
         "imagen": "img/openboomchupetin.webp",
         "precio": 2800,
@@ -448,7 +448,7 @@
         "precio": 2500,
         "categoria": "Pastillitas"
     },
-     {
+    {
         "nombre": " Pastillas BULL DOG MIX 30g (Pack x3 unidades)",
         "imagen": "img/mix30.webp",
         "precio": 2500,
