@@ -25,7 +25,7 @@
         "categoria": "Chocolates"
     },
     {
-        "nombre": "Chocolate La Piñata con Maní 100 g (Pack x6 unidades",
+        "nombre": "Chocolate La Piñata con Maní 100 g (Pack x6 unidades)",
         "imagen": "img/pilatachocolate.webp",
         "precio": 11700,
         "categoria": "Chocolates"
@@ -524,7 +524,7 @@
         "nombre": "Rompecabezas Plastico 6*7cm",
         "imagen": "img/rompecabezas.webp",
         "precio": 1200,
-        "categoria": "Cotillón"
+        "categoria": "Otros"
     },
     {
         "nombre": "Librito para pintar K-pop + 6 colores",
@@ -566,6 +566,24 @@
         "nombre": "Set Canasta Chica De Agujas De Coser - 19 Agujas Y Enebrador",
         "imagen": "img/aguja1.webp",
         "precio": 1300,
+        "categoria": "Otros"
+    },
+    {
+        "nombre": "Balanza de cocina 10k",
+        "imagen": "img/balanza.jpeg",
+        "precio": 8900,
+        "categoria": "Otros"
+    },
+    {
+        "nombre": "Alicate con lupa",
+        "imagen": "img/cortau.png",
+        "precio": 2300,
+        "categoria": "Otros"
+    },
+    {
+        "nombre": "Bombillas (Pack x6 unidades)",
+        "imagen": "img/bombillas.png",
+        "precio": 9500,
         "categoria": "Otros"
     },
     {
