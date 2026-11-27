@@ -1492,6 +1492,11 @@ function agregarAlCarrito(producto) {
   }
 }
 
+function obtenerMinimoCompra(cp) {
+  const codigo = String(cp || "").trim();
+  return codigo.startsWith("7600") ? 50000 : MINIMO_COMPRA;
+}
+
 function calcularCostoEnvio(cp) {
   const codigo = String(cp || "").trim();
 
@@ -1892,12 +1897,13 @@ function renderizarCarrito() {
 
   actualizarResumenEnvio();
 }
-function mostrarAvisoCompraMinima(faltante) {
+
+function mostrarAvisoCompraMinima(faltante, minimo = MINIMO_COMPRA) {
   const overlay = document.createElement("div");
   overlay.className = "aviso-minimo-overlay";
   overlay.setAttribute("role", "presentation");
 
-  overlay.innerHTML = `     <section class="aviso-minimo-card" role="dialog" aria-modal="true" aria-labelledby="aviso-minimo-titulo">       <button class="aviso-minimo-cerrar" type="button" aria-label="Cerrar aviso">&times;</button>       <div class="aviso-minimo-icono" aria-hidden="true">🛍️</div>       <p class="aviso-minimo-etiqueta">¡Ya casi está!</p>       <h2 id="aviso-minimo-titulo">Tu pedido necesita un poquito más</h2>       <p class="aviso-minimo-texto">La compra mínima para continuar es de <strong>${formatoPrecio(MINIMO_COMPRA)}</strong>.</p>       <div class="aviso-minimo-faltante">         <span>Te falta agregar</span>         <strong>${formatoPrecio(faltante)}</strong>       </div>       <p class="aviso-minimo-ayuda">Sumá tus golosinas favoritas y volvé a intentarlo. ¡Tu pedido te está esperando!</p>       <button class="aviso-minimo-aceptar" type="button">Seguir comprando</button>     </section>
+  overlay.innerHTML = `     <section class="aviso-minimo-card" role="dialog" aria-modal="true" aria-labelledby="aviso-minimo-titulo">       <button class="aviso-minimo-cerrar" type="button" aria-label="Cerrar aviso">&times;</button>       <div class="aviso-minimo-icono" aria-hidden="true">🛍️</div>       <p class="aviso-minimo-etiqueta">¡Ya casi está!</p>       <h2 id="aviso-minimo-titulo">Tu pedido necesita un poquito más</h2>       <p class="aviso-minimo-texto">La compra mínima para continuar es de <strong>${formatoPrecio(minimo)}</strong>.</p>       <div class="aviso-minimo-faltante">         <span>Te falta agregar</span>         <strong>${formatoPrecio(faltante)}</strong>       </div>       <p class="aviso-minimo-ayuda">Sumá tus golosinas favoritas y volvé a intentarlo. ¡Tu pedido te está esperando!</p>       <button class="aviso-minimo-aceptar" type="button">Seguir comprando</button>     </section>
   `;
 
   const cerrar = () => {
@@ -1921,15 +1927,10 @@ function mostrarAvisoCompraMinima(faltante) {
   document.body.append(overlay);
   overlay.querySelector(".aviso-minimo-cerrar").focus();
 }
+
+
 function finalizarPedido() {
   actualizarPreciosCarrito();
-
-  const subtotalCompra = estado.carrito.reduce((suma, item) => suma + item.precio * item.cantidad, 0);
-  if (subtotalCompra < MINIMO_COMPRA) {
-    mostrarAvisoCompraMinima(MINIMO_COMPRA - subtotalCompra);
-    return;
-  }
-
 
   const cp = document.querySelector("#codigo-postal")?.value.trim() ||
     localStorage.getItem("codigoPostalCliente") || "";
@@ -1941,9 +1942,21 @@ function finalizarPedido() {
     campo?.reportValidity();
     return;
   }
+
   localStorage.setItem("codigoPostalCliente", cp);
 
-  const subtotal = estado.carrito.reduce((suma, item) => suma + item.precio * item.cantidad, 0);
+  const minimoCompra = obtenerMinimoCompra(cp);
+
+  const subtotalCompra = estado.carrito.reduce(
+    (suma, item) => suma + item.precio * item.cantidad, 0
+  );
+
+  if (subtotalCompra < minimoCompra) {
+    mostrarAvisoCompraMinima(minimoCompra - subtotalCompra, minimoCompra);
+    return;
+  }
+
+  const subtotal = subtotalCompra;
   const unidades = estado.carrito.reduce((suma, item) => suma + item.cantidad, 0);
   const envio = subtotal >= ENVIO_GRATIS_DESDE ? 0 : calcularCostoEnvio(cp);
 
@@ -1966,20 +1979,23 @@ function finalizarPedido() {
     const subtotalItem = precioUnitario * item.cantidad;
 
     mensaje += item.cantidad > 1
-      ? `\u2022 *${item.cantidad}* ${item.nombre} \u2014 ${formatoPrecio(precioUnitario)} x${item.cantidad} \u2192 ${formatoPrecio(subtotalItem)}\n`
-      : `\u2022 ${item.nombre} \u2192 ${formatoPrecio(subtotalItem)}\n`;
+      ? `• *${item.cantidad}* ${item.nombre} — ${formatoPrecio(precioUnitario)} x${item.cantidad} → ${formatoPrecio(subtotalItem)}\n`
+      : `• ${item.nombre} → ${formatoPrecio(subtotalItem)}\n`;
   });
 
   if (tieneRegaloGratis(subtotalCompra)) {
     mensaje += `  * 🎁 *Regalo:* ${REGALO_NOMBRE}\n\n`;
   }
+
   mensaje += `\n${emojiCaja} Total productos: ${unidades + (tieneRegaloGratis(subtotalCompra) ? 1 : 0)}`;
   mensaje += `\n${emojiEnvio} Envío: ${envio === 0 ? "GRATIS" : formatoPrecio(envio)}`;
   mensaje += `\n`;
   mensaje += `${emojiPago} *El total a abonar con envío incluido es de: ${formatoPrecio(total)}*\n`;
   mensaje += `${emojiUbicacion} Código Postal: ${cp}`;
+
   window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensaje)}`, "_blank", "noopener,noreferrer");
 }
+
 
 elementos.abrir.addEventListener("click", abrirCarrito);
 elementos.cerrar.addEventListener("click", cerrarCarrito);
